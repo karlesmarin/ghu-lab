@@ -1,0 +1,1042 @@
+{
+ "id": "su3_hy",
+ "group": "SU(3) 5D",
+ "orbifold": {
+  "name": "S1/Z2"
+ },
+ "source": {
+  "paper": "N. Haba, T. Yamashita, JHEP 05 (2004) 059 (hep-ph/0401185), eq. (3.20)",
+  "extracted_from": "research/smeft_formalization/part_vii/hy_predictions.py",
+  "chain": "hy_predictions.py defines their eq. (3.20) as hy_table(); this file evaluates it on unit contents to extract the coefficient table, and copies the archived prediction bank verbatim",
+  "date": "2026-08-26"
+ },
+ "reps": {
+  "adjoint": {
+   "(+,+)": 1,
+   "(+,-)": 1
+  },
+  "fund": {
+   "(+,+)": 1,
+   "(+,-)": 1
+  },
+  "scalar": {
+   "(+,+)": 1,
+   "(+,-)": 1
+  }
+ },
+ "species": {
+  "adjoint": "adjoint Dirac fermion (4 dof)",
+  "fund": "fundamental Dirac fermion (2 dof per pair)",
+  "scalar": "complex scalar (-2 dof)"
+ },
+ "terms5d": [
+  {
+   "c": 2,
+   "s": 1,
+   "base": -1.5,
+   "per": {
+    "Nap": 2.0
+   }
+  },
+  {
+   "c": 2,
+   "s": -1,
+   "base": 0.0,
+   "per": {
+    "Nam": 2.0
+   }
+  },
+  {
+   "c": 1,
+   "s": 1,
+   "base": -3.0,
+   "per": {
+    "Nap": 4.0,
+    "Nfp": 2.0,
+    "Nsp": -1.0
+   }
+  },
+  {
+   "c": 1,
+   "s": -1,
+   "base": 0.0,
+   "per": {
+    "Nam": 4.0,
+    "Nfm": 2.0,
+    "Nsm": -1.0
+   }
+  }
+ ],
+ "census": {
+  "vacua": 1277,
+  "max_each": 4,
+  "source": "hy_predictions.py: every content up to four of each species"
+ },
+ "vgiq": {
+  "charges": {
+   "SU(2)": {
+    "adj": [
+     -2,
+     0,
+     2
+    ],
+    "fund": [
+     -1,
+     1
+    ],
+    "CG": 2.0,
+    "CR": 0.5
+   },
+   "SU(3)": {
+    "adj": [
+     -2,
+     -1,
+     -1,
+     0,
+     0,
+     1,
+     1,
+     2
+    ],
+    "fund": [
+     -1,
+     0,
+     1
+    ],
+    "CG": 3.0,
+    "CR": 0.5
+   }
+  },
+  "critical_nf": [
+   {
+    "group": "SU(2)",
+    "rep": "fund",
+    "nf_ours": 3.0,
+    "nf_theirs": 3.0
+   },
+   {
+    "group": "SU(3)",
+    "rep": "fund",
+    "nf_ours": 4.5,
+    "nf_theirs": 4.5
+   },
+   {
+    "group": "SU(2)",
+    "rep": "adj",
+    "nf_ours": 0.75,
+    "nf_theirs": 0.75
+   },
+   {
+    "group": "SU(3)",
+    "rep": "adj",
+    "nf_ours": 0.75,
+    "nf_theirs": 0.75
+   }
+  ],
+  "minima_ours": {
+   "SU(2)": 0.25,
+   "SU(3)": 0.3333333333333333
+  },
+  "minima_theirs": {
+   "SU(2)": 0.25,
+   "SU(3)": 0.29
+  },
+  "polyakov_at_theirs_su3": 0.16754008,
+  "source": "vgiq_anchor.py against von Gersdorff-Irges-Quiros hep-th/0204223: charges from explicit generators, their alpha = 2 omega convention from their own footnotes; four critical flavour numbers exact, the SU(2) minimum exact, and the SU(3) minimum UNRESOLVED -- ours is exactly 1/3, on the Z3 centre, where the fundamental Polyakov loop vanishes; theirs prints 0.29 = (1/3)(sqrt3/2) to two digits, a normalisation their text fixes for SU(2) and not for SU(3). Reported with the evidence, not claimed as a slip"
+ },
+ "bank": [
+  {
+   "alpha": 0.022776267844638914,
+   "D": 0.25,
+   "A4": 118.0,
+   "Fpp": 4.938121338950979,
+   "content": {
+    "Nap": 4,
+    "Nam": 4,
+    "Nfp": 1,
+    "Nfm": 3,
+    "Nsp": 1,
+    "Nsm": 1
+   }
+  },
+  {
+   "alpha": 0.022776267844638914,
+   "D": 0.25,
+   "A4": 118.0,
+   "Fpp": 4.938121338950979,
+   "content": {
+    "Nap": 4,
+    "Nam": 4,
+    "Nfp": 1,
+    "Nfm": 4,
+    "Nsp": 1,
+    "Nsm": 3
+   }
+  },
+  {
+   "alpha": 0.022776267844638914,
+   "D": 0.25,
+   "A4": 118.0,
+   "Fpp": 4.938121338950979,
+   "content": {
+    "Nap": 4,
+    "Nam": 4,
+    "Nfp": 2,
+    "Nfm": 3,
+    "Nsp": 3,
+    "Nsm": 1
+   }
+  },
+  {
+   "alpha": 0.022776267844638914,
+   "D": 0.25,
+   "A4": 118.0,
+   "Fpp": 4.938121338950979,
+   "content": {
+    "Nap": 4,
+    "Nam": 4,
+    "Nfp": 2,
+    "Nfm": 4,
+    "Nsp": 3,
+    "Nsm": 3
+   }
+  },
+  {
+   "alpha": 0.023200508657666995,
+   "D": 0.25,
+   "A4": 115.0,
+   "Fpp": 4.926970826962294,
+   "content": {
+    "Nap": 4,
+    "Nam": 4,
+    "Nfp": 0,
+    "Nfm": 1,
+    "Nsp": 2,
+    "Nsm": 1
+   }
+  },
+  {
+   "alpha": 0.023200508657666995,
+   "D": 0.25,
+   "A4": 115.0,
+   "Fpp": 4.926970826962294,
+   "content": {
+    "Nap": 4,
+    "Nam": 4,
+    "Nfp": 0,
+    "Nfm": 2,
+    "Nsp": 2,
+    "Nsm": 3
+   }
+  },
+  {
+   "alpha": 0.023200508657666995,
+   "D": 0.25,
+   "A4": 115.0,
+   "Fpp": 4.926970826962294,
+   "content": {
+    "Nap": 4,
+    "Nam": 4,
+    "Nfp": 1,
+    "Nfm": 1,
+    "Nsp": 4,
+    "Nsm": 1
+   }
+  },
+  {
+   "alpha": 0.023200508657666995,
+   "D": 0.25,
+   "A4": 115.0,
+   "Fpp": 4.926970826962294,
+   "content": {
+    "Nap": 4,
+    "Nam": 4,
+    "Nfp": 1,
+    "Nfm": 2,
+    "Nsp": 4,
+    "Nsm": 3
+   }
+  },
+  {
+   "alpha": 0.02791251744752948,
+   "D": 0.25,
+   "A4": 85.0,
+   "Fpp": 4.856772651446813,
+   "content": {
+    "Nap": 3,
+    "Nam": 3,
+    "Nfp": 2,
+    "Nfm": 3,
+    "Nsp": 0,
+    "Nsm": 1
+   }
+  },
+  {
+   "alpha": 0.02791251744752948,
+   "D": 0.25,
+   "A4": 85.0,
+   "Fpp": 4.856772651446813,
+   "content": {
+    "Nap": 3,
+    "Nam": 3,
+    "Nfp": 2,
+    "Nfm": 4,
+    "Nsp": 0,
+    "Nsm": 3
+   }
+  },
+  {
+   "alpha": 0.02791251744752948,
+   "D": 0.25,
+   "A4": 85.0,
+   "Fpp": 4.856772651446813,
+   "content": {
+    "Nap": 3,
+    "Nam": 3,
+    "Nfp": 3,
+    "Nfm": 3,
+    "Nsp": 2,
+    "Nsm": 1
+   }
+  },
+  {
+   "alpha": 0.02791251744752948,
+   "D": 0.25,
+   "A4": 85.0,
+   "Fpp": 4.856772651446813,
+   "content": {
+    "Nap": 3,
+    "Nam": 3,
+    "Nfp": 3,
+    "Nfm": 4,
+    "Nsp": 2,
+    "Nsm": 3
+   }
+  },
+  {
+   "alpha": 0.02791251744752948,
+   "D": 0.25,
+   "A4": 85.0,
+   "Fpp": 4.856772651446813,
+   "content": {
+    "Nap": 3,
+    "Nam": 3,
+    "Nfp": 4,
+    "Nfm": 3,
+    "Nsp": 4,
+    "Nsm": 1
+   }
+  },
+  {
+   "alpha": 0.02791251744752948,
+   "D": 0.25,
+   "A4": 85.0,
+   "Fpp": 4.856772651446813,
+   "content": {
+    "Nap": 3,
+    "Nam": 3,
+    "Nfp": 4,
+    "Nfm": 4,
+    "Nsp": 4,
+    "Nsm": 3
+   }
+  },
+  {
+   "alpha": 0.028411609419728034,
+   "D": 0.25,
+   "A4": 88.0,
+   "Fpp": 4.7786653859046995,
+   "content": {
+    "Nap": 3,
+    "Nam": 4,
+    "Nfp": 4,
+    "Nfm": 0,
+    "Nsp": 1,
+    "Nsm": 3
+   }
+  },
+  {
+   "alpha": 0.028669837840421056,
+   "D": 0.25,
+   "A4": 82.0,
+   "Fpp": 4.837673102631044,
+   "content": {
+    "Nap": 3,
+    "Nam": 3,
+    "Nfp": 1,
+    "Nfm": 1,
+    "Nsp": 1,
+    "Nsm": 1
+   }
+  },
+  {
+   "alpha": 0.028669837840421056,
+   "D": 0.25,
+   "A4": 82.0,
+   "Fpp": 4.837673102631044,
+   "content": {
+    "Nap": 3,
+    "Nam": 3,
+    "Nfp": 1,
+    "Nfm": 2,
+    "Nsp": 1,
+    "Nsm": 3
+   }
+  },
+  {
+   "alpha": 0.028669837840421056,
+   "D": 0.25,
+   "A4": 82.0,
+   "Fpp": 4.837673102631044,
+   "content": {
+    "Nap": 3,
+    "Nam": 3,
+    "Nfp": 2,
+    "Nfm": 1,
+    "Nsp": 3,
+    "Nsm": 1
+   }
+  },
+  {
+   "alpha": 0.028669837840421056,
+   "D": 0.25,
+   "A4": 82.0,
+   "Fpp": 4.837673102631044,
+   "content": {
+    "Nap": 3,
+    "Nam": 3,
+    "Nfp": 2,
+    "Nfm": 2,
+    "Nsp": 3,
+    "Nsm": 3
+   }
+  },
+  {
+   "alpha": 0.029488806276037317,
+   "D": 0.25,
+   "A4": 79.0,
+   "Fpp": 4.8166181502680265,
+   "content": {
+    "Nap": 3,
+    "Nam": 3,
+    "Nfp": 0,
+    "Nfm": 0,
+    "Nsp": 2,
+    "Nsm": 3
+   }
+  },
+  {
+   "alpha": 0.029488806276037317,
+   "D": 0.25,
+   "A4": 79.0,
+   "Fpp": 4.8166181502680265,
+   "content": {
+    "Nap": 3,
+    "Nam": 3,
+    "Nfp": 1,
+    "Nfm": 0,
+    "Nsp": 4,
+    "Nsm": 3
+   }
+  },
+  {
+   "alpha": 0.03453111035616759,
+   "D": 0.5,
+   "A4": 119.0,
+   "Fpp": 9.560177202780423,
+   "content": {
+    "Nap": 4,
+    "Nam": 4,
+    "Nfp": 1,
+    "Nfm": 3,
+    "Nsp": 0,
+    "Nsm": 0
+   }
+  },
+  {
+   "alpha": 0.03453111035616759,
+   "D": 0.5,
+   "A4": 119.0,
+   "Fpp": 9.560177202780423,
+   "content": {
+    "Nap": 4,
+    "Nam": 4,
+    "Nfp": 1,
+    "Nfm": 4,
+    "Nsp": 0,
+    "Nsm": 2
+   }
+  },
+  {
+   "alpha": 0.03453111035616759,
+   "D": 0.5,
+   "A4": 119.0,
+   "Fpp": 9.560177202780423,
+   "content": {
+    "Nap": 4,
+    "Nam": 4,
+    "Nfp": 2,
+    "Nfm": 3,
+    "Nsp": 2,
+    "Nsm": 0
+   }
+  },
+  {
+   "alpha": 0.03453111035616759,
+   "D": 0.5,
+   "A4": 119.0,
+   "Fpp": 9.560177202780423,
+   "content": {
+    "Nap": 4,
+    "Nam": 4,
+    "Nfp": 2,
+    "Nfm": 4,
+    "Nsp": 2,
+    "Nsm": 2
+   }
+  },
+  {
+   "alpha": 0.03453111035616759,
+   "D": 0.5,
+   "A4": 119.0,
+   "Fpp": 9.560177202780423,
+   "content": {
+    "Nap": 4,
+    "Nam": 4,
+    "Nfp": 3,
+    "Nfm": 3,
+    "Nsp": 4,
+    "Nsm": 0
+   }
+  },
+  {
+   "alpha": 0.03453111035616759,
+   "D": 0.5,
+   "A4": 119.0,
+   "Fpp": 9.560177202780423,
+   "content": {
+    "Nap": 4,
+    "Nam": 4,
+    "Nfp": 3,
+    "Nfm": 4,
+    "Nsp": 4,
+    "Nsm": 2
+   }
+  },
+  {
+   "alpha": 0.035206043448153895,
+   "D": 0.5,
+   "A4": 116.0,
+   "Fpp": 9.529612094707195,
+   "content": {
+    "Nap": 4,
+    "Nam": 4,
+    "Nfp": 0,
+    "Nfm": 1,
+    "Nsp": 1,
+    "Nsm": 0
+   }
+  },
+  {
+   "alpha": 0.035206043448153895,
+   "D": 0.5,
+   "A4": 116.0,
+   "Fpp": 9.529612094707195,
+   "content": {
+    "Nap": 4,
+    "Nam": 4,
+    "Nfp": 0,
+    "Nfm": 2,
+    "Nsp": 1,
+    "Nsm": 2
+   }
+  },
+  {
+   "alpha": 0.035206043448153895,
+   "D": 0.5,
+   "A4": 116.0,
+   "Fpp": 9.529612094707195,
+   "content": {
+    "Nap": 4,
+    "Nam": 4,
+    "Nfp": 0,
+    "Nfm": 3,
+    "Nsp": 1,
+    "Nsm": 4
+   }
+  },
+  {
+   "alpha": 0.035206043448153895,
+   "D": 0.5,
+   "A4": 116.0,
+   "Fpp": 9.529612094707195,
+   "content": {
+    "Nap": 4,
+    "Nam": 4,
+    "Nfp": 1,
+    "Nfm": 1,
+    "Nsp": 3,
+    "Nsm": 0
+   }
+  },
+  {
+   "alpha": 0.035206043448153895,
+   "D": 0.5,
+   "A4": 116.0,
+   "Fpp": 9.529612094707195,
+   "content": {
+    "Nap": 4,
+    "Nam": 4,
+    "Nfp": 1,
+    "Nfm": 2,
+    "Nsp": 3,
+    "Nsm": 2
+   }
+  },
+  {
+   "alpha": 0.035206043448153895,
+   "D": 0.5,
+   "A4": 116.0,
+   "Fpp": 9.529612094707195,
+   "content": {
+    "Nap": 4,
+    "Nam": 4,
+    "Nfp": 1,
+    "Nfm": 3,
+    "Nsp": 3,
+    "Nsm": 4
+   }
+  },
+  {
+   "alpha": 0.03591994373718142,
+   "D": 0.5,
+   "A4": 113.0,
+   "Fpp": 9.496827620029945,
+   "content": {
+    "Nap": 4,
+    "Nam": 4,
+    "Nfp": 0,
+    "Nfm": 0,
+    "Nsp": 4,
+    "Nsm": 2
+   }
+  },
+  {
+   "alpha": 0.03591994373718142,
+   "D": 0.5,
+   "A4": 113.0,
+   "Fpp": 9.496827620029945,
+   "content": {
+    "Nap": 4,
+    "Nam": 4,
+    "Nfp": 0,
+    "Nfm": 1,
+    "Nsp": 4,
+    "Nsm": 4
+   }
+  },
+  {
+   "alpha": 0.038337739841499234,
+   "D": 0.25,
+   "A4": 52.0,
+   "Fpp": 4.691105019344157,
+   "content": {
+    "Nap": 2,
+    "Nam": 2,
+    "Nfp": 4,
+    "Nfm": 3,
+    "Nsp": 1,
+    "Nsm": 1
+   }
+  },
+  {
+   "alpha": 0.038337739841499234,
+   "D": 0.25,
+   "A4": 52.0,
+   "Fpp": 4.691105019344157,
+   "content": {
+    "Nap": 2,
+    "Nam": 2,
+    "Nfp": 4,
+    "Nfm": 4,
+    "Nsp": 1,
+    "Nsm": 3
+   }
+  },
+  {
+   "alpha": 0.04023454228525068,
+   "D": 0.25,
+   "A4": 49.0,
+   "Fpp": 4.644130753909976,
+   "content": {
+    "Nap": 2,
+    "Nam": 2,
+    "Nfp": 2,
+    "Nfm": 1,
+    "Nsp": 0,
+    "Nsm": 1
+   }
+  },
+  {
+   "alpha": 0.04023454228525068,
+   "D": 0.25,
+   "A4": 49.0,
+   "Fpp": 4.644130753909976,
+   "content": {
+    "Nap": 2,
+    "Nam": 2,
+    "Nfp": 2,
+    "Nfm": 2,
+    "Nsp": 0,
+    "Nsm": 3
+   }
+  },
+  {
+   "alpha": 0.04023454228525068,
+   "D": 0.25,
+   "A4": 49.0,
+   "Fpp": 4.644130753909976,
+   "content": {
+    "Nap": 2,
+    "Nam": 2,
+    "Nfp": 3,
+    "Nfm": 1,
+    "Nsp": 2,
+    "Nsm": 1
+   }
+  },
+  {
+   "alpha": 0.04023454228525068,
+   "D": 0.25,
+   "A4": 49.0,
+   "Fpp": 4.644130753909976,
+   "content": {
+    "Nap": 2,
+    "Nam": 2,
+    "Nfp": 3,
+    "Nfm": 2,
+    "Nsp": 2,
+    "Nsm": 3
+   }
+  },
+  {
+   "alpha": 0.04023454228525068,
+   "D": 0.25,
+   "A4": 49.0,
+   "Fpp": 4.644130753909976,
+   "content": {
+    "Nap": 2,
+    "Nam": 2,
+    "Nfp": 4,
+    "Nfm": 1,
+    "Nsp": 4,
+    "Nsm": 1
+   }
+  },
+  {
+   "alpha": 0.04023454228525068,
+   "D": 0.25,
+   "A4": 49.0,
+   "Fpp": 4.644130753909976,
+   "content": {
+    "Nap": 2,
+    "Nam": 2,
+    "Nfp": 4,
+    "Nfm": 2,
+    "Nsp": 4,
+    "Nsm": 3
+   }
+  },
+  {
+   "alpha": 0.040508406025743286,
+   "D": 0.25,
+   "A4": 43.0,
+   "Fpp": 4.786381633381041,
+   "content": {
+    "Nap": 2,
+    "Nam": 1,
+    "Nfp": 0,
+    "Nfm": 3,
+    "Nsp": 2,
+    "Nsm": 1
+   }
+  },
+  {
+   "alpha": 0.040508406025743286,
+   "D": 0.25,
+   "A4": 43.0,
+   "Fpp": 4.786381633381041,
+   "content": {
+    "Nap": 2,
+    "Nam": 1,
+    "Nfp": 0,
+    "Nfm": 4,
+    "Nsp": 2,
+    "Nsm": 3
+   }
+  },
+  {
+   "alpha": 0.040508406025743286,
+   "D": 0.25,
+   "A4": 43.0,
+   "Fpp": 4.786381633381041,
+   "content": {
+    "Nap": 2,
+    "Nam": 1,
+    "Nfp": 1,
+    "Nfm": 3,
+    "Nsp": 4,
+    "Nsm": 1
+   }
+  },
+  {
+   "alpha": 0.040508406025743286,
+   "D": 0.25,
+   "A4": 43.0,
+   "Fpp": 4.786381633381041,
+   "content": {
+    "Nap": 2,
+    "Nam": 1,
+    "Nfp": 1,
+    "Nfm": 4,
+    "Nsp": 4,
+    "Nsm": 3
+   }
+  },
+  {
+   "alpha": 0.04242988355773785,
+   "D": 0.25,
+   "A4": 46.0,
+   "Fpp": 4.5874472737458944,
+   "content": {
+    "Nap": 2,
+    "Nam": 2,
+    "Nfp": 1,
+    "Nfm": 0,
+    "Nsp": 1,
+    "Nsm": 3
+   }
+  },
+  {
+   "alpha": 0.04242988355773785,
+   "D": 0.25,
+   "A4": 46.0,
+   "Fpp": 4.5874472737458944,
+   "content": {
+    "Nap": 2,
+    "Nam": 2,
+    "Nfp": 2,
+    "Nfm": 0,
+    "Nsp": 3,
+    "Nsm": 3
+   }
+  },
+  {
+   "alpha": 0.04255123095233151,
+   "D": 0.5,
+   "A4": 86.0,
+   "Fpp": 9.335861735019726,
+   "content": {
+    "Nap": 3,
+    "Nam": 3,
+    "Nfp": 3,
+    "Nfm": 3,
+    "Nsp": 1,
+    "Nsm": 0
+   }
+  },
+  {
+   "alpha": 0.04255123095233151,
+   "D": 0.5,
+   "A4": 86.0,
+   "Fpp": 9.335861735019726,
+   "content": {
+    "Nap": 3,
+    "Nam": 3,
+    "Nfp": 3,
+    "Nfm": 4,
+    "Nsp": 1,
+    "Nsm": 2
+   }
+  },
+  {
+   "alpha": 0.04255123095233151,
+   "D": 0.5,
+   "A4": 86.0,
+   "Fpp": 9.335861735019726,
+   "content": {
+    "Nap": 3,
+    "Nam": 3,
+    "Nfp": 4,
+    "Nfm": 3,
+    "Nsp": 3,
+    "Nsm": 0
+   }
+  },
+  {
+   "alpha": 0.04255123095233151,
+   "D": 0.5,
+   "A4": 86.0,
+   "Fpp": 9.335861735019726,
+   "content": {
+    "Nap": 3,
+    "Nam": 3,
+    "Nfp": 4,
+    "Nfm": 4,
+    "Nsp": 3,
+    "Nsm": 2
+   }
+  },
+  {
+   "alpha": 0.04366609044393553,
+   "D": 0.5,
+   "A4": 89.0,
+   "Fpp": 9.108792710034612,
+   "content": {
+    "Nap": 3,
+    "Nam": 4,
+    "Nfp": 4,
+    "Nfm": 0,
+    "Nsp": 0,
+    "Nsm": 2
+   }
+  },
+  {
+   "alpha": 0.04366609044393553,
+   "D": 0.5,
+   "A4": 89.0,
+   "Fpp": 9.108792710034612,
+   "content": {
+    "Nap": 3,
+    "Nam": 4,
+    "Nfp": 4,
+    "Nfm": 1,
+    "Nsp": 0,
+    "Nsm": 4
+   }
+  },
+  {
+   "alpha": 0.04377389060266142,
+   "D": 0.5,
+   "A4": 83.0,
+   "Fpp": 9.2818237755668,
+   "content": {
+    "Nap": 3,
+    "Nam": 3,
+    "Nfp": 1,
+    "Nfm": 1,
+    "Nsp": 0,
+    "Nsm": 0
+   }
+  },
+  {
+   "alpha": 0.04377389060266142,
+   "D": 0.5,
+   "A4": 83.0,
+   "Fpp": 9.2818237755668,
+   "content": {
+    "Nap": 3,
+    "Nam": 3,
+    "Nfp": 1,
+    "Nfm": 2,
+    "Nsp": 0,
+    "Nsm": 2
+   }
+  },
+  {
+   "alpha": 0.04377389060266142,
+   "D": 0.5,
+   "A4": 83.0,
+   "Fpp": 9.2818237755668,
+   "content": {
+    "Nap": 3,
+    "Nam": 3,
+    "Nfp": 1,
+    "Nfm": 3,
+    "Nsp": 0,
+    "Nsm": 4
+   }
+  },
+  {
+   "alpha": 0.04377389060266142,
+   "D": 0.5,
+   "A4": 83.0,
+   "Fpp": 9.2818237755668,
+   "content": {
+    "Nap": 3,
+    "Nam": 3,
+    "Nfp": 2,
+    "Nfm": 1,
+    "Nsp": 2,
+    "Nsm": 0
+   }
+  },
+  {
+   "alpha": 0.04377389060266142,
+   "D": 0.5,
+   "A4": 83.0,
+   "Fpp": 9.2818237755668,
+   "content": {
+    "Nap": 3,
+    "Nam": 3,
+    "Nfp": 2,
+    "Nfm": 2,
+    "Nsp": 2,
+    "Nsm": 2
+   }
+  }
+ ],
+ "anchor": {
+  "label": "the smallest content of the archived bank",
+  "bulk": [
+   {
+    "rep": "adjoint",
+    "parities": [
+     1,
+     1
+    ],
+    "multiplicity": 2
+   },
+   {
+    "rep": "adjoint",
+    "parities": [
+     1,
+     -1
+    ],
+    "multiplicity": 2
+   },
+   {
+    "rep": "fund",
+    "parities": [
+     1,
+     1
+    ],
+    "multiplicity": 2
+   },
+   {
+    "rep": "fund",
+    "parities": [
+     1,
+     -1
+    ],
+    "multiplicity": 1
+   },
+   {
+    "rep": "scalar",
+    "parities": [
+     1,
+     -1
+    ],
+    "multiplicity": 1
+   }
+  ],
+  "expected": {
+   "alpha": 0.04023454228525068,
+   "D": 0.25,
+   "A4": 49.0,
+   "Fpp": 4.644130753909976
+  },
+  "caveat": "no absolute scale exists here at all: Haba-Yamashita publish no normalisation, so alpha and the spectrum are in units of 1/R and nothing is a GeV"
+ },
+ "note": "the 5D class of Part VII section 11: no odd 8D occurs here -- a Dirac fermion enters with 4 dof and a complex scalar with -2, both even, and the odd -3 of gauge+ghost multiplies only the adjoint, evenly. The odd rung the ceiling stands on needs the sixth dimension."
+}

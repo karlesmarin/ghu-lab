@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAzMiAzMic+PHJlY3Qgd2lkdGg9JzMyJyBoZWlnaHQ9JzMyJyByeD0nNycgZmlsbD0nIzE2MjAyYScvPjxnIHN0cm9rZT0nIzVmYjZkNCcgc3Ryb2tlLXdpZHRoPScyLjYnIHN0cm9rZS1saW5lY2FwPSdyb3VuZCcgZmlsbD0nbm9uZSc+PHBhdGggZD0nTTggOWgxNicvPjxwYXRoIGQ9J004IDE2aDMuNU0yMC41IDE2SDI0Jy8+PHBhdGggZD0nTTggMjNoMTYnLz48L2c+PC9zdmc+">
+<!-- The ladder of odd eighths, middle rung absent, drawn inline: the tab shows the one
+     picture the series is about, and the page still reaches nothing outside itself. -->
+<title>GHU Lab — one model, every section</title>
+<meta name="description" content="An instrument for 6D gauge-Higgs unification: one bulk model, several computations over it, every output carrying what is known about it.">
+<style>
+:root{
+  --ink:#16202a; --ink2:#4a5b6a; --ink3:#7d8c99;
+  --line:#dfe6ec; --bg:#fbfcfd; --card:#ffffff;
+  --blue:#1B6F8C; --blue-d:#12546b; --blue-l:#e8f2f6;
+  --rust:#B5530F; --rust-l:#fbeee5;
+  --green:#1f7a4d; --green-l:#e6f4ec;
+  --amber:#8a6d1f; --amber-l:#fbf3dd;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+     font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,"Helvetica Neue",sans-serif}
+a{color:var(--blue)}
+/* Greek stays lower-case.  Uppercased, eta becomes a capital Eta -- glyph-identical to a Latin
+   H -- and three sections were shipping headings that read SEES H and CAN SEE H.  Anywhere a
+   Greek letter appears inside an uppercasing element it wears .lc. */
+.lc{text-transform:none}
+h2{font-size:15px;text-transform:uppercase;letter-spacing:.09em;color:var(--ink2);
+   margin:0 0 12px;font-weight:650}
+.chip{font:600 11px/1 var(--mono);letter-spacing:.04em;padding:5px 9px;border-radius:99px;
+      border:1px solid transparent;text-transform:uppercase;white-space:nowrap}
+.chip.thm{background:var(--green-l);color:var(--green);border-color:#bfe0cd}
+.chip.ver{background:var(--amber-l);color:var(--amber);border-color:#e7d9ab}
+.chip.mea{background:var(--blue-l);color:var(--blue-d);border-color:#c3dce6}
+.chip.live{background:#fff;color:var(--ink2);border-color:var(--line)}
+.chip.bad{background:#fdecec;color:#9b2226;border-color:#f2c9c9}
+.card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 17px}
+button{font:600 13px/1 inherit;padding:7px 11px;border-radius:7px;border:1px solid var(--line);
+       background:#fff;color:var(--ink);cursor:pointer}
+button:hover{border-color:var(--blue);color:var(--blue-d)}
+button.st{width:27px;height:25px;padding:0;font-family:var(--mono);font-size:14px}
+button.st.on{background:var(--blue-l);border-color:#c3dce6;color:var(--blue-d);font-weight:650}
+button.ghost{border:none;background:none;color:var(--ink3);padding:4px 6px}
+button.ghost:hover{color:var(--rust)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{text-align:left;font-weight:650;color:var(--ink2);font-size:11.5px;text-transform:uppercase;
+   letter-spacing:.05em;padding:7px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:6px 8px;border-bottom:1px solid #f0f4f7;vertical-align:middle}
+tbody tr.clk:hover{background:#f7fafc;cursor:pointer}
+.num{font-family:var(--mono);font-size:12.5px;text-align:right;font-variant-numeric:tabular-nums}
+.stat{border:1px solid var(--line);border-radius:10px;padding:12px 13px;background:#fff}
+.stat .k{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink3);
+         font-weight:650;margin-bottom:6px}
+.stat .v{font:600 21px/1.15 var(--mono);letter-spacing:-.02em}
+.stat .s{font-size:12px;color:var(--ink2);margin-top:5px}
+.verdict{border-left:4px solid var(--line);padding:11px 14px;border-radius:0 9px 9px 0;background:#fff}
+.verdict.breaks{border-color:var(--green);background:var(--green-l)}
+.verdict.stable{border-color:var(--rust);background:var(--rust-l)}
+/* DIRECT child only.  `.verdict b` also matched every <b> inside the explanation span, so a
+   sentence with three bold numbers in it came out as seven lines. */
+.verdict > b{display:block;font-size:15px;margin-bottom:2px}
+.verdict span{font-size:13px;color:var(--ink2)}
+canvas{width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block}
+.legend{display:flex;gap:14px;align-items:center;font-size:12px;color:var(--ink2);margin-top:8px;
+        flex-wrap:wrap}
+.legend i{display:inline-block;width:13px;height:3px;border-radius:2px;margin-right:5px;
+          vertical-align:middle}
+.note{font-size:12.5px;color:var(--ink2)}
+.lead{font-size:16.5px;line-height:1.5;margin:0}
+.lead b{font-family:var(--mono);font-weight:650}
+.rowm{display:flex;align-items:center;gap:8px;padding:3px 0;border-bottom:1px solid #f0f4f7}
+.rowm:last-child{border-bottom:0}
+.rowm .nm{flex:1;font-family:var(--mono);font-size:13px}
+.rowm .ch{font-family:var(--mono);font-size:10.5px;color:var(--ink3);width:86px;text-align:right}
+.cnt{font-family:var(--mono);font-size:14px;width:24px;text-align:center;font-weight:650}
+.cnt.z{color:var(--ink3);font-weight:400}
+.bar{height:9px;border-radius:5px;background:#eef3f6;overflow:hidden;margin-top:7px}
+.bar i{display:block;height:100%;background:var(--blue);border-radius:5px;transition:width .18s}
+.bar i.over{background:var(--rust)}
+/* THE ATLAS.  Tiles are 2:1 because the torus is -- a square tile here would squash alpha_1 by
+   two and look entirely plausible while doing it.  `image-rendering:pixelated` because the tile IS
+   64 x 32 samples: smoothing would draw structure between samples that was never computed. */
+.atlas{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:9px}
+.atlas .at{cursor:pointer;border:1px solid var(--line);border-radius:8px;padding:5px;background:#fff;
+           transition:border-color .15s}
+.atlas .at:hover{border-color:var(--blue)}
+.atlas .at canvas{aspect-ratio:2/1;image-rendering:pixelated;border-radius:4px}
+.atlas .at b{display:block;font:650 10.5px/1.3 var(--mono);margin-top:5px;color:var(--ink)}
+.atlas .at i{display:block;font-style:normal;font-size:9.5px;color:var(--ink3);
+             font-family:var(--mono);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.atlas .at.silent{background:var(--rust-l);border-color:#f0d6c4}
+.atlas .at.silent b{color:var(--rust)}
+.pair{display:grid;gap:10px}@media(min-width:560px){.pair{grid-template-columns:1fr 1fr}}
+.grid{display:grid;gap:18px}
+@media(min-width:1000px){.two{grid-template-columns:1.05fr .95fr}}
+
+/* ---- the chrome: a pinned model header and a rail.  Switching section must not reset the
+   model, and the header is what makes that visible.  DESIGN.md D6. ---- */
+#top{position:sticky;top:0;z-index:20;background:rgba(251,252,253,.94);
+     backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+#top .in{max-width:1240px;margin:0 auto;padding:11px 20px;display:flex;gap:14px;
+         align-items:center;flex-wrap:wrap}
+#top .name{font-weight:700;letter-spacing:-.01em;white-space:nowrap}
+#top .name a{color:inherit;text-decoration:none}
+#top .name a:hover{color:var(--blue-d);text-decoration:underline}
+#top .model{font-family:var(--mono);font-size:12.5px;color:var(--ink2);flex:1;min-width:200px;
+            overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#top .chips{display:flex;gap:6px;flex-wrap:wrap}
+/* The opening model's caveat.  Deliberately in the sticky header and not in a card: it is the
+   sentence a reader must have before the numbers, not after them. */
+#topCaveat{max-width:1240px;margin:0 auto;padding:0 20px 9px;font-size:12.5px;color:var(--ink2)}
+#topCaveat b{color:var(--rust);font-weight:600}
+details.cannot{border:1px solid var(--line);border-radius:10px;background:#fff;padding:11px 15px;
+  margin-bottom:18px;font-size:13px;color:var(--ink2)}
+details.cannot summary{cursor:pointer;font-weight:650;color:var(--ink);font-size:13.5px}
+details.cannot ul{margin:11px 0 0;padding-left:19px}
+details.cannot li{margin-bottom:7px;line-height:1.55}
+details.cannot p{margin:11px 0 0;line-height:1.55}
+#top .acts{display:flex;gap:6px}
+.wrap{max-width:1240px;margin:0 auto;padding:20px 20px 64px;display:grid;gap:20px}
+@media(min-width:960px){.wrap{grid-template-columns:186px 1fr}}
+#rail{align-self:start;position:sticky;top:64px}
+#rail a{display:block;padding:8px 11px;border-radius:8px;text-decoration:none;color:var(--ink2);
+        font-size:13.5px;border:1px solid transparent}
+#rail a:hover{background:#fff;border-color:var(--line)}
+#rail a.on{background:var(--blue-l);border-color:#c3dce6;color:var(--blue-d);font-weight:650}
+#rail a small{display:block;font-size:11px;color:var(--ink3);font-weight:400;margin-top:1px}
+#rail .fam{font:650 10.5px var(--mono);text-transform:uppercase;letter-spacing:.08em;
+           color:var(--ink3);padding:11px 11px 5px;display:block}
+#rail .fam:first-child{padding-top:2px}
+#rail .fam b{color:var(--blue-d);font-weight:650}
+#rail a.soon{opacity:.55;cursor:not-allowed}
+.foot{margin-top:26px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px;
+      color:var(--ink2)}
+</style>
+</head>
+<body>
+
+<div id="top"><div class="in">
+  <!-- The way back.  It is a property of where this file is DEPLOYED, not of the instrument: on
+       the site it is a link to the home page, and in an Edition or a downloaded single file there
+       is nothing to link to, so the build renders plain text instead of a dead link. -->
+  <span class="name">__HOME__</span>
+  <span class="model" id="topModel">—</span>
+  <span class="chips" id="topChips"></span>
+  <span class="acts">
+    <button id="btnCard" title="the result card: input, provenance, every value with its status">⇩ card</button>
+    <button id="btnLink" title="the whole state, in the address bar">🔗 link</button>
+  </span>
+</div>
+<div id="topCaveat"></div></div>
+
+<div class="wrap">
+  <nav id="rail"></nav>
+  <main id="section"></main>
+</div>
+
+<div class="wrap" style="grid-template-columns:1fr;padding-top:0">
+
+<!-- WHAT THIS CANNOT TELL YOU.  Every value on this page carries its own status, but a status per
+     value does not add up to the shape of what is missing, and a reader deserves that once,
+     plainly, without having to infer it from four caveats in four cards. -->
+<details class="cannot">
+  <summary>What this tool cannot tell you — read once</summary>
+  <ul>
+    <li><b>Absolute scales are not settled.</b> Our α disagrees with the published α by 1.03× to
+        2.08×, and not by a constant — a constant would be a convention and could be absorbed. Every
+        TeV and GeV here inherits that. The <b>mass ratio</b>, the <b>bill in eighths</b> and the
+        <b>two arithmetic laws</b> do not: no normalisation enters them.</li>
+    <li><b>One published case is the whole validation of the calculator</b> — AHMN's 1.2046. The
+        engine reproduces it to 1.2045. Nothing else anchors it.</li>
+    <li><b>Two models, not a framework.</b> SU(7) on S¹/Z₂ × S¹/Z₂ and SU(4) on T²/Z₂, with fixed
+        orbifolds, fixed conventions and a fixed catalogue. You cannot put your own group,
+        orbifold or boundary conditions in. What you vary are multiplicities.</li>
+    <li><b>One loop, no running, no matching.</b> There is no RGE evolution to the weak scale, no
+        threshold matching, no scheme dependence and no error bars. The Higgs mass here is the
+        curvature of a one-loop Wilson-line potential, not a prediction you can confront with data.</li>
+    <li><b>It is a page, not a library.</b> There is no Python API and no LHE/SLHA/UFO export — only
+        the result card as JSON. If you need this inside a pipeline, take the card and the formulas,
+        not the page.</li>
+  </ul>
+  <p>What it <em>is</em> good for: screening a candidate content on the exact, normalisation-free
+  quantities before anyone computes anything; checking your own implementation against the one
+  anchored case; and seeing which claims of Parts III–VII survive a computation that does not
+  share their code.</p>
+</details>
+
+<div class="foot">
+  <b>Honesty labels, and they are fields in the export, not decoration.</b>
+  <span class="chip thm">theorem</span> proved.
+  <span class="chip ver">verified</span> checked exhaustively or against an independent
+  implementation; not proved.
+  <span class="chip mea">measured</span> computed here, from inputs that carry their own caveats.
+  <span class="chip bad">unknown</span> a verdict, said out loud with its reason — never an empty cell.
+  <div style="margin-top:11px;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center">
+    <span>Carles Marín</span>
+    <a href="https://orcid.org/0009-0007-5637-9688" rel="me noopener"
+       style="display:inline-flex;align-items:center;gap:4px;text-decoration:none;color:inherit">
+      <svg viewBox="0 0 256 256" width="14" height="14" aria-hidden="true" focusable="false"
+           ><circle cx="128" cy="128" r="128" fill="#A6CE39"/><path fill="#fff"
+           d="M86 186h-18V94h18v92zM77 84a11 11 0 1 1 0-22 11 11 0 0 1 0 22zm40 10h35c34 0 49 24
+              49 46s-15 46-49 46h-35V94zm18 76h16c23 0 32-15 32-30s-9-30-32-30h-16v60z"/></svg
+      ><span style="font-family:var(--mono);font-size:12px">0009-0007-5637-9688</span></a>
+    <span style="color:var(--ink3)">Independent researcher</span>
+    <span style="color:var(--ink3)">·</span>
+    <span style="color:var(--ink3)">with Claude (Anthropic) as AI assistant; the mathematics and
+    every claim are the author's responsibility</span>
+  </div>
+  <div style="margin-top:8px;color:var(--ink3)" id="footBuild">—</div>
+</div>
+</div>
+
+<script>
+const DATASETS = /*__DATA__*/null;
+__ENGINE__
+__SECTIONS__
+__APP__
+</script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+{
+ "what": "reference numbers for the SU(7) Komori-Maru model, produced by the Python engine of Part VII (amin_closed_form.py, which extracts terms() and GAUGE from part_vi/su7_anchor_mh.py). The shipped page must reproduce them.",
+ "conventions": {
+  "m_W": 80.4,
+  "g4": 0.63,
+  "K": 1.4147431890898428,
+  "note": "alpha is the Wilson-line phase; F is the one-loop potential summed over windings; 8D and A4 are the two quantised moments"
+ },
+ "produced_by": "ghu-lab/build/make_reference.py against research/smeft_formalization/part_vii/amin_closed_form.py",
+ "rows": [
+  {
+   "name": "published row (1)",
+   "note": "their Table 1; published alpha_min 0.0430, m_h 126.8 GeV",
+   "content": [
+    {
+     "rep": "28",
+     "parities": [
+      1,
+      -1
+     ],
+     "multiplicity": 1
+    },
+    {
+     "rep": "84",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 4
+    }
+   ],
+   "D": 1.875,
+   "A4": 258.0,
+   "8D": 15.0,
+   "W": 31.5,
+   "alpha_closed": 0.05542279365898309,
+   "alpha_global": 0.055303977094289455,
+   "F_at_closed": -18.776488732041752,
+   "F_at_global": -18.776488956956587,
+   "F_at_1_minus_F_at_0": 63.284997056033035,
+   "F_second": 31.623311571400535,
+   "m_h": 143.54658735371913
+  },
+  {
+   "name": "published row (2)",
+   "note": "their Table 1; published alpha_min 0.0810, m_h 125.5 GeV",
+   "content": [
+    {
+     "rep": "28",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 1
+    },
+    {
+     "rep": "84",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 4
+    }
+   ],
+   "D": 3.625,
+   "A4": 271.0,
+   "8D": 29.0,
+   "W": 37.5,
+   "alpha_closed": 0.08357900298994224,
+   "alpha_global": 0.08306174783044293,
+   "F_at_closed": -22.8412855598105,
+   "F_at_global": -22.84129312819086,
+   "F_at_1_minus_F_at_0": 75.33928220956314,
+   "F_second": 55.27924758250172,
+   "m_h": 125.85239573466873
+  },
+  {
+   "name": "published row (3)",
+   "note": "their Table 1; published alpha_min 0.0210, m_h 125.1 GeV",
+   "content": [
+    {
+     "rep": "28",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 1
+    },
+    {
+     "rep": "48",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 3
+    },
+    {
+     "rep": "84",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 2
+    }
+   ],
+   "D": 1.125,
+   "A4": 189.0,
+   "8D": 9.0,
+   "W": 37.5,
+   "alpha_closed": 0.04362105799955598,
+   "alpha_global": 0.04359266411163054,
+   "F_at_closed": -26.155672230619246,
+   "F_at_global": -26.155672239044925,
+   "F_at_1_minus_F_at_0": 75.33928220956315,
+   "F_second": 20.85509327140396,
+   "m_h": 148.11105831889114
+  },
+  {
+   "name": "published row (4)",
+   "note": "their Table 1; published alpha_min 0.0260, m_h 126.4 GeV",
+   "content": [
+    {
+     "rep": "7",
+     "parities": [
+      1,
+      -1
+     ],
+     "multiplicity": 1
+    },
+    {
+     "rep": "48",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 2
+    },
+    {
+     "rep": "84",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 3
+    }
+   ],
+   "D": 1.375,
+   "A4": 223.0,
+   "8D": 11.0,
+   "W": 36.5,
+   "alpha_closed": 0.04692895305021683,
+   "alpha_global": 0.046878956079948034,
+   "F_at_closed": -23.954424695355417,
+   "F_at_global": -23.954424726293713,
+   "F_at_1_minus_F_at_0": 73.3302346839748,
+   "F_second": 24.6522818228496,
+   "m_h": 149.68052860596697
+  },
+  {
+   "name": "published row (5)",
+   "note": "their Table 1; published alpha_min 0.0430, m_h 126.2 GeV",
+   "content": [
+    {
+     "rep": "7",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 1
+    },
+    {
+     "rep": "7",
+     "parities": [
+      1,
+      -1
+     ],
+     "multiplicity": 1
+    },
+    {
+     "rep": "84",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 4
+    }
+   ],
+   "D": 1.875,
+   "A4": 255.0,
+   "8D": 15.0,
+   "W": 34.5,
+   "alpha_closed": 0.055392705196997835,
+   "alpha_global": 0.055276909221945614,
+   "F_at_closed": -20.915168444288923,
+   "F_at_global": -20.91516865894923,
+   "F_at_1_minus_F_at_0": 69.31213963279808,
+   "F_second": 31.786720135107885,
+   "m_h": 143.9951603358952
+  },
+  {
+   "name": "audit counterexample",
+   "note": "W > 0 and yet NOT the global vacuum: the case the 'true vacuum' verdict has to get right, and did not before 2026-08-26",
+   "content": [
+    {
+     "rep": "7",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 1
+    },
+    {
+     "rep": "48",
+     "parities": [
+      1,
+      -1
+     ],
+     "multiplicity": 1
+    },
+    {
+     "rep": "84",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 1
+    }
+   ],
+   "D": 0.625,
+   "A4": 58.0,
+   "8D": 5.0,
+   "W": 2.5,
+   "alpha_closed": 0.08483633687272224,
+   "alpha_global": 0.5660212747002722,
+   "F_at_closed": -0.6258519559353837,
+   "F_at_global": -1.6975146746368233,
+   "F_at_1_minus_F_at_0": 5.022618813970876,
+   "F_second": 8.05274261334501,
+   "m_h": 47.3224927019788
+  },
+  {
+   "name": "false vacuum by W",
+   "note": "W < 0: deeper at the other symmetric point, before any interior question",
+   "content": [
+    {
+     "rep": "28",
+     "parities": [
+      1,
+      -1
+     ],
+     "multiplicity": 9
+    }
+   ],
+   "D": -1.125,
+   "A4": 18.0,
+   "8D": -9.0,
+   "W": -28.5,
+   "alpha_closed": null,
+   "alpha_global": null,
+   "F_at_closed": null,
+   "F_at_global": null,
+   "F_at_1_minus_F_at_0": -57.25785447926799
+  },
+  {
+   "name": "no electroweak breaking",
+   "note": "D <= 0: the symmetric point is a minimum and there is nothing to minimise",
+   "content": [
+    {
+     "rep": "7",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 1
+    }
+   ],
+   "D": -4.125,
+   "A4": -18.0,
+   "8D": -33.0,
+   "W": -0.5,
+   "alpha_closed": null,
+   "alpha_global": null,
+   "F_at_closed": null,
+   "F_at_global": null,
+   "F_at_1_minus_F_at_0": -1.0045237627941757
+  }
+ ]
+}

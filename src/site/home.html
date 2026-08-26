@@ -1,0 +1,68 @@
+<h1>An instrument for gauge&#8209;Higgs unification, and the papers it comes from</h1>
+
+<p class="lead">Pick a model of extra&#8209;dimensional matter and this page computes what it predicts:
+which Wilson&#8209;line domain is legal, where the vacuum sits, the Higgs mass, the anomaly bill, and
+how high the compactification scale can go. It runs entirely in your browser, offline, with nothing
+to install &mdash; and every number it prints says what is known about it.</p>
+
+<div class="doors">
+  <a class="door" href="app/index.html">
+    <b>I read the paper and want to try it &rarr;</b>
+    <span>The instrument. One bulk model, eleven computations over it, the paper's own model
+    preloaded.</span>
+  </a>
+  <a class="door" href="papers/index.html">
+    <b>I found the tool and want to know what it is &rarr;</b>
+    <span>The series. Seven papers on six&#8209;dimensional gauge&#8209;Higgs unification, each with
+    its record, its status, and what has moved since.</span>
+  </a>
+</div>
+
+<div class="warn">
+  <b>Read this before quoting a number from here.</b>
+  __ANCHOR_SENTENCE__
+</div>
+
+<h2>Every number carries what is known about it</h2>
+
+<p>Four words, and they are fields in the exported result card rather than decoration. This is the
+whole difference between an instrument and a demonstration.</p>
+
+<table>
+<thead><tr><th style="width:112px">word</th><th>what it promises</th></tr></thead>
+<tbody>
+<tr><td><span class="chip thm">theorem</span></td>
+    <td>Proved, in a paper of the series, and the page names which one.</td></tr>
+<tr><td><span class="chip ver">verified</span></td>
+    <td>Checked against an independent computation &mdash; usually brute force over the same
+        object &mdash; but not proved.</td></tr>
+<tr><td><span class="chip mea">measured</span></td>
+    <td>Computed here, and inheriting whatever open questions its inputs carry. Every absolute
+        scale on this site is of this kind.</td></tr>
+<tr><td><span class="chip unk">unknown</span></td>
+    <td>Said out loud, with the reason, instead of a plausible number. The tool refuses to fill a
+        gap it cannot compute.</td></tr>
+</tbody>
+</table>
+
+<p>The fourth is the one that costs something, so it is worth saying why it is there. This project
+has retracted one of its own novelty claims before &mdash; a closed&#8209;form identity published in
+May 2026 and withdrawn in July on finding it was a corollary of Helset&ndash;Martin&ndash;Trott
+2020. The algebra was right; the claim about its standing was not. A tool that could not label its
+own output <em>unknown</em> would have no way to do that to itself.</p>
+
+<h2>The series</h2>
+__SERIES_TABLE__
+
+<h2>What has moved</h2>
+<p>The papers are frozen; this site is not. Every change is logged with what moved, why, and
+whether it affects the version of record.</p>
+__CHANGES_RECENT__
+<p><a href="changes/index.html">The whole log &rarr;</a></p>
+
+<h2>The code</h2>
+<p>The instrument is one self-contained HTML file with no external request in it, built from a
+Python and JavaScript source tree by <code>build/build_app.py</code>, which re-runs every harness
+and refuses to publish a red build. Each released paper also gets a frozen copy of the tool as it
+stood at publication &mdash; see <a href="editions/index.html">editions</a> &mdash; so a link in a
+paper keeps working even after the living instrument has been rewritten.</p>

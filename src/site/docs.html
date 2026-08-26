@@ -1,0 +1,111 @@
+<h1>Documentation</h1>
+<p class="lead">Everything a stranger needs to read a number off this site and know exactly what it
+means: the conventions, the vocabulary, how to reproduce it without the tool, and how to cite it.</p>
+
+<h2 id="conventions">Conventions</h2>
+
+<p>Every default the instrument fills in for you, with the source that fixes it. This table is
+generated from <code>src/kernel/model.mjs</code>, which is the only place in the code where a
+default may be declared &mdash; <strong>an unsourced default is a hidden hypothesis</strong>, so the
+record refuses to hold one. Whatever the tool fills in is also echoed into the exported result card,
+under <code>applied</code>, so a reader of the card can see which numbers you chose and which the
+tool did.</p>
+
+__DEFAULTS_TABLE__
+
+<p>Two conventions are not defaults but structure, and they matter more than any of the above.</p>
+
+<ul>
+<li><strong>The Wilson-line phase.</strong> The potential is written as a function of one phase
+<code>α</code>, and the period is fixed by the group data, not assumed: a period of Wilson line is
+a central gauge transformation up to Weyl, which is what makes the fundamental domain
+representation-dependent (Part III). Whether the half-domain is legal is a computed output of the
+selection section, never a setting.</li>
+<li><strong>The winding sum.</strong> Each term of the one-loop potential is
+<code>Re Li&#8325;(s e^{i c &pi; &alpha;})</code>, summed to a truncation that is an <em>input</em>
+and not a hidden constant: the terms fall as <code>n&#8315;&#8309;</code>, so the tail is bounded by
+the truncation you choose and the page can report it. The default is 600 windings.</li>
+</ul>
+
+<h2 id="groups">The models the instrument holds</h2>
+
+<p>A group is data, not code. The kernel knows about weight lattices, parities and winding sums;
+it does not know what SU(7) is. Adding a group means adding a JSON document.</p>
+
+__GROUPS_TABLE__
+
+<p>Each group opens on a named anchor in its own data file, because an instrument must not open
+empty &mdash; and because a default is a claim about typicality, each anchor carries, in the data
+file itself, a sentence saying what kind of case it is.</p>
+
+<h2 id="glossary">Glossary</h2>
+
+<dl class="dl">
+<dt>&alpha;<span class="lc"></span></dt>
+<dd>The Wilson-line phase: the vacuum expectation value of the extra-dimensional gauge field, in
+units where a period is 1. It <em>is</em> the electroweak hierarchy, because
+<code>1/R&#8325; = 2m_W/&alpha;</code>.</dd>
+
+<dt>&alpha;_min</dt>
+<dd>Where the one-loop potential is minimised. In this class of models it is an algebraic function
+of two moments of the bulk content, so it is computed rather than searched for.</dd>
+
+<dt>bulk content</dt>
+<dd>The list of representations living in the extra dimensions, each with its orbifold parities and
+a multiplicity. It is the input to everything on this site.</dd>
+
+<dt>D, A&#8324;</dt>
+<dd>The second and fourth moments of the content, weighted by Wilson-line charge. <code>8D</code> is
+always an <em>odd</em> integer, so the curvature at the symmetric point can never vanish and the
+electroweak verdict is always well defined.</dd>
+
+<dt>parities</dt>
+<dd>The signs a multiplet picks up at the orbifold fixed points, written <code>(+,+)</code>,
+<code>(+,&minus;)</code> and so on. They decide which components survive with a massless mode.</dd>
+
+<dt>&eta;<span class="lc"></span> (eta)</dt>
+<dd>The boundary-condition sign <code>&eta; = &eta;&#8320;&eta;&#8321;</code>. Part V shows it rides
+on an index alone, so it is invisible to the Higgs potential exactly on Part IV's vanishing
+class.</dd>
+
+<dt>the anchor</dt>
+<dd>A published computation the instrument recomputes at load and shows as a chip, so the tool
+declares whether it currently reproduces an outside number before it shows you any of its own.</dd>
+
+<dt>the bill in eighths</dt>
+<dd>The cost of an escape from the proton-decay obstruction, measured in the quantum of
+<code>D</code>. It is a ratio of integers, so no normalisation enters it.</dd>
+
+<dt>the ceiling</dt>
+<dd>An upper bound on <code>1/R&#8325;</code> that holds for <em>arbitrary</em> bulk content,
+obtained as an integer program whose relaxation has a two-variable dual, enumerated exactly in
+rationals.</dd>
+</dl>
+
+<h2 id="reproduce">How to reproduce any of it without this tool</h2>
+
+<p>Nothing here needs the page. Each section's mathematics exists twice: once in the kernel the
+browser runs, and once in a Python or Sage script shipped with the paper it comes from, written
+independently. Where the two are compared, that is what the <span class="chip ver">verified</span>
+chip means.</p>
+
+<ol>
+<li><strong>The papers' own scripts.</strong> Every released paper carries an ancillary archive on
+Zenodo with the scripts that produce its numbers, and they run without this repository.</li>
+<li><strong>The instrument, offline.</strong> Save <a href="../app/index.html">the app</a> to disk
+and open it. It is one file with no external request in it; the build refuses to ship one that has
+any &mdash; no <code>fetch</code>, no dynamic <code>import</code>, no <code>new Worker</code>, no
+<code>&lt;script src&gt;</code>, no <code>http(s)</code> asset.</li>
+<li><strong>The harnesses.</strong> <code>python build/build_app.py</code> rebuilds the page and
+then re-runs every check outside it, in node, against numbers produced elsewhere. A red build is
+not publishable, and the build says so rather than warning.</li>
+</ol>
+
+<h2 id="cite">How to cite</h2>
+
+<p><strong>Cite the paper, not the page.</strong> The papers have DOIs and are immutable; this site
+is living and says so on every paper page. If you need to cite the state of the tool as you used
+it, cite the frozen <a href="../editions/index.html">edition</a> archived with the paper, which is
+byte-identical to the copy on Zenodo.</p>
+
+__CITE__

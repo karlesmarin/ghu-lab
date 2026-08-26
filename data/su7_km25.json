@@ -1,0 +1,1562 @@
+{
+ "id": "su7_km25",
+ "group": "SU(7)",
+ "orbifold": {
+  "name": "S1/Z2 x S1/Z2",
+  "note": "their eqs. (11)-(13); two parities on the fifth circle, one on the sixth"
+ },
+ "source": {
+  "paper": "Y. Komori, N. Maru, arXiv:2503.04090",
+  "extracted_from": "research/smeft_formalization/part_vii/amin_closed_form.py",
+  "chain": "amin_closed_form.py extracts terms(), GAUGE and T1 from part_vi/su7_anchor_mh.py, which derives the gauge weights from their eqs. (63)-(67)",
+  "generated": "2026-08-26"
+ },
+ "gauge": [
+  [
+   -1.0,
+   1,
+   2
+  ],
+  [
+   -2.0,
+   1,
+   1
+  ],
+  [
+   -3.5,
+   -1,
+   1
+  ]
+ ],
+ "reps": {
+  "7": {
+   "(+,+)": [
+    [
+     1.0,
+     -1,
+     1
+    ]
+   ],
+   "(+,-)": [
+    [
+     1.0,
+     1,
+     1
+    ]
+   ]
+  },
+  "28": {
+   "(+,+)": [
+    [
+     1.0,
+     1,
+     2
+    ],
+    [
+     4.0,
+     -1,
+     1
+    ],
+    [
+     1.0,
+     1,
+     1
+    ]
+   ],
+   "(+,-)": [
+    [
+     1.0,
+     -1,
+     2
+    ],
+    [
+     4.0,
+     1,
+     1
+    ],
+    [
+     1.0,
+     -1,
+     1
+    ]
+   ]
+  },
+  "48": {
+   "(+,+)": [
+    [
+     1.0,
+     1,
+     2
+    ],
+    [
+     8.0,
+     -1,
+     1
+    ],
+    [
+     2.0,
+     1,
+     1
+    ]
+   ],
+   "(+,-)": [
+    [
+     1.0,
+     -1,
+     2
+    ],
+    [
+     8.0,
+     1,
+     1
+    ],
+    [
+     2.0,
+     -1,
+     1
+    ]
+   ]
+  },
+  "84": {
+   "(+,+)": [
+    [
+     1.0,
+     -1,
+     3
+    ],
+    [
+     1.0,
+     -1,
+     2
+    ],
+    [
+     4.0,
+     1,
+     2
+    ],
+    [
+     11.0,
+     -1,
+     1
+    ],
+    [
+     4.0,
+     1,
+     1
+    ],
+    [
+     1.0,
+     -1,
+     1
+    ]
+   ],
+   "(+,-)": [
+    [
+     1.0,
+     1,
+     3
+    ],
+    [
+     1.0,
+     1,
+     2
+    ],
+    [
+     4.0,
+     -1,
+     2
+    ],
+    [
+     11.0,
+     1,
+     1
+    ],
+    [
+     4.0,
+     -1,
+     1
+    ],
+    [
+     1.0,
+     1,
+     1
+    ]
+   ]
+  }
+ },
+ "published_rows": [
+  {
+   "label": "(1)",
+   "bulk": [
+    {
+     "rep": "28",
+     "parities": [
+      1,
+      -1
+     ],
+     "multiplicity": 1
+    },
+    {
+     "rep": "84",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 4
+    }
+   ],
+   "published": {
+    "alpha_min": 0.043,
+    "m_h": 126.8,
+    "invR5": 3.8
+   },
+   "ours": {
+    "D8": 15,
+    "A4": 258,
+    "G": 59.57501900391759
+   }
+  },
+  {
+   "label": "(2)",
+   "bulk": [
+    {
+     "rep": "28",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 1
+    },
+    {
+     "rep": "84",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 4
+    }
+   ],
+   "published": {
+    "alpha_min": 0.081,
+    "m_h": 125.5,
+    "invR5": 2.0
+   },
+   "ours": {
+    "D8": 29,
+    "A4": 271,
+    "G": 84.57891079557112
+   }
+  },
+  {
+   "label": "(3)",
+   "bulk": [
+    {
+     "rep": "28",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 1
+    },
+    {
+     "rep": "48",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 3
+    },
+    {
+     "rep": "84",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 2
+    }
+   ],
+   "published": {
+    "alpha_min": 0.021,
+    "m_h": 125.1,
+    "invR5": 7.5
+   },
+   "ours": {
+    "D8": 9,
+    "A4": 189,
+    "G": 103.66790493566285
+   }
+  },
+  {
+   "label": "(4)",
+   "bulk": [
+    {
+     "rep": "7",
+     "parities": [
+      1,
+      -1
+     ],
+     "multiplicity": 1
+    },
+    {
+     "rep": "48",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 2
+    },
+    {
+     "rep": "84",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 3
+    }
+   ],
+   "published": {
+    "alpha_min": 0.026,
+    "m_h": 126.4,
+    "invR5": 6.1
+   },
+   "ours": {
+    "D8": 11,
+    "A4": 223,
+    "G": 85.08525197676323
+   }
+  },
+  {
+   "label": "(5)",
+   "bulk": [
+    {
+     "rep": "7",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 1
+    },
+    {
+     "rep": "7",
+     "parities": [
+      1,
+      -1
+     ],
+     "multiplicity": 1
+    },
+    {
+     "rep": "84",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 4
+    }
+   ],
+   "published": {
+    "alpha_min": 0.043,
+    "m_h": 126.2,
+    "invR5": 3.8
+   },
+   "ours": {
+    "D8": 15,
+    "A4": 255,
+    "G": 64.41537389287674
+   }
+  }
+ ],
+ "anchor": {
+  "label": "published row (2)",
+  "bulk": [
+   {
+    "rep": "28",
+    "parities": [
+     1,
+     1
+    ],
+    "multiplicity": 1
+   },
+   {
+    "rep": "84",
+    "parities": [
+     1,
+     1
+    ],
+    "multiplicity": 4
+   }
+  ],
+  "caveat": "the row where our alpha agrees best with theirs (1.03x); across the 5 rows the ratio runs 1.03x to 2.08x, and this is the only row whose m_h falls inside the 125-127 GeV window"
+ },
+ "constants": {
+  "ceiling_GeV": 10034.0,
+  "ceiling_A4": 215,
+  "ceiling_8D": 1,
+  "anchor_band": [
+   1.03,
+   2.08
+  ],
+  "note": "ceiling_GeV is the RELAXATION's bound -- Part VII section 8, eq. (24), certified by an exact rational dual for arbitrary content on the seed as printed; its own vertex is empty, and the levels below it are in `ceilings`. The band is the row-wise range of alpha_ours/alpha_theirs, Part VI section 7"
+ },
+ "ceilings": {
+  "relaxation": {
+   "GeV": 10034.0,
+   "A4": 215,
+   "8D": 1,
+   "bounds": "any bulk content, on the gauge seed as printed -- the LP dual's bound",
+   "attained": false,
+   "source": "ceiling_ilp.py, Part VII eq. (24); the vertex (215, 1) is EMPTY once G is written in {1, ln 2, ln 3}: no content of any size can pay for it in G, short by 0.067 in a budget of 681 (certify_212_215.py)"
+  },
+  "attained": {
+   "GeV": 10013,
+   "A4": 212,
+   "8D": 1,
+   "bounds": "any bulk content whose electroweak point is STATIONARY",
+   "attained": true,
+   "witness": [
+    {
+     "rep": "7",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 17
+    },
+    {
+     "rep": "7",
+     "parities": [
+      1,
+      -1
+     ],
+     "multiplicity": 2
+    },
+    {
+     "rep": "28",
+     "parities": [
+      1,
+      -1
+     ],
+     "multiplicity": 57
+    }
+   ],
+   "source": "vacuum_constraint.py section 3 and certify_212_215.py, Part VII eq. (32); the witness sits in a FALSE vacuum -- deeper at alpha = 1 by 316"
+  },
+  "true_vacuum": {
+   "GeV": 9218,
+   "A4": 104,
+   "8D": 1,
+   "bounds": "any bulk content whose electroweak point is its TRUE vacuum (W > 0), with m_h anywhere in the window",
+   "attained": true,
+   "witness": [
+    {
+     "rep": "7",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 16
+    },
+    {
+     "rep": "28",
+     "parities": [
+      1,
+      -1
+     ],
+     "multiplicity": 1
+    },
+    {
+     "rep": "48",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 1
+    },
+    {
+     "rep": "48",
+     "parities": [
+      1,
+      -1
+     ],
+     "multiplicity": 4
+    },
+    {
+     "rep": "84",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 1
+    }
+   ],
+   "witness_W": 2.5,
+   "exact": {
+    "alpha": 0.01756,
+    "m_h": 126.0,
+    "GeV": 9157
+   },
+   "source": "vacuum_constraint.py section 3, Part VII eq. (36); [8]'s stability criterion carried inside the integer program. `exact` is the same witness minimised on the untruncated polylogarithmic potential"
+  },
+  "measured_mh": {
+   "GeV": 9087,
+   "A4": 101,
+   "8D": 1,
+   "m_h": 125.2,
+   "m_h_err": 0.11,
+   "bounds": "any true-vacuum content at the Higgs mass the Higgs actually has",
+   "attained": true,
+   "unconstrained_GeV": 9871,
+   "unconstrained_A4": 206,
+   "source": "higgs_window.py, Part VII eq. (37); the one-sigma band does not move the vertex"
+  },
+  "asymptote_GeV": 2678.2,
+  "asymptote_source": "asymptotic_ray.py, Part VII eq. (27): the Lambert-W limit the per-rung ceiling falls to, approached from above and never reached; it carries no gauge quantity at all",
+  "per_rung": [
+   {
+    "8D": 1,
+    "A4": 215,
+    "GeV": 10034.0
+   },
+   {
+    "8D": 3,
+    "A4": 336,
+    "GeV": 6266.5
+   },
+   {
+    "8D": 5,
+    "A4": 436,
+    "GeV": 5137.3
+   },
+   {
+    "8D": 7,
+    "A4": 533,
+    "GeV": 4562.1
+   },
+   {
+    "8D": 9,
+    "A4": 630,
+    "GeV": 4208.7
+   },
+   {
+    "8D": 15,
+    "A4": 918,
+    "GeV": 3653.1
+   },
+   {
+    "8D": 21,
+    "A4": 1209,
+    "GeV": 3390.2
+   },
+   {
+    "8D": 33,
+    "A4": 1800,
+    "GeV": 3138.3
+   },
+   {
+    "8D": 45,
+    "A4": 2397,
+    "GeV": 3016.6
+   },
+   {
+    "8D": 65,
+    "A4": 3400,
+    "GeV": 2912.7
+   },
+   {
+    "8D": 99,
+    "A4": 5112,
+    "GeV": 2831.6
+   },
+   {
+    "8D": 129,
+    "A4": 6630,
+    "GeV": 2796.2
+   },
+   {
+    "8D": 201,
+    "A4": 10272,
+    "GeV": 2753.6
+   },
+   {
+    "8D": 301,
+    "A4": 15335,
+    "GeV": 2728.4
+   },
+   {
+    "8D": 501,
+    "A4": 25470,
+    "GeV": 2708.4
+   }
+  ],
+  "per_rung_source": "ceiling_ilp.py: the relaxation's ceiling on each odd rung, on the seed as printed -- the teeth Part VII section 10 reads the likelihood at"
+ },
+ "gauge_seeds": {
+  "published": {
+   "label": "as printed in arXiv:2503.04090, eq. (68)",
+   "weights": [
+    2,
+    0.5
+   ],
+   "bracket": [
+    2,
+    4,
+    7
+   ],
+   "gauge": [
+    [
+     -1.0,
+     1,
+     2
+    ],
+    [
+     -2.0,
+     1,
+     1
+    ],
+    [
+     -3.5,
+     -1,
+     1
+    ]
+   ],
+   "five": [
+    -18,
+    -27,
+    -39,
+    0,
+    -3
+   ],
+   "parity_of_8D": "odd",
+   "ceiling_GeV": 10034.0,
+   "ceiling_8D": 1,
+   "note": "four degrees of freedom in the periodic channel and one in the antiperiodic: five, where a six-dimensional gauge field has four. Theorem 1 (8D odd) holds on this seed"
+  },
+  "candidate": {
+   "label": "candidate parity-resolved split, Part VII section 13",
+   "weights": [
+    1.5,
+    0.5
+   ],
+   "bracket": [
+    1.5,
+    3,
+    6
+   ],
+   "gauge": [
+    [
+     -0.75,
+     1,
+     2
+    ],
+    [
+     -1.5,
+     1,
+     1
+    ],
+    [
+     -3.0,
+     -1,
+     1
+    ]
+   ],
+   "five": [
+    -13.5,
+    -18.0,
+    -30.0,
+    0.0,
+    -3.0
+   ],
+   "parity_of_8D": "even",
+   "ceiling_GeV": 7376,
+   "ceiling_8D": 2,
+   "ceiling_A4": 272.5,
+   "note": "three and one, which is four; the ghost subtraction lands in the periodic sector. 8D is even, A4 half-integral, the hypothesis of Theorem 1 is not met, Theorem 2 and the 2W theorem survive, and the relaxation ceiling drops one rung to 8D = 2. The true-vacuum level is NOT recomputed on this branch"
+  },
+  "shift": {
+   "2A4": 9,
+   "8D": 9,
+   "2U": 9,
+   "V": 0,
+   "2W": 0
+  },
+  "source": "gauge_ghost_seed.py, ceiling_ilp_coset.py, seed_shift_character.py"
+ },
+ "escape_assignments": {
+  "rows": [
+   {
+    "l": [
+     "1/2",
+     "1/2",
+     "0"
+    ],
+    "X_Q": "-1/9",
+    "A": [
+     "1/6",
+     "1/6",
+     "-1/3"
+    ],
+    "nus": [
+     "-1",
+     "-1",
+     "-1/2"
+    ],
+    "realisable": true
+   },
+   {
+    "l": [
+     "1/2",
+     "1/2",
+     "-1/2"
+    ],
+    "X_Q": "-1/18",
+    "A": [
+     "1/3",
+     "1/3",
+     "-2/3"
+    ],
+    "nus": [
+     "-1",
+     "-1"
+    ],
+    "realisable": false
+   },
+   {
+    "l": [
+     "1/2",
+     "1/2",
+     "-1"
+    ],
+    "X_Q": "0",
+    "A": [
+     "1/2",
+     "1/2",
+     "-1"
+    ],
+    "nus": [
+     "-1",
+     "-1",
+     "1/2"
+    ],
+    "realisable": false
+   },
+   {
+    "l": [
+     "1/2",
+     "0",
+     "0"
+    ],
+    "X_Q": "-1/18",
+    "A": [
+     "1/3",
+     "-1/6",
+     "-1/6"
+    ],
+    "nus": [
+     "-1",
+     "-1/2",
+     "-1/2"
+    ],
+    "realisable": true
+   },
+   {
+    "l": [
+     "1/2",
+     "0",
+     "-1"
+    ],
+    "X_Q": "1/18",
+    "A": [
+     "2/3",
+     "1/6",
+     "-5/6"
+    ],
+    "nus": [
+     "-1"
+    ],
+    "realisable": false
+   },
+   {
+    "l": [
+     "1/2",
+     "-1/2",
+     "-1/2"
+    ],
+    "X_Q": "1/18",
+    "A": [
+     "2/3",
+     "-1/3",
+     "-1/3"
+    ],
+    "nus": [
+     "-1"
+    ],
+    "realisable": false
+   },
+   {
+    "l": [
+     "1/2",
+     "-1/2",
+     "-1"
+    ],
+    "X_Q": "1/9",
+    "A": [
+     "5/6",
+     "-1/6",
+     "-2/3"
+    ],
+    "nus": [
+     "-1",
+     "1/2"
+    ],
+    "realisable": false
+   },
+   {
+    "l": [
+     "1/2",
+     "-1",
+     "-1"
+    ],
+    "X_Q": "1/6",
+    "A": [
+     "1",
+     "-1/2",
+     "-1/2"
+    ],
+    "nus": [
+     "-1",
+     "1/2",
+     "1/2"
+    ],
+    "realisable": false
+   },
+   {
+    "l": [
+     "0",
+     "0",
+     "-1/2"
+    ],
+    "X_Q": "1/18",
+    "A": [
+     "1/6",
+     "1/6",
+     "-1/3"
+    ],
+    "nus": [
+     "-1/2",
+     "-1/2"
+    ],
+    "realisable": false
+   },
+   {
+    "l": [
+     "0",
+     "0",
+     "-1"
+    ],
+    "X_Q": "1/9",
+    "A": [
+     "1/3",
+     "1/3",
+     "-2/3"
+    ],
+    "nus": [
+     "-1/2"
+    ],
+    "realisable": false
+   },
+   {
+    "l": [
+     "0",
+     "-1/2",
+     "-1/2"
+    ],
+    "X_Q": "1/9",
+    "A": [
+     "1/3",
+     "-1/6",
+     "-1/6"
+    ],
+    "nus": [
+     "-1/2"
+    ],
+    "realisable": false
+   },
+   {
+    "l": [
+     "0",
+     "-1",
+     "-1"
+    ],
+    "X_Q": "2/9",
+    "A": [
+     "2/3",
+     "-1/3",
+     "-1/3"
+    ],
+    "nus": [
+     "1/2"
+    ],
+    "realisable": false
+   },
+   {
+    "l": [
+     "-1/2",
+     "-1/2",
+     "-1"
+    ],
+    "X_Q": "2/9",
+    "A": [
+     "1/6",
+     "1/6",
+     "-1/3"
+    ],
+    "nus": [
+     "1/2"
+    ],
+    "realisable": false
+   },
+   {
+    "l": [
+     "-1/2",
+     "-1",
+     "-1"
+    ],
+    "X_Q": "5/18",
+    "A": [
+     "1/3",
+     "-1/6",
+     "-1/6"
+    ],
+    "nus": [
+     "1/2",
+     "1/2"
+    ],
+    "realisable": false
+   }
+  ],
+  "count": 14,
+  "realisable": 2,
+  "source": "su7_realisable.py, Part VI §4 (an independent re-derivation of the fourteen of su7_family_u1.py); brane-quark charge family-universal, a = -(sum l)/9; right-handed neutrinos from the singlet ladder, up to three",
+  "one_generation": {
+   "X_Q": "-1/6",
+   "channels_forcing_it": [
+    "su2_x",
+    "x2_y",
+    "x_y2"
+   ],
+   "uncancellable": [
+    "x_grav",
+    "x3"
+   ],
+   "value": "1",
+   "source": "su7_anomaly_channels.py, Part VI §3"
+  },
+  "hosting": {
+   "0": [
+    "21",
+    "28"
+   ],
+   "1": [
+    "84"
+   ],
+   "2": [],
+   "3": [],
+   "parities": {
+    "21@0": [
+     -1,
+     1
+    ],
+    "84@1": [
+     1,
+     1
+    ]
+   },
+   "source": "su7_family_u1.py steps 6-7 and su7_realisable.py step 1: the 35 hosts L at rung 1 and not e_R; the 48 is real (Prop. 2)"
+  },
+  "qphi": {
+   "supply": [
+    [
+     "1/2",
+     "7"
+    ],
+    [
+     "1",
+     "28"
+    ],
+    [
+     "3/2",
+     "84"
+    ]
+   ],
+   "minimal_halfline": "1/3",
+   "strict_halfline": "1",
+   "scan": {
+    "values": 18648,
+    "disagreements": 0
+   },
+   "source": "su7_qphi.py steps 2, 6, 7"
+  },
+  "residual": {
+   "Z": {
+    "1/2": 1,
+    "1": 2,
+    "3/2": 3
+   },
+   "pairs_collapse_to": "1/2",
+   "source": "su7_residual_group.py"
+  }
+ },
+ "coordinates": {
+  "names": [
+   "A4",
+   "8D",
+   "2U",
+   "V",
+   "2W"
+  ],
+  "generators": {
+   "7(+,+)": [
+    0,
+    -6,
+    2,
+    0,
+    2
+   ],
+   "7(+,-)": [
+    1,
+    8,
+    0,
+    0,
+    -2
+   ],
+   "28(+,+)": [
+    17,
+    16,
+    40,
+    0,
+    6
+   ],
+   "28(+,-)": [
+    4,
+    2,
+    34,
+    0,
+    -6
+   ],
+   "48(+,+)": [
+    18,
+    0,
+    48,
+    0,
+    12
+   ],
+   "48(+,-)": [
+    8,
+    28,
+    36,
+    0,
+    -12
+   ],
+   "84(+,+)": [
+    68,
+    10,
+    346,
+    0,
+    18
+   ],
+   "84(+,-)": [
+    109,
+    80,
+    168,
+    81,
+    -18
+   ]
+  },
+  "gauge": [
+   -18,
+   -27,
+   -39,
+   0,
+   -3
+  ],
+  "invariant_factors": [
+   2,
+   72,
+   2592
+  ],
+  "index": 373248,
+  "probes": {
+   "the paper's witness": [
+    104,
+    1,
+    565,
+    0,
+    5
+   ],
+   "\\cite{KM25} row (1)": [
+    258,
+    15,
+    1379,
+    0,
+    63
+   ],
+   "\\cite{KM25} row (2)": [
+    271,
+    29,
+    1385,
+    0,
+    75
+   ],
+   "\\cite{KM25} row (3)": [
+    189,
+    9,
+    837,
+    0,
+    75
+   ],
+   "\\cite{KM25} row (4)": [
+    223,
+    11,
+    1095,
+    0,
+    73
+   ],
+   "\\cite{KM25} row (5)": [
+    255,
+    15,
+    1347,
+    0,
+    69
+   ]
+  },
+  "source": "lattice_lift.py and congruences.py; rank 5, kernel of dimension 3"
+ },
+ "wedge": {
+  "w_diagonal_interval": [
+   0.5869565217391305,
+   1.0384615384615385
+  ],
+  "fitted": [
+   {
+    "repair": "their formulas, w = 1",
+    "w28": 1.0,
+    "w84": 1.0,
+    "D2_donated": 2.375,
+    "D3_donated": -0.125,
+    "headline": true
+   },
+   {
+    "repair": "(I) a_min only        s6",
+    "w28": 1.081,
+    "w84": 0.827,
+    "D2_donated": 1.88825,
+    "D3_donated": -0.17925,
+    "headline": true
+   },
+   {
+    "repair": "(II) curvature only   s6",
+    "w28": 1.037,
+    "w84": 1.03,
+    "D2_donated": 2.5615,
+    "D3_donated": -0.0135,
+    "headline": true
+   },
+   {
+    "repair": "(I)+(II) both columns s6",
+    "w28": 0.825,
+    "w84": 0.923,
+    "D2_donated": 1.73625,
+    "D3_donated": -0.57125,
+    "headline": true
+   },
+   {
+    "repair": "per-row lam, lowest   s4",
+    "w28": 0.8,
+    "w84": 0.8,
+    "D2_donated": 1.225,
+    "D3_donated": -0.775,
+    "headline": true
+   },
+   {
+    "repair": "per-row lam, highest  s4",
+    "w28": 0.962,
+    "w84": 0.962,
+    "D2_donated": 2.1565,
+    "D3_donated": -0.2485,
+    "headline": true
+   },
+   {
+    "repair": "EDGE: w at which (2) dies",
+    "w28": 0.5869565217391305,
+    "w84": 0.5869565217391305,
+    "D2_donated": 0.0,
+    "D3_donated": -1.4673913043478262,
+    "headline": false
+   }
+  ],
+  "w48_largest_repair": 5.59,
+  "source": "su7_repair_space.py part A: D(2) donated = -27/8 + 2 w28 + (15/4) w84 must stay positive and D(3) donated = -27/8 + 2 w28 + (5/4) w84 negative; w(7) and w(48) appear in neither, so the headline lives in a plane and the largest repair the anchor asks for is identically invisible to it"
+ },
+ "sixth_row": {
+  "ratio_with48": 1.9400183150183148,
+  "ratio_no48": 1.1993396497272466,
+  "candidates": [
+   {
+    "kind": "48-rich, large alpha",
+    "content": "1 x 28(+1,-1) + 1 x 28(+1,+1) + 1 x 48(+1,+1) + 3 x 84(+1,+1)",
+    "bulk": [
+     {
+      "rep": "28",
+      "parities": [
+       1,
+       -1
+      ],
+      "multiplicity": 1
+     },
+     {
+      "rep": "28",
+      "parities": [
+       1,
+       1
+      ],
+      "multiplicity": 1
+     },
+     {
+      "rep": "48",
+      "parities": [
+       1,
+       1
+      ],
+      "multiplicity": 1
+     },
+     {
+      "rep": "84",
+      "parities": [
+       1,
+       1
+      ],
+      "multiplicity": 3
+     }
+    ],
+    "n48": 1,
+    "a_ours": 0.07341681295233493,
+    "mh_ours": 126.24708619751308
+   },
+   {
+    "kind": "no 48, small alpha",
+    "content": "1 x 28(+1,+1) + 1 x 7(+1,+1) + 2 x 84(+1,+1)",
+    "bulk": [
+     {
+      "rep": "28",
+      "parities": [
+       1,
+       1
+      ],
+      "multiplicity": 1
+     },
+     {
+      "rep": "7",
+      "parities": [
+       1,
+       1
+      ],
+      "multiplicity": 1
+     },
+     {
+      "rep": "84",
+      "parities": [
+       1,
+       1
+      ],
+      "multiplicity": 2
+     }
+    ],
+    "n48": 0,
+    "a_ours": 0.028757157097695128,
+    "mh_ours": 130.9976513109146
+   }
+  ],
+  "source": "su7_sixth_row.py (Part VI section 7): the confound is that n(48) and the published alpha are rank-correlated across their five rows; these two publishable contents break the lock, and the committed numbers -- a_ours divided by 1.94 or by 1.20 according to the reading -- were fixed in print before any such row exists"
+ },
+ "collider": {
+  "coupling_ratio": "sqrt(2)",
+  "alphas_run": {
+   "aZ": 0.118,
+   "MZ": 91.1876,
+   "nf": 6,
+   "source": "collider_dictionary.py: one-loop, crude on purpose -- the width is a 10%-level statement"
+  },
+  "branches": [
+   {
+    "name": "ceiling at the measured m_h",
+    "invR5_TeV": 9.09,
+    "alphas": 0.0735,
+    "GoverM": 0.147,
+    "Gamma_GeV": 1337
+   },
+   {
+    "name": "ceiling with the true vacuum",
+    "invR5_TeV": 9.22,
+    "alphas": 0.0734,
+    "GoverM": 0.147,
+    "Gamma_GeV": 1354
+   },
+   {
+    "name": "ceiling for arbitrary content",
+    "invR5_TeV": 10.03,
+    "alphas": 0.0729,
+    "GoverM": 0.146,
+    "Gamma_GeV": 1463
+   },
+   {
+    "name": "contents that afford the escape",
+    "invR5_TeV": 3.97,
+    "alphas": 0.0789,
+    "GoverM": 0.158,
+    "Gamma_GeV": 626
+   }
+  ],
+  "resummation": {
+   "eft_coefficient": -0.20873605782007704,
+   "invR5_used_TeV": 3.97,
+   "width_shift_at_zero": 0.975704156834996,
+   "ratios_chi_1p5": {
+    "3.3": {
+     "9.09": 1.3635305816920371,
+     "3.97": 3.1601237326629743
+    },
+    "3.9": {
+     "9.09": 1.5159967926787838,
+     "3.97": 4.129944848321026
+    },
+    "4.5": {
+     "9.09": 1.6989831274937304,
+     "3.97": 5.301748523089522
+    },
+    "5.1": {
+     "9.09": 1.9141651181992847,
+     "3.97": 6.675107810188199
+    },
+    "6.5": {
+     "9.09": 2.549821427696582,
+     "3.97": 10.646352237447008
+    }
+   },
+   "source": "kk_resummation.py: F(t) = pi R5 sqrt(-t) coth(pi R5 sqrt(-t)); the withdrawn width correction tends to 1/(1+(2 alpha_s)^2) at t -> 0, which no self-energy below threshold may do"
+  },
+  "lambda8_TeV": {
+   "escape": 7.79,
+   "measured_mh": 18.48
+  },
+  "bins": {
+   "mjj_TeV": [
+    2.7,
+    3.3,
+    3.9,
+    4.5,
+    5.1,
+    6.5,
+    9.0
+   ],
+   "chi": [
+    1.5,
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    10,
+    12,
+    14,
+    16
+   ],
+   "source": "kk_dijet_lo.py, the LO recast's own grid"
+  },
+  "teeth": {
+   "min_dchi2": 12.0,
+   "at_8D": 1,
+   "at_TeV": 10.03,
+   "threshold": 3.84,
+   "next_tooth_dchi2": 244,
+   "escape_dchi2": "beyond a thousand",
+   "half_quantum": {
+    "TeV": 14.19,
+    "dchi2": -6.0
+   },
+   "source": "QUOTED from the published Part VII, eq. (combchi): the 77-point chi^2, truncated teeth -- both stated choices made the unfavourable way; the profiling recipe lives in make_fig_chi2.py and is not re-derived here"
+  }
+ },
+ "screen": {
+  "K_over_g4": 2.245624109666417,
+  "at_theirs": [
+   {
+    "case": "(1)",
+    "a_theirs": 0.043,
+    "mh": 126.8,
+    "F2": 16.201554847093597,
+    "F1": -0.29516161990390444,
+    "K": 1.3545946669390485,
+    "g4": 0.6032152313951914
+   },
+   {
+    "case": "(2)",
+    "a_theirs": 0.081,
+    "mh": 125.5,
+    "F2": 53.57221241877249,
+    "F1": -0.11331976984100134,
+    "K": 1.3888615460712812,
+    "g4": 0.6184746325499657
+   },
+   {
+    "case": "(3)",
+    "a_theirs": 0.021,
+    "mh": 125.1,
+    "F2": -2.4488323500549747,
+    "F1": -0.1945352141452601,
+    "K": null,
+    "g4": null
+   },
+   {
+    "case": "(4)",
+    "a_theirs": 0.026,
+    "mh": 126.4,
+    "F2": 0.6096095336246989,
+    "F1": -0.25630388722191233,
+    "K": 4.209151395215051,
+    "g4": 1.8743793215865998
+   },
+   {
+    "case": "(5)",
+    "a_theirs": 0.043,
+    "mh": 126.2,
+    "F2": 16.25199731721468,
+    "F1": -0.29571660705304836,
+    "K": 1.3460910587286767,
+    "g4": 0.5994284853526247
+   }
+  ],
+  "source": "su7_anchor_mh.py section B (Part VI): K = m_h a_min / sqrt(F''(a_min)) = 2 m_W sqrt(3/(16 pi^6)) g4 for every row of every content; invariant under F -> lambda F, so it does not test the normalisation"
+ },
+ "escape": {
+  "host": "84(+,+)",
+  "cost8": 10,
+  "min_8D": 11,
+  "ceiling_GeV": 3967.4,
+  "ceiling_A4": 727,
+  "ceiling_8D": 11,
+  "ratio": 2.53,
+  "note": "donating the host takes cost8/8 off D, and D must stay positive, so a content can afford the escape iff 8D >= min_8D. The per-rung ceiling is monotone decreasing in D, so that bound moves the ceiling itself: ceiling_GeV against the unconstrained one. It bounds the content BEFORE the donation, not the world after"
+ },
+ "size_curve": [
+  {
+   "N": 5,
+   "contents": 1286,
+   "in_window": 1,
+   "with_host": 1,
+   "can_pay": 1,
+   "best_invR5": 1924,
+   "best_8D": 29,
+   "best_invR5_paying": 1924,
+   "best_8D_paying": 29
+  },
+  {
+   "N": 6,
+   "contents": 3002,
+   "in_window": 3,
+   "with_host": 3,
+   "can_pay": 3,
+   "best_invR5": 2182,
+   "best_8D": 21,
+   "best_invR5_paying": 2182,
+   "best_8D_paying": 21
+  },
+  {
+   "N": 7,
+   "contents": 6434,
+   "in_window": 15,
+   "with_host": 15,
+   "can_pay": 13,
+   "best_invR5": 3604,
+   "best_8D": 7,
+   "best_invR5_paying": 2573,
+   "best_8D_paying": 15
+  },
+  {
+   "N": 8,
+   "contents": 12869,
+   "in_window": 30,
+   "with_host": 29,
+   "can_pay": 22,
+   "best_invR5": 9138,
+   "best_8D": 1,
+   "best_invR5_paying": 2683,
+   "best_8D_paying": 13
+  },
+  {
+   "N": 9,
+   "contents": 24309,
+   "in_window": 62,
+   "with_host": 58,
+   "can_pay": 47,
+   "best_invR5": 9138,
+   "best_8D": 1,
+   "best_invR5_paying": 2858,
+   "best_8D_paying": 11
+  },
+  {
+   "N": 10,
+   "contents": 43757,
+   "in_window": 110,
+   "with_host": 99,
+   "can_pay": 86,
+   "best_invR5": 9138,
+   "best_8D": 1,
+   "best_invR5_paying": 2972,
+   "best_8D_paying": 11
+  },
+  {
+   "N": 11,
+   "contents": 75581,
+   "in_window": 212,
+   "with_host": 184,
+   "can_pay": 167,
+   "best_invR5": 9138,
+   "best_8D": 1,
+   "best_invR5_paying": 2974,
+   "best_8D_paying": 11
+  },
+  {
+   "N": 12,
+   "contents": 125969,
+   "in_window": 388,
+   "with_host": 332,
+   "can_pay": 307,
+   "best_invR5": 9156,
+   "best_8D": 1,
+   "best_invR5_paying": 2975,
+   "best_8D_paying": 11
+  },
+  {
+   "N": 13,
+   "contents": 203489,
+   "in_window": 670,
+   "with_host": 562,
+   "can_pay": 525,
+   "best_invR5": 9156,
+   "best_8D": 1,
+   "best_invR5_paying": 2975,
+   "best_8D_paying": 11
+  },
+  {
+   "N": 14,
+   "contents": 319769,
+   "in_window": 1097,
+   "with_host": 906,
+   "can_pay": 857,
+   "best_invR5": 9156,
+   "best_8D": 1,
+   "best_invR5_paying": 3017,
+   "best_8D_paying": 11
+  }
+ ]
+}

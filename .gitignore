@@ -1,0 +1,11 @@
+shots/
+# Glob, not three literals: the third shooter's profile went into a commit because the
+# ignore list named the two that existed when it was written.
+.shoot-profile*/
+app/
+# Anchored: a bare `site/` also matches `src/site/`, which is the SOURCE and must be tracked.
+# It silently dropped the whole stylesheet and every page fragment from the first commit.
+/site/
+__pycache__/
+
+build/sources.local

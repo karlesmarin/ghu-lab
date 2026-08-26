@@ -1,0 +1,126 @@
+/* site.css — the pages around the instrument.
+ *
+ * Copyright (c) 2026 Carles Marin. All rights reserved.
+ * Author: Carles Marin <karlesmarin@gmail.com>  (with Claude, Anthropic, as assistant)
+ *
+ * Same tokens as src/shell/app_shell.html, deliberately: a reader who moves from a paper page into
+ * the app must not feel they have left the site.  The tokens are duplicated rather than shared
+ * because the app is a single self-contained file by decision (DESIGN.md D1) and may not link a
+ * stylesheet — so this file is the copy, and _test_site.py checks the two palettes agree.
+ */
+:root{
+  --ink:#16202a; --ink2:#4a5b6a; --ink3:#7d8c99;
+  --line:#dfe6ec; --bg:#fbfcfd; --card:#ffffff;
+  --blue:#1B6F8C; --blue-d:#12546b; --blue-l:#e8f2f6;
+  --rust:#B5530F; --rust-l:#fbeee5;
+  --green:#1f7a4d; --green-l:#e6f4ec;
+  --amber:#8a6d1f; --amber-l:#fbf3dd;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+/* Flex column so the footer sits at the bottom of a short page instead of halfway up it — the
+ * editions page is two paragraphs long and looked unfinished without this. */
+body{margin:0;background:var(--bg);color:var(--ink);min-height:100vh;
+     display:flex;flex-direction:column;
+     font:16px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,"Helvetica Neue",sans-serif}
+a{color:var(--blue);text-underline-offset:2px}
+a:hover{color:var(--rust)}
+code{font:13.5px/1.4 var(--mono);background:#eef3f6;padding:1px 5px;border-radius:4px}
+.lc{text-transform:none}                       /* Greek stays lower-case: uppercased, eta is an H */
+
+/* ------------------------------------------------------------------ frame */
+.top{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:9}
+.top .in{max-width:920px;margin:0 auto;padding:11px 22px;display:flex;align-items:baseline;
+         gap:18px;flex-wrap:wrap}
+.top .brand{font-weight:700;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+.top nav{display:flex;gap:16px;font-size:14px;margin-left:auto;flex-wrap:wrap}
+.top nav a{text-decoration:none;color:var(--ink2)}
+.top nav a:hover,.top nav a[aria-current]{color:var(--blue-d);text-decoration:underline}
+main{max-width:920px;margin:0 auto;padding:34px 22px 70px;width:100%;flex:1}
+footer{border-top:1px solid var(--line);background:#fff}
+footer .in{max-width:920px;margin:0 auto;padding:20px 22px 34px;font-size:13.5px;color:var(--ink3)}
+
+/* ------------------------------------------------------------------ type */
+h1{font-size:29px;line-height:1.24;letter-spacing:-.02em;margin:0 0 10px;font-weight:700}
+h2{font-size:13px;text-transform:uppercase;letter-spacing:.09em;color:var(--ink2);
+   margin:40px 0 13px;font-weight:650}
+h3{font-size:18px;margin:26px 0 8px;font-weight:650;letter-spacing:-.01em}
+p{margin:0 0 14px}
+.lead{font-size:18.5px;line-height:1.55;color:var(--ink2);margin:0 0 20px}
+.sub{font-size:14px;color:var(--ink3);margin:0 0 26px}
+ul,ol{margin:0 0 14px;padding-left:22px}
+li{margin:0 0 7px}
+
+/* ------------------------------------------------------------------ pieces */
+.card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:17px 19px;
+      margin:0 0 15px}
+.chip{font:600 11px/1 var(--mono);letter-spacing:.04em;padding:5px 9px;border-radius:99px;
+      border:1px solid transparent;text-transform:uppercase;white-space:nowrap;display:inline-block}
+.chip.thm{background:var(--green-l);color:var(--green);border-color:#bfe0cd}
+.chip.ver{background:var(--amber-l);color:var(--amber);border-color:#e7d9ab}
+.chip.mea{background:var(--blue-l);color:var(--blue-d);border-color:#c3dce6}
+.chip.unk{background:#fff;color:var(--ink2);border-color:var(--line)}
+.chip.bad{background:#fdecec;color:#9b2226;border-color:#f2c9c9}
+
+.doors{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:0 0 10px}
+.door{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--line);
+      border-radius:11px;padding:19px 20px}
+.door:hover{border-color:var(--blue);box-shadow:0 1px 0 var(--blue-l)}
+.door b{display:block;font-size:17px;margin:0 0 6px;color:var(--blue-d)}
+.door span{font-size:14.5px;color:var(--ink2)}
+
+/* A wide table on a phone pushes the whole document sideways, and the overflow is off the edge of
+ * a screenshot, so it is invisible to every check that looks at a picture.  The build wraps every
+ * table in this, and shoot_site.mjs measures the document against the viewport to prove it. */
+.tw{overflow-x:auto;margin:0 0 14px;-webkit-overflow-scrolling:touch}
+.tw table{margin:0;min-width:min(100%,420px)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;margin:0 0 14px}
+th{text-align:left;font-weight:650;color:var(--ink2);font-size:11.5px;text-transform:uppercase;
+   letter-spacing:.05em;padding:8px 9px;border-bottom:1px solid var(--line)}
+td{padding:9px;border-bottom:1px solid #f0f4f7;vertical-align:top}
+td.num{font:13px/1.4 var(--mono);text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+.warn{border-left:4px solid var(--rust);background:var(--rust-l);border-radius:0 9px 9px 0;
+      padding:14px 17px;margin:0 0 20px}
+.warn b{display:block;margin:0 0 4px}
+.note{border-left:4px solid var(--blue);background:var(--blue-l);border-radius:0 9px 9px 0;
+      padding:14px 17px;margin:0 0 20px}
+
+/* the record banner on a paper page: the honest device, so it is the first thing read */
+.record{border:1px solid var(--line);border-radius:11px;overflow:hidden;margin:0 0 22px;background:#fff}
+.record .row{display:flex;gap:14px;padding:12px 17px;font-size:14px;align-items:baseline;
+             flex-wrap:wrap}
+.record .row+.row{border-top:1px solid var(--line)}
+.record .k{font:650 11px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;
+           color:var(--ink3);min-width:158px}
+.record .frozen{background:#fcfdfe}
+.record .living{background:var(--blue-l)}
+
+.entry{border:1px solid var(--line);border-radius:11px;background:#fff;padding:16px 19px;margin:0 0 14px}
+.entry .hd{display:flex;gap:11px;align-items:baseline;flex-wrap:wrap;margin:0 0 9px}
+.entry .dt{font:600 12.5px/1 var(--mono);color:var(--ink3)}
+.entry h3{margin:6px 0 10px;font-size:16.5px}
+.entry dl{margin:0;display:grid;grid-template-columns:70px 1fr;gap:4px 12px}
+.entry dt{font:650 11px/1.7 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink3)}
+.entry dd{margin:0}
+.entry dd p:last-child{margin-bottom:0}
+.sev-note{color:var(--ink2)}
+.sev-extension{color:var(--green)}
+.sev-correction{color:var(--rust)}
+.sev-withdrawal{color:#9b2226}
+
+.abstract{font-size:15.5px;color:var(--ink2)}
+.abstract p{margin:0 0 12px}
+.abstract strong{color:var(--ink)}
+
+.dl{display:grid;grid-template-columns:170px 1fr;gap:7px 14px;font-size:14.5px;margin:0 0 16px}
+.dl dt{font:650 11px/1.7 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink3)}
+.dl dd{margin:0}
+
+@media (max-width:640px){
+  .doors{grid-template-columns:1fr}
+  .dl,.entry dl{grid-template-columns:1fr;gap:2px}
+  .record .k{min-width:0}
+  h1{font-size:24px}
+}

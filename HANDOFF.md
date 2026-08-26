@@ -310,6 +310,26 @@ evidence with the artifact:
 `ghu-explorer/tests/` alongside `site/*`, or the public suite goes stale against the page.
 Build **923 checks green** (856 + the 67 that ship). `ghu-lab c267b78`/`66d7367`.
 
+**Fifteenth pass 2026-08-26: THE SOURCE TREE IS PUBLIC — `github.com/karlesmarin/ghu-lab`.**
+Carles said publish it. What the audit before publishing found and what was done about it:
+- **The history could not travel.** A headless-browser profile had been committed once
+  (`.shoot-profile-drive/`, 251 files including `Cookies`, `Login Data`, `History`,
+  `Trust Tokens`) and removed again; it is gone from the working tree but lives in the old
+  commits, and `git filter-repo` is not installed here. So the public repository starts at a
+  clean **orphan `main`** — one commit, 90 files, verified to reach zero objects of that profile.
+  The pre-public history stays on the local **`master`** branch and **must never be pushed**.
+  Nothing narrative is lost: HANDOFF and `changes/` carry it, and both are in the tree.
+- **No published file may name the private authoring tree.** Six build scripts and four data
+  files carried `...\Curiosity\research\smeft_formalization\...`, and nothing on the deployed
+  site had ever named it. `build/sources.py` now resolves that root from `GHU_SOURCES` or from
+  `build/sources.local` (git-ignored), and `provenance()` records repo-relative paths, so the
+  JSON still says WHICH script produced a number without saying where it sits. Re-audited from
+  outside after the push: zero hits for the local layout in any published file. Bonus, and it was
+  a referee point: the generators are now runnable by someone else.
+- README (what it is, what is checked and against what, how to reproduce the data, the anchor
+  caveat, the layout, why the history starts here) + Apache 2.0, matching ghu-explorer, which now
+  links to the source from its own table and its validation section.
+
 **Still open, and both are Carles's calls, not defects:** the α normalisation (a science problem
 the papers already state as open — the two in-print routes are in the instrument), and scope —
 a Python API, and whether to publish the `ghu-lab` source tree, which would answer three of the

@@ -1,7 +1,7 @@
 # 🔧 GHU Lab — the source tree of the gauge–Higgs unification instrument
 
 This repository builds **[karlesmarin.github.io/ghu-explorer](https://karlesmarin.github.io/ghu-explorer/)**:
-one self-contained HTML page holding eleven computations over three published models —
+one self-contained HTML page holding twelve computations over three published models —
 SU(7) on S¹/Z₂×S¹/Z₂ (Komori–Maru), SU(4) on T²/Z₂ (AHMN), and Haba–Yamashita's 5D SU(3) on
 S¹/Z₂ — with **every output carrying what is known about it**: `theorem`, `verified`, `measured`
 or `unknown`, as fields in the exported result card rather than as decoration.
@@ -9,7 +9,7 @@ or `unknown`, as fields in the exported result card rather than as decoration.
 The deployed page is a build artifact. This is where it comes from, and why it says what it says.
 
 ```
-python build/build_app.py     # inline → collision guard → edition gate → 16 harnesses → app/index.html
+python build/build_app.py     # inline → collision guard → edition gate → 17 harnesses → app/index.html
 python build/build_site.py --legacy ../ghu-explorer/tools-2026-07     # → site/, then gates itself
 node   build/shoot.mjs        # headless screenshots of every section + console + which model
 node   build/drive.mjs        # USES the calculator: real mouse through the DevTools Input domain
@@ -21,7 +21,7 @@ node   tests/run.mjs          # the built page against the Python engine of Part
 
 ## What is checked, and against what
 
-**923 checks.** The ones that carry weight are the ones an outside computation could lose:
+**1 084 checks.** The ones that carry weight are the ones an outside computation could lose:
 
 | harness | what it puts at risk |
 |---|---|

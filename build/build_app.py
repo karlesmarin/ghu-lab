@@ -29,13 +29,15 @@ from editiongate import check, report                                    # noqa:
 VERSION = "0.2.0"
 
 KERNEL = ["meta.mjs", "status.mjs", "model.mjs", "potential.mjs", "canonical.mjs", "screens.mjs",
-          "charges.mjs", "wilson.mjs", "surface.mjs", "resolve.mjs", "card.mjs"]
+          "charges.mjs", "multiplets.mjs", "wilson.mjs", "surface.mjs", "resolve.mjs", "card.mjs"]
 MODULES = ["selection.mjs", "calculator.mjs", "hierarchy.mjs", "anomalies.mjs", "escape.mjs",
-           "samepot.mjs", "screen.mjs", "collider.mjs", "atlas.mjs", "eta.mjs", "fived.mjs"]
+           "samepot.mjs", "screen.mjs", "collider.mjs", "atlas.mjs", "eta.mjs", "fived.mjs",
+           "spectrum.mjs"]
 SECTIONS = ["torus_panels.js", "hierarchy_section.js", "atlas_section.js", "samepot_section.js",
             "anomalies_section.js", "escape_section.js", "screen_section.js",
             "collider_section.js", "calculator_section.js", "eta_section.js",
-            "selection_section.js", "fived_section.js", "registry.js"]
+            "selection_section.js", "fived_section.js", "multiplets_section.js",
+            "registry.js"]
 
 IMPORT_LINE = re.compile(r'^\s*import\s+[^;]*?from\s+["\'][^"\']+["\']\s*;?\s*$', re.M)
 EXPORT_KW = re.compile(r"^\s*export\s+(?=(?:const|let|var|function|class|async))", re.M)
@@ -155,6 +157,7 @@ def main(argv=None):
                 ["node", "_test_eta.mjs"], ["node", "_test_selection.mjs"],
                 ["node", "_test_surface.mjs"], ["node", "_test_escape.mjs"],
                 ["node", "_test_samepot.mjs"], ["node", "_test_screen.mjs"],
+                ["node", "_test_multiplets.mjs"],
                 ["node", "_test_fived.mjs"], ["node", "_test_collider.mjs"],
                 ["node", "_test_atlas.mjs"],
                 # the golden suite that SHIPS with the artifact: the built page against the

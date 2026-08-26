@@ -935,7 +935,7 @@
   ],
   "count": 14,
   "realisable": 2,
-  "source": "su7_realisable.py, Part VI §4 (an independent re-derivation of the fourteen of su7_family_u1.py); brane-quark charge family-universal, a = -(sum l)/9; right-handed neutrinos from the singlet ladder, up to three",
+  "source": "su7_realisable.py, Part VI \u00a74 (an independent re-derivation of the fourteen of su7_family_u1.py); brane-quark charge family-universal, a = -(sum l)/9; right-handed neutrinos from the singlet ladder, up to three",
   "one_generation": {
    "X_Q": "-1/6",
    "channels_forcing_it": [
@@ -948,7 +948,7 @@
     "x3"
    ],
    "value": "1",
-   "source": "su7_anomaly_channels.py, Part VI §3"
+   "source": "su7_anomaly_channels.py, Part VI \u00a73"
   },
   "hosting": {
    "0": [
@@ -1558,5 +1558,239 @@
    "best_invR5_paying": 3017,
    "best_8D_paying": 11
   }
- ]
+ ],
+ "multiplets": {
+  "source": "Komori & Maru, arXiv:2503.04090",
+  "equations": {
+   "7": "(41)",
+   "28": "(69)",
+   "48": "(57)",
+   "84": "(70)"
+  },
+  "note": "Multiplets of SU(3)_C x SU(2)_L with their three Z2 parities.  For a fermion representation the signs are relative to (xi_R, eta_R, eta'_R) as the paper prints them; the 48 is eq. (57), printed with absolute parities because the gauge sector shares the decomposition.  Charges are c = r-1, r-3, ... > 0 (eq. (71) and the note below it).  Sign s = eta*eta'*P5*P5' (eq. (72)); for the gauge field s = P5*P5' (eq. (58)).",
+  "fields": [
+   "label",
+   "P6",
+   "P5",
+   "P5p",
+   "colour",
+   "r"
+  ],
+  "gauge_weight": {
+   "periodic": 1.0,
+   "antiperiodic": 0.25
+  },
+  "decomposition": {
+   "7": [
+    [
+     "(3,1)",
+     1,
+     -1,
+     -1,
+     3,
+     1
+    ],
+    [
+     "(1,2)",
+     -1,
+     -1,
+     1,
+     1,
+     2
+    ],
+    [
+     "(1,1)",
+     -1,
+     1,
+     -1,
+     1,
+     1
+    ],
+    [
+     "(1,1)'",
+     -1,
+     1,
+     1,
+     1,
+     1
+    ]
+   ],
+   "28": [
+    [
+     "(3,2)",
+     -1,
+     -1,
+     1,
+     3,
+     2
+    ],
+    [
+     "(1,3)",
+     1,
+     -1,
+     -1,
+     1,
+     3
+    ],
+    [
+     "(1,2)",
+     1,
+     1,
+     -1,
+     1,
+     2
+    ],
+    [
+     "(1,2)'",
+     1,
+     1,
+     1,
+     1,
+     2
+    ]
+   ],
+   "48": [
+    [
+     "(1,3)",
+     1,
+     1,
+     1,
+     1,
+     3
+    ],
+    [
+     "(1,2)",
+     1,
+     -1,
+     1,
+     1,
+     2
+    ],
+    [
+     "(1,2bar)",
+     1,
+     -1,
+     1,
+     1,
+     2
+    ],
+    [
+     "(1,2)'",
+     1,
+     -1,
+     -1,
+     1,
+     2
+    ],
+    [
+     "(1,2bar)'",
+     1,
+     -1,
+     -1,
+     1,
+     2
+    ],
+    [
+     "(3,2bar)",
+     -1,
+     1,
+     -1,
+     3,
+     2
+    ],
+    [
+     "(3bar,2)",
+     -1,
+     1,
+     -1,
+     3,
+     2
+    ]
+   ],
+   "84": [
+    [
+     "(6,2)",
+     -1,
+     -1,
+     1,
+     6,
+     2
+    ],
+    [
+     "(3,3)",
+     1,
+     -1,
+     -1,
+     3,
+     3
+    ],
+    [
+     "(3,2)",
+     1,
+     1,
+     1,
+     3,
+     2
+    ],
+    [
+     "(3,2)'",
+     1,
+     1,
+     -1,
+     3,
+     2
+    ],
+    [
+     "(1,4)",
+     -1,
+     -1,
+     1,
+     1,
+     4
+    ],
+    [
+     "(1,3)",
+     -1,
+     1,
+     -1,
+     1,
+     3
+    ],
+    [
+     "(1,3)'",
+     -1,
+     1,
+     1,
+     1,
+     3
+    ],
+    [
+     "(1,2)",
+     -1,
+     -1,
+     1,
+     1,
+     2
+    ],
+    [
+     "(1,2)'",
+     -1,
+     -1,
+     1,
+     1,
+     2
+    ],
+    [
+     "(1,2)''",
+     -1,
+     -1,
+     -1,
+     1,
+     2
+    ]
+   ]
+  },
+  "produced_by": "ghu-lab/build/make_data_multiplets.py",
+  "verified_against": "data/su7_km25.json reps + gauge, term table by term table"
+ }
 }

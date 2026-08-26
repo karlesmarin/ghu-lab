@@ -9,3 +9,11 @@ app/
 __pycache__/
 
 build/sources.local
+
+# LO PRIVADO VIVE APARTE, POR SITIO.  Regla permanente de Carles (2026-08-25): los ficheros
+# privados van SIEMPRE en un directorio del que no puedan alcanzar nada publico.  Aqui el sitio se
+# llama `._privado/` y la regla es un GLOB, no el nombre: cualquier `._loquesea` queda fuera, para
+# que abrir un segundo sitio manana no dependa de acordarse de tocar este fichero.  La leccion de
+# arriba, la del tercer perfil del fotografo, es exactamente la misma.
+# build/check_privado.py comprueba que esto funciona de verdad antes de cada empujon.
+._*

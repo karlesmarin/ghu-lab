@@ -58,6 +58,47 @@ the invariant `K = m_h α_min/√F'' = 2.2456 g₄`, the laws, and the comb `ΔM
 researchers outside this series: the general 5D SU(N) on S¹/Z₂ potential (Haba–Yamashita, which
 §11 already reproduces) and a zero-mode spectrum by parities.
 
+### Lote B, tool 6 — DONE 2026-08-27: "Multiplets & parities", and the layer under the term tables
+
+The last item of lote B and the day's new finding turned out to be **the same object**, so they
+shipped together. Everywhere else a representation IS its term table — an aggregate, transcribed
+from eqs. (73)–(76). Underneath sits the decomposition into multiplets of SU(3)_C×SU(2)_L, each with
+three Z₂ parities, and from that one layer three things fall out at once:
+
+- **the term tables stop being quoted.** `build/make_data_multiplets.py` encodes eqs. (41), (57),
+  (69), (70), derives all nine tables (four reps × two parities, plus the gauge sector from eq. (68))
+  and **refuses to write the `multiplets` block if any disagrees**. All nine match. So does the hand
+  count of doublets, 1, 5, 10, 16 — a third, independent number.
+- **the zero-mode spectrum**, which is what a reader outside the series needs. And it needs no
+  second rule: `s = η·η′·P₅·P′₅` is *both* the sign of the winding sum (eq. 72) *and* the zero-mode
+  test — by eqs. (39)–(40) a zero mode exists iff `ηP₅` and `η′P′₅` agree, i.e. iff `s = +1`, and it
+  is left-handed when both are +1. One sign, two consequences.
+- **the P₆ split, and the cancellation**: one `48(+,+)` cancels the gauge sector identically across
+  all three channels of the periodic sector, and the whole residue (4.5 in the app's convention,
+  9 in theirs) sits in the antiperiodic one. It bears on the open question about that sector's
+  degree-of-freedom count: the cancellation holds under eq. (68) as printed and is destroyed by the
+  Faddeev–Popov-subtracted variant, which is a consistency argument for the published count.
+
+`src/kernel/multiplets.mjs` + `src/modules/spectrum.mjs` (the module answers for the content
+actually loaded; the section's controls are exploration on top) + `src/sections/multiplets_section.js`.
+`_test_multiplets.mjs`: **178 checks**, including the two that could have killed the finding — a
+`48(+,−)` must NOT cancel, and neither must the Faddeev–Popov variant of the gauge count. Both hold.
+Build green, 12 sections, `drive.mjs` 18/18, console clean.
+
+**Three traps, all caught by a control rather than by reading:**
+
+1. **The shell calls `sec.init(ctx)`, never `sec.mount(ctx)`.** The first version defined `mount`,
+   copied from `escape_section.js`, which happens to have both. The section built, rendered, passed
+   every harness — and shipped with two empty rows where the representation and parity buttons
+   should be. **Only the screenshot showed it.** Every other section uses `init`; this was the only
+   `mount` in the tree.
+2. **`class="pill"` does not exist.** The house button is `button.st` with `.on` for selected, and
+   for text wider than a glyph it needs `style="width:auto;padding:0 9px"`.
+3. **Six generic top-level constants are six collisions waiting.** `LABEL, P6, P5, P5P, COLOUR, DIM`
+   collided with names already in the single inlined scope — `channels` was caught by the build's
+   collision guard, `P5` only by `tests/run.mjs`. They are now one frozen object, `MUF`, and
+   destructuring it at the top of a module would recreate exactly the problem.
+
 
 ### Lote B, tool 1 — where it stands at the close of 2026-08-26
 

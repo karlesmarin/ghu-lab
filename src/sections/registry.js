@@ -19,6 +19,7 @@ const SECTIONS = [
   { ...SAMEPOT_SECTION, group: "su7_km25", family: "SU(7) · Komori-Maru" },
   { ...ANOMALIES_SECTION, group: "su7_km25", family: "SU(7) · Komori-Maru" },
   { ...ESCAPE_SECTION, group: "su7_km25", family: "SU(7) · Komori-Maru" },
+  { ...MULTIPLETS_SECTION, group: "su7_km25", family: "SU(7) · Komori-Maru" },
   { ...SCREEN_SECTION, group: "su7_km25", family: "SU(7) · Komori-Maru" },
   { ...COLLIDER_SECTION, group: "su7_km25", family: "SU(7) · Komori-Maru" },
   { ...SELECTION_SECTION, group: "su4_ahmn", family: "SU(4) · AHMN" },

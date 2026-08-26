@@ -17,7 +17,7 @@
 import { readFileSync } from "node:fs";
 import { lodd, momentsOfBox, contentMoments, predict, sweepEta, etaModule,
          atlas, atlasGrid, etaSilent, tileDiff, spectralSignatures } from "./src/modules/eta.mjs";
-import { PERIODS, spectrum, lattice, V } from "./src/kernel/wilson.mjs";
+import { PERIODS, spectrum, lattice, V, minimise } from "./src/kernel/wilson.mjs";
 import { selectionModule } from "./src/modules/selection.mjs";
 import { resolve } from "./src/kernel/resolve.mjs";
 import { complete, emptyModel } from "./src/kernel/model.mjs";
@@ -255,6 +255,41 @@ ok(AD.evenSame < AD.samePairs / 2,
   ok(tileDiff(AV, D, "no such tile", AV.tiles[0].key) === null, "an unknown key returns null, not a picture");
   const s = spectralSignatures(D, AV.tiles[0].key);
   ok(typeof s.odd === "string" && typeof s.even === "string", "signatures are strings, comparable by equality");
+}
+
+/* ---- THE SECOND MODEL'S PUBLISHED NUMBERS, reproduced with nothing fitted ------------------
+ *
+ * The census of 2026-08-26 asked whether our machinery hits anyone else's published table.  It
+ * does, here: AHMN (arXiv:2312.08608) print their potential minimum at alpha_1 = 0.438...,
+ * alpha_2 = 0.299..., a mass ratio, v = 246 GeV and 1/R = 303 GeV with g4 = 0.653, and this
+ * engine lands on all of it from their content alone -- no free parameter in this path, which
+ * is the point: the July tool's fitted gauge weight is not read here (`spectrum()` uses
+ * `reps_modes` and the role = -1 adjoint row), and the audit that established it is in
+ * `make_data_su4.py`.  That matters beyond bookkeeping: in the SU(7) model our alpha is 1.03x
+ * to 2.08x theirs, so the anchor discrepancy is a property of THAT table, not of this engine. */
+{
+  console.log("\n  AHMN's own published numbers, reproduced");
+  const rows = D.anchor.bulk.map((b) => ({ key: b.rep, n: b.multiplicity,
+                                           eta: b.eta ?? 1, role: b.role ?? 1 }));
+  const m = minimise(spectrum(rows, D), lattice(D.kmax));
+  const a1 = m.alpha[0], a2 = Math.min(m.alpha[1], 1 - m.alpha[1]);
+  ok(Math.abs(a1 - 0.438) < 5e-4 && Math.abs(a2 - 0.299) < 5e-4,
+     `their published minimum (0.438..., 0.299...): ours (${a1.toFixed(4)}, ${a2.toFixed(4)})`);
+  ok(Math.abs(m.mass_ratio - 1.2046) < 2e-4,
+     `their published mass ratio 1.2046: ours ${m.mass_ratio.toFixed(4)}`);
+  /* their eq. (4.4) chain: v = |alpha|/(g4 R), with v = 246 GeV and g4 = 2 m_W/v = 0.653 */
+  const A = Math.hypot(a1, a2), g4 = 0.653, invR = g4 * 246 / A;
+  ok(Math.abs(invR - 303) < 1.0,
+     `their 1/R = 303 GeV follows from our vacuum: ${invR.toFixed(1)} GeV`);
+  ok(Math.abs(A * 303 / g4 - 246) < 0.5,
+     `and their v = 246 GeV: ${(A * 303 / g4).toFixed(1)} GeV`);
+  /* the control that says this is not a tautology: a different content misses their numbers */
+  const other = minimise(spectrum([{ key: D.catalogue[3].name, n: 1, eta: 1, role: 1 },
+                                   { key: "(1,0,1)", n: 1, eta: 1, role: -1 }], D),
+                         lattice(D.kmax));
+  ok(other.alpha === null || Math.abs(other.alpha[0] - 0.438) > 5e-3 ||
+     Math.abs(Math.min(other.alpha[1], 1 - other.alpha[1]) - 0.299) > 5e-3,
+     "anti-vacuity: another content does NOT land on their minimum");
 }
 
 console.log(`\n_test_eta: ${pass} passed, ${fail} failed`);

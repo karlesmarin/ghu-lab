@@ -9050,16 +9050,7 @@
    "blind": true
   }
  ],
- "gauge": {
-  "1,0": 2,
-  "-1,0": 2,
-  "1,1": 2,
-  "-1,1": 2,
-  "2,0": 1,
-  "0,0": 1,
-  "-2,0": 1
- },
- "wg": 0.35,
+ "calibration_note": "none: this model's potential is built from reps_modes and the role = -1 adjoint row. The July tool's fitted gauge weight (wg = 0.35, calibrated to AHMN's own minimum) is NOT used by this kernel and is not carried.",
  "kmax": 10,
  "grid": 72,
  "anchor": {

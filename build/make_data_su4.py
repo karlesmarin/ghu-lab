@@ -87,10 +87,20 @@ DATA = {
     "reps_box": reps_box,
     "adjoint": calc.get("adjoint"),
     "catalogue": catalogue,
-    # The gauge sector enters the potential with a calibrated weight; both are the published
-    # tool's, and KMAX is its Fourier cut-off.  Constants of the model, not of the kernel.
-    "gauge": su4.get("gauge"),
-    "wg": su4.get("wg"),
+    # THE TWO FIELDS THAT USED TO BE HERE ARE GONE, and the reason is worth keeping.
+    # `gauge` (a VEV-dependent adjoint histogram) and `wg = 0.35` came from the July tool, where
+    # `higgs_mh.py` fitted the weight explicitly "so 35 min = AHMN (0.438, 0.299)".  This kernel
+    # reads NEITHER: `spectrum()` builds the potential from `reps_modes` alone, and the gauge
+    # sector enters as the adjoint row carrying role = -1.  Measured before removing them --
+    # wg from 0.20 to 1.00 moves neither the vacuum nor the mass ratio by a digit.
+    #
+    # They mattered because they made an honest agreement look circular: a data file that
+    # advertises a weight calibrated to the very number the page then claims to reproduce is a
+    # file that has to be audited before the claim can be believed.  Dead data that documents a
+    # calibration the engine does not apply is worse than no data.  [[circular-artifact-measurement-returns-definition]]
+    "calibration_note": "none: this model's potential is built from reps_modes and the role = -1 "
+                        "adjoint row. The July tool's fitted gauge weight (wg = 0.35, calibrated "
+                        "to AHMN's own minimum) is NOT used by this kernel and is not carried.",
     # KMAX is the calculator's (calc_shell.html), not the selection tool's 5.  It was typed rather
     # than read once, and the AHMN ratio came out 0.1 % low because of it.
     "kmax": 10,

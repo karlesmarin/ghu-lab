@@ -126,7 +126,12 @@ def sanitise(fragment):
 
 
 INLINE = [
-    (re.compile(r"`([^`]+)`"), lambda m: f"<code>{html.escape(m.group(1))}</code>"),
+    # ESCAPED ONCE, NOT TWICE.  `inline()` escapes the whole text before these rules run, so the
+    # group this matches is ALREADY escaped; calling html.escape on it again turned a `<` inside a
+    # code span into `&amp;lt;` and rendered the entity itself on the page.  It never fired until
+    # 2026-08-27, because no entry had ever put a `<`, `>` or `&` between backticks -- the first
+    # one that did was the entry about a boolean that could not say "not asked".
+    (re.compile(r"`([^`]+)`"), lambda m: f"<code>{m.group(1)}</code>"),
     (re.compile(r"\*\*([^*]+)\*\*"), lambda m: f"<strong>{m.group(1)}</strong>"),
     (re.compile(r"(?<![\w*])\*([^*\n]+)\*(?![\w*])"), lambda m: f"<em>{m.group(1)}</em>"),
 ]

@@ -274,7 +274,23 @@ def check_echo(w):
     return bad
 
 
+def check_double_escape(w):
+    """NOTHING IS ESCAPED TWICE.  `inline()` escapes an entry's whole text and then the code-span
+    rule escaped its own group again, so a `<` between backticks reached the page as `&amp;lt;` and
+    rendered as the literal characters `&lt;`.  It sat there from the first build: no entry had
+    ever put a `<`, `>` or `&` inside backticks until 2026-08-27, and the half of a converter that
+    handles the awkward character is the half nobody exercises.  A rendered page must never carry
+    `&amp;lt;`, `&amp;gt;` or `&amp;amp;` -- each is one escape too many."""
+    bad = []
+    for rel, txt in w["pages"].items():
+        for ent in ("&amp;lt;", "&amp;gt;", "&amp;amp;", "&amp;quot;"):
+            if ent in txt:
+                bad.append(f"{rel} carries {ent}: escaped twice, and the entity will show")
+    return bad
+
+
 CHECKS = [
+    ("nothing on any page is escaped twice", check_double_escape),
     ("links resolve on disk, so file:// and a server agree", check_links),
     ("no page reaches outside itself", check_assets),
     ("every DOI printed is one the series record holds", check_dois),
@@ -421,8 +437,15 @@ def break_echo(w):
     return b
 
 
+def break_double_escape(w):
+    b = _copy(w)
+    b["pages"]["index.html"] += "<p><code>a &amp;lt; b</code></p>"
+    return b
+
+
 BREAKERS = dict(zip([c[0] for c in CHECKS],
-                    [break_links, break_assets, break_dois, break_undeposited, break_dead_links,
+                    [break_double_escape,
+                     break_links, break_assets, break_dois, break_undeposited, break_dead_links,
                      break_app, break_palette, break_coverage, break_head, break_placeholders,
                      break_honesty, break_entries, break_echo]))
 

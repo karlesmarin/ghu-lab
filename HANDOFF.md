@@ -405,6 +405,13 @@ findings of 2026-08-26 are fixed and finds the correction's own edge, and it is 
   on the same minimum, and a start in the deep basin returns *that* one.
 - The site check that fired was a good one: a changelog title whose first 40 characters contain a
   backtick does not survive into the rendered stream. Titles stay plain prose.
+- **And writing that entry found a builder bug that had been there since the first build.**
+  `build_site.inline()` escapes an entry's whole text and *then* the code-span rule escaped its own
+  group again, so a `<`, `>` or `&` between backticks reached the page as `&amp;lt;` and rendered
+  as the literal entity. It had never fired because no entry had ever put one of those three
+  characters inside backticks — the half of a converter that handles the awkward character is the
+  half nobody exercises. Fixed (the group arrives already escaped), and `_test_site.py` gained
+  **"nothing on any page is escaped twice"** with its breaker: 26→28 site checks.
 
 Build **1 109 checks green** (`_test_hierarchy` 203→217, `tests/run.mjs` 67→78), `shoot` 0 console
 errors, `drive` 18/18. Changelog entry

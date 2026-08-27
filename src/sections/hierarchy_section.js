@@ -360,7 +360,7 @@ const HIERARCHY_SECTION = {
     $("sW").textContent = fr(W.value);
     $("sGap").textContent = vac.value.F1_minus_F0.toFixed(3);
     const D8 = v.get("D8").value;
-    const ok = vac.value.true, V = vac.value;
+    const ok = vac.value.true !== false, V = vac.value;   /* null = nothing to break: not "false" */
     /* THE TWO HALVES, NAMED AND RANKED.  An outside audit read `W > 0` under a THEOREM chip as a
      * claim about the global vacuum; the criterion only compares the two symmetric points.  The
      * strip says which question each half answers and what kind of answer it is. */
@@ -549,7 +549,9 @@ const HIERARCHY_SECTION = {
           `the relaxation's bound is ${(ctx.DATA.gauge_seeds.candidate.ceiling_GeV / 1000).toFixed(2)} TeV ` +
           `and the true-vacuum level has not been recomputed`
         : ``) +
-      (vac.true ? `.` : ` — <b style="color:var(--rust)">but this is a false vacuum</b>: ` +
+      /* `vac.true` is ternary: null is "not applicable / not decided", and it must not fall into
+       * the false-vacuum branch, which reads alpha_global and would find it null. */
+      (vac.true !== false ? `.` : ` — <b style="color:var(--rust)">but this is a false vacuum</b>: ` +
         (!vac.symmetric_ok
           ? `the potential is deeper at the other symmetric point, by ${(-vac.F1_minus_F0).toFixed(1)}. `
           : `the potential is deeper at α = ${vac.alpha_global.toFixed(3)}, by ` +

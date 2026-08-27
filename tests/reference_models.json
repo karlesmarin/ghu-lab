@@ -283,6 +283,29 @@
    "F_at_closed": null,
    "F_at_global": null,
    "F_at_1_minus_F_at_0": -1.0045237627941757
+  },
+  {
+   "name": "no breaking, and W > 0",
+   "note": "8D = -39 < 0 with 2W = +1 > 0: the verdict has no subject, and must be null -- neither a true nor a false vacuum",
+   "content": [
+    {
+     "rep": "7",
+     "parities": [
+      1,
+      1
+     ],
+     "multiplicity": 2
+    }
+   ],
+   "D": -4.875,
+   "A4": -18.0,
+   "8D": -39.0,
+   "W": 0.5,
+   "alpha_closed": null,
+   "alpha_global": null,
+   "F_at_closed": null,
+   "F_at_global": null,
+   "F_at_1_minus_F_at_0": 1.0045237627941748
   }
  ]
 }

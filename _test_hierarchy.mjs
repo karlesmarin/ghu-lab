@@ -23,7 +23,7 @@ import { modules, certificates, sweepHierarchy } from "./src/modules/hierarchy.m
 import { anomaliesModule, bill } from "./src/modules/anomalies.mjs";
 import { escapeModule } from "./src/modules/escape.mjs";
 import { selectionModule, repFacts, halfDomain, centreCharge } from "./src/modules/selection.mjs";
-import { termTable, moments, rung, numericMin, F, coordinates, surfaceInvR5, kConst }
+import { termTable, moments, rung, numericMin, localMin, F, coordinates, surfaceInvR5, kConst }
   from "./src/kernel/potential.mjs";
 import { dF } from "./src/kernel/screens.mjs";
 
@@ -297,14 +297,85 @@ ok("and they are ordered: relaxation > attained > true vacuum > at the measured 
      Math.abs(an - C.true_vacuum.exact.alpha) < 2e-5, `alpha ${an}, ${2 * 80.4 / an} GeV`);
   ok("with m_h inside the window", v.get("in_window").value === true, `${v.get("m_h").value}`);
 }
-/* A content the shell can build: row (2) plus enough antiperiodic 7s to drive W negative, so the
- * false-vacuum verdict is reachable from the page and not only from the archive's witness. */
+/* A content the shell can build with W < 0 AND an electroweak point to be wrong about, so the
+ * false-vacuum verdict is reachable from the page and not only from the archive's witness.  This
+ * used to be row (2) + 40 x 7(+,-), which drives W to -5/2 but ALSO kills the branch: the
+ * stationarity condition has no small-alpha solution there, so the content it tested has no
+ * electroweak point at all, and the `false` it asserted was the null-vs-false bug of the second
+ * outside audit reading as a verdict.  6 x 7(+,+) + 32 x 28(+,-) has 8D = 1 > 0, a branch at
+ * alpha = 0.0334, and W = -183/2. */
 {
-  const w = modelOf({ bulk: [...DATA.published_rows[1].bulk,
-                             { rep: "7", parities: [1, -1], multiplicity: 40 }] });
+  const w = modelOf({ bulk: [{ rep: "7", parities: [1, 1], multiplicity: 6 },
+                             { rep: "28", parities: [1, -1], multiplicity: 32 }] });
   const { values: v } = resolve(MODS, w);
+  const vv = v.get("vacuum").value;
   ok("a hand-built content with W < 0 is called a false vacuum too",
-     v.get("W").value < 0 && v.get("vacuum").value.true === false, String(v.get("W").value));
+     v.get("W").value === -91.5 && v.get("alpha_min").status !== "unknown" &&
+     vv.true === false && vv.state === "false-vacuum",
+     `W=${v.get("W").value}, alpha=${v.get("alpha_min").value}, state=${vv.state}`);
+}
+
+/* ---- the SECOND outside audit, 2026-08-27: `true` was not a boolean question ---- */
+{
+  console.log("\nthe second outside audit: the verdict can fail to have a subject");
+  /* 2 x 7(+,+): the gauge seed gives 8D = -27, 2W = -3 and each 7(+,+) adds 8D = -6, 2W = +2, so
+   * 8D = -39 < 0 with 2W = +1 > 0.  No electroweak breaking, W > 0 -- and the old
+   * `symmetricOK && deepest !== false` returned TRUE, because `deepest` was null and in this
+   * language null !== false.  The screen said the right thing; the exported object did not. */
+  const two7 = modelOf({ bulk: [{ rep: "7", parities: [1, 1], multiplicity: 2 }] });
+  const { values: v2 } = resolve(MODS, two7);
+  const mo2 = v2.get("moments").value, vac2 = v2.get("vacuum").value;
+  ok("2 x 7(+,+): 8D = -39 < 0 and 2W = +1 > 0, exactly as the audit computed by hand",
+     Math.abs(mo2.D * 8 + 39) < 1e-12 && 2 * v2.get("W").value === 1,
+     `8D=${mo2.D * 8}, 2W=${2 * v2.get("W").value}`);
+  ok("there is no electroweak breaking, so alpha_min is unknown",
+     v2.get("alpha_min").status === STATUS.UNKNOWN);
+  ok("...and vacuum.true is NULL, not true: the question has no subject",
+     vac2.true === null && vac2.state === "no-electroweak-breaking",
+     `true=${JSON.stringify(vac2.true)}, state=${vac2.state}`);
+  ok("the symmetric half is still reported, because it is still a fact about W",
+     vac2.symmetric_ok === true);
+  ok("and the source says so in words, not only in a field",
+     /no electroweak breaking/.test(vac2.state.replace(/-/g, " ")) &&
+     /is null, not a verdict/.test(v2.get("vacuum").source));
+  /* the other way to have no subject: D > 0, but no small-alpha branch */
+  const nb = modelOf({ bulk: [...DATA.published_rows[1].bulk,
+                              { rep: "7", parities: [1, -1], multiplicity: 40 }] });
+  const vnb = resolve(MODS, nb).values.get("vacuum").value;
+  ok("D > 0 with no branch located is its own state, and also null",
+     vnb.state === "no-branch-located" && vnb.true === null, vnb.state);
+
+  /* the globality test no longer rests on a positional tolerance: two refined minima, compared
+   * by depth.  On the five published rows the branch minimum IS the global one, to the digit. */
+  for (const row of DATA.published_rows) {
+    const vv = resolve(MODS, modelOf(row)).values.get("vacuum").value;
+    ok(`${row.label} · the refined branch minimum and the global one are the same point`,
+       Math.abs(vv.alpha_local - vv.alpha_global) < 1e-6 && vv.deepest === true,
+       `local=${vv.alpha_local}, global=${vv.alpha_global}`);
+  }
+  /* and on the counterexample they are two different points, and the deeper one wins */
+  const cx2 = modelOf({ bulk: [{ rep: "7", parities: [1, 1], multiplicity: 1 },
+                               { rep: "48", parities: [1, -1], multiplicity: 1 },
+                               { rep: "84", parities: [1, 1], multiplicity: 1 }] });
+  const vcx = resolve(MODS, cx2).values.get("vacuum").value;
+  ok("the counterexample: the branch refines to 0.0839, the global point is 0.5660, F lower by 1.07",
+     Math.abs(vcx.alpha_local - 0.0839) < 5e-4 && Math.abs(vcx.alpha_global - 0.5660) < 5e-4 &&
+     Math.abs(vcx.F_gap_to_global + 1.0717) < 1e-3,
+     `local=${vcx.alpha_local}, global=${vcx.alpha_global}, gap=${vcx.F_gap_to_global}`);
+  /* falsification of the instrument: localMin must find the branch minimum from a start that is
+   * NOT it -- otherwise it is returning its input */
+  {
+    const terms = termTable(cx2, DATA);
+    const OPT = { n: 800, refine: 30, windings: 300 };
+    const fromLow = localMin(terms, 0.05, OPT), fromHigh = localMin(terms, 0.12, OPT);
+    ok("localMin is not returning its own input: two different starts land on the same minimum",
+       fromLow !== null && fromHigh !== null && Math.abs(fromLow - fromHigh) < 1e-5 &&
+       Math.abs(fromLow - vcx.alpha_local) < 1e-5,
+       `${fromLow} vs ${fromHigh} vs ${vcx.alpha_local}`);
+    ok("...and started at the deep basin it returns THAT one, not the branch",
+       Math.abs(localMin(terms, 0.5, OPT) - vcx.alpha_global) < 1e-3,
+       String(localMin(terms, 0.5, OPT)));
+  }
 }
 
 H("the five coordinates, and Theorem 3");

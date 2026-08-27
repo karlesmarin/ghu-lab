@@ -100,6 +100,17 @@ for (const r of REF.rows) {
        `page deepest=${vac.deepest}, reference F_branch=${r.F_at_closed}, F_global=${r.F_at_global}`);
     ok(`  so the verdict is ${r.W > 0 && !refDeeper ? "a true vacuum" : "a false vacuum"}`,
        vac.true === (r.W > 0 && !refDeeper), `page true=${vac.true}`);
+  } else {
+    /* AND WHEN THE REFERENCE HAS NO ELECTROWEAK POINT, THE PAGE MUST CLAIM NEITHER.  This half
+     * had no check until 2026-08-27, and that is exactly where the second audit found a bug: the
+     * verdict was `symmetricOK && deepest !== false`, and with nothing to test `deepest` is null,
+     * so a content with no breaking at all and W > 0 exported `true`. */
+    ok("  no electroweak point in the reference, so the page's verdict is null -- not a claim",
+       vac.true === null && (vac.state === "no-electroweak-breaking" ||
+                             vac.state === "no-branch-located"),
+       `page true=${JSON.stringify(vac.true)}, state=${vac.state}`);
+    ok("  ...and the symmetric half is still reported, because W is still a fact",
+       vac.symmetric_ok === (r.W > 0));
   }
   console.log("");
 }

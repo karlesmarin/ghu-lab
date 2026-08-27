@@ -21,7 +21,7 @@ node   tests/run.mjs          # the built page against the Python engine of Part
 
 ## What is checked, and against what
 
-**1 084 checks.** The ones that carry weight are the ones an outside computation could lose:
+**1 109 checks.** The ones that carry weight are the ones an outside computation could lose:
 
 | harness | what it puts at risk |
 |---|---|

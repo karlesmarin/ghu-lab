@@ -205,3 +205,31 @@ export function numericMin(terms, { lo = 1e-4, hi = 1, n = 2000, refine = 40, wi
   }
   return (a + b) / 2;
 }
+
+/* THE MINIMUM THE CLOSED FORM IS ABOUT — found numerically, not assumed to sit where the closed
+ * form says.  Walk downhill on the same grid from a0, then sharpen the bracketing cell by ternary
+ * section: exactly the procedure sweepHierarchy runs over the whole lattice, so a single model's
+ * verdict and the sweep measure the same object with the same instrument.
+ *
+ * Why this and not a tolerance on |alpha_global - alpha_closed|: the closed form is an expansion,
+ * accurate to 0.71 % under the largest alpha of their Table 1 and to 20 % out at alpha = 0.229, so
+ * a fixed positional window is a guess about a basin's width, and a guess is the wrong instrument
+ * for deciding globality.  With this, the closed form only LOCATES the basin; the decision is a
+ * comparison of F at two numerically refined minima.  Returns null when the walk runs off an end:
+ * that a0 is in no interior basin at all, which is a statement, not a failure. */
+export function localMin(terms, a0, { lo = 1e-4, hi = 1, n = 2000, refine = 40, windings = 600 } = {}) {
+  if (!(a0 > lo) || !(a0 < hi)) return null;
+  const step = (hi - lo) / n, cache = new Map();
+  const at = (i) => { if (!cache.has(i)) cache.set(i, F(terms, lo + step * i, windings));
+                      return cache.get(i); };
+  let i = Math.max(1, Math.min(n - 1, Math.round((a0 - lo) / step)));
+  while (i > 1 && at(i - 1) < at(i)) i--;
+  while (i < n - 1 && at(i + 1) < at(i)) i++;
+  if (i <= 1 || i >= n - 1) return null;
+  let a = lo + step * (i - 1), b = lo + step * (i + 1);
+  for (let k = 0; k < refine; k++) {
+    const m1 = a + (b - a) / 3, m2 = b - (b - a) / 3;
+    if (F(terms, m1, windings) < F(terms, m2, windings)) b = m2; else a = m1;
+  }
+  return (a + b) / 2;
+}

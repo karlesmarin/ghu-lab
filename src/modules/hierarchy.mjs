@@ -19,7 +19,7 @@
 
 import { STATUS, val, unknown } from "../kernel/status.mjs";
 import { termTable, moments, rung, alphaMin, curvatureAtMin, higgsMass, invR5, numericMin, F,
-         gaugeSeed, stabilityW, F1minusF0, coordinates }
+         gaugeSeed, stabilityW, F1minusF0, coordinates, localMin }
   from "../kernel/potential.mjs";
 
 const CLOSED_FORM_SOURCE = "Part VII eq. (11), verified to a median 0.13 % over 272 contents";
@@ -157,11 +157,30 @@ export const hierarchyModule = (data) => ({
      * boolean `true` is the conjunction. */
     const gap = F1minusF0(W);
     const symmetricOK = W > 0;
-    let deepest = null, alphaGlobal = null, gapToGlobal = null, aBranch = null;
+    let deepest = null, alphaGlobal = null, gapToGlobal = null, aBranch = null, alphaLocal = null;
+
+    /* AND `true` IS TERNARY, BECAUSE THE QUESTION CAN FAIL TO APPLY.  It used to be written
+     * `symmetricOK && deepest !== false`, and `deepest` is null whenever there is nothing to test:
+     * with D <= 0 the module returns before any minimisation and null !== false is true in this
+     * language, so 2 x 7(+,+) -- 8D = -39, 2W = +1 -- exported `alpha_min: no electroweak breaking`
+     * next to `vacuum.true: true`.  The screen said the right thing; the exported object did not,
+     * and the object is what a third party reads.  A second outside audit produced that content
+     * from this page's own tables.  So the value carries a named `state` and `true` is one of
+     * {true, false, null}: null means the electroweak point whose vacuum-hood is being asked about
+     * does not exist, or was not tested -- never a claim either way. */
+    const stateOf = () => aBranch !== null
+      ? (!symmetricOK ? "false-vacuum"
+         : deepest === true ? "true-vacuum"
+         : deepest === false ? "false-vacuum" : "undetermined")
+      /* two different ways to have no subject, and they are not the same fact */
+      : (mo.D > 0 ? "no-branch-located" : "no-electroweak-breaking");
 
     const finish = (vacuumExtra) => val({ W, F1_minus_F0: gap, symmetric_ok: symmetricOK,
                                           deepest, alpha_global: alphaGlobal, F_gap_to_global: gapToGlobal,
-                                          true: symmetricOK && deepest !== false, ...vacuumExtra }, {
+                                          alpha_local: alphaLocal, state: stateOf(),
+                                          true: stateOf() === "true-vacuum" ? true
+                                              : stateOf() === "false-vacuum" ? false : null,
+                                          ...vacuumExtra }, {
       status: deepest === null ? STATUS.THEOREM : STATUS.VERIFIED,
       source: (symmetricOK
         ? `W = ${W} > 0: F(1) - F(0) = ${gap.toFixed(3)}, so the electroweak point is deeper than ` +
@@ -169,12 +188,21 @@ export const hierarchyModule = (data) => ({
           `means never a tie`
         : `W = ${W} < 0: F(1) - F(0) = ${gap.toFixed(3)}, the potential is DEEPER at alpha = 1, ` +
           `and any interior minimum is a false vacuum -- [8]'s criterion, Part VII eq. (34)`) +
-        (deepest === null ? "" : deepest
-          ? `. And the small-alpha branch IS the deepest point of F on (0, 1], by direct ` +
-            `minimisation of the same sum on this render`
-          : `. But the small-alpha branch is NOT the deepest point of F: direct minimisation finds ` +
-            `alpha = ${alphaGlobal.toFixed(4)} lower by ${(-gapToGlobal).toFixed(3)} -- a false ` +
-            `vacuum W alone cannot see`),
+        (aBranch === null
+          ? `. But ${mo.D > 0 ? "no small-alpha branch was located" : "D <= 0: the symmetric point " +
+              "is a minimum and there is no electroweak breaking"}, so there is no electroweak ` +
+            `point whose vacuum-hood could be asked about: state = ${stateOf()}, and \`true\` is ` +
+            `null, not a verdict`
+          : deepest === null
+            ? `. The deepest-point half was not decided on this render: state = undetermined`
+            : deepest
+              ? `. And the small-alpha branch IS the deepest point of F on (0, 1], by direct ` +
+                `minimisation of the same sum on this render: F at the refined branch minimum ` +
+                `alpha = ${alphaLocal.toFixed(4)} is not above F at the global one`
+              : `. But the small-alpha branch is NOT the deepest point of F: its own refined ` +
+                `minimum sits at alpha = ${alphaLocal.toFixed(4)}, and direct minimisation finds ` +
+                `alpha = ${alphaGlobal.toFixed(4)} lower by ${(-gapToGlobal).toFixed(3)} -- a false ` +
+                `vacuum W alone cannot see`),
     });
 
     if (!(mo.D > 0)) {
@@ -197,15 +225,23 @@ export const hierarchyModule = (data) => ({
       };
     }
 
-    /* the deepest-point half: the same F, minimised directly on (0, 1] */
+    /* THE DEEPEST-POINT HALF: TWO REFINED MINIMA, COMPARED BY DEPTH.  The first version of this
+     * decided globality with `|alpha_global - alpha_closed| < 0.02` OR a gap in F -- and the
+     * positional half is a guess about how wide a basin is, made with a closed form that is an
+     * expansion (0.71 % under their Table 1's largest alpha, 20 % out at 0.229).  So the closed
+     * form now only LOCATES the basin: `localMin` walks downhill from it to the minimum it is
+     * about, `numericMin` finds the deepest point with no bracket, and the verdict is F against F.
+     * Nothing positional survives, which is the version that is hard to argue with. */
+    const OPT = { n: 800, refine: 30, windings: 300 };
     aBranch = a;
-    const aNum = numericMin(terms, { n: 800, refine: 30, windings: 300 });
+    const aNum = numericMin(terms, OPT);
     if (aNum !== null) {
-      const fBranch = F(terms, a, 300), fNum = F(terms, aNum, 300);
-      gapToGlobal = fBranch - fNum;                       /* > 0 means F is lower elsewhere */
+      alphaLocal = localMin(terms, a, OPT) ?? a;
+      const fBranch = F(terms, alphaLocal, 300), fNum = F(terms, aNum, 300);
+      const tol = 1e-9 * Math.max(1, Math.abs(fBranch));
+      gapToGlobal = fNum - fBranch;                       /* < 0 means F is lower elsewhere */
       alphaGlobal = aNum;
-      deepest = Math.abs(aNum - a) < 0.02 || gapToGlobal <= 1e-6 * Math.max(1, Math.abs(fBranch));
-      gapToGlobal = -gapToGlobal;
+      deepest = fBranch <= fNum + tol;
     }
     const vacuum = finish({ alpha_branch: aBranch });
 

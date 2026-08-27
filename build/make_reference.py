@@ -94,6 +94,14 @@ ROWS.append(row("false vacuum by W", [("28", 1, -1, 9)],
                 "W < 0: deeper at the other symmetric point, before any interior question"))
 ROWS.append(row("no electroweak breaking", [("7", 1, 1, 1)],
                 "D <= 0: the symmetric point is a minimum and there is nothing to minimise"))
+# THE SECOND COUNTEREXAMPLE, from the audit of 2026-08-27: no breaking AND W > 0, which is the
+# combination that has no verdict at all.  The page used to export `vacuum.true: true` next to
+# `alpha_min: no electroweak breaking`, because its boolean was `deepest !== false` and `deepest`
+# was null.  This row is here so a third party can see the null and check it against an engine
+# that shares no line of code with the page.
+ROWS.append(row("no breaking, and W > 0", [("7", 1, 1, 2)],
+                "8D = -39 < 0 with 2W = +1 > 0: the verdict has no subject, and must be null -- "
+                "neither a true nor a false vacuum"))
 
 OUT = {
     "what": "reference numbers for the SU(7) Komori-Maru model, produced by the Python engine of "

@@ -371,6 +371,49 @@ Carles said publish it. What the audit before publishing found and what was done
   caveat, the layout, why the history starts here) + Apache 2.0, matching ghu-explorer, which now
   links to the source from its own table and its validation section.
 
+**Sixteenth pass 2026-08-27: a SECOND OUTSIDE AUDIT, on the corrected code — the verdict had no
+third answer.** Carles pasted a review of the public tree at `013566e`. It confirms the four
+findings of 2026-08-26 are fixed and finds the correction's own edge, and it is real:
+
+- **`vacuum.true = symmetricOK && deepest !== false`, and `deepest` is `null` when nothing was
+  tested.** `null !== false` is `true` in this language, so a content that never reaches the
+  minimiser and has W > 0 exported `alpha_min: no electroweak breaking` next to
+  `vacuum.true: true`. The auditor's content, built from the page's own coordinates:
+  **2 × 7(+,+)** — gauge seed 8D = −27, 2W = −3; each 7(+,+) adds 8D = −6, 2W = +2 ⟹ 8D = −39 < 0
+  with 2W = +1 > 0. Reproduced to every digit, and `build/make_reference.py` now emits that row so
+  the **Python** engine confirms 8D = −39.00, W = +0.50 independently.
+  `true` is now ternary — `{true, false, null}` — beside a named `state`: `true-vacuum`,
+  `false-vacuum`, `no-electroweak-breaking`, `no-branch-located`, `undetermined`. The two ways of
+  having no subject are kept apart on purpose: D ≤ 0 is not the same fact as "D > 0 but the
+  stationarity condition has no small-α solution".
+  **The screen was never wrong** — it already said "But D ≤ 0, so there is no interior minimum for
+  it to be the vacuum of". The exported object was, and the object is what a third party reads.
+  Two UI reads of `vac.true` as a boolean were tightened to `!== false`, or a null would have
+  fallen into the false-vacuum branch and dereferenced a null `alpha_global`.
+- **The globality half no longer rests on a positional tolerance.** It was
+  `|α_global − α_closed| < 0.02 || gap in F negligible`, and the positional half is a guess about
+  how wide a basin is, made with an expansion that is good to 0.71 % under their Table 1's largest
+  α and to 20 % out at 0.229. New `localMin` in the kernel walks downhill from the closed form to
+  the minimum it is *about*, `numericMin` finds the deepest point with no bracket, and the verdict
+  is **F against F** at two refined minima — the same procedure `sweepHierarchy` already ran over
+  the whole lattice, so the single-model verdict and the sweep now use one instrument. Five
+  published rows: local and global agree to < 1e-6. The 2026-08-26 counterexample: 0.0839 vs
+  0.5660, F lower by 1.07.
+- **Falsified both**, by putting the old boolean back: `_test_hierarchy` 215 ok / 2 failed and the
+  shipped `tests/run.mjs` 75 ok / 3 failed, the last of them reading `page true=true` on 2 × 7(+,+).
+  Restored. `localMin` also has to prove it is not returning its input: two different starts land
+  on the same minimum, and a start in the deep basin returns *that* one.
+- The site check that fired was a good one: a changelog title whose first 40 characters contain a
+  backtick does not survive into the rendered stream. Titles stay plain prose.
+
+Build **1 109 checks green** (`_test_hierarchy` 203→217, `tests/run.mjs` 67→78), `shoot` 0 console
+errors, `drive` 18/18. Changelog entry
+`2026-08-27-part-vii-a-verdict-can-have-no-subject.md` (note; affects_record: no — every published
+row has a branch and on all five the refined branch minimum IS the global one).
+**What the audit raised and did NOT become work here** (Carles's calls): the α normalisation, and
+four proposals — an inverse model designer with ILP no-go certificates, a convention microscope for
+α, a vacuum phase atlas with a robustness distance, and RGE/finite-T/flavour modules.
+
 **Still open, and both are Carles's calls, not defects:** the α normalisation (a science problem
 the papers already state as open — the two in-print routes are in the instrument), and scope —
 a Python API, and whether to publish the `ghu-lab` source tree, which would answer three of the

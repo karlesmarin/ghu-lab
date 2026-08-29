@@ -1,7 +1,7 @@
 # 🔧 GHU Lab — the source tree of the gauge–Higgs unification instrument
 
 This repository builds **[karlesmarin.github.io/ghu-explorer](https://karlesmarin.github.io/ghu-explorer/)**:
-one self-contained HTML page holding sixteen computations — including a builder for models nobody has
+one self-contained HTML page holding seventeen computations — including tools for models nobody has
 written yet — over three published models:
 SU(7) on S¹/Z₂×S¹/Z₂ (Komori–Maru), SU(4) on T²/Z₂ (AHMN), and Haba–Yamashita's 5D SU(3) on
 S¹/Z₂ — with **every output carrying what is known about it**: `theorem`, `verified`, `measured`
@@ -10,7 +10,7 @@ or `unknown`, as fields in the exported result card rather than as decoration.
 The deployed page is a build artifact. This is where it comes from, and why it says what it says.
 
 ```
-python build/build_app.py     # inline → collision guard → edition gate → 21 harnesses → app/index.html
+python build/build_app.py     # inline → collision guard → edition gate → 22 harnesses → app/index.html
 python build/build_site.py --legacy ../ghu-explorer/tools-2026-07     # → site/, then gates itself
 node   build/shoot.mjs        # headless screenshots of every section + console + which model
 node   build/drive.mjs        # USES the calculator: real mouse through the DevTools Input domain
@@ -22,7 +22,7 @@ node   tests/run.mjs          # the built page against the Python engine of Part
 
 ## What is checked, and against what
 
-**1 347 checks.** The ones that carry weight are the ones an outside computation could lose:
+**1 384 checks.** The ones that carry weight are the ones an outside computation could lose:
 
 | harness | what it puts at risk |
 |---|---|
@@ -36,6 +36,7 @@ node   tests/run.mjs          # the built page against the Python engine of Part
 | `_test_census.mjs` | N(A₄, 8D) counted by dynamic programme, against three other things: the archived enumeration (**69 022 464** contents over four rungs), an independent brute force, and the enumerator that builds the contents one by one |
 | `_test_sun5d.mjs` | the **general SU(N)** formula — Haba–Yamashita §5 — against every equation of all four worked examples the same paper prints, transcribed term by term; against the invariance (P, P′) → (−P, −P′) that fixes a sign the printed formula leaves ambiguous; and, through the one-phase bridge, against the archived 60-row SU(3) prediction bank, which it reproduces to 8e-16 by a route that shares nothing with the special case those rows came from |
 | `_test_bcclass.mjs` | the **equivalence classes** of orbifold boundary conditions, as orbits actually walked: Haba–Hosotani–Kawamura's C(N+3,3) conditions, (N−1)N(N+1)/6 relations and **(N+1)² classes** reproduced at every N up to 14 as a property of the orbit structure rather than as a quoted theorem; their eq. (3.27) energetics term by term; and the same question asked again on T²/Z₃, where the answer is different and is measured instead of inherited |
+| `_test_spectrum5d.mjs` | the **4D spectrum**, against the eigenvalue lists Haba–Yamashita print degeneracy by degeneracy — their (3.9), (3.12), (3.16), (3.18), (4.28), (4.32), (4.34) as whole multisets, so nothing can be dropped unnoticed — and HHK's sector counts (3.20) **derived** from the components rather than transcribed. And the control that ties two modules together: summing cos(2πnQ) over the states reproduces the potential's own bracket, exactly twice it, on 96 cases at 5e-15 |
 | `_test_app.mjs` | the page that **ships**, not the sources it came from: the inliner, the module stripper and the data injection are the only code no other test covers |
 | `_test_site.py` | thirteen site checks, and then **each of them again against a site broken on purpose** |
 | `build/drive.mjs` | the panels answer a **real mouse** through the DevTools Input domain, not events dispatched from inside the page |

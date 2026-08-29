@@ -32,12 +32,14 @@ KERNEL = ["meta.mjs", "status.mjs", "model.mjs", "potential.mjs", "canonical.mjs
           "charges.mjs", "multiplets.mjs", "wilson.mjs", "surface.mjs", "resolve.mjs", "card.mjs"]
 MODULES = ["selection.mjs", "calculator.mjs", "hierarchy.mjs", "anomalies.mjs", "escape.mjs",
            "samepot.mjs", "screen.mjs", "collider.mjs", "atlas.mjs", "eta.mjs", "fived.mjs",
-           "spectrum.mjs", "inverse.mjs", "census.mjs", "sun5d.mjs", "bcclass.mjs"]
+           "spectrum.mjs", "inverse.mjs", "census.mjs", "sun5d.mjs", "bcclass.mjs",
+           "spectrum5d.mjs"]
 SECTIONS = ["torus_panels.js", "hierarchy_section.js", "inverse_section.js", "census_section.js",
             "atlas_section.js", "samepot_section.js",
             "anomalies_section.js", "escape_section.js", "screen_section.js",
             "collider_section.js", "calculator_section.js", "eta_section.js",
             "selection_section.js", "fived_section.js", "sun5d_section.js",
+            "spectrum5d_section.js",
             "bcclass_section.js",
             "multiplets_section.js",
             "registry.js"]
@@ -165,6 +167,7 @@ def main(argv=None):
                 ["node", "_test_atlas.mjs"],
                 ["node", "_test_inverse.mjs"], ["node", "_test_census.mjs"],
                 ["node", "_test_sun5d.mjs"], ["node", "_test_bcclass.mjs"],
+                ["node", "_test_spectrum5d.mjs"],
                 # the golden suite that SHIPS with the artifact: the built page against the
                 # Python engine of Part VII.  It runs here too, so the deployed copy can never
                 # carry a suite the build has not just seen pass.

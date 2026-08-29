@@ -305,6 +305,19 @@ const VARIANTS = {
                    if (b) b.click(); return false; })()`,
     wait: 1500,
   }],
+  /* The spectrum panel opens on whatever the builder is holding, and the builder opens on the
+   * gauge sector alone -- which has no fermions, so the chirality verdict says "nothing to be
+   * chiral about" and the one statement the section exists for is photographed by nobody.  Load
+   * the SU(6) with P != P' and give it fermions. */
+  spectrum5d: [{
+    name: "spectrum5d-chiral", label: "SU(6) with four fundamentals: 1 left-handed against 2 right",
+    /* through the section's OWN button: a variant cannot reach the builder's controls, because the
+     * shell mounts one section at a time -- the first version of this clicked at ids that were not
+     * on the page and returned a truthy value anyway */
+    set: `(() => { const b = document.querySelector('#spExample');
+                   if (!b) return false; b.click(); return true; })()`,
+    wait: 3000,
+  }],
   fived: [{
     name: "fived-pure-gauge", label: "pure gauge: D = -9, nothing breaks",
     set: `(() => { const b = document.querySelector('#fvClear');

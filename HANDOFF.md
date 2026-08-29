@@ -107,6 +107,51 @@ no paper.
 **Build after both passes: 1 290 checks, 20 harnesses, 15 sections, 0 console errors, drive 18/18,
 site 28 ok and 0 overflow.**
 
+## 2026-08-29 (fourth pass) — the 4D spectrum: what the model CONTAINS
+
+The keystone of the three: the builder gives the dynamics, the classes say which models are the
+same, and neither says what a model **has**. `src/modules/spectrum5d.mjs` + the section
+`4D spectrum`, which **shares the builder's state** — one model, two views.
+
+One rule, Haba–Yamashita eq. (3.5): the mode expansion is fixed by the pair of Z₂ parities, and only
+(+,+) has a zero mode. **A_y carries the opposite parity to A_μ**, so the massless scalars sit
+exactly where the vectors do not; **a Dirac fermion's chiralities carry opposite parities**, so a
+massless 4D fermion is automatically chiral.
+
+**FAMILIES, NOT A TOWER, and the reason is a trap.** The sources publish the spectrum as a multiset
+of families — multiplicity, KK offset, charge — and this reports exactly that. Turning families
+into levels needs the cos/sin bookkeeping at n = 0, which is precisely where the two integer
+families differ: (+,+) expands in cos and HAS a zero mode, (−,−) expands in sin and has none. A
+tower drawn by evaluating a family at n = 0 puts states at zero mass that are not there. So the
+massless content comes from the PARITY rule and the panel says what it does not do.
+
+`_test_spectrum5d.mjs`, 37 checks: HY (3.9), (3.12), (3.16), (3.18), (4.28), (4.32), (4.34) as
+whole multisets — each transcription is verified to be the WHOLE list by adding to the dimension of
+the representation, so nothing can be dropped unnoticed — plus HHK (3.20) derived on five boundary
+conditions, plus the chirality statement with its vector-like negative.
+
+**And the control that pays for both modules: the spectrum and the potential are the same data.** A
+cosine `m·cos(nπ(c·θ − d))` is two states at charge ±c/2 with d = 1 the half-integer tower, so
+Σ cos(2πnQ) over the states must be the potential's bracket — exactly twice it, since the potential
+counts each ± pair once. 96 cases at 5e-15, and again on every render of the page.
+
+**Three things the first version got wrong, each fixed and each a class:**
+- `sp5States` did not remove the adjoint's trace, so the zero-mode count came out one too high.
+  The trace is a definite state — charge 0, bare parity (η, η′), which for A_y is (−η, −η′) — so it
+  is removed in ONE place and every count downstream is right without remembering to subtract.
+- I read the paper's "11 × n²" as HHK's N(++). It is not: **the families and the parity sectors are
+  different partitions of the same states**, and they differ here by the two (+,+) states the
+  Wilson line carries off zero charge. Both are now asserted, side by side.
+- The panel labelled θ = 1 "the vacuum". It is the OTHER SYMMETRIC POINT, and the panel now names
+  the gauge-equivalent boundary condition it belongs to — one class move away. Same overclaim the
+  builder's own verdict was corrected for, made twice in two days.
+
+Also: `SU(1)` is not a group, so a size-one block prints "singlet"; and A_μ and A_y share a family
+list **on purpose** — the offset depends on the product P₀P₁ and A_y flips both parities — which
+the panel now explains rather than leaving to look like a repetition.
+
+**Build: 1 384 checks, 22 harnesses, 17 sections.**
+
 ## 2026-08-29 (third pass) — which boundary conditions are the same theory
 
 The other computation the whole field redoes by hand, and it was the "next" of the pass above.

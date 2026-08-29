@@ -318,6 +318,15 @@ const VARIANTS = {
                    if (!b) return false; b.click(); return true; })()`,
     wait: 3000,
   }],
+  /* the ledger opens on the builder's state, which is the gauge sector alone -- no fermions, so
+   * nothing to be anomalous about, and the one thing the panel exists to show would be in no
+   * frame.  Its own example button, for the same reason as the spectrum panel's. */
+  anomaly5d: [{
+    name: "anomaly5d-owing", label: "SU(6) with four fundamentals: the channels left owing",
+    set: `(() => { const b = document.querySelector('#anExample');
+                   if (!b) return false; b.click(); return true; })()`,
+    wait: 2500,
+  }],
   fived: [{
     name: "fived-pure-gauge", label: "pure gauge: D = -9, nothing breaks",
     set: `(() => { const b = document.querySelector('#fvClear');

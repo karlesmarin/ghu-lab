@@ -107,6 +107,47 @@ no paper.
 **Build after both passes: 1 290 checks, 20 harnesses, 15 sections, 0 console errors, drive 18/18,
 site 28 ok and 0 overflow.**
 
+## 2026-08-29 (fifth pass) — the anomaly ledger: what that content OWES
+
+`src/modules/anomaly5d.mjs` + the section `Anomalies`, sharing the builder's model like the
+spectrum panel. One model, three views: the potential and its vacuum, what the model contains, and
+the bill that content runs up. Every channel of the unbroken group — [SU(n)]³, U(1)×[SU(n)]²,
+U(1)³, U(1)×[grav]² — with an **exact rational** coefficient, using the kernel's own
+`charges.mjs` arithmetic (Part VI's), because the collision guard refused a second `gcd` and was
+right to.
+
+**Why the 4D anomaly is the right object**: Arkani-Hamed–Cohen–Georgi hep-th/0103135 eq. (4.38),
+`∂_C J^C = ½[δ(x₄) + δ(x₄ − L)] Q` — it lives on the fixed points, does not depend on the shape of
+the mode, and "the cancellation of the four-dimensional anomaly is **sufficient** to eliminate the
+five-dimensional anomaly". Quoted on the page. **And a non-zero row is not a verdict**: brane
+fermions conjugate to the unwanted zero modes contribute to the same channels with the opposite
+sign, which is Part VI's reading generalised off its one model.
+
+**THREE PREMISES OF MINE WERE WRONG PHYSICS, and the harness caught all three:**
+- *p = s makes a spectrum vector-like* — no. The left-handed piece is in the (+,+) block and the
+  right-handed one in (−,−), and those are **different SU factors** even at the same size.
+- *Flipping ηη′ conjugates the content* — no. It moves the zero modes to the OTHER pair of blocks;
+  with q = r = 0 one sign gives zero modes and the other gives none at all.
+- *An unbroken boundary condition is vector-like* — no, it is the **maximally chiral** case, one
+  zero mode per bulk Dirac fermion. It is ACG's own setup and it is anomalous.
+
+What replaced them is stronger: **an adjoint bulk fermion must be anomaly-free on every boundary
+condition**, because the adjoint is real — and the module FAILED that at first, counting the
+off-diagonal (a,b) and (b,a) as two fundamentals when the second is an ANTI-fundamental. Plus a
+piece fed in with its own conjugate, which tests every sign at once.
+
+Two smaller ones, each a class: `an5U1` wrote n_a where n_c belonged and produced generators that
+were not traceless (caught by the first check, and it would have poisoned every U(1) channel
+silently); and a U(1) is listed only when its generator is not the zero matrix — with one block
+filled there is no U(1), and printing rows of zeros for it reads as a cancellation that is not one.
+
+**Scope, on the page**: 5D SU(N) on S¹/Z₂. Where the anomaly SITS between the two fixed points is
+not decided here — ACG's even split is for the case they treat, and a broken group can put
+individually non-zero localised anomalies with a vanishing sum, for a Chern–Simons term or brane
+fields to absorb. And **not 6D**, so it is not about Komori–Maru.
+
+**Build: 1 403 checks, 23 harnesses, 18 sections.**
+
 ## 2026-08-29 (fourth pass) — the 4D spectrum: what the model CONTAINS
 
 The keystone of the three: the builder gives the dynamics, the classes say which models are the

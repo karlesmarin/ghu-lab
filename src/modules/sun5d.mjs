@@ -89,7 +89,10 @@ export function sun5dBlocks(spec) {
  * a U(1) is dropped for every empty block, because a U(1) that commutes with nothing is not
  * there.  Their eq. (5.2). */
 export function sun5dUnbroken(b) {
-  const parts = [b.nPP, b.nPM, b.nMP, b.nMM].filter((n) => n >= 2).map((n) => `SU(${n})`);
+  /* sorted by rank, the same convention `bcclass.mjs` uses and for the same reason: the same
+   * group must print the same string whichever block produced it */
+  const parts = [b.nPP, b.nPM, b.nMP, b.nMM].filter((n) => n >= 2).sort((x, y) => y - x)
+                  .map((n) => `SU(${n})`);
   const nonEmpty = [b.nPP, b.nPM, b.nMP, b.nMM].filter((n) => n >= 1).length;
   const u1 = Math.max(0, nonEmpty - 1);
   if (u1) parts.push(u1 === 1 ? "U(1)" : `U(1)^${u1}`);

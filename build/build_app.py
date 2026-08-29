@@ -32,12 +32,13 @@ KERNEL = ["meta.mjs", "status.mjs", "model.mjs", "potential.mjs", "canonical.mjs
           "charges.mjs", "multiplets.mjs", "wilson.mjs", "surface.mjs", "resolve.mjs", "card.mjs"]
 MODULES = ["selection.mjs", "calculator.mjs", "hierarchy.mjs", "anomalies.mjs", "escape.mjs",
            "samepot.mjs", "screen.mjs", "collider.mjs", "atlas.mjs", "eta.mjs", "fived.mjs",
-           "spectrum.mjs", "inverse.mjs", "census.mjs", "sun5d.mjs"]
+           "spectrum.mjs", "inverse.mjs", "census.mjs", "sun5d.mjs", "bcclass.mjs"]
 SECTIONS = ["torus_panels.js", "hierarchy_section.js", "inverse_section.js", "census_section.js",
             "atlas_section.js", "samepot_section.js",
             "anomalies_section.js", "escape_section.js", "screen_section.js",
             "collider_section.js", "calculator_section.js", "eta_section.js",
             "selection_section.js", "fived_section.js", "sun5d_section.js",
+            "bcclass_section.js",
             "multiplets_section.js",
             "registry.js"]
 
@@ -163,13 +164,27 @@ def main(argv=None):
                 ["node", "_test_fived.mjs"], ["node", "_test_collider.mjs"],
                 ["node", "_test_atlas.mjs"],
                 ["node", "_test_inverse.mjs"], ["node", "_test_census.mjs"],
-                ["node", "_test_sun5d.mjs"],
+                ["node", "_test_sun5d.mjs"], ["node", "_test_bcclass.mjs"],
                 # the golden suite that SHIPS with the artifact: the built page against the
                 # Python engine of Part VII.  It runs here too, so the deployed copy can never
                 # carry a suite the build has not just seen pass.
                 ["node", "tests/run.mjs"],
                 [sys.executable, "_test_editiongate.py"]):
-        r = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
+        # DECODE AS UTF-8, EXPLICITLY.  `text=True` alone uses the machine's ANSI codepage, and on
+        # Windows that is cp1252, which has five UNMAPPED bytes (0x81, 0x8D, 0x8F, 0x90, 0x9D).  A
+        # harness that prints a character whose UTF-8 encoding contains one of them -- an omega,
+        # say -- killed subprocess's reader thread; `stdout` then came back as None WITH
+        # returncode 0.  That is the dangerous shape: the output vanishes and the exit status
+        # still looks fine, so the only reason this was ever noticed is that the next line
+        # happened to call .strip() on it.  Had the crash landed after the pass/fail check, a RED
+        # harness could have been reported green.  It also explains the mojibake this build has
+        # been printing since the first day.
+        r = subprocess.run(cmd, cwd=ROOT, capture_output=True,
+                           encoding="utf-8", errors="replace")
+        if r.stdout is None:
+            raise SystemExit(f"FATAL: captured no output at all from {' '.join(cmd)}. That is a "
+                             f"broken capture, not a passing harness, and this build refuses to "
+                             f"call it either.")
         tail = [ln for ln in r.stdout.strip().split("\n") if ln.strip()][-1:] or ["(no output)"]
         print(f"  {cmd[-1]:<24} {tail[0].strip()}")
         worst = max(worst, r.returncode)

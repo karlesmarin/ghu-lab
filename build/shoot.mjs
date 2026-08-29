@@ -257,6 +257,20 @@ const VARIANTS = {
                    return true; })()`,
     wait: 2500,
   }],
+  /* The section opens on S1/Z2, where the classification collapses to (N+1)^2 and the label is
+   * complete.  T2/Z3 is the OTHER answer -- invariant margins that are not complete, and almost
+   * every boundary condition alone in its class -- and it is the half a reader would never see. */
+  bcclass: [{
+    name: "bcclass-t2z3", label: "the same question on T2/Z3, where the answer is different",
+    set: `(() => { const b = document.querySelector('#bccOrb button[data-orb="T2/Z3"]');
+                   if (!b) return false; b.click(); return true; })()`,
+    wait: 4000,
+  }, {
+    name: "bcclass-restore", label: "",
+    set: `(() => { const b = document.querySelector('#bccOrb button[data-orb="S1/Z2"]');
+                   if (b) b.click(); return false; })()`,
+    wait: 1500,
+  }],
   fived: [{
     name: "fived-pure-gauge", label: "pure gauge: D = -9, nothing breaks",
     set: `(() => { const b = document.querySelector('#fvClear');

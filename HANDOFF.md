@@ -107,10 +107,45 @@ no paper.
 **Build after both passes: 1 290 checks, 20 harnesses, 15 sections, 0 console errors, drive 18/18,
 site 28 ok and 0 overflow.**
 
-**Next, from the same literature sweep and not started:** the equivalence classes of boundary
-conditions (Kawamura and collaborators keep publishing new classification methods — PTEP 2024 for
-S¹/Z₂ and T²/Z₃, PTEP 2025 for SO(N) on T²/Zₘ), which is the other computation everyone in this
-field redoes by hand; and T²/Z_m, which this module does not do.
+## 2026-08-29 (third pass) — which boundary conditions are the same theory
+
+The other computation the whole field redoes by hand, and it was the "next" of the pass above.
+`src/modules/bcclass.mjs` + the section `Boundary conditions`, in a family of its own because it
+is about neither a model nor a dimension.
+
+**S¹/Z₂**: a BC is [p, q, r, s] — the SAME four block sizes `sun5d.mjs` takes, HHK eq. (2.10) being
+Haba–Yamashita eq. (5.1) — and the one relation is [p,q,r,s] ~ [p−1,q+1,r+1,s−1] (HHK *PTP* 111
+(2004) 265 eq. (2.21); Takeuchi–Inagaki *PTEP* 2024 033B03 eq. (35), re-derived from trace
+conservation alone). **T²/Z₃**: a BC is a 3×3 multiplicity matrix and the relations are TI eq. (46).
+
+**Everything is orbits, walked.** HHK's n₁ = C(N+3,3), n₂ = (N−1)N(N+1)/6 and **(N+1)²** come out
+of the orbit structure for every N to 14 — their theorem as a measurement. The class invariant is
+the pair of eigenvalue spectra (the conserved traces), and its **completeness is measured, not
+assumed**: complete on S¹/Z₂, and NOT on T²/Z₃, where the moves are 3-cycles rather than the 2×2
+swaps that would connect every matrix with the same margins (477 classes among 495 BCs at N = 4).
+Inheriting the 1-D answer would have been the easy mistake.
+
+**The energetics, with the comparison it refuses.** HHK §3 eq. (3.25): N₀ (BC-independent), N_Δ
+(divergent λ_Δ, but constant on a class — checked on every class of every N tried) and N_v (finite).
+So members of a class can be ranked and classes cannot, and the panel says so. Eq. (3.27) is
+reproduced term by term as a polynomial in (N_h, N_f5, N_f10) at 36 sampled points, and with it
+HHK's conclusion that SU(5)'s [2,0,0,3] is preferred when N_f5 = N_f10 = 0. **The sign of v(½) is
+taken from that conclusion**, not from my reading of a formula the text layer garbled — and the
+harness pins both halves.
+
+**A real defect in this repo's build, latent since the first commit.** `build_app.py` ran its
+harnesses with `text=True`, which decodes with the machine's ANSI codepage. On Windows that is
+cp1252, which has five UNMAPPED bytes (0x81, 0x8D, 0x8F, 0x90, 0x9D); a harness printing an omega
+killed subprocess's reader thread and `stdout` came back **None with returncode 0**. It was only
+noticed because the next line called `.strip()` on it — one line later and a RED harness could have
+been reported green. Now `encoding="utf-8", errors="replace"`, and an empty capture is a fatal.
+It also explains the mojibake this build printed for months.
+
+**Build: 1 347 checks, 21 harnesses, 16 sections.**
+
+**Still open, from the same sweep:** T²/Z₂ (three basic operators, not two), and T²/Z₄ and T²/Z₆,
+where the trace conservation can change eigenvalue degeneracies and off-diagonal classes exist —
+the open ends Takeuchi–Inagaki name, and now this panel's too.
 
 ## 2026-08-29 — Part VIII enters: the map backwards, the clusters, and the census (first pass)
 

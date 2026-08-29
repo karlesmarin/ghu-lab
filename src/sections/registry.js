@@ -34,4 +34,8 @@ const SECTIONS = [
    * because the family no longer is one, and the builder declares `holds()` so the header names
    * the group the reader typed instead of the one the shell is carrying. */
   { ...SUN5D_SECTION, group: "su3_hy", family: "5D on S¹/Z₂ · Haba–Yamashita" },
+  /* A family of its own, because it is about neither a model nor a dimension: it is about which
+   * BOUNDARY CONDITIONS are the same theory, on S¹/Z₂ and on T²/Z₃.  Like the builder it holds
+   * its own model and takes nothing from the shell. */
+  { ...BCC_SECTION, group: "su3_hy", family: "Orbifold boundary conditions" },
 ];

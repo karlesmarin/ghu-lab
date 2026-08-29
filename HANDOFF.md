@@ -1,6 +1,71 @@
 # HANDOFF — GHU Lab
 
-> State at 2026-08-26. The section below is the newest; the 2026-08-09 handoff follows it
+> State at 2026-08-29. The section below is the newest; the earlier handoffs follow it unchanged
+> and are still the map of the code.
+
+## 2026-08-29 — Part VIII enters: the map backwards, the clusters, and the census
+
+Part VIII was published on 29 August (concept `10.5281/zenodo.22159036`) and the instrument had
+none of it. Two sections now, both `Part VIII`, sitting next to Hierarchy because they are the same
+map: **Design a scale** and **Count a rung**. `build/make_data_viii.py` reads the three archived
+runs — `inverse_design.json`, `reachable_set.json`, `rung_census.json` — and injects the `inverse`
+and `census` blocks into `data/su7_km25.json`, refusing to run if any of the three archives a run
+whose own controls went red, or if its lattice disagrees with the one the page derives.
+
+### What the page computes and what it reads
+
+| computed here | read from the archive |
+|---|---|
+| the decision at a rung: the five certificates, the finite enumeration, the exact-potential verification of every design | the cluster ends — finding the floor of rung 1 means enumerating 423 631 contents and minimising the exact potential on the survivors |
+| the **point set** of rungs 1 and 3 (423 631 and 3 888 823 contents, 0.2 s and 1.7 s) | the ends of rungs 5 and 7, which are 15.8 M and 48.9 M contents and past any browser |
+| the whole census N(A₄, 8D), by dynamic programme, in ~20 ms | nothing — the archive is only what `_test_census.mjs` holds it to |
+
+### Four things this pass found, and each is now guarded
+
+- **A cluster is not an interval, and the first drawing said it was.** A content fixes
+  (A₄, 8D, G) and the two identities then fix ONE pair (1/R₅, m_h), so a rung's image is a FINITE
+  SET. `rungPoints` enumerates it: rung one is **35 points**, 31.46 GeV apart on average, widest
+  interior gap **59.44**; rung three is **65**, widest **30.83**. Those are the paper's own
+  numbers, recomputed, and with them the page derives the **45×** the certified gap is measured
+  against instead of quoting it. Drawn as a comb over the bar, so both facts stay visible.
+- **A capped sweep reported a short answer as a complete one.** The default cap was 1.5 M and
+  rung three is 3.9 M, so the panel printed *54 points* instead of 65 and said nothing about the
+  cut. The cap is now derived from the same threshold that decided to attempt the rung, and
+  `_test_inverse.mjs` runs a deliberately capped sweep and asserts it reports itself capped.
+  [[a-guard-in-the-script-is-a-missing-hypothesis]]
+- **The fibre panel picked the class by SIZE and got the wrong one.** At (A₄, 8D) = (86, 1) there
+  are two classes with a single 2W: one of 86 contents and one of 81. The paper's is the 81 — the
+  one at the **measured Higgs mass**. A class is one potential, so it has one α, one m_h and one
+  scale; the panel now selects by that scale and shows it in the table, and the harness asserts
+  that selecting by size would have got it wrong. [[a-control-that-cannot-fail]]
+- **`_content()` in the generator read parities off fixed character positions.** `"7(+,+)"[2]` is
+  a sign and `"28(+,+)"[2]` is a bracket, so every two-digit representation came out of the
+  archive with parities (−1, −1) — and the only symptom was that a witness loaded from the archive
+  was a different content from the one archived. Parsed with a regex now, and the harness that
+  caught it re-derives every archived witness through the closed form.
+
+### Traps that cost time and are worth knowing
+
+- `gaugeSeed(model, data)` returns `{name, gauge, seed}` and not the term table. Two sections
+  passed the whole object to `moments`, which then said `terms is not iterable` — from inside the
+  BUILT page, so the trace pointed at a line number in the bundle. `TRACE=1 node _test_app.mjs`
+  prints the stack.
+- `_test_app.mjs` evaluates the engine out of `app/index.html`, so a fix to `src/` that has not
+  been rebuilt is invisible to it. Rebuild before believing a failure.
+- JS `%` keeps the sign of the dividend and every rung below the gauge seed has a negative one, so
+  the mod-6 law is written the arithmetic way (`((x % 6) + 6) % 6`). The candidate seed has
+  `2A₄ = −27`, and `-27 % 2 === -1` in JS: a harness comparing it to `1` failed on a true fact.
+
+### The section that had two branches and would have been photographed in neither
+
+The designer opens on *nothing asked*, which says least of the three states it has. `shoot.mjs`
+gains an `inverse` variant list: resolve the clusters, ask inside the gap (7.5 TeV → the roster,
+closed by `floor` alone), then ask for 9.0 TeV (→ a content, verified on the exact potential), so
+the main frame lands on a design. `#cnGo` joins the on-demand button list.
+
+**Build: 1 244 checks, 19 harnesses, 14 sections, 0 console errors, drive 18/18.**
+
+> State at 2026-08-26. The section below is from that pass; the 2026-08-09 handoff follows it
 > unchanged and is still the map of the code.
 
 ## 2026-08-26 — the instrument stands on the PUBLISHED Part VII, and the site is current

@@ -217,6 +217,31 @@ const VARIANTS = {
     set: `(() => { const i = document.querySelector('#clR5');
                    if (i) { i.value = ''; i.dispatchEvent(new Event('change')); } return false; })()`,
   }],
+  /* The designer opens on NOTHING ASKED, which is the one state that says least.  Both branches
+   * are the section -- a content, and a certificate that there is none -- and a shooter that only
+   * caught the default would document the form and neither answer.  The no-go goes first so the
+   * main shot lands on the design; the waits are long because the second one puts candidates on
+   * the exact potential. */
+  inverse: [{
+    /* the axis opens drawing bars, and a bar is the misreading the paper warns about: resolve it
+     * into its 35 and 65 points before anything else is photographed */
+    name: "inverse-resolved", label: "the clusters resolved: 35 points and 65, not two intervals",
+    set: `(() => { const b = document.querySelector('#ivResolve');
+                   if (!b) return false; b.click(); return true; })()`,
+    wait: 9000,
+  }, {
+    name: "inverse-nogo", label: "asking inside the gap, 7.5 TeV: the named certificate roster",
+    set: `(() => { const i = document.querySelector('#ivTarget'), b = document.querySelector('#ivGo');
+                   if (!i || !b) return false;
+                   i.value = '7.5'; i.dispatchEvent(new Event('change')); b.click(); return true; })()`,
+    wait: 9000,
+  }, {
+    name: "inverse-design", label: "asking for 9.0 TeV: a content, verified on the exact potential",
+    set: `(() => { const i = document.querySelector('#ivTarget'), b = document.querySelector('#ivGo');
+                   if (!i || !b) return false;
+                   i.value = '9'; i.dispatchEvent(new Event('change')); b.click(); return true; })()`,
+    wait: 14000,
+  }],
   fived: [{
     name: "fived-pure-gauge", label: "pure gauge: D = -9, nothing breaks",
     set: `(() => { const b = document.querySelector('#fvClear');
@@ -237,7 +262,7 @@ for (const s of (rail || []).filter((x) => x.id)) {
    * unpressed panel documents the button, not the result -- and wait long enough for the slow one,
    * which feeds the browser the catalogue ten representations at a time. */
   const pressed = await evalJs(`(() => {
-    const ids = ['#sSweep', '#eSweepGo', '#cSweepGo', '#hSweepGo', '#eAtGo', '#a7Go'];
+    const ids = ['#sSweep', '#eSweepGo', '#cSweepGo', '#hSweepGo', '#eAtGo', '#a7Go', '#cnGo'];
     let n = 0;
     for (const id of ids) { const b = document.querySelector(id); if (b) { b.click(); n++; } }
     return n; })()`);

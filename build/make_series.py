@@ -46,6 +46,9 @@ PARTS = [
     ("VI", "22033302", "su7-proton-row", ["anomalies", "escape", "screen"], "release_vi"),
     ("VII", "22087251", "su7-compactification-bound",
      ["hierarchy", "atlas7", "samepot", "screen", "collider", "fived"], None),
+    # Part VIII, deposited 2026-08-29.  Same map as VII, run backwards and then counted, so it
+    # gets two sections of its own rather than a footnote in the hierarchy one.
+    ("VIII", "22159036", "su7-certified-gap", ["inverse", "census"], "release_viii"),
 ]
 
 # Titles and leads for the parts that have no archived record to read them from.  Each one names

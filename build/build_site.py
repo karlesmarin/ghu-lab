@@ -53,7 +53,7 @@ OUT = ROOT / "site"
 # gate, so the two cannot disagree about what the difference between the two copies is.
 APP_HOME = "../index.html"
 
-ROMAN = {"I": 1, "II": 2, "III": 3, "IV": 4, "V": 5, "VI": 6, "VII": 7}
+ROMAN = {"I": 1, "II": 2, "III": 3, "IV": 4, "V": 5, "VI": 6, "VII": 7, "VIII": 8}
 SLUG = {n: "part-" + n.lower() for n in ROMAN}
 
 SEVERITIES = {
@@ -75,6 +75,8 @@ SECTION_NAMES = {
     "fived": "five dimensions",
     "collider": "collider",
     "atlas7": "atlas",
+    "inverse": "design a scale",
+    "census": "count a rung",
 }
 
 

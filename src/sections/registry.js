@@ -15,6 +15,9 @@
  * because a model cannot travel between groups and pretending otherwise would be a lie. */
 const SECTIONS = [
   { ...HIERARCHY_SECTION, group: "su7_km25", family: "SU(7) · Komori-Maru" },
+  /* the same map as HIERARCHY, run backwards, and then counted: they sit next to it on purpose */
+  { ...INVERSE_SECTION, group: "su7_km25", family: "SU(7) · Komori-Maru" },
+  { ...CENSUS_SECTION, group: "su7_km25", family: "SU(7) · Komori-Maru" },
   { ...ATLAS_SECTION, group: "su7_km25", family: "SU(7) · Komori-Maru" },
   { ...SAMEPOT_SECTION, group: "su7_km25", family: "SU(7) · Komori-Maru" },
   { ...ANOMALIES_SECTION, group: "su7_km25", family: "SU(7) · Komori-Maru" },

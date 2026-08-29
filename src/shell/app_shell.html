@@ -120,7 +120,19 @@ details.cannot p{margin:11px 0 0;line-height:1.55}
 #top .acts{display:flex;gap:6px}
 .wrap{max-width:1240px;margin:0 auto;padding:20px 20px 64px;display:grid;gap:20px}
 @media(min-width:960px){.wrap{grid-template-columns:186px 1fr}}
-#rail{align-self:start;position:sticky;top:64px}
+/* THE RAIL SCROLLS ON ITS OWN.  It was sticky but unbounded, so once the instrument passed a
+   dozen sections the last few sat below the fold of a short window and the only way to reach them
+   was to scroll the whole page -- at which point the rail scrolled away with it and you were
+   choosing a section you could no longer see.  Bounded to the viewport minus the pinned header,
+   with its own scrollbar; `overscroll-behavior` keeps a flick inside it from carrying on into the
+   page behind. */
+#rail{align-self:start;position:sticky;top:64px;
+      max-height:calc(100vh - 76px);overflow-y:auto;overscroll-behavior:contain;
+      scrollbar-width:thin;scrollbar-color:var(--line) transparent;padding-right:4px}
+#rail::-webkit-scrollbar{width:8px}
+#rail::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
+#rail::-webkit-scrollbar-thumb:hover{background:var(--ink3)}
+#rail::-webkit-scrollbar-track{background:transparent}
 #rail a{display:block;padding:8px 11px;border-radius:8px;text-decoration:none;color:var(--ink2);
         font-size:13.5px;border:1px solid transparent}
 #rail a:hover{background:#fff;border-color:var(--line)}

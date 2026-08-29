@@ -101,8 +101,14 @@ const send = (method, params = {}) => new Promise((res) => {
 await send("Runtime.enable");
 await send("Log.enable");
 await send("Page.enable");
+/* `--viewport N` is applied from the START, not only inside shot(): the page has to LAY OUT at
+ * that height or anything sized in `vh` is measured against the wrong window -- which is exactly
+ * the mistake the first version of this made, reporting a rail bounded to 924px on a run that
+ * asked for 720. */
+const VH = Number(arg("viewport", 0));
+const BASE_H = VH || 1000;
 await send("Emulation.setDeviceMetricsOverride",
-           { width: WIDTH, height: 1000, deviceScaleFactor: 2, mobile: false });
+           { width: WIDTH, height: BASE_H, deviceScaleFactor: 2, mobile: false });
 
 await send("Page.navigate", { url: PAGE });
 await sleep(1800);
@@ -113,8 +119,25 @@ const evalJs = async (expr) => {
   return r.result?.value;
 };
 
-/* Full height: measure the document, resize the emulated viewport to it, shoot, restore. */
+/* THE FULL-HEIGHT SHOT HAS A BLIND SPOT, and it appeared the day a component was bounded to the
+ * VIEWPORT.  This function resizes the emulated viewport to the whole document before capturing,
+ * so an element sized in `vh` grows with it: a rail with `max-height: calc(100vh - 76px)` and its
+ * own scrollbar photographs as a rail with no scrollbar at all, and the change is invisible in
+ * exactly the frame meant to verify it.
+ *
+ *   node build/shoot.mjs --viewport 720 --out shots/vp
+ *
+ * keeps the window at a real size and shoots what a reader with that window sees.  Full height
+ * stays the default because for everything else it is the more useful frame. */
 async function shot(name) {
+  if (VH) {
+    await send("Emulation.setDeviceMetricsOverride",
+               { width: WIDTH, height: VH, deviceScaleFactor: 2, mobile: false });
+    await sleep(350);
+    const rv = await send("Page.captureScreenshot", { format: "png" });
+    writeFileSync(path.join(OUT, `${name}.png`), Buffer.from(rv.data, "base64"));
+    return { name, height: VH };
+  }
   const h = await evalJs("Math.min(12000, Math.ceil(document.documentElement.scrollHeight))");
   await send("Emulation.setDeviceMetricsOverride",
              { width: WIDTH, height: h, deviceScaleFactor: 2, mobile: false });
@@ -122,7 +145,7 @@ async function shot(name) {
   const r = await send("Page.captureScreenshot", { format: "png", captureBeyondViewport: true });
   writeFileSync(path.join(OUT, `${name}.png`), Buffer.from(r.data, "base64"));
   await send("Emulation.setDeviceMetricsOverride",
-             { width: WIDTH, height: 1000, deviceScaleFactor: 2, mobile: false });
+             { width: WIDTH, height: BASE_H, deviceScaleFactor: 2, mobile: false });
   return { name, height: h };
 }
 
@@ -144,6 +167,17 @@ const wayBack = await evalJs(`(() => { const a = document.querySelector('#top .n
   return `+"`${a.textContent.trim()} -> ${a.getAttribute('href')}  (${Math.round(r.width)}x${Math.round(r.height)} px)`"+`; })()`);
 console.log(`page: ${REL}\nway back: ${wayBack}`);
 console.log("rail:", JSON.stringify(rail));
+
+/* ASK THE PAGE SOMETHING.  A screenshot answers "does it look right"; some questions are about
+ * geometry a picture cannot settle -- whether an element is scrollable, whether its content
+ * overflows, what a computed style actually resolved to.  Those were being answered by writing a
+ * throwaway script with this same DevTools boilerplate every time.
+ *
+ *   node build/shoot.mjs --viewport 720 --eval "(() => {const r=document.querySelector('#rail');
+ *     return {scroll:r.scrollHeight, client:r.clientHeight};})()"
+ */
+const EVAL = arg("eval", "");
+if (EVAL) console.log("eval:", JSON.stringify(await evalJs(EVAL)));
 
 /* section id -> extra states worth their own frame.  `set` must return true if it did something. */
 const VARIANTS = {

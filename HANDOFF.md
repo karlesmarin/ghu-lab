@@ -63,6 +63,57 @@ gains an `inverse` variant list: resolve the clusters, ask inside the gap (7.5 T
 closed by `floor` alone), then ask for 9.0 TeV (→ a content, verified on the exact potential), so
 the main frame lands on a design. `#cnGo` joins the on-demand button list.
 
+## 2026-08-29 (second pass) — a builder for ANY 5D SU(N), and the shell learns to say so
+
+Carles asked for the lab to become the tool GHU research needs rather than the tool our papers
+need. The literature says what that is: every model in this corner is built on the one-loop
+Wilson-line potential for a given orbifold boundary condition, and the general formula for 5D SU(N)
+on S¹/Z₂ is Haba–Yamashita, *JHEP* **05** (2004) 059, §5 — the same paper whose SU(3) special case
+the `fived` section already stood on. `src/modules/sun5d.mjs` is that formula; `SU(N) builder` is
+the section. **The model is the input**: four block sizes and a bulk content, and out come the
+unbroken subgroup, the number of Wilson-line phases, the potential written term by term, and its
+minimum — for a group no data file in this repository has ever heard of.
+
+**The bridge is the point.** A term here is `{m, v, d}` — a coefficient, an integer vector over the
+phases, a shift — and with ONE phase that is exactly the kernel's `(m, s, c)`, because
+cos(nπ(cα − 1)) = (−1)ⁿcos(nπcα). So `sun5dTermTable` hands any one-phase SU(N) model to `moments`,
+`alphaMin`, `coordinates`, `stabilityW` and `F`, and with them to Part VII's closed form, its five
+complete invariants and its stability criterion. The panel prints which of those travel (theorems
+about the shape) and which do not (theorems about the SU(7) lattice, which become measurements you
+can check — and which fail for SU(6), as it says).
+
+**A sign in the printed formula.** Eqs. (5.9), (5.10) and (5.17)–(5.20) carry (n₊₊ − n₋₋) and
+(n₊₋ − n₋₊) as plain differences; they are counts of leftover rows and must be absolute values.
+Two of the paper's own worked examples say so — §3's SU(3) has n₊₊ = 1 < n₋₋ = 2 and the printed
+form flips the sign of its own eq. (3.10); §4.3's SU(6) does the same to eq. (4.29) — and so does
+an invariance the formula must have, since A → PAP† cannot tell (P, P′) from (−P, −P′) and that
+swap exchanges the blocks in pairs. `_test_sun5d.mjs` checks all four examples verbatim (44
+checks), checks the invariance, and checks that the *signed* reading FAILS.
+
+**Two overclaims of ours, caught by looking at the shot.** The vacuum panel announced "the Hosotani
+mechanism" for a minimum at a = 1 — which is the OTHER SYMMETRIC POINT, not a broken vacuum: V has
+period 2 and is even, so [0,1] is a fundamental domain and its ends are the pair Part VII's
+criterion compares. Three verdicts now, with W by name. And the paper's ½ (V = (C/2)Σ…) makes
+`F1minusF0` exactly twice the difference this module reports; the factor is stated in the panel and
+asserted in the harness.
+
+**The shell gained one thing.** A section may declare `holds(ctx)` and the header shows that line
+instead of the shell model's — because this section may be holding an SU(6) while the shell carries
+an SU(3), and the header is the one element a reader trusts without looking. `_test_app.mjs`'s
+invariant became: every built section brings markup, and modules **unless** it declares `holds()`.
+`build_site.py` and `_test_site.py` learned `part: instrument` for a change entry that belongs to
+no paper.
+
+**Build after both passes: 1 290 checks, 20 harnesses, 15 sections, 0 console errors, drive 18/18,
+site 28 ok and 0 overflow.**
+
+**Next, from the same literature sweep and not started:** the equivalence classes of boundary
+conditions (Kawamura and collaborators keep publishing new classification methods — PTEP 2024 for
+S¹/Z₂ and T²/Z₃, PTEP 2025 for SO(N) on T²/Zₘ), which is the other computation everyone in this
+field redoes by hand; and T²/Z_m, which this module does not do.
+
+## 2026-08-29 — Part VIII enters: the map backwards, the clusters, and the census (first pass)
+
 **Build: 1 244 checks, 19 harnesses, 14 sections, 0 console errors, drive 18/18.**
 
 > State at 2026-08-26. The section below is from that pass; the 2026-08-09 handoff follows it

@@ -122,9 +122,20 @@ ok("every section declares whether it is built, explicitly",
    secs.every((s) => s.ready === true || s.ready === false),
    JSON.stringify(secs.map((s) => [s.id, s.ready])));
 ok("every section names its paper", secs.every((s) => !!s.paper));
-ok("every BUILT section brings its own modules and markup",
-   secs.filter((s) => s.ready).every((s) => Array.isArray(s.modules) && s.modules.length &&
-                                            typeof s.html === "string" && s.html.length > 200));
+/* EVERY BUILT SECTION BRINGS MARKUP, AND MODULES UNLESS IT HOLDS ITS OWN MODEL.  The exception is
+ * not a loophole: a section with no modules is one that computes nothing through the resolver, and
+ * the only honest reason for that is that it does not stand on the shell's model at all -- in
+ * which case it MUST say what it does stand on, or the header lies about what is on screen.  So
+ * `modules: []` is admissible exactly when `holds()` is there, and never otherwise. */
+ok("every BUILT section brings its own markup", secs.filter((s) => s.ready)
+   .every((s) => typeof s.html === "string" && s.html.length > 200));
+ok("...and its own modules, unless it declares holds() and carries its own model instead",
+   secs.filter((s) => s.ready).every((s) => Array.isArray(s.modules) &&
+     (s.modules.length > 0 || typeof s.holds === "function")),
+   JSON.stringify(secs.filter((s) => s.ready && !(s.modules || []).length).map((s) => s.id)));
+ok("a section that holds its own model returns a non-empty line for the header",
+   secs.filter((s) => typeof s.holds === "function")
+       .every((s) => typeof s.holds({}) === "string" && s.holds({}).length > 8));
 ok("no UNBUILT section smuggles in modules",
    secs.filter((s) => !s.ready).every((s) => !s.modules));
 ok("section ids are unique", new Set(secs.map((s) => s.id)).size === secs.length);

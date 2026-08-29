@@ -184,8 +184,13 @@ def read_entry(path):
     if meta["severity"] not in SEVERITIES:
         sys.exit(f"FATAL: {path.name} has severity {meta['severity']!r}; "
                  f"the four are {sorted(SEVERITIES)}.")
-    if meta["part"] not in ROMAN:
-        sys.exit(f"FATAL: {path.name} names part {meta['part']!r}, which is not in the series.")
+    # A CHANGE MAY BELONG TO NO PART, and that had to become sayable the day the instrument grew a
+    # section that is not about a paper of ours -- the general SU(N) builder answers a question
+    # nobody in this series asked.  `part: instrument` is the only other admissible value, and it
+    # is a NAME rather than an empty field, so a missing part is still the error it was.
+    if meta["part"] not in ROMAN and meta["part"] != "instrument":
+        sys.exit(f"FATAL: {path.name} names part {meta['part']!r}, which is neither a part of the "
+                 f"series nor 'instrument'.")
     datetime.date.fromisoformat(meta["date"])
     forces = SEVERITIES[meta["severity"]][1]
     says = meta["affects_record"].lower() in ("yes", "true")
@@ -322,8 +327,10 @@ def series_table(parts, changes, depth=0):
 
 def entry_html(c, depth, with_part=True):
     root = "../" * depth
-    part = (f'<a href="{root}papers/{SLUG[c["part"]]}/index.html">Part {c["part"]}</a> &middot; '
-            if with_part else "")
+    # a change with no part has no paper page to link to, and says so instead of linking nowhere
+    part = ("" if not with_part
+            else f'<a href="{root}papers/{SLUG[c["part"]]}/index.html">Part {c["part"]}</a> &middot; '
+            if c["part"] in SLUG else "the instrument &middot; ")
     affects = ("affects the record: <strong>YES</strong>"
                if SEVERITIES[c["severity"]][1] else "affects the record: no")
     verify = (f'<dt>check</dt><dd>{inline(c["verify"])}</dd>' if c.get("verify") else "")

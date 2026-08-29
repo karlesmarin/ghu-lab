@@ -1,7 +1,8 @@
 # 🔧 GHU Lab — the source tree of the gauge–Higgs unification instrument
 
 This repository builds **[karlesmarin.github.io/ghu-explorer](https://karlesmarin.github.io/ghu-explorer/)**:
-one self-contained HTML page holding fourteen computations over three published models —
+one self-contained HTML page holding fifteen computations — and a builder for models nobody has
+written yet — over three published models:
 SU(7) on S¹/Z₂×S¹/Z₂ (Komori–Maru), SU(4) on T²/Z₂ (AHMN), and Haba–Yamashita's 5D SU(3) on
 S¹/Z₂ — with **every output carrying what is known about it**: `theorem`, `verified`, `measured`
 or `unknown`, as fields in the exported result card rather than as decoration.
@@ -9,7 +10,7 @@ or `unknown`, as fields in the exported result card rather than as decoration.
 The deployed page is a build artifact. This is where it comes from, and why it says what it says.
 
 ```
-python build/build_app.py     # inline → collision guard → edition gate → 19 harnesses → app/index.html
+python build/build_app.py     # inline → collision guard → edition gate → 20 harnesses → app/index.html
 python build/build_site.py --legacy ../ghu-explorer/tools-2026-07     # → site/, then gates itself
 node   build/shoot.mjs        # headless screenshots of every section + console + which model
 node   build/drive.mjs        # USES the calculator: real mouse through the DevTools Input domain
@@ -21,7 +22,7 @@ node   tests/run.mjs          # the built page against the Python engine of Part
 
 ## What is checked, and against what
 
-**1 244 checks.** The ones that carry weight are the ones an outside computation could lose:
+**1 290 checks.** The ones that carry weight are the ones an outside computation could lose:
 
 | harness | what it puts at risk |
 |---|---|
@@ -33,6 +34,7 @@ node   tests/run.mjs          # the built page against the Python engine of Part
 | `_test_atlas.mjs` | the 1 286-content lattice re-enumerated in the browser, against `ceiling_ilp.py`'s archived counts — and against the hierarchy sweep, which reaches them another way |
 | `_test_inverse.mjs` | the map run **backwards**: the five published rows inverted from their own observables, the certificate roster of every target the paper tabulates, the designs it delivers — and the certificates **falsified**, a rung a Farkas bound closes being enumerated whole to confirm it is empty. It also resolves the two clusters a browser can reach into their **35 and 65 points**, recovering the paper's spacings and the 45× the gap is measured against |
 | `_test_census.mjs` | N(A₄, 8D) counted by dynamic programme, against three other things: the archived enumeration (**69 022 464** contents over four rungs), an independent brute force, and the enumerator that builds the contents one by one |
+| `_test_sun5d.mjs` | the **general SU(N)** formula — Haba–Yamashita §5 — against every equation of all four worked examples the same paper prints, transcribed term by term; against the invariance (P, P′) → (−P, −P′) that fixes a sign the printed formula leaves ambiguous; and, through the one-phase bridge, against the archived 60-row SU(3) prediction bank, which it reproduces to 8e-16 by a route that shares nothing with the special case those rows came from |
 | `_test_app.mjs` | the page that **ships**, not the sources it came from: the inliner, the module stripper and the data injection are the only code no other test covers |
 | `_test_site.py` | thirteen site checks, and then **each of them again against a site broken on purpose** |
 | `build/drive.mjs` | the panels answer a **real mouse** through the DevTools Input domain, not events dispatched from inside the page |

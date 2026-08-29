@@ -251,8 +251,11 @@ def check_entries(w):
         says = meta.get("affects_record", "").lower() in ("yes", "true")
         if forces != says:
             bad.append(f"{p.name}: a {sev} says affects_record: {meta.get('affects_record')!r}")
-        if meta.get("part") not in ROMAN:
-            bad.append(f"{p.name}: part {meta.get('part')!r} is not in the series")
+        # 'instrument' is the one non-part a change may name -- see build_site.py.  Still a NAME,
+        # so a missing or misspelt part is the failure it always was.
+        if meta.get("part") not in ROMAN and meta.get("part") != "instrument":
+            bad.append(f"{p.name}: part {meta.get('part')!r} is neither in the series nor "
+                       f"'instrument'")
     return bad
 
 
@@ -268,6 +271,11 @@ def check_echo(w):
         marker = title[:40]
         if marker not in stream:
             bad.append(f"{p.name} is not in the stream")
+        # A change about the INSTRUMENT has no paper page to echo onto, so the second half of this
+        # check does not apply to it -- and it must not be quietly skipped either: the stream
+        # above is where it has to appear, and that half still ran.
+        if fm["part"] not in SLUG:
+            continue
         page = w["pages"].get(f"papers/{SLUG[fm['part']]}/index.html", "")
         if marker not in page:
             bad.append(f"{p.name} is not on the Part {fm['part']} page")

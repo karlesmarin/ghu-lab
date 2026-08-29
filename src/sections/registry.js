@@ -28,5 +28,10 @@ const SECTIONS = [
   { ...SELECTION_SECTION, group: "su4_ahmn", family: "SU(4) · AHMN" },
   { ...CALCULATOR_SECTION, group: "su4_ahmn", family: "SU(4) · AHMN" },
   { ...ETA_SECTION, group: "su4_ahmn", family: "SU(4) · AHMN" },
-  { ...FIVED_SECTION, group: "su3_hy", family: "SU(3) · Haba–Yamashita · 5D" },
+  { ...FIVED_SECTION, group: "su3_hy", family: "5D on S¹/Z₂ · Haba–Yamashita" },
+  /* THE SAME PAPER'S GENERAL FORMULA, where the model is the INPUT rather than the subject.  It
+   * sits in this family because §5 is the section §3 is an example of; the family lost its "SU(3)"
+   * because the family no longer is one, and the builder declares `holds()` so the header names
+   * the group the reader typed instead of the one the shell is carrying. */
+  { ...SUN5D_SECTION, group: "su3_hy", family: "5D on S¹/Z₂ · Haba–Yamashita" },
 ];

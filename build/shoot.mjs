@@ -242,6 +242,21 @@ const VARIANTS = {
                    i.value = '9'; i.dispatchEvent(new Event('change')); b.click(); return true; })()`,
     wait: 14000,
   }],
+  /* The builder opens on gauge and ghost alone, which never breaks anything -- so the default
+   * frame documents the half of the verdict that always says no.  Load the paper's SU(6) example
+   * with P != P' and give it four fundamentals: a group the instrument has no data file for, a
+   * potential built from a boundary condition, and a vacuum away from the symmetric point. */
+  sun5d: [{
+    name: "sun5d-su6", label: "their §4.3 SU(6) with four fundamentals: the Hosotani vacuum",
+    set: `(() => { const p = document.querySelector('#sunPresets button[data-preset="hy6b"]');
+                   if (!p) return false; p.click();
+                   for (let i = 0; i < 4; i++) {
+                     const b = document.querySelector('#sunBulk button[data-f="fund|1|dirac"][data-d="1"]');
+                     if (b) b.click();
+                   }
+                   return true; })()`,
+    wait: 2500,
+  }],
   fived: [{
     name: "fived-pure-gauge", label: "pure gauge: D = -9, nothing breaks",
     set: `(() => { const b = document.querySelector('#fvClear');

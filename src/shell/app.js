@@ -236,7 +236,30 @@
     return sig(model(group).bulk) === sig(A.bulk) ? A : null;
   }
 
+  /* A SECTION THAT DOES NOT STAND ON THE SHELL'S MODEL SAYS WHAT IT DOES STAND ON.
+   *
+   * Every section so far answers a question about a content in a FIXED lattice, so the header --
+   * the most visible element on the page -- can name that content and be right.  The general
+   * SU(N) builder is not of that kind: its input is a boundary condition, the term table is a
+   * FUNCTION of it, and the group itself is something the reader types.  Leaving the header
+   * showing "SU(3) . S1/Z2 . 2xadjoint(+,+)" while the panel below builds an SU(6) model would be
+   * a lie in the one place a reader trusts without looking.
+   *
+   * So a section may declare `holds(ctx)`, returning the one line that describes what IS on
+   * screen.  When it does, the status tally goes too: those chips count the statuses of the
+   * shell model's values, and none of them were computed for what the section is holding.  A
+   * single chip says so instead.  DESIGN.md D6 said one model per group; this says what happens
+   * when a section has no group. */
   function header(r) {
+    const sec = active();
+    const own = sec.holds ? sec.holds(ctx()) : null;
+    if (own) {
+      $("topModel").textContent = own;
+      const cav = $("topCaveat");
+      if (cav) { cav.innerHTML = ""; cav.style.display = "none"; }
+      $("topChips").innerHTML = `<span class="chip live">this section holds its own model</span>`;
+      return;
+    }
     $("topModel").textContent = describe(r.model);
     /* A tool that opens on its best-agreeing case and does not say so is flattering itself.  The
      * SU(7) anchor IS that case -- 1.03x against theirs where the other four rows run to 2.08x --

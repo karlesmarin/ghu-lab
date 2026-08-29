@@ -1,7 +1,7 @@
 # 🔧 GHU Lab — the source tree of the gauge–Higgs unification instrument
 
 This repository builds **[karlesmarin.github.io/ghu-explorer](https://karlesmarin.github.io/ghu-explorer/)**:
-one self-contained HTML page holding eighteen computations — including tools for models nobody has
+one self-contained HTML page holding nineteen computations — including tools for models nobody has
 written yet — over three published models:
 SU(7) on S¹/Z₂×S¹/Z₂ (Komori–Maru), SU(4) on T²/Z₂ (AHMN), and Haba–Yamashita's 5D SU(3) on
 S¹/Z₂ — with **every output carrying what is known about it**: `theorem`, `verified`, `measured`
@@ -22,7 +22,7 @@ node   tests/run.mjs          # the built page against the Python engine of Part
 
 ## What is checked, and against what
 
-**1 403 checks.** The ones that carry weight are the ones an outside computation could lose:
+**1 449 checks.** The ones that carry weight are the ones an outside computation could lose:
 
 | harness | what it puts at risk |
 |---|---|

@@ -245,6 +245,54 @@ ok("and the cursor is back at the vacuum",
    (await readout()).startsWith("The cursor is at the vacuum"), await readout());
 await shot("4-reloaded");
 
+/* ---- the sweep, which is section code no module harness can reach ------------------------- */
+
+/* THE ROW LIST IS ITS OWN CLAIM.  The panel promises "showing K of T, one per equivalence class
+ * first", and the first version printed "showing 40 of 24": it decided which rows were the first
+ * of their class inside a second pass, by which time the first pass had already seen every class,
+ * so every survivor was listed twice.  A count that contradicts itself on screen is caught here or
+ * it is caught by a reader. */
+H("the sweep panel: the table says what it holds, and a hit loads into the builder");
+await js(`document.querySelector('#rail a[data-id="sweep5d"]').click()`);
+await sleep(700);
+ok("it does not run on render — the expensive panel opens unpressed",
+   /Not run yet/.test(await js(`document.getElementById('swCost').textContent`)),
+   await js(`document.getElementById('swCost').textContent`));
+
+await js(`document.querySelectorAll('#swFilters input[type=checkbox]')
+            .forEach((c) => { if (!c.checked) { c.checked = true; c.onchange(); } });
+          document.getElementById('swRun').click()`);
+await sleep(9000);
+
+const swN = await js(`({ rows: document.querySelectorAll('#swRows tr').length,
+                         note: document.getElementById('swRowsNote').textContent,
+                         total: SWEEP5D_S.result.total,
+                         classes: SWEEP5D_S.result.classesLeft })`);
+ok(`the sweep found ${swN.total} pairs in ${swN.classes} classes`, swN.total > 0 && swN.classes > 0);
+ok(`the table holds ${swN.rows} rows and never more than the ${swN.total} survivors it found`,
+   swN.rows <= swN.total, JSON.stringify(swN));
+const shown = +(/Showing (\d+) of (\d+)/.exec(swN.note) || [])[1];
+const claimed = +(/Showing (\d+) of (\d+)/.exec(swN.note) || [])[2];
+ok(`"showing ${shown} of ${claimed}" is arithmetic that holds, and matches the rows drawn`,
+   shown <= claimed && shown === swN.rows, swN.note);
+/* one row per class first: the leading rows must be distinct classes */
+const swCls = await js(`[...document.querySelectorAll('#swRows tr')]
+                          .map((r) => r.children[3].textContent.trim())`);
+const firstN = swCls.slice(0, swN.classes).map((s) => s.replace(/\\D+$/, ""));
+ok("the leading rows are one per equivalence class, as the note promises",
+   new Set(firstN).size === firstN.length, firstN.join(","));
+
+const swBefore = await js(`JSON.stringify(SUN5D_S.blocks)`);
+await js(`document.querySelector('#swRows button').click()`);
+await sleep(600);
+const swAfter = await js(`JSON.stringify(SUN5D_S.blocks)`);
+ok("load puts the survivor into the shared model", swBefore !== swAfter, `${swBefore} -> ${swAfter}`);
+await js(`document.querySelector('#rail a[data-id="sun5d"]').click()`);
+await sleep(700);
+ok("...and the builder is now holding it, so the loop closes",
+   (await js(`JSON.stringify(SUN5D_S.blocks)`)) === swAfter);
+await shot("5-sweep");
+
 /* ---- the console ------------------------------------------------------------------------- */
 
 const errs = events.filter((e) => e.method === "Log.entryAdded" &&

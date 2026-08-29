@@ -146,7 +146,7 @@ not decided here — ACG's even split is for the case they treat, and a broken g
 individually non-zero localised anomalies with a vanishing sum, for a Chern–Simons term or brane
 fields to absorb. And **not 6D**, so it is not about Komori–Maru.
 
-**Build: 1 403 checks, 23 harnesses, 18 sections.**
+**Build: 1 449 checks, 24 harnesses, 19 sections.**
 
 ## 2026-08-29 (fourth pass) — the 4D spectrum: what the model CONTAINS
 
@@ -973,3 +973,45 @@ Every one of these cost a build or a day. They are in the code as comments; this
 - **Moving a page moves its neighbours' links.** Putting the old selection page in `editions/` and
   the other two at the root broke the relative links between them. All three now live in one
   directory, unchanged.
+
+## 2026-08-29 (sixth pass) — the scan: the four panels chained, and the loop closes
+
+The builder, the spectrum, the anomaly ledger and the boundary-condition classes each answered a
+question about **one** model. Nothing walked the space, which is the step a person cannot do by
+hand. `src/modules/sweep5d.mjs` + the section `Scan`.
+
+Every boundary condition of SU(N) on S1/Z2 crossed with every bulk content up to a chosen size,
+through filters ordered **cheapest first** so the only expensive one -- minimising the potential --
+runs on the fewest candidates. The funnel is reported stage by stage, and a survivor **loads into
+the builder**, which is the same shared model the other two panels read: the loop closes rather
+than ending in a list.
+
+**The headline is the pair of numbers.** 24 surviving boundary conditions that are 16 theories will
+be read as 24 results by anyone who does not know to quotient, so both counts are always printed and
+every row carries its class. The sweep walks boundary conditions rather than classes on purpose: the
+apparent unbroken group is **not** a class invariant, so one representative per class would be
+picking an answer.
+
+**Four things the harness caught.** A default that filtered (`needHiggs` defaulted to "any", which
+reads as *don't care* and means *must have one*: it discarded two thirds of the space while stage
+zero printed the full denominator). An **undecided vacuum reported as a no** -- the minimiser handles
+one Wilson-line phase and two, and models with three or more were being filtered out alongside those
+whose minimum genuinely sits at a symmetric point; three buckets now, and the undecided are counted
+on the page. `Showing 40 of 24`, from deciding "first of its class" inside a second pass -- section
+code, which no module harness reaches, so `build/drive.mjs` now drives the panel. And the discipline
+that **a filter which is always empty is a bug wearing a result's coat**: each of the four is
+exhibited keeping something on its own.
+
+**What the empty conjunction turned out to mean.** On SU(5) the four filters leave 36 pairs and
+every one is a **pure adjoint content with no massless scalar** -- the anomaly module's theorem read
+backwards, since the adjoint is real and at two multiplets is the only bulk that settles its own
+bill. Ask for a Higgs too and SU(5) empties; ask for a *colourless* one and it dies a stage earlier,
+because a 3 and a 2 already exhaust SU(5) and leave no block of size 1 to pair with the doublet. One
+rank higher, all five filters at once leave survivors.
+
+**What it does not decide.** The group it filters on is the one you *write*, not the one you get:
+the physical symmetry is the one at the minimum, which the last filter only samples. Bulk Dirac
+fermions only, no brane fields -- so "the bulk pays its own anomaly" means "needs no brane fermion
+to be consistent", a much stronger demand than consistency, and failing it excludes nothing.
+
+**Build: 1 449 checks, 24 harnesses, 19 sections.**

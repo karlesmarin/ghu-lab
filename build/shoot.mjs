@@ -327,6 +327,17 @@ const VARIANTS = {
                    if (!b) return false; b.click(); return true; })()`,
     wait: 2500,
   }],
+  /* the sweep does not run on render -- deliberately, it is seconds -- so an unpressed panel is
+   * the honest default view and also the one that shows nothing.  Press its own run button. */
+  sweep5d: [{
+    name: "sweep5d-run", label: "SU(6), the full chain: the funnel and the survivors",
+    set: `(() => { const b = document.querySelector('#swRun');
+                   if (!b) return false;
+                   document.querySelectorAll('#swFilters input[type=checkbox]')
+                     .forEach((c) => { if (!c.checked) { c.checked = true; c.onchange(); } });
+                   document.querySelector('#swRun').click(); return true; })()`,
+    wait: 9000,
+  }],
   fived: [{
     name: "fived-pure-gauge", label: "pure gauge: D = -9, nothing breaks",
     set: `(() => { const b = document.querySelector('#fvClear');

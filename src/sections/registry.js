@@ -39,6 +39,10 @@ const SECTIONS = [
   { ...SPEC5D_SECTION, group: "su3_hy", family: "5D on S¹/Z₂ · Haba–Yamashita" },
   /* and the gate that content has to pass.  Same shared model: one model, three views. */
   { ...ANOM5D_SECTION, group: "su3_hy", family: "5D on S¹/Z₂ · Haba–Yamashita" },
+  /* and the four of them CHAINED, walking the space instead of answering about one model.  It
+   * writes into the same shared model, so a hit found here lands in the builder and the other
+   * three panels read it: the loop closes rather than ending in a list. */
+  { ...SWEEP5D_SECTION, group: "su3_hy", family: "5D on S¹/Z₂ · Haba–Yamashita" },
   /* A family of its own, because it is about neither a model nor a dimension: it is about which
    * BOUNDARY CONDITIONS are the same theory, on S¹/Z₂ and on T²/Z₃.  Like the builder it holds
    * its own model and takes nothing from the shell. */

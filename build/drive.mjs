@@ -451,14 +451,14 @@ H("the LaTeX button appears only where it exports what is on screen");
     return !(await js(`document.getElementById('btnTex').hidden`));
   };
   /* sections that stand on the shell's model, or hand over their own */
-  for (const id of ["hierarchy", "atlas", "collider", "sun5d", "blkt"])
+  for (const id of ["hierarchy", "atlas", "collider", "sun5d", "blkt", "litcensus"])
     ok(`visible on ${id}`, await shown(id));
   /* sections holding a model they do not export: the file would be about something else */
-  for (const id of ["spectrum5d", "anomaly5d", "sweep5d", "bcclass", "litcensus"])
+  for (const id of ["spectrum5d", "anomaly5d", "sweep5d", "bcclass"])
     ok(`hidden on ${id}`, !(await shown(id)));
 
   /* and hidden is not disabled: pressing it anyway must do nothing */
-  await js(`document.querySelector('#rail a[data-id="litcensus"]').click()`);
+  await js(`document.querySelector('#rail a[data-id="bcclass"]').click()`);
   await sleep(600);
   await js(`window.__blobs = []; URL.createObjectURL = (b) => { window.__blobs.push(b); return "blob:stub"; }; true`);
   await js(`document.getElementById('btnTex').click(); true`);
@@ -466,6 +466,90 @@ H("the LaTeX button appears only where it exports what is on screen");
   ok("...and pressing it there writes nothing at all",
      (await js(`window.__blobs.length`)) === 0);
   await js(`URL.createObjectURL = window.__realCreate; true`);
+}
+
+/* ---- a file must cite the paper its numbers came from --------------------------------------- */
+/* THE BIBLIOGRAPHY USED TO FOLLOW THE GROUP, NOT THE FILE.  The BLKT demonstration computes
+ * nothing but Akamatsu-Hirose-Maru-Nago 2026 -- their (3.19), (3.21), (4.2) -- and because its
+ * card declares `group: "su3_hy"` the exported .bib listed Haba-Yamashita and four others and
+ * omitted theirs entirely.  A bibliography that omits the source of every number in the document
+ * is worse than none: it points the reader at the wrong five papers.  And the letter to those four
+ * authors linked to that very page.  Sections now declare their own sources; this is the gate. */
+H("an exported file cites the paper its numbers came from");
+{
+  const grab = async (id) => {
+    await js(`document.querySelector('#rail a[data-id="${id}"]').click()`);
+    await sleep(700);
+    await js(`window.__blobs = [];
+              window.__realCreate = window.__realCreate || URL.createObjectURL;
+              window.__realClick = window.__realClick || HTMLAnchorElement.prototype.click;
+              URL.createObjectURL = (b) => { window.__blobs.push(b); return "blob:stub"; };
+              HTMLAnchorElement.prototype.click = function () {}; true`);
+    await js(`document.getElementById('btnTex').click(); true`);
+    await sleep(1200);
+    const out = JSON.parse(await js(
+      `Promise.all(window.__blobs.map((b) => b.text())).then((a) => JSON.stringify(a))`));
+    /* PUT THE STUBS BACK BEFORE THE NEXT NAVIGATION.  The rail entries are <a>: a click stub left
+     * in place makes every later section switch do nothing, in silence. */
+    await js(`URL.createObjectURL = window.__realCreate;
+              HTMLAnchorElement.prototype.click = window.__realClick; true`);
+    return { tex: out.find((b) => b.includes("\\begin{table}")) || "",
+             bib: out.find((b) => /^@\w+\{/m.test(b.trimStart())) || "" };
+  };
+
+  const bk = await grab("blkt");
+  ok("the BLKT export's bibliography carries Akamatsu-Hirose-Maru-Nago 2026",
+     bk.bib.includes("Akamatsu:2026sjg"), bk.bib.slice(0, 160));
+  ok("...and the document points at that key, not at somebody else's",
+     bk.tex.includes("\\cite{Akamatsu:2026sjg}"));
+  ok("...and no longer inherits the five sources of its group",
+     !bk.bib.includes("Haba:2004qh"), bk.bib.slice(0, 200));
+
+  const ct = await grab("litcensus");
+  ok("the census exports its rows as a table, not as flattened key-value pairs",
+     ct.tex.includes("tab:ghu-census") && ct.tex.includes("\\cmidrule"));
+  ok("...with a row per paper somebody read",
+     (ct.tex.match(/\\cite\{/g) || []).length >= 8,
+     `${(ct.tex.match(/\\cite\{/g) || []).length} citations`);
+  ok("...and its .bib carries the papers the table cites",
+     ct.bib.includes("Kawamura:2025bgx") && ct.bib.includes("Akamatsu:2026sjg"));
+  ok("...naming the authors the title page names, not an initialism guessed from a file name",
+     /Kawamura/.test(ct.tex) && !/Kubota|Kubo\b/.test(ct.tex + ct.bib));
+  ok("...and the orbifold column says T^2/Z_4, which is the one that paper studies",
+     /T\^\{2\}\/Z_\{4\}/.test(ct.tex), (ct.tex.match(/T\^\{2\}[^&]*/) || [""])[0]);
+  ok("neither census file leaves ASCII, so pdflatex and bibtex take them",
+     !/[^\x00-\x7f]/.test(ct.tex + ct.bib));
+  /* A CAPTION IS A CLAIM ABOUT THE COLUMN BESIDE IT, AND NOBODY GATES CAPTIONS.  The first draft
+   * said a row needs content and a minimum -- but von Gersdorff-Irges-Quiros prints both and
+   * counts zero, because a row needs the whole triple.  The caption and the table were two
+   * statements about one number, and they disagreed on the page. */
+  ok("the caption states the rule the rows are actually counted by",
+     /whole triple/.test(ct.tex) && /Higgs mass or a compactification scale/.test(ct.tex));
+  /* AND NOWHERE ELSE IN THE FILE STATES A DIFFERENT ONE.  Correcting the caption left the card's
+   * `source` line carrying the first draft's rule, and the compiled PDF printed the two of them
+   * one page apart.  A criterion is one claim wherever it appears. */
+  ok("...and no other line in the document states a different rule",
+     !/content together with a minimum/.test(ct.tex), "the superseded criterion is still in here");
+  {
+    const dots = [...ct.tex.matchAll(/^\s{4}(\S.*?)\\\\$/gm)].map((m) => m[1])
+      .filter((r) => r.includes("\\cite{"));
+    const bad = dots.filter((r) => {
+      const c = r.split("&").map((x) => x.trim());
+      const triple = c[2] === "$\\bullet$" && c[3] === "$\\bullet$" &&
+                     (c[4] === "$\\bullet$" || c[5] === "$\\bullet$");
+      return triple !== (c[6] !== "--");
+    });
+    ok("...and every row's dots agree with the number of rows it is credited",
+       bad.length === 0, bad.join(" || ").slice(0, 300));
+  }
+
+  /* THE FILES GO TO DISK, BECAUSE THE ONLY REAL TEST OF AN EXPORTER IS THE DESTINATION.  Checking
+   * the string here says the shape is right; compiling what actually left the page is what says
+   * the document builds.  Reconstructing it outside the browser would test the reconstruction. */
+  writeFileSync(path.join(OUT, "census_export.tex"), ct.tex, "utf-8");
+  writeFileSync(path.join(OUT, "census_export.bib"), ct.bib, "utf-8");
+  writeFileSync(path.join(OUT, "blkt_export.tex"), bk.tex, "utf-8");
+  writeFileSync(path.join(OUT, "blkt_export.bib"), bk.bib, "utf-8");
 }
 
 /* ---- the permalink a mail client will not maul ---------------------------------------------- */

@@ -365,7 +365,11 @@
     /* STAGGERED, because two downloads fired in the same tick look to a browser like a page
      * grabbing files: Chrome raises its "download multiple files?" prompt and may drop the
      * second.  Half a second costs nothing and the reader gets both. */
-    const bib = toBibtex(g, { date: new Date().toISOString().slice(0, 10) });
+    /* THE .bib FOLLOWS THE .tex, NOT THE GROUP.  A section that declared its own sources above
+     * must get them here too, or the document cites five papers its bibliography does not carry
+     * -- which is how the BLKT export came to omit the one paper every number in it came from. */
+    const bib = toBibtex(g, { date: new Date().toISOString().slice(0, 10),
+                              sources: extra.sources || null });
     if (bib) setTimeout(() => download(`ghu-${use.provenance.model_id}.bib`, bib, "text/plain"), 500);
   };
 

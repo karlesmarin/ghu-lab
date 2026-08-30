@@ -270,7 +270,7 @@ const PREAMBLE = [
 export function toLatex(card, { standalone = false, label = "tab:ghu-lab", caption = null,
                                 terms = null, termNames = ["a", "b", "c"], half = true,
                                 group = null, bibliography = true, date = null,
-                                mathKeys = [] } = {}) {
+                                mathKeys = [], sources = null, body = null } = {}) {
   const P = card.provenance;
   const t = card.summary.tally;
   const head = [
@@ -307,6 +307,12 @@ export function toLatex(card, { standalone = false, label = "tab:ghu-lab", capti
 
   parts.push(resultsTable(card, { label, caption, mathKeys }));
 
+  /* A SECTION WHOSE CONTENT IS A TABLE, NOT A MODEL.  The card holds key-value results, which is
+   * the right shape for a computed model and the wrong one for the census: flattening eight papers
+   * into key-value pairs would lose the rows, which are the whole point.  So a section may supply
+   * a second, ready-made block; the card above it still carries the summary and the provenance. */
+  if (body) parts.push(body);
+
   /* THE BIBLIOGRAPHY IS A SEPARATE FILE, AND THE PDF IS WHY.
    *
    * The first version put the BibTeX entries in the .tex.  Compiled, LaTeX ate the braces and
@@ -314,12 +320,13 @@ export function toLatex(card, { standalone = false, label = "tab:ghu-lab", capti
    * the middle of the document.  A .bib is not body text.  So the .tex carries a pointer and the
    * entries go to `toBibtex`, which the caller writes beside it.  Two files, like the card's JSON
    * and text: the same object, in the two forms the destination needs. */
-  if (bibliography && group && sourcesFor(group).length) {
+  const srcs = resolveSources(group, sources);
+  if (bibliography && srcs.length) {
     parts.push([
       "% The sources these numbers rest on are in the companion .bib file, keyed the way INSPIRE",
       "% keys them so it merges into an existing bibliography rather than duplicating entries:",
       "%",
-      ...sourcesFor(group).map((x) => `%     \\cite{${x.texkey}}   ${tex(x.short)}`),
+      ...srcs.map((x) => `%     \\cite{${x.texkey}}   ${tex(x.short)}`),
     ].join("\n"));
   }
 
@@ -329,8 +336,21 @@ export function toLatex(card, { standalone = false, label = "tab:ghu-lab", capti
 
 /* The companion .bib.  Written as its own file rather than pasted into the .tex, for the reason in
  * `toLatex`: BibTeX entries are not LaTeX body text and a document that contains them prints them. */
-export function toBibtex(group, { date = null } = {}) {
-  const srcs = sourcesFor(group);
+/* WHICH PAPERS A FILE CITES IS NOT ALWAYS ITS GROUP'S.
+ *
+ * The bibliography used to be derived from the active group alone.  That is right for the sections
+ * that compute a group's models, and WRONG for a section built on one specific paper: the BLKT
+ * demonstration declares `group: "su3_hy"` because that is the physics it sits in, so its exported
+ * .bib listed five papers and omitted Akamatsu-Hirose-Maru-Nago 2026 -- the source of every number
+ * in the file.  A section that knows its own sources now says so, and this resolves the two cases
+ * the same way.  Unknown ids are dropped rather than emitted as an empty entry. */
+export function resolveSources(group, sources = null) {
+  if (!sources) return sourcesFor(group);
+  return sources.filter((id) => SOURCES[id]).map((id) => ({ id, ...SOURCES[id] }));
+}
+
+export function toBibtex(group, { date = null, sources = null } = {}) {
+  const srcs = resolveSources(group, sources);
   if (!srcs.length) return "";
   return [
     `% Sources for ${tex(TOOL.name)}${date ? `, exported ${tex(date)}` : ""}.`,

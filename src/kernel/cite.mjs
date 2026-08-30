@@ -98,6 +98,39 @@ export const SOURCES = Object.freeze({
     short: "Akamatsu-Hirose-Maru-Nago",
     note: "the SU(4) model of the second family; preprint, no journal reference yet",
   },
+
+  /* THE PAPER THE BLKT SECTION IS ENTIRELY ABOUT, AND IT WAS MISSING FROM THIS REGISTRY.
+   * Every number that section computes comes from its eqs. (3.19), (3.21) and (4.2) -- and because
+   * the section's card declares `group: "su3_hy"`, the LaTeX button was writing a .bib of five
+   * papers, none of them this one.  A bibliography that omits the source of every number in the
+   * file is worse than no bibliography: it points the reader at the wrong five papers.
+   * texkey verified against INSPIRE (`api/arxiv/2603.05857`), not constructed. */
+  AHMN26: {
+    texkey: "Akamatsu:2026sjg",
+    authors: ["K. Akamatsu", "T. Hirose", "N. Maru", "A. Nago"],
+    title: "Two Higgs Doublet Model from Six Dimensional Gauge Theory",
+    year: 2026,
+    eprint: "2603.05857", archivePrefix: "arXiv", primaryClass: "hep-ph",
+    short: "Akamatsu-Hirose-Maru-Nago",
+    note: "the brane-localized kinetic term construction; preprint, no journal reference yet",
+  },
+
+  /* Verified against INSPIRE (`api/arxiv/2502.08250`): the authors are Kawamura, Kodaira, Kojima
+   * and Yamashita.  The census had this row labelled "Kojima-Kubo-Kubota-Yamashita", which names
+   * two people who are not on the paper -- an initialism guessed from the file name rather than
+   * read off the title page.  The orbifold is $T^2/Z_4$, not $T^2$.
+   * The math in the title is delimited: an undelimited `T^2/Z_4` in a .bib stops pdflatex. */
+  KKKY25: {
+    texkey: "Kawamura:2025bgx",
+    authors: ["Y. Kawamura", "E. Kodaira", "K. Kojima", "T. Yamashita"],
+    title: "Models with rank-reducing discrete boundary conditions on $T^2/Z_4$",
+    year: 2025,
+    journal: "JHEP", volume: "08", pages: "149",
+    doi: "10.1007/JHEP08(2025)149",
+    eprint: "2502.08250", archivePrefix: "arXiv", primaryClass: "hep-ph",
+    short: "Kawamura-Kodaira-Kojima-Yamashita",
+    note: "source of representation data: the quartet charge multisets, eqs. (5.12)-(5.17)",
+  },
 });
 
 /* THE ONE STRING.  Everything that prints a reference for a registered source calls this, so the

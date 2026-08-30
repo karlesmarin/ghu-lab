@@ -1378,7 +1378,7 @@
   },
   {
    "id": "AHMN_2603.05857",
-   "cite": null,
+   "cite": "AHMN26",
    "label": "Akamatsu-Hirose-Maru-Nago, the same model with brane kinetic terms",
    "group": "SU(4)",
    "orbifold": "T^2/Z_2",
@@ -1468,10 +1468,10 @@
   },
   {
    "id": "KKKY_2502.08250",
-   "cite": null,
-   "label": "Kojima-Kubo-Kubota-Yamashita and successors, the 6D construction",
+   "cite": "KKKY25",
+   "label": "Kawamura-Kodaira-Kojima-Yamashita, rank-reducing discrete boundary conditions",
    "group": "SU(N)",
-   "orbifold": "T^2",
+   "orbifold": "T^2/Z_4",
    "publishes": {
     "content": true,
     "minimum": false,

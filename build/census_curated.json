@@ -8,7 +8,12 @@
    "label": "Komori-Maru, SU(7) grand gauge-Higgs unification",
    "group": "SU(7)",
    "orbifold": "S^1/Z_2 x S^1/Z_2",
-   "publishes": {"content": true, "minimum": true, "higgs_mass": true, "scale": true},
+   "publishes": {
+    "content": true,
+    "minimum": true,
+    "higgs_mass": true,
+    "scale": true
+   },
    "rows_published": 5,
    "where": "their Table 1: five contents, each with alpha_min, m_h and 1/R",
    "screened": "yes",
@@ -21,7 +26,12 @@
    "label": "Akamatsu-Hirose-Maru-Nago, two Higgs doublets from 6D",
    "group": "SU(4)",
    "orbifold": "T^2/Z_2",
-   "publishes": {"content": true, "minimum": true, "higgs_mass": true, "scale": true},
+   "publishes": {
+    "content": true,
+    "minimum": true,
+    "higgs_mass": true,
+    "scale": true
+   },
    "rows_published": 1,
    "where": "minimum (0.438, 0.299); eq. (4.3) for M_W; eq. (4.4) gives 1/R = 303 GeV",
    "screened": "yes",
@@ -30,11 +40,16 @@
   },
   {
    "id": "AHMN_2603.05857",
-   "cite": null,
+   "cite": "AHMN26",
    "label": "Akamatsu-Hirose-Maru-Nago, the same model with brane kinetic terms",
    "group": "SU(4)",
    "orbifold": "T^2/Z_2",
-   "publishes": {"content": true, "minimum": true, "higgs_mass": true, "scale": true},
+   "publishes": {
+    "content": true,
+    "minimum": true,
+    "higgs_mass": true,
+    "scale": true
+   },
    "rows_published": 2,
    "where": "minimum (0.438, 0.299) at c = 0 on p. 16 and (0.46, 0.30) at c = 15 in the caption of Fig. 1; eq. (5.19); the scale on p. 22",
    "screened": "yes",
@@ -47,7 +62,12 @@
    "label": "Haba-Yamashita, the general 5D SU(N) formula",
    "group": "SU(N)",
    "orbifold": "S^1/Z_2",
-   "publishes": {"content": true, "minimum": false, "higgs_mass": false, "scale": false},
+   "publishes": {
+    "content": true,
+    "minimum": false,
+    "higgs_mass": false,
+    "scale": false
+   },
    "rows_published": 0,
    "where": "sections 3 and 4 work four models in full, but their section 11 calls analysing the vacuum structure the hard part and leaves it",
    "screened": "yes",
@@ -60,7 +80,12 @@
    "label": "Haba-Hosotani-Kawamura, equivalence classes on S^1/Z_2",
    "group": "SU(N)",
    "orbifold": "S^1/Z_2",
-   "publishes": {"content": true, "minimum": false, "higgs_mass": false, "scale": false},
+   "publishes": {
+    "content": true,
+    "minimum": false,
+    "higgs_mass": false,
+    "scale": false
+   },
    "rows_published": 0,
    "where": "the classification and its energetics, eq. (3.27); no phenomenological table",
    "screened": "yes",
@@ -73,7 +98,12 @@
    "label": "Takeuchi-Inagaki, a new classification of equivalence classes",
    "group": "SU(N)",
    "orbifold": "S^1/Z_2 and T^2/Z_3",
-   "publishes": {"content": true, "minimum": false, "higgs_mass": false, "scale": false},
+   "publishes": {
+    "content": true,
+    "minimum": false,
+    "higgs_mass": false,
+    "scale": false
+   },
    "rows_published": 0,
    "where": "trace conservation laws, which their own text calls powerful NECESSARY conditions",
    "screened": "yes",
@@ -86,7 +116,12 @@
    "label": "von Gersdorff-Irges-Quiros, bulk and brane radiative effects",
    "group": "SU(N)",
    "orbifold": "S^1/Z_2",
-   "publishes": {"content": true, "minimum": true, "higgs_mass": false, "scale": false},
+   "publishes": {
+    "content": true,
+    "minimum": true,
+    "higgs_mass": false,
+    "scale": false
+   },
    "rows_published": 0,
    "where": "critical N_f and the vacuum structure; no Higgs mass and no compactification scale",
    "screened": "yes",
@@ -95,11 +130,16 @@
   },
   {
    "id": "KKKY_2502.08250",
-   "cite": null,
-   "label": "Kojima-Kubo-Kubota-Yamashita and successors, the 6D construction",
+   "cite": "KKKY25",
+   "label": "Kawamura-Kodaira-Kojima-Yamashita, rank-reducing discrete boundary conditions",
    "group": "SU(N)",
-   "orbifold": "T^2",
-   "publishes": {"content": true, "minimum": false, "higgs_mass": false, "scale": false},
+   "orbifold": "T^2/Z_4",
+   "publishes": {
+    "content": true,
+    "minimum": false,
+    "higgs_mass": false,
+    "scale": false
+   },
    "rows_published": 0,
    "where": "eqs. (5.12)-(5.17), the quartet charge multisets per representation",
    "screened": "yes",

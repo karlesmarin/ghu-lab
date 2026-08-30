@@ -264,6 +264,11 @@ const BLKT_SECTION = {
       card: makeCard({ group: "su3_hy", section: "blkt", c: o.c, m: o.m, q: o.q,
                        alpha: [o.alpha1, o.alpha2] }, values, { version: VERSION, build: BUILD }),
       mathKeys: ["sector"],
+      /* EVERY NUMBER HERE IS THEIRS, SO THE BIBLIOGRAPHY HAS TO BE.  Without this the export
+       * inherited the sources of group `su3_hy` -- Haba-Yamashita and four others -- and printed
+       * a .bib with no Akamatsu-Hirose-Maru-Nago in it at all, while quoting their (3.19), (3.21)
+       * and (4.2) throughout.  2026 is the construction; 2023 is where the minimum comes from. */
+      sources: ["AHMN26", "AHMN23"],
       caption: `A Kaluza-Klein tower with a brane localized kinetic term of coefficient ` +
                `$c = ${o.c}$, in the sector $(m, q) = (${o.m}, ${o.q})$ at ` +
                `$(\\alpha_1, \\alpha_2) = (${o.alpha1.toFixed(2)}, ${o.alpha2.toFixed(2)})$. ` +

@@ -323,8 +323,13 @@ ok("...and their c = 15 row is 1171 GeV, not the 1.4 TeV they printed",
 ok("...using their c = 15 minimum and not the c = 0 one, which are different numbers",
    /0\.46, 0\.30/.test(bkScale) && !/1213/.test(bkScale.replace(/belongs[\s\S]*/, "")),
    bkScale.slice(0, 260));
-ok("...and the note names 1.398 TeV as the same equation with alpha_2 dropped",
-   /1\.39[0-9] TeV/.test(bkNote) && /dropped/.test(bkNote), bkNote.slice(0, 200));
+/* THE WORDING IS PART OF THE CLAIM.  The note used to say the 1.398 TeV was their equation with
+ * alpha_2 "dropped" -- a diagnosis of their paper. It now reports what each reading gives and
+ * leaves the pairing open, because that is what we said to the authors, and the page must not
+ * assert more in their absence than the letter does to their faces. */
+ok("...and the note gives 1.398 TeV as the same equation on alpha_1 alone",
+   /1\.39[0-9] TeV/.test(bkNote) && /alpha_1 alone|α₁ alone/.test(bkNote), bkNote.slice(0, 220));
+ok("...and no longer diagnoses it as something they dropped", !/dropped/.test(bkNote));
 ok("...and warns that the two minima are not interchangeable",
    /not interchangeable/.test(bkNote), bkNote.slice(0, 240));
 
@@ -370,12 +375,21 @@ await sleep(700);
 
 /* capture EVERY blob the handler hands over, not the last one: the button writes two files and a
  * single variable would silently test only the second. */
+/* THE STUB IS RESTORED AFTERWARDS, and forgetting that cost an hour.  The rail's entries are
+ * <a> elements, so replacing HTMLAnchorElement.prototype.click to swallow the download ALSO
+ * swallowed every later navigation: six checks below then measured whatever section the page
+ * happened to be sitting on and reported it as a defect in the page.  A stub installed for one
+ * check must not survive into the next. */
 await js(`window.__blobs = [];
+  window.__realCreate = URL.createObjectURL;
+  window.__realClick = HTMLAnchorElement.prototype.click;
   URL.createObjectURL = (blob) => { window.__blobs.push(blob); return "blob:stub"; };
   HTMLAnchorElement.prototype.click = function () {};
   true`);
 await js(`document.getElementById('btnTex').click(); true`);
-await sleep(300);
+/* the .bib is written half a second after the .tex on purpose -- two downloads in one tick make a
+ * browser ask whether the page may grab files -- so the wait here has to outlast the stagger */
+await sleep(1200);
 const blobs = JSON.parse(await js(
   `Promise.all(window.__blobs.map((b) => b.text())).then((a) => JSON.stringify(a))`));
 const texOut = blobs.find((b) => b.includes("\\begin{table}")) || "";
@@ -398,6 +412,12 @@ ok("...and its DOI, so it resolves when a URL rots",
 ok("neither file leaves ASCII, so pdflatex and bibtex take them",
    !/[^\x00-\x7f]/.test(texOut + bibOut));
 
+await js(`URL.createObjectURL = window.__realCreate;
+          HTMLAnchorElement.prototype.click = window.__realClick; true`);
+ok("the download stubs are put back, so later checks navigate for real",
+   (await js(`HTMLAnchorElement.prototype.click === window.__realClick &&
+              typeof window.__realClick === "function"`)) === true);
+
 /* THE FILE MUST NAME ONE MODEL.  This section declares `holds()`, so the shell's chip is not a
  * model id at all -- it says the section carries its own.  The export therefore has to be about
  * THIS model: its boundary condition, and a card built from it. */
@@ -410,6 +430,74 @@ ok("...and it names the unbroken group that boundary condition leaves",
    texOut.includes("unbroken"));
 ok("...and refuses an absolute scale, because there is no anchor",
    /scale[\s\S]{0,120}\\textsc\{unknown\}/.test(texOut));
+
+/* ---- where the LaTeX button may be seen at all --------------------------------------------- */
+/* A CONTROL THAT CANNOT DO WHAT ITS LABEL PROMISES IS WORSE THAN A MISSING ONE.  The shell's card
+ * is about the shell's model; a section that declares `holds()` is showing a different one.  Unless
+ * it also implements `texExport`, the button would write a correct file about the wrong thing --
+ * which is the defect this driver already caught once, in the SU(N) builder.  So it is hidden, and
+ * that has to be true section by section rather than asserted once. */
+H("the LaTeX button appears only where it exports what is on screen");
+{
+  const shown = async (id) => {
+    await js(`document.querySelector('#rail a[data-id="${id}"]').click()`);
+    await sleep(700);
+    return !(await js(`document.getElementById('btnTex').hidden`));
+  };
+  /* sections that stand on the shell's model, or hand over their own */
+  for (const id of ["hierarchy", "atlas", "collider", "sun5d", "blkt"])
+    ok(`visible on ${id}`, await shown(id));
+  /* sections holding a model they do not export: the file would be about something else */
+  for (const id of ["spectrum5d", "anomaly5d", "sweep5d", "bcclass", "litcensus"])
+    ok(`hidden on ${id}`, !(await shown(id)));
+
+  /* and hidden is not disabled: pressing it anyway must do nothing */
+  await js(`document.querySelector('#rail a[data-id="litcensus"]').click()`);
+  await sleep(600);
+  await js(`window.__blobs = []; URL.createObjectURL = (b) => { window.__blobs.push(b); return "blob:stub"; }; true`);
+  await js(`document.getElementById('btnTex').click(); true`);
+  await sleep(400);
+  ok("...and pressing it there writes nothing at all",
+     (await js(`window.__blobs.length`)) === 0);
+  await js(`URL.createObjectURL = window.__realCreate; true`);
+}
+
+/* ---- the permalink a mail client will not maul ---------------------------------------------- */
+H("the demonstration's link survives being sent");
+{
+  await js(`document.querySelector('#rail a[data-id="blkt"]').click()`);
+  await sleep(700);
+  await js(`const e=document.getElementById('bkC'); e.value=15; e.dispatchEvent(new Event('input')); true`);
+  await sleep(400);
+  const h = await js(`location.hash`);
+  /* the hash is percent-encoded, so `:` is %3A and `,` is %2C -- compare after decoding */
+  const st = decodeURIComponent((h.match(/blkt\.s=([^&]*)/) || [])[1] || "");
+  ok("the state is separated by commas, not by a pipe",
+     /c:15/.test(st) && st.includes(",") && !st.includes("|"), st);
+  /* and the pipe still decodes, because links already went out with it */
+  await js(`location.hash = "s=blkt&blkt.s=" + encodeURIComponent("c:15|a1:0.46|a2:0.30"); true`);
+  await sleep(800);
+  ok("an old pipe link still opens where it did",
+     (await js(`document.getElementById('bkCv').textContent`)) === "15.0" &&
+     (await js(`document.getElementById('bkA1v').textContent`)) === "0.46");
+  await js(`location.hash = "s=blkt&blkt.s=" + encodeURIComponent("c:15,a1:0.46,a2:0.30"); true`);
+  await sleep(800);
+  ok("and the comma link opens in the same place",
+     (await js(`document.getElementById('bkCv').textContent`)) === "15.0" &&
+     (await js(`document.getElementById('bkA1v').textContent`)) === "0.46");
+}
+
+/* ---- what the page says, against what the letter says ---------------------------------------- */
+H("the page does not assert more in their absence than the letter says to their faces");
+{
+  const note = await js(`document.getElementById('bkScaleNote').textContent`);
+  ok("it cites p. 21 for their sentence, which is where it is", /p\. 21/.test(note), note.slice(0, 90));
+  ok("...and no longer p. 22", !/p\. 22/.test(note));
+  ok("it names which minimum belongs to which c as an OPEN question put to the authors",
+     /could not settle/.test(note) && /put to the authors/.test(note), note.slice(-220));
+  ok("...and says the row measures their equation rather than judging their paper",
+     /measures their equation/.test(note));
+}
 
 /* ---- the console ------------------------------------------------------------------------- */
 

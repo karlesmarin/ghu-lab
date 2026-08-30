@@ -59,9 +59,9 @@ so
   **`build/drive.mjs` found one, and it was the number a letter would carry.** The paper prints
   **two** minima, one per value of `c` — (0.438, 0.299) at `c = 0` in the text, (0.46, 0.30) at
   `c = 15` in the caption of Fig. 1 — and this page was reading the first at the second, giving
-  1213 GeV. Their own (5.19) at their own `c = 15` minimum gives **1171 GeV**; the **1.398 TeV**
-  that rounds to the "1.4 TeV" they printed is the same equation with **α₂ dropped**. The page
-  computes all three, says which is which, and warns that the two minima are not interchangeable.
+  1213 GeV. Eq. (5.19) at their `c = 15` minimum gives **1171 GeV**; the same equation on α₁ alone
+  gives **1398 GeV**. Which published minimum belongs with which value of `c` we could not settle
+  from their text, so the page says that rather than deciding it, and reports all three numbers.
 
   And the permalink is not a convenience. A demonstration that cannot be sent is a demonstration
   nobody sees: any section may now declare `encodeState`, so a link opens on exactly the model and

@@ -296,6 +296,18 @@
 
   /* ---------------------------------------------------------------- exports */
 
+  /* WHEN THE LaTeX EXPORT MEANS ANYTHING, AND WHEN IT DOES NOT.
+   *
+   * The shell's card is about the shell's model.  A section that declares `holds()` is showing a
+   * DIFFERENT model -- its own -- so unless it also implements `texExport` to hand over that one,
+   * pressing the button would produce a correct file about the wrong thing.  That is the same
+   * defect `drive.mjs` caught in the SU(N) builder, and it is still latent in every other section
+   * that holds its own model.  Rather than exporting something misleading, the button is not
+   * shown: a control that cannot do the thing its label promises is worse than a missing one. */
+  const texUsable = (sec) => !!sec && (typeof sec.holds !== "function" ||
+                                       typeof sec.texExport === "function");
+
+
   function download(name, text, mime) {
     const a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([text], { type: mime }));
@@ -324,6 +336,8 @@
    * travels in the file, keyed the way INSPIRE keys it so their .bib merges rather than duplicates.
    */
   $("btnTex").onclick = () => {
+    /* hidden is not disabled: a stale keyboard focus or a script could still reach it */
+    if (!texUsable(SECTIONS.find((x) => x.id === state.section))) return;
     const r = run();
     const g = activeGroup();
     const certs = SECTIONS.filter((s) => s.group === g)
@@ -348,8 +362,11 @@
     }, extra));
     download(`ghu-${use.provenance.model_id}.tex`, tex, "text/x-tex");
     /* the .bib beside it, exactly as the card button writes .json and .txt */
+    /* STAGGERED, because two downloads fired in the same tick look to a browser like a page
+     * grabbing files: Chrome raises its "download multiple files?" prompt and may drop the
+     * second.  Half a second costs nothing and the reader gets both. */
     const bib = toBibtex(g, { date: new Date().toISOString().slice(0, 10) });
-    if (bib) download(`ghu-${use.provenance.model_id}.bib`, bib, "text/plain");
+    if (bib) setTimeout(() => download(`ghu-${use.provenance.model_id}.bib`, bib, "text/plain"), 500);
   };
 
   $("btnLink").onclick = () => {
@@ -426,6 +443,8 @@
       if (sec.init) sec.init(ctx());
     }
     sec.render(ctx(), r);
+    /* the button follows the section, not the page */
+    $("btnTex").hidden = !texUsable(sec);
     history.replaceState(null, "", encode());
   }
 

@@ -38,7 +38,7 @@ const BLK_S = { c: 4, m: 1, q: 0, a1: 0.44, a2: 0.30, step: 0, running: false };
  *   arXiv:2312.08608 eq. (4.4)            1/R = 303 GeV, the published scale with no brane term
  *   arXiv:2603.05857 p. 16, text          the minimum is (0.438, 0.299)   -- at c = 0
  *   arXiv:2603.05857 Fig. 1 caption       (0.44, 0.30) at c = 0 and (0.46, 0.30) at c = 15
- *   arXiv:2603.05857 p. 22, text          "c = 15 and the compactification scale becomes 1.4 TeV"
+ *   arXiv:2603.05857 p. 21, text          "c = 15 and the compactification scale becomes 1.4 TeV"
  *
  * Every number in step 4 is (5.19) evaluated here, not quoted: 1/R = 2 M_W sqrt(1+c) / |alpha|. */
 const BLK_MW = 80.4;                              /* GeV, the value written into their own (5.19) */
@@ -164,13 +164,18 @@ const BLKT_SECTION = {
     const p = [];
     for (const k of ["c", "m", "q", "a1", "a2"])
       if (Math.abs(BLK_S[k] - d[k]) > 1e-12) p.push(`${k}:${BLK_S[k]}`);
-    return p.join("|");
+    /* A COMMA, NOT A PIPE, AND A MAIL CLIENT IS THE REASON.  A link with `|` in it goes into an
+     * e-mail as %7C, and Gmail re-encodes that and wraps the whole address in a google.com/url
+     * redirect with tracking parameters -- which resolves correctly and looks like surveillance.
+     * A link one sends to strangers should survive being sent.  Every value here is a number, so
+     * a comma is unambiguous; `decodeState` still accepts the pipe, because links already exist. */
+    return p.join(",");
   },
 
   decodeState(v) {
     Object.assign(BLK_S, { c: 4, m: 1, q: 0, a1: 0.44, a2: 0.30 });
     if (!v) return;
-    for (const tok of String(v).split("|")) {
+    for (const tok of String(v).split(/[|,]/)) {
       const i = tok.indexOf(":");
       if (i < 0) continue;
       const k = tok.slice(0, i), x = Number(tok.slice(i + 1));
@@ -220,6 +225,51 @@ const BLKT_SECTION = {
       setTimeout(tick, 620);
     };
     tick();
+  },
+
+  /* WHAT THIS SECTION EXPORTS.
+   *
+   * A reader who has moved the dial is precisely the reader who wants to take the model with them,
+   * so the LaTeX button has to work here -- and it can only do that by handing over THIS model.
+   * The shell's card is about the family's SU(3), which is not what is on screen.
+   *
+   * There is no `terms` and therefore no displayed equation: with a brane term the potential is
+   * not a table of cosines but an integral over the roots of a transcendental equation, so what
+   * travels is the model, its spectrum, and the free tower beside it. Writing a cosine sum here
+   * would be exporting the wrong object in a convincing format.
+   */
+  texExport() {
+    const o = this._opts();
+    const free = blktFreeTower(o.m, o.q, o.alpha1, o.alpha2).filter((v) => v > 1e-9);
+    const got = o.c > 0 ? blktRoots(o, { count: 6, xMax: 2.4 }).roots : free.slice(0, 6);
+    const four = (a) => a.slice(0, 4).map((v) => v.toFixed(6)).join(", ");
+
+    const values = {
+      brane_coefficient: val(o.c, { status: STATUS.MEASURED,
+        source: "the dial; one localized term, their section 3 case" }),
+      sector: val(`(m, q) = (${o.m}, ${o.q})`, { status: STATUS.THEOREM,
+        source: "the twist labels of Akamatsu-Hirose-Maru-Nago eq. (3.19)" }),
+      wilson_phases: val(`(${o.alpha1.toFixed(2)}, ${o.alpha2.toFixed(2)})`,
+        { status: STATUS.MEASURED, source: "the dial" }),
+      free_tower: val(four(free), { status: STATUS.THEOREM,
+        source: "closed form, from the poles of the summand of eq. (3.20)" }),
+      blkt_spectrum: val(four(got), { status: STATUS.MEASURED,
+        source: "roots of eq. (3.19) regulated by eq. (3.21), bracketed by the poles" }),
+      potential: unknown("with a brane term the potential is an integral over these roots, " +
+                         "eq. (4.2), and is not a closed-form sum this export can carry"),
+      scale: unknown("no absolute scale without an anchor: this is a shape, not a prediction"),
+    };
+
+    return {
+      card: makeCard({ group: "su3_hy", section: "blkt", c: o.c, m: o.m, q: o.q,
+                       alpha: [o.alpha1, o.alpha2] }, values, { version: VERSION, build: BUILD }),
+      mathKeys: ["sector"],
+      caption: `A Kaluza-Klein tower with a brane localized kinetic term of coefficient ` +
+               `$c = ${o.c}$, in the sector $(m, q) = (${o.m}, ${o.q})$ at ` +
+               `$(\\alpha_1, \\alpha_2) = (${o.alpha1.toFixed(2)}, ${o.alpha2.toFixed(2)})$. ` +
+               `Masses are $x = RM$, the roots of the quantization condition of ` +
+               `Akamatsu, Hirose, Maru and Nago.`,
+    };
   },
 
   _css(n) { return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); },
@@ -446,14 +496,21 @@ const BLKT_SECTION = {
     ].join("");
 
     document.getElementById("bkScaleNote").innerHTML =
-      `Their p. 22 says <i>“c ≃ 15 and the compactification scale becomes 1.4 TeV”</i>. Their own ` +
-      `(5.19) at their own c = 15 minimum gives <b>${at15.toFixed(1)} GeV</b>, which would have been ` +
-      `written 1.2 TeV; <b>${(dropA2 / 1000).toFixed(3)} TeV</b> is that same equation with ` +
-      `<b>α₂ dropped</b>, and that is what rounds to the 1.4 TeV they printed. The equation and both ` +
-      `minima are theirs; the arithmetic is on this page, and the dial is there so you can check it ` +
-      `rather than take our word for it. <b>Note the two minima are not interchangeable</b> — the ` +
-      `(0.438, 0.299) of their text is the <b>c = 0</b> one, and reading it at c = 15 gives ` +
-      `${oneOverR(BLK_MIN0.a1, BLK_MIN0.a2, 15).toFixed(0)} GeV, which is a third number and belongs ` +
+      `Their p. 21 reads <i>“c ≃ 15 and the compactification scale becomes 1.4 TeV”</i>. ` +
+      `Eq. (5.19) at their c = 15 minimum (0.46, 0.30) gives <b>${at15.toFixed(1)} GeV</b>; the ` +
+      `same equation with α₁ alone gives <b>${(dropA2 / 1000).toFixed(3)} TeV</b>. The equation ` +
+      `and both minima are theirs and the arithmetic is on this page, so the dial is here to be ` +
+      `moved rather than believed. ` +
+      /* WHAT THIS ROW IS AND IS NOT.  Which published minimum belongs with which value of c is
+       * not something we could settle from their text, and on 2026-08-30 we put exactly that
+       * question to the authors.  Until they answer, this is a measurement of their equation and
+       * not a claim about their paper -- and the page has to say so in the same words the letter
+       * does, or it asserts in their absence more than we are willing to say to their faces. */
+      `<b>Which of the two published minima belongs with which value of c we could not settle ` +
+      `from the text</b>, and it is an open question we have put to the authors; until it is ` +
+      `answered this row measures their equation rather than judging their paper. Note only that ` +
+      `the two minima are not interchangeable: reading the (0.438, 0.299) of p. 16 at c = 15 ` +
+      `gives ${oneOverR(BLK_MIN0.a1, BLK_MIN0.a2, 15).toFixed(0)} GeV, a third number belonging ` +
       `to neither.`;
   },
 };

@@ -51,4 +51,8 @@ const SECTIONS = [
    * exists to show what the machinery does and why the answer can be believed -- so it sits in a
    * family of its own rather than pretending to be one of the three models. */
   { ...BLKT_SECTION, group: "su3_hy", family: "Brane-localized kinetic terms" },
+  /* NOT A MODEL AND NOT ABOUT ONE.  The census is about the literature: which papers publish the
+   * triple a comparison needs, and how few do.  Its own family, at the end, because it is the only
+   * section whose subject is the field rather than a theory in it. */
+  { ...CENSUS_LIT_SECTION, group: "su3_hy", family: "The literature" },
 ];

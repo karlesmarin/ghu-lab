@@ -1,0 +1,1501 @@
+{
+ "what": "The gauge-Higgs literature, measured for what it publishes and curated for what we have read.",
+ "produced_by": "build/make_census.py",
+ "corpus": {
+  "papers": 85,
+  "pdf": 84,
+  "text_only": 1,
+  "text_layer_suspect": 73,
+  "not_readable_by_this_sweep": 28,
+  "duplicate_files": 1,
+  "distinct_papers": 84
+ },
+ "duplicates": {
+  "why": "the same preprint under two filenames, matched on the arXiv identifier. The corpus grew by hand; a census that counts one paper twice has the wrong denominator, which is the one number a census exists to give.",
+  "groups": {
+   "2409.16137": [
+    "2409.16137",
+    "ccd24_2409.16137"
+   ]
+  }
+ },
+ "unreadable": {
+  "why": "no signal fired AND the text layer lost glyphs or returned almost nothing. These papers have NOT been measured; counting them as publishing nothing would be the sweep reporting its own blind spot as a property of the literature.",
+  "ids": [
+   "1001.0768",
+   "KT",
+   "ab19_1804.04514",
+   "ak_2212.07343",
+   "ak_2403.10817",
+   "ak_2501.00275",
+   "albion_2501.18520",
+   "ayyer_kumari_2109.11310",
+   "chivukula_octet_1303.1120",
+   "ck09_0812.1251",
+   "cstar_1509.01636",
+   "eft_2604.15423",
+   "eis_0602401",
+   "hep-ph_0012092",
+   "k_2305.07806",
+   "k_2412.17324",
+   "k_2504.14684",
+   "km_0905.1622",
+   "kmt_0907.0955",
+   "kmt_1707.09719",
+   "ks_2411.11447",
+   "lecouvey_math0607038",
+   "polyakov_1810.13090",
+   "simmons_coloron_9608269",
+   "sk_2306.10289",
+   "univ_2209.00767",
+   "yu_1803.06210",
+   "yu_2008.00378"
+  ]
+ },
+ "signals": {
+  "wilson_minimum": [
+   "\\bminim(um|a|ise|ize)\\b.{0,80}\\b(potential|Wilson|alpha|α)",
+   "\\b(alpha|α)[_ ]?\\{?min",
+   "\\bvacuum expectation value of A_?5"
+  ],
+  "higgs_mass": [
+   "\\bm_?\\{?h\\}?\\b",
+   "\\bHiggs (boson )?mass\\b",
+   "125(\\.\\d+)? ?GeV"
+  ],
+  "compactification_scale": [
+   "\\b1/R\\b",
+   "compactification scale",
+   "\\bR\\^\\{?-1\\}?"
+  ],
+  "bulk_content": [
+   "\\bbulk (fermion|field|matter|content)",
+   "\\brepresentation(s)? in the bulk"
+  ],
+  "effective_potential": [
+   "effective potential",
+   "one[- ]loop potential"
+  ],
+  "orbifold": [
+   "S\\^?1/Z_?2",
+   "T\\^?2/Z_?[2-6]",
+   "orbifold"
+  ],
+  "blkt": [
+   "brane[- ]localized kinetic",
+   "\\bBLKT\\b"
+  ],
+  "warped": [
+   "\\bRandall[- ]Sundrum\\b",
+   "\\bwarped\\b",
+   "AdS_?5"
+  ]
+ },
+ "shortlist": {
+  "criterion": "the text carries all three legs of the triple: a minimum, a Higgs mass and a compactification scale",
+  "note": "a signal firing means WORTH OPENING and nothing else; the census asserts nothing from this list that a curated row does not also carry",
+  "ids": [
+   "2409.16137",
+   "AHMN_2312.08608",
+   "AHMN_2603.05857",
+   "KKKY_2502.08250",
+   "SU7_GGHU_2503.04090",
+   "ccd24_2409.16137",
+   "hep-ph_0304220",
+   "hep-ph_0510366",
+   "hhk_0309088",
+   "kty23_2304.05701",
+   "twoloop_0709.2844"
+  ]
+ },
+ "measured": [
+  {
+   "id": "1001.0768",
+   "file": "1001.0768.pdf",
+   "kind": "pdf",
+   "pages": 5,
+   "lost_glyphs": 6,
+   "text_layer": "suspect",
+   "chars": 17792,
+   "signals": [],
+   "readable": false,
+   "eprint": "1001.0768"
+  },
+  {
+   "id": "1105.0541",
+   "file": "1105.0541.pdf",
+   "kind": "pdf",
+   "pages": 20,
+   "lost_glyphs": 18,
+   "text_layer": "suspect",
+   "chars": 39545,
+   "signals": [
+    "bulk_content",
+    "compactification_scale",
+    "higgs_mass",
+    "orbifold",
+    "warped"
+   ],
+   "readable": true,
+   "eprint": "1105.0541"
+  },
+  {
+   "id": "1704.04840",
+   "file": "1704.04840.pdf",
+   "kind": "pdf",
+   "pages": 34,
+   "lost_glyphs": 84,
+   "text_layer": "suspect",
+   "chars": 80480,
+   "signals": [
+    "bulk_content",
+    "compactification_scale",
+    "orbifold",
+    "wilson_minimum"
+   ],
+   "readable": true,
+   "eprint": "1704.04840"
+  },
+  {
+   "id": "1903.08359",
+   "file": "1903.08359.pdf",
+   "kind": "pdf",
+   "pages": 29,
+   "lost_glyphs": 115,
+   "text_layer": "suspect",
+   "chars": 52602,
+   "signals": [
+    "bulk_content",
+    "compactification_scale",
+    "higgs_mass",
+    "orbifold"
+   ],
+   "readable": true,
+   "eprint": "1903.08359"
+  },
+  {
+   "id": "2409.16137",
+   "file": "2409.16137.pdf",
+   "kind": "pdf",
+   "pages": 45,
+   "lost_glyphs": 102,
+   "text_layer": "suspect",
+   "chars": 91910,
+   "signals": [
+    "bulk_content",
+    "compactification_scale",
+    "effective_potential",
+    "higgs_mass",
+    "orbifold",
+    "warped",
+    "wilson_minimum"
+   ],
+   "readable": true,
+   "eprint": "2409.16137"
+  },
+  {
+   "id": "ab19_1804.04514",
+   "file": "ab19_1804.04514.pdf",
+   "kind": "pdf",
+   "pages": 22,
+   "lost_glyphs": 244,
+   "text_layer": "suspect",
+   "chars": 61349,
+   "signals": [],
+   "readable": false,
+   "eprint": "1804.04514"
+  },
+  {
+   "id": "AHMN_2312.08608",
+   "file": "AHMN_2312.08608.pdf",
+   "kind": "pdf",
+   "pages": 24,
+   "lost_glyphs": 102,
+   "text_layer": "suspect",
+   "chars": 35112,
+   "signals": [
+    "compactification_scale",
+    "effective_potential",
+    "higgs_mass",
+    "orbifold",
+    "wilson_minimum"
+   ],
+   "readable": true,
+   "eprint": "2312.08608"
+  },
+  {
+   "id": "AHMN_2603.05857",
+   "file": "AHMN_2603.05857.pdf",
+   "kind": "pdf",
+   "pages": 29,
+   "lost_glyphs": 132,
+   "text_layer": "suspect",
+   "chars": 50446,
+   "signals": [
+    "blkt",
+    "compactification_scale",
+    "effective_potential",
+    "higgs_mass",
+    "orbifold",
+    "wilson_minimum"
+   ],
+   "readable": true,
+   "eprint": "2603.05857"
+  },
+  {
+   "id": "ak_2212.07343",
+   "file": "ak_2212.07343.pdf",
+   "kind": "pdf",
+   "pages": 25,
+   "lost_glyphs": 278,
+   "text_layer": "suspect",
+   "chars": 64210,
+   "signals": [],
+   "readable": false,
+   "eprint": "2212.07343"
+  },
+  {
+   "id": "ak_2212.12477",
+   "file": "ak_2212.12477.pdf",
+   "kind": "pdf",
+   "pages": 43,
+   "lost_glyphs": 0,
+   "text_layer": "ok",
+   "chars": 73692,
+   "signals": [],
+   "readable": true,
+   "eprint": "2212.12477"
+  },
+  {
+   "id": "ak_2403.10817",
+   "file": "ak_2403.10817.pdf",
+   "kind": "pdf",
+   "pages": 8,
+   "lost_glyphs": 36,
+   "text_layer": "suspect",
+   "chars": 17903,
+   "signals": [],
+   "readable": false,
+   "eprint": "2403.10817"
+  },
+  {
+   "id": "ak_2501.00275",
+   "file": "ak_2501.00275.pdf",
+   "kind": "pdf",
+   "pages": 28,
+   "lost_glyphs": 124,
+   "text_layer": "suspect",
+   "chars": 58705,
+   "signals": [],
+   "readable": false,
+   "eprint": "2501.00275"
+  },
+  {
+   "id": "albion_2501.18520",
+   "file": "albion_2501.18520.pdf",
+   "kind": "pdf",
+   "pages": 37,
+   "lost_glyphs": 56,
+   "text_layer": "suspect",
+   "chars": 108281,
+   "signals": [],
+   "readable": false,
+   "eprint": "2501.18520"
+  },
+  {
+   "id": "ayyer_kumari_2109.11310",
+   "file": "ayyer_kumari_2109.11310.pdf",
+   "kind": "pdf",
+   "pages": 40,
+   "lost_glyphs": 214,
+   "text_layer": "suspect",
+   "chars": 78527,
+   "signals": [],
+   "readable": false,
+   "eprint": "2109.11310"
+  },
+  {
+   "id": "bij_1905.05226",
+   "file": "bij_1905.05226.pdf",
+   "kind": "pdf",
+   "pages": 33,
+   "lost_glyphs": 0,
+   "text_layer": "ok",
+   "chars": 80278,
+   "signals": [],
+   "readable": true,
+   "eprint": "1905.05226"
+  },
+  {
+   "id": "cac25_2501.13118",
+   "file": "cac25_2501.13118.pdf",
+   "kind": "pdf",
+   "pages": 21,
+   "lost_glyphs": 68,
+   "text_layer": "suspect",
+   "chars": 50414,
+   "signals": [
+    "bulk_content",
+    "effective_potential",
+    "higgs_mass",
+    "orbifold",
+    "wilson_minimum"
+   ],
+   "readable": true,
+   "eprint": "2501.13118"
+  },
+  {
+   "id": "ccd24_2409.16137",
+   "file": "ccd24_2409.16137.txt",
+   "kind": "txt",
+   "pages": null,
+   "text_layer": "unknown",
+   "chars": 91910,
+   "signals": [
+    "bulk_content",
+    "compactification_scale",
+    "effective_potential",
+    "higgs_mass",
+    "orbifold",
+    "warped",
+    "wilson_minimum"
+   ],
+   "readable": true,
+   "eprint": "2409.16137"
+  },
+  {
+   "id": "chivukula_octet_1303.1120",
+   "file": "chivukula_octet_1303.1120.pdf",
+   "kind": "pdf",
+   "pages": 22,
+   "lost_glyphs": 102,
+   "text_layer": "suspect",
+   "chars": 61271,
+   "signals": [],
+   "readable": false,
+   "eprint": "1303.1120"
+  },
+  {
+   "id": "cijet_manual_1301.7263",
+   "file": "cijet_manual_1301.7263.pdf",
+   "kind": "pdf",
+   "pages": 8,
+   "lost_glyphs": 0,
+   "text_layer": "ok",
+   "chars": 23380,
+   "signals": [],
+   "readable": true,
+   "eprint": "1301.7263"
+  },
+  {
+   "id": "ck09_0812.1251",
+   "file": "ck09_0812.1251.pdf",
+   "kind": "pdf",
+   "pages": 20,
+   "lost_glyphs": 314,
+   "text_layer": "suspect",
+   "chars": 45098,
+   "signals": [],
+   "readable": false,
+   "eprint": "0812.1251"
+  },
+  {
+   "id": "cms_dijet_angular_2603.25458",
+   "file": "cms_dijet_angular_2603.25458.pdf",
+   "kind": "pdf",
+   "pages": 47,
+   "lost_glyphs": 0,
+   "text_layer": "ok",
+   "chars": 130074,
+   "signals": [
+    "higgs_mass"
+   ],
+   "readable": true,
+   "eprint": "2603.25458"
+  },
+  {
+   "id": "cprt_0108102",
+   "file": "cprt_0108102.pdf",
+   "kind": "pdf",
+   "pages": 15,
+   "lost_glyphs": 24,
+   "text_layer": "suspect",
+   "chars": 31393,
+   "signals": [
+    "bulk_content",
+    "compactification_scale",
+    "orbifold"
+   ],
+   "readable": true
+  },
+  {
+   "id": "cstar_1509.01636",
+   "file": "cstar_1509.01636.pdf",
+   "kind": "pdf",
+   "pages": 63,
+   "lost_glyphs": 62,
+   "text_layer": "suspect",
+   "chars": 123006,
+   "signals": [],
+   "readable": false,
+   "eprint": "1509.01636"
+  },
+  {
+   "id": "dmn_kkgluon_0012259",
+   "file": "dmn_kkgluon_0012259.pdf",
+   "kind": "pdf",
+   "pages": 34,
+   "lost_glyphs": 80,
+   "text_layer": "suspect",
+   "chars": 55331,
+   "signals": [
+    "compactification_scale",
+    "orbifold"
+   ],
+   "readable": true
+  },
+  {
+   "id": "dp_1703.05730",
+   "file": "dp_1703.05730.pdf",
+   "kind": "pdf",
+   "pages": 15,
+   "lost_glyphs": 49,
+   "text_layer": "suspect",
+   "chars": 43464,
+   "signals": [
+    "higgs_mass"
+   ],
+   "readable": true,
+   "eprint": "1703.05730"
+  },
+  {
+   "id": "eft_2604.15423",
+   "file": "eft_2604.15423.pdf",
+   "kind": "pdf",
+   "pages": 7,
+   "lost_glyphs": 18,
+   "text_layer": "suspect",
+   "chars": 28421,
+   "signals": [],
+   "readable": false,
+   "eprint": "2604.15423"
+  },
+  {
+   "id": "eis_0602401",
+   "file": "eis_0602401.pdf",
+   "kind": "pdf",
+   "pages": 14,
+   "lost_glyphs": 64,
+   "text_layer": "suspect",
+   "chars": 30567,
+   "signals": [],
+   "readable": false
+  },
+  {
+   "id": "fhhoy_2002.09262",
+   "file": "fhhoy_2002.09262.pdf",
+   "kind": "pdf",
+   "pages": 27,
+   "lost_glyphs": 86,
+   "text_layer": "suspect",
+   "chars": 49571,
+   "signals": [
+    "bulk_content",
+    "higgs_mass",
+    "orbifold",
+    "warped"
+   ],
+   "readable": true,
+   "eprint": "2002.09262"
+  },
+  {
+   "id": "ggn_0604215",
+   "file": "ggn_0604215.pdf",
+   "kind": "pdf",
+   "pages": 46,
+   "lost_glyphs": 463,
+   "text_layer": "suspect",
+   "chars": 104285,
+   "signals": [
+    "bulk_content",
+    "orbifold",
+    "warped"
+   ],
+   "readable": true
+  },
+  {
+   "id": "ghbq05_hep-th_0506164",
+   "file": "ghbq05_hep-th_0506164.pdf",
+   "kind": "pdf",
+   "pages": 40,
+   "lost_glyphs": 245,
+   "text_layer": "suspect",
+   "chars": 83778,
+   "signals": [
+    "higgs_mass",
+    "orbifold",
+    "warped"
+   ],
+   "readable": true,
+   "eprint": "hep-th/0506164"
+  },
+  {
+   "id": "ghu_collider_1503.04542",
+   "file": "ghu_collider_1503.04542.pdf",
+   "kind": "pdf",
+   "pages": 4,
+   "lost_glyphs": 68,
+   "text_layer": "suspect",
+   "chars": 13507,
+   "signals": [
+    "compactification_scale",
+    "higgs_mass",
+    "orbifold"
+   ],
+   "readable": true,
+   "eprint": "1503.04542"
+  },
+  {
+   "id": "ghu_collider_1509.03409",
+   "file": "ghu_collider_1509.03409.pdf",
+   "kind": "pdf",
+   "pages": 13,
+   "lost_glyphs": 26,
+   "text_layer": "suspect",
+   "chars": 33583,
+   "signals": [
+    "higgs_mass",
+    "orbifold",
+    "warped"
+   ],
+   "readable": true,
+   "eprint": "1509.03409"
+  },
+  {
+   "id": "ghu_part1",
+   "file": "ghu_part1.pdf",
+   "kind": "pdf",
+   "pages": 17,
+   "lost_glyphs": 4,
+   "text_layer": "suspect",
+   "chars": 58386,
+   "signals": [
+    "blkt",
+    "compactification_scale",
+    "higgs_mass",
+    "orbifold"
+   ],
+   "readable": true
+  },
+  {
+   "id": "gka_hep-ph_0212298",
+   "file": "gka_hep-ph_0212298.pdf",
+   "kind": "pdf",
+   "pages": 22,
+   "lost_glyphs": 136,
+   "text_layer": "suspect",
+   "chars": 53002,
+   "signals": [
+    "effective_potential",
+    "wilson_minimum"
+   ],
+   "readable": true,
+   "eprint": "hep-ph/0212298"
+  },
+  {
+   "id": "gka_hep-ph_0412322",
+   "file": "gka_hep-ph_0412322.pdf",
+   "kind": "pdf",
+   "pages": 21,
+   "lost_glyphs": 174,
+   "text_layer": "suspect",
+   "chars": 43347,
+   "signals": [
+    "wilson_minimum"
+   ],
+   "readable": true,
+   "eprint": "hep-ph/0412322"
+  },
+  {
+   "id": "guo_1409.6539",
+   "file": "guo_1409.6539.pdf",
+   "kind": "pdf",
+   "pages": 29,
+   "lost_glyphs": 79,
+   "text_layer": "suspect",
+   "chars": 62670,
+   "signals": [
+    "wilson_minimum"
+   ],
+   "readable": true,
+   "eprint": "1409.6539"
+  },
+  {
+   "id": "haba_hep-ph_0401183",
+   "file": "haba_hep-ph_0401183.pdf",
+   "kind": "pdf",
+   "pages": 18,
+   "lost_glyphs": 38,
+   "text_layer": "suspect",
+   "chars": 38765,
+   "signals": [
+    "bulk_content",
+    "higgs_mass",
+    "orbifold",
+    "wilson_minimum"
+   ],
+   "readable": true,
+   "eprint": "hep-ph/0401183"
+  },
+  {
+   "id": "hep-ph_0012092",
+   "file": "hep-ph_0012092.pdf",
+   "kind": "pdf",
+   "pages": 18,
+   "lost_glyphs": 12,
+   "text_layer": "suspect",
+   "chars": 41886,
+   "signals": [],
+   "readable": false,
+   "eprint": "hep-ph/0012092"
+  },
+  {
+   "id": "hep-ph_0108049",
+   "file": "hep-ph_0108049.pdf",
+   "kind": "pdf",
+   "pages": 3,
+   "lost_glyphs": 26,
+   "text_layer": "suspect",
+   "chars": 7245,
+   "signals": [
+    "orbifold"
+   ],
+   "readable": true,
+   "eprint": "hep-ph/0108049"
+  },
+  {
+   "id": "hep-ph_0304220",
+   "file": "hep-ph_0304220.pdf",
+   "kind": "pdf",
+   "pages": 34,
+   "lost_glyphs": 48,
+   "text_layer": "suspect",
+   "chars": 83983,
+   "signals": [
+    "bulk_content",
+    "compactification_scale",
+    "higgs_mass",
+    "orbifold",
+    "wilson_minimum"
+   ],
+   "readable": true,
+   "eprint": "hep-ph/0304220"
+  },
+  {
+   "id": "hep-ph_0311127",
+   "file": "hep-ph_0311127.pdf",
+   "kind": "pdf",
+   "pages": 24,
+   "lost_glyphs": 0,
+   "text_layer": "ok",
+   "chars": 50787,
+   "signals": [
+    "higgs_mass",
+    "orbifold"
+   ],
+   "readable": true,
+   "eprint": "hep-ph/0311127"
+  },
+  {
+   "id": "hep-ph_0510366",
+   "file": "hep-ph_0510366.pdf",
+   "kind": "pdf",
+   "pages": 26,
+   "lost_glyphs": 50,
+   "text_layer": "suspect",
+   "chars": 64329,
+   "signals": [
+    "bulk_content",
+    "compactification_scale",
+    "effective_potential",
+    "higgs_mass",
+    "orbifold",
+    "warped",
+    "wilson_minimum"
+   ],
+   "readable": true,
+   "eprint": "hep-ph/0510366"
+  },
+  {
+   "id": "hep-th_0204223",
+   "file": "hep-th_0204223.pdf",
+   "kind": "pdf",
+   "pages": 31,
+   "lost_glyphs": 106,
+   "text_layer": "suspect",
+   "chars": 72880,
+   "signals": [
+    "bulk_content",
+    "compactification_scale",
+    "effective_potential",
+    "higgs_mass",
+    "orbifold"
+   ],
+   "readable": true,
+   "eprint": "hep-th/0204223"
+  },
+  {
+   "id": "hep-th_0305024",
+   "file": "hep-th_0305024.pdf",
+   "kind": "pdf",
+   "pages": 31,
+   "lost_glyphs": 69,
+   "text_layer": "suspect",
+   "chars": 76111,
+   "signals": [
+    "bulk_content",
+    "compactification_scale",
+    "orbifold"
+   ],
+   "readable": true,
+   "eprint": "hep-th/0305024"
+  },
+  {
+   "id": "hep-th_0403163",
+   "file": "hep-th_0403163.pdf",
+   "kind": "pdf",
+   "pages": 63,
+   "lost_glyphs": 259,
+   "text_layer": "suspect",
+   "chars": 174612,
+   "signals": [
+    "bulk_content",
+    "orbifold",
+    "warped"
+   ],
+   "readable": true,
+   "eprint": "hep-th/0403163"
+  },
+  {
+   "id": "hep-th_0503153",
+   "file": "hep-th_0503153.pdf",
+   "kind": "pdf",
+   "pages": 11,
+   "lost_glyphs": 96,
+   "text_layer": "suspect",
+   "chars": 28086,
+   "signals": [
+    "bulk_content",
+    "higgs_mass",
+    "orbifold"
+   ],
+   "readable": true,
+   "eprint": "hep-th/0503153"
+  },
+  {
+   "id": "hhhk_0212035",
+   "file": "hhhk_0212035.pdf",
+   "kind": "pdf",
+   "pages": 57,
+   "lost_glyphs": 163,
+   "text_layer": "suspect",
+   "chars": 94394,
+   "signals": [
+    "bulk_content",
+    "orbifold",
+    "wilson_minimum"
+   ],
+   "readable": true
+  },
+  {
+   "id": "hhk_0309088",
+   "file": "hhk_0309088.pdf",
+   "kind": "pdf",
+   "pages": 29,
+   "lost_glyphs": 58,
+   "text_layer": "suspect",
+   "chars": 59480,
+   "signals": [
+    "compactification_scale",
+    "higgs_mass",
+    "orbifold",
+    "wilson_minimum"
+   ],
+   "readable": true
+  },
+  {
+   "id": "hnt_hep-ph_0403106",
+   "file": "hnt_hep-ph_0403106.pdf",
+   "kind": "pdf",
+   "pages": 36,
+   "lost_glyphs": 90,
+   "text_layer": "suspect",
+   "chars": 63347,
+   "signals": [
+    "orbifold",
+    "wilson_minimum"
+   ],
+   "readable": true,
+   "eprint": "hep-ph/0403106"
+  },
+  {
+   "id": "hosotani_1804.06012",
+   "file": "hosotani_1804.06012.pdf",
+   "kind": "pdf",
+   "pages": 19,
+   "lost_glyphs": 78,
+   "text_layer": "suspect",
+   "chars": 33401,
+   "signals": [
+    "bulk_content",
+    "higgs_mass",
+    "orbifold",
+    "wilson_minimum"
+   ],
+   "readable": true,
+   "eprint": "1804.06012"
+  },
+  {
+   "id": "hosotani_hep-ph_0303066",
+   "file": "hosotani_hep-ph_0303066.pdf",
+   "kind": "pdf",
+   "pages": 16,
+   "lost_glyphs": 66,
+   "text_layer": "suspect",
+   "chars": 30029,
+   "signals": [
+    "bulk_content",
+    "compactification_scale",
+    "orbifold"
+   ],
+   "readable": true,
+   "eprint": "hep-ph/0303066"
+  },
+  {
+   "id": "hy04_hep-ph_0401185",
+   "file": "hy04_hep-ph_0401185.pdf",
+   "kind": "pdf",
+   "pages": 21,
+   "lost_glyphs": 72,
+   "text_layer": "suspect",
+   "chars": 38985,
+   "signals": [
+    "bulk_content",
+    "orbifold"
+   ],
+   "readable": true,
+   "eprint": "hep-ph/0401185"
+  },
+  {
+   "id": "hy_0401185",
+   "file": "hy_0401185.pdf",
+   "kind": "pdf",
+   "pages": 21,
+   "lost_glyphs": 72,
+   "text_layer": "suspect",
+   "chars": 38985,
+   "signals": [
+    "bulk_content",
+    "orbifold"
+   ],
+   "readable": true
+  },
+  {
+   "id": "k_2305.07806",
+   "file": "k_2305.07806.pdf",
+   "kind": "pdf",
+   "pages": 11,
+   "lost_glyphs": 14,
+   "text_layer": "suspect",
+   "chars": 20319,
+   "signals": [],
+   "readable": false,
+   "eprint": "2305.07806"
+  },
+  {
+   "id": "k_2412.17324",
+   "file": "k_2412.17324.pdf",
+   "kind": "pdf",
+   "pages": 17,
+   "lost_glyphs": 160,
+   "text_layer": "suspect",
+   "chars": 29735,
+   "signals": [],
+   "readable": false,
+   "eprint": "2412.17324"
+  },
+  {
+   "id": "k_2504.14684",
+   "file": "k_2504.14684.pdf",
+   "kind": "pdf",
+   "pages": 45,
+   "lost_glyphs": 4,
+   "text_layer": "suspect",
+   "chars": 107275,
+   "signals": [],
+   "readable": false,
+   "eprint": "2504.14684"
+  },
+  {
+   "id": "KKKY_2502.08250",
+   "file": "KKKY_2502.08250.pdf",
+   "kind": "pdf",
+   "pages": 35,
+   "lost_glyphs": 18,
+   "text_layer": "suspect",
+   "chars": 81741,
+   "signals": [
+    "bulk_content",
+    "compactification_scale",
+    "effective_potential",
+    "higgs_mass",
+    "orbifold",
+    "wilson_minimum"
+   ],
+   "readable": true,
+   "eprint": "2502.08250"
+  },
+  {
+   "id": "km_0905.1622",
+   "file": "km_0905.1622.pdf",
+   "kind": "pdf",
+   "pages": 7,
+   "lost_glyphs": 0,
+   "text_layer": "ok",
+   "chars": 6947,
+   "signals": [],
+   "readable": false,
+   "eprint": "0905.1622"
+  },
+  {
+   "id": "km_0905.4123",
+   "file": "km_0905.4123.pdf",
+   "kind": "pdf",
+   "pages": 18,
+   "lost_glyphs": 20,
+   "text_layer": "suspect",
+   "chars": 39088,
+   "signals": [
+    "higgs_mass",
+    "orbifold",
+    "wilson_minimum"
+   ],
+   "readable": true,
+   "eprint": "0905.4123"
+  },
+  {
+   "id": "kmt_0907.0955",
+   "file": "kmt_0907.0955.pdf",
+   "kind": "pdf",
+   "pages": 49,
+   "lost_glyphs": 509,
+   "text_layer": "suspect",
+   "chars": 95818,
+   "signals": [],
+   "readable": false,
+   "eprint": "0907.0955"
+  },
+  {
+   "id": "kmt_1707.09719",
+   "file": "kmt_1707.09719.pdf",
+   "kind": "pdf",
+   "pages": 41,
+   "lost_glyphs": 211,
+   "text_layer": "suspect",
+   "chars": 68482,
+   "signals": [],
+   "readable": false,
+   "eprint": "1707.09719"
+  },
+  {
+   "id": "KoikeTerada1987",
+   "file": "KoikeTerada1987.pdf",
+   "kind": "pdf",
+   "pages": 46,
+   "lost_glyphs": 0,
+   "text_layer": "ok",
+   "chars": 77833,
+   "signals": [],
+   "readable": true
+  },
+  {
+   "id": "ks_2411.11447",
+   "file": "ks_2411.11447.pdf",
+   "kind": "pdf",
+   "pages": 21,
+   "lost_glyphs": 22,
+   "text_layer": "suspect",
+   "chars": 39378,
+   "signals": [],
+   "readable": false,
+   "eprint": "2411.11447"
+  },
+  {
+   "id": "KT",
+   "file": "KT.pdf",
+   "kind": "pdf",
+   "error": "Cannot open empty file: filename='E:\\\\proyectos\\\\Curiosity\\\\research\\\\smeft_formalization\\\\_papers\\\\KT.pdf'.",
+   "signals": [],
+   "readable": false
+  },
+  {
+   "id": "kty23_2304.05701",
+   "file": "kty23_2304.05701.pdf",
+   "kind": "pdf",
+   "pages": 50,
+   "lost_glyphs": 220,
+   "text_layer": "suspect",
+   "chars": 112802,
+   "signals": [
+    "bulk_content",
+    "compactification_scale",
+    "higgs_mass",
+    "orbifold",
+    "warped",
+    "wilson_minimum"
+   ],
+   "readable": true,
+   "eprint": "2304.05701"
+  },
+  {
+   "id": "kumari_thesis_2023",
+   "file": "kumari_thesis_2023.pdf",
+   "kind": "pdf",
+   "pages": 162,
+   "lost_glyphs": 0,
+   "text_layer": "ok",
+   "chars": 237399,
+   "signals": [],
+   "readable": true
+  },
+  {
+   "id": "lecouvey_math0607038",
+   "file": "lecouvey_math0607038.pdf",
+   "kind": "pdf",
+   "pages": 33,
+   "lost_glyphs": 151,
+   "text_layer": "suspect",
+   "chars": 74074,
+   "signals": [],
+   "readable": false
+  },
+  {
+   "id": "orbclass_hep-ph_0601015",
+   "file": "orbclass_hep-ph_0601015.pdf",
+   "kind": "pdf",
+   "pages": 54,
+   "lost_glyphs": 170,
+   "text_layer": "suspect",
+   "chars": 87203,
+   "signals": [
+    "orbifold"
+   ],
+   "readable": true,
+   "eprint": "hep-ph/0601015"
+  },
+  {
+   "id": "polyakov_1305.6846",
+   "file": "polyakov_1305.6846.pdf",
+   "kind": "pdf",
+   "pages": 32,
+   "lost_glyphs": 86,
+   "text_layer": "suspect",
+   "chars": 63635,
+   "signals": [
+    "effective_potential",
+    "wilson_minimum"
+   ],
+   "readable": true,
+   "eprint": "1305.6846"
+  },
+  {
+   "id": "polyakov_1810.13090",
+   "file": "polyakov_1810.13090.pdf",
+   "kind": "pdf",
+   "pages": 37,
+   "lost_glyphs": 372,
+   "text_layer": "suspect",
+   "chars": 81473,
+   "signals": [],
+   "readable": false,
+   "eprint": "1810.13090"
+  },
+  {
+   "id": "pp01_hep-ph_0105021",
+   "file": "pp01_hep-ph_0105021.pdf",
+   "kind": "pdf",
+   "pages": 38,
+   "lost_glyphs": 65,
+   "text_layer": "suspect",
+   "chars": 87137,
+   "signals": [
+    "blkt",
+    "orbifold",
+    "warped",
+    "wilson_minimum"
+   ],
+   "readable": true,
+   "eprint": "hep-ph/0105021"
+  },
+  {
+   "id": "rp2_0907.4993",
+   "file": "rp2_0907.4993.pdf",
+   "kind": "pdf",
+   "pages": 37,
+   "lost_glyphs": 113,
+   "text_layer": "suspect",
+   "chars": 75577,
+   "signals": [
+    "bulk_content",
+    "compactification_scale",
+    "higgs_mass",
+    "orbifold"
+   ],
+   "readable": true,
+   "eprint": "0907.4993"
+  },
+  {
+   "id": "rp2_1104.3800",
+   "file": "rp2_1104.3800.pdf",
+   "kind": "pdf",
+   "pages": 47,
+   "lost_glyphs": 114,
+   "text_layer": "suspect",
+   "chars": 92164,
+   "signals": [
+    "compactification_scale",
+    "higgs_mass",
+    "orbifold"
+   ],
+   "readable": true,
+   "eprint": "1104.3800"
+  },
+  {
+   "id": "simmons_coloron_9608269",
+   "file": "simmons_coloron_9608269.pdf",
+   "kind": "pdf",
+   "pages": 14,
+   "lost_glyphs": 8,
+   "text_layer": "suspect",
+   "chars": 25364,
+   "signals": [],
+   "readable": false
+  },
+  {
+   "id": "sk_2306.10289",
+   "file": "sk_2306.10289.pdf",
+   "kind": "pdf",
+   "pages": 8,
+   "lost_glyphs": 38,
+   "text_layer": "suspect",
+   "chars": 16718,
+   "signals": [],
+   "readable": false,
+   "eprint": "2306.10289"
+  },
+  {
+   "id": "SU7_GGHU_2503.04090",
+   "file": "SU7_GGHU_2503.04090.pdf",
+   "kind": "pdf",
+   "pages": 42,
+   "lost_glyphs": 331,
+   "text_layer": "suspect",
+   "chars": 71951,
+   "signals": [
+    "bulk_content",
+    "compactification_scale",
+    "effective_potential",
+    "higgs_mass",
+    "orbifold",
+    "wilson_minimum"
+   ],
+   "readable": true,
+   "eprint": "2503.04090"
+  },
+  {
+   "id": "ti_2401.09809",
+   "file": "ti_2401.09809.pdf",
+   "kind": "pdf",
+   "pages": 23,
+   "lost_glyphs": 0,
+   "text_layer": "ok",
+   "chars": 40441,
+   "signals": [
+    "higgs_mass",
+    "orbifold"
+   ],
+   "readable": true,
+   "eprint": "2401.09809"
+  },
+  {
+   "id": "ti_2404.19411",
+   "file": "ti_2404.19411.pdf",
+   "kind": "pdf",
+   "pages": 32,
+   "lost_glyphs": 92,
+   "text_layer": "suspect",
+   "chars": 66667,
+   "signals": [
+    "orbifold",
+    "warped"
+   ],
+   "readable": true,
+   "eprint": "2404.19411"
+  },
+  {
+   "id": "twistedbottle_1210.8125",
+   "file": "twistedbottle_1210.8125.pdf",
+   "kind": "pdf",
+   "pages": 43,
+   "lost_glyphs": 150,
+   "text_layer": "suspect",
+   "chars": 85464,
+   "signals": [
+    "orbifold",
+    "warped"
+   ],
+   "readable": true,
+   "eprint": "1210.8125"
+  },
+  {
+   "id": "twoloop_0709.2844",
+   "file": "twoloop_0709.2844.pdf",
+   "kind": "pdf",
+   "pages": 18,
+   "lost_glyphs": 84,
+   "text_layer": "suspect",
+   "chars": 32319,
+   "signals": [
+    "compactification_scale",
+    "higgs_mass",
+    "orbifold",
+    "warped",
+    "wilson_minimum"
+   ],
+   "readable": true,
+   "eprint": "0709.2844"
+  },
+  {
+   "id": "twoloop_hep-ph_0603237",
+   "file": "twoloop_hep-ph_0603237.pdf",
+   "kind": "pdf",
+   "pages": 23,
+   "lost_glyphs": 177,
+   "text_layer": "suspect",
+   "chars": 42036,
+   "signals": [
+    "compactification_scale",
+    "higgs_mass"
+   ],
+   "readable": true,
+   "eprint": "hep-ph/0603237"
+  },
+  {
+   "id": "univ_2209.00767",
+   "file": "univ_2209.00767.pdf",
+   "kind": "pdf",
+   "pages": 22,
+   "lost_glyphs": 52,
+   "text_layer": "suspect",
+   "chars": 38967,
+   "signals": [],
+   "readable": false,
+   "eprint": "2209.00767"
+  },
+  {
+   "id": "yu_1303.0812",
+   "file": "yu_1303.0812.pdf",
+   "kind": "pdf",
+   "pages": 8,
+   "lost_glyphs": 0,
+   "text_layer": "ok",
+   "chars": 20722,
+   "signals": [],
+   "readable": true,
+   "eprint": "1303.0812"
+  },
+  {
+   "id": "yu_1803.06210",
+   "file": "yu_1803.06210.pdf",
+   "kind": "pdf",
+   "pages": 36,
+   "lost_glyphs": 24,
+   "text_layer": "suspect",
+   "chars": 68552,
+   "signals": [],
+   "readable": false,
+   "eprint": "1803.06210"
+  },
+  {
+   "id": "yu_2008.00378",
+   "file": "yu_2008.00378.pdf",
+   "kind": "pdf",
+   "pages": 16,
+   "lost_glyphs": 26,
+   "text_layer": "suspect",
+   "chars": 32435,
+   "signals": [],
+   "readable": false,
+   "eprint": "2008.00378"
+  }
+ ],
+ "curated": [
+  {
+   "id": "SU7_GGHU_2503.04090",
+   "cite": "KM25",
+   "label": "Komori-Maru, SU(7) grand gauge-Higgs unification",
+   "group": "SU(7)",
+   "orbifold": "S^1/Z_2 x S^1/Z_2",
+   "publishes": {
+    "content": true,
+    "minimum": true,
+    "higgs_mass": true,
+    "scale": true
+   },
+   "rows_published": 5,
+   "where": "their Table 1: five contents, each with alpha_min, m_h and 1/R",
+   "screened": "yes",
+   "verdict": "the anchor residue lives here. Our alpha runs 1.03x to 2.08x theirs across the five rows; a constant factor would be a convention, a varying one cannot be. It is why every absolute number in this instrument is labelled `measured`.",
+   "status": "measured"
+  },
+  {
+   "id": "AHMN_2312.08608",
+   "cite": "AHMN23",
+   "label": "Akamatsu-Hirose-Maru-Nago, two Higgs doublets from 6D",
+   "group": "SU(4)",
+   "orbifold": "T^2/Z_2",
+   "publishes": {
+    "content": true,
+    "minimum": true,
+    "higgs_mass": true,
+    "scale": true
+   },
+   "rows_published": 1,
+   "where": "minimum (0.438, 0.299); eq. (4.3) for M_W; eq. (4.4) gives 1/R = 303 GeV",
+   "screened": "yes",
+   "verdict": "the one row in the corpus that our engine reproduces end to end: it lands on their published minimum at (0.437792, 0.298859), their ratio 1.2046 comes out 1.2045, and their own chain returns v = 246.0 GeV and 1/R = 303.0 GeV.",
+   "status": "verified"
+  },
+  {
+   "id": "AHMN_2603.05857",
+   "cite": null,
+   "label": "Akamatsu-Hirose-Maru-Nago, the same model with brane kinetic terms",
+   "group": "SU(4)",
+   "orbifold": "T^2/Z_2",
+   "publishes": {
+    "content": true,
+    "minimum": true,
+    "higgs_mass": true,
+    "scale": true
+   },
+   "rows_published": 2,
+   "where": "minimum (0.438, 0.299) at c = 0 on p. 16 and (0.46, 0.30) at c = 15 in the caption of Fig. 1; eq. (5.19); the scale on p. 22",
+   "screened": "yes",
+   "verdict": "their eq. (5.19) at their own c = 15 minimum gives 1171 GeV. The 1.4 TeV they print is that same equation with alpha_2 dropped (1398 GeV, four significant figures). Nine gates, including the one that could have failed: the same formula at c = 0 with their 2023 minimum returns their own published 303 GeV.",
+   "status": "measured"
+  },
+  {
+   "id": "hy_0401185",
+   "cite": "HY04",
+   "label": "Haba-Yamashita, the general 5D SU(N) formula",
+   "group": "SU(N)",
+   "orbifold": "S^1/Z_2",
+   "publishes": {
+    "content": true,
+    "minimum": false,
+    "higgs_mass": false,
+    "scale": false
+   },
+   "rows_published": 0,
+   "where": "sections 3 and 4 work four models in full, but their section 11 calls analysing the vacuum structure the hard part and leaves it",
+   "screened": "yes",
+   "verdict": "the machine every model in this corner is built on, and it publishes no minima at all -- which is why the instrument's SU(N) builder is a builder rather than a table. All seventeen of its explicitly printed potentials are reproduced from section 5 alone.",
+   "status": "theorem"
+  },
+  {
+   "id": "hhk_0309088",
+   "cite": "HHK04",
+   "label": "Haba-Hosotani-Kawamura, equivalence classes on S^1/Z_2",
+   "group": "SU(N)",
+   "orbifold": "S^1/Z_2",
+   "publishes": {
+    "content": true,
+    "minimum": false,
+    "higgs_mass": false,
+    "scale": false
+   },
+   "rows_published": 0,
+   "where": "the classification and its energetics, eq. (3.27); no phenomenological table",
+   "screened": "yes",
+   "verdict": "formal. Its C(N+3,3) conditions, (N-1)N(N+1)/6 relations and (N+1)^2 classes are reproduced here at every N up to 14 as a property of the orbits walked, not as a quoted theorem.",
+   "status": "verified"
+  },
+  {
+   "id": "ti_2401.09809",
+   "cite": "TI24",
+   "label": "Takeuchi-Inagaki, a new classification of equivalence classes",
+   "group": "SU(N)",
+   "orbifold": "S^1/Z_2 and T^2/Z_3",
+   "publishes": {
+    "content": true,
+    "minimum": false,
+    "higgs_mass": false,
+    "scale": false
+   },
+   "rows_published": 0,
+   "where": "trace conservation laws, which their own text calls powerful NECESSARY conditions",
+   "screened": "yes",
+   "verdict": "formal. On S^1/Z_2 the traces name the class; on T^2/Z_2 up to four classes share a triple and on T^2/Z_3 up to seven, measured here. Their own word is `necessary`, and it is the right one.",
+   "status": "measured"
+  },
+  {
+   "id": "hep-th_0204223",
+   "cite": "VGIQ02",
+   "label": "von Gersdorff-Irges-Quiros, bulk and brane radiative effects",
+   "group": "SU(N)",
+   "orbifold": "S^1/Z_2",
+   "publishes": {
+    "content": true,
+    "minimum": true,
+    "higgs_mass": false,
+    "scale": false
+   },
+   "rows_published": 0,
+   "where": "critical N_f and the vacuum structure; no Higgs mass and no compactification scale",
+   "screened": "yes",
+   "verdict": "one of the two anchor routes that are in print, and live in the instrument. Its four critical N_f are recomputed exactly. One discrepancy is declared and NOT resolved: our SU(3) value is 1/3 exactly on the Z_3 centre against their printed 0.29.",
+   "status": "unknown"
+  },
+  {
+   "id": "KKKY_2502.08250",
+   "cite": null,
+   "label": "Kojima-Kubo-Kubota-Yamashita and successors, the 6D construction",
+   "group": "SU(N)",
+   "orbifold": "T^2",
+   "publishes": {
+    "content": true,
+    "minimum": false,
+    "higgs_mass": false,
+    "scale": false
+   },
+   "rows_published": 0,
+   "where": "eqs. (5.12)-(5.17), the quartet charge multisets per representation",
+   "screened": "yes",
+   "verdict": "formal. Used here as a source of representation data, not of a phenomenological row.",
+   "status": "theorem"
+  }
+ ],
+ "curated_note": "Rows a person has read. Each names the page or equation the claim comes from, and each `publishes` field is what that paper actually prints -- not what it could in principle be asked for. A paper absent from this list has not been read, and the census says so rather than leaving a blank that reads as a no.",
+ "coverage": {
+  "curated_rows": 8,
+  "of_corpus": 85,
+  "shortlisted_but_not_read": [
+   "2409.16137",
+   "ccd24_2409.16137",
+   "hep-ph_0304220",
+   "hep-ph_0510366",
+   "kty23_2304.05701",
+   "twoloop_0709.2844"
+  ]
+ }
+}

@@ -1,0 +1,110 @@
+{
+ "note": "Rows a person has read. Each names the page or equation the claim comes from, and each `publishes` field is what that paper actually prints -- not what it could in principle be asked for. A paper absent from this list has not been read, and the census says so rather than leaving a blank that reads as a no.",
+ "read_by": "Carles Marin, with Claude (Anthropic) as AI assistant",
+ "rows": [
+  {
+   "id": "SU7_GGHU_2503.04090",
+   "cite": "KM25",
+   "label": "Komori-Maru, SU(7) grand gauge-Higgs unification",
+   "group": "SU(7)",
+   "orbifold": "S^1/Z_2 x S^1/Z_2",
+   "publishes": {"content": true, "minimum": true, "higgs_mass": true, "scale": true},
+   "rows_published": 5,
+   "where": "their Table 1: five contents, each with alpha_min, m_h and 1/R",
+   "screened": "yes",
+   "verdict": "the anchor residue lives here. Our alpha runs 1.03x to 2.08x theirs across the five rows; a constant factor would be a convention, a varying one cannot be. It is why every absolute number in this instrument is labelled `measured`.",
+   "status": "measured"
+  },
+  {
+   "id": "AHMN_2312.08608",
+   "cite": "AHMN23",
+   "label": "Akamatsu-Hirose-Maru-Nago, two Higgs doublets from 6D",
+   "group": "SU(4)",
+   "orbifold": "T^2/Z_2",
+   "publishes": {"content": true, "minimum": true, "higgs_mass": true, "scale": true},
+   "rows_published": 1,
+   "where": "minimum (0.438, 0.299); eq. (4.3) for M_W; eq. (4.4) gives 1/R = 303 GeV",
+   "screened": "yes",
+   "verdict": "the one row in the corpus that our engine reproduces end to end: it lands on their published minimum at (0.437792, 0.298859), their ratio 1.2046 comes out 1.2045, and their own chain returns v = 246.0 GeV and 1/R = 303.0 GeV.",
+   "status": "verified"
+  },
+  {
+   "id": "AHMN_2603.05857",
+   "cite": null,
+   "label": "Akamatsu-Hirose-Maru-Nago, the same model with brane kinetic terms",
+   "group": "SU(4)",
+   "orbifold": "T^2/Z_2",
+   "publishes": {"content": true, "minimum": true, "higgs_mass": true, "scale": true},
+   "rows_published": 2,
+   "where": "minimum (0.438, 0.299) at c = 0 on p. 16 and (0.46, 0.30) at c = 15 in the caption of Fig. 1; eq. (5.19); the scale on p. 22",
+   "screened": "yes",
+   "verdict": "their eq. (5.19) at their own c = 15 minimum gives 1171 GeV. The 1.4 TeV they print is that same equation with alpha_2 dropped (1398 GeV, four significant figures). Nine gates, including the one that could have failed: the same formula at c = 0 with their 2023 minimum returns their own published 303 GeV.",
+   "status": "measured"
+  },
+  {
+   "id": "hy_0401185",
+   "cite": "HY04",
+   "label": "Haba-Yamashita, the general 5D SU(N) formula",
+   "group": "SU(N)",
+   "orbifold": "S^1/Z_2",
+   "publishes": {"content": true, "minimum": false, "higgs_mass": false, "scale": false},
+   "rows_published": 0,
+   "where": "sections 3 and 4 work four models in full, but their section 11 calls analysing the vacuum structure the hard part and leaves it",
+   "screened": "yes",
+   "verdict": "the machine every model in this corner is built on, and it publishes no minima at all -- which is why the instrument's SU(N) builder is a builder rather than a table. All seventeen of its explicitly printed potentials are reproduced from section 5 alone.",
+   "status": "theorem"
+  },
+  {
+   "id": "hhk_0309088",
+   "cite": "HHK04",
+   "label": "Haba-Hosotani-Kawamura, equivalence classes on S^1/Z_2",
+   "group": "SU(N)",
+   "orbifold": "S^1/Z_2",
+   "publishes": {"content": true, "minimum": false, "higgs_mass": false, "scale": false},
+   "rows_published": 0,
+   "where": "the classification and its energetics, eq. (3.27); no phenomenological table",
+   "screened": "yes",
+   "verdict": "formal. Its C(N+3,3) conditions, (N-1)N(N+1)/6 relations and (N+1)^2 classes are reproduced here at every N up to 14 as a property of the orbits walked, not as a quoted theorem.",
+   "status": "verified"
+  },
+  {
+   "id": "ti_2401.09809",
+   "cite": "TI24",
+   "label": "Takeuchi-Inagaki, a new classification of equivalence classes",
+   "group": "SU(N)",
+   "orbifold": "S^1/Z_2 and T^2/Z_3",
+   "publishes": {"content": true, "minimum": false, "higgs_mass": false, "scale": false},
+   "rows_published": 0,
+   "where": "trace conservation laws, which their own text calls powerful NECESSARY conditions",
+   "screened": "yes",
+   "verdict": "formal. On S^1/Z_2 the traces name the class; on T^2/Z_2 up to four classes share a triple and on T^2/Z_3 up to seven, measured here. Their own word is `necessary`, and it is the right one.",
+   "status": "measured"
+  },
+  {
+   "id": "hep-th_0204223",
+   "cite": "VGIQ02",
+   "label": "von Gersdorff-Irges-Quiros, bulk and brane radiative effects",
+   "group": "SU(N)",
+   "orbifold": "S^1/Z_2",
+   "publishes": {"content": true, "minimum": true, "higgs_mass": false, "scale": false},
+   "rows_published": 0,
+   "where": "critical N_f and the vacuum structure; no Higgs mass and no compactification scale",
+   "screened": "yes",
+   "verdict": "one of the two anchor routes that are in print, and live in the instrument. Its four critical N_f are recomputed exactly. One discrepancy is declared and NOT resolved: our SU(3) value is 1/3 exactly on the Z_3 centre against their printed 0.29.",
+   "status": "unknown"
+  },
+  {
+   "id": "KKKY_2502.08250",
+   "cite": null,
+   "label": "Kojima-Kubo-Kubota-Yamashita and successors, the 6D construction",
+   "group": "SU(N)",
+   "orbifold": "T^2",
+   "publishes": {"content": true, "minimum": false, "higgs_mass": false, "scale": false},
+   "rows_published": 0,
+   "where": "eqs. (5.12)-(5.17), the quartet charge multisets per representation",
+   "screened": "yes",
+   "verdict": "formal. Used here as a source of representation data, not of a phenomenological row.",
+   "status": "theorem"
+  }
+ ]
+}

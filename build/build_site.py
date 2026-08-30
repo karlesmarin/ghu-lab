@@ -227,8 +227,14 @@ def load_defaults():
 
 def load_groups():
     out = []
+    # NOT EVERY FILE IN data/ IS A GROUP.  `series.json` is the record of the papers, and
+    # `census.json` is about the LITERATURE rather than about a model -- neither has a group, an
+    # orbifold or a source paper, and the loader below would be right to refuse them.  Named here
+    # rather than skipped by a shape test, so a new group file that is merely malformed still
+    # fails loudly instead of being quietly taken for one of these.
+    NOT_A_GROUP = {"series.json", "census.json"}
     for p in sorted((ROOT / "data").glob("*.json")):
-        if p.name == "series.json":
+        if p.name in NOT_A_GROUP:
             continue
         d = json.loads(p.read_text(encoding="utf-8"))
         src = d["source"]

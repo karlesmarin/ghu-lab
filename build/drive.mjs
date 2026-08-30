@@ -293,6 +293,71 @@ ok("...and the builder is now holding it, so the loop closes",
    (await js(`JSON.stringify(SUN5D_S.blocks)`)) === swAfter);
 await shot("5-sweep");
 
+/* ---- the BLKT demonstration, driven ------------------------------------------------------- */
+/* A DEMONSTRATION THAT CANNOT BE SENT IS A DEMONSTRATION NOBODY SEES.  The dial, the button and
+ * the permalink are section-and-shell code; no module harness reaches any of them, and the
+ * permalink is the piece the whole idea rests on -- a link to this page is what turns a claim in a
+ * letter into something the reader checks in thirty seconds. */
+H("the brane-kinetic-terms demonstration, on the built page");
+await js(`document.querySelector('#rail a[data-id="blkt"]').click()`);
+await sleep(900);
+
+ok("the section is up and says it holds its own model",
+   /own model/i.test(await js(`document.querySelector('#topChips .live')?.textContent || ''`)));
+
+const bkRows = () => js(`document.querySelectorAll('#bkTowerTab tr').length`);
+ok("the spectrum table is populated", (await bkRows()) >= 4);
+ok("the join table has its nine rows", (await js(`document.querySelectorAll('#bkJoin tr').length`)) === 9);
+ok("...and its verdict says the two equations meet",
+   /meet/.test(await js(`document.getElementById('bkJoinV').textContent`)) &&
+   (await js(`document.getElementById('bkJoinV').className`)).includes("stable"));
+
+/* THE NUMBER THAT WOULD TRAVEL IN A LETTER.  Their p. 22 says 1.4 TeV; their own (5.19) at their
+ * own minimum gives 1171 GeV, and 1.4 TeV is that equation with alpha_2 dropped.  The page has to
+ * compute both and say which is which -- that is the whole demonstration. */
+const bkScale = await js(`document.getElementById('bkScale').textContent`);
+const bkNote = await js(`document.getElementById('bkScaleNote').textContent`);
+ok("step 4 recomputes their 303 GeV rather than quoting it", /30[0-9] GeV/.test(bkScale), bkScale.slice(0, 120));
+ok("...and their c = 15 row is 1171 GeV, not the 1.4 TeV they printed",
+   /1\.171 TeV/.test(bkScale), bkScale.slice(0, 260));
+ok("...using their c = 15 minimum and not the c = 0 one, which are different numbers",
+   /0\.46, 0\.30/.test(bkScale) && !/1213/.test(bkScale.replace(/belongs[\s\S]*/, "")),
+   bkScale.slice(0, 260));
+ok("...and the note names 1.398 TeV as the same equation with alpha_2 dropped",
+   /1\.39[0-9] TeV/.test(bkNote) && /dropped/.test(bkNote), bkNote.slice(0, 200));
+ok("...and warns that the two minima are not interchangeable",
+   /not interchangeable/.test(bkNote), bkNote.slice(0, 240));
+
+/* the dial actually recomputes */
+const firstAt = async () => js(`document.querySelector('#bkTowerTab tr td:nth-child(3)').textContent`);
+const bkBefore = await firstAt();
+await js(`const e=document.getElementById('bkC'); e.value=20; e.dispatchEvent(new Event('input')); true`);
+await sleep(400);
+const bkAfter = await firstAt();
+ok("moving the dial moves the spectrum", bkBefore !== bkAfter, `${bkBefore} -> ${bkAfter}`);
+
+/* THE PERMALINK.  Everything below is what makes the link in a letter work. */
+const hash = await js(`location.hash`);
+ok("the dial is in the URL, so this state can be sent to someone", /blkt\.s=/.test(hash), hash);
+ok("...and only what differs from the default travels", !/a1%3A0\.44/.test(hash), hash);
+
+await js(`location.hash = "s=blkt&blkt.s=" + encodeURIComponent("c:15|a1:0.438|a2:0.299"); true`);
+await sleep(900);
+ok("a hand-written link opens on exactly that model",
+   (await js(`document.getElementById('bkCv').textContent`)) === "15.0" &&
+   (await js(`document.getElementById('bkA1v').textContent`)) === "0.44",
+   await js(`document.getElementById('bkCv').textContent + " / " + document.getElementById('bkA1v').textContent`));
+
+await js(`document.getElementById('bkDemo').click(); true`);
+await sleep(1200);
+ok("the demonstration button runs and says where it is",
+   /c = /.test(await js(`document.getElementById('bkBusy').textContent`)),
+   await js(`document.getElementById('bkBusy').textContent`));
+await sleep(5200);
+ok("...and puts the dial back when it finishes",
+   (await js(`document.getElementById('bkBusy').textContent`)) === "");
+await shot("6-blkt");
+
 /* ---- the LaTeX export, driven ------------------------------------------------------------- */
 /* THE BUTTON IS SECTION-AND-SHELL CODE, WHERE NO MODULE HARNESS REACHES.  `_test_latex.mjs` proves
  * the renderer; nothing proves that pressing the button in the built page reaches it with the model

@@ -165,6 +165,15 @@
       if (b.q_phi) bp.push("q:" + b.q_phi);
       if (bp.length) parts.push(`${f.group}.brane=${encodeURIComponent(bp.join("|"))}`);
     }
+    /* A SECTION THAT HOLDS ITS OWN MODEL NEEDS ITS OWN PERMALINK.  The parameters above belong to
+     * the shell's per-group model; a section that declares `holds()` carries something the shell
+     * does not know about, and until it can be put in the URL it cannot be SENT to anyone -- which
+     * is the whole use of a demonstration.  Any section may opt in with `encodeState`. */
+    for (const sec of SECTIONS) {
+      if (!sec.encodeState) continue;
+      const v = sec.encodeState();
+      if (v) parts.push(`${sec.id}.s=${encodeURIComponent(v)}`);
+    }
     return "#" + parts.join("&");
   }
 
@@ -198,6 +207,10 @@
         if (i >= 0) state.n[f.group][i] = Math.min(30, +mm[3]);
       }
     }
+    /* the other half of the section permalink; a section given no parameter is reset to its
+     * defaults rather than left holding whatever the last link put there */
+    for (const sec of SECTIONS)
+      if (sec.decodeState) sec.decodeState(q[`${sec.id}.s`]);
     return true;
   }
 

@@ -47,4 +47,8 @@ const SECTIONS = [
    * BOUNDARY CONDITIONS are the same theory, on S¹/Z₂ and on T²/Z₃.  Like the builder it holds
    * its own model and takes nothing from the shell. */
   { ...BCC_SECTION, group: "su3_hy", family: "Orbifold boundary conditions" },
+  /* A DEMONSTRATION RATHER THAN A MODEL.  It holds its own dial, carries its own permalink, and
+   * exists to show what the machinery does and why the answer can be believed -- so it sits in a
+   * family of its own rather than pretending to be one of the three models. */
+  { ...BLKT_SECTION, group: "su3_hy", family: "Brane-localized kinetic terms" },
 ];

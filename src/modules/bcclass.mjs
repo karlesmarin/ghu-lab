@@ -114,7 +114,9 @@ export const ORBIFOLDS = {
 /* Every equivalence class of BCs for SU(N) on this orbifold, as orbits of the moves.  Nothing is
  * looked up: the count, the representatives and the class of a given BC all come out of here. */
 export function bcClasses(N, orbifold = "S1/Z2") {
-  const O = ORBIFOLDS[orbifold];
+  /* a key, or a spec of the same shape -- so a case that is NOT one of the selectable orbifolds
+   * can still be counted by this same audited orbit walk rather than by a second copy of it. */
+  const O = typeof orbifold === "string" ? ORBIFOLDS[orbifold] : orbifold;
   if (!O) throw new Error(`no orbifold "${orbifold}"`);
   const all = O.all(N);
   const index = new Map(all.map((b, i) => [b.join(","), i]));
@@ -250,4 +252,110 @@ export function bcPreferred(members, matter) {
   const best = Math.min(...scored.map((x) => x.Nv));
   const winners = scored.filter((x) => x.Nv === best);
   return { scored, best, winners, tied: winners.length > 1 };
+}
+
+/* ------------------------------------------------------------------ T²/Z₆, counted
+ *
+ * NOT one of the selectable orbifolds above: the cells, the energy and the unbroken group of this
+ * page are S¹/Z₂ and T²/Z₃ objects, and a T²/Z₆ state is a different animal.  What it shares is the
+ * only thing needed here -- a set of states and moves between them -- so it goes through the same
+ * `bcClasses` orbit walk rather than a second copy of it.
+ *
+ * THE STATE, from Takeuchi-Inagaki arXiv:2404.19411 sections 3 and 4:
+ *   (b0, b1, b2 | c0, c1 | d0..d5)   with  2*(b0+b1+b2) + 3*(c0+c1) + sum(d) = N
+ *   b_i counts 2x2 blocks of eq. (4.2) with label i;  c_j counts 3x3 blocks of eq. (4.3) with
+ *   label j;  d_k counts diagonal entries of the k-th of the six patterns of eq. (3.39).
+ *
+ * THE MOVES are their own reductions (4.10) and (4.11): three 2x2 blocks of distinct label, and
+ * two 3x3 blocks of distinct label, become diagonal.  The eigenvalues that come out are the six
+ * sixth roots of unity in both cases -- eta^b diag(-1,1) over b = 0,1,2, and eta^c diag(w,w²,1)
+ * over c = 0,1 -- so each reduction produces EXACTLY ONE of each of the six diagonal patterns. */
+export function bcT2Z6All(N) {
+  const out = [];
+  for (let b0 = 0; 2 * b0 <= N; b0++)
+    for (let b1 = 0; 2 * (b0 + b1) <= N; b1++)
+      for (let b2 = 0; 2 * (b0 + b1 + b2) <= N; b2++) {
+        const sb = 2 * (b0 + b1 + b2);
+        for (let c0 = 0; sb + 3 * c0 <= N; c0++)
+          for (let c1 = 0; sb + 3 * (c0 + c1) <= N; c1++) {
+            const rest = N - sb - 3 * (c0 + c1);
+            const walk = (k, left, d) => {
+              if (k === 5) { out.push([b0, b1, b2, c0, c1, ...d, left]); return; }
+              for (let v = 0; v <= left; v++) walk(k + 1, left - v, [...d, v]);
+            };
+            walk(0, rest, []);
+          }
+      }
+  return out;
+}
+
+/* BOTH DIRECTIONS, AND THAT IS NOT A DETAIL.  `bcClasses` finds a class by walking `moves` forward
+ * from one state, which computes the connected component only if the move set is SYMMETRIC -- as
+ * the S¹/Z₂ and T²/Z₃ relations are, each being its own inverse in the list.  A reduction is not:
+ * it only goes one way.  Listing the inverse alongside it is what makes the walk compute the
+ * equivalence the reduction generates, rather than what is reachable from where it started.
+ * Without the inverses this returned 665, 1560 and 3351 at N = 6, 7, 8 instead of 663, 1548, 3303. */
+export function bcT2Z6Moves(s) {
+  const out = [];
+  const d = s.slice(5);
+  if (s[0] >= 1 && s[1] >= 1 && s[2] >= 1)                     /* eq. (4.10) */
+    out.push([s[0] - 1, s[1] - 1, s[2] - 1, s[3], s[4], ...d.map((v) => v + 1)]);
+  if (s[3] >= 1 && s[4] >= 1)                                   /* eq. (4.11) */
+    out.push([s[0], s[1], s[2], s[3] - 1, s[4] - 1, ...d.map((v) => v + 1)]);
+  if (d.every((v) => v >= 1)) {                                 /* and back again */
+    out.push([s[0] + 1, s[1] + 1, s[2] + 1, s[3], s[4], ...d.map((v) => v - 1)]);
+    out.push([s[0], s[1], s[2], s[3] + 1, s[4] + 1, ...d.map((v) => v - 1)]);
+  }
+  return out;
+}
+
+/* The classes, split the way the paper splits them: a class is DIAGONAL when some member of it
+ * carries no block at all.  The diagonal count is the control -- it must be C(N+5,5). */
+export function bcT2Z6Count(N) {
+  const { classes, nBC } = bcClasses(N, { all: bcT2Z6All, moves: bcT2Z6Moves });
+  let diagonal = 0;
+  for (const c of classes)
+    if (c.members.some((m) => m[0] + m[1] + m[2] + m[3] + m[4] === 0)) diagonal++;
+  return { N, states: nBC, diagonal, offdiag: classes.length - diagonal,
+           alpha: binom(N + 5, 5) };
+}
+
+function binom(n, k) {
+  if (n < 0 || k < 0 || k > n) return 0;
+  let r = 1;
+  for (let i = 1; i <= k; i++) r = (r * (n - k + i)) / i;
+  return Math.round(r);
+}
+
+/* The three statements about that same number, kept apart because they are three claims.
+ * `tiZ6Sum` is the sum printed above eq. (5.9); `tiZ6Eq59` is eq. (5.9) itself; `tiZ6Closed` is
+ * what the sum actually evaluates to.  The first and the third agree; the second parts company
+ * from N = 7. */
+export function tiZ6Sum(N) {
+  const a = (n) => binom(n + 5, 5);
+  let g = 0;
+  for (let m = 1; m <= Math.floor(N / 3); m++) g += 2 * a(N - 3 * m);
+  g += 3 * a(N - 2);
+  for (let m = 1; m <= Math.floor((N - 2) / 3); m++) g += 6 * a(N - 2 - 3 * m);
+  for (let l = 2; l <= Math.floor(N / 2); l++) g += 3 * l * a(N - 2 * l);
+  for (let m = 1; m <= Math.floor(N / 3); m++)
+    for (let l = 2; l <= Math.floor((N - 3 * m) / 2); l++) g += 6 * l * a(N - 2 * l - 3 * m);
+  return g;
+}
+
+const Z6_BRANCH = [
+  (N) => N * (3*N**7 + 72*N**6 + 2282*N**5 + 19908*N**4 + 36372*N**3 - 91392*N**2 + 61968*N + 781632),
+  (N) => (N+5) * (N-1) * (3*N**6 + 60*N**5 + 2057*N**4 + 11980*N**3 - 1263*N**2 - 26440*N + 159523),
+  (N) => (N+4) * (3*N**7 + 60*N**6 + 2042*N**5 + 11740*N**4 - 10588*N**3 - 49040*N**2 + 258128*N - 250880),
+  (N) => (N+3) * (3*N**7 + 63*N**6 + 2093*N**5 + 13629*N**4 - 4515*N**3 - 77847*N**2 + 293619*N - 110565),
+  (N) => (N+2) * (3*N**7 + 66*N**6 + 2150*N**5 + 15608*N**4 + 5156*N**3 - 101704*N**2 + 265376*N + 250880),
+  (N) => (N+1) * (3*N**7 + 69*N**6 + 2213*N**5 + 17695*N**4 + 18677*N**3 - 110069*N**2 + 170147*N + 600145),
+];
+
+export function tiZ6Eq59(N) { return Z6_BRANCH[N % 6](N) / 483840; }
+
+export function tiZ6Closed(N) {
+  return N % 2 === 0
+    ? N * (N+2) * (N+4) * (N**5 + 18*N**4 + 220*N**3 + 888*N**2 + 346*N - 1284) / 80640
+    : (N-1) * (N+1) * (N+3) * (N+5) * (N**4 + 16*N**3 + 194*N**2 + 584*N + 189) / 80640;
 }

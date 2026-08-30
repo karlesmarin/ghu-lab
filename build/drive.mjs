@@ -468,6 +468,45 @@ H("the LaTeX button appears only where it exports what is on screen");
   await js(`URL.createObjectURL = window.__realCreate; true`);
 }
 
+/* ---- the T^2/Z_6 table, and the register it is written in ----------------------------------- */
+/* THIS PAGE COUNTS; IT DOES NOT GRADE ANYONE'S EQUATION.  The count is ours and is computed on the
+ * render; the two published expressions are quoted as printed.  A verdict about which of them the
+ * authors intended is not ours to print in their absence -- so the gate checks the numbers AND the
+ * absence of the words that would turn a measurement into an accusation. */
+H("T^2/Z_6 is counted on the page, and quoted without a verdict");
+{
+  await js(`document.querySelector('#rail a[data-id="bcclass"]').click()`);
+  await sleep(900);
+  const rows = await js(`JSON.stringify([...document.querySelectorAll('#bccZ6 tr')]
+      .map(r => [...r.children].map(c => c.textContent.trim())))`);
+  const R = JSON.parse(rows);
+  ok("the table draws eight rows, N = 1..8", R.length === 8, `${R.length} rows`);
+  ok("the diagonal column is the control and equals C(N+5,5) on every row",
+     R.every((r) => r[2] === r[3]), JSON.stringify(R.map((r) => [r[2], r[3]])));
+  const byN = Object.fromEntries(R.map((r) => [r[0], r]));
+  ok("at N = 7 the page counts 1548 and quotes 1548 for the sum",
+     byN["7"][4] === "1548" && byN["7"][5] === "1548", JSON.stringify(byN["7"]));
+  ok("...and quotes 1536 for eq. (5.9), and 1548 for the closed form",
+     byN["7"][6] === "1536" && byN["7"][7] === "1548", JSON.stringify(byN["7"]));
+  ok("at N = 8 the same three columns read 3303, 3231, 3303",
+     byN["8"][4] === "3303" && byN["8"][6] === "3231" && byN["8"][7] === "3303",
+     JSON.stringify(byN["8"]));
+  ok("up to N = 6 all three agree, which is the range of their Table 2",
+     [1, 2, 3, 4, 5, 6].every((n) => byN[String(n)][4] === byN[String(n)][6]
+                                  && byN[String(n)][4] === byN[String(n)][7]));
+
+  const note = await js(`document.getElementById('bccZ6Note').textContent`);
+  ok("the note says which columns are counted here and which are quoted",
+     /counted here/.test(note) && /quoted/.test(note), note.slice(0, 200));
+  ok("...and leaves the question to the authors rather than answering it",
+     /question for the authors/.test(note));
+  ok("...and never calls it an error, a mistake or wrong",
+     !/\b(error|mistake|wrong|incorrect)\b/i.test(note), note.slice(0, 300));
+  const html = await js(`document.getElementById('bccZ6').innerHTML`);
+  ok("no column is coloured to mark one expression as the bad one",
+     !/color:\s*var\(--red/.test(html) && !/#c0392b/.test(html));
+}
+
 /* ---- a file must cite the paper its numbers came from --------------------------------------- */
 /* THE BIBLIOGRAPHY USED TO FOLLOW THE GROUP, NOT THE FILE.  The BLKT demonstration computes
  * nothing but Akamatsu-Hirose-Maru-Nago 2026 -- their (3.19), (3.21), (4.2) -- and because its

@@ -19,7 +19,8 @@
  *   node _test_bcclass.mjs
  */
 import { bcClasses, bcS1Z2All, bcS1Z2Moves, bcT2Z3All, bcT2Z3Moves, bcMarginsComplete,
-         bcUnbroken, bcShow, bcEnergy, bcPreferred, V_HALF_OVER_C }
+         bcUnbroken, bcShow, bcEnergy, bcPreferred, V_HALF_OVER_C,
+         bcT2Z6All, bcT2Z6Moves, bcT2Z6Count, tiZ6Sum, tiZ6Eq59, tiZ6Closed }
   from "./src/modules/bcclass.mjs";
 
 let pass = 0, fail = 0;
@@ -231,6 +232,56 @@ H("the boundary condition here IS the one the SU(N) builder takes");
   ok("so every class is a set of boundary conditions the builder will draw different potentials " +
      "for, which is the Hosotani mechanism seen from the other side",
      C.classes.some((cl) => cl.size >= 2));
+}
+
+/* ---------------------------------------------------------------- T^2/Z_6, counted here */
+{
+  H("T^2/Z_6: the same orbit walk, on Takeuchi-Inagaki's own reductions");
+
+  /* THE CONTROL FIRST.  Their section 3 proves no two diagonal sets are connected, so the
+   * diagonal classes must number C(N+5,5).  If this fails, nothing else in the block means
+   * anything -- the states or the moves would be wrong. */
+  const binom = (n, k) => { let r = 1; for (let i = 1; i <= k; i++) r = r * (n - k + i) / i;
+                            return Math.round(r); };
+  let ctrl = true;
+  for (let N = 1; N <= 8; N++) if (bcT2Z6Count(N).diagonal !== binom(N + 5, 5)) ctrl = false;
+  ok("the diagonal classes come out C(N+5,5) for every N up to 8, which is their section 3", ctrl);
+
+  ok("...and that is not vacuous: there are diagonal classes to count",
+     bcT2Z6Count(6).diagonal === 462);
+
+  /* THE MOVES MUST BE SYMMETRIC or the orbit walk computes reachability, not classes.  This is
+   * the defect that produced 665, 1560 and 3351 instead of 663, 1548 and 3303. */
+  {
+    let symmetric = true;
+    for (const s of bcT2Z6All(6))
+      for (const t of bcT2Z6Moves(s))
+        if (!bcT2Z6Moves(t).some((u) => u.join(",") === s.join(","))) symmetric = false;
+    ok("every move has its inverse in the list, so the walk finds classes and not reachability",
+       symmetric);
+  }
+
+  let same = true, split = null;
+  for (let N = 1; N <= 8; N++) {
+    if (bcT2Z6Count(N).offdiag !== tiZ6Sum(N)) same = false;
+    if (split === null && tiZ6Sum(N) !== tiZ6Eq59(N)) split = N;
+  }
+  ok("the off-diagonal classes counted here are their SUM, for every N up to 8", same);
+  ok("...and their eq. (5.9) is the same up to N = 6 and different from N = 7", split === 7,
+     `first split at N = ${split}`);
+  ok("...at N = 7 the count is 1548 where eq. (5.9) gives 1536",
+     bcT2Z6Count(7).offdiag === 1548 && tiZ6Eq59(7) === 1536);
+  ok("...and at N = 8, 3303 against 3231",
+     bcT2Z6Count(8).offdiag === 3303 && tiZ6Eq59(8) === 3231);
+
+  let closed = true;
+  for (let N = 1; N <= 60; N++) if (tiZ6Closed(N) !== tiZ6Sum(N)) closed = false;
+  ok("the closed form evaluates that sum for every N up to 60", closed);
+  ok("...and it is two branches by parity, so it agrees with itself across N mod 6",
+     tiZ6Closed(12) === tiZ6Sum(12) && tiZ6Closed(14) === tiZ6Sum(14)
+     && tiZ6Closed(13) === tiZ6Sum(13));
+  ok("...reproducing their Table 2 exactly",
+     [1, 2, 3, 4, 5, 6].map(tiZ6Closed).join(",") === "0,3,20,81,252,663");
 }
 
 console.log(`\n${fail === 0 ? "PASSED" : "*** FAILED ***"}   ${pass} ok, ${fail} failed`);

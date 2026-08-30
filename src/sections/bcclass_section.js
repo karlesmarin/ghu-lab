@@ -98,6 +98,23 @@ const BCC_SECTION = {
           <th class="num">relations</th><th>label complete?</th></tr></thead>
           <tbody id="bccCount"></tbody></table></div>
         <div class="note" style="margin-top:9px" id="bccCountNote">—</div>
+
+        <h2 style="margin-top:20px">The same computation on T²/Z₆</h2>
+        <p class="lead">Not one of the two above — the cells, the energy and the unbroken group of
+        this page are S¹/Z₂ and T²/Z₃ objects. What T²/Z₆ shares is the only thing this table
+        needs: states, and moves between them. So it goes through the <i>same</i> orbit walk.</p>
+        <div class="note" style="margin-bottom:9px">A state is
+        <code>(b₀,b₁,b₂ | c₀,c₁ | d₀…d₅)</code>: how many 2×2 blocks of each label, how many 3×3
+        blocks of each label, and how many diagonal entries of each of the six patterns. The moves
+        are Takeuchi–Inagaki's own reductions — three 2×2 blocks of distinct label, and two 3×3 of
+        distinct label, become diagonal, and in both cases the eigenvalues that come out are the six
+        sixth roots of unity, so each reduction gives exactly one of each diagonal pattern.</div>
+        <div style="overflow-x:auto"><table><thead><tr><th class="num">N</th>
+          <th class="num">states</th><th class="num">diagonal</th><th class="num">C(N+5,5)</th>
+          <th class="num">off-diagonal</th><th class="num">their sum</th>
+          <th class="num">their eq. (5.9)</th><th class="num">closed form</th></tr></thead>
+          <tbody id="bccZ6"></tbody></table></div>
+        <div class="note" style="margin-top:9px" id="bccZ6Note">—</div>
       </div>
 
       <div class="card" style="margin-top:18px">
@@ -294,6 +311,64 @@ const BCC_SECTION = {
         `spectra, so the spectra are <b>invariant but not complete</b> and almost every boundary ` +
         `condition is alone. Assuming the S¹/Z₂ answer carried over would have been the easy ` +
         `mistake. <span class="chip mea">measured</span> from Takeuchi–Inagaki eq. (46).`;
+
+    this._z6();
+  },
+
+  /* ---------------------------------------------------------------- T²/Z₆, counted here
+   *
+   * THE DIAGONAL COLUMN IS THE CONTROL.  It has to come out C(N+5,5) -- their section 3 proves no
+   * two diagonal sets are connected -- and if it does not, the state space or the moves are wrong
+   * and nothing else in the row means anything.  It is printed rather than assumed. */
+  _z6() {
+    const rows = [], MAX = 8;
+    let ctrl = true, firstSplit = null;
+    for (let N = 1; N <= MAX; N++) {
+      const c = bcT2Z6Count(N);
+      const sum = tiZ6Sum(N), eq59 = tiZ6Eq59(N), closed = tiZ6Closed(N);
+      if (c.diagonal !== c.alpha) ctrl = false;
+      if (firstSplit === null && sum !== eq59) firstSplit = N;
+      /* NO COLOUR ON THE PUBLISHED COLUMNS.  This page counts; it does not grade anybody's
+       * equation.  Marking one column red would be a verdict, and the verdict is not ours to
+       * print in the authors' absence. */
+      rows.push(`<tr><td class="num">${N}</td><td class="num">${c.states}</td>` +
+        `<td class="num"><b>${c.diagonal}</b></td>` +
+        `<td class="num" style="color:var(--ink3)">${c.alpha}</td>` +
+        `<td class="num"><b>${c.offdiag}</b></td>` +
+        `<td class="num">${sum}</td>` +
+        `<td class="num">${eq59}</td>` +
+        `<td class="num">${closed}</td></tr>`);
+    }
+    document.getElementById("bccZ6").innerHTML = rows.join("");
+
+    const agree = [...Array(MAX).keys()].every((i) => {
+      const N = i + 1;
+      return bcT2Z6Count(N).offdiag === tiZ6Sum(N) && tiZ6Sum(N) === tiZ6Closed(N);
+    });
+    document.getElementById("bccZ6Note").innerHTML =
+      `The <b>diagonal</b> column is the control: it must be C(N+5,5), and it ` +
+      `${ctrl ? "is, at every N in the table" : "<b>is NOT</b>, which would mean the states or " +
+       "the moves are wrong"}. ` +
+      `The last three columns are not computed here. Takeuchi–Inagaki, <i>PTEP</i> 2024 063B04 ` +
+      `(arXiv:2404.19411), state this count <b>twice</b> — as a sum over configurations, and as ` +
+      `the closed form of eq. (5.9) — and both are quoted as printed. Up to ` +
+      `N&nbsp;=&nbsp;6, the range their Table 2 covers, the three agree. From ` +
+      `N&nbsp;=&nbsp;${firstSplit} the sum keeps agreeing with the count and the closed form ` +
+      `takes a different value. Which of their two expressions is the intended one is a question ` +
+      `for the authors, and this page does not answer it. ` +
+      `${agree ? "" : "<b>The count and the sum disagree on this render, which would be news.</b> "}` +
+      `<span class="chip mea">measured</span> the first five columns are counted here; the last ` +
+      `two are quoted.`;
+
+    /* the last column is ours, and it is offered as a tool rather than as a correction */
+    document.getElementById("bccZ6Note").innerHTML +=
+      `<br><br>The <b>closed form</b> column evaluates the sum, and it is here because a formula ` +
+      `is easier to use than a five-fold sum: two branches by parity rather than six by ` +
+      `N&nbsp;mod&nbsp;6. The reason it is two is visible in the generating function, ` +
+      `<code>x²(3−4x+2x²) / [(1−x)⁹(1+x)]</code> — the 1/(1−x³) that every term with 3×3 blocks ` +
+      `carries cancels, so there is no pole at the primitive cube roots and the count cannot ` +
+      `depend on N&nbsp;mod&nbsp;3. The pole of order 9 at x&nbsp;=&nbsp;1 is the degree, and the ` +
+      `simple pole at x&nbsp;=&nbsp;−1 is the period.`;
   },
 
   /* ---------------------------------------------------------------- the matter */

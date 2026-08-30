@@ -330,6 +330,12 @@ ok("...using their c = 15 minimum and not the c = 0 one, which are different num
 ok("...and the note gives 1.398 TeV as the same equation on alpha_1 alone",
    /1\.39[0-9] TeV/.test(bkNote) && /alpha_1 alone|α₁ alone/.test(bkNote), bkNote.slice(0, 220));
 ok("...and no longer diagnoses it as something they dropped", !/dropped/.test(bkNote));
+/* THE TABLE AND THE NOTE MUST SAY THE SAME THING.  A patch that reframed the note did NOT reframe
+ * the row beside it -- the replacement was written without an assertion and failed in silence, so
+ * the page shipped saying "...with alpha_2 dropped -- not a route, a diagnosis" in the table while
+ * the note below it left the question open.  Two texts about one number are two claims. */
+ok("...and the TABLE agrees with the note rather than contradicting it",
+   !/dropped|a diagnosis/.test(bkScale) && /alone/.test(bkScale), bkScale.slice(0, 300));
 ok("...and warns that the two minima are not interchangeable",
    /not interchangeable/.test(bkNote), bkNote.slice(0, 240));
 

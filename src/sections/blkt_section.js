@@ -489,8 +489,12 @@ const BLKT_SECTION = {
           "the best point of the whole ladder, measured by us — the route they did not take"),
       row("brane terms", 15, at15,
           "their own c = 15 minimum (0.46, 0.30), from the caption of their Fig. 1"),
-      row("...with α₂ dropped", 15, dropA2,
-          "the same equation, α₁ = 0.46 alone — not a route, a diagnosis"),
+      /* THE LABEL IS PART OF THE CLAIM.  This row used to read "…with α₂ dropped — not a route, a
+       * diagnosis", which decides something the note below leaves open and the letter to the
+       * authors leaves open too.  It reports what the equation gives on α₁ by itself; what that
+       * means is theirs to say. */
+      row("...on α₁ alone", 15, dropA2,
+          "the same equation evaluated on α₁ = 0.46 by itself"),
       row("the dial, right now", BLK_S.c.toFixed(1), here,
           `live, at the (α₁, α₂) = (${BLK_S.a1.toFixed(2)}, ${BLK_S.a2.toFixed(2)}) set above`),
     ].join("");

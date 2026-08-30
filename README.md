@@ -1,55 +1,73 @@
 # 🔧 GHU Lab — the source tree of the gauge–Higgs unification instrument
 
 This repository builds **[karlesmarin.github.io/ghu-explorer](https://karlesmarin.github.io/ghu-explorer/)**:
-one self-contained HTML page holding nineteen computations — including tools for models nobody has
+one self-contained HTML page holding **twenty** computations — including tools for models nobody has
 written yet — over three published models:
-SU(7) on S¹/Z₂×S¹/Z₂ (Komori–Maru), SU(4) on T²/Z₂ (AHMN), and Haba–Yamashita's 5D SU(3) on
+1️⃣ SU(7) on S¹/Z₂×S¹/Z₂ (Komori–Maru), 2️⃣ SU(4) on T²/Z₂ (AHMN), and 3️⃣ Haba–Yamashita's 5D SU(N) on
 S¹/Z₂ — with **every output carrying what is known about it**: `theorem`, `verified`, `measured`
 or `unknown`, as fields in the exported result card rather than as decoration.
 
 The deployed page is a build artifact. This is where it comes from, and why it says what it says.
 
 ```
-python build/build_app.py     # inline → collision guard → edition gate → 23 harnesses → app/index.html
-python build/build_site.py --legacy ../ghu-explorer/tools-2026-07     # → site/, then gates itself
-node   build/shoot.mjs        # headless screenshots of every section + console + which model
-node   build/drive.mjs        # USES the calculator: real mouse through the DevTools Input domain
-node   tests/run.mjs          # the built page against the Python engine of Part VII
+🏗️  python build/build_app.py    # inline → collision guard → edition gate → 26 harnesses → app/index.html
+🌐  python build/build_site.py --legacy ../ghu-explorer/tools-2026-07     # → site/, then gates itself
+📸  node   build/shoot.mjs       # headless screenshots of every section + console + which model
+🖱️  node   build/drive.mjs       # USES the panels: a real mouse through the DevTools Input domain
+✅  node   tests/run.mjs         # the built page against the Python engine of Part VII
 ```
 
 `build_app.py` refuses to report a green build if any harness fails, and prints
 `*** BUILD RED — do not publish ***` instead.
 
-## What is checked, and against what
+## 🧪 What is checked, and against what
 
-**1 449 checks.** The ones that carry weight are the ones an outside computation could lose:
+**1 557 checks across 26 harnesses**, plus 51 driven through a real mouse and 28 on the built site.
+The ones that carry weight are the ones an outside computation could lose:
 
 | harness | what it puts at risk |
 |---|---|
-| `tests/run.mjs` | the **built page** against `tests/reference_models.json`, produced by the **Python** engine of Part VII. Two implementations, one set of numbers. Ships with the artifact, so a reader can run it against the page they were served |
-| `_test_hierarchy.mjs` | the closed form against direct minimisation; the arithmetic laws; the four levels of the ceiling; the pre-registered sixth row; the repair-space wedge |
-| `_test_selection.mjs` | Part III's rule against a winding sum that has never heard of Dynkin labels — 119 representations, zero disagreements — and Part II's three gates, with the minimality of the **60** recovered by brute force rather than quoted |
-| `_test_eta.mjs` | the η closed form against brute force on 119 multiplets; the atlas's blank tiles predicted from the modes *before* being drawn; tile diffs held to spectra |
-| `_test_escape.mjs` | Part VI's charge arithmetic in exact rationals, against the archived enumeration |
-| `_test_atlas.mjs` | the 1 286-content lattice re-enumerated in the browser, against `ceiling_ilp.py`'s archived counts — and against the hierarchy sweep, which reaches them another way |
-| `_test_inverse.mjs` | the map run **backwards**: the five published rows inverted from their own observables, the certificate roster of every target the paper tabulates, the designs it delivers — and the certificates **falsified**, a rung a Farkas bound closes being enumerated whole to confirm it is empty. It also resolves the two clusters a browser can reach into their **35 and 65 points**, recovering the paper's spacings and the 45× the gap is measured against |
-| `_test_census.mjs` | N(A₄, 8D) counted by dynamic programme, against three other things: the archived enumeration (**69 022 464** contents over four rungs), an independent brute force, and the enumerator that builds the contents one by one |
-| `_test_sun5d.mjs` | the **general SU(N)** formula — Haba–Yamashita §5 — against every equation of all four worked examples the same paper prints, transcribed term by term; against the invariance (P, P′) → (−P, −P′) that fixes a sign the printed formula leaves ambiguous; and, through the one-phase bridge, against the archived 60-row SU(3) prediction bank, which it reproduces to 8e-16 by a route that shares nothing with the special case those rows came from |
-| `_test_bcclass.mjs` | the **equivalence classes** of orbifold boundary conditions, as orbits actually walked: Haba–Hosotani–Kawamura's C(N+3,3) conditions, (N−1)N(N+1)/6 relations and **(N+1)² classes** reproduced at every N up to 14 as a property of the orbit structure rather than as a quoted theorem; their eq. (3.27) energetics term by term; and the same question asked again on T²/Z₃, where the answer is different and is measured instead of inherited |
-| `_test_spectrum5d.mjs` | the **4D spectrum**, against the eigenvalue lists Haba–Yamashita print degeneracy by degeneracy — their (3.9), (3.12), (3.16), (3.18), (4.28), (4.32), (4.34) as whole multisets, so nothing can be dropped unnoticed — and HHK's sector counts (3.20) **derived** from the components rather than transcribed. And the control that ties two modules together: summing cos(2πnQ) over the states reproduces the potential's own bracket, exactly twice it, on 96 cases at 5e-15 |
-| `_test_anomaly5d.mjs` | the **anomaly ledger**: the indices and cubic anomalies re-derived from fund ⊗ fund = sym ⊕ antisym rather than tabulated; an **adjoint** bulk fermion required to be anomaly-free on every boundary condition, because the adjoint is real — the test that caught the module counting (a,b) and (b,a) as two fundamentals instead of a fundamental and an anti-fundamental; a piece fed in with its own conjugate, which tests every sign at once; and chiral contents that must come out **anomalous**, with the channel named, or "anomaly-free" would be the only thing it ever said |
-| `_test_app.mjs` | the page that **ships**, not the sources it came from: the inliner, the module stripper and the data injection are the only code no other test covers |
-| `_test_site.py` | thirteen site checks, and then **each of them again against a site broken on purpose** |
-| `build/drive.mjs` | the panels answer a **real mouse** through the DevTools Input domain, not events dispatched from inside the page |
+| ✅ `tests/run.mjs` | the **built page** against `tests/reference_models.json`, produced by the **Python** engine of Part VII. Two implementations, one set of numbers. Ships with the artifact, so a reader can run it against the page they were served |
+| 📐 `_test_hierarchy.mjs` | the closed form against direct minimisation; the arithmetic laws; the four levels of the ceiling; the pre-registered sixth row; the repair-space wedge |
+| 🔢 `_test_selection.mjs` | Part III's rule against a winding sum that has never heard of Dynkin labels — 119 representations, zero disagreements — and Part II's three gates, with the minimality of the **60** recovered by brute force rather than quoted |
+| 🌀 `_test_eta.mjs` | the η closed form against brute force on 119 multiplets; the atlas's blank tiles predicted from the modes *before* being drawn; tile diffs held to spectra |
+| 🛡️ `_test_escape.mjs` | Part VI's charge arithmetic in exact rationals, against the archived enumeration |
+| 🗺️ `_test_atlas.mjs` | the 1 286-content lattice re-enumerated in the browser, against `ceiling_ilp.py`'s archived counts — and against the hierarchy sweep, which reaches them another way |
+| ↩️ `_test_inverse.mjs` | the map run **backwards**: the five published rows inverted from their own observables, the certificate roster of every target the paper tabulates, the designs it delivers — and the certificates **falsified**, a rung a Farkas bound closes being enumerated whole to confirm it is empty. It also resolves the two clusters a browser can reach into their **35 and 65 points**, recovering the paper's spacings and the 45× the gap is measured against |
+| 🧮 `_test_census.mjs` | N(A₄, 8D) counted by dynamic programme, against three other things: the archived enumeration (**69 022 464** contents over four rungs), an independent brute force, and the enumerator that builds the contents one by one |
+| 🏛️ `_test_sun5d.mjs` | the **general SU(N)** formula — Haba–Yamashita §5 — against every equation of all four worked examples the same paper prints, transcribed term by term; against the invariance (P, P′) → (−P, −P′) the adjoint cannot see; and, through the one-phase bridge, against the archived 60-row SU(3) prediction bank, which it reproduces to 8e-16 by a route that shares nothing with the special case those rows came from |
+| 🔗 `_test_bcclass.mjs` | the **equivalence classes** of orbifold boundary conditions, as orbits actually walked: Haba–Hosotani–Kawamura's C(N+3,3) conditions, (N−1)N(N+1)/6 relations and **(N+1)² classes** reproduced at every N up to 14 as a property of the orbit structure rather than as a quoted theorem; their eq. (3.27) energetics term by term; and the same question asked again on T²/Z₃, where the answer is different and is measured instead of inherited |
+| 📊 `_test_spectrum5d.mjs` | the **4D spectrum**, against the eigenvalue lists Haba–Yamashita print degeneracy by degeneracy — their (3.9), (3.12), (3.16), (3.18), (4.28), (4.32), (4.34) as whole multisets, so nothing can be dropped unnoticed — and HHK's sector counts (3.20) **derived** from the components rather than transcribed. And the control that ties two modules together: summing cos(2πnQ) over the states reproduces the potential's own bracket, exactly twice it, on 96 cases at 5e-15 |
+| ⚖️ `_test_anomaly5d.mjs` | the **anomaly ledger**: the indices and cubic anomalies re-derived from fund ⊗ fund = sym ⊕ antisym rather than tabulated; an **adjoint** bulk fermion required to be anomaly-free on every boundary condition, because the adjoint is real; a piece fed in with its own conjugate, which tests every sign at once; and chiral contents that must come out **anomalous**, with the channel named, or "anomaly-free" would be the only thing it ever said |
+| 🌡️ `_test_blkt.mjs` | **brane-localized kinetic terms**: the tower when the masses stop being n/R. The special functions against **mpmath at 40 digits** (`tests/blkt_reference.json`), and the limit that decides the rest — as c → 0 the roots of the transcendental mass equation must become the ordinary twisted tower, which is computed in closed form from the poles and shares no line of code with the solver. It found three real defects, catastrophic cancellation among them. And the join: the authors' own eq. (3.22), solved here, reproduces their eq. (5.19) ten pages later, with the error falling like α² |
+| 📄 `_test_latex.mjs` | the **export that goes into a paper**: the LaTeX is the result card and not a second version of it; every string in `data/` survives the transport, and an unmapped glyph **throws** rather than being dropped; the potential reads as the paper prints it; and no file in the tree contradicts the citation registry — a gate that exists because one reference had drifted into seven files with the wrong volume |
+| 🧩 `_test_app.mjs` | the page that **ships**, not the sources it came from: the inliner, the module stripper and the data injection are the only code no other test covers |
+| 🌐 `_test_site.py` | thirteen site checks, and then **each of them again against a site broken on purpose** |
+| 🖱️ `build/drive.mjs` | the panels answer a **real mouse** through the DevTools Input domain, not events dispatched from inside the page — including the buttons that write files and the permalinks that make a page sendable |
 
 Every guard here has been fired at least once by breaking something on purpose. A guard that has
 never failed is not a guard, and `HANDOFF.md` carries the index of what each one cost.
 
-## Reproducing the data files
+## 📤 Taking a model out of the page
 
-Nothing in `data/` is typed. `build/make_data*.py` and `build/make_reference.py` read the papers'
-own Python scripts and archived runs, and stop rather than invent a number if they cannot reach
-them. That authoring tree is not part of this repository; point at it with:
+Two buttons in the header, and both serialise the **same object** — `card.mjs` builds it once:
+
+- ⇩ **card** — the result card as JSON and as flat text: the input actually used, the provenance,
+  and every value with its status and its source.
+- ⇩ **LaTeX** — the same card as a `.tex` you can paste into a draft (the potential as a displayed
+  equation, the results as a table **with the status column**), and a companion `.bib` keyed the
+  way INSPIRE keys it, so citing the papers the numbers rest on is the default rather than an
+  effort.
+
+🔗 **link** puts the model in the URL. A section that carries its own model carries its own
+permalink, so a demonstration can be *sent* rather than described.
+
+## 🔁 Reproducing the data files
+
+Nothing in `data/` is typed. `build/make_data*.py`, `build/make_reference.py` and
+`build/make_blkt_reference.py` read the papers' own scripts and archived runs, and stop rather than
+invent a number if they cannot reach them. That authoring tree is not part of this repository;
+point at it with:
 
 ```
 set GHU_SOURCES=...\research\smeft_formalization        # Windows
@@ -60,7 +78,7 @@ or write the path into `build/sources.local` (git-ignored). Without it the gener
 a message saying exactly what they wanted to read. The instrument itself needs none of this: the
 built page carries its data inline and reaches nothing outside itself.
 
-## Read this before quoting a number
+## ⚠️ Read this before quoting a number
 
 The instrument says it on its own front page, and it belongs here too: **the absolute scales are
 not settled.** Our α does not reproduce the published α of the SU(7) model — the ratio runs
@@ -72,24 +90,31 @@ no normalisation enters any of them.
 The two anchor routes that are in print — Part VI's pre-registered sixth row and the second
 anchor of von Gersdorff–Irges–Quirós — are both live in the instrument.
 
-## Layout
+📕 And one thing we got wrong and withdrew in public: on 29 August this repository said
+Haba–Yamashita's §5 was missing an absolute value. It is not; the bars are on their page, and the
+text layer of the PDF had silently eaten them. See
+`changes/2026-08-30-the-absolute-value-was-already-there.md`. Nothing the instrument computes
+changed — it had always used the absolute value, which is what the paper says.
+
+## 🗂️ Layout
 
 ```
-src/kernel/     the mathematics: potential, moments, closed form, exact-rational charges,
-                the five complete invariants, the relief renderer, the resolver
-src/modules/    one capability each, with a status and a source on every value
-src/sections/   one file per section of the page; adding a section is a file and a line
-src/shell/      the shell: one model per group, a rail grouped by family, the permalink
-src/site/       the source of the surrounding site (home, per-paper pages, docs, changes)
-build/          the builders, the gates, the shooters, the mouse driver
-data/           extracted, never typed — one JSON per group
-tests/          the golden suite that travels with the deployed artifact
-changes/        the change log, one file per entry, rendered onto the site
+🧠 src/kernel/     the mathematics: potential, moments, closed form, exact-rational charges,
+                   the five complete invariants, the BLKT tower, the relief renderer, the
+                   citation registry, the LaTeX writer, the resolver
+🧰 src/modules/    one capability each, with a status and a source on every value
+🖼️ src/sections/   one file per section of the page; adding a section is a file and a line
+🏠 src/shell/      the shell: one model per group, a rail grouped by family, the permalink
+🌐 src/site/       the source of the surrounding site (home, per-paper pages, docs, changes)
+🏗️ build/          the builders, the gates, the shooters, the mouse driver
+💾 data/           extracted, never typed — one JSON per group
+✅ tests/          the golden suite that travels with the deployed artifact
+📝 changes/        the change log, one file per entry, rendered onto the site
 ```
 
 `app/`, `site/`, `shots/` and the shooter profiles are generated and untracked on purpose.
 
-## History
+## 📜 History
 
 This repository starts at its first public commit. The working history that preceded it is kept
 privately: a headless-browser profile had been committed into it at one point, and files named
@@ -99,7 +124,7 @@ profile. Nothing of the engineering narrative is lost — `HANDOFF.md` carries t
 
 ---
 
-Carles Marín · `karlesmarin@gmail.com` ·
-[ORCID 0009-0007-5637-9688](https://orcid.org/0009-0007-5637-9688) ·
-Claude (Anthropic) as AI research assistant; the mathematics and every claim are the author's
-responsibility · Apache 2.0
+👤 Carles Marín · ✉️ `karlesmarin@gmail.com` ·
+🆔 [ORCID 0009-0007-5637-9688](https://orcid.org/0009-0007-5637-9688) ·
+🤖 Claude (Anthropic) as AI research assistant; the mathematics and every claim are the author's
+responsibility · ⚖️ Apache 2.0

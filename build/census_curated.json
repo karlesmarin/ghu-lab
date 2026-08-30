@@ -111,6 +111,24 @@
    "status": "measured"
   },
   {
+   "id": "ti_2404.19411",
+   "cite": "TI24b",
+   "label": "Takeuchi-Inagaki, trace conservation laws on every T^2/Z_m",
+   "group": "SU(N)",
+   "orbifold": "T^2/Z_m (m = 2, 3, 4, 6)",
+   "publishes": {
+    "content": true,
+    "minimum": false,
+    "higgs_mass": false,
+    "scale": false
+   },
+   "rows_published": 0,
+   "where": "section 5: a sum over configurations and a closed polynomial for each orbifold, and their Table 2",
+   "screened": "yes",
+   "verdict": "formal, and it closes what this project had standing as open: the classification on T^2/Z_4 and T^2/Z_6, off-diagonal classes included, with exact counts. Their T^2/Z_3 count reproduces ours at N=4 (477). Their section 5 states each count twice; for T^2/Z_2, Z_3 and Z_4 the two agree, and for T^2/Z_6 they agree only up to N=6 -- the range their own Table 2 covers -- and part company from N=7. Measured, not resolved: which of their two statements is the intended one.",
+   "status": "measured"
+  },
+  {
    "id": "hep-th_0204223",
    "cite": "VGIQ02",
    "label": "von Gersdorff-Irges-Quiros, bulk and brane radiative effects",

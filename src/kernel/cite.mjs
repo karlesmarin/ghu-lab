@@ -99,6 +99,21 @@ export const SOURCES = Object.freeze({
     note: "the SU(4) model of the second family; preprint, no journal reference yet",
   },
 
+  /* Their SECOND paper, and the one that closes T^2/Z_4 and T^2/Z_6 -- which this project had
+   * standing as an open question while the PDF sat unread in the corpus.  Found through footnote 5
+   * of Kawamura-Kodaira-Kojima-Yamashita.  texkey verified against INSPIRE (`api/arxiv/2404.19411`). */
+  TI24b: {
+    texkey: "Takeuchi:2024cyw",
+    authors: ["K. Takeuchi", "T. Inagaki"],
+    title: "Trace Conservation Laws in $T^2/Z_m$ Orbifold Gauge Theories",
+    year: 2024,
+    journal: "PTEP", volume: "2024", pages: "063B04",
+    doi: "10.1093/ptep/ptae082",
+    eprint: "2404.19411", archivePrefix: "arXiv", primaryClass: "hep-th",
+    short: "Takeuchi-Inagaki",
+    note: "the complete classification on T^2/Z_m, with off-diagonal classes and exact counts",
+  },
+
   /* THE PAPER THE BLKT SECTION IS ENTIRELY ABOUT, AND IT WAS MISSING FROM THIS REGISTRY.
    * Every number that section computes comes from its eqs. (3.19), (3.21) and (4.2) -- and because
    * the section's card declares `group: "su3_hy"`, the LaTeX button was writing a .bib of five

@@ -1,0 +1,32 @@
+{
+ "what": "Reference values for the special functions in src/kernel/blkt.mjs, from mpmath at 40 digits.",
+ "why": "The JS implementations are hand-rolled -- a digamma asymptotic series, a continued fraction for E_1, a downward recurrence for Gamma(-2, x). Holding them to values typed from memory is holding them to nothing: the first version of the harness carried a wrong 'tabulated' E_1(5) and the JS was the half that was right. These come from an instrument that shares no code with ours.",
+ "produced_by": "sage -python build/make_blkt_reference.py  (mpmath, mp.dps = 40)",
+ "date": "2026-08-30",
+ "digamma": {
+  "0.5": "-1.963510026021423479440976332998755567193",
+  "1": "-0.5772156649015328606065120900824024310422",
+  "2.7": "0.7967831689911410155034935957746765108034",
+  "11.4": "2.389112974944005385893985053751930998201",
+  "5000": "8.517093188082904106654733443311036960741"
+ },
+ "e1": {
+  "0.1": "1.822923958419390666080913658291830939119",
+  "1": "0.219383934395520273677163775460121649031",
+  "5": "0.001148295591275325797330561969819722076266",
+  "20": "0.00000000009835525290649881690396987108894776074356",
+  "0.0025": "5.416747320574097943481743879678416842584"
+ },
+ "gamma_minus2": {
+  "0.05": "181.9675398993906489121507619606801501207",
+  "0.6": "0.5320851049802712944271379623755979922589",
+  "3": "0.0009922940617803028196567711754267585151611",
+  "0.000625": "1278404.150375780192493821307188472180271"
+ },
+ "potential_integral": {
+  "note": "int_0^L dl l exp(-x^2/l) = x^4 Gamma(-2, x^2/L), which is what their (4.2) integrates",
+  "x=0.5,L=400": "79900.25939848626203086383169927951126691",
+  "x=1.2,L=400": "79430.79187486130031981858220245914003522",
+  "x=2.0,L=1600": "1273655.320655641679153835988194617397038"
+ }
+}

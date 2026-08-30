@@ -279,6 +279,42 @@ export function surfaceAxisLabels(g, P, labels, { ink = "rgba(190,210,222,.95)",
 /* Which point of the DOMAIN is under the cursor: the nearest mesh vertex in screen space and,
  * among the near ones, the one closest to the viewer — so a far slope hidden behind a ridge never
  * steals the drag.  Returns [x, y] in [0,1]^2, or null. */
+/* WHERE A HAND-PLACED LABEL ACTUALLY FITS.
+ *
+ * A label anchored to a data point is drawn at `anchor + gap` (or `anchor - gap - width` on the
+ * other side) and nothing about the anchor knows how wide the plot is.  On 2026-08-30 that printed
+ * the hierarchy panel's ceiling as "22 TeV . true vacuum": the label is "9.22 TeV . true vacuum",
+ * right-aligned on a point close to the left edge, and the "9." fell off the box.  A cramped label
+ * is a cosmetic bug; a label with its first digits sheared off is a WRONG NUMBER on screen, and
+ * this instrument's whole claim is that its numbers are the ones it says they are.
+ *
+ * IT CLAMPS, AND IT DOES NOT FLIP UNLESS TOLD TO.  The first version of this flipped to whichever
+ * side had room, and that was worse than the bug: where several levels sit on one row the sides
+ * are exactly what keeps their labels apart, so the flip stacked three of them into one smear.
+ * A side chosen by hand is information.  Clamping moves a label by the least amount that puts it
+ * back in the box and cannot introduce a collision that was not already there; `flip: true` is for
+ * a label that owns its row.
+ *
+ * Returns the x for a LEFT-aligned draw, so the caller stops juggling textAlign.
+ *
+ *   g.textAlign = "left";
+ *   g.fillText(label, fitLabelX(sx(t), g.measureText(label).width, L, L + iw, "right"), y);
+ */
+export function fitLabelX(anchor, width, lo, hi, prefer = "left", { gap = 11, pad = 2, flip = false } = {}) {
+  const l = lo + pad, r = hi - pad;
+  /* a label wider than the box cannot be placed; flush left loses the least, because text is read
+   * from the left and a truncated tail is visibly truncated where a sheared head is not */
+  if (width > r - l) return l;
+  const left = anchor + gap, right = anchor - gap - width;
+  const want = prefer === "right" ? right : left;
+  if (want >= l && want + width <= r) return want;
+  if (flip) {
+    const other = prefer === "right" ? left : right;
+    if (other >= l && other + width <= r) return other;
+  }
+  return Math.min(Math.max(want, l), r - width);
+}
+
 export function pickSurface(P, field, n, px, py, { within = 22 } = {}) {
   let near = null, any = null;
   const r2 = within * within;

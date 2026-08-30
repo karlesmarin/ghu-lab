@@ -34,16 +34,16 @@ why
   is rather than hiding it.
 
 so
-: One correction to the printed formula, and two overclaims of our own caught before they shipped.
+: **WITHDRAWN 2026-08-30 — see *The absolute value was already there*.** What stood here said the
+  coefficients of eqs. (5.9), (5.10) and (5.17)–(5.20) were printed as plain differences and had to
+  be corrected to absolute values. They are printed **with** the bars, in all six, on the page. The
+  paper is right; we were wrong. The bars are CMEX10 glyphs mapping to U+000C and every text
+  extraction drops them in silence, ours included. Nothing the instrument computes changes — it
+  always used the absolute value, which is what the paper says — and the harness still checks the
+  bars-dropped reading fails, now as a guard against the extraction bug rather than as a correction
+  to anybody. The rest of this entry stands.
 
-  The coefficients written (n₊₊ − n₋₋) and (n₊₋ − n₋₊) in eqs. (5.9), (5.10) and (5.17)–(5.20)
-  must be **absolute values**: they count leftover rows. Two of the paper's own worked examples
-  say so — §3's SU(3) has n₊₊ = 1 < n₋₋ = 2 and the printed formula flips the sign of its
-  eq. (3.10); §4.3's SU(6) does the same to eq. (4.29) — and so does an invariance the formula
-  must have, since the gauge field cannot tell (P, P′) from (−P, −P′) and that swap exchanges the
-  blocks in pairs. The harness checks all four examples verbatim, checks the invariance, and
-  checks that the *signed* reading fails: a correction nobody can see fail is not a correction.
-
+  And one overclaim of our own, caught before it shipped.
   Ours: the vacuum panel first announced "the Hosotani mechanism" for a minimum sitting at
   **a = 1**, which is not a broken vacuum but the *other symmetric point* — the two ends of the
   fundamental domain are exactly the pair Part VII's criterion compares. Three verdicts now, and

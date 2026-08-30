@@ -150,12 +150,14 @@ H("§4.3 — SU(6) with P ≠ P′: the case that exercises the second block");
 
 /* ------------------------------------------------------------------ the sign */
 
-H("THE COEFFICIENT IS |n₊₊ − n₋₋|, and the signed reading has to fail");
+H("THE COEFFICIENT IS |n₊₊ − n₋₋|, — as printed — and the bars-dropped reading has to fail");
 {
-  /* the module uses the absolute value; the signed reading is rebuilt here by hand for the two
-   * examples where the two differ, and must not reproduce the paper's own equations */
+  /* The paper PRINTS the bars; every text extractor drops them (CMEX10 -> U+000C).  What is
+   * rebuilt here by hand is therefore not "the printed formula" but the MUTILATED one a tool
+   * hands you, for the two examples where the two differ.  It must not reproduce the paper's own
+   * equations -- that is the guard against ever believing an extraction again. */
   const signed = (b, eta) => {
-    /* the printed (5.9)/(5.10) with (n₊₊ − n₋₋) and (n₊₋ − n₋₊) as written */
+    /* (5.9)/(5.10) with the bars STRIPPED, which is what a text extraction returns */
     const d0 = eta > 0 ? 0 : 1, d1 = 1 - d0;
     const t = [];
     if (b.A === 1 && b.B === 0) {

@@ -18,7 +18,7 @@
  */
 import { readFileSync } from "node:fs";
 import { surfaceView, surfaceProjector, fitSurfaceView, heightField, paintSurface,
-         surfaceRamp, pickSurface, coalesced, EL_MIN, EL_MAX } from "./src/kernel/surface.mjs";
+         surfaceRamp, pickSurface, coalesced, fitLabelX, EL_MIN, EL_MAX } from "./src/kernel/surface.mjs";
 import { spectrum, lattice, V, PERIODS } from "./src/kernel/wilson.mjs";
 
 const D = JSON.parse(readFileSync(new URL("./data/su4_ahmn.json", import.meta.url), "utf8"));
@@ -295,6 +295,42 @@ H("the ramp");
   ok("moves between them", a.join() !== m.join() && m.join() !== b.join());
   ok("and clamps outside [0,1]", surfaceRamp(-3).join() === a.join() &&
                                  surfaceRamp(9).join() === b.join());
+}
+
+H("a hand-placed label lands inside the plot, or the number it carries is wrong");
+{
+  const L = 40, iw = 300, R = L + iw;
+  const inside = (x, w) => x >= L && x + w <= R;
+
+  ok("takes the preferred side when there is room on it",
+     fitLabelX(200, 60, L, R, "left") === 211 && fitLabelX(200, 60, L, R, "right") === 200 - 11 - 60);
+
+  /* THE CASE THAT SHIPPED.  "9.22 TeV . true vacuum" is ~118px of 10.5px mono, right-aligned on a
+   * point near the left edge: the old code drew it at anchor - 11 - width, i.e. off the box, and
+   * the page printed "22 TeV . true vacuum".  A wrong number, not a cramped one. */
+  const anchor = 78, w = 118;
+  ok("the old placement really did fall off the box", anchor - 11 - w < L);
+  const x = fitLabelX(anchor, w, L, R, "right");
+  ok("and the new one does not", inside(x, w), `x = ${x}, w = ${w}, box [${L}, ${R}]`);
+
+  /* AND IT MUST NOT FLIP BY DEFAULT.  Three levels of the hierarchy panel sit on one row five
+   * pixels apart; the sides are what keeps their labels apart, so a flip stacks them into a smear.
+   * That is what the first version of this did, and the screenshot showed it. */
+  ok("...by clamping, staying on the side the caller chose", x === L + 2 && x < anchor);
+  ok("a flip happens only when the caller says the row is its own",
+     fitLabelX(anchor, w, L, R, "right", { flip: true }) === anchor + 11);
+
+  /* the other edge, where the two stacked levels ran off */
+  const xr = fitLabelX(R - 20, 150, L, R, "left");
+  ok("a label anchored near the right edge comes back inside", inside(xr, 150), `x = ${xr}`);
+  ok("...and by the least amount, so it does not jump across its own dot", xr === R - 2 - 150);
+
+  /* wider than the box at all: flush left, because a truncated TAIL is visibly truncated and a
+   * sheared HEAD is not -- which is the whole lesson of the bug */
+  ok("a label wider than the box goes flush left, losing its tail and not its digits",
+     fitLabelX(200, 1000, L, R, "right") === L + 2);
+
+  ok("and it clears its own anchor when it can", fitLabelX(200, 10, L, R, "left") > 200);
 }
 
 console.log(`\n${fail === 0 ? "PASSED" : "*** FAILED ***"}   ${pass} ok, ${fail} failed`);

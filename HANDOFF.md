@@ -82,13 +82,19 @@ complete invariants and its stability criterion. The panel prints which of those
 about the shape) and which do not (theorems about the SU(7) lattice, which become measurements you
 can check — and which fail for SU(6), as it says).
 
-**A sign in the printed formula.** Eqs. (5.9), (5.10) and (5.17)–(5.20) carry (n₊₊ − n₋₋) and
-(n₊₋ − n₋₊) as plain differences; they are counts of leftover rows and must be absolute values.
-Two of the paper's own worked examples say so — §3's SU(3) has n₊₊ = 1 < n₋₋ = 2 and the printed
-form flips the sign of its own eq. (3.10); §4.3's SU(6) does the same to eq. (4.29) — and so does
-an invariance the formula must have, since A → PAP† cannot tell (P, P′) from (−P, −P′) and that
-swap exchanges the blocks in pairs. `_test_sun5d.mjs` checks all four examples verbatim (44
-checks), checks the invariance, and checks that the *signed* reading FAILS.
+**RETRACTADO 2026-08-30 — aquí decía que a su fórmula le faltaba el valor absoluto.** Sus (5.9),
+(5.10) y (5.17)–(5.20) imprimen `|n₊₊ − n₋₋|` y `|n₊₋ − n₋₊|` **con barras**, las seis, en la página.
+Nada faltaba. Las barras van en **CMEX10** y en ese PDF mapean a **U+000C**: toda extracción de
+texto las tira en silencio, `pdftotext` y **también PyMuPDF**, en todos sus modos. Un delimitador
+perdido no deja restos — la fórmula mutilada sigue leyéndose bien — así que no hay error que notar.
+El módulo **siempre** usó el valor absoluto, que es lo que dicen ellos, de modo que **ningún número
+del instrumento cambia**; lo que cambia es una frase nuestra sobre su artículo. La retirada está en
+`changes/2026-08-30-the-absolute-value-was-already-there.md` y en la cabecera de `sun5d.mjs`.
+
+`_test_sun5d.mjs` sigue comprobando los cuatro ejemplos verbatim (44 checks), la invariancia
+`A → PAP†` bajo `(P,P′) → (−P,−P′)`, y que la lectura **sin barras** FALLA — ahora como guardia
+contra el fallo de extracción, que es exactamente la fórmula equivocada que una herramienta te da.
+La herramienta que lo caza es `Curiosity/research/smeft_formalization/pdf_glyph_audit.py`.
 
 **Two overclaims of ours, caught by looking at the shot.** The vacuum panel announced "the Hosotani
 mechanism" for a minimum at a = 1 — which is the OTHER SYMMETRIC POINT, not a broken vacuum: V has

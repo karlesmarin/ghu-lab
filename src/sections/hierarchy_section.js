@@ -743,16 +743,23 @@ const HIERARCHY_SECTION = {
       if (hollow) { g.strokeStyle = col; g.lineWidth = 1.6; g.setLineDash([2, 2]); g.stroke(); g.setLineDash([]); }
       else { g.fillStyle = col; g.fill(); g.strokeStyle = "#fff"; g.lineWidth = 1.6; g.stroke(); }
       g.font = "600 10.5px " + this._css("--mono"); g.fillStyle = col;
-      g.textAlign = align; g.textBaseline = "bottom";
-      g.fillText(label, sx(t) + (align === "left" ? 11 : -11), sy(k) + dy);
+      /* `align` is a PREFERENCE and the plot box wins: see `fitLabelX`.  Drawn from the anchor
+       * alone this printed "9.22 TeV . true vacuum" as "22 TeV . true vacuum", and the two
+       * right-hand levels ran off the other edge. */
+      g.textAlign = "left"; g.textBaseline = "bottom";
+      g.fillText(label, fitLabelX(sx(t), g.measureText(label).width, L, L + iw, align), sy(k) + dy);
     };
     if (C && oddSeed) {
       mark(C.relaxation.A4, C.relaxation["8D"], this._css("--ink3"),
            `${(C.relaxation.GeV / 1000).toFixed(2)} · relaxation, empty`, { hollow: true, r: 10, dy: -19 });
       mark(C.attained.A4, C.attained["8D"], this._css("--rust"),
            `${(C.attained.GeV / 1000).toFixed(2)} · attained, false vacuum`, { dy: -5 });
+      /* ITS OWN ROW.  This one and `attained` were both at dy -5, kept apart only by sitting on
+       * opposite sides of their dots -- and once the ceiling label was clamped back inside the box
+       * (it used to print as "22 TeV", sheared) the two met in the middle.  Three levels, three
+       * rows: -33, -19, -5, read top to bottom. */
       mark(C.true_vacuum.A4, C.true_vacuum["8D"], this._css("--amber"),
-           `${(C.true_vacuum.GeV / 1000).toFixed(2)} TeV · true vacuum`, { align: "right", dy: -5 });
+           `${(C.true_vacuum.GeV / 1000).toFixed(2)} TeV · true vacuum`, { align: "right", dy: -33 });
     } else if (C) {
       const S = DATA.gauge_seeds.candidate;
       mark(S.ceiling_A4, S.ceiling_8D, this._css("--ink3"),

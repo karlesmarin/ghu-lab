@@ -36,23 +36,31 @@
  * to the closed form, the arithmetic laws, the census and the inverse map.  That bridge is the
  * whole reason this module is worth having: it turns three published models into any model.
  *
- * A SIGN IN THE PRINTED FORMULA, AND WHY IT IS AN ABSOLUTE VALUE HERE.  Equations (5.9), (5.10)
- * and (5.17)–(5.20) carry the coefficients (n₊₊ − n₋₋) and (n₊₋ − n₋₊) as plain differences.  They
- * cannot be: the count they multiply is the number of LEFTOVER rows of the larger block, which is
- * |n₊₊ − n₋₋|.  Two of the paper's own worked examples say so —
+ * THE COEFFICIENT IS |n₊₊ − n₋₋|, AND THAT IS WHAT THEY PRINTED.  Equations (5.9), (5.10) and
+ * (5.17)–(5.20) carry the coefficients with absolute-value bars, on the page, in all six.  The
+ * count they multiply is the number of LEFTOVER rows of the larger block — with A = min(n₊₊, n₋₋),
+ * (n₊₊ − A) + (n₋₋ − A) = |n₊₊ − n₋₋| — so it is a multiplicity and could not be anything else.
  *
- *   §3   SU(3), P = P′ = diag(+,−,−):  n₊₊ = 1, n₋₋ = 2.  Eq. (3.10) is
- *        cos(2πna) + 2cos(πna); the printed (5.9) gives cos(2πna) − 2cos(πna).
- *   §4.3 SU(6), P = diag(+,+,+,+,−,−), P′ = diag(+,−,−,−,−,−):  n₊₊ = 1, n₋₋ = 2, n₊₋ = 3.
- *        Eq. (4.29) is 6cos(nπ(a−1)) + 2cos(nπa) + cos(2nπa); the printed (5.9) flips the middle.
+ * RETRACTED 2026-08-30, and the retraction belongs here because the claim was here.  Until this
+ * date this header said the bars were MISSING from the paper and that we were correcting it.  That
+ * was false, and it was published — in the source of this module, in the harness, and in a
+ * changelog entry dated 2026-08-29 that is on the site.  The bars are set in CMEX10, TeX's
+ * extensible-delimiter font, and in that PDF its glyphs map to U+000C; every text extraction drops
+ * them in silence, `pdftotext` and PyMuPDF alike, in every mode.  A dropped delimiter does not
+ * corrupt the text around it: it leaves a formula that still parses and is a different formula, so
+ * there is no error to notice.  A draft letter to the authors was written on that false premise
+ * and withdrawn unsent.  See `changes/2026-08-30-the-absolute-value-was-already-there.md`.
  *
- * — and so does an invariance the formula must have.  The gauge field transforms as A → P A P†, so
- * (P, P′) and (−P, −P′) are the SAME boundary condition for it; that swap exchanges n₊₊ ↔ n₋₋ and
- * n₊₋ ↔ n₋₊ at once.  A, B and the absolute differences are invariant under it; the signed
- * differences are not.  The examples in §4.1 and §4.2 have n₊₊ ≥ n₋₋, which is why the printed
- * form works there and the question never came up.  `_test_sun5d.mjs` checks all four examples
- * verbatim, and checks the invariance, and checks that the signed reading FAILS — because a
- * correction nobody can see fail is not a correction.
+ * WHAT THE HARNESS STILL CHECKS, AND WHY IT IS WORTH KEEPING.  `_test_sun5d.mjs` reproduces all
+ * four of the paper's worked examples verbatim, checks the invariance below, and checks that the
+ * bars-dropped reading FAILS.  That last one is now a guard against the extraction bug rather than
+ * a correction to anybody: it is exactly the wrong formula a tool will hand you.
+ *
+ * THE INVARIANCE, which is a real property of the setup and is why the reading is forced.  The
+ * gauge field transforms as A → P A P†, so (P, P′) and (−P, −P′) are the SAME boundary condition
+ * for it; that swap exchanges n₊₊ ↔ n₋₋ and n₊₋ ↔ n₋₊ at once.  A, B and the absolute differences
+ * are invariant under it; the signed differences are not.  The examples in §4.1 and §4.2 have
+ * n₊₊ ≥ n₋₋, so they read the same either way — which is why the reading only bites in §3 and §4.3.
  */
 
 /* ------------------------------------------------------------------ the boundary condition */

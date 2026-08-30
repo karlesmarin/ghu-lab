@@ -105,6 +105,16 @@ await send("Page.enable");
  * that height or anything sized in `vh` is measured against the wrong window -- which is exactly
  * the mistake the first version of this made, reporting a rail bounded to 924px on a run that
  * asked for 720. */
+/* `--only a,b` shoots just those rail ids.  The default is still every section, because the
+ * whole point of this shooter is that nobody chooses which panel to look at; `--only` exists for
+ * the one job that is not inspection -- regenerating a single published image, such as the
+ * README's preview -- where walking nineteen sections is waste and the extra shots overwrite
+ * the archive of a full run.
+ *
+ *   node build/shoot.mjs --only hierarchy --width 1200 --viewport 792 --out shots/preview
+ */
+const ONLY = String(arg("only", "")).split(",").map((x) => x.trim()).filter(Boolean);
+
 const VH = Number(arg("viewport", 0));
 const BASE_H = VH || 1000;
 await send("Emulation.setDeviceMetricsOverride",
@@ -351,7 +361,10 @@ const VARIANTS = {
 };
 
 const shots = [];
-for (const s of (rail || []).filter((x) => x.id)) {
+const wanted = (rail || []).filter((x) => x.id && (!ONLY.length || ONLY.includes(x.id)));
+if (ONLY.length && wanted.length !== ONLY.length)
+  throw new Error(`--only named ${ONLY.join(", ")} but the rail has `+ `${wanted.map((x) => x.id).join(", ") || "none of them"}`);
+for (const s of wanted) {
   await evalJs(`document.querySelector('#rail a[data-id=' + JSON.stringify(${JSON.stringify(s.id)}) + ']').click()`);
   await sleep(900);
   /* Some sections only compute on demand.  Press every sweep button there is -- a screenshot of an

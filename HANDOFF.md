@@ -435,7 +435,7 @@ triple; the 15 = (1,0,1) refused by ALL THREE gates — a hand-count in the firs
 Build **716 checks green**, still 8 sections, drive 18/18, 0 console errors.
 
 **Tool 5 — DONE 2026-08-26 (sixth pass): "Five dimensions" · a THIRD group, the first for
-readers outside the series.** Haba–Yamashita's 5D SU(3) on S¹/Z₂ (JHEP 05 (2004) 059), whose own
+readers outside the series.** Haba–Yamashita's 5D SU(3) on S¹/Z₂ (JHEP 02 (2004) 059), whose own
 summary calls analysing the vacuum structure the hard part and whose paper never locates a
 minimum. `build/make_data_hy.py` → `data/su3_hy.json`: the coefficient table of their eq. (3.20)
 EXTRACTED from `part_vii/hy_predictions.py` by evaluating its own `hy_table()` on unit contents

@@ -7,7 +7,7 @@
  * about a published model — theirs or ours.  This one takes the model as INPUT: type a boundary
  * condition and a bulk content and it returns the one-loop Wilson-line potential, the unbroken
  * subgroup, how many Higgs degrees of freedom there are, and where the vacuum sits.  For SU(3),
- * SU(5), SU(6), SU(7), SU(23).  It is Haba and Yamashita's general formula (JHEP 05 (2004) 059,
+ * SU(5), SU(6), SU(7), SU(23).  It is Haba and Yamashita's general formula (JHEP 02 (2004) 059,
  * §5), which is the machine every model in this field is built on and which nobody has as a tool.
  *
  * WHAT IT IS FOR, CONCRETELY.  A reader with a model of their own — a set of parities and some
@@ -141,6 +141,58 @@ const SUN5D_SECTION = {
       const x = (e.clientX - r.left) * (this._lay.W / r.width);
       SUN5D_S.probe[0] = Math.min(1, Math.max(0, (x - this._lay.x0) / (this._lay.x1 - this._lay.x0)));
       ctx.refresh();
+    };
+  },
+
+  /* WHAT THIS SECTION EXPORTS, AND WHY IT EXPORTS A CARD OF ITS OWN.
+   *
+   * This section declares `holds()`: the model on the page is the one the reader typed here, not
+   * the one the shell is carrying for the family.  So the shell's card is about a DIFFERENT model.
+   * Attaching it to this section's potential would put two models in one file and present them as
+   * one -- the export would name a boundary condition and then tabulate somebody else's numbers.
+   * `build/drive.mjs` caught exactly that.  So the card is built here, from this model.
+   *
+   * `half: true` because these terms carry the paper's C/2 and the kernel's F does not: the two
+   * normalisations differ by exactly that factor and this project has confused them before.
+   */
+  texExport() {
+    const b = sun5dBlocks(SUN5D_S.blocks);
+    const terms = sun5dTerms(b, { bulk: this._content() });
+    const min = sun5dMinimum(terms, b.phases);
+    const blocks = `(${b.nPP}, ${b.nPM}, ${b.nMP}, ${b.nMM})`;
+
+    const values = {
+      N: val(b.N, { status: STATUS.THEOREM, source: "the four block sizes sum to N" }),
+      boundary_condition: val(blocks,
+        { status: STATUS.THEOREM, source: "Haba-Yamashita eq. (5.1), simultaneously diagonal" }),
+      unbroken: val(sun5dUnbroken(b),
+        { status: STATUS.THEOREM, source: "Haba-Yamashita eq. (5.2)" }),
+      wilson_phases: val(b.phases,
+        { status: STATUS.THEOREM, source: "Haba-Yamashita eq. (5.4), A + B" }),
+    };
+    /* the minimiser handles one and two phases; past that it is not the right instrument and the
+     * export says so instead of printing a number it did not compute */
+    if (min) {
+      values.theta_min = val(min.theta.map((t) => Number(t.toFixed(6))).join(", "),
+        { status: STATUS.MEASURED, source: "browser: grid, then coordinate refinement" });
+      values.at_domain_end = val(min.atEdge,
+        { status: STATUS.MEASURED,
+          source: "an end of [0,1] is the OTHER symmetric point, not a broken vacuum" });
+    } else {
+      values.theta_min = unknown(`this model has ${b.phases} Wilson-line phases; the minimiser ` +
+                                 `covers one and two, and a grid is not the right instrument past that`);
+    }
+    values.scale = unknown("no absolute scale without an anchor: this is a shape, not a prediction");
+
+    return {
+      card: makeCard({ group: "su3_hy", section: "sun5d", N: b.N,
+                       blocks: [b.nPP, b.nPM, b.nMP, b.nMM], bulk: this._content() },
+                     values, { version: VERSION, build: BUILD }),
+      terms, termNames: sun5dNames(b), half: true,
+      mathKeys: ["unbroken"],
+      caption: `SU(${b.N}) on $S^1/Z_2$ with blocks ` +
+               `$(n_{++}, n_{+-}, n_{-+}, n_{--}) = ${blocks}$, built with the general formula ` +
+               `of Haba and Yamashita.`,
     };
   },
 

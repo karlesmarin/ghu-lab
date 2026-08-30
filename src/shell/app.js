@@ -300,6 +300,45 @@
     download(`ghu-${modelId(r.model)}.txt`, toText(card), "text/plain");
   };
 
+  /* THE SAME CARD, IN THE FORM THAT GOES INTO A PAPER.
+   *
+   * Not a second computation and not a screenshot: `makeCard` is called exactly as the JSON export
+   * calls it, and `toLatex` renders that object.  What the reader pastes into their draft is the
+   * object the tool exported, or the status column is decoration.
+   *
+   * The bibliography goes with it.  A reader who takes a potential out of this page and into their
+   * paper should not have to go and find the citation for the formula it came from -- the entry
+   * travels in the file, keyed the way INSPIRE keys it so their .bib merges rather than duplicates.
+   */
+  $("btnTex").onclick = () => {
+    const r = run();
+    const g = activeGroup();
+    const certs = SECTIONS.filter((s) => s.group === g)
+      .reduce((acc, s) => Object.assign(acc, s.certificates || {}), {});
+    const card = makeCard(r.model, r.values, { version: VERSION, build: BUILD, certificates: certs });
+    /* a value that is a group or a formula is typeset as one; everything else is prose.  The list
+     * is explicit because guessing which strings are maths is how a value ends up in the wrong
+     * mode, silently. */
+    const mathKeys = ["unbroken", "unbroken_group", "gauge_group", "residual"];
+    /* A SECTION MAY HAVE MORE TO EXPORT THAN THE CARD HOLDS.  The card carries values; the SU(N)
+     * builder also has the model's POTENTIAL, which is the thing a reader most wants typeset and
+     * which is not a value.  A section that has one says so with `texExport`; a section that has
+     * none exports the table and the bibliography, which is still the whole card. */
+    const sec = SECTIONS.find((x) => x.id === state.section) || {};
+    const { card: own, ...extra } = sec.texExport ? sec.texExport(ctx(), r) : {};
+    /* A SECTION THAT HOLDS ITS OWN MODEL EXPORTS ITS OWN CARD.  Pairing this section's potential
+     * with the shell's card would put two models in one file; `drive.mjs` asserts it does not. */
+    const use = own || card;
+    const tex = toLatex(use, Object.assign({
+      group: g, mathKeys, date: new Date().toISOString().slice(0, 10),
+      label: `tab:ghu-${use.provenance.model_id}`,
+    }, extra));
+    download(`ghu-${use.provenance.model_id}.tex`, tex, "text/x-tex");
+    /* the .bib beside it, exactly as the card button writes .json and .txt */
+    const bib = toBibtex(g, { date: new Date().toISOString().slice(0, 10) });
+    if (bib) download(`ghu-${use.provenance.model_id}.bib`, bib, "text/plain");
+  };
+
   $("btnLink").onclick = () => {
     location.hash = encode();
     if (navigator.clipboard) navigator.clipboard.writeText(location.href).catch(() => {});

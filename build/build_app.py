@@ -28,8 +28,11 @@ from editiongate import check, report                                    # noqa:
 
 VERSION = "0.2.0"
 
+# `cite.mjs` before `latex.mjs`, and both after `card.mjs`: the inliner concatenates in this
+# order into ONE scope, so a file may only use names the files before it have declared.
 KERNEL = ["meta.mjs", "status.mjs", "model.mjs", "potential.mjs", "canonical.mjs", "screens.mjs",
-          "charges.mjs", "multiplets.mjs", "wilson.mjs", "surface.mjs", "resolve.mjs", "card.mjs"]
+          "charges.mjs", "multiplets.mjs", "wilson.mjs", "surface.mjs", "resolve.mjs", "card.mjs",
+          "cite.mjs", "latex.mjs"]
 MODULES = ["selection.mjs", "calculator.mjs", "hierarchy.mjs", "anomalies.mjs", "escape.mjs",
            "samepot.mjs", "screen.mjs", "collider.mjs", "atlas.mjs", "eta.mjs", "fived.mjs",
            "spectrum.mjs", "inverse.mjs", "census.mjs", "sun5d.mjs", "bcclass.mjs",
@@ -168,7 +171,7 @@ def main(argv=None):
                 ["node", "_test_inverse.mjs"], ["node", "_test_census.mjs"],
                 ["node", "_test_sun5d.mjs"], ["node", "_test_bcclass.mjs"],
                 ["node", "_test_spectrum5d.mjs"], ["node", "_test_anomaly5d.mjs"],
-                ["node", "_test_sweep5d.mjs"],
+                ["node", "_test_sweep5d.mjs"], ["node", "_test_latex.mjs"],
                 # the golden suite that SHIPS with the artifact: the built page against the
                 # Python engine of Part VII.  It runs here too, so the deployed copy can never
                 # carry a suite the build has not just seen pass.

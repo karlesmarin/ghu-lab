@@ -5,7 +5,7 @@
   Author: Carles Marin <karlesmarin@gmail.com>  (with Claude, Anthropic, as assistant)
 
   Emits data/su3_hy.json: the third group of the instrument, and the first for readers OUTSIDE
-  this series — Haba & Yamashita's general 5D SU(N) on S^1/Z_2 one-loop potential (JHEP 05 (2004)
+  this series — Haba & Yamashita's general 5D SU(N) on S^1/Z_2 one-loop potential (JHEP 02 (2004)
   059, hep-ph/0401185), at their own worked case SU(3) -> SU(2) x U(1), one Wilson phase.  Their
   eq. (3.20) is a four-row (m, s, c) table linear in the six bulk counts (adjoint / fundamental
   Dirac fermions and complex scalars, at either eta*eta'), and their summary calls analysing the
@@ -105,7 +105,7 @@ DATA = {
     "group": "SU(3) 5D",
     "orbifold": {"name": "S1/Z2"},
     "source": {
-        "paper": "N. Haba, T. Yamashita, JHEP 05 (2004) 059 (hep-ph/0401185), eq. (3.20)",
+        "paper": "N. Haba, T. Yamashita, JHEP 02 (2004) 059 (hep-ph/0401185), eq. (3.20)",
         "extracted_from": provenance(ENGINE),
         "chain": "hy_predictions.py defines their eq. (3.20) as hy_table(); this file evaluates "
                  "it on unit contents to extract the coefficient table, and copies the archived "

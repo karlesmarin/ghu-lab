@@ -5,7 +5,7 @@
  *
  * WHAT THIS IS FOR.  Every other section of this instrument answers a question about a model we
  * or somebody else already wrote down.  This one is the machine underneath all of them: Haba and
- * Yamashita's general formula (JHEP 05 (2004) 059, hep-ph/0401185, §5) for the one-loop effective
+ * Yamashita's general formula (JHEP 02 (2004) 059, hep-ph/0401185, §5) for the one-loop effective
  * potential of a 5D SU(N) gauge theory on S¹/Z₂, with arbitrary orbifold parities and arbitrary
  * fundamental, antisymmetric, symmetric and adjoint bulk matter.  Give it a boundary condition and
  * a bulk content and it returns the potential — for SU(3), SU(5), SU(6), SU(7) or SU(23).

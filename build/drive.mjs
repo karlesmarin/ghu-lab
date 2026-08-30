@@ -293,6 +293,59 @@ ok("...and the builder is now holding it, so the loop closes",
    (await js(`JSON.stringify(SUN5D_S.blocks)`)) === swAfter);
 await shot("5-sweep");
 
+/* ---- the LaTeX export, driven ------------------------------------------------------------- */
+/* THE BUTTON IS SECTION-AND-SHELL CODE, WHERE NO MODULE HARNESS REACHES.  `_test_latex.mjs` proves
+ * the renderer; nothing proves that pressing the button in the built page reaches it with the model
+ * the page is holding.  That gap is where `Showing 40 of 24` lived.  So: stub the download, press
+ * the real button on the real page, and read what came out.  A file the reader never sees is the
+ * only thing being stubbed. */
+H("the LaTeX button, on the built page, with the model the page is holding");
+await js(`document.querySelector('#rail a[data-id="sun5d"]').click()`);
+await sleep(700);
+
+/* capture EVERY blob the handler hands over, not the last one: the button writes two files and a
+ * single variable would silently test only the second. */
+await js(`window.__blobs = [];
+  URL.createObjectURL = (blob) => { window.__blobs.push(blob); return "blob:stub"; };
+  HTMLAnchorElement.prototype.click = function () {};
+  true`);
+await js(`document.getElementById('btnTex').click(); true`);
+await sleep(300);
+const blobs = JSON.parse(await js(
+  `Promise.all(window.__blobs.map((b) => b.text())).then((a) => JSON.stringify(a))`));
+const texOut = blobs.find((b) => b.includes("\\begin{table}")) || "";
+const bibOut = blobs.find((b) => b.trimStart().includes("@article{")) || "";
+
+ok("pressing it writes TWO files, the document and its bibliography", blobs.length === 2,
+   `got ${blobs.length}`);
+ok("...the document carries the potential of the model the page is holding",
+   /\\begin\{equation\}[\s\S]*V_\{\\mathrm\{eff\}\}[\s\S]*\\cos\(/.test(texOut));
+ok("...and the results table with its status column",
+   texOut.includes("\\begin{table}") && texOut.includes("\\textsc{"));
+ok("...and no raw BibTeX, which LaTeX would typeset as a paragraph of prose",
+   !/^@\w+\{/m.test(texOut));
+ok("...but a pointer to the entries, so the reader knows where they went",
+   texOut.includes("companion .bib") && texOut.includes("\\cite{Haba:2004qh}"));
+ok("the .bib carries the formula's entry, with the volume the registry holds",
+   bibOut.includes("@article{Haba:2004qh") && /volume\s+= \{02\}/.test(bibOut));
+ok("...and its DOI, so it resolves when a URL rots",
+   bibOut.includes("10.1088/1126-6708/2004/02/059"));
+ok("neither file leaves ASCII, so pdflatex and bibtex take them",
+   !/[^\x00-\x7f]/.test(texOut + bibOut));
+
+/* THE FILE MUST NAME ONE MODEL.  This section declares `holds()`, so the shell's chip is not a
+ * model id at all -- it says the section carries its own.  The export therefore has to be about
+ * THIS model: its boundary condition, and a card built from it. */
+const blocksNow = await js(`JSON.stringify(sun5dBlocks(SUN5D_S.blocks))`);
+const bn = JSON.parse(blocksNow);
+ok("the file is about the model this section holds, not the family's",
+   texOut.includes(`(${bn.nPP}, ${bn.nPM}, ${bn.nMP}, ${bn.nMM})`),
+   `blocks ${bn.nPP},${bn.nPM},${bn.nMP},${bn.nMM}`);
+ok("...and it names the unbroken group that boundary condition leaves",
+   texOut.includes("unbroken"));
+ok("...and refuses an absolute scale, because there is no anchor",
+   /scale[\s\S]{0,120}\\textsc\{unknown\}/.test(texOut));
+
 /* ---- the console ------------------------------------------------------------------------- */
 
 const errs = events.filter((e) => e.method === "Log.entryAdded" &&

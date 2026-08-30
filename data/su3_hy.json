@@ -5,7 +5,7 @@
   "name": "S1/Z2"
  },
  "source": {
-  "paper": "N. Haba, T. Yamashita, JHEP 05 (2004) 059 (hep-ph/0401185), eq. (3.20)",
+  "paper": "N. Haba, T. Yamashita, JHEP 02 (2004) 059 (hep-ph/0401185), eq. (3.20)",
   "extracted_from": "research/smeft_formalization/part_vii/hy_predictions.py",
   "chain": "hy_predictions.py defines their eq. (3.20) as hy_table(); this file evaluates it on unit contents to extract the coefficient table, and copies the archived prediction bank verbatim",
   "date": "2026-08-26"

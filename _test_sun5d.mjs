@@ -3,7 +3,7 @@
  * Copyright (c) 2026 Carles Marin. All rights reserved.
  * Author: Carles Marin <karlesmarin@gmail.com>  (with Claude, Anthropic, as assistant)
  *
- * Haba & Yamashita, JHEP 05 (2004) 059 (hep-ph/0401185), give a general formula in §5 and four
+ * Haba & Yamashita, JHEP 02 (2004) 059 (hep-ph/0401185), give a general formula in §5 and four
  * worked examples in §3 and §4 which they say the general formula reproduces.  This checks that
  * claim term by term, on all four, for every representation each of them prints:
  *

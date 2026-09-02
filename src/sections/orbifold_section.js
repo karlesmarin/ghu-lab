@@ -265,6 +265,24 @@ const ORBIFOLD_SECTION = {
   </div>
 
   <div class="card" style="margin-top:18px">
+    <h2>Your boundary condition, and everything that is the same theory</h2>
+    <p class="note" style="margin:0 0 10px">A boundary condition is a multiset of letters: one
+    multiplicity per letter of the table above, in that order. What it leaves unbroken in four
+    dimensions is <b>S(&prod; U(n<sub>&#8467;</sub>))</b> &mdash; an adjoint component survives when
+    its two indices carry the same eigenvalue at <i>every</i> cone, and for weight-one letters an
+    index's profile is its letter. <b>The apparent symmetry is not an invariant of the theory</b>,
+    and the table below is the demonstration: every row is the same physics as yours.</p>
+    <input id="orbBC" spellcheck="false" style="width:100%;font-family:ui-monospace,monospace;
+      font-size:13px;padding:8px;border:1px solid var(--line,#dde3ea);border-radius:6px">
+    <div style="display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap">
+      <button class="ghost" id="orbBCgo">read it</button>
+      <span class="note" id="orbBCnote"></span>
+    </div>
+    <div class="verdict stable" id="orbBCv" style="margin-top:12px"><b>&mdash;</b><span>&mdash;</span></div>
+    <div style="overflow-x:auto;margin-top:12px"><table id="orbBCclass"></table></div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
     <h2>What exists at all in this rank</h2>
     <p class="note" style="margin:0 0 10px">Before choosing an orbifold it is worth knowing the list
     is finite and short. Two restrictions, and they are not the same one: <b>&phi;(m) | r</b> is this
@@ -367,7 +385,81 @@ const ORBIFOLD_SECTION = {
     this._count(C);
     this._data(C);
     this._rank(ctx, C);
+    this._bc(C);
     this._honesty(C);
+  },
+
+  /* THE QUESTION A MODEL BUILDER ASKS FIRST, and the one a survey gets wrong: how many DISTINCT
+   * models am I counting?  A boundary condition is a multiset of letters; its four-dimensional
+   * group is S(prod U(n_l)); and every other condition with the same local data is the same
+   * theory wearing a different apparent symmetry.  Showing them side by side is the whole point of
+   * the classification, and it is why a survey that does not quotient counts one model many times. */
+  _bc(C) {
+    const inp = document.getElementById("orbBC");
+    const v = document.getElementById("orbBCv");
+    const tbl = document.getElementById("orbBCclass");
+    const note = document.getElementById("orbBCnote");
+    if (!inp) return;
+    if (!inp.value.trim() || (inp.dataset.for || "") !== C.key) {
+      /* a default that is a real condition of the current alphabet, not a remembered one from
+       * another orbifold: a stale vector read as current is the bug that keeps finding me */
+      const d = new Array(C.letters.length).fill(0);
+      d[0] = 2; if (C.letters.length > 2) d[2] = 3;
+      inp.value = d.join(" ");
+      inp.dataset.for = C.key;
+    }
+    const read = () => {
+      const n = inp.value.trim().split(/[\s,]+/).filter(Boolean).map(Number);
+      if (n.length !== C.letters.length || n.some((x) => !Number.isInteger(x) || x < 0)) {
+        note.innerHTML = '<b style="color:#b3262b">give one non-negative integer per letter &mdash; '
+          + C.letters.length + ' of them</b>';
+        v.className = "verdict";
+        v.innerHTML = "<b>&mdash;</b><span>nothing read</span>";
+        tbl.innerHTML = "";
+        return;
+      }
+      note.textContent = "";
+      const g = unbrokenGroup(C.letters, n);
+      const name = unbrokenName(g);
+      v.className = "verdict " + (g.exact ? "stable" : "breaks");
+      v.innerHTML = "<b>" + name + "</b><span>rank " + g.sum + ". " + g.why + "</span>";
+
+      /* the rest of the class, when the rank is within what the page will enumerate */
+      if (g.sum < 1 || g.sum > C.cap) {
+        tbl.innerHTML = '<tbody><tr><td class="note">Rank ' + g.sum + ' is past the enumeration '
+          + 'budget of ' + C.cap + ' for this alphabet, so the rest of the class is not listed. '
+          + 'The group above does not depend on it.</td></tr></tbody>';
+        return;
+      }
+      const F = fibres(C.A, C.m, ORB_S.family, g.sum);
+      const mine = JSON.stringify(C.cones.map((c, ci) => {
+        const acc = new Array(c.order).fill(0);
+        for (let i = 0; i < n.length; i++) for (let k = 0; k < c.order; k++)
+          acc[k] += n[i] * C.letters[i].datum[ci][k];
+        return acc;
+      }));
+      const f = F.fibres.get(mine);
+      const rows = (f ? f.members : []).map((mem) => {
+        const nm = unbrokenName(unbrokenGroup(C.letters, mem));
+        const same = mem.every((x, i) => x === n[i]);
+        return "<tr" + (same ? ' style="font-weight:600"' : "") + '><td><code>'
+          + mem.join(" ") + "</code></td><td>" + nm + "</td><td>"
+          + (same ? "yours" : "") + "</td></tr>";
+      });
+      const groups = new Set((f ? f.members : []).map(
+        (mem) => unbrokenName(unbrokenGroup(C.letters, mem))));
+      tbl.innerHTML = '<thead><tr><th>multiplicities</th><th>apparent unbroken group</th><th></th>'
+        + "</tr></thead><tbody>" + rows.join("") + "</tbody>"
+        + '<tfoot><tr><td colspan="3" class="note">' + (f ? f.members.length : 0)
+        + " boundary conditions in this class, wearing " + groups.size
+        + " different apparent symmetries"
+        + (groups.size > 1 ? " \u2014 and they are one theory. A survey that does not quotient by"
+                             + " this counts the same model " + f.members.length + " times."
+                           : ".") + "</td></tr></tfoot>";
+    };
+    const go = document.getElementById("orbBCgo");
+    if (go && !go._wired) { go._wired = true; go.onclick = read; }
+    read();
   },
 
   /* THE LIST IS FINITE AND SHORT, and saying so is itself a service: a model builder choosing an

@@ -517,6 +517,100 @@ export function predictedDegree(signature, family = "SU") {
   return signature.reduce((s, e) => s + c(e), 0);            /* = (1 + sum c) - 1 */
 }
 
+/* ------------------------------------------------------------------ the generating function
+ *
+ * The class count is the HILBERT FUNCTION of the affine semigroup Part IX-B identifies: a boundary
+ * condition of rank N is a multiset of letters of total weight N, and its class is the sum of
+ * their local data, so the classes of rank N are the degree-N elements of the semigroup generated
+ * by the pairs (datum, weight).  Its series is therefore rational with denominator the letters'
+ * weights, and
+ *
+ *     P(x) = C(x) * prod_j (1 - x^{w_j})
+ *
+ * MUST be a polynomial.  That is not an assumption made here for convenience: it is a falsifiable
+ * statement about the object, and `hilbertNumerator` refuses to return unless the tail it computes
+ * actually vanishes.  A numerator whose coefficients keep coming is a semigroup whose relations
+ * are not what the weights say, and it should stop the page rather than be truncated into one.
+ *
+ * Two things come out of P, and they are the two the enumeration cannot give:
+ *   - the pole order at x = 1, hence the DEGREE, which is the paper's own route ("the order of the
+ *     pole minus one") and closes the cases a finite difference cannot reach because the count is
+ *     a quasi-polynomial;
+ *   - a linear recurrence, hence the count at ANY rank without enumerating anything, which is what
+ *     lets a rank slider run past where enumeration dies.
+ *
+ * Worked, on T^2/Z_2 over SU(N): eight letters of weight one give (1-x)^8, and the numerator comes
+ * back (1-x^2)^3 — three relations of degree two.  So C(x) = (1+x)^3/(1-x)^5, pole order five,
+ * degree four.  Those three quadrics are Sturmfels-Sullivant's "complete intersection of three
+ * quadrics" for the cut ideal of C_4, arrived at here from the count alone. */
+
+/* Multiply a coefficient array by (1 - x^w). */
+function timesOneMinusXtoThe(coeffs, w) {
+  const out = coeffs.slice();
+  for (let i = coeffs.length - 1; i >= w; i--) out[i] -= coeffs[i - w];
+  return out;
+}
+
+/* P(x) = C(x) prod_j (1 - x^{w_j}), with the control that it terminates.
+ * `counts` must reach at least sum_j w_j, or there is nothing to see a tail with. */
+export function hilbertNumerator(counts, weights) {
+  const need = weights.reduce((s, w) => s + w, 0);
+  if (counts.length <= need) {
+    throw new Error("need more than " + need + " counts to see the numerator terminate, have "
+                    + counts.length);
+  }
+  let p = counts.slice();
+  for (const w of weights) p = timesOneMinusXtoThe(p, w);
+  /* everything from the first vanishing tail on must be zero, and the tail is where the
+   * multiplication can no longer be trusted anyway: cut at `need` and require the rest silent. */
+  const head = p.slice(0, need + 1), tail = p.slice(need + 1);
+  if (!tail.every((c) => c === 0)) {
+    throw new Error("the Hilbert numerator does not terminate: tail " + tail.join(","));
+  }
+  while (head.length && head[head.length - 1] === 0) head.pop();
+  return head;
+}
+
+/* The multiplicity of the root x = 1 in a polynomial, by synthetic division. */
+function orderOfRootAtOne(P) {
+  let p = P.slice(), k = 0;
+  while (p.length && p.reduce((s, c) => s + c, 0) === 0) {
+    /* divide by (x - 1): synthetic division from the top */
+    const q = new Array(p.length - 1).fill(0);
+    let carry = 0;
+    for (let i = p.length - 1; i >= 1; i--) { carry = p[i] + carry; q[i - 1] = carry; }
+    p = q; k++;
+  }
+  return k;
+}
+
+/* The degree of the count, measured as the paper measures it: the order of the pole at x = 1,
+ * minus one.  This is the honest referee for a QUASI-polynomial, where differencing is not. */
+export function degreeFromSeries(counts, weights) {
+  const P = hilbertNumerator(counts, weights);
+  const pole = weights.length - orderOfRootAtOne(P);
+  return pole - 1;
+}
+
+/* The count at any rank, from the numerator and the weights, by the recurrence the denominator
+ * gives.  No enumeration: this is what a rank slider runs on. */
+export function countFromSeries(P, weights, nmax) {
+  /* denominator prod (1 - x^{w_j}) expanded */
+  let den = [1];
+  for (const w of weights) {
+    const next = new Array(den.length + w).fill(0);
+    for (let i = 0; i < den.length; i++) { next[i] += den[i]; next[i + w] -= den[i]; }
+    den = next;
+  }
+  const out = new Array(nmax + 1).fill(0);
+  for (let n = 0; n <= nmax; n++) {
+    let v = n < P.length ? P[n] : 0;
+    for (let k = 1; k < den.length && k <= n; k++) v -= den[k] * out[n - k];
+    out[n] = v / den[0];
+  }
+  return out;
+}
+
 /* The degree measured from a count, as the limit of the local logarithmic slope.  Used as the
  * control on `predictedDegree` rather than as a substitute for it. */
 export function measuredDegree(counts, step = 12) {

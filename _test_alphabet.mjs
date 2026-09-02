@@ -16,6 +16,7 @@
  *   node _test_alphabet.mjs
  */
 import {
+  countFromSeries, degreeFromSeries, hilbertNumerator,
   alphabet, alphabetShape, classCount, coneSignature, conePoints, frobeniusSchur, localDatum,
   orderOf, predictedDegree, realForm,
 } from "./src/kernel/alphabet.mjs";
@@ -203,7 +204,67 @@ for (const [name, A] of Object.entries(ROT)) {
   }
 }
 
-console.log("\n   8 -- RANK 1, WHICH THE ORACLE CANNOT DO AT ALL\n");
+console.log("\n   8 -- THE GENERATING FUNCTION: the degree by the pole, and any rank at all\n");
+/* P(x) = C(x) prod (1 - x^{w_j}) must TERMINATE — hilbertNumerator throws if it does not — and
+ * then the degree is the pole order at x = 1 minus one, which is the paper's own route and the one
+ * that works on a quasi-polynomial where differencing does not.  This closes the eight cases
+ * section 7 had to report as untested.
+ *
+ * The numerators are transcribed here because they are a result and not an intermediate: every one
+ * of the twelve is a product of (1 - x^d) factors, so every one of these class ideals is a
+ * COMPLETE INTERSECTION with the relation degrees written in the numerator — and for T^2/Z_2 the
+ * answer is (1-x^2)^3, the three quadrics Sturmfels-Sullivant publish for the cut ideal of C_4,
+ * reached here from the count alone. */
+const NUMER = {
+  "T^2/Z_2": { SU: "1,0,-3,0,3,0,-1", SO: "1,0,-3,0,3,0,-1", Sp: "1,0,-3,0,3,0,-1" },
+  "T^2/Z_3": { SU: "1,0,0,-2,0,0,1", SO: "1,0,0,0,0,0,-1", Sp: "1,0,0,-1" },
+  "T^2/Z_4": { SU: "1,0,0,0,-2,0,0,0,1", SO: "1,0,0,0,-2,0,0,0,1", Sp: "1,0,0,0,-2,0,0,0,1" },
+  "T^2/Z_6": { SU: "1,0,0,0,0,0,-2,0,0,0,0,0,1", SO: "1,0,0,0,0,0,-2,0,0,0,0,0,1",
+               Sp: "1,0,0,0,0,0,-2,0,0,0,0,0,1" },
+};
+const SERIES = {};
+for (const [name, A] of Object.entries(ROT)) {
+  for (const fam of ["SU", "SO", "Sp"]) {
+    const m = ORACLE[name].m;
+    const ws = realForm(A, m, fam).map((L) => L.weight);
+    const need = ws.reduce((s, w) => s + w, 0);
+    const counts = classCount(A, m, fam, need + 1);
+    const P = hilbertNumerator(counts, ws);              /* throws if it does not terminate */
+    SERIES[name + fam] = { P, ws, counts };
+    ok(P.join(",") === NUMER[name][fam], name + " over " + fam + ": numerator " + NUMER[name][fam],
+       "got " + P.join(","));
+    const d = degreeFromSeries(counts, ws);
+    ok(d === predictedDegree(ORACLE[name].sig, fam),
+       name + " over " + fam + ": degree " + d + " by the POLE ORDER, quasi-polynomial or not",
+       "signature predicted " + predictedDegree(ORACLE[name].sig, fam));
+  }
+}
+/* OUT OF SAMPLE.  The recurrence is built from counts up to sum(w); it must then reproduce ranks
+ * it was never shown.  Done on the cases whose enumeration is cheap; the two expensive ones
+ * (T^2/Z_4 and T^2/Z_6 over SU) are covered by the terminating numerator and the degree alone,
+ * and that is said rather than implied. */
+for (const [name, A] of Object.entries(ROT)) {
+  for (const fam of ["SU", "SO", "Sp"]) {
+    const { P, ws } = SERIES[name + fam];
+    const need = ws.reduce((s, w) => s + w, 0);
+    if (name !== "T^2/Z_2" && fam === "SU") {
+      ok(true, name + " over SU: out-of-sample rank NOT checked — enumeration too slow",
+         "the terminating numerator and the pole order stand alone here");
+      continue;
+    }
+    const far = need + 3;
+    const enumerated = classCount(A, ORACLE[name].m, fam, far);
+    const fromSeries = countFromSeries(P, ws, far);
+    ok(enumerated.every((x, i) => x === fromSeries[i]),
+       name + " over " + fam + ": the recurrence gives ranks it was never shown, to N=" + far,
+       "N=" + far + ": " + enumerated[far] + " both ways");
+  }
+}
+/* and what the series is FOR: a rank no enumeration would reach */
+ok(countFromSeries(SERIES["T^2/Z_6SU"].P, SERIES["T^2/Z_6SU"].ws, 40)[40] === 151549002,
+   "T^2/Z_6 over SU at rank 40: 151549002 classes, with nothing enumerated");
+
+console.log("\n   9 -- RANK 1, WHICH THE ORACLE CANNOT DO AT ALL\n");
 /* `bc_preflight.py` writes its two components by hand, so it only ever sees Lambda = Z^2 and
  * cannot be asked this.  The answer is known from a different direction entirely — Haba, Hosotani
  * and Kawamura classify the boundary conditions of S^1/Z_2 and count (N+1)^2 classes, which the

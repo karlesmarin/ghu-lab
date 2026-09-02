@@ -16,7 +16,8 @@
  *   node _test_alphabet.mjs
  */
 import {
-  alphabet, alphabetShape, coneSignature, conePoints, localDatum, orderOf, predictedDegree,
+  alphabet, alphabetShape, classCount, coneSignature, conePoints, frobeniusSchur, localDatum,
+  orderOf, predictedDegree, realForm,
 } from "./src/kernel/alphabet.mjs";
 
 let pass = 0, fail = 0;
@@ -110,7 +111,99 @@ for (const [name] of Object.entries(ROT)) {
 ok(predictedDegree([3, 3, 3], "SU") !== predictedDegree([3, 3, 3], "SO"),
    "SU and SO give different degrees where the paper says they do", "6 against 3");
 
-console.log("\n   6 -- RANK 1, WHICH THE ORACLE CANNOT DO AT ALL\n");
+console.log("\n   6 -- THE ALPHABET OVER THE THREE REAL FORMS\n");
+/* TRANSCRIBED from outputs/bc_preflight.txt, section 1. */
+const SHAPE = {
+  "T^2/Z_2": { SU: "8x1", SO: "8x1", Sp: "8x1" },
+  "T^2/Z_3": { SU: "9x1", SO: "1x1+4x2", Sp: "5x1" },
+  "T^2/Z_4": { SU: "8x1+2x2", SO: "4x1+4x2", Sp: "6x1+2x2" },
+  "T^2/Z_6": { SU: "6x1+3x2+2x3", SO: "2x1+3x2+2x3+1x4", Sp: "4x1+2x2+2x3" },
+};
+const shapeOf = (ls) => {
+  const by = new Map();
+  for (const L of ls) by.set(L.weight, (by.get(L.weight) || 0) + 1);
+  return [...by.entries()].sort((a, b) => a[0] - b[0]).map(([w, n]) => n + "x" + w).join("+");
+};
+for (const [name, A] of Object.entries(ROT)) {
+  for (const fam of ["SU", "SO", "Sp"]) {
+    const got = shapeOf(realForm(A, ORACLE[name].m, fam));
+    ok(got === SHAPE[name][fam], name + " over " + fam + ": alphabet " + SHAPE[name][fam],
+       "got " + got);
+  }
+}
+/* the Frobenius-Schur indicator must be an integer in {-1,0,1} — it throws otherwise — and the
+ * three types must all actually occur somewhere, or the bookkeeping is untested on two of them */
+const seenTypes = new Set();
+for (const [name, A] of Object.entries(ROT))
+  for (const L of alphabet(A, ORACLE[name].m)) seenTypes.add(frobeniusSchur(L, A, ORACLE[name].m));
+ok(seenTypes.has(1) && seenTypes.has(0),
+   "the real and complex types both occur, so neither branch is untested",
+   "types present: " + [...seenTypes].sort().join(", "));
+/* AND THE HALF THAT IS NOT EXERCISED, SAID OUT LOUD.  No label of these four rank-2 orbifolds is
+ * quaternionic, so `realForm`'s quaternionic branch never runs here and is NOT covered by this
+ * suite — the twelve alphabets and twelve counts below are green without it.  Asserting that all
+ * three types occur was a check that could only fail, which is the mirror of one that can only
+ * pass; either way it measures the suite and not the code. */
+ok(!seenTypes.has(-1),
+   "NOT COVERED: no quaternionic label occurs at rank 2, so that branch of realForm is untested",
+   "it needs an orbifold that produces one before it can be believed");
+
+console.log("\n   7 -- THE COUNTS: distinct tuples of local data\n");
+/* TRANSCRIBED from outputs/bc_preflight.txt, section 1. */
+const COUNT = {
+  "T^2/Z_2": { SU: [1, 8, 33, 96, 225, 456, 833, 1408], SO: [1, 8, 33, 96, 225, 456, 833, 1408],
+               Sp: [1, 8, 33, 96, 225, 456, 833, 1408] },
+  "T^2/Z_3": { SU: [1, 9, 45, 163, 477, 1197, 2674], SO: [1, 1, 5, 5, 15, 15, 34],
+               Sp: [1, 5, 15, 34, 65, 111, 175] },
+  "T^2/Z_4": { SU: [1, 8, 38, 136, 403, 1040, 2412], SO: [1, 4, 14, 36, 83, 168, 316],
+               Sp: [1, 6, 23, 68, 169, 370, 735] },
+  "T^2/Z_6": { SU: [1, 6, 24, 76, 207, 504, 1125], SO: [1, 2, 6, 12, 25, 44, 77],
+               Sp: [1, 4, 12, 30, 66, 132, 245] },
+};
+for (const [name, A] of Object.entries(ROT)) {
+  for (const fam of ["SU", "SO", "Sp"]) {
+    const want = COUNT[name][fam];
+    const got = classCount(A, ORACLE[name].m, fam, want.length - 1);
+    ok(JSON.stringify(got) === JSON.stringify(want),
+       name + " over " + fam + ": count " + want.slice(0, 5).join(", ") + ", ...",
+       "got " + got.slice(0, 5).join(", ") + ", ...");
+  }
+}
+/* THE DEGREE, AND A HYPOTHESIS OF MINE THAT THE DATA REFUSED.
+ *
+ * The first version of this block tested the count for being a POLYNOMIAL of the predicted degree,
+ * by finite differences.  It failed on three of the eight, and the counts are why: over SO(N),
+ * T^2/Z_3 reads 1, 1, 5, 5, 15, 15, 34 — it pairs up.  These are QUASI-polynomials, and the oracle
+ * says so in its own words: the degree is measured "as the order of the pole minus one", not by
+ * differencing.  A pole of order d+1 at x=1 gives the leading N^d; the other poles, at roots of
+ * unity, give the periodic part that no finite difference of a short run will kill.
+ *
+ * So the polynomial test is applied ONLY where it is warranted — when every letter has weight one
+ * there is no periodicity to have — and the rest are reported as untested rather than dressed as
+ * green.  Testing them needs the generating function, which is the next piece of work. */
+for (const [name, A] of Object.entries(ROT)) {
+  for (const fam of ["SU", "SO", "Sp"]) {
+    const c = COUNT[name][fam], d = predictedDegree(ORACLE[name].sig, fam);
+    const ws = realForm(A, ORACLE[name].m, fam).map((L) => L.weight);
+    const plain = ws.every((w) => w === 1);
+    if (!plain) {
+      ok(true, name + " over " + fam + ": quasi-polynomial (weights " + [...new Set(ws)].sort()
+         + "), degree " + d + " NOT tested here", "needs the generating function's pole order");
+      continue;
+    }
+    let diff = c.slice();
+    for (let i = 0; i <= d; i++) diff = diff.slice(1).map((x, j) => x - diff[j]);
+    if (diff.length === 0) {
+      ok(true, name + " over " + fam + ": degree " + d + " NOT tested — too few terms");
+    } else {
+      ok(diff.every((x) => x === 0),
+         name + " over " + fam + ": the count is a polynomial of degree " + d,
+         "differences " + diff.join(","));
+    }
+  }
+}
+
+console.log("\n   8 -- RANK 1, WHICH THE ORACLE CANNOT DO AT ALL\n");
 /* `bc_preflight.py` writes its two components by hand, so it only ever sees Lambda = Z^2 and
  * cannot be asked this.  The answer is known from a different direction entirely — Haba, Hosotani
  * and Kawamura classify the boundary conditions of S^1/Z_2 and count (N+1)^2 classes, which the

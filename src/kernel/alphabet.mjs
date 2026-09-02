@@ -337,11 +337,165 @@ export function localDatum(label, m, cone) {
  *   SO  real      — a real label keeps its weight, a complex one pairs with its conjugate
  *   Sp  quaternionic — the mirror bookkeeping
  * The type of a label is read off its orbit: it is real when the orbit is closed under v -> -v. */
-export function labelType(label) {
-  const { orbit } = label;
-  const neg = (v) => mod1(v.num.map((x) => -x), v.den);
-  const inOrbit = (u) => orbit.some((v) => sameChar(v, u));
-  return inOrbit(neg(orbit[0])) ? "real-or-quaternionic" : "complex";
+/* The character of a label, at the group element (t, rho^k).
+ *
+ * T(t)R^k sends e_i to e_{i+k}, so its trace vanishes unless k is a multiple of the orbit size s;
+ * and when k = sq the shift is the identity times eps^q, leaving eps^q sum_i chi_{v_i}(t).  The
+ * angles are exact rationals; only the final sum of roots of unity needs floating point, and it is
+ * a sum of unit vectors, so no cancellation of scale can hide in it. */
+function characterAt(label, A, t, k) {
+  const { weight: s, orbit, epsNum, epsDen } = label;
+  if (k % s !== 0) return { re: 0, im: 0 };
+  const q = k / s;
+  const th = 2 * Math.PI * (epsNum * q / epsDen);
+  let re = 0, im = 0;
+  for (const v of orbit) {
+    const dot = v.num.reduce((sc, x, j) => sc + x * t[j], 0) / v.den;
+    const a = 2 * Math.PI * dot;
+    re += Math.cos(a); im += Math.sin(a);
+  }
+  return { re: re * Math.cos(th) - im * Math.sin(th), im: re * Math.sin(th) + im * Math.cos(th) };
+}
+
+/* The Frobenius-Schur indicator, +1 real, 0 complex, -1 quaternionic.
+ *
+ * Gamma is infinite, but a label factors through the finite (Lambda/D) x| Z_m with D the common
+ * denominator of its characters, and FS = (1/|G|) sum_g chi(g^2) may be summed there.  This
+ * replaces the oracle's route, which builds the invariant bilinear form as an SVD null space and
+ * then decides symmetric against antisymmetric by comparing two norms — a threshold on a
+ * numerical rank, which is the kind of decision that is right until it is not.
+ *
+ * The sum is over |G| unit vectors and must land on -1, 0 or +1.  Anything else is a fault and
+ * throws: a Frobenius-Schur indicator is an integer or the representation was not irreducible. */
+export function frobeniusSchur(label, A, m) {
+  const r = A.length;
+  const D = label.orbit.reduce((acc, v) => lcm(acc, v.den), 1);
+  const size = Math.pow(D, r);
+  let re = 0;
+  const t = new Array(r).fill(0);
+  for (let k = 0; k < m; k++) {
+    const Ak = matPow(A, k);
+    for (let c = 0; c < size; c++) {
+      let n = c;
+      for (let i = 0; i < r; i++) { t[i] = n % D; n = Math.floor(n / D); }
+      /* (t, rho^k)^2 = (t + A^k t, rho^{2k}) */
+      const tt = matVec(Ak, t).map((x, i) => x + t[i]);
+      re += characterAt(label, A, tt, (2 * k) % m).re;
+    }
+  }
+  const fs = re / (size * m);
+  const near = Math.round(fs);
+  if (Math.abs(fs - near) > 1e-8 || Math.abs(near) > 1) {
+    throw new Error("Frobenius-Schur indicator is not -1, 0 or 1: got " + fs);
+  }
+  return near;
+}
+
+export const FS_NAME = { 1: "real", 0: "complex", "-1": "quaternionic" };
+
+/* The local datum of the conjugate label: the eigenvalue zeta^k becomes zeta^{-k}. */
+function conjDatum(datum, cones) {
+  return datum.map((vec, ci) => {
+    const e = cones[ci].order;
+    return Array.from({ length: e }, (_, k) => vec[((-k) % e + e) % e]);
+  });
+}
+
+const addDatum = (a, b) => a.map((u, i) => u.map((x, j) => x + b[i][j]));
+
+/* The alphabet over one real form, as [{weight, datum, type}].
+ *
+ * A boundary condition over SO(N) is a real representation and over Sp(N) a quaternionic one; what
+ * the fixed points read is the eigenvalue multiplicities of its COMPLEXIFICATION, and the weight
+ * is that complexification's complex dimension — once over SO(N), halved over Sp(N).
+ * Frobenius-Schur says which complexification each label has:
+ *
+ *     type           over SO(N)      over Sp(N)
+ *     real           V               V + V
+ *     complex        V + Vbar        V + Vbar
+ *     quaternionic   V + V           V
+ */
+export function realForm(A, m, family) {
+  const cones = conePoints(A, m), labels = alphabet(A, m);
+  const data = labels.map((L) => cones.map((c) => localDatum(L, m, c)));
+  const types = labels.map((L) => frobeniusSchur(L, A, m));
+  const out = [], used = new Set();
+
+  for (let i = 0; i < labels.length; i++) {
+    if (used.has(i)) continue;
+    used.add(i);
+    const d = labels[i].weight, t = types[i];
+    if (family === "SU") { out.push({ weight: d, datum: data[i], type: FS_NAME[t] }); continue; }
+
+    let cdim, dat;
+    if (t === 0) {
+      /* pair the label with its conjugate, so the two are not counted twice */
+      for (let j = 0; j < labels.length; j++) {
+        if (j !== i && !used.has(j) && labels[j].weight === d && types[j] === 0
+            && isConjugate(labels[i], labels[j])) { used.add(j); break; }
+      }
+      cdim = 2 * d; dat = addDatum(data[i], conjDatum(data[i], cones));
+    } else if (t === 1) {
+      if (family === "SO") { cdim = d; dat = data[i]; }
+      else { cdim = 2 * d; dat = addDatum(data[i], data[i]); }
+    } else {
+      if (family === "SO") { cdim = 2 * d; dat = addDatum(data[i], data[i]); }
+      else { cdim = d; dat = data[i]; }
+    }
+    if (family === "Sp") {
+      if (cdim % 2 !== 0) throw new Error("a symplectic weight must be even before halving");
+      cdim /= 2;
+    }
+    out.push({ weight: cdim, datum: dat, type: FS_NAME[t] });
+  }
+  return out;
+}
+
+/* Two labels are conjugate when one's character orbit is the negative of the other's. */
+function isConjugate(a, b) {
+  const neg = a.orbit.map((v) => mod1(v.num.map((x) => -x), v.den)).map(keyOf).sort();
+  const bs = b.orbit.map(keyOf).sort();
+  return neg.length === bs.length && neg.every((x, i) => x === bs[i]);
+}
+
+/* ------------------------------------------------------------------ the rule, and the count
+ *
+ * THE RULE: the classes of rank N are the DISTINCT TUPLES OF LOCAL DATA.  A boundary condition of
+ * rank N is a multiset of letters of total weight N; its local datum at a cone is the sum of the
+ * letters' data there; and two conditions are the same theory exactly when every cone reads the
+ * same thing.  So the count is the number of distinct sums, not the number of multisets — and the
+ * gap between the two is the whole content of the equivalence. */
+export function classCount(A, m, family, nmax) {
+  const cones = conePoints(A, m), letters = realForm(A, m, family);
+  const ws = letters.map((L) => L.weight);
+  const out = [];
+  for (let N = 0; N <= nmax; N++) {
+    const seen = new Set();
+    for (const pick of multisets(ws, N)) {
+      const acc = cones.map((c) => new Array(c.order).fill(0));
+      for (const [idx, mult] of pick)
+        for (let ci = 0; ci < cones.length; ci++)
+          for (let k = 0; k < cones[ci].order; k++) acc[ci][k] += mult * letters[idx].datum[ci][k];
+      seen.add(JSON.stringify(acc));
+    }
+    out.push(seen.size);
+  }
+  return out;
+}
+
+/* Every multiplicity vector over letters of the given weights with total weight N. */
+export function multisets(ws, N) {
+  const res = [], acc = [];
+  (function rec(i, rem) {
+    if (rem === 0) { res.push(acc.slice()); return; }
+    if (i === ws.length) return;
+    for (let c = 0; c <= Math.floor(rem / ws[i]); c++) {
+      if (c) acc.push([i, c]);
+      rec(i + 1, rem - c * ws[i]);
+      if (c) acc.pop();
+    }
+  })(0, N);
+  return res;
 }
 
 /* ------------------------------------------------------------------ the degree

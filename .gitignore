@@ -1,7 +1,9 @@
 shots/
-# Glob, not three literals: the third shooter's profile went into a commit because the
-# ignore list named the two that existed when it was written.
-.shoot-profile*/
+# Any throwaway browser profile, matched on the WORD and not on a prefix.  This has now caught
+# the same mistake twice: first the third shooter's profile, when the list named the two that
+# existed at the time, and then `.profile-slow/`, `.profile-callers/` and `.snapshot-profile/`,
+# when the glob was anchored to `.shoot-` and the new harnesses did not start with it.
+.*profile*/
 app/
 # Anchored: a bare `site/` also matches `src/site/`, which is the SOURCE and must be tracked.
 # It silently dropped the whole stylesheet and every page fragment from the first commit.

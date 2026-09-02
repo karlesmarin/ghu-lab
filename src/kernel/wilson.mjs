@@ -70,6 +70,75 @@ export function V(sp, LATT, a1, a2) {
   return v;
 }
 
+/* V over the regular grid  a1 = p0 i / nx  (i = 0..nx),  a2 = p1 j / ny  (j = 0..ny).
+ *
+ * Returns a Float64Array of (nx+1)(ny+1) values in row-major j-then-i order -- the same layout
+ * `heightField` reads -- or null when the fast path does not apply, in which case the caller must
+ * sum with V as before.  See the note above `VGrid`'s derivation in this file's header comment for
+ * why this is the same number and not an approximation of it.
+ */
+export function VGrid(sp, LATT, nx, ny, { p0 = PERIODS[0], p1 = PERIODS[1] } = {}) {
+  /* the indexing rests on 2q being an integer.  It is, for every charge in the shipped datasets --
+   * and if a future one breaks it, this says so by refusing rather than by being subtly wrong. */
+  const Q = [];
+  for (const [q] of sp) {
+    const n = Math.round(2 * q);
+    if (Math.abs(2 * q - n) > 1e-9) return null;
+    Q.push(n);
+  }
+  let kmax = 0;
+  for (const [k1, k2] of LATT) kmax = Math.max(kmax, Math.abs(k1), Math.abs(k2));
+  let qmax = 0;
+  for (const n of Q) qmax = Math.max(qmax, Math.abs(n));
+
+  /* u = 2q k, offset so it can index an array */
+  const U = qmax * kmax, W = 2 * U + 1;
+  const CI = new Float64Array(W * (nx + 1)), SI = new Float64Array(W * (nx + 1));
+  const CJ = new Float64Array(W * (ny + 1)), SJ = new Float64Array(W * (ny + 1));
+  for (let u = -U; u <= U; u++) {
+    const r = (u + U);
+    for (let i = 0; i <= nx; i++) {
+      const a = Math.PI * u * p0 * i / nx;          /* 2*pi*q*k1*a1 with q = u/(2k1) folded in */
+      CI[r * (nx + 1) + i] = Math.cos(a); SI[r * (nx + 1) + i] = Math.sin(a);
+    }
+    for (let j = 0; j <= ny; j++) {
+      const b = Math.PI * u * p1 * j / ny;
+      CJ[r * (ny + 1) + j] = Math.cos(b); SJ[r * (ny + 1) + j] = Math.sin(b);
+    }
+  }
+
+  /* flatten the windings once, so the inner loop reads numbers and not tuples */
+  const M = LATT.length, S = sp.length;
+  const K1 = new Int32Array(M), K2 = new Int32Array(M), WT = new Float64Array(M);
+  const ODD = new Uint8Array(M);
+  for (let m = 0; m < M; m++) {
+    const [k1, k2, w, odd] = LATT[m];
+    K1[m] = k1; K2[m] = k2; WT[m] = w; ODD[m] = odd;
+  }
+  const CE = new Float64Array(S), CO = new Float64Array(S);
+  for (let s = 0; s < S; s++) { CE[s] = sp[s][1]; CO[s] = sp[s][2]; }
+
+  const out = new Float64Array((nx + 1) * (ny + 1));
+  for (let j = 0; j <= ny; j++) {
+    for (let i = 0; i <= nx; i++) {
+      let v = 0;
+      for (let m = 0; m < M; m++) {
+        const odd = ODD[m], k1 = K1[m], k2 = K2[m];
+        let s0 = 0;
+        for (let s = 0; s < S; s++) {
+          const c = odd ? CO[s] : CE[s];
+          if (!c) continue;
+          const r1 = (Q[s] * k1 + U) * (nx + 1) + i, r2 = (Q[s] * k2 + U) * (ny + 1) + j;
+          s0 += c * (CI[r1] * CJ[r2] - SI[r1] * SJ[r2]);
+        }
+        v += WT[m] * s0;
+      }
+      out[j * (nx + 1) + i] = v;
+    }
+  }
+  return out;
+}
+
 export function gradV(sp, LATT, x, y, h = 0.004) {
   return [(V(sp, LATT, x + h, y) - V(sp, LATT, x - h, y)) / (2 * h),
           (V(sp, LATT, x, y + h) - V(sp, LATT, x, y - h)) / (2 * h)];
@@ -101,13 +170,18 @@ export function minimise(sp, LATT, { N = 60, steps = 80, tol = 1e-12, a2max = 1,
    * seed off the basin polishes to a saddle: at N = 12 that reported 25 of 119 contents as "not a
    * minimum", none of which was true. */
   if (seed) { ba = seed[0]; bb = seed[1]; }
-  else
+  else {
+    /* The scan is a regular grid, so it is one VGrid rather than (N+1)^2 separate sums -- the same
+     * numbers, about seven times faster, and the grid is NOT made coarser to buy that: the comment
+     * above is the reason N stays where it is. */
+    const G = VGrid(sp, LATT, N, N, { p0: PERIODS[0], p1: a2max });
     for (let i = 0; i <= N; i++)
       for (let j = 0; j <= N; j++) {
         const a1 = PERIODS[0] * i / N, a2 = a2max * j / N;
-        const v = V(sp, LATT, a1, a2);
+        const v = G ? G[j * (N + 1) + i] : V(sp, LATT, a1, a2);
         if (v < best) { best = v; ba = a1; bb = a2; }
       }
+  }
   let a1 = ba, a2 = bb;
   for (let s = 0; s < steps; s++) {
     const [g1, g2] = gradV(sp, LATT, a1, a2);

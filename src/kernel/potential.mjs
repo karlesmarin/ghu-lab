@@ -189,12 +189,55 @@ export function F(terms, alpha, windings = 600) {
   return total;
 }
 
+/* F at MANY alphas at once.  Same sum, three exact rearrangements and one measured one -- see the
+ * note in this file's history and `_test_hierarchy.mjs`, which holds it to F pointwise.
+ *
+ * Returns a Float64Array parallel to `alphas`.
+ */
+export function FGrid(terms, alphas, windings = 600) {
+  /* 1. the atoms: rows sharing (s, c) are one row */
+  const atoms = [];
+  for (const [m, s, c] of terms) {
+    const sgn = s > 0 ? 1 : 0;
+    let a = atoms.find((x) => x.sgn === sgn && x.c === c);
+    if (!a) atoms.push((a = { sgn, c, m: 0 }));
+    a.m += m;
+  }
+  /* 2. 1/n^5 once, not per evaluation */
+  const inv = new Float64Array(windings + 1);
+  for (let n = 1; n <= windings; n++) inv[n] = 1 / (n * n * n * n * n);
+
+  const out = new Float64Array(alphas.length);
+  for (let k = 0; k < alphas.length; k++) {
+    let total = 0;
+    for (const { sgn, c, m } of atoms) {
+      /* 3. the sign is a shift: (-1)^n cos(n t) = cos(n (t + pi)) */
+      const th = c * Math.PI * alphas[k] + (sgn ? 0 : Math.PI);
+      const c1 = Math.cos(th);
+      let prev = 1, cur = c1, sub = c1 * inv[1];
+      for (let n = 2; n <= windings; n++) {
+        const next = 2 * c1 * cur - prev;
+        sub += next * inv[n];
+        prev = cur; cur = next;
+      }
+      total += m * sub;
+    }
+    out[k] = total;
+  }
+  return out;
+}
+
 /* The numerical minimum of the same F — the control the closed form is checked against.  It is
  * here, in the kernel, precisely so that the page can run the check on itself. */
 export function numericMin(terms, { lo = 1e-4, hi = 1, n = 2000, refine = 40, windings = 600 } = {}) {
   let best = null, bx = null;
+  /* the scan is a fixed set of alphas, so it is one FGrid rather than 2001 separate sums: the same
+   * numbers, and the grid is NOT coarsened to buy the speed */
+  const AS = new Float64Array(n + 1);
+  for (let i = 0; i <= n; i++) AS[i] = lo + (hi - lo) * i / n;
+  const VS = FGrid(terms, AS, windings);
   for (let i = 0; i <= n; i++) {
-    const a = lo + (hi - lo) * i / n, v = F(terms, a, windings);
+    const a = AS[i], v = VS[i];
     if (best === null || v < best) { best = v; bx = a; }
   }
   if (bx === null || bx <= lo || bx >= hi) return null;

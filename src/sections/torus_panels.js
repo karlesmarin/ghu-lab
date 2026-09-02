@@ -25,6 +25,14 @@ function TP_GREY(c) {
           Math.round(0.30 * c[2] + 0.70 * y)];
 }
 
+/* THE SURFACES ALREADY BUILT, keyed by everything they depend on: the spectrum, the winding
+ * cut-off, and the grid.  Module-wide rather than per mount, because a section switch re-injects the
+ * markup and mounts the pair again -- a cache inside the closure is thrown away exactly when it was
+ * about to be useful.  Bounded and oldest-out: each entry is a 129x65 Float64Array, about 67 kB,
+ * and four of them is a rounding error against holding none. */
+const TORUS_FIELDS = new Map();
+const TORUS_FIELDS_MAX = 4;
+
 function makeTorusPanels(cfg) {
   const ids = cfg.ids;                       /* { map, surf, cur, mode, sim, basins } */
   const H = cfg.height || 330;
@@ -394,12 +402,32 @@ function makeTorusPanels(cfg) {
       stop();
       P.cur = null; P.sp = sp; P.vac = vac || null; P.base = null;
       if (!sp) { P.field = null; paint(); return; }
+
+      /* THE SURFACE IS A FUNCTION OF THE SPECTRUM, so an identical spectrum is an identical
+       * surface.  Eight thousand three hundred and eighty-five evaluations of V, each summing four
+       * hundred and forty windings over every charge, is about half a second -- and it was being
+       * paid again on every re-render of the same content, which is what switching section inside
+       * a family is.  The key is the spectrum itself and the winding cut-off it was summed with:
+       * those are the only two things the grid depends on. */
+      const key = JSON.stringify(sp) + "|" + cfg.data.kmax + "|" + NX + "x" + NY;
+      const hit = TORUS_FIELDS.get(key);
+      if (hit) { P.field = hit; paint(); return; }
+
       const LATT = lattice(cfg.data.kmax);
-      const vals = new Float64Array((NX + 1) * (NY + 1));
-      for (let j = 0; j <= NY; j++)
-        for (let i = 0; i <= NX; i++)
-          vals[j * (NX + 1) + i] = V(sp, LATT, PERIODS[0] * i / NX, PERIODS[1] * j / NY);
+      /* ONE grid evaluation rather than 8385 separate sums -- identical numbers, about seven times
+       * faster, and it falls back to the plain sum when VGrid refuses, which it does whenever the
+       * charges are not the half-integers its indexing needs. */
+      let vals = VGrid(sp, LATT, NX, NY, { p0: PERIODS[0], p1: PERIODS[1] });
+      if (!vals) {
+        vals = new Float64Array((NX + 1) * (NY + 1));
+        for (let j = 0; j <= NY; j++)
+          for (let i = 0; i <= NX; i++)
+            vals[j * (NX + 1) + i] = V(sp, LATT, PERIODS[0] * i / NX, PERIODS[1] * j / NY);
+      }
       P.field = heightField(vals, NX, NY);
+      TORUS_FIELDS.set(key, P.field);
+      while (TORUS_FIELDS.size > TORUS_FIELDS_MAX)         /* oldest out; a Map keeps insertion order */
+        TORUS_FIELDS.delete(TORUS_FIELDS.keys().next().value);
       paint();
     },
 

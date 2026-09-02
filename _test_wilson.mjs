@@ -16,7 +16,7 @@
  *   node _test_wilson.mjs
  */
 import { readFileSync } from "node:fs";
-import { spectrum, lattice, V, gradV, hessian, eig, minimise, PERIODS } from "./src/kernel/wilson.mjs";
+import { spectrum, lattice, V, gradV, hessian, eig, minimise, PERIODS, VGrid } from "./src/kernel/wilson.mjs";
 import { emptyModel, complete } from "./src/kernel/model.mjs";
 import { STATUS } from "./src/kernel/status.mjs";
 import { resolve } from "./src/kernel/resolve.mjs";
@@ -186,6 +186,52 @@ ok("and a polish seeded far away does NOT silently agree",
    Math.abs(minimise(spOne, LATT, { seed: [0.9, 0.45] }).V - free.V) > 1e-9 ||
    minimise(spOne, LATT, { seed: [0.9, 0.45] }).grad > 1e-8,
    "the seed is actually being used");
+
+/* ---------------------------------------------------------------- VGrid is V, on a grid
+ *
+ * VGrid exists only to evaluate the same sum faster: it splits the phase with cos(A+B) and indexes
+ * the two families by the integer 2qk, which is legal because the charges are half-integers.  So
+ * the only thing worth testing about it is that it did not become a different function -- pointwise
+ * against V, on the grids the app actually uses, including the half torus `minimise` scans. */
+{
+  const grids = [[128, 64, PERIODS[0], PERIODS[1], "the panel's 129x65"],
+                 [60, 60, PERIODS[0], 1, "minimise's 61x61"],
+                 [60, 60, PERIODS[0], 0.5, "minimise's half torus"],
+                 [17, 9, PERIODS[0], PERIODS[1], "an odd little grid"]];
+  const contents = [[{ key: "(4,0,0)", n: 1, eta: 1, role: 1 }],
+                    [{ key: "(4,0,0)", n: 2, eta: -1, role: 1 },
+                     { key: "(1,0,1)", n: 1, eta: 1, role: -1 }]];
+  let worst = 0, scale = 0, points = 0, refused = 0;
+  for (const [nx, ny, p0, p1] of grids)
+    for (const rows of contents) {
+      const sp = spectrum(rows, D);
+      if (!sp.length) continue;
+      const g = VGrid(sp, LATT, nx, ny, { p0, p1 });
+      if (!g) { refused++; continue; }
+      for (let j = 0; j <= ny; j++)
+        for (let i = 0; i <= nx; i++) {
+          const a = V(sp, LATT, p0 * i / nx, p1 * j / ny);
+          worst = Math.max(worst, Math.abs(a - g[j * (nx + 1) + i]));
+          scale = Math.max(scale, Math.abs(a));
+          points++;
+        }
+    }
+  ok("VGrid is V, pointwise, on every grid the app evaluates",
+     refused === 0 && points > 30000 && worst / scale < 1e-11,
+     `${points} points, worst relative ${(worst / scale).toExponential(2)}`);
+
+  /* the control: a charge that is not a half-integer must be REFUSED, not silently mis-indexed */
+  const bogus = [[0.3, 1, 0], [1, 1, 0]];
+  ok("...and it refuses a spectrum its indexing cannot represent",
+     VGrid(bogus, LATT, 8, 8) === null, "a charge of 0.3 is not a half-integer");
+
+  /* and the comparison is not vacuous: two different contents must NOT agree */
+  const g1 = VGrid(spectrum(contents[0], D), LATT, 16, 16);
+  const g2 = VGrid(spectrum(contents[1], D), LATT, 16, 16);
+  let differ = false;
+  for (let i = 0; i < g1.length; i++) if (Math.abs(g1[i] - g2[i]) > 1e-9) { differ = true; break; }
+  ok("...and the check can fail: two different contents give different grids", differ);
+}
 
 console.log(`\n${fail === 0 ? "PASSED" : "*** FAILED ***"}   ${pass} ok, ${fail} failed`);
 process.exit(fail === 0 ? 0 : 1);

@@ -244,7 +244,9 @@ for (const s of secs.filter((x) => x.ready)) {
               brane: { X_Q: "", rungs: null, q_phi: "" },
               setN: () => {}, setEta: () => {}, setRole: () => {}, setBrane: () => {}, load: () => {},
               clear: () => {}, refresh: () => {}, model: () => m,
-              resolve: () => res(), MODS: MODSG };
+              resolve: () => res(), MODS: MODSG,
+              /* the shell memoises this; the stub does not need to, only to exist and answer */
+              resolveModel: (mm) => ({ model: mm, ...api.resolve(MODSG, mm) }) };
   /* The shell hands render() `{model, values, skipped}` -- resolve() alone returns no model, and a
    * smoke that passed the raw result would test a shape the app never produces. */
   const res = () => ({ model: m, ...api.resolve(MODSG, m) });
@@ -355,7 +357,8 @@ ok("the SU(7) data carries the four levels of the ceiling and both gauge seeds",
                 setN: () => {}, setEta: () => {}, setRole: () => {}, setSeed: () => {},
                 setBrane: () => {}, load: () => {},
                 clear: () => {}, refresh: () => {}, model: () => cand,
-                resolve: () => ({ model: cand, ...api.resolve(MODS7v, cand) }), MODS: MODS7v };
+                resolve: () => ({ model: cand, ...api.resolve(MODS7v, cand) }), MODS: MODS7v,
+                resolveModel: (mm) => ({ model: mm, ...api.resolve(MODS7v, mm) }) };
     try { s.init && s.init(c); s.render(c, { model: cand, ...api.resolve(MODS7v, cand) }); }
     catch (e) { errs.push(`${s.id}: ${e.message}`); }
   }

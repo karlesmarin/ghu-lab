@@ -297,7 +297,7 @@ const HIERARCHY_SECTION = {
       const m = complete({ schema_version: SCHEMA_VERSION, group: ctx.DATA.group,
                            orbifold: { name: ctx.DATA.orbifold.name }, brane: [], conventions: {},
                            bulk: r.bulk }).model;
-      const v = resolve(ctx.MODS, m).values;
+      const v = ctx.resolveModel(m).values;
       const a = v.get("alpha_min"), R = v.get("invR5");
       $("ra" + i).textContent = a.status === "unknown" ? "—" : a.value.toFixed(4);
       $("rr" + i).textContent = R.status === "unknown" ? "—" : Math.round(R.value);

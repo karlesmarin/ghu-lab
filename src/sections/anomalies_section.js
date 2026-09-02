@@ -129,7 +129,7 @@ const ANOMALIES_SECTION = {
       const m = complete({ schema_version: SCHEMA_VERSION, group: ctx.DATA.group,
                            orbifold: { name: ctx.DATA.orbifold.name }, brane: [], conventions: {},
                            bulk: r.bulk }).model;
-      const d = resolve(ctx.MODS, m).values.get("donation").value;
+      const d = ctx.resolveModel(m).values.get("donation").value;
       const $ = (id) => document.getElementById(id);
       if (!d.available) { $("av" + i).innerHTML = `<span class="chip live">no host</span>`; return; }
       $("ad" + i).textContent = d.D8_after;

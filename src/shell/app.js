@@ -140,11 +140,34 @@
     return out;
   }
 
-  function run() {
-    const m = model();
-    const { values, skipped } = resolve(mods(), m);
-    return { model: m, values, skipped };
+  /* THE RESOLVER RUNS ONCE PER MODEL, not once per render.
+   *
+   * `render()` is called on every section switch, every resize and every control, and each call was
+   * re-running the whole module chain on an identical model.  That is where most of a second went
+   * in five sections: the SU(7) pair re-minimised the potential numerically over 2001 alphas to
+   * check the closed form against it, and the SU(4) trio re-ran `minimise` over a 61x61 grid.  Both
+   * are worth doing.  Neither is worth doing twice for the same content.
+   *
+   * The key is the module set plus the ENTIRE model, serialised -- not a hash of the fields I think
+   * matter, because the next field somebody adds would not be in it and the cache would then serve
+   * an answer to a question nobody asked.  It is sound only because a module is a pure function of
+   * the model: no DOM, no clock, no randomness in src/modules or src/kernel. */
+  const memo = new Map();
+  /* Enough for three families, a reader going back and forth, and the handful of published rows a
+   * section resolves alongside the live model.  Bounded because every content a reader builds is a
+   * new key and what is held is a module chain's whole value map, not a number. */
+  const MEMO_MAX = 32;
+  function resolved(ms, m) {
+    const key = ms.map((x) => x.id).join(",") + "\u0000" + JSON.stringify(m);
+    const hit = memo.get(key);
+    if (hit) return hit;
+    const { values, skipped } = resolve(ms, m);
+    const out = { model: m, values, skipped };
+    memo.set(key, out);
+    while (memo.size > MEMO_MAX) memo.delete(memo.keys().next().value);   /* Map: insertion order */
+    return out;
   }
+  function run() { return resolved(mods(), model()); }
 
   /* ---------------------------------------------------------------- permalink */
 
@@ -433,6 +456,10 @@
         render();
       },
       model: () => model(g), resolve: () => run(), MODS: mods(g),
+      /* A section that resolves a model of its OWN -- a published row, a probe -- goes through the
+       * same memo as the shell.  Calling `resolve` directly is what made two sections re-run the
+       * whole chain per row on every render. */
+      resolveModel: (m) => resolved(mods(g), m),
     };
   }
 

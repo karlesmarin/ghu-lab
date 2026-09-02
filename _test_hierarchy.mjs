@@ -23,7 +23,8 @@ import { modules, certificates, sweepHierarchy } from "./src/modules/hierarchy.m
 import { anomaliesModule, bill } from "./src/modules/anomalies.mjs";
 import { escapeModule } from "./src/modules/escape.mjs";
 import { selectionModule, repFacts, halfDomain, centreCharge } from "./src/modules/selection.mjs";
-import { termTable, moments, rung, numericMin, localMin, F, coordinates, surfaceInvR5, kConst }
+import { termTable, moments, rung, numericMin, localMin, F, FGrid, coordinates, surfaceInvR5,
+         kConst }
   from "./src/kernel/potential.mjs";
 import { dF } from "./src/kernel/screens.mjs";
 
@@ -618,6 +619,48 @@ ok("the candidate seed's relaxation ceiling is lower and sits one rung up, at 8D
   ok("...and still accepts exactly two",
      validate({ schema_version: SCHEMA_VERSION, group: "x", orbifold: {},
                 bulk: [{ rep: "7", parities: [1, -1], multiplicity: 1 }] }).length === 0);
+}
+
+/* ---------------------------------------------------------------- FGrid is F
+ *
+ * The scan `numericMin` opens with evaluates F at two thousand alphas, and FGrid does it in one
+ * pass: atoms first, the sign as a phase shift, and the cosines from a recurrence.  The first two
+ * are exact rearrangements; the recurrence is not, so the disagreement is measured. */
+{
+  const su7 = JSON.parse(readFileSync(new URL("./data/su7_km25.json", import.meta.url), "utf8"));
+  const tables = [];
+  for (const r of Object.keys(su7.reps))
+    for (const k of Object.keys(su7.reps[r])) tables.push(su7.reps[r][k]);
+
+  const alphas = new Float64Array(801);
+  for (let i = 0; i < alphas.length; i++) alphas[i] = 1e-4 + (1 - 1e-4) * i / (alphas.length - 1);
+
+  let worst = 0, scale = 0, n = 0, rows = 0, atoms = 0, contents = 0;
+  for (let trial = 0; trial < 12; trial++) {
+    const terms = [...su7.gauge];
+    for (let j = 0; j <= trial % 5; j++) terms.push(...tables[(trial * 7 + j * 13) % tables.length]);
+    rows += terms.length;
+    atoms += new Set(terms.map(([, s, c]) => (s > 0 ? "+" : "-") + c)).size;
+    contents++;
+    const g = FGrid(terms, alphas, 600);
+    for (let i = 0; i < alphas.length; i += 11) {
+      const a = F(terms, alphas[i], 600);
+      worst = Math.max(worst, Math.abs(a - g[i]));
+      scale = Math.max(scale, Math.abs(a));
+      n++;
+    }
+  }
+  ok("FGrid is F, pointwise, on the shipped contents",
+     n > 800 && worst / scale < 1e-11,
+     `${n} points over ${contents} contents, ${(rows / contents).toFixed(1)} rows -> `
+     + `${(atoms / contents).toFixed(1)} atoms, worst relative ${(worst / scale).toExponential(2)}`);
+
+  /* not vacuous: two different contents must not agree */
+  const g1 = FGrid([...su7.gauge, ...tables[0]], alphas, 600);
+  const g2 = FGrid([...su7.gauge, ...tables[1], ...tables[2]], alphas, 600);
+  let differ = false;
+  for (let i = 0; i < g1.length; i++) if (Math.abs(g1[i] - g2[i]) > 1e-9) { differ = true; break; }
+  ok("...and the check can fail: two different contents give different curves", differ);
 }
 
 console.log(`\n${fail === 0 ? "PASSED" : "*** FAILED ***"}   ${pass} ok, ${fail} failed`);

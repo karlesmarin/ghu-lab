@@ -92,6 +92,19 @@ canvas{width:100%;height:auto;border-radius:8px;border:1px solid var(--line);dis
 .atlas .at.silent{background:var(--rust-l);border-color:#f0d6c4}
 .atlas .at.silent b{color:var(--rust)}
 .pair{display:grid;gap:10px}@media(min-width:560px){.pair{grid-template-columns:1fr 1fr}}
+/* THE INLINE HELP MARK.  Small, quiet, and the same everywhere: it has to be findable next to a
+   table heading without competing with the heading.  Round, one lowercase i, no colour of its own
+   until hovered -- a mark that shouts would be read as a warning. */
+.ihelp{display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;
+  margin-left:5px;padding:0;border:1px solid var(--line,#dde3ea);border-radius:50%;
+  background:transparent;color:var(--ink3,#5d6b79);font:600 10px ui-sans-serif,system-ui;
+  font-style:italic;line-height:1;cursor:help;vertical-align:middle;flex:none}
+.ihelp:hover,.ihelp:focus{border-color:var(--blue,#2b6cb0);color:var(--blue,#2b6cb0);outline:none}
+.helppop{position:absolute;z-index:60;max-width:min(340px,calc(100vw - 16px));
+  background:var(--card,#fff);border:1px solid var(--line,#dde3ea);border-radius:9px;
+  box-shadow:0 6px 24px rgba(20,30,42,.14);padding:11px 13px}
+.helppop b{display:block;font-size:12.5px;margin-bottom:5px}
+.helppop p{margin:0;font-size:12.5px;line-height:1.55;color:var(--ink2,#40505f)}
 .grid{display:grid;gap:18px}
 /* AND THE SAME DECLARATION THE WRAP NEEDED, for the same reason one level down.  A grid track is
    never smaller than the min-content of its item, and these items hold canvases: an intrinsic 720px

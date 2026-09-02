@@ -216,7 +216,7 @@ const ORBIFOLD_SECTION = {
   </div>
 
   <div class="card" style="margin-bottom:18px">
-    <h2>Or your own rotation</h2>
+    <h2>Or your own rotation${helpMark("smith-normal-form")}</h2>
     <p class="note" style="margin:0 0 10px">An integer matrix of finite order, any rank up to 8 —
     rows on separate lines or split by <code>;</code>. This page has no list of orbifolds it knows:
     it has a computation, and the five above are just inputs to it. A matrix of infinite order comes
@@ -240,7 +240,7 @@ const ORBIFOLD_SECTION = {
   <div class="note" id="orbCap" style="margin-top:10px">—</div>
 
   <div class="card" style="margin-top:18px">
-    <h2>What is standing in that cell</h2>
+    <h2>What is standing in that cell${helpMark("fibre")}</h2>
     <p class="note" style="margin:0 0 10px">Click a cell in the plan &mdash; or a column in the
       relief; they share one cursor. A cell of the datum lattice is a fibre: every boundary
       condition below is a <b>different</b> assignment of multiplicities that lands on the
@@ -250,16 +250,16 @@ const ORBIFOLD_SECTION = {
 
   <div class="grid two" style="margin-top:18px">
     <div class="card">
-      <h2>The size of the problem</h2>
+      <h2>The size of the problem${helpMark("alphabet")}</h2>
       <p class="note" style="margin:0 0 10px">How many letters, of what weight. This is what a
       classification has to get through, and it is known before any of it is done.</p>
       <div style="overflow-x:auto"><table><thead><tr><th class="num">weight</th>
-        <th class="num">letters</th><th>Frobenius–Schur</th></tr></thead>
+        <th class="num">letters</th><th>Frobenius–Schur${helpMark("frobenius-schur")}</th></tr></thead>
         <tbody id="orbAlpha"></tbody></table></div>
       <div class="verdict stable" id="orbAlphaV" style="margin-top:12px"><b>—</b><span>—</span></div>
     </div>
     <div class="card">
-      <h2>What a closed form must have</h2>
+      <h2>What a closed form must have${helpMark("hilbert-series")}</h2>
       <p class="note" style="margin:0 0 10px">The degree comes from the signature alone,
       <b>e₁ = 1 + Σ c(mᵢ)</b> with c(m) = m−1 over SU(N) and ⌊m/2⌋ over SO(N) and Sp(N); the degree
       is e₁ − 1. <b>A proposed count of the wrong degree is missing labels.</b></p>
@@ -271,7 +271,7 @@ const ORBIFOLD_SECTION = {
   </div>
 
   <div class="card" style="margin-top:18px">
-    <h2>What any equivalence relation must preserve</h2>
+    <h2>What any equivalence relation must preserve${helpMark("class")}</h2>
     <p class="note" style="margin:0 0 10px">The local datum of every letter at every cone point, as
     multiplicities over the e-th roots of unity. <b>A proposed relation that moves one of these is
     wrong</b>, and the check costs seconds and does not need the classification to be finished.</p>
@@ -279,20 +279,20 @@ const ORBIFOLD_SECTION = {
   </div>
 
   <div class="card" style="margin-top:18px">
-    <h2>The three real forms, side by side</h2>
+    <h2>The three real forms, side by side${helpMark("frobenius-schur")}</h2>
     <p class="note" style="margin:0 0 10px">A boundary condition over SO(N) is a real
     representation and over Sp(N) a quaternionic one; what a fixed point reads is the eigenvalue
     multiplicities of the <b>complexification</b>, and Frobenius&ndash;Schur says which one each
     letter has. The symplectic column is <b>not in the literature</b> &mdash; §7 of Part IX-A is
     where it is worked out.</p>
     <div style="overflow-x:auto"><table><thead><tr><th>family</th><th>alphabet</th>
-      <th class="num">letters</th><th class="num">degree</th><th>count</th></tr></thead>
+      <th class="num">letters</th><th class="num">degree${helpMark("degree")}</th><th>count</th></tr></thead>
       <tbody id="orbForms"></tbody></table></div>
     <div class="verdict stable" id="orbFormsV" style="margin-top:12px"><b>&mdash;</b><span>&mdash;</span></div>
   </div>
 
   <div class="card" style="margin-top:18px">
-    <h2>Your boundary condition, and everything that is the same theory</h2>
+    <h2>Your boundary condition, and everything that is the same theory${helpMark("unbroken-group")}</h2>
     <p class="note" style="margin:0 0 10px">A boundary condition is a multiset of letters: one
     multiplicity per letter of the table above, in that order. What it leaves unbroken in four
     dimensions is <b>S(&prod; U(n<sub>&#8467;</sub>))</b> &mdash; an adjoint component survives when
@@ -310,7 +310,7 @@ const ORBIFOLD_SECTION = {
   </div>
 
   <div class="card" style="margin-top:18px">
-    <h2>What exists at all in this rank</h2>
+    <h2>What exists at all in this rank${helpMark("crystallographic")}</h2>
     <p class="note" style="margin:0 0 10px">Before choosing an orbifold it is worth knowing the list
     is finite and short. Two restrictions, and they are not the same one: <b>&phi;(m) | r</b> is this
     paper's hypothesis &mdash; the lattice is a module over <b>Z[&zeta;<sub>m</sub>]</b> &mdash; and
@@ -730,8 +730,8 @@ const ORBIFOLD_SECTION = {
   },
 
   _data(C) {
-    const head = `<thead><tr><th>letter</th><th class="num">weight</th>`
-      + C.cones.map((c, i) => `<th>cone ${i + 1} (order ${c.order})</th>`).join("")
+    const head = `<thead><tr><th>letter</th><th class="num">weight${helpMark("weight")}</th>`
+      + C.cones.map((c, i) => `<th>cone ${i + 1} (order ${c.order})` + (i ? "" : helpMark("local-datum")) + "</th>").join("")
       + `</tr></thead>`;
     const rows = C.letters.map((L, i) =>
       `<tr><td class="num">${i + 1}</td><td class="num">${L.weight}</td>`

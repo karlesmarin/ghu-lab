@@ -472,6 +472,10 @@
   render();
 })();
 
+/* The inline help: one delegated listener for every mark in every section, wired before the first
+ * render so a mark works the moment it is drawn. */
+mountHelp();
+
 /* THE RAIL DRAWER, below 960px only.  Wired once at load; above the breakpoint the button is
  * display:none and this never runs.  Picking a section closes it, because a drawer that stays open
  * over the thing you just chose is worse than no drawer. */

@@ -118,7 +118,7 @@ const RELATIONS_SECTION = {
   html: `
   <div class="card" style="margin-bottom:18px">
     <p class="lead">The classes are the fibres of a marginal map, so they are indexed by an
-    <b>affine semigroup</b> — one generator per letter of the alphabet. Naming that semigroup is
+    <b>affine semigroup</b>${helpMark("affine-semigroup")} — one generator per letter of the alphabet. Naming that semigroup is
     mostly an exercise in <b>attribution</b>: over Z₂ it is a cut configuration with a literature
     and a published table of invariants, and the useful thing this page can do is stop you deriving
     it again. <span class="chip">verified</span></p>
@@ -164,7 +164,7 @@ const RELATIONS_SECTION = {
   </div>
 
   <div class="card" style="margin-bottom:18px">
-    <h2>Is it a complete intersection? The tripod, decided</h2>
+    <h2>Is it a complete intersection${helpMark("complete-intersection")}? The tripod, decided${helpMark("tripod")}</h2>
     <p class="note" style="margin:0 0 10px">The smallest member of the group-based family is the
     claw tree with three leaves, and one case of it is an orbifold of ours: <b>g = 3 is T²/Z₃ over
     SU(N)</b>. For a finite abelian G the semigroup is a complete intersection <b>exactly when

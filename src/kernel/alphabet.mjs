@@ -131,19 +131,19 @@ export function orderOf(A, bound = 5040) {
  * A character of Lambda is a vector of rationals mod 1.  Held as integer numerators over one
  * common denominator, so equality is exact and hashable and no float ever appears. */
 
-function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { [a, b] = [b, a % b]; } return a; }
-function lcm(a, b) { return a / gcd(a, b) * b; }
+function abGcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { [a, b] = [b, a % b]; } return a; }
+function abLcm(a, b) { return a / abGcd(a, b) * b; }
 
 /* {num: int[], den: int}, each numerator reduced into [0, den). */
-function mod1(num, den) {
-  const g = num.reduce((acc, x) => gcd(acc, x), den);
+function abMod1(num, den) {
+  const g = num.reduce((acc, x) => abGcd(acc, x), den);
   const d = den / g;
   return { num: num.map((x) => ((x / g) % d + d) % d), den: d };
 }
 
-function keyOf(v) { return v.den + ":" + v.num.join(","); }
+function abKeyOf(v) { return v.den + ":" + v.num.join(","); }
 
-function sameChar(a, b) { return keyOf(a) === keyOf(b); }
+function abSameChar(a, b) { return abKeyOf(a) === abKeyOf(b); }
 
 /* ------------------------------------------------------------------ the cone points */
 
@@ -170,16 +170,16 @@ export function conePoints(A, m) {
       let n = c;
       for (let i = 0; i < r; i++) { idx[i] = n % aD; n = Math.floor(n / aD); }
       const w = matVec(adj, idx);
-      const v = mod1(w, D);
-      pts.set(keyOf(v), v);
+      const v = abMod1(w, D);
+      pts.set(abKeyOf(v), v);
     }
   }
 
   const seen = new Set(), out = [];
-  for (const x of [...pts.values()].sort((a, b) => keyOf(a) < keyOf(b) ? -1 : 1)) {
-    if (seen.has(keyOf(x))) continue;
+  for (const x of [...pts.values()].sort((a, b) => abKeyOf(a) < abKeyOf(b) ? -1 : 1)) {
+    if (seen.has(abKeyOf(x))) continue;
     let y = x;
-    for (let i = 0; i < m; i++) { seen.add(keyOf(y)); y = actPoint(A, y); }
+    for (let i = 0; i < m; i++) { seen.add(abKeyOf(y)); y = actPoint(A, y); }
 
     /* the stabiliser, as the set of j with (A^j - I)x integral */
     let d = 0;
@@ -202,7 +202,7 @@ export function conePoints(A, m) {
 /* rho on a POINT of the torus: x -> A x.  (On a character it is the inverse transpose; the two are
  * different actions and confusing them is the standard way to get a mirror image of the answer.) */
 function actPoint(A, x) {
-  return mod1(matVec(A, x.num), x.den);
+  return abMod1(matVec(A, x.num), x.den);
 }
 
 export function coneSignature(A, m) {
@@ -226,11 +226,11 @@ export function characters(A, m) {
     for (let c = 0; c < Math.pow(aD, r); c++) {
       let n = c;
       for (let i = 0; i < r; i++) { idx[i] = n % aD; n = Math.floor(n / aD); }
-      const v = mod1(matVec(adj, idx), D);
-      found.set(keyOf(v), v);
+      const v = abMod1(matVec(adj, idx), D);
+      found.set(abKeyOf(v), v);
     }
   }
-  return [...found.values()].sort((a, b) => (keyOf(a) < keyOf(b) ? -1 : 1));
+  return [...found.values()].sort((a, b) => (abKeyOf(a) < abKeyOf(b) ? -1 : 1));
 }
 
 /* rho on a CHARACTER: v -> (A^T)^{-1} v, so that chi_{rho v}(A t) = chi_v(t).
@@ -239,7 +239,7 @@ export function actChar(A, v) {
   const At = transpose(A);
   const D = det(At);                                        /* +-1 */
   const inv = adjugate(At).map((row) => row.map((x) => x * D));   /* since 1/D = D for D = +-1 */
-  return mod1(matVec(inv, v.num), v.den);
+  return abMod1(matVec(inv, v.num), v.den);
 }
 
 /* ------------------------------------------------------------------ the alphabet
@@ -255,15 +255,15 @@ export function actChar(A, v) {
 export function alphabet(A, m) {
   const chars = characters(A, m), seen = new Set(), labels = [];
   for (const v of chars) {
-    if (seen.has(keyOf(v))) continue;
+    if (seen.has(abKeyOf(v))) continue;
     const orbit = [];
     let w = v;
     for (let i = 0; i < m; i++) {
       orbit.push(w);
       w = actChar(A, w);
-      if (sameChar(w, v)) break;
+      if (abSameChar(w, v)) break;
     }
-    for (const u of orbit) seen.add(keyOf(u));
+    for (const u of orbit) seen.add(abKeyOf(u));
     const s = orbit.length, d = m / s;
     for (let j = 0; j < d; j++) labels.push({ weight: s, orbit, epsNum: j, epsDen: d });
   }
@@ -293,8 +293,8 @@ export function localDatum(label, m, cone) {
   const e = cone.order, p = m / e, t = cone.t;
 
   /* exponents as fractions n/Q mod 1 */
-  const Q0 = orbit.reduce((acc, v) => lcm(acc, v.den), 1);
-  const Q = lcm(Q0, epsDen);
+  const Q0 = orbit.reduce((acc, v) => abLcm(acc, v.den), 1);
+  const Q = abLcm(Q0, epsDen);
 
   /* the diagonal: chi_{v_i}(t) has exponent v_i . t */
   const diag = orbit.map((v) => {
@@ -343,7 +343,7 @@ export function localDatum(label, m, cone) {
  * and when k = sq the shift is the identity times eps^q, leaving eps^q sum_i chi_{v_i}(t).  The
  * angles are exact rationals; only the final sum of roots of unity needs floating point, and it is
  * a sum of unit vectors, so no cancellation of scale can hide in it. */
-function characterAt(label, A, t, k) {
+function abCharacterAt(label, A, t, k) {
   const { weight: s, orbit, epsNum, epsDen } = label;
   if (k % s !== 0) return { re: 0, im: 0 };
   const q = k / s;
@@ -369,7 +369,7 @@ function characterAt(label, A, t, k) {
  * throws: a Frobenius-Schur indicator is an integer or the representation was not irreducible. */
 export function frobeniusSchur(label, A, m) {
   const r = A.length;
-  const D = label.orbit.reduce((acc, v) => lcm(acc, v.den), 1);
+  const D = label.orbit.reduce((acc, v) => abLcm(acc, v.den), 1);
   const size = Math.pow(D, r);
   let re = 0;
   const t = new Array(r).fill(0);
@@ -380,7 +380,7 @@ export function frobeniusSchur(label, A, m) {
       for (let i = 0; i < r; i++) { t[i] = n % D; n = Math.floor(n / D); }
       /* (t, rho^k)^2 = (t + A^k t, rho^{2k}) */
       const tt = matVec(Ak, t).map((x, i) => x + t[i]);
-      re += characterAt(label, A, tt, (2 * k) % m).re;
+      re += abCharacterAt(label, A, tt, (2 * k) % m).re;
     }
   }
   const fs = re / (size * m);
@@ -394,14 +394,14 @@ export function frobeniusSchur(label, A, m) {
 export const FS_NAME = { 1: "real", 0: "complex", "-1": "quaternionic" };
 
 /* The local datum of the conjugate label: the eigenvalue zeta^k becomes zeta^{-k}. */
-function conjDatum(datum, cones) {
+function abConjDatum(datum, cones) {
   return datum.map((vec, ci) => {
     const e = cones[ci].order;
     return Array.from({ length: e }, (_, k) => vec[((-k) % e + e) % e]);
   });
 }
 
-const addDatum = (a, b) => a.map((u, i) => u.map((x, j) => x + b[i][j]));
+const abAddDatum = (a, b) => a.map((u, i) => u.map((x, j) => x + b[i][j]));
 
 /* The alphabet over one real form, as [{weight, datum, type}].
  *
@@ -432,14 +432,14 @@ export function realForm(A, m, family) {
       /* pair the label with its conjugate, so the two are not counted twice */
       for (let j = 0; j < labels.length; j++) {
         if (j !== i && !used.has(j) && labels[j].weight === d && types[j] === 0
-            && isConjugate(labels[i], labels[j])) { used.add(j); break; }
+            && abIsConjugate(labels[i], labels[j])) { used.add(j); break; }
       }
-      cdim = 2 * d; dat = addDatum(data[i], conjDatum(data[i], cones));
+      cdim = 2 * d; dat = abAddDatum(data[i], abConjDatum(data[i], cones));
     } else if (t === 1) {
       if (family === "SO") { cdim = d; dat = data[i]; }
-      else { cdim = 2 * d; dat = addDatum(data[i], data[i]); }
+      else { cdim = 2 * d; dat = abAddDatum(data[i], data[i]); }
     } else {
-      if (family === "SO") { cdim = 2 * d; dat = addDatum(data[i], data[i]); }
+      if (family === "SO") { cdim = 2 * d; dat = abAddDatum(data[i], data[i]); }
       else { cdim = d; dat = data[i]; }
     }
     if (family === "Sp") {
@@ -452,9 +452,9 @@ export function realForm(A, m, family) {
 }
 
 /* Two labels are conjugate when one's character orbit is the negative of the other's. */
-function isConjugate(a, b) {
-  const neg = a.orbit.map((v) => mod1(v.num.map((x) => -x), v.den)).map(keyOf).sort();
-  const bs = b.orbit.map(keyOf).sort();
+function abIsConjugate(a, b) {
+  const neg = a.orbit.map((v) => abMod1(v.num.map((x) => -x), v.den)).map(abKeyOf).sort();
+  const bs = b.orbit.map(abKeyOf).sort();
   return neg.length === bs.length && neg.every((x, i) => x === bs[i]);
 }
 
@@ -545,7 +545,7 @@ export function predictedDegree(signature, family = "SU") {
  * quadrics" for the cut ideal of C_4, arrived at here from the count alone. */
 
 /* Multiply a coefficient array by (1 - x^w). */
-function timesOneMinusXtoThe(coeffs, w) {
+function abTimesOneMinus(coeffs, w) {
   const out = coeffs.slice();
   for (let i = coeffs.length - 1; i >= w; i--) out[i] -= coeffs[i - w];
   return out;
@@ -560,7 +560,7 @@ export function hilbertNumerator(counts, weights) {
                     + counts.length);
   }
   let p = counts.slice();
-  for (const w of weights) p = timesOneMinusXtoThe(p, w);
+  for (const w of weights) p = abTimesOneMinus(p, w);
   /* everything from the first vanishing tail on must be zero, and the tail is where the
    * multiplication can no longer be trusted anyway: cut at `need` and require the rest silent. */
   const head = p.slice(0, need + 1), tail = p.slice(need + 1);
@@ -572,7 +572,7 @@ export function hilbertNumerator(counts, weights) {
 }
 
 /* The multiplicity of the root x = 1 in a polynomial, by synthetic division. */
-function orderOfRootAtOne(P) {
+function abOrderOfRootAtOne(P) {
   let p = P.slice(), k = 0;
   while (p.length && p.reduce((s, c) => s + c, 0) === 0) {
     /* divide by (x - 1): synthetic division from the top */
@@ -588,7 +588,7 @@ function orderOfRootAtOne(P) {
  * minus one.  This is the honest referee for a QUASI-polynomial, where differencing is not. */
 export function degreeFromSeries(counts, weights) {
   const P = hilbertNumerator(counts, weights);
-  const pole = weights.length - orderOfRootAtOne(P);
+  const pole = weights.length - abOrderOfRootAtOne(P);
   return pole - 1;
 }
 

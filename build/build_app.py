@@ -32,7 +32,8 @@ VERSION = "0.2.0"
 # order into ONE scope, so a file may only use names the files before it have declared.
 KERNEL = ["meta.mjs", "status.mjs", "model.mjs", "potential.mjs", "canonical.mjs", "screens.mjs",
           "charges.mjs", "multiplets.mjs", "wilson.mjs", "surface.mjs", "resolve.mjs", "card.mjs",
-          "cite.mjs", "latex.mjs", "blkt.mjs"]
+          "cite.mjs", "latex.mjs", "blkt.mjs", "alphabet.mjs", "fibres.mjs"]
+VIEW = ["fibre_panels.js"]
 MODULES = ["selection.mjs", "calculator.mjs", "hierarchy.mjs", "anomalies.mjs", "escape.mjs",
            "samepot.mjs", "screen.mjs", "collider.mjs", "atlas.mjs", "eta.mjs", "fived.mjs",
            "spectrum.mjs", "inverse.mjs", "census.mjs", "sun5d.mjs", "bcclass.mjs",
@@ -100,7 +101,13 @@ def build(edition=False, home=None, out_path=None):
             "su4_ahmn": json.loads(read("data", "su4_ahmn.json")),
             "su3_hy": json.loads(read("data", "su3_hy.json"))}
 
+    # src/view/ is the view kit: panels a section MOUNTS rather than draws.  It is its own list and
+    # its own directory because torus_panels.js proved the shape and then nothing reused it -- it
+    # sat among the sections, looking like one, and nineteen sections went on hand-rolling their
+    # panels.  A kit the build does not load is not a kit; a kit in the sections directory is a
+    # section.  It is inlined with the engine, before any section, so a section can mount it.
     frags = ([(f, strip_modules(read("src", "kernel", f), f)) for f in KERNEL]
+             + [(f, strip_modules(read("src", "view", f), f)) for f in VIEW]
              + [(f, strip_modules(read("src", "modules", f), f)) for f in MODULES]
              + [(f, strip_modules(read("src", "sections", f), f)) for f in SECTIONS])
     check_collisions(frags)
@@ -114,6 +121,7 @@ def build(edition=False, home=None, out_path=None):
               f'const BUILD = "{datetime.datetime.now().strftime("%Y-%m-%d %H:%M")}";\n'
               f'const CENSUS = {json.dumps(census, separators=(",", ":"), ensure_ascii=False)};\n'
               + "\n".join(src for name, src in frags if name in KERNEL)
+              + "\n".join(src for name, src in frags if name in VIEW)
               + "\n".join(src for name, src in frags if name in MODULES))
     sections = "\n".join(src for name, src in frags if name in SECTIONS)
     app = read("src", "shell", "app.js")

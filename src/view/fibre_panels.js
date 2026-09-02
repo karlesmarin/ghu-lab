@@ -20,7 +20,7 @@
  *   1. NO INTERPOLATION.  The torus carries a trigonometric polynomial and a bilinear relief is
  *      the right reading of it.  Here the domain is a LATTICE: between two integer data there is
  *      nothing, and a ramp between them draws heights that do not exist.  So each cell is
- *      supersampled into a constant block (`STEP` samples a side) before the painter sees it —
+ *      supersampled into a constant block (`FP_STEP` samples a side) before the painter sees it —
  *      the bilinear interpolation inside a constant block is constant, and only one sample-wide
  *      seam survives at the edges, which is what a step looks like.  The painter is not modified.
  *
@@ -38,10 +38,10 @@ import {
 } from "../kernel/surface.mjs";
 
 /* samples per lattice cell.  Four is enough to make the seam thin and keeps the mesh small. */
-const STEP = 4;
+const FP_STEP = 4;
 
 /* Desaturated, not hidden — the same function torus_panels uses, and for the same reason. */
-function GREY(c) {
+function FP_GREY(c) {
   const y = 0.30 * c[0] + 0.59 * c[1] + 0.11 * c[2];
   return [Math.round(0.30 * c[0] + 0.70 * y), Math.round(0.30 * c[1] + 0.70 * y),
           Math.round(0.30 * c[2] + 0.70 * y)];
@@ -51,7 +51,7 @@ function GREY(c) {
  * Returns the field the painter wants plus the mask of which samples are outside the image. */
 export function stepField(grid) {
   const { vals, nx, ny } = grid;
-  const NX = nx * STEP, NY = ny * STEP;
+  const NX = nx * FP_STEP, NY = ny * FP_STEP;
   /* heightField reads vals[j*(nx+1)+i], so it wants (NX+1) x (NY+1) SAMPLES for NX x NY cells.
    * Handing it an NX x NY array reads past every row end, which is `undefined`, which makes every
    * height NaN — and the relief then draws nothing at all with no error anywhere.  That is what
@@ -62,7 +62,7 @@ export function stepField(grid) {
   for (const v of vals) if (v !== null && v > hi) hi = v;
   for (let j = 0; j < H; j++) {
     for (let i = 0; i < W; i++) {
-      const cx = Math.min(nx - 1, Math.floor(i / STEP)), cy = Math.min(ny - 1, Math.floor(j / STEP));
+      const cx = Math.min(nx - 1, Math.floor(i / FP_STEP)), cy = Math.min(ny - 1, Math.floor(j / FP_STEP));
       const v = vals[cy * nx + cx];
       out[j * W + i] = v === null ? 0 : v;
       miss[j * W + i] = v === null;
@@ -101,7 +101,7 @@ export function mountFibrePanels(cfg) {
       const v = vals[j * nx + i];
       const x = ox + i * side, y = oy + (ny - 1 - j) * side;
       let col;
-      if (v === null) col = GREY([210, 216, 222]);
+      if (v === null) col = FP_GREY([210, 216, 222]);
       else {
         const t = S.step.hi > 1 ? (v - 1) / (S.step.hi - 1) : 0;
         col = [Math.round(232 - 96 * t), Math.round(238 - 150 * t), Math.round(246 - 60 * t)];
@@ -163,7 +163,7 @@ export function mountFibrePanels(cfg) {
       tint: (i, j, rgb) => {
         const cx = Math.min(S.grid.nx - 1, Math.floor((i + 0.5) / n * S.grid.nx));
         const cy = Math.min(S.grid.ny - 1, Math.floor((j + 0.5) / n * S.grid.ny));
-        return S.grid.vals[cy * S.grid.nx + cx] === null ? GREY(rgb) : null;
+        return S.grid.vals[cy * S.grid.nx + cx] === null ? FP_GREY(rgb) : null;
       },
     });
     surfaceAxisLabels(g, proj, cfg.labels || ["a", "b"]);

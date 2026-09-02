@@ -93,6 +93,12 @@ canvas{width:100%;height:auto;border-radius:8px;border:1px solid var(--line);dis
 .atlas .at.silent b{color:var(--rust)}
 .pair{display:grid;gap:10px}@media(min-width:560px){.pair{grid-template-columns:1fr 1fr}}
 .grid{display:grid;gap:18px}
+/* AND THE SAME DECLARATION THE WRAP NEEDED, for the same reason one level down.  A grid track is
+   never smaller than the min-content of its item, and these items hold canvases: an intrinsic 720px
+   floored every panel, so Hierarchy laid out 785px wide inside a 390px phone and the reader dragged
+   the whole instrument sideways.  Not a canvas bug -- `canvas{width:100%}` above is honoured; a
+   replaced element's INTRINSIC width still floors the track, and only this releases it. */
+.grid>*,.pair>*{min-width:0}
 @media(min-width:1000px){.two{grid-template-columns:1.05fr .95fr}}
 
 /* ---- the chrome: a pinned model header and a rail.  Switching section must not reset the
@@ -130,6 +136,34 @@ details.cannot p{margin:11px 0 0;line-height:1.55}
       max-height:calc(100vh - 76px);overflow-y:auto;overscroll-behavior:contain;
       scrollbar-width:thin;scrollbar-color:var(--line) transparent;padding-right:4px}
 #rail::-webkit-scrollbar{width:8px}
+/* THE RAIL IS A DRAWER ON A NARROW SCREEN.  One column means rail-then-content, and twenty-three
+   section names is a whole screen of them before anything a reader came for.  Closed by default
+   below 960px, opened by the header button, and closed again the moment a section is picked --
+   which is what a rail is for on a phone: getting somewhere, not being read. */
+/* A GRID ITEM DOES NOT SHRINK UNLESS TOLD TO.  `min-width:auto` is the default, so the single
+   column of the narrow layout sat at the min-content width of the widest thing inside it and the
+   whole document measured 427px on a 390px screen -- every panel dragged sideways, and the header
+   with it.  This one declaration is most of what "no funciona bien en el movil" was. */
+.wrap>*{min-width:0}
+#railBtn{display:none}
+@media(max-width:959px){
+  #railBtn{display:inline-flex;align-items:center;gap:5px}
+  #rail{display:none;position:static;max-height:none}
+  /* AND THE THING THAT WOULD NOT SHRINK WAS A TABLE, which is the one element here entitled not
+     to: the local-data tables carry one column per fixed point, the letters table one per weight.
+     Its own block box makes it scroll inside itself instead of widening the page.
+     This was `.card div:has(>table)` for one build.  It was correct, and it cost more than
+     forty-five seconds of style invalidation on every class toggle -- `:has()` turns every div in
+     a card into a subject, and these cards are deep.  Measured both ways before replacing it. */
+  .card table{display:block;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain}
+  /* A LABEL AND ITS VALUE ON ONE LINE is right until the value is a sentence.  With every grid
+     released this was the only thing still sticking out of a 390px screen, and twelve pixels of
+     overflow drags the whole page just as well as four hundred do. */
+  .rowm{flex-wrap:wrap}
+  .rowm .ch{width:auto;text-align:left}
+  .wrap.railopen #rail{display:block;max-height:60vh;overflow-y:auto;
+    border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--card,#fff)}
+}
 #rail::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
 #rail::-webkit-scrollbar-thumb:hover{background:var(--ink3)}
 #rail::-webkit-scrollbar-track{background:transparent}
@@ -156,7 +190,7 @@ details.cannot p{margin:11px 0 0;line-height:1.55}
   <span class="name">__HOME__</span>
   <span class="model" id="topModel">—</span>
   <span class="chips" id="topChips"></span>
-  <span class="acts">
+  <span class="acts"><button class="ghost" id="railBtn" type="button">☰ sections</button>
     <button id="btnCard" title="the result card: input, provenance, every value with its status">⇩ card</button>
     <button id="btnTex" title="the same card as LaTeX: the potential, the table with its status column, and the bibliography for the sources it rests on">⇩ LaTeX</button>
     <button id="btnLink" title="the whole state, in the address bar">🔗 link</button>
@@ -164,7 +198,7 @@ details.cannot p{margin:11px 0 0;line-height:1.55}
 </div>
 <div id="topCaveat"></div></div>
 
-<div class="wrap">
+<div class="wrap" id="wrapTop">
   <nav id="rail"></nav>
   <main id="section"></main>
 </div>

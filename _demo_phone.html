@@ -1,0 +1,15 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>phone bench</title>
+<!-- ONE frame, not two.  The two-frame bench runs two whole instances of the instrument in the same
+     renderer, and every interaction inside one of them stalled the tab for tens of seconds -- which
+     told me nothing about the app and cost two false alarms.  A phone is one phone.  Not shipped. -->
+<style>
+  body { margin:0; padding:16px; background:#e9edf1; font:13px system-ui; }
+  figcaption { font-size:12px; color:#5d6b79; margin:0 0 6px; }
+  iframe { border:1px solid #c8d0d8; border-radius:12px; background:#fff; display:block; }
+</style>
+<figure style="margin:0">
+  <figcaption>390 &times; 760 &mdash; phone</figcaption>
+  <iframe id="phone" src="app/index.html#s=orbifold" width="390" height="760"></iframe>
+</figure>

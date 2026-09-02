@@ -471,3 +471,17 @@
   decode();
   render();
 })();
+
+/* THE RAIL DRAWER, below 960px only.  Wired once at load; above the breakpoint the button is
+ * display:none and this never runs.  Picking a section closes it, because a drawer that stays open
+ * over the thing you just chose is worse than no drawer. */
+(function () {
+  const btn = document.getElementById("railBtn");
+  const wrap = document.getElementById("wrapTop");
+  const rail = document.getElementById("rail");
+  if (!btn || !wrap || !rail) return;
+  btn.onclick = () => wrap.classList.toggle("railopen");
+  rail.addEventListener("click", (e) => {
+    if (e.target.closest("a")) wrap.classList.remove("railopen");
+  });
+})();

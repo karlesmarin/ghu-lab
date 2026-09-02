@@ -181,7 +181,7 @@ const RELATIONS_SECTION = {
 
   <div class="grid two">
     <div class="card">
-      <h2>Walk a class</h2>
+      <h2>Walk a class${helpMark("move")}</h2>
       <p class="note" style="margin:0 0 10px">Every boundary condition in one class, joined when a
       move of the allowed degree takes one to the other. Lower the degree and watch it come apart.
       </p>
@@ -189,7 +189,7 @@ const RELATIONS_SECTION = {
       <div class="verdict stable" id="relVerdict" style="margin-top:12px"><b>—</b><span>—</span></div>
     </div>
     <div class="card">
-      <h2>The degree the moves need</h2>
+      <h2>The degree the moves need${helpMark("affine-semigroup")}</h2>
       <p class="note" style="margin:0 0 10px">Two computations that share no code path: the Hilbert
       numerator names the relation degrees without ever looking at a fibre, and the walk finds where
       the fibres connect without ever forming a series.</p>

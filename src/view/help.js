@@ -127,6 +127,238 @@ const HELP_TERMS = {
       + "and a published table of invariants, and the useful thing this page can do is stop you "
       + "deriving it again.",
   },
+
+  /* ---------------------------------------------------------------- the 5D gauge-Higgs core.
+   * These recur in nearly every section, so they are worded once.  Where `site/docs.html` already
+   * had the definition it is reused verbatim in substance: two tellings drift, and the copy a
+   * reader meets in a bubble would be the one nobody maintains. */
+  "wilson-line": {
+    term: "α, the Wilson-line phase",
+    body: "The vacuum expectation value of the extra-dimensional gauge field, in units where a "
+      + "period is 1. In this family it <i>is</i> the electroweak hierarchy, because "
+      + "<code>1/R₅ = 2m_W/α</code> — which is why a phase of order 10⁻³ and a scale of "
+      + "order tens of TeV are the same statement.",
+  },
+  hosotani: {
+    term: "gauge–Higgs unification",
+    body: "The 4D Higgs is not a separate scalar: it is a component of the higher-dimensional gauge "
+      + "field, surviving as a zero mode. Its potential is therefore forbidden at tree level and "
+      + "generated at one loop, which is what makes the electroweak scale a computed number here "
+      + "rather than an input.",
+  },
+  parities: {
+    term: "the orbifold parities",
+    body: "The signs a multiplet picks up at the orbifold fixed points, written "
+      + "<code>(+,+)</code>, <code>(+,−)</code> and so on. They decide which components "
+      + "survive with a massless mode — and <b>only <code>(+,+)</code> has a zero mode</b>, "
+      + "so the whole 4D content follows from the parity assignment and nothing else.",
+  },
+  "zero-mode": {
+    term: "a zero mode",
+    body: "The massless four-dimensional field at the bottom of a Kaluza–Klein tower — what is "
+      + "left at low energy. Which states have one is fixed by the pair of parities they carry, so "
+      + "reading the 4D content off a model is arithmetic, not a calculation.",
+  },
+  "kk-tower": {
+    term: "the Kaluza–Klein tower",
+    body: "One four-dimensional field per mode of the extra dimension. With no brane kinetic term "
+      + "the masses are <code>n/R</code>; the compactification scale <code>1/R</code> is the "
+      + "spacing, and it is the number every bound in this instrument is finally about.",
+  },
+  "bulk-content": {
+    term: "the bulk content",
+    body: "The list of representations living in the extra dimensions, each with its orbifold "
+      + "parities and a multiplicity. <b>It is the input to everything</b> — potential, spectrum, "
+      + "anomalies and scale are all functions of it.",
+  },
+  brane: {
+    term: "branes, and the fixed points",
+    body: "The ends of the interval, where the orbifold has its fixed points. Fields can live there "
+      + "as well as in the bulk, and that matters twice over: the anomaly of this class of models "
+      + "sits entirely on the fixed points, and brane fermions are what pay for unwanted zero modes.",
+  },
+  "one-loop-potential": {
+    term: "the one-loop potential",
+    body: "The effective potential for <code>α</code>, summed over the whole Kaluza–Klein tower and "
+      + "over windings. It is finite — the Higgs mass is protected by the higher-dimensional gauge "
+      + "symmetry — which is the reason this class of models exists.",
+  },
+  "alpha-min": {
+    term: "α_min, the vacuum",
+    body: "Where the one-loop potential is minimised. In this class of models it is an algebraic "
+      + "function of two moments of the bulk content, <b>so it is computed rather than searched "
+      + "for</b> — and the closed form is checked against direct minimisation on every render.",
+  },
+  chiral: {
+    term: "a chiral spectrum",
+    body: "Left- and right-handed fields in different representations — which is the point of "
+      + "orbifolding, and the reason the 4D theory can look like the Standard Model. It is also a "
+      + "gate: a chiral spectrum is inconsistent unless its gauge anomalies cancel.",
+  },
+  "anomaly-channel": {
+    term: "the anomaly channels",
+    body: "A chiral spectrum has to have its gauge anomalies cancel, channel by channel — tedious, "
+      + "and where an arithmetic slip hides best. <b>A non-zero entry is not a verdict of "
+      + "inconsistency</b>: these models carry brane fields anyway, and a brane fermion conjugate "
+      + "to a zero mode contributes to the same channel with the opposite sign. So the ledger "
+      + "reports a bill, and says who can pay it.",
+  },
+  blkt: {
+    term: "a brane kinetic term",
+    body: "An extra kinetic term localised on a fixed point. Turn it on and the Kaluza–Klein masses "
+      + "stop being <code>n/R</code>: they become the roots of a transcendental equation, sliding "
+      + "off the poles of the free summand, and the potential has to be built from those roots "
+      + "instead of written down.",
+  },
+  "boundary-condition": {
+    term: "a boundary condition",
+    body: "The choice of how the gauge group acts at each fixed point — for SU(N) on "
+      + "<code>S¹/Z₂</code>, the block sizes <code>[p, q, r, s]</code>. It is what breaks the "
+      + "group, and there are many of them, which is the first problem a model builder meets.",
+  },
+  "equivalence-class": {
+    term: "when two boundary conditions are one theory",
+    body: "Some boundary conditions are related by a gauge transformation, so they are the same "
+      + "theory wearing different clothes; <b>only the class is physics</b>. Two things follow: the "
+      + "apparent unbroken symmetry is not an invariant of the class — SU(5) with "
+      + "<code>[2,0,0,3]</code> looks like SU(3)×SU(2)×U(1) and <code>[1,1,1,2]</code> "
+      + "like SU(2)×U(1)³, and they are one theory — and a survey that does not quotient "
+      + "by this counts the same model over and over.",
+  },
+
+  /* ---------------------------------------------------------------- the SU(7) family, Parts III-VIII */
+  moments: {
+    term: "D and A₄",
+    body: "The second and fourth moments of the content, weighted by Wilson-line charge. "
+      + "<code>8D</code> is always an <i>odd</i> integer, so the curvature at the symmetric point "
+      + "can never vanish and the electroweak verdict is always well defined.",
+  },
+  rung: {
+    term: "a rung of the ladder",
+    body: "The curvature <code>D</code> is quantised, so the reachable models fall on a ladder and "
+      + "each rung is a <b>finite set</b> — which is what makes “no content here” a decision rather "
+      + "than a failed search. How finite is a different question, answered by counting rather than "
+      + "by building.",
+  },
+  ceiling: {
+    term: "the ceiling",
+    body: "An upper bound on <code>1/R₅</code> that holds for arbitrary bulk content, obtained as "
+      + "an integer program whose relaxation has a two-variable dual and enumerated exactly in "
+      + "rationals. It is a <i>bound</i> — which is a different object from the set of scales the "
+      + "model actually reaches.",
+  },
+  "reachable-set": {
+    term: "the reachable set",
+    body: "Not an interval. The scales this model can take are finitely many and fall in clusters, "
+      + "one per rung, and between the rung-three and rung-one clusters lies a stretch of "
+      + "2682 GeV that no content reaches at all. A ceiling cannot see that; running the map "
+      + "backwards can.",
+  },
+  certificate: {
+    term: "a certificate",
+    body: "When no content exists at a scale, the answer is not silence but a <b>named reason</b> — "
+      + "which rung it would have to be on, and which arithmetic forbids it. That is what makes the "
+      + "backwards question decidable rather than an unsuccessful search.",
+  },
+  "vector-partition-function": {
+    term: "counting instead of enumerating",
+    body: "The multiplet lattice with its congruence is a rational cone cut by an affine "
+      + "sublattice, so the count at fixed <code>(A₄, 8D)</code> is a vector partition function. A "
+      + "dynamic programme gives every count at once in milliseconds, where building the contents "
+      + "one at a time took about twenty-five minutes and ran out of budget.",
+  },
+  "same-potential": {
+    term: "when two contents give one potential",
+    body: "Part VII Theorem 3: five coordinates decide it, and it is an <i>iff</i>. So two genuinely "
+      + "different multisets of multiplets can have identically the same Wilson-line potential — "
+      + "which is why a survey that lists contents is not a survey of theories.",
+  },
+  "canonical-representative": {
+    term: "the canonical representative",
+    body: "Of all the contents sharing one potential, a distinguished one (eq. 43). Holding a "
+      + "content up against its own representative is the theorem earning its keep: a different "
+      + "multiset, the same curve.",
+  },
+  "selection-rule": {
+    term: "the selection rule",
+    body: "Part III: one bit, arithmetic on three integers, says that <b>half the torus is "
+      + "redundant</b> — you never have to search it. The claim is testable by a computation that "
+      + "has never heard of Dynkin labels, which is what this page runs.",
+  },
+  eta: {
+    term: "η, the boundary sign",
+    body: "The boundary-condition sign <code>η = η₀η₁</code>. Part V shows it rides on an index "
+      + "alone, so it is invisible to the Higgs potential exactly on Part IV's vanishing class.",
+  },
+  "eta-blindness": {
+    term: "blindness is not smallness",
+    body: "A content with <code>M₂ = 0</code> is invisible to <code>η</code> <b>at any size</b>: "
+      + "nine copies of a blind multiplet move the Higgs by nothing. A small effect and a null "
+      + "effect are different statements, and this panel is built so you can try to break the "
+      + "second one.",
+  },
+  "k-invariant": {
+    term: "K, the row-consistency invariant",
+    body: "<code>m_h a / √F'' = 2.2456 g₄</code> for every row. It is invariant under "
+      + "<code>F → λF</code>, so it tests a published row against <i>itself</i> and never against "
+      + "our anchor — which is exactly why it can screen somebody else's table without recomputing "
+      + "their model. Part VI, open problem 3.",
+  },
+  comb: {
+    term: "the comb",
+    body: "The KK scale can only sit on teeth, spaced exactly in <code>M²</code> and not in "
+      + "<code>M</code>, with each rung's teeth stopping at its own ceiling. The <b>spacing</b> is "
+      + "arithmetic and carries nothing; the <b>position</b> carries the anchor residual and "
+      + "<code>g₄</code>. Confusing the two is how a screen becomes an accusation.",
+  },
+  "bill-in-eighths": {
+    term: "the bill, in eighths",
+    body: "The cost of an escape from the proton-decay obstruction, measured in the quantum of "
+      + "<code>D</code>. It is a ratio of integers, <b>so no normalisation enters it</b> — which is "
+      + "what lets it be quoted without an anchor.",
+  },
+  "rung-cube": {
+    term: "the rung cube",
+    body: "The 64 ordered triples of lepton rungs, drawn. Its main diagonal is the "
+      + "family-universal line, where every <code>A_j</code> vanishes and the protection dies — so "
+      + "<b>the failure set is a line, not a region</b>, and the theorem is the geometry rather "
+      + "than a summary of it.",
+  },
+  coloron: {
+    term: "the coloron",
+    body: "The only coloured state a dijet search actually sees in this model, so it is where the "
+      + "CERN programme meets the family. Its mass and width follow the model's own "
+      + "<code>1/R₅</code>: change the content anywhere and every number here moves with it.",
+  },
+  recast: {
+    term: "a recast",
+    body: "A published experimental bound re-expressed on this model's scale. The "
+      + "<code>Δχ²</code> teeth here are <b>quoted from the published record, never "
+      + "re-derived</b> — a near-miss re-derivation would put a number on the page that disagrees "
+      + "with the paper it claims to come from.",
+  },
+  anchor: {
+    term: "the anchor",
+    body: "A published computation the instrument recomputes at load and shows as a chip, so the "
+      + "tool <b>declares whether it currently reproduces an outside number before it shows you any "
+      + "of its own</b>.",
+  },
+
+  /* ---------------------------------------------------------------- reading the literature */
+  "keyword-sweep": {
+    term: "what a keyword sweep is worth",
+    body: "It turns a corpus into a shortlist, and that is all. A signal firing means “worth "
+      + "opening”; it is <b>never</b> quoted as a fact about a paper. The two are kept in separate "
+      + "columns here for exactly that reason.",
+  },
+  "measured-vs-read": {
+    term: "measured, read, and unmeasured",
+    body: "<b>Measured</b> is the sweep: complete and reproducible. <b>Read</b> is a row somebody "
+      + "asserted, naming the page or equation they looked at. And a paper whose text layer lost "
+      + "glyphs has <b>not been measured</b> — counting it as one that publishes nothing would be "
+      + "the sweep reporting its own blind spot as a property of the field. 87% of these PDFs lose "
+      + "glyphs to extraction.",
+  },
   tripod: {
     term: "the tripod bound",
     body: "For a finite abelian <code>G</code>, the group-based model on the claw tree with three "
@@ -165,8 +397,8 @@ export function mountHelp() {
   if (document.__helpMounted) return;
   document.__helpMounted = true;
 
-  let pop = null;
-  const close = () => { if (pop) { pop.remove(); pop = null; } };
+  let pop = null, openFor = null;
+  const close = () => { if (pop) { pop.remove(); } pop = null; openFor = null; };
 
   document.addEventListener("click", (ev) => {
     const b = ev.target.closest && ev.target.closest(".ihelp");
@@ -174,13 +406,17 @@ export function mountHelp() {
     ev.preventDefault();
     ev.stopPropagation();
     const entry = HELP_TERMS[b.dataset.help];
-    const already = pop && pop.dataset.for === b.dataset.help;
+    /* THE SAME MARK, not the same term.  One term can be marked twice on a page -- Frobenius-Schur
+     * is marked at its heading and again at its column -- and keying this on the term made the
+     * second mark close the first one's bubble instead of moving it to itself, which reads as a
+     * mark that does not work. */
+    const already = pop && openFor === b;
     close();
     if (!entry || already) return;                    /* pressing the same mark twice closes it */
 
     pop = document.createElement("div");
     pop.className = "helppop";
-    pop.dataset.for = b.dataset.help;
+    openFor = b;
     pop.innerHTML = "<b>" + entry.term + "</b><p>" + entry.body + "</p>";
     document.body.appendChild(pop);
 

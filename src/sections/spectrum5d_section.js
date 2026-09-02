@@ -59,7 +59,7 @@ const SPEC5D_SECTION = {
   <div class="grid two">
     <div>
       <div class="card">
-        <h2>The massless four-dimensional content</h2>
+        <h2>The massless four-dimensional content${helpMark("zero-mode")}</h2>
         <div style="overflow-x:auto"><table><thead><tr><th></th><th>field</th>
           <th>under the unbroken group</th><th class="num">how many</th></tr></thead>
           <tbody id="spZero"></tbody></table></div>
@@ -67,7 +67,7 @@ const SPEC5D_SECTION = {
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>Is it chiral?</h2>
+        <h2>Is it chiral?${helpMark("chiral")}</h2>
         <div class="verdict stable" id="spChiral"><b>—</b><span>—</span></div>
       </div>
     </div>

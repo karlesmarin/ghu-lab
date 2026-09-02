@@ -53,7 +53,7 @@ const SAMEPOT_SECTION = {
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>The kernel — eq. (42)</h2>
+        <h2>The kernel — eq. (42)${helpMark("same-potential")}</h2>
         <p class="note" style="margin:0 0 10px">The map content → five coordinates has a
         three-dimensional kernel, and these three relations span it. Apply one to B: the content
         changes, the five do not — watch the Δ column hold zero.</p>
@@ -62,7 +62,7 @@ const SAMEPOT_SECTION = {
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>The canonical representative — eq. (43)</h2>
+        <h2>The canonical representative — eq. (43)${helpMark("canonical-representative")}</h2>
         <p class="note" style="margin:0 0 10px">All seven kernel coefficients are non-negative, so
         rewriting never leaves the physical cone: every content has a one-loop-equivalent
         representative on <b>five types only</b>, and the semigroup of one-loop potentials is

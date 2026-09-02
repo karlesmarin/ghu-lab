@@ -69,12 +69,12 @@ const MULTIPLETS_SECTION = {
 
   <div class="grid2" style="margin-bottom:18px">
     <div class="card">
-      <h3>The parity cube</h3>
+      <h3>The parity cube${helpMark("parities")}</h3>
       <canvas id="mpCube" width="560" height="410"></canvas>
       <div class="note" id="mpCubeNote">—</div>
     </div>
     <div class="card">
-      <h3>What sits on each corner</h3>
+      <h3>What sits on each corner${helpMark("zero-mode")}</h3>
       <div id="mpTable"></div>
     </div>
   </div>

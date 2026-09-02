@@ -70,7 +70,7 @@ const ANOM5D_SECTION = {
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>The ledger</h2>
+        <h2>The ledger${helpMark("anomaly-channel")}</h2>
         <div style="overflow-x:auto"><table><thead><tr><th>channel</th>
           <th class="num">coefficient</th><th></th></tr></thead>
           <tbody id="anRows"></tbody></table></div>
@@ -80,7 +80,7 @@ const ANOM5D_SECTION = {
 
     <div>
       <div class="card">
-        <h2>What it is summing over</h2>
+        <h2>What it is summing over${helpMark("chiral")}</h2>
         <p class="note" style="margin:0 0 10px">The massless Weyl fermions, as representations of
         the unbroken group. A right-handed one is counted as a left-handed one in the conjugate,
         which is why some entries carry a minus.</p>

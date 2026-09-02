@@ -79,7 +79,7 @@ const SUN5D_SECTION = {
   <div class="grid two">
     <div>
       <div class="card">
-        <h2>The boundary condition</h2>
+        <h2>The boundary condition${helpMark("boundary-condition")}</h2>
         <p class="note" style="margin:0 0 10px">Simultaneously diagonal parities are four block
         sizes — their eq. (5.1). Everything else follows from them.</p>
         <div id="sunBlocks"></div>
@@ -89,7 +89,7 @@ const SUN5D_SECTION = {
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>The bulk</h2>
+        <h2>The bulk${helpMark("bulk-content")}</h2>
         <p class="note" style="margin:0 0 10px">Dirac fermions count <b>+4</b>, complex scalars
         <b>−2</b>, and the gauge sector with its ghost <b>−3</b> — their §3. The signs are degrees
         of freedom, not a fit.</p>
@@ -102,7 +102,7 @@ const SUN5D_SECTION = {
 
     <div>
       <div class="card">
-        <h2>The potential</h2>
+        <h2>The potential${helpMark("one-loop-potential")}</h2>
         <div class="note" id="sunFormula" style="font-family:var(--mono);font-size:12.5px;
              line-height:1.9;word-break:break-word">—</div>
         <canvas id="sunPlot" width="720" height="300" style="margin-top:12px"></canvas>
@@ -110,12 +110,12 @@ const SUN5D_SECTION = {
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>The vacuum</h2>
+        <h2>The vacuum${helpMark("alpha-min")}</h2>
         <div class="verdict stable" id="sunVac"><b>—</b><span>—</span></div>
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>One phase, and the rest of this instrument applies</h2>
+        <h2>One phase, and the rest of this instrument applies${helpMark("hosotani")}</h2>
         <div id="sunBridge" class="note">—</div>
       </div>
     </div>

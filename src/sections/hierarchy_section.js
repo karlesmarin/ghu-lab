@@ -37,7 +37,7 @@ const HIERARCHY_SECTION = {
   <div class="grid two">
     <div>
       <div class="card">
-        <h2>The potential, as you change the content</h2>
+        <h2>The potential, as you change the content${helpMark("one-loop-potential")}</h2>
         <canvas id="pot" width="720" height="330"></canvas>
         <div class="legend">
           <span><i style="background:var(--blue)"></i>F(α), summed here</span>
@@ -48,7 +48,7 @@ const HIERARCHY_SECTION = {
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>The bulk content</h2>
+        <h2>The bulk content${helpMark("bulk-content")}</h2>
         <div style="display:flex;gap:8px;margin-bottom:10px">
           <button class="ghost" id="clr">clear</button>
           <button class="ghost" id="tour">▶ show me</button>
@@ -66,7 +66,7 @@ const HIERARCHY_SECTION = {
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>The arithmetic laws</h2>
+        <h2>The arithmetic laws${helpMark("moments")}</h2>
         <table><tbody>
           <tr><td>8D ≡ 2A₄ + 3 (mod 6) — Theorem 2, on either seed</td><td class="num" id="l2"></td></tr>
           <tr><td>2W is odd — the two symmetric points never tie, on either seed</td><td class="num" id="l3"></td></tr>
@@ -166,7 +166,7 @@ const HIERARCHY_SECTION = {
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>The four levels of the ceiling</h2>
+        <h2>The four levels of the ceiling${helpMark("ceiling")}</h2>
         <table><thead><tr><th>bound</th><th class="num">1/R₅</th><th class="num">(A₄, 8D)</th>
           <th>what it bounds</th></tr></thead><tbody id="ceilRows"></tbody></table>
         <div class="note" style="margin-top:9px" id="ceilNote">—</div>

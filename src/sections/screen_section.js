@@ -58,7 +58,7 @@ const SCREEN_SECTION = {
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>Screen 2 — K, the row-consistency invariant</h2>
+        <h2>Screen 2 — K, the row-consistency invariant${helpMark("k-invariant")}</h2>
         <div class="verdict stable" id="scKV"><b>—</b><span>—</span></div>
         <div class="note" style="margin-top:9px">K = m<sub>h</sub>α<sub>min</sub>/&radic;F&Prime;
         = 2m<sub>W</sub>&radic;(3/16π⁶)·g₄ = <b>2.2456·g₄</b> for every row of every content —
@@ -79,7 +79,7 @@ const SCREEN_SECTION = {
 
     <div>
       <div class="card">
-        <h2>Screen 3 — the comb the KK scale must sit on</h2>
+        <h2>Screen 3 — the comb the KK scale must sit on${helpMark("comb")}</h2>
         <canvas id="scComb" width="720" height="360"></canvas>
         <div class="legend">
           <span><i style="background:var(--blue)"></i>a tooth — an admissible (k, A₄)</span>

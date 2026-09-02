@@ -52,7 +52,7 @@ const SELECTION_SECTION = {
   <div class="grid two">
     <div>
       <div class="card">
-        <h2>The rule, put at risk</h2>
+        <h2>The rule, put at risk${helpMark("selection-rule")}</h2>
         <div class="verdict" id="sVerdict"><b>—</b><span>—</span></div>
         <div class="note" style="margin-top:10px">
           The rule reads three integers. The potential sums windings over a mode table. They share no

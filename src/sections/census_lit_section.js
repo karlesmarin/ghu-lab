@@ -52,7 +52,7 @@ const CENSUS_LIT_SECTION = {
 
   <div class="grid two" style="margin-bottom:18px">
     <div class="card">
-      <h2>The corpus</h2>
+      <h2>The corpus${helpMark("keyword-sweep")}</h2>
       <div style="overflow-x:auto"><table><tbody id="ltCorpus"></tbody></table></div>
       <div class="note" style="margin-top:9px" id="ltCorpusNote">—</div>
     </div>
@@ -65,7 +65,7 @@ const CENSUS_LIT_SECTION = {
   </div>
 
   <div class="card" style="margin-bottom:18px">
-    <h2>Read, and asserted</h2>
+    <h2>Read, and asserted${helpMark("measured-vs-read")}</h2>
     <p class="note">Every row below names the page or equation somebody looked at. A paper that is
     not here has not been read, and the census says so rather than leaving a blank that would be
     taken for a no.</p>

@@ -53,7 +53,7 @@ const ETA_SECTION = {
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>The one integer it all comes from</h2>
+        <h2>The one integer it all comes from${helpMark("eta")}</h2>
         <div class="pair">
           <div class="stat"><div class="k">M₂</div><div class="v" id="eM2">—</div>
             <div class="s">the whole eta-dependence, in one number</div></div>
@@ -70,7 +70,7 @@ const ETA_SECTION = {
 
     <div>
       <div class="card">
-        <h2>Blindness is not smallness</h2>
+        <h2>Blindness is not smallness${helpMark("eta-blindness")}</h2>
         <div class="verdict" id="eBlind"><b>—</b><span>—</span></div>
         <div class="note" style="margin-top:10px">Try to break it: load a blind multiplet and raise
         its multiplicity as far as you like. If <span style="font-family:var(--mono)">M₂ = 0</span>

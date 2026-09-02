@@ -271,7 +271,7 @@ const ORBIFOLD_SECTION = {
   </div>
 
   <div class="card" style="margin-top:18px">
-    <h2>What any equivalence relation must preserve${helpMark("class")}</h2>
+    <h2>What any equivalence relation must preserve${helpMark("cone")}${helpMark("class")}</h2>
     <p class="note" style="margin:0 0 10px">The local datum of every letter at every cone point, as
     multiplicities over the e-th roots of unity. <b>A proposed relation that moves one of these is
     wrong</b>, and the check costs seconds and does not need the classification to be finished.</p>

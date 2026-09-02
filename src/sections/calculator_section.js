@@ -47,7 +47,7 @@ const CALCULATOR_SECTION = {
   <div class="grid two">
     <div>
       <div class="card" style="margin-top:18px">
-        <h2>The cut through the vacuum</h2>
+        <h2>The cut through the vacuum${helpMark("wilson-line")}</h2>
         <canvas id="cCut" width="720" height="220"></canvas>
         <div class="note" style="margin-top:9px">V along &alpha;<sub>2</sub> at the vacuum's
         &alpha;<sub>1</sub>. One curve anybody can read.</div>
@@ -67,7 +67,7 @@ const CALCULATOR_SECTION = {
 
     <div>
       <div class="card">
-        <h2>Your matter content</h2>
+        <h2>Your matter content${helpMark("bulk-content")}</h2>
         <div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap">
           <button class="ghost" id="cClear">clear</button>
           <button class="ghost" id="cAhmn">▶ load AHMN 2312.08608</button>

@@ -91,7 +91,7 @@ const SWEEP5D_SECTION = {
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>The funnel</h2>
+        <h2>The funnel${helpMark("chiral")}</h2>
         <div style="overflow-x:auto"><table><thead><tr><th>stage</th>
           <th class="num">kept</th><th class="num">of</th></tr></thead>
           <tbody id="swFunnel"></tbody></table></div>

@@ -69,7 +69,7 @@ const BCC_SECTION = {
   <div class="grid two">
     <div>
       <div class="card">
-        <h2>The boundary condition</h2>
+        <h2>The boundary condition${helpMark("boundary-condition")}</h2>
         <div style="display:flex;gap:6px;margin-bottom:11px;flex-wrap:wrap" id="bccOrb"></div>
         <div class="rowm" id="bccNCtl">
           <span class="nm" style="flex:1">N</span>
@@ -82,7 +82,7 @@ const BCC_SECTION = {
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>Its equivalence class</h2>
+        <h2>Its equivalence class${helpMark("equivalence-class")}</h2>
         <div style="overflow-x:auto"><table><thead><tr><th>boundary condition</th>
           <th>apparent unbroken symmetry</th><th class="num">N_v</th></tr></thead>
           <tbody id="bccMembers"></tbody></table></div>

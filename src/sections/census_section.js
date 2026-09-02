@@ -58,7 +58,7 @@ const CENSUS_SECTION = {
   <div class="grid two">
     <div>
       <div class="card">
-        <h2>The four rungs the paper enumerates</h2>
+        <h2>The four rungs the paper enumerates${helpMark("rung")}</h2>
         <div style="overflow-x:auto"><table><thead><tr><th>8D</th><th class="num">legal A₄</th>
           <th class="num">A₄ ceiling</th><th class="num">counted here</th>
           <th class="num">built by the enumerator</th><th></th></tr></thead>
@@ -67,7 +67,7 @@ const CENSUS_SECTION = {
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>The counting function along a rung</h2>
+        <h2>The counting function along a rung${helpMark("vector-partition-function")}</h2>
         <canvas id="cnCurve" width="720" height="300"></canvas>
         <div class="legend" id="cnLegend"></div>
         <div class="note" style="margin-top:9px" id="cnCurveNote">—</div>

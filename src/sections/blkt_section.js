@@ -93,7 +93,7 @@ const BLKT_SECTION = {
   </div>
 
   <div class="card" style="margin-bottom:18px" id="bkStep1">
-    <h2>1 · The mass equation, and where its roots come from</h2>
+    <h2>1 · The mass equation, and where its roots come from${helpMark("blkt")}</h2>
     <p class="note">The curve is <span style="font-family:var(--mono)">F(x) = 1 − cπx²S<sub>reg</sub>(x)</span>,
     their (3.19) with the sum regulated by (3.21). The grey verticals are the <b>poles</b> of the
     summand — and at <b>c = 0</b> the poles <i>are</i> the spectrum. Turn c up and each root slides
@@ -104,7 +104,7 @@ const BLKT_SECTION = {
   </div>
 
   <div class="card" style="margin-bottom:18px" id="bkStep2">
-    <h2>2 · The same thing read as a spectrum</h2>
+    <h2>2 · The same thing read as a spectrum${helpMark("kk-tower")}</h2>
     <canvas id="bkTower" width="720" height="200"></canvas>
     <div class="legend" id="bkTowerLeg"></div>
     <div style="overflow-x:auto;margin-top:10px"><table><thead><tr>

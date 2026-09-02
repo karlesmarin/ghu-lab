@@ -36,7 +36,7 @@ const ANOMALIES_SECTION = {
   <div class="grid two">
     <div>
       <div class="card">
-        <h2>The bill, in eighths</h2>
+        <h2>The bill, in eighths${helpMark("bill-in-eighths")}</h2>
         <p class="note" style="margin:0 0 10px">What each multiplet contributes to
         <span style="font-family:var(--mono)">8D</span>. Integers, exactly — this is the one thing
         on this page that no normalisation can move.</p>
@@ -46,7 +46,7 @@ const ANOMALIES_SECTION = {
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>The ladder, and the quantum</h2>
+        <h2>The ladder, and the quantum${helpMark("rung")}</h2>
         <canvas id="aLadder" width="560" height="150"></canvas>
         <div class="note" style="margin-top:9px" id="aLadderNote"><span style="font-family:var(--mono)">8D</span> is
         an <b>odd integer</b> — Part VII, Theorem 1 — so <span style="font-family:var(--mono)">D</span>
@@ -56,7 +56,7 @@ const ANOMALIES_SECTION = {
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>The six anomaly channels</h2>
+        <h2>The six anomaly channels${helpMark("anomaly-channel")}</h2>
         <div class="verdict stable" id="aChan"><b>—</b><span>—</span></div>
         <div class="note" style="margin-top:9px">Part VI §3, on the surviving chiral content with
         their own conjugate-pairing prescription. Three channels are linear in X<sub>Q</sub> and share
@@ -98,7 +98,7 @@ const ANOMALIES_SECTION = {
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>The headline as a region — the wedge</h2>
+        <h2>The headline as a region — the wedge${helpMark("ceiling")}</h2>
         <p class="note" style="margin:0 0 10px">The exposed half of "row (2) is the unique row"
         is D, computed from the very formulas that fail the anchor. So take the <b>whole family</b>
         of repairs — reweight every 28 by w(28) and every 84 by w(84) — and ask where the verdict

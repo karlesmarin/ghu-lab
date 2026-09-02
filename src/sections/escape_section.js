@@ -41,7 +41,7 @@ const ESCAPE_SECTION = {
   <div class="grid two">
     <div>
       <div class="card">
-        <h2>The brane content</h2>
+        <h2>The brane content${helpMark("brane")}</h2>
         <p class="note" style="margin:0 0 10px">The half of the model record the bulk sections
         never read. Defaults are the paper's own, and the tool echoes what it filled in.</p>
         <div id="egGen"></div>
@@ -60,7 +60,7 @@ const ESCAPE_SECTION = {
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>The six anomaly channels</h2>
+        <h2>The six anomaly channels${helpMark("anomaly-channel")}</h2>
         <div class="verdict stable" id="egChanV"><b>—</b><span>—</span></div>
         <div class="note" style="margin-top:9px">Part VI §3, state by state on the surviving chiral
         content with their own conjugate-pairing prescription. Three channels are linear in
@@ -81,7 +81,7 @@ const ESCAPE_SECTION = {
 
     <div>
       <div class="card">
-        <h2>The rung cube</h2>
+        <h2>The rung cube${helpMark("rung-cube")}</h2>
         <canvas id="egCube" width="560" height="340"></canvas>
         <div class="legend">
           <span><i style="background:#48596a"></i>some A<sub>j</sub> = 0 — unprotected</span>
@@ -101,7 +101,7 @@ const ESCAPE_SECTION = {
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>The selection rule, and the residual group</h2>
+        <h2>The selection rule, and the residual group${helpMark("selection-rule")}</h2>
         <div class="verdict stable" id="egSelV"><b>—</b><span>—</span></div>
         <table style="margin-top:10px"><thead><tr><th class="num">q<sub>&phi;</sub></th><th>supplied by</th>
           <th>dresses this content</th><th class="num">residual</th><th>forbids (3m+1)/2</th></tr></thead>

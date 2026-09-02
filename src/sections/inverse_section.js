@@ -64,7 +64,7 @@ const INVERSE_SECTION = {
   </div>
 
   <div class="card" style="margin-bottom:18px">
-    <h2>The reachable set</h2>
+    <h2>The reachable set${helpMark("reachable-set")}</h2>
     <canvas id="ivAxis" width="1200" height="230"></canvas>
     <div class="legend">
       <span><i style="background:var(--blue)"></i>a cluster: the scales that rung reaches</span>
@@ -151,7 +151,7 @@ const INVERSE_SECTION = {
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>What each certificate means</h2>
+        <h2>What each certificate means${helpMark("certificate")}</h2>
         <div id="ivGlossary"></div>
       </div>
     </div>

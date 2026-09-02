@@ -43,7 +43,7 @@ const COLLIDER_SECTION = {
   <div class="grid two">
     <div>
       <div class="card">
-        <h2>The only coloured state a dijet search sees</h2>
+        <h2>The only coloured state a dijet search sees${helpMark("coloron")}</h2>
         <div class="rowm" style="margin-bottom:10px">
           <span class="nm">1/R₅ (TeV)</span>
           <input id="clR5" type="text" size="7" placeholder="the model's"
@@ -69,7 +69,7 @@ const COLLIDER_SECTION = {
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>The ratio at the recast's own bins</h2>
+        <h2>The ratio at the recast's own bins${helpMark("recast")}</h2>
         <p class="note" style="margin:0 0 10px">F(t)² at the (M_jj, χ) grid the archived recast
         used — the numbers a fit would want, for this content's 1/R₅, computed live.</p>
         <div style="overflow-x:auto"><table><thead><tr id="clBinsHead"></tr></thead>

@@ -28,7 +28,7 @@ const ATLAS_SECTION = {
   html: `
   <div class="card" style="margin-bottom:18px">
     <p class="lead" id="a7Lead">Every content of at most five multiplets — <b>1 286 of them</b> —
-    with its one-loop potential drawn. Press the button; the six-atom factoring pays the windings
+    with its one-loop potential drawn.${helpMark("one-loop-potential")} Press the button; the six-atom factoring pays the windings
     once and each curve is six multiply-adds per point.</p>
     <div style="display:flex;gap:8px;margin-top:11px;flex-wrap:wrap;align-items:center">
       <button class="ghost" id="a7Go">▶ draw the whole lattice</button>

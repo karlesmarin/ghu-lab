@@ -191,7 +191,8 @@ def main(argv=None):
                 # Python engine of Part VII.  It runs here too, so the deployed copy can never
                 # carry a suite the build has not just seen pass.
                 ["node", "tests/run.mjs"],
-                [sys.executable, "_test_editiongate.py"]):
+                [sys.executable, "_test_editiongate.py"],
+                [sys.executable, "_test_help.py"]):
         # DECODE AS UTF-8, EXPLICITLY.  `text=True` alone uses the machine's ANSI codepage, and on
         # Windows that is cp1252, which has five UNMAPPED bytes (0x81, 0x8D, 0x8F, 0x90, 0x9D).  A
         # harness that prints a character whose UTF-8 encoding contains one of them -- an omega,

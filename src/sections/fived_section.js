@@ -35,7 +35,7 @@ const FIVED_SECTION = {
   <div class="grid two">
     <div>
       <div class="card">
-        <h2>The bulk content — six numbers</h2>
+        <h2>The bulk content — six numbers${helpMark("bulk-content")}</h2>
         <div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap">
           <button class="ghost" id="fvAnchor">⌂ the archived row</button>
           <button class="ghost" id="fvClear">clear — pure gauge</button>
@@ -78,7 +78,7 @@ const FIVED_SECTION = {
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>The second anchor — von Gersdorff–Irges–Quirós 2002</h2>
+        <h2>The second anchor — von Gersdorff–Irges–Quirós 2002${helpMark("anchor")}</h2>
         <p class="note" style="margin:0 0 10px">A different group, a different decade, and four
         published numbers this machinery must hit with <b>nothing adjusted</b> — the anchor route
         Part VII §12 keeps live. Their criterion for symmetry breaking is exactly our D &gt; 0:</p>
@@ -97,13 +97,13 @@ const FIVED_SECTION = {
 
     <div>
       <div class="card">
-        <h2>The potential, and its located vacuum</h2>
+        <h2>The potential, and its located vacuum${helpMark("alpha-min")}</h2>
         <canvas id="fvPot" width="720" height="300"></canvas>
         <div class="verdict stable" id="fvV" style="margin-top:11px"><b>—</b><span>—</span></div>
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>The Kaluza–Klein spectrum at the vacuum</h2>
+        <h2>The Kaluza–Klein spectrum at the vacuum${helpMark("kk-tower")}</h2>
         <canvas id="fvSpec" width="720" height="300"></canvas>
         <div class="note" style="margin-top:9px" id="fvSpecNote">—</div>
       </div>

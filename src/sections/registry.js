@@ -54,6 +54,11 @@ const SECTIONS = [
    * of.  They sit together on purpose: one shows the orbits, the other shows why there are that
    * many of them. */
   { ...ORBIFOLD_SECTION, group: "su3_hy", family: "Orbifold boundary conditions" },
+  /* And the other half of Part IX: IX-A says which letters exist, IX-B which relations
+   * hold among them.  It is mostly an attribution service -- the configuration usually
+   * already has a name and a published table -- plus the walk that shows whether a
+   * proposed move set actually reaches every member of a class. */
+  { ...RELATIONS_SECTION, group: "su3_hy", family: "Orbifold boundary conditions" },
   /* A DEMONSTRATION RATHER THAN A MODEL.  It holds its own dial, carries its own permalink, and
    * exists to show what the machinery does and why the answer can be believed -- so it sits in a
    * family of its own rather than pretending to be one of the three models. */

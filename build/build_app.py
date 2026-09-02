@@ -44,7 +44,7 @@ SECTIONS = ["torus_panels.js", "hierarchy_section.js", "inverse_section.js", "ce
             "collider_section.js", "calculator_section.js", "eta_section.js",
             "selection_section.js", "fived_section.js", "sun5d_section.js",
             "spectrum5d_section.js", "anomaly5d_section.js", "sweep5d_section.js",
-            "bcclass_section.js", "orbifold_section.js", "blkt_section.js",
+            "bcclass_section.js", "orbifold_section.js", "relations_section.js", "blkt_section.js",
             "census_lit_section.js",
             "multiplets_section.js",
             "registry.js"]

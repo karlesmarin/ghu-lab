@@ -16,7 +16,7 @@
  *   node _test_alphabet.mjs
  */
 import {
-  countFromSeries, degreeFromSeries, hilbertNumerator,
+  countFromSeries, degreeFromSeries, hilbertNumerator, classificationCost,
   alphabet, alphabetShape, classCount, coneSignature, conePoints, frobeniusSchur, localDatum,
   orderOf, predictedDegree, realForm,
 } from "./src/kernel/alphabet.mjs";
@@ -285,6 +285,42 @@ const s1cones = conePoints(S1, 2);
 const s1data = s1lab.map((L) => JSON.stringify(s1cones.map((c) => localDatum(L, 2, c))));
 ok(new Set(s1data).size === 4, "S^1/Z_2: the four labels have four distinct local data",
    [...new Set(s1data)].join(" "));
+
+console.log("\n   10 -- RANK 6, THE HETEROTIC ORBIFOLDS, AND A FACT FROM ANOTHER LITERATURE\n");
+/* The rotation of order m on a rank-r lattice under the paper's hypothesis is the companion matrix
+ * of Phi_m repeated s = r/phi(m) times — §9 says there is exactly one below rank 22, so this IS
+ * the rotation and not a choice among several. */
+function companion(coeffs, s) {
+  const d = coeffs.length - 1;
+  const C = Array.from({ length: d }, () => new Array(d).fill(0));
+  for (let i = 1; i < d; i++) C[i][i - 1] = 1;
+  for (let i = 0; i < d; i++) C[i][d - 1] = -coeffs[i];
+  const r = d * s, A = Array.from({ length: r }, () => new Array(r).fill(0));
+  for (let b = 0; b < s; b++)
+    for (let i = 0; i < d; i++) for (let j = 0; j < d; j++) A[b * d + i][b * d + j] = C[i][j];
+  return A;
+}
+const T6Z3 = companion([1, 1, 1], 3);          /* Phi_3, three blocks: order 3 on rank 6 */
+const t0 = Date.now();
+const sig6 = coneSignature(T6Z3, 3);
+const ms6 = Date.now() - t0;
+/* THE CHECK THAT COMES FROM SOMEWHERE ELSE ENTIRELY.  That T^6/Z_3 has 27 fixed points is a fact
+ * of heterotic string model building, not of this series — the 27 twisted sectors are in every
+ * textbook treatment.  Nothing in this engine was told it. */
+ok(sig6.length === 27 && sig6.every((e) => e === 3),
+   "T^6/Z_3: 27 cone points, all of order 3 — the 27 twisted sectors of the heterotic literature",
+   "got " + sig6.length + " of orders " + [...new Set(sig6)]);
+ok(ms6 < 3000, "and it takes " + ms6 + " ms",
+   "the box enumeration this replaced would have walked 1.5 billion points for the same answer");
+ok(alphabetShape(alphabet(T6Z3, 3)) === "81x1", "T^6/Z_3: alphabet 81x1",
+   "got " + alphabetShape(alphabet(T6Z3, 3)));
+const cost6 = classificationCost(T6Z3, 3);
+ok(cost6.points === 108, "the cost is 108 points, which is 2 x |det| and not |det|^r",
+   "dets [" + cost6.dets.join(",") + "], so the box would have been " + Math.pow(27, 6));
+/* and rank 6 at order 7, where phi(7) = 6 exactly: one block, no repetition */
+const T6Z7 = companion([1, 1, 1, 1, 1, 1, 1], 1);
+ok(orderOf(T6Z7) === 7 && coneSignature(T6Z7, 7).length === 7,
+   "T^6/Z_7: order 7, seven cone points", "alphabet " + alphabetShape(alphabet(T6Z7, 7)));
 
 console.log("\n" + "=".repeat(96));
 console.log(fail === 0 ? "   ALL " + pass + " CHECKS PASS" : "   *** " + fail + " FAILED of " + (pass + fail));

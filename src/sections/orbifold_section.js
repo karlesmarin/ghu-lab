@@ -34,40 +34,135 @@ const ORB_S = {
 
 /* The rotations.  Each is a matrix of finite order over Z^r and NOTHING ELSE is supplied: the
  * signature, the alphabet, the data, the count and the degree all come out of it. */
+/* The companion matrix of Phi_m, s blocks: the rotation of order m on a lattice of rank s*phi(m).
+ * §9 of Part IX-A says that below rank 22 there is exactly ONE rotation per (m, r) — the count is
+ * h(Q(zeta_m)), which is 1 all the way up — so this is not a choice among several, it is THE one.
+ * Which is why the presets can be generated rather than tabulated. */
+function orbCompanion(coeffs, s) {
+  const d = coeffs.length - 1;
+  const C = Array.from({ length: d }, () => new Array(d).fill(0));
+  for (let i = 1; i < d; i++) C[i][i - 1] = 1;
+  for (let i = 0; i < d; i++) C[i][d - 1] = -coeffs[i];
+  const r = d * s, A = Array.from({ length: r }, () => new Array(r).fill(0));
+  for (let b = 0; b < s; b++)
+    for (let i = 0; i < d; i++) for (let j = 0; j < d; j++) A[b * d + i][b * d + j] = C[i][j];
+  return A;
+}
+
 const ORB_ROT = {
-  "S1/Z2": { label: "S¹/Z₂", A: [[-1]], rank: 1 },
-  "T2/Z2": { label: "T²/Z₂", A: [[-1, 0], [0, -1]], rank: 2 },
-  "T2/Z3": { label: "T²/Z₃", A: [[0, -1], [1, -1]], rank: 2 },
-  "T2/Z4": { label: "T²/Z₄", A: [[0, -1], [1, 0]], rank: 2 },
-  "T2/Z6": { label: "T²/Z₆", A: [[1, -1], [1, 0]], rank: 2 },
+  "S1/Z2": { label: "S¹/Z₂", A: [[-1]] },
+  "T2/Z2": { label: "T²/Z₂", A: [[-1, 0], [0, -1]] },
+  "T2/Z3": { label: "T²/Z₃", A: [[0, -1], [1, -1]] },
+  "T2/Z4": { label: "T²/Z₄", A: [[0, -1], [1, 0]] },
+  "T2/Z6": { label: "T²/Z₆", A: [[1, -1], [1, 0]] },
+  /* rank 6, where heterotic orbifold model building lives.  They are here because the Smith-form
+   * enumeration made them affordable: T^6/Z_3 costs 108 points and 2 ms, where the box walk this
+   * replaced would have taken 1.5 billion. */
+  "T6/Z3": { label: "T⁶/Z₃", A: orbCompanion([1, 1, 1], 3) },
+  "T6/Z6": { label: "T⁶/Z₆", A: orbCompanion([1, -1, 1], 3) },
+  "T6/Z7": { label: "T⁶/Z₇", A: orbCompanion([1, 1, 1, 1, 1, 1, 1], 1) },
 };
 
-/* Enumerating the fibres costs multisets, so the rank the PICTURE can reach is bounded by the
- * alphabet.  The bound is derived from the alphabet rather than typed, and it is displayed. */
+/* Read a matrix the way somebody would type one: rows on separate lines or split by ';', entries
+ * by spaces or commas, brackets optional.  Returns the matrix or an explanation. */
+function orbParseMatrix(text) {
+  const t = String(text).replace(/[[\]]/g, " ").trim();
+  if (!t) return { error: "nothing typed" };
+  const rows = t.split(/[;\n]+/).map((s) => s.trim()).filter(Boolean)
+                .map((s) => s.split(/[\s,]+/).filter(Boolean).map(Number));
+  if (!rows.length) return { error: "nothing typed" };
+  if (rows.some((r) => r.some((x) => !Number.isInteger(x)))) {
+    return { error: "every entry must be an INTEGER — a rotation of a lattice has no other kind" };
+  }
+  const n = rows[0].length;
+  if (rows.some((r) => r.length !== n)) return { error: "the rows are not all the same length" };
+  if (rows.length !== n) {
+    return { error: "the matrix must be square: got " + rows.length + " rows of " + n };
+  }
+  if (n > 8) return { error: "rank " + n + " is past what this page will attempt" };
+  return { A: rows };
+}
+
+/* THE COST OF THE PICTURE IS NOT THE COST OF THE PREFLIGHT, and the difference is the whole reason
+ * this page can go to rank 6.
+ *
+ * The three things §8 promises — the alphabet, the degree, the local data — come from the rotation
+ * and cost almost nothing: T^6/Z_3 is 108 lattice points and two milliseconds.  The COUNT and the
+ * PICTURE need the multisets of letters of a given rank, and that is C(N+L-1, L-1) for an alphabet
+ * of L letters: 81 letters at rank 4 is 1.9 million.  So the expensive half is bounded by what it
+ * actually costs, the bound is derived and displayed, and where it cannot be paid the page says so
+ * instead of hanging or quietly showing a short answer. */
+const ORB_BUDGET = 150000;
+
+function orbMultisetEstimate(L, N) {          /* C(N+L-1, L-1), grown carefully, capped */
+  let v = 1;
+  for (let i = 1; i <= N; i++) { v = v * (L - 1 + i) / i; if (v > 1e12) return Infinity; }
+  return v;
+}
+
 function orbFibreCap(ws) {
-  const n = ws.length;
-  if (n <= 5) return 12;
-  if (n <= 8) return 9;
-  if (n <= 10) return 7;
-  return 6;
+  const L = ws.length;
+  for (let N = 1; N <= 16; N++) if (orbMultisetEstimate(L, N + 1) > ORB_BUDGET) return N;
+  return 16;
 }
 
 function orbState() {
-  const key = ORB_S.orbifold + "|" + ORB_S.family;
+  const key = ORB_S.orbifold + "|" + ORB_S.family + "|" + (ORB_S.custom || "");
   if (ORB_S.cache && ORB_S.cache.key === key) return ORB_S.cache;
-  const { A, label, rank } = ORB_ROT[ORB_S.orbifold];
+  const entry = ORB_ROT[ORB_S.orbifold];
+  const A = entry ? entry.A : ORB_S.customA;
+  const label = entry ? entry.label : "your matrix";
   const m = orderOf(A);
+  /* THE REFUSAL IS AN ANSWER.  A matrix of infinite order is not classified; that is the
+   * crystallographic restriction showing up as a property of the input. */
+  if (!m) {
+    ORB_S.cache = { key, A, label, refused: "no finite power of this matrix is the identity, so it"
+      + " is not a rotation of a lattice. That refusal IS the crystallographic restriction: in rank"
+      + " r only the orders with phi(m) dividing r can occur at all." };
+    return ORB_S.cache;
+  }
+  const cost = classificationCost(A, m);
+  /* THE HYPOTHESIS, CHECKED RATHER THAN ASSUMED.  Part IX-A takes the characteristic polynomial to
+   * be Phi_m^s — no eigenvalue 1 — which in practice is det(A^k - I) non-zero for every k below m.
+   * A rotation that fixes a whole subtorus has no isolated cone points, and the machinery then
+   * returns an EMPTY signature, an EMPTY alphabet and degree zero: an answer shaped exactly like a
+   * real one.  That is worse than a refusal, so it is refused.  Found by typing a Z_3 acting on two
+   * coordinates of a rank-3 lattice and leaving the third alone. */
+  const fixedBy = cost.dets.findIndex((d) => d === 0);
+  if (fixedBy >= 0) {
+    ORB_S.cache = { key, A, label, m,
+      refused: "rho^" + (fixedBy + 1) + " fixes a whole subtorus rather than isolated points — "
+        + "det(A^" + (fixedBy + 1) + " − I) = 0, so this rotation has an eigenvalue 1 and its "
+        + "characteristic polynomial is not a power of the m-th cyclotomic. That is outside the "
+        + "hypothesis of Part IX-A, and the machinery would answer with an empty alphabet and "
+        + "degree zero, which looks like an answer and is not one." };
+    return ORB_S.cache;
+  }
+  if (cost.points > 4e6) {
+    ORB_S.cache = { key, A, label, m,
+      refused: "classifying this would enumerate " + cost.points.toLocaleString("en")
+        + " lattice points (determinants " + cost.dets.join(", ") + "), which this page will not"
+        + " start rather than hang. The bound is stated, not hidden." };
+    return ORB_S.cache;
+  }
   const cones = conePoints(A, m);
   const sig = cones.map((c) => c.order);
   const letters = realForm(A, m, ORB_S.family);
   const ws = letters.map((L) => L.weight);
   const need = ws.reduce((s, w) => s + w, 0);
-  /* the numerator is exact and cheap once, and it is what lets every later rank be free */
-  let P = null, seriesError = null;
-  try { P = hilbertNumerator(classCount(A, m, ORB_S.family, need + 1), ws); }
-  catch (e) { seriesError = e.message; }
-  ORB_S.cache = { key, A, m, label, rank, cones, sig, letters, ws, P, seriesError,
-                  cap: orbFibreCap(ws), coords: datumCoordinates(A, m) };
+  const cap = orbFibreCap(ws);
+  /* the series needs the counts up to sum(w), which is out of reach for a big alphabet; when it is,
+   * there is no closed form on this page and that is said rather than approximated */
+  let P = null, seriesWhy = null;
+  if (orbMultisetEstimate(ws.length, need + 1) > ORB_BUDGET) {
+    seriesWhy = "the numerator needs the counts up to rank " + (need + 1) + " over "
+      + ws.length + " letters, which is past this page's budget";
+  } else {
+    try { P = hilbertNumerator(classCount(A, m, ORB_S.family, need + 1), ws); }
+    catch (e) { seriesWhy = e.message; }
+  }
+  ORB_S.cache = { key, A, m, label, cones, sig, letters, ws, P, seriesWhy, cap, cost,
+                  coords: datumCoordinates(A, m), rank: A.length };
   return ORB_S.cache;
 }
 
@@ -78,8 +173,13 @@ const ORBIFOLD_SECTION = {
   ready: true,
   modules: [],
 
+  /* THE HEADER RUNS FIRST, SO IT MUST SURVIVE A REFUSAL.  This reached for C.sig on a state that
+   * has none, threw, and took the whole refresh down with it — leaving the PREVIOUS orbifold on
+   * screen after a matrix was refused, which is the worst possible outcome: it reads as if the
+   * refusal had been accepted.  A refusal is a state the header has to be able to say out loud. */
   holds() {
     const C = orbState();
+    if (C.refused) return `${C.label} · REFUSED — not a rotation this page will classify`;
     return `${C.label} · ${ORB_S.family}(N) · signature (${C.sig.join(", ")}) · `
          + `alphabet ${orbShape(C.letters)} · degree ${predictedDegree(C.sig, ORB_S.family)}`;
   },
@@ -108,6 +208,22 @@ const ORBIFOLD_SECTION = {
       <button class="st" data-n="1">+</button>
     </div>
     <div id="orbAxesWrap" style="margin-top:10px"></div>
+  </div>
+
+  <div class="card" style="margin-bottom:18px">
+    <h2>Or your own rotation</h2>
+    <p class="note" style="margin:0 0 10px">An integer matrix of finite order, any rank up to 8 —
+    rows on separate lines or split by <code>;</code>. This page has no list of orbifolds it knows:
+    it has a computation, and the five above are just inputs to it. A matrix of infinite order comes
+    back <b>refused</b> rather than classified, which is the crystallographic restriction appearing
+    as a property of what you typed.</p>
+    <textarea id="orbMx" rows="3" spellcheck="false" style="width:100%;font-family:ui-monospace,
+      monospace;font-size:13px;padding:8px;border:1px solid var(--line,#dde3ea);border-radius:6px"
+      >0 -1; 1 -1</textarea>
+    <div style="display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap">
+      <button class="ghost" id="orbGo">classify it</button>
+      <span class="note" id="orbMxNote">—</span>
+    </div>
   </div>
 
   <div class="grid two">
@@ -183,6 +299,19 @@ const ORBIFOLD_SECTION = {
         ORB_S.N = n; ctx.refresh();
       };
     });
+    document.getElementById("orbGo").onclick = () => {
+      const p = orbParseMatrix(document.getElementById("orbMx").value);
+      const note = document.getElementById("orbMxNote");
+      if (p.error) { note.innerHTML = `<b style="color:#b3262b">${p.error}</b>`; return; }
+      ORB_S.customA = p.A;
+      ORB_S.custom = JSON.stringify(p.A);
+      ORB_S.orbifold = "__custom__";
+      ORB_S.cache = null; ORB_S.axes = [0, 1];
+      const C = orbState();
+      if (!C.refused && ORB_S.N > C.cap) ORB_S.N = C.cap;
+      note.textContent = "";
+      ctx.refresh();
+    };
     ORB_S.panels = mountFibrePanels({
       ids: { map: "orbMap", surf: "orbSurf", cap: "orbCap" },
       height: 320,
@@ -201,6 +330,23 @@ const ORBIFOLD_SECTION = {
     $("orbFam").querySelectorAll("button").forEach((b) =>
       b.classList.toggle("on", b.dataset.fam === ORB_S.family));
 
+    /* A REFUSAL IS RENDERED, not thrown away.  The reader typed something and is owed the reason. */
+    if (C.refused) {
+      document.getElementById("orbAxesWrap").innerHTML =
+        `<div class="verdict breaks"><b>refused</b><span>${C.refused}</span></div>`;
+      for (const id of ["orbAlpha", "orbCount", "orbData"]) {
+        const e = document.getElementById(id); if (e) e.innerHTML = "";
+      }
+      for (const id of ["orbSeries", "orbCap"]) {
+        const e = document.getElementById(id); if (e) e.textContent = "—";
+      }
+      const v = document.getElementById("orbAlphaV");
+      v.className = "verdict breaks";
+      v.innerHTML = "<b>no classification</b><span>nothing below is computed, because the input is "
+                  + "not a rotation this page can classify</span>";
+      this._honesty(C);
+      return;
+    }
     this._axes(ctx, C);
     this._field(C);
     this._alphabet(C);
@@ -236,6 +382,16 @@ const ORBIFOLD_SECTION = {
   },
 
   _field(C) {
+    /* the picture is the expensive half; when the alphabet puts it out of budget the panels say so
+     * rather than being drawn from a rank nobody asked for */
+    if (ORB_S.N > C.cap) ORB_S.N = C.cap;
+    if (C.cap < 1) {
+      document.getElementById("orbCap").innerHTML =
+        "<b>No picture at this alphabet.</b> It has " + C.letters.length + " letters, so even rank "
+        + "one has more multisets than this page will enumerate. The alphabet, the local data and "
+        + "the degree above are unaffected: they come from the rotation and cost nothing.";
+      return;
+    }
     const f = fibreField(C.A, C.m, ORB_S.family, ORB_S.N, ORB_S.axes);
     ORB_S.panels.set(f, fibreGrid(f));
   },
@@ -262,8 +418,8 @@ const ORBIFOLD_SECTION = {
 
   _count(C) {
     const rows = [];
-    const upto = Math.min(ORB_S.N + 2, C.cap);
-    const enumerated = classCount(C.A, C.m, ORB_S.family, upto);
+    const upto = Math.max(0, Math.min(ORB_S.N + 2, C.cap));
+    const enumerated = C.cap >= 1 ? classCount(C.A, C.m, ORB_S.family, upto) : [];
     const far = C.P ? countFromSeries(C.P, C.ws, 40) : null;
     for (let N = 0; N <= upto; N++)
       rows.push(`<tr><td class="num">${N}</td><td class="num">${
@@ -279,8 +435,10 @@ const ORBIFOLD_SECTION = {
     const d = predictedDegree(C.sig, ORB_S.family);
     const s = document.getElementById("orbSeries");
     if (!C.P) {
-      s.innerHTML = `<b>The series did not terminate.</b> ${C.seriesError} — so this page will not
-        offer a closed form for it. <span class="chip">UNAUDITABLE</span>`;
+      s.innerHTML = `Degree <b>${d}</b>, from the signature (${C.sig.join(", ")}) alone — which
+        costs nothing and is the number a proposed count has to match. <b>No closed form here:</b>
+        ${C.seriesWhy}. That is a limit of this page, not of the object.
+        <span class="chip">UNAUDITABLE</span></span>`;
       return;
     }
     const den = C.ws.reduce((acc, w) => { acc[w] = (acc[w] || 0) + 1; return acc; }, {});

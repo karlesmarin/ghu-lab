@@ -10,8 +10,8 @@
  *
  *   node _test_moves.mjs
  */
-import { classCount, coneSignature, hilbertNumerator, realForm } from "./src/kernel/alphabet.mjs";
-import { connectingDegree, fibreComponents, fibres, moveDegree,
+import { classCount, coneSignature, conePoints, hilbertNumerator, realForm } from "./src/kernel/alphabet.mjs";
+import { checkMove, connectingDegree, fibreComponents, fibres, moveDegree,
          relationDegreesFromNumerator } from "./src/kernel/moves.mjs";
 
 let pass = 0, fail = 0;
@@ -89,6 +89,63 @@ for (const { name, A, m, fam } of CASES) {
   }
   ok(broken > 0, name + " over " + fam + ": at degree " + (d - 1) + ", " + broken
      + " fibres are still in pieces", "largest fibre has " + biggest + " conditions");
+}
+
+console.log("\n   5 -- THE REFEREE: a proposed relation, judged\n");
+{
+  const A = [[-1, 0], [0, -1]], m = 2, fam = "SU";
+  const cones = conePoints(A, m), letters = realForm(A, m, fam);
+  /* A REAL MOVE, taken from the object rather than invented: find two conditions of the same class
+   * at rank 2 and read the swap between them.  Then the referee must call it legitimate. */
+  const { fibres: fs, ws } = fibres(A, m, fam, 2);
+  let real = null;
+  for (const f of fs.values()) {
+    if (f.members.length < 2) continue;
+    const toList = (n) => n.flatMap((c, i) => Array(c).fill(i));
+    real = { left: toList(f.members[0]), right: toList(f.members[1]) };
+    break;
+  }
+  const good = checkMove(letters, cones, real.left, real.right);
+  ok(good.verdict === "legitimate",
+     "a swap read off two members of one class is called LEGITIMATE",
+     "letters " + real.left.map((i) => i + 1) + " -> " + real.right.map((i) => i + 1)
+     + ", degree " + good.degree);
+
+  /* AND THE HALF THAT MATTERS: a swap between DIFFERENT classes must be refused, and the refusal
+   * must name where.  A referee that only ever says yes is not a referee. */
+  const two = [...fs.values()].filter((f) => f.members.length >= 1).slice(0, 2);
+  const toList = (n) => n.flatMap((c, i) => Array(c).fill(i));
+  const bad = checkMove(letters, cones, toList(two[0].members[0]), toList(two[1].members[0]));
+  ok(bad.verdict === "wrong", "a swap between two DIFFERENT classes is called wrong",
+     bad.moved.length + " local data move, first at cone " + (bad.moved[0].cone + 1)
+     + " on root " + bad.moved[0].root + ": " + bad.moved[0].left + " against " + bad.moved[0].right);
+  ok(bad.moved.length > 0 && bad.moved.every((x) => x.left !== x.right),
+     "and every entry it reports as moved really differs");
+
+  /* the two failure modes are told apart */
+  const uneven = checkMove(letters, cones, [0], [0, 1]);
+  ok(uneven.verdict === "not a move" && uneven.weights[0] !== uneven.weights[1],
+     "different total weight is reported as NOT A MOVE, not as a wrong one",
+     uneven.weights.join(" against "));
+  const nonsense = checkMove(letters, cones, [99], [0]);
+  ok(nonsense.verdict === "malformed", "a letter that does not exist is malformed", nonsense.why);
+  ok(checkMove(letters, cones, [], [0]).verdict === "malformed", "and an empty side too");
+
+  /* HOW MANY LEGITIMATE MOVES THERE ARE, against how many the SERIES says.  On T^2/Z_2 the eight
+   * letters fall into four complementary pairs — {1,2}, {3,4}, {5,6}, {7,8} — each summing to
+   * (1,1) at every cone, so any pair may be swapped for any other: 4 x 3 = 12 ordered swaps, which
+   * is three independent relations.  And the numerator is (1-x^2)^3: three relations of degree two.
+   * Counted here rather than asserted, because "the referee agrees with the series" is only worth
+   * anything if the referee was not written to. */
+  let legit = 0;
+  for (let a = 0; a < letters.length; a++) for (let b = a; b < letters.length; b++)
+    for (let c = 0; c < letters.length; c++) for (let d = c; d < letters.length; d++) {
+      if (a === c && b === d) continue;
+      if (checkMove(letters, cones, [a, b], [c, d]).verdict === "legitimate") legit++;
+    }
+  ok(legit === 12, "T^2/Z_2: exactly 12 legitimate pair-to-pair swaps — four complementary pairs, "
+     + "each exchangeable for any other", "which is THREE independent relations, and the numerator "
+     + "is (1-x^2)^3");
 }
 
 console.log("\n" + "=".repeat(96));

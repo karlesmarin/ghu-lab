@@ -93,7 +93,10 @@ function relState() {
   /* the biggest fibres first: a fibre of one member has nothing to show about moves */
   const ranked = [...F.fibres.entries()].map(([k, v]) => ({ key: k, ...v }))
     .sort((a, b) => b.members.length - a.members.length);
-  REL_S.cache = { key, A, m, label, sig, letters, ws, P, ranked, F };
+  /* `cones` belongs in here and was not: the referee and the letter table both read it, and both
+   * came back "cannot read properties of undefined" from inside the built page.  Taken from the
+   * fibre walk rather than recomputed, so there is one set of cones and not two that could drift. */
+  REL_S.cache = { key, A, m, label, sig, letters, ws, P, ranked, F, cones: F.cones };
   if (!REL_S.pick || !F.fibres.has(REL_S.pick)) REL_S.pick = ranked[0] ? ranked[0].key : null;
   return REL_S.cache;
 }
@@ -139,6 +142,25 @@ const RELATIONS_SECTION = {
   <div class="card" style="margin-bottom:18px">
     <h2>What this configuration already is</h2>
     <div id="relDict">—</div>
+  </div>
+
+  <div class="card" style="margin-bottom:18px">
+    <h2>Judge a proposed relation</h2>
+    <p class="note" style="margin:0 0 10px">§8 of Part IX-A, made usable: <b>a proposed relation
+    that moves a local datum is wrong</b>, and the check costs seconds and does not need the
+    classification to be finished. Write the swap as letter numbers &mdash;
+    <code>7 8 -&gt; 5 6</code> &mdash; and it is judged against the data below. A refusal names the
+    cone and the root of unity where the two sides part company, because &ldquo;wrong&rdquo; helps
+    nobody.</p>
+    <input id="relMove" spellcheck="false" value="7 8 -> 5 6" style="width:100%;
+      font-family:ui-monospace,monospace;font-size:13px;padding:8px;
+      border:1px solid var(--line,#dde3ea);border-radius:6px">
+    <div style="display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap">
+      <button class="ghost" id="relJudge">judge it</button>
+      <span class="note" id="relMoveNote"></span>
+    </div>
+    <div class="verdict stable" id="relMoveV" style="margin-top:12px"><b>&mdash;</b><span>&mdash;</span></div>
+    <div style="overflow-x:auto;margin-top:12px"><table id="relLetters"></table></div>
   </div>
 
   <div class="grid two">
@@ -192,6 +214,47 @@ const RELATIONS_SECTION = {
     });
   },
 
+  _judge() {
+    const C = relState();
+    const raw = document.getElementById("relMove").value;
+    const parts = raw.split(/-+>|\u2192/);
+    const note = document.getElementById("relMoveNote");
+    const v = document.getElementById("relMoveV");
+    if (parts.length !== 2) {
+      note.innerHTML = '<b style="color:#b3262b">write it as one side, an arrow, the other side'
+        + ' &mdash; for example 7 8 -&gt; 5 6</b>';
+      /* AND CLEAR THE VERDICT.  Leaving the previous one standing while the note complains is how
+       * a stale answer gets read as a current one — the same shape as the header that kept the old
+       * orbifold on screen after a matrix was refused. */
+      v.className = "verdict";
+      v.innerHTML = "<b>&mdash;</b><span>nothing judged: the input has no arrow</span>";
+      return;
+    }
+    const side = (s) => s.trim().split(/[\s,+]+/).filter(Boolean).map((x) => Number(x) - 1);
+    const r = checkMove(C.letters, C.cones, side(parts[0]), side(parts[1]));
+    note.textContent = "";
+    v.className = "verdict " + (r.verdict === "legitimate" ? "stable" : "breaks");
+    let detail = r.why;
+    if (r.moved && r.moved.length) {
+      const first = r.moved[0];
+      detail += ". First at cone " + (first.cone + 1) + " of order " + first.order
+        + ", on the root zeta^" + first.root + ": the left side reads " + first.left
+        + " and the right " + first.right
+        + (r.moved.length > 1 ? ", and " + (r.moved.length - 1) + " more entries differ" : "");
+    }
+    v.innerHTML = "<b>" + r.verdict + "</b><span>" + detail + "</span>";
+  },
+
+  _letters(C) {
+    const head = "<thead><tr><th class=\"num\">letter</th><th class=\"num\">weight</th>"
+      + C.cones.map((c, i) => "<th>cone " + (i + 1) + " (order " + c.order + ")</th>").join("")
+      + "</tr></thead>";
+    const rows = C.letters.map((L, i) =>
+      "<tr><td class=\"num\">" + (i + 1) + "</td><td class=\"num\">" + L.weight + "</td>"
+      + L.datum.map((d) => "<td><code>(" + d.join(",") + ")</code></td>").join("") + "</tr>").join("");
+    document.getElementById("relLetters").innerHTML = head + "<tbody>" + rows + "</tbody>";
+  },
+
   render(ctx) {
     const $ = (id) => document.getElementById(id);
     const C = relState();
@@ -202,8 +265,11 @@ const RELATIONS_SECTION = {
     $("relFam").querySelectorAll("button").forEach((b) =>
       b.classList.toggle("on", b.dataset.fam === REL_S.family));
     this._dict(C);
+    this._letters(C);
     this._graph(C);
     this._ladder(C);
+    const j = document.getElementById("relJudge");
+    if (j && !j._wired) { j._wired = true; j.onclick = () => this._judge(); }
   },
 
   _dict(C) {

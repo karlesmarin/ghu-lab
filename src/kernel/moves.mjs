@@ -110,6 +110,58 @@ export function connectingDegree(A, m, family, N, cap = 12) {
   return null;
 }
 
+/* ------------------------------------------------------------------ the referee
+ *
+ * §8 of Part IX-A, made usable: "a proposed relation that moves a local datum is WRONG, and the
+ * check costs seconds and does not require the classification to be finished."  Nothing in the
+ * literature offers this, and it is the one thing on these pages aimed squarely at work in
+ * progress that is not ours.
+ *
+ * `left` and `right` are multisets of letter indices.  The verdict is not a boolean: a refusal
+ * names the cone and the root of unity where the two sides part company, because "your move is
+ * wrong" helps nobody and "your move changes the multiplicity of zeta^2 at the cone of order 4"
+ * tells them what to fix.
+ */
+export function checkMove(letters, cones, left, right) {
+  const bad = (msg) => ({ verdict: "malformed", why: msg });
+  for (const i of left.concat(right)) {
+    if (!Number.isInteger(i) || i < 0 || i >= letters.length) {
+      return bad("letter " + (i + 1) + " does not exist; there are " + letters.length);
+    }
+  }
+  if (!left.length || !right.length) return bad("a move needs letters on both sides");
+
+  const w = (side) => side.reduce((s, i) => s + letters[i].weight, 0);
+  const wl = w(left), wr = w(right);
+
+  const datum = (side) => cones.map((c, ci) => {
+    const acc = new Array(c.order).fill(0);
+    for (const i of side) for (let k = 0; k < c.order; k++) acc[k] += letters[i].datum[ci][k];
+    return acc;
+  });
+  const dl = datum(left), dr = datum(right);
+  const moved = [];
+  for (let ci = 0; ci < cones.length; ci++)
+    for (let k = 0; k < cones[ci].order; k++)
+      if (dl[ci][k] !== dr[ci][k]) moved.push({ cone: ci, order: cones[ci].order, root: k,
+                                                left: dl[ci][k], right: dr[ci][k] });
+
+  /* THE RANK IS CHECKED SEPARATELY FROM THE DATA, because they fail for different reasons and a
+   * reader who has the weights wrong has a different problem from one whose data move. */
+  if (wl !== wr) {
+    return { verdict: "not a move", why: "the two sides have different total weight, " + wl
+      + " against " + wr + ", so they are not even boundary conditions of the same rank",
+      weights: [wl, wr], moved, left: dl, right: dr };
+  }
+  if (moved.length) {
+    return { verdict: "wrong", why: "the local datum MOVES, so the two sides are not the same "
+      + "theory and this relation is not one", weights: [wl, wr], moved, left: dl, right: dr };
+  }
+  return { verdict: "legitimate", why: "every cone reads the same thing on both sides, so the two "
+    + "sides are the same theory and this is a genuine move of degree " + wl,
+    weights: [wl, wr], moved, left: dl, right: dr, degree: wl };
+}
+
 /* The relation degrees the SERIES says there are, read off a Hilbert numerator: a factor
  * (1 - x^d)^k contributes k relations of degree d.  Read as the multiset of degrees at which the
  * numerator has a sign change, which is enough for the products of cyclotomic-type factors these

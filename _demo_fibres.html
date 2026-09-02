@@ -1,0 +1,103 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>fibre panels — bench</title>
+<!-- A bench, not a page: it exists so the pair can be LOOKED AT while it is being built, per the
+     house rule that a panel is driven and not read.  It is not part of the app and the build does
+     not ship it. -->
+<style>
+  :root { --ink:#1b2530; --dim:#5d6b79; --line:#dde3ea; --bg:#f6f8fa; }
+  body { margin:0; padding:22px; background:var(--bg); color:var(--ink);
+         font:14px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; }
+  h1 { font-size:17px; margin:0 0 4px; letter-spacing:-.01em; }
+  .sub { color:var(--dim); margin:0 0 18px; font-size:13px; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:10px; padding:14px 16px;
+          box-shadow:0 1px 2px rgba(20,30,40,.04); }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start; }
+  h2 { font-size:12px; text-transform:uppercase; letter-spacing:.07em; color:var(--dim);
+       margin:0 0 9px; font-weight:600; }
+  canvas { width:100%; display:block; border-radius:6px; background:#fbfcfd; cursor:crosshair; }
+  .ctl { display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin:0 0 16px; }
+  .ctl label { font-size:12px; color:var(--dim); }
+  select, input[type=range] { font:inherit; }
+  #cap { margin:12px 0 0; font-size:12.5px; color:var(--dim); }
+  #pick { margin:10px 0 0; font-size:12.5px; font-family:ui-monospace,monospace; color:var(--ink); }
+</style>
+
+<h1>The classification as a height field</h1>
+<p class="sub">The footprint is the number of classes. The volume is the number of boundary
+conditions. Drag the relief to turn it; click the plan to pick a class.</p>
+
+<div class="ctl card">
+  <label>orbifold <select id="orb"></select></label>
+  <label>gauge family <select id="fam"></select></label>
+  <label>rank N <input id="rank" type="range" min="0" max="8" value="4"> <b id="rankv">4</b></label>
+  <label>axes <select id="axes"></select></label>
+</div>
+
+<div class="grid">
+  <div class="card"><h2>the plan — the datum lattice</h2><canvas id="map"></canvas></div>
+  <div class="card"><h2>the relief — the same field, turned</h2><canvas id="surf"></canvas></div>
+</div>
+<p id="cap"></p>
+<p id="pick"></p>
+
+<script type="module">
+import { alphabetShape, alphabet, classCount, coneSignature, predictedDegree, realForm }
+  from "./src/kernel/alphabet.mjs";
+import { datumCoordinates, fibreField, fibreGrid } from "./src/kernel/fibres.mjs";
+import { mountFibrePanels } from "./src/view/fibre_panels.js";
+
+const ORB = {
+  "S¹/Z₂":   { A: [[-1]],            m: 2 },
+  "T²/Z₂":   { A: [[-1,0],[0,-1]],   m: 2 },
+  "T²/Z₃":   { A: [[0,-1],[1,-1]],   m: 3 },
+  "T²/Z₄":   { A: [[0,-1],[1,0]],    m: 4 },
+  "T²/Z₆":   { A: [[1,-1],[1,0]],    m: 6 },
+};
+const $ = (i) => document.getElementById(i);
+for (const k of Object.keys(ORB)) $("orb").add(new Option(k, k));
+for (const k of ["SU", "SO", "Sp"]) $("fam").add(new Option(k + "(N)", k));
+$("orb").value = "S¹/Z₂";
+
+const panels = mountFibrePanels({
+  ids: { map: "map", surf: "surf", cap: "cap" },
+  height: 330,
+  onPick(c) { $("pick").textContent = "picked datum (" + c.x + ", " + c.y + ")"; },
+});
+panels.attach();
+
+function axesOptions() {
+  const { A, m } = ORB[$("orb").value];
+  const coords = datumCoordinates(A, m);
+  $("axes").innerHTML = "";
+  for (let i = 0; i < coords.length; i++)
+    for (let j = i + 1; j < coords.length; j++)
+      $("axes").add(new Option("cone " + (coords[i][0]+1) + " slot " + coords[i][1]
+                             + "  ×  cone " + (coords[j][0]+1) + " slot " + coords[j][1],
+                               i + "," + j));
+}
+
+function draw() {
+  const { A, m } = ORB[$("orb").value], fam = $("fam").value, N = +$("rank").value;
+  $("rankv").textContent = N;
+  const ax = ($("axes").value || "0,1").split(",").map(Number);
+  const f = fibreField(A, m, fam, N, ax);
+  panels.set(f, fibreGrid(f));
+  const sig = coneSignature(A, m);
+  $("pick").textContent =
+    "signature (" + sig.join(", ") + ")   alphabet " + shape(realForm(A, m, fam))
+    + "   degree " + predictedDegree(sig, fam)
+    + "   datum space dimension " + datumCoordinates(A, m).length;
+}
+function shape(ls) {
+  const by = new Map();
+  for (const L of ls) by.set(L.weight, (by.get(L.weight) || 0) + 1);
+  return [...by.entries()].sort((a,b)=>a[0]-b[0]).map(([w,n]) => n + "×" + w).join("+");
+}
+
+$("orb").onchange = () => { axesOptions(); draw(); };
+$("fam").onchange = draw;
+$("rank").oninput = draw;
+$("axes").onchange = draw;
+axesOptions(); draw();
+</script>

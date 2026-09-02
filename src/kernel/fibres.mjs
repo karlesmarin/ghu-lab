@@ -93,5 +93,7 @@ export function fibreGrid(field, key = "conditions") {
   const nx = xhi - xlo + 1, ny = yhi - ylo + 1;
   const vals = new Array(nx * ny).fill(null);
   for (const c of field.cells.values()) vals[(c.y - ylo) * nx + (c.x - xlo)] = c[key];
-  return { vals, nx, ny, xlo, ylo, aspect: nx / ny };
+  /* the aspect is a PAIR, not a ratio: surfaceProjector refuses a number, and the refusal is there
+   * because a 2:1 torus once got drawn 1:1 in silence.  It caught this file too. */
+  return { vals, nx, ny, xlo, ylo, aspect: [nx, ny] };
 }

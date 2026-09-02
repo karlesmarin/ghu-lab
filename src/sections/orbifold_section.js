@@ -265,6 +265,20 @@ const ORBIFOLD_SECTION = {
   </div>
 
   <div class="card" style="margin-top:18px">
+    <h2>What exists at all in this rank</h2>
+    <p class="note" style="margin:0 0 10px">Before choosing an orbifold it is worth knowing the list
+    is finite and short. Two restrictions, and they are not the same one: <b>&phi;(m) | r</b> is this
+    paper's hypothesis &mdash; the lattice is a module over <b>Z[&zeta;<sub>m</sub>]</b> &mdash; and
+    <b>&Phi;(m) &le; r</b> is Hiller's general crystallographic restriction. None of this is ours:
+    Latimer&ndash;MacDuffee 1933, Diederichsen&ndash;Reiner, Charlap 1965, Montgomery&ndash;Uchida
+    1971, Hiller 1985.</p>
+    <div style="overflow-x:auto"><table><thead><tr><th class="num">order m</th>
+      <th class="num">&phi;(m)</th><th class="num">blocks s</th><th>rotation</th>
+      </tr></thead><tbody id="orbRank"></tbody></table></div>
+    <div class="note" id="orbRankNote" style="margin-top:10px">&mdash;</div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
     <h2>What this page does not do</h2>
     <div class="note" id="orbHonesty">—</div>
   </div>`,
@@ -352,7 +366,46 @@ const ORBIFOLD_SECTION = {
     this._alphabet(C);
     this._count(C);
     this._data(C);
+    this._rank(ctx, C);
     this._honesty(C);
+  },
+
+  /* THE LIST IS FINITE AND SHORT, and saying so is itself a service: a model builder choosing an
+   * orbifold is choosing from this, and below rank 22 each row is ONE orbifold rather than a family
+   * of them.  The rotations are GENERATED, so every row is loadable and not merely illustrative. */
+  _rank(ctx, C) {
+    const r = C.A.length;
+    const R = orbifoldsOfRank(r);
+    const cell = (o) => (o.m === 1
+      ? "the identity \u2014 no orbifold"
+      : '<button class="ghost" data-load="' + o.m + '">classify T<sup>' + r
+        + '</sup>/Z<sub>' + o.m + '</sub></button>');
+    document.getElementById("orbRank").innerHTML = R.under.map((o) =>
+      '<tr><td class="num">' + o.m + '</td><td class="num">' + o.phi
+      + '</td><td class="num">' + o.s + '</td><td>' + cell(o) + '</td></tr>').join("");
+    document.getElementById("orbRank").querySelectorAll("button[data-load]").forEach((b) => {
+      b.onclick = () => {
+        const o = R.under.find((x) => x.m === +b.dataset.load);
+        ORB_S.customA = o.rotation; ORB_S.custom = JSON.stringify(o.rotation);
+        ORB_S.orbifold = "__custom__"; ORB_S.cache = null; ORB_S.axes = [0, 1];
+        const S = orbState();
+        if (!S.refused && ORB_S.N > S.cap) ORB_S.N = S.cap;
+        ctx.refresh();
+      };
+    });
+    const h = howManyRotations(2);
+    document.getElementById("orbRankNote").innerHTML =
+      "At rank " + r + " the hypothesis admits <b>" + R.under.length + "</b> orders"
+      + (R.hillerOnly.length
+          ? ", and Hiller allows <b>" + R.hillerOnly.map((x) => x.m).join(", ") + "</b> that it does"
+            + " not: a rotation of that order does exist in GL(" + r + ",Z), but this lattice is not"
+            + " a Z[&zeta;<sub>m</sub>]-module, so it falls outside Part IX-A. In rank 3 that gap is"
+            + " the whole story, which is a large part of why this physics lives at rank 2 and"
+            + " heterotic orbifolds at rank 6."
+          : ", and Hiller allows no others.")
+      + " And each row is ONE orbifold: " + h.why + ". The first place that changes is m = 23 at"
+      + " rank 22 \u2014 three rotations, two orbifolds, because complex conjugation inverts the"
+      + ' class group. <span class="chip thm">theorem</span>';
   },
 
   /* ---------------------------------------------------------------- the projection, named */

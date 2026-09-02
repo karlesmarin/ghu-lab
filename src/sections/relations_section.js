@@ -163,6 +163,22 @@ const RELATIONS_SECTION = {
     <div style="overflow-x:auto;margin-top:12px"><table id="relLetters"></table></div>
   </div>
 
+  <div class="card" style="margin-bottom:18px">
+    <h2>Is it a complete intersection? The tripod, decided</h2>
+    <p class="note" style="margin:0 0 10px">The smallest member of the group-based family is the
+    claw tree with three leaves, and one case of it is an orbifold of ours: <b>g = 3 is T²/Z₃ over
+    SU(N)</b>. For a finite abelian G the semigroup is a complete intersection <b>exactly when
+    |G| &le; 3</b>. The arithmetic below <i>is</i> the proof: the labels are the triples summing to
+    zero, so n = |G|², dim S = 3|G| &minus; 2, and the criterion needs
+    <b>f(|G|) = |G|² &minus; 6|G| + 6 &le; 0</b>.</p>
+    <div style="overflow-x:auto"><table><thead><tr><th class="num">|G|</th>
+      <th class="num">labels</th><th class="num">dim S</th><th class="num">codim</th>
+      <th class="num">f(|G|)</th><th>verdict</th><th>decided by</th></tr></thead>
+      <tbody id="relTripod"></tbody></table></div>
+    <div class="verdict breaks" id="relTripodV" style="margin-top:12px"><b>&mdash;</b><span>&mdash;</span></div>
+    <div class="note" id="relTripodLG" style="margin-top:10px">&mdash;</div>
+  </div>
+
   <div class="grid two">
     <div class="card">
       <h2>Walk a class</h2>
@@ -245,6 +261,30 @@ const RELATIONS_SECTION = {
     v.innerHTML = "<b>" + r.verdict + "</b><span>" + detail + "</span>";
   },
 
+  /* THE ROW THAT MATTERS IS THE ONE THE BOUND CANNOT DECIDE.  Order four PASSES f <= 0 and is
+   * still not a complete intersection — Z_4 and Z_2 x Z_2 are settled by exhaustion in §5 — so a
+   * panel that read "the bound holds" as "complete intersection" would be wrong exactly there, and
+   * exactly where the local/global distinction is drawn.  The `decided by` column exists for it. */
+  _tripod() {
+    const rows = [];
+    for (let g = 2; g <= 8; g++) {
+      const v = tripodVerdict(g);
+      const hit = (g === 3 && REL_S.orbifold === "T2/Z3");
+      rows.push("<tr" + (hit ? ' style="font-weight:600"' : "") + '><td class="num">' + g
+        + '</td><td class="num">' + v.labels + '</td><td class="num">' + v.dim
+        + '</td><td class="num">' + v.codim + '</td><td class="num">' + v.bound
+        + "</td><td>" + (v.complete ? "complete intersection" : "not one")
+        + "</td><td>" + v.decidedBy + (hit ? " &mdash; this orbifold" : "") + "</td></tr>");
+    }
+    document.getElementById("relTripod").innerHTML = rows.join("");
+    const four = tripodVerdict(4);
+    const v = document.getElementById("relTripodV");
+    v.className = "verdict breaks";
+    v.innerHTML = "<b>the bound is silent at four</b><span>" + four.why + "</span>";
+    document.getElementById("relTripodLG").innerHTML =
+      "<b>And the distinction that gets misquoted.</b> " + TRIPOD_LOCAL_GLOBAL;
+  },
+
   _letters(C) {
     const head = "<thead><tr><th class=\"num\">letter</th><th class=\"num\">weight</th>"
       + C.cones.map((c, i) => "<th>cone " + (i + 1) + " (order " + c.order + ")</th>").join("")
@@ -266,6 +306,7 @@ const RELATIONS_SECTION = {
       b.classList.toggle("on", b.dataset.fam === REL_S.family));
     this._dict(C);
     this._letters(C);
+    this._tripod();
     this._graph(C);
     this._ladder(C);
     const j = document.getElementById("relJudge");

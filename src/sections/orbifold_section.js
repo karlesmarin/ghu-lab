@@ -265,6 +265,19 @@ const ORBIFOLD_SECTION = {
   </div>
 
   <div class="card" style="margin-top:18px">
+    <h2>The three real forms, side by side</h2>
+    <p class="note" style="margin:0 0 10px">A boundary condition over SO(N) is a real
+    representation and over Sp(N) a quaternionic one; what a fixed point reads is the eigenvalue
+    multiplicities of the <b>complexification</b>, and Frobenius&ndash;Schur says which one each
+    letter has. The symplectic column is <b>not in the literature</b> &mdash; §7 of Part IX-A is
+    where it is worked out.</p>
+    <div style="overflow-x:auto"><table><thead><tr><th>family</th><th>alphabet</th>
+      <th class="num">letters</th><th class="num">degree</th><th>count</th></tr></thead>
+      <tbody id="orbForms"></tbody></table></div>
+    <div class="verdict stable" id="orbFormsV" style="margin-top:12px"><b>&mdash;</b><span>&mdash;</span></div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
     <h2>Your boundary condition, and everything that is the same theory</h2>
     <p class="note" style="margin:0 0 10px">A boundary condition is a multiset of letters: one
     multiplicity per letter of the table above, in that order. What it leaves unbroken in four
@@ -386,7 +399,48 @@ const ORBIFOLD_SECTION = {
     this._data(C);
     this._rank(ctx, C);
     this._bc(C);
+    this._forms(C);
     this._honesty(C);
+  },
+
+  /* THE TRIPLE COINCIDENCE, AND WHY IT IS WORTH A PANEL.  The published statement is that the
+   * orthogonal and unitary classifications agree on T^2/Z_2.  They do — and so does the symplectic
+   * one, because every label there is a character of order 2 and hence of real type, so all THREE
+   * complexifications are the same.  Reading it as an SO-versus-SU fact is reading half of it, and
+   * it breaks the moment a cone has order above two.  Switching family one at a time hides that;
+   * three columns do not. */
+  _forms(C) {
+    const rows = [], shapes = [], counts = [];
+    for (const fam of ["SU", "SO", "Sp"]) {
+      const L = realForm(C.A, C.m, fam);
+      const sh = orbShape(L);
+      const d = predictedDegree(C.sig, fam);
+      const ws = L.map((x) => x.weight);
+      let head = "\u2014";
+      if (orbFibreCap(ws) >= 4) {
+        head = classCount(C.A, C.m, fam, 4).join(", ") + ", \u2026";
+      }
+      shapes.push(sh); counts.push(head);
+      rows.push('<tr' + (fam === ORB_S.family ? ' style="font-weight:600"' : '') + '><td>' + fam
+        + "(N)</td><td><code>" + sh + '</code></td><td class="num">' + L.length
+        + '</td><td class="num">' + d + "</td><td><code>" + head + "</code></td></tr>");
+    }
+    document.getElementById("orbForms").innerHTML = rows.join("");
+    const allSame = shapes[0] === shapes[1] && shapes[1] === shapes[2];
+    const twoSame = !allSame && (shapes[0] === shapes[1] || shapes[1] === shapes[2]
+                                 || shapes[0] === shapes[2]);
+    const v = document.getElementById("orbFormsV");
+    const maxOrder = Math.max.apply(null, C.sig);
+    v.className = "verdict " + (allSame ? "stable" : "breaks");
+    v.innerHTML = allSame
+      ? "<b>all three agree</b><span>every cone here has order " + maxOrder + ", so every label is"
+        + " a character of order 2 and of real type, and the three complexifications coincide."
+        + " The published statement that the orthogonal and unitary classifications agree here is"
+        + " the SO(N) half of a THREE-way coincidence.</span>"
+      : "<b>" + (twoSame ? "two agree, one does not" : "all three differ")
+        + "</b><span>there is a cone of order " + maxOrder + " &gt; 2, and the coincidence that"
+        + " holds on T\u00b2/Z\u2082 fails as soon as that happens \u2014 which is what a"
+        + " statement about SO against SU alone does not tell you.</span>";
   },
 
   /* THE QUESTION A MODEL BUILDER ASKS FIRST, and the one a survey gets wrong: how many DISTINCT

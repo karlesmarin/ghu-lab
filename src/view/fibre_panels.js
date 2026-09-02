@@ -34,7 +34,8 @@
  *      false one.  Same rule as the greyed half of the selection panel.
  */
 import {
-  attachSurface, fitSurfaceView, heightField, paintSurface, surfaceAxisLabels, surfaceView,
+  attachSurface, fitSurfaceView, heightField, paintSurface, surfaceAxisLabels, surfaceStem,
+  surfaceView,
 } from "../kernel/surface.mjs";
 
 /* samples per lattice cell.  Four is enough to make the seam thin and keeps the mesh small. */
@@ -130,15 +131,32 @@ export function mountFibrePanels(cfg) {
     g.save(); g.translate(11, oy + side * ny / 2); g.rotate(-Math.PI / 2);
     g.textAlign = "center"; g.fillText(cfg.labels ? cfg.labels[1] : "b", 0, 0); g.restore();
 
-    c.onclick = (ev) => {
+    /* the hover, drawn one line thinner than the mark: a lattice this small reads as a picture
+     * rather than as controls, and nothing said it could be pointed at until it answered back. */
+    if (S.hover) {
+      const hx = ox + (S.hover.x - xlo) * side, hy = oy + (ny - 1 - (S.hover.y - ylo)) * side;
+      g.strokeStyle = "rgba(80,100,120,.55)"; g.lineWidth = 1;
+      g.strokeRect(hx + 1.5, hy + 1.5, side - 3, side - 3);
+    }
+
+    const cellAt = (ev) => {
       const r = c.getBoundingClientRect();
-      const i = Math.floor((ev.clientX - r.left - ox) / side);
-      const j = ny - 1 - Math.floor((ev.clientY - r.top - oy) / side);
-      if (i < 0 || j < 0 || i >= nx || j >= ny) return;
-      S.mark = { x: i + xlo, y: j + ylo };
-      drawPlan();
-      if (cfg.onPick) cfg.onPick(S.mark);
+      const i = Math.floor(((ev.clientX - r.left) / r.width * w - ox) / side);
+      const j = ny - 1 - Math.floor(((ev.clientY - r.top) / r.height * h - oy) / side);
+      return (i < 0 || j < 0 || i >= nx || j >= ny) ? null : { x: i + xlo, y: j + ylo };
     };
+    c.style.cursor = "crosshair";
+    c.onclick = (ev) => {
+      const p = cellAt(ev); if (!p) return;
+      setMark(p);
+    };
+    c.onpointermove = (ev) => {
+      const p = cellAt(ev);
+      const same = (!p && !S.hover) || (p && S.hover && p.x === S.hover.x && p.y === S.hover.y);
+      if (same) return;
+      S.hover = p; drawPlan();
+    };
+    c.onpointerleave = () => { if (S.hover) { S.hover = null; drawPlan(); } };
   }
 
   /* ---------------------------------------------------------------- the relief */
@@ -171,11 +189,40 @@ export function mountFibrePanels(cfg) {
       },
     });
     surfaceAxisLabels(g, proj, cfg.labels || ["a", "b"]);
+    S.proj = proj;
+
+    /* THE SAME CURSOR IN BOTH PANELS.  A mark set in the plan stands on the relief as a stem, and a
+     * pick on the relief boxes the cell in the plan -- otherwise they are two pictures of one field
+     * that cannot refer to each other, and the reader has to hold the correspondence in their head.
+     * The stem is drawn at the CELL CENTRE in domain coordinates, which is where the block that
+     * represents that cell actually is; anchoring it at the cell's corner would put the marker on
+     * the seam between two fibres. */
+    if (S.mark && S.grid) {
+      const gx = (S.mark.x - S.grid.xlo + 0.5) / S.grid.nx;
+      const gy = (S.mark.y - S.grid.ylo + 0.5) / S.grid.ny;
+      if (gx >= 0 && gx <= 1 && gy >= 0 && gy <= 1)
+        surfaceStem(g, proj, S.step.field, gx, gy, { colour: "#b3262b" });
+    }
+  }
+
+  /* One place sets the mark, because two would drift apart the first time one of them forgot to
+   * redraw the other panel. */
+  function setMark(p) {
+    S.mark = p;
+    drawPlan(); drawRelief();
+    if (cfg.onPick) cfg.onPick(p);
   }
 
   return {
     /* the field is recomputed by the section; this only redraws */
     set(field, grid) {
+      /* A MARK IS ABOUT ONE LATTICE.  Changing the rank, the family or the plane rebuilds the field,
+       * and a mark carried across would box a cell whose meaning has changed underneath it -- the
+       * stale-state failure, drawn.  It is dropped, and the panel says nothing rather than something
+       * that is no longer true. */
+      if (S.grid && (S.grid.nx !== grid.nx || S.grid.ny !== grid.ny
+                     || S.grid.xlo !== grid.xlo || S.grid.ylo !== grid.ylo)) S.mark = null;
+      S.hover = null;
       S.grid = grid;
       S.step = stepField(grid);
       drawPlan(); drawRelief();
@@ -192,6 +239,10 @@ export function mountFibrePanels(cfg) {
                 + " shadow of it.");
       }
     },
+    /* what is picked, for a section that wants to render it; null when nothing is */
+    mark() { return S.mark; },
+    clear() { S.mark = null; drawPlan(); drawRelief(); },
+
     /* The smoke harness renders every section in a STUB DOCUMENT, in node, with no window: a bare
      * `addEventListener` there is not a no-op, it is a ReferenceError, and it took the whole
      * section down for everybody.  The same shape as the stub having no parent chain, which is
@@ -200,7 +251,34 @@ export function mountFibrePanels(cfg) {
     attach() {
       const c = el("surf");
       if (c && typeof c.addEventListener === "function") {
-        attachSurface(c, S.view, { onView: drawRelief, width: W, height: () => H });
+        /* `pick` maps a screen point back to the unit domain -- the kernel already had it, and the
+         * first version of this file simply never passed it, so the relief turned but could not be
+         * touched.  Dragging picks as it goes, which is how you sweep a row of fibres. */
+        attachSurface(c, S.view, {
+          onView: drawRelief, width: W, height: () => H,
+          /* NEAREST COLUMN TOP, not nearest mesh vertex.  `pickSurface` prefers the deepest
+           * vertex within its radius, which is the right tie-break on a smooth fold and the wrong
+           * one on a step: it kept returning the column behind the one under the pointer.  The
+           * round trip caught it -- mark from the plan, click the stem's own pixels in the relief,
+           * and three of four cells came back as a neighbour.  Here the domain is a lattice of a
+           * few hundred cells at most, so the inverse is direct and exact. */
+          pick: (px, py) => {
+            if (!S.proj || !S.step || !S.grid) return null;
+            const { nx, ny, xlo, ylo } = S.grid;
+            let best = null;
+            for (let j = 0; j < ny; j++) for (let i = 0; i < nx; i++) {
+              const gx = (i + 0.5) / nx, gy = (j + 0.5) / ny;
+              const P = S.proj(gx, gy, S.step.field.height(gx, gy));
+              const r = (P[0] - px) * (P[0] - px) + (P[1] - py) * (P[1] - py);
+              if (!best || r < best.r) best = { r, i, j };
+            }
+            return best ? { x: best.i + xlo, y: best.j + ylo } : null;
+          },
+          onPick: (p) => {
+            if (S.mark && S.mark.x === p.x && S.mark.y === p.y) return;   /* no redraw per pixel */
+            setMark(p);
+          },
+        });
       }
       if (typeof globalThis.addEventListener === "function") {
         globalThis.addEventListener("resize", () => { drawPlan(); drawRelief(); });

@@ -43,6 +43,11 @@ export function datumCoordinates(A, m) {
  * land there, how many DISTINCT classes they fall into, and one witness datum.  `projected` is
  * true when more than one class shares a cell, which is exactly when the picture is a shadow and
  * has to say so. */
+/* HOW MANY BOUNDARY CONDITIONS A CELL REMEMBERS.  A cell can hold thousands of them -- that is the
+ * whole point of a fibre -- so it keeps a bounded sample rather than the list, and every panel that
+ * shows them says so.  Eight is enough to see that they differ and cheap enough to always carry. */
+export const FIBRE_EXAMPLES = 8;
+
 export function fibreField(A, m, family, N, axes = [0, 1]) {
   const cones = conePoints(A, m);
   const letters = realForm(A, m, family);
@@ -59,17 +64,18 @@ export function fibreField(A, m, family, N, axes = [0, 1]) {
         for (let k = 0; k < cones[ci].order; k++) acc[ci][k] += mult * letters[idx].datum[ci][k];
     const key = JSON.stringify(acc);
     const e = perClass.get(key);
-    if (e) e.conditions++;
-    else perClass.set(key, { conditions: 1, datum: acc });
+    if (e) { e.conditions++; if (e.examples.length < FIBRE_EXAMPLES) e.examples.push(pick); }
+    else perClass.set(key, { conditions: 1, datum: acc, examples: [pick] });
   }
 
   const cells = new Map();
   let xlo = Infinity, xhi = -Infinity, ylo = Infinity, yhi = -Infinity, conditions = 0;
-  for (const { conditions: n, datum } of perClass.values()) {
+  for (const { conditions: n, datum, examples } of perClass.values()) {
     const x = datum[coords[ia][0]][coords[ia][1]], y = datum[coords[ib][0]][coords[ib][1]];
     const k = x + "," + y;
-    const cell = cells.get(k) || { x, y, conditions: 0, classes: 0, sample: datum };
+    const cell = cells.get(k) || { x, y, conditions: 0, classes: 0, sample: datum, examples: [] };
     cell.conditions += n; cell.classes++;
+    for (const ex of examples) if (cell.examples.length < FIBRE_EXAMPLES) cell.examples.push(ex);
     cells.set(k, cell);
     conditions += n;
     if (x < xlo) xlo = x; if (x > xhi) xhi = x;

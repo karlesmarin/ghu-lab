@@ -239,6 +239,15 @@ const ORBIFOLD_SECTION = {
   </div>
   <div class="note" id="orbCap" style="margin-top:10px">—</div>
 
+  <div class="card" style="margin-top:18px">
+    <h2>What is standing in that cell</h2>
+    <p class="note" style="margin:0 0 10px">Click a cell in the plan &mdash; or a column in the
+      relief; they share one cursor. A cell of the datum lattice is a fibre: every boundary
+      condition below is a <b>different</b> assignment of multiplicities that lands on the
+      <b>same</b> local data, and so is the same theory.</p>
+    <div id="orbPick"></div>
+  </div>
+
   <div class="grid two" style="margin-top:18px">
     <div class="card">
       <h2>The size of the problem</h2>
@@ -366,7 +375,7 @@ const ORBIFOLD_SECTION = {
       ids: { map: "orbMap", surf: "orbSurf", cap: "orbCap" },
       height: 320,
       labels: ["first coordinate", "second coordinate"],
-      onPick: () => { /* the pick is drawn by the panel; nothing else depends on it yet */ },
+      onPick: (p) => this._pick(p),
     });
     ORB_S.panels.attach();
   },
@@ -597,7 +606,72 @@ const ORBIFOLD_SECTION = {
       return;
     }
     const f = fibreField(C.A, C.m, ORB_S.family, ORB_S.N, ORB_S.axes);
+    ORB_S.field = f;
     ORB_S.panels.set(f, fibreGrid(f));
+    /* the panel drops a mark whose lattice changed, so ask it what survived rather than assuming */
+    this._pick(ORB_S.panels.mark());
+  },
+
+  /* WHAT IS IN THE PICKED CELL.  Reached by pointing, and it answers with the same objects the
+   * membership panel answers with -- multiplicity vectors and their apparent groups -- because a
+   * picture that speaks a second vocabulary is a second thing to learn.
+   *
+   * The sample is BOUNDED and says so.  A cell can hold thousands of conditions; showing eight and
+   * writing "8 of 2,314" is honest, while showing eight silently would read as all of them. */
+  _pick(p) {
+    const box = document.getElementById("orbPick");
+    if (!box) return;
+    const F = ORB_S.field;
+    if (!p || !F) {
+      box.innerHTML = '<div class="note">Nothing picked yet.</div>';
+      return;
+    }
+    const cell = F.cells.get(p.x + "," + p.y);
+    if (!cell) {
+      box.innerHTML = '<div class="verdict breaks"><b>outside the image</b><span>No boundary '
+        + "condition of this rank has local data (" + p.x + ", " + p.y + ") on the two chosen "
+        + "coordinates. It is not a fibre of size zero \u2014 it is not in the image at all, which "
+        + "is why the cell is greyed rather than dropped.</span></div>";
+      return;
+    }
+    const C = orbState();
+    const vec = (pick) => {
+      const v = new Array(C.letters.length).fill(0);
+      for (const [i, mult] of pick) v[i] = mult;
+      return v;
+    };
+    const rows = cell.examples.map((pick) => {
+      const v = vec(pick);
+      return "<tr><td><code>" + v.join(" ") + "</code></td><td>"
+        + unbrokenName(unbrokenGroup(C.letters, v)) + "</td></tr>";
+    });
+    const names = new Set(cell.examples.map((pick) =>
+      unbrokenName(unbrokenGroup(C.letters, vec(pick)))));
+    const shown = cell.examples.length, all = cell.conditions;
+    box.innerHTML =
+      '<div class="verdict ' + (names.size > 1 ? "breaks" : "stable") + '"><b>'
+      + all.toLocaleString("en") + (all === 1 ? " boundary condition" : " boundary conditions")
+      + (cell.classes > 1 ? ", in " + cell.classes + " classes" : "")
+      + "</b><span>local data (" + p.x + ", " + p.y + ") on the two chosen coordinates"
+      + (cell.classes > 1
+          ? ". This plane is a shadow of a " + C.coords.length + "-dimensional datum space, so "
+            + "several classes can project onto one cell; the conditions below need not be the "
+            + "same theory as each other."
+          : ". The cell is one class: every condition below is the same theory.")
+      + "</span></div>"
+      + '<div style="overflow-x:auto"><table style="margin-top:10px"><thead><tr>'
+      + "<th>multiplicities</th><th>apparent unbroken group</th></tr></thead><tbody>"
+      + rows.join("") + "</tbody><tfoot><tr><td colspan=\"2\" class=\"note\">"
+      + (shown < all
+          ? "Showing " + shown + " of " + all.toLocaleString("en") + " \u2014 a cell keeps a bounded "
+            + "sample, not the list."
+          : "All " + all + " of them.")
+      + (names.size > 1
+          ? " They wear " + names.size + " different apparent symmetries"
+            + (cell.classes > 1 ? "" : " and they are one theory")
+            + "."
+          : " They all wear the same apparent symmetry.")
+      + "</td></tr></tfoot></table></div>";
   },
 
   _alphabet(C) {

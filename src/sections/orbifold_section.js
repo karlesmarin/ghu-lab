@@ -100,9 +100,13 @@ function orbMultisetEstimate(L, N) {          /* C(N+L-1, L-1), grown carefully,
   return v;
 }
 
-function orbFibreCap(ws) {
-  const L = ws.length;
-  for (let N = 1; N <= 16; N++) if (orbMultisetEstimate(L, N + 1) > ORB_BUDGET) return N;
+/* `slots` is the size of one datum — sum of the cone orders — because that is what enumerating a
+ * condition actually costs.  Counting multisets alone let T^6/Z_3 through at twelve thousand of
+ * them, each carrying eighty-one numbers, and the panel took 1.7 seconds.  A budget that measures
+ * the wrong quantity does not bound anything. */
+function orbFibreCap(ws, slots = 4) {
+  const L = ws.length, budget = Math.max(400, ORB_BUDGET / Math.max(1, slots));
+  for (let N = 1; N <= 16; N++) if (orbMultisetEstimate(L, N + 1) > budget) return N;
   return 16;
 }
 
@@ -150,11 +154,12 @@ function orbState() {
   const letters = realForm(A, m, ORB_S.family);
   const ws = letters.map((L) => L.weight);
   const need = ws.reduce((s, w) => s + w, 0);
-  const cap = orbFibreCap(ws);
+  const slots = cones.reduce((s, c) => s + c.order, 0);
+  const cap = orbFibreCap(ws, slots);
   /* the series needs the counts up to sum(w), which is out of reach for a big alphabet; when it is,
    * there is no closed form on this page and that is said rather than approximated */
   let P = null, seriesWhy = null;
-  if (orbMultisetEstimate(ws.length, need + 1) > ORB_BUDGET) {
+  if (orbMultisetEstimate(ws.length, need + 1) > ORB_BUDGET / Math.max(1, slots)) {
     seriesWhy = "the numerator needs the counts up to rank " + (need + 1) + " over "
       + ws.length + " letters, which is past this page's budget";
   } else {
@@ -417,7 +422,7 @@ const ORBIFOLD_SECTION = {
       const d = predictedDegree(C.sig, fam);
       const ws = L.map((x) => x.weight);
       let head = "\u2014";
-      if (orbFibreCap(ws) >= 4) {
+      if (orbFibreCap(ws, C.sig.reduce((s, e) => s + e, 0)) >= 4) {
         head = classCount(C.A, C.m, fam, 4).join(", ") + ", \u2026";
       }
       shapes.push(sh); counts.push(head);

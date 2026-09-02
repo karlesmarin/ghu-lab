@@ -461,21 +461,37 @@ function abCharacterAt(label, A, t, k) {
  * throws: a Frobenius-Schur indicator is an integer or the representation was not irreducible. */
 export function frobeniusSchur(label, A, m) {
   const r = A.length;
-  const D = label.orbit.reduce((acc, v) => abLcm(acc, v.den), 1);
-  const size = Math.pow(D, r);
+  const { orbit, weight: s, epsNum, epsDen } = label;
+
+  /* THE SUM OVER THE TRANSLATIONS COLLAPSES, and not collapsing it was the difference between this
+   * being instant and being unusable.  The first version walked the whole finite group through
+   * which a label factors, |Lambda/D|^r * m elements, once PER LABEL: on T^6/Z_7 that is
+   * 7^6 * 7 = 823543 elements times 49 labels, forty million character evaluations, and the page
+   * froze for 140 seconds.  It is exactly the mistake the Smith form already removed from the point
+   * enumeration, left standing in the one function that still had it — an exponential in the rank,
+   * invisible at rank 2 and fatal at rank 6, which is where the heterotic orbifolds are.
+   *
+   * But sum over t of chi_v((I + A^k) t) is a CHARACTER ORTHOGONALITY: it is |Lambda/D| when
+   * (I + A^k)^T v is integral and zero otherwise.  So the whole t-sum is one integrality test per
+   * character of the orbit, and
+   *
+   *     FS = (1/m) sum_k [ 2k = 0 mod s ] eps^{2k/s} #{ i : (I + A^k)^T v_i integral },
+   *
+   * which is O(m * s) and never touches the lattice at all. */
   let re = 0;
-  const t = new Array(r).fill(0);
   for (let k = 0; k < m; k++) {
-    const Ak = matPow(A, k);
-    for (let c = 0; c < size; c++) {
-      let n = c;
-      for (let i = 0; i < r; i++) { t[i] = n % D; n = Math.floor(n / D); }
-      /* (t, rho^k)^2 = (t + A^k t, rho^{2k}) */
-      const tt = matVec(Ak, t).map((x, i) => x + t[i]);
-      re += abCharacterAt(label, A, tt, (2 * k) % m).re;
+    const twok = (2 * k) % m;
+    if (twok % s !== 0) continue;              /* the shift has no fixed index: the trace vanishes */
+    const IpA = transpose(matPow(A, k).map((row, i) => row.map((x, j) => x + (i === j ? 1 : 0))));
+    let n = 0;
+    for (const v of orbit) {
+      const w = matVec(IpA, v.num);
+      if (w.every((x) => x % v.den === 0)) n++;
     }
+    if (!n) continue;
+    re += n * Math.cos(2 * Math.PI * (epsNum * (twok / s)) / epsDen);
   }
-  const fs = re / (size * m);
+  const fs = re / m;
   const near = Math.round(fs);
   if (Math.abs(fs - near) > 1e-8 || Math.abs(near) > 1) {
     throw new Error("Frobenius-Schur indicator is not -1, 0 or 1: got " + fs);

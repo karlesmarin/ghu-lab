@@ -79,15 +79,18 @@ export function mountFibrePanels(cfg) {
   const S = { view: surfaceView({ n: 40, h: 0.46 }), grid: null, step: null, mark: null };
 
   const el = (k) => document.getElementById(ids[k]);
-  const W = () => (el("surf") ? el("surf").clientWidth : 300);
+  const W = () => (el("surf") ? (el("surf").clientWidth || 560) : 560);
 
   /* ---------------------------------------------------------------- the plan */
   function drawPlan() {
     const c = el("map"); if (!c || !S.grid) return;
-    const w = c.clientWidth, h = H;
-    c.width = w * devicePixelRatio; c.height = h * devicePixelRatio;
-    const g = c.getContext("2d");
-    g.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    /* window.devicePixelRatio || 1, and a fallback width: the smoke harness renders this in a
+     * stub document where neither exists.  Same guard torus_panels already uses. */
+    const d = (typeof window !== "undefined" && window.devicePixelRatio) || 1;
+    const w = c.clientWidth || 560, h = H;
+    c.width = w * d; c.height = h * d;
+    const g = c.getContext("2d"); if (!g) return;
+    g.setTransform(d, 0, 0, d, 0, 0);
     g.clearRect(0, 0, w, h);
 
     const { vals, nx, ny, xlo, ylo } = S.grid;
@@ -141,10 +144,11 @@ export function mountFibrePanels(cfg) {
   /* ---------------------------------------------------------------- the relief */
   function drawRelief() {
     const c = el("surf"); if (!c || !S.step) return;
+    const d = (typeof window !== "undefined" && window.devicePixelRatio) || 1;
     const w = W(), h = H;
-    c.width = w * devicePixelRatio; c.height = h * devicePixelRatio;
-    const g = c.getContext("2d");
-    g.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    c.width = w * d; c.height = h * d;
+    const g = c.getContext("2d"); if (!g) return;
+    g.setTransform(d, 0, 0, d, 0, 0);
     g.clearRect(0, 0, w, h);
     /* the frame carries an ORIGIN as well as a size: fitSurfaceView reads frame.x and frame.y, and
      * without them the offsets come out NaN and the mesh is projected nowhere.  And paintSurface
@@ -188,10 +192,19 @@ export function mountFibrePanels(cfg) {
                 + " shadow of it.");
       }
     },
+    /* The smoke harness renders every section in a STUB DOCUMENT, in node, with no window: a bare
+     * `addEventListener` there is not a no-op, it is a ReferenceError, and it took the whole
+     * section down for everybody.  The same shape as the stub having no parent chain, which is
+     * already written into bcclass_section.  So both listeners are guarded, and the panel simply
+     * does less where there is nothing to listen to. */
     attach() {
       const c = el("surf");
-      if (c) attachSurface(c, S.view, { onView: drawRelief, width: W, height: () => H });
-      addEventListener("resize", () => { drawPlan(); drawRelief(); });
+      if (c && typeof c.addEventListener === "function") {
+        attachSurface(c, S.view, { onView: drawRelief, width: W, height: () => H });
+      }
+      if (typeof globalThis.addEventListener === "function") {
+        globalThis.addEventListener("resize", () => { drawPlan(); drawRelief(); });
+      }
     },
   };
 }

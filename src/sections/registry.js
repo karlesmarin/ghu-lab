@@ -47,6 +47,13 @@ const SECTIONS = [
    * BOUNDARY CONDITIONS are the same theory, on S¹/Z₂ and on T²/Z₃.  Like the builder it holds
    * its own model and takes nothing from the shell. */
   { ...BCC_SECTION, group: "su3_hy", family: "Orbifold boundary conditions" },
+  /* The same family, and the same question asked one level up: bcclass WALKS the orbits, on the
+   * two orbifolds where the classification is settled and over SU(N) only.  This one DERIVES the
+   * classification from the rotation matrix — signature, alphabet, local data, count and degree,
+   * over all three real forms and at any rank — so it is the engine that section is an instance
+   * of.  They sit together on purpose: one shows the orbits, the other shows why there are that
+   * many of them. */
+  { ...ORBIFOLD_SECTION, group: "su3_hy", family: "Orbifold boundary conditions" },
   /* A DEMONSTRATION RATHER THAN A MODEL.  It holds its own dial, carries its own permalink, and
    * exists to show what the machinery does and why the answer can be believed -- so it sits in a
    * family of its own rather than pretending to be one of the three models. */

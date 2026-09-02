@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-29T13:00:48Z",
+ "generated": "2026-09-02T21:52:40Z",
  "source": {
   "published": "zenodo.org/api/records/<concept>/versions/latest",
   "unpublished": "research/smeft_formalization (the authoring tree; set GHU_SOURCES)",
@@ -141,6 +141,38 @@
    "record_id": "22159037",
    "status": "published",
    "concept_id": "22159036"
+  },
+  {
+   "numeral": "IX-A",
+   "repo": "orbifold-alphabet",
+   "sections": [
+    "orbifold"
+   ],
+   "title": "The Alphabet of Orbifold Boundary Conditions: a boundary condition is a representation, and the alphabet is forced by the fixed-point counts (Part IX-A)",
+   "abstract_html": "<p><strong>Each count of orbifold boundary conditions has so far been a separate piece of work, because the boundary conditions were a list of matrices to be found per orbifold. They are not a list.</strong></p><p>An orbifold boundary condition is an action on the gauge fields; in the inner, zero-flux sector it admits a linear lift, and after the lift it is a <em>representation of the space group</em> &Lambda; &rtimes; Z<sub>m</sub>. Its letters are the irreducibles induced from characters of &Lambda; whose stabiliser fixes only finitely many characters &mdash; the rest are the Wilson lines; the weight of a letter is its dimension; and how many letters of each weight there are is a M&ouml;bius count over |det(I &minus; A<sup>k</sup>)|, the number of fixed points of the k-th power of the rotation.</p><p>From that one identification follow the twelve closed-form counts published for this programme, from a single argument with no free parameter, with the degree of each read off the cone signature; the class count of S<sup>1</sup>/Z<sub>2</sub> &times; S<sup>1</sup>/Z<sub>2</sub> &mdash; the orbifold of Parts VI to VIII &mdash; which is <strong>2809</strong> at rank 4, with the gauge transformation that closes it written down; and the symplectic column, which the programme had not reached because it is not another orbifold but another type of defining space: alphabets, counts, closed forms and all twenty-one labels built as matrices.</p><p>Theorem 1 states the alphabet for Z<sup>r</sup> &rtimes;<sub>A</sub> Z<sub>m</sub> in any rank, identifies the hypothesis as the condition that every eigenvalue of A have order exactly m, and gives the fixed-point counts in closed arithmetic form &mdash; so the alphabet depends on the order of the rotation and the rank of the lattice and on nothing else.</p><p><strong>What is not claimed.</strong> The completeness of the local datum is proved here in the generality the counts need and no priority is claimed for it. The trace conservation laws, the local gauge groups, the classification of Z<sub>N</sub> embeddings and the identification of the surviving class with the &rsquo;t Hooft flux are inherited. And the whole of the arithmetic section except one line is inherited: Latimer&ndash;MacDuffee (1933), Diederichsen&ndash;Reiner, Charlap (1965), Montgomery&ndash;Uchida (1971) and Hiller (1985). A Ledger table says which is which, line by line.</p><p>Paper in English and Spanish; every ancillary script and its archived receipt travel with the record, and the script list is read off the paper itself.</p>",
+   "doi": "10.5281/zenodo.22254861",
+   "version_doi": "10.5281/zenodo.22254862",
+   "version": "v1",
+   "date": "2026-09-02",
+   "record_id": "22254862",
+   "status": "published",
+   "concept_id": "22254861"
+  },
+  {
+   "numeral": "IX-B",
+   "repo": "orbifold-semigroup",
+   "sections": [
+    "relations"
+   ],
+   "title": "An Affine Semigroup from Orbifold Boundary Conditions: cut, phylogenetic and hierarchical models in the unit-weight sector, and weighted configurations beyond them (Part IX-B)",
+   "abstract_html": "<p><strong>The equivalence classes of orbifold boundary conditions are the fibres of a marginal map, and are indexed by the elements of an affine semigroup. This note identifies that semigroup.</strong></p><p>When the alphabet carries no weights the object already has a name and a literature, and the note says so plainly: over Z<sub>2</sub> it is the cut configuration of an explicit graph in the sense of Sturmfels and Sullivant &mdash; the four-cycle for T&sup2;/Z<sub>2</sub> and the wheel W<sub>4</sub> for S<sup>1</sup>/Z<sub>2</sub> &times; S<sup>1</sup>/Z<sub>2</sub>, verified as an equality of point configurations; over Z<sub>m</sub> with equal cone orders it is a group-based phylogenetic model on a claw tree; and for the higher products it is the binary hierarchical model of the boundary complex of a cross-polytope. The ring of the product orbifold is a row of a 2008 table &mdash; codimension, degree, minimal generators, normality &mdash; every invariant of which this machinery reproduced without knowing that table existed.</p><p><strong>What is established here:</strong> thirteen gluing trees, the unitary, orthogonal and symplectic realisations of every case; the group-based model on the tripod for <em>every</em> finite abelian group &mdash; a complete intersection exactly when |G| &le; 3; that (S<sup>1</sup>/Z<sub>2</sub>)<sup>k</sup> is not a complete intersection for any k &ge; 3 and is not a cut ideal either, for a reason that is a count of edges; the exceptional case as a list of invariants rather than a negation &mdash; normal, Cohen&ndash;Macaulay, normalised volume 64, not a complete intersection, Cohen&ndash;Macaulay type 9; and that its minimal Markov basis is <em>unique up to signs</em>, sixteen indispensable binomials in exactly two orbits of eight under an automorphism group of order 128.</p><p>One distinction is drawn explicitly because the vocabulary collides: Casanellas, Fern&aacute;ndez-S&aacute;nchez and Micha&#322;ek prove these varieties are complete intersections <em>in a Zariski open set</em>; the question here is the global one, about the toric ideal itself, and the Z<sub>4</sub> tripod separates the two.</p><p>Companion to Part IX-A: that note determines which generators exist, this one which relations hold among them. Paper in English and Spanish; every ancillary script and its receipt travel with the record.</p>",
+   "doi": "10.5281/zenodo.22254863",
+   "version_doi": "10.5281/zenodo.22254864",
+   "version": "v1",
+   "date": "2026-09-02",
+   "record_id": "22254864",
+   "status": "published",
+   "concept_id": "22254863"
   }
  ]
 }

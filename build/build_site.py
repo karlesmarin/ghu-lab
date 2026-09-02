@@ -53,7 +53,10 @@ OUT = ROOT / "site"
 # gate, so the two cannot disagree about what the difference between the two copies is.
 APP_HOME = "../index.html"
 
-ROMAN = {"I": 1, "II": 2, "III": 3, "IV": 4, "V": 5, "VI": 6, "VII": 7, "VIII": 8}
+# The keys are the numerals as the series names them, and the values only order them.  IX is
+# two papers, so it is two entries: the numeral is a NAME here, not an arithmetic.
+ROMAN = {"I": 1, "II": 2, "III": 3, "IV": 4, "V": 5, "VI": 6, "VII": 7, "VIII": 8,
+         "IX-A": 9, "IX-B": 10}
 SLUG = {n: "part-" + n.lower() for n in ROMAN}
 
 SEVERITIES = {
@@ -77,6 +80,8 @@ SECTION_NAMES = {
     "atlas7": "atlas",
     "inverse": "design a scale",
     "census": "count a rung",
+    "orbifold": "classify an orbifold",
+    "relations": "name the relations",
 }
 
 

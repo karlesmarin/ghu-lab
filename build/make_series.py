@@ -49,6 +49,12 @@ PARTS = [
     # Part VIII, deposited 2026-08-29.  Same map as VII, run backwards and then counted, so it
     # gets two sections of its own rather than a footnote in the hierarchy one.
     ("VIII", "22159036", "su7-certified-gap", ["inverse", "census"], "release_viii"),
+    # Part IX, deposited 2026-09-02, and it is TWO records rather than one: IX-A classifies the
+    # boundary conditions of an orbifold and IX-B names the semigroup its classes form.  Two
+    # concept ids, two repositories, two sections -- so two rows, because a reader looking for the
+    # semigroup should land on the semigroup and not on a footnote inside the alphabet.
+    ("IX-A", "22254861", "orbifold-alphabet", ["orbifold"], "release_ix"),
+    ("IX-B", "22254863", "orbifold-semigroup", ["relations"], "release_ix_b"),
 ]
 
 # Titles and leads for the parts that have no archived record to read them from.  Each one names

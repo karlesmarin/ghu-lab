@@ -33,6 +33,19 @@ const BCC_S = {
   bc: [2, 0, 0, 3],
   matter: { scalarF: { "++": 0 }, diracF: { "++": 0 }, diracA: { "++": 0 } },
   cache: null,
+  panels: null,
+  plane: null,
+};
+
+/* THE CLASS INVARIANT, and the coordinates that make its lattice complete.
+ *
+ * The only relation on S1/Z2 is [p,q,r,s] ~ [p-1,q+1,r+1,s-1], which leaves p-s and q-r alone, so a
+ * class carries that pair.  Their sum and difference always share N's parity, which empties half of
+ * the (p-s, q-r) box for arithmetic reasons and nothing else -- so the halved coordinates below are
+ * a change of basis on the same lattice, not a rebinning, and in them the lattice is FULL. */
+const bccUV = (N, [p, q, r, s]) => {
+  const o = N % 2 ? 1 : 0;
+  return [((p - s) + (q - r) - o) / 2, ((p - s) - (q - r) - o) / 2];
 };
 
 const BCC_SECTION = {
@@ -131,10 +144,36 @@ const BCC_SECTION = {
         <div id="bccHonesty" class="note">—</div>
       </div>
     </div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <h2>Every class at once</h2>
+    <p class="note" style="margin:0 0 10px">One cell is one class, and the height is how many
+    boundary conditions are in it. The lattice is <b>complete</b> — there is nothing to grey —
+    because the two invariants <code>p−s</code> and <code>q−r</code> take every value they can.
+    <b>Click a cell to load that class</b>: the panels above follow.</p>
+    <div class="pair">
+      <canvas id="bccMap" style="width:100%;display:block"></canvas>
+      <canvas id="bccSurf" style="width:100%;display:block"></canvas>
+    </div>
+    <div class="note" id="bccCap" style="margin-top:9px">—</div>
+    <div id="bccPick" style="margin-top:10px"></div>
   </div>`,
 
   init(ctx) {
     const $ = (id) => document.getElementById(id);
+    BCC_S.panels = mountFibrePanels({
+      ids: { map: "bccMap", surf: "bccSurf", cap: "bccCap" },
+      height: 300,
+      labels: ["(p−s + q−r)/2", "(p−s − q−r)/2"],
+      caption: (f) =>
+        f.classes.toLocaleString("en") + " classes — one per cell, and every cell is one — over "
+        + f.conditions.toLocaleString("en") + " boundary conditions. The map from a class to its "
+        + "cell is a bijection here, so this is the object and not a shadow of it: nothing is "
+        + "greyed because nothing is missing.",
+      onPick: (p) => BCC_SECTION._planePick(ctx, p),
+    });
+    BCC_S.panels.attach();
     $("bccOrb").innerHTML = Object.keys(ORBIFOLDS).map((k) =>
       `<button class="ghost" data-orb="${k}">${ORBIFOLDS[k].label}</button>`).join("");
     $("bccOrb").querySelectorAll("button").forEach((b) => {
@@ -191,6 +230,77 @@ const BCC_SECTION = {
     this._matter(ctx);
     this._energy(ctx, C);
     this._honesty(ctx, C);
+    this._plane(ctx, C);
+  },
+
+  /* ---------------------------------------------------------------- every class at once */
+
+  _plane(ctx, C) {
+    const cap = document.getElementById("bccCap"), box = document.getElementById("bccPick");
+    /* ON T2/Z3 A BOUNDARY CONDITION IS A 3x3 MATRIX and this pair of invariants is not its class.
+     * Drawing the same square anyway would be inventing an object, so the panel refuses where the
+     * picture would have been -- the same rule the orbifold page follows for a rotation it cannot
+     * classify. */
+    if (BCC_S.orbifold !== "S1/Z2") {
+      BCC_S.plane = null;
+      BCC_S.panels.set({ classes: 0, conditions: 0 },
+                       { vals: [null], nx: 1, ny: 1, xlo: 0, ylo: 0, aspect: [1, 1] });
+      if (cap) cap.textContent = "";
+      if (box) box.innerHTML =
+        '<div class="verdict breaks"><b>no plane here</b><span>On '
+        + ORBIFOLDS[BCC_S.orbifold].label + " a boundary condition is a 3\u00d73 matrix of "
+        + "multiplicities, and p\u2212s, q\u2212r are not its class invariants. The orbit walk "
+        + "above is unaffected; this picture is the one that does not exist.</span></div>";
+      return;
+    }
+
+    const N = BCC_S.N;
+    let xlo = Infinity, xhi = -Infinity, ylo = Infinity, yhi = -Infinity, conditions = 0;
+    const at = new Map();
+    for (const c of C.classes) {
+      const [u, v] = bccUV(N, c.members[0]);
+      at.set(u + "," + v, c);
+      conditions += c.size;
+      if (u < xlo) xlo = u; if (u > xhi) xhi = u;
+      if (v < ylo) ylo = v; if (v > yhi) yhi = v;
+    }
+    const nx = xhi - xlo + 1, ny = yhi - ylo + 1;
+    const vals = new Array(nx * ny).fill(null);
+    for (const [k, c] of at) {
+      const [u, v] = k.split(",").map(Number);
+      vals[(v - ylo) * nx + (u - xlo)] = c.size;
+    }
+    BCC_S.plane = { at, xlo, ylo, nx, ny };
+    BCC_S.panels.set({ classes: C.classes.length, conditions },
+                     { vals, nx, ny, xlo, ylo, aspect: [nx, ny] });
+    this._planePick(ctx, BCC_S.panels.mark());
+  },
+
+  /* what is in the class the reader pointed at -- and pointing at it LOADS it, so the rest of the
+   * section follows the pointer instead of the reader having to retype a member by hand */
+  _planePick(ctx, p) {
+    const box = document.getElementById("bccPick");
+    if (!box) return;
+    const P = BCC_S.plane;
+    if (!p || !P) { box.innerHTML = '<div class="note">Nothing picked yet.</div>'; return; }
+    const c = P.at.get(p.x + "," + p.y);
+    if (!c) { box.innerHTML = '<div class="note">Nothing there.</div>'; return; }
+
+    /* load it, unless it is already loaded -- refreshing on every repaint would fight the reader */
+    const mine = c.members.some((m) => m.every((x, i) => x === BCC_S.bc[i]));
+    if (!mine) { BCC_S.bc = c.members[0].slice(); ctx.refresh(); return; }
+
+    const names = new Set(c.members.map((m) => bcUnbroken(m)));
+    box.innerHTML =
+      '<div class="verdict ' + (names.size > 1 ? "breaks" : "stable") + '"><b>'
+      + c.size + (c.size === 1 ? " boundary condition" : " boundary conditions")
+      + "</b><span>one class, loaded above. "
+      + (names.size > 1
+          ? "Its members wear " + names.size + " different apparent symmetries — "
+            + [...names].slice(0, 3).join(", ")
+            + (names.size > 3 ? ", …" : "") + " — and they are one theory."
+          : "All of its members wear the same apparent symmetry.")
+      + "</span></div>";
   },
 
   /* ---------------------------------------------------------------- the cells */

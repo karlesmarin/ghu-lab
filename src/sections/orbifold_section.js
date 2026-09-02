@@ -375,6 +375,17 @@ const ORBIFOLD_SECTION = {
       ids: { map: "orbMap", surf: "orbSurf", cap: "orbCap" },
       height: 320,
       labels: ["first coordinate", "second coordinate"],
+      /* the caption used to live inside the view kit; it says "classes" and "boundary conditions",
+       * which are this section's words and nobody else's */
+      caption: (field) =>
+        field.classes.toLocaleString("en") + " classes — the footprint — over "
+        + field.conditions.toLocaleString("en") + " boundary conditions — the volume."
+        + (field.projected
+            ? "  This is a 2-plane of a " + field.coords.length
+              + "-dimensional datum space, so a cell may hold several classes; the number in it"
+              + " is how many conditions, not how many classes."
+            : "  The datum space is two-dimensional here, so the picture is the object and not a"
+              + " shadow of it."),
       onPick: (p) => this._pick(p),
     });
     ORB_S.panels.attach();

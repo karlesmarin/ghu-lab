@@ -226,18 +226,14 @@ export function mountFibrePanels(cfg) {
       S.grid = grid;
       S.step = stepField(grid);
       drawPlan(); drawRelief();
+      /* THE CAPTION IS THE MOUNTER'S.  It used to be written here in the language of Part IX-A --
+       * classes, boundary conditions, the datum space -- which is exactly right for that section
+       * and meaningless for any other lattice this pair is asked to draw.  A component that hard
+       * codes one caller's nouns can only ever have one caller. */
       const cap = el("cap");
-      if (cap) {
-        cap.textContent =
-          field.classes.toLocaleString("en") + " classes — the footprint — over "
-          + field.conditions.toLocaleString("en") + " boundary conditions — the volume."
-          + (field.projected
-              ? "  This is a 2-plane of a " + field.coords.length
-                + "-dimensional datum space, so a cell may hold several classes; the number in it"
-                + " is how many conditions, not how many classes."
-              : "  The datum space is two-dimensional here, so the picture is the object and not a"
-                + " shadow of it.");
-      }
+      if (cap) cap.textContent = cfg.caption ? cfg.caption(field, grid)
+        : (grid.nx * grid.ny).toLocaleString("en") + " cells, "
+          + grid.vals.filter((v) => v !== null).length.toLocaleString("en") + " of them reached.";
     },
     /* what is picked, for a section that wants to render it; null when nothing is */
     mark() { return S.mark; },

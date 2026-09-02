@@ -1,7 +1,82 @@
 # HANDOFF — GHU Lab
 
-> State at 2026-08-29. The section below is the newest; the earlier handoffs follow it unchanged
+> State at 2026-09-02. The section below is the newest; the earlier handoffs follow it unchanged
 > and are still the map of the code.
+
+## 2026-09-02 — Part IX enters, the panels answer back, and the instrument stops being slow
+
+Part IX went out on 2 September as **two** records — IX-A `10.5281/zenodo.22254861` (the alphabet)
+and IX-B `10.5281/zenodo.22254863` (the semigroup) — with two public repositories,
+`orbifold-alphabet` and `orbifold-semigroup`. Twenty-one sections became twenty-three.
+
+**Classify an orbifold** (IX-A) takes an integer rotation matrix of rank up to 8 and derives
+everything from it: the cone signature, the alphabet by Möbius inversion, the local data, the count
+and its degree, over SU(N), SO(N) and Sp(N) side by side. Nothing is entered. A matrix of infinite
+order, or one whose characteristic polynomial is not a power of the m-th cyclotomic, comes back
+**refused** rather than classified. **Name the relations** (IX-B) is mostly an attribution service
+plus a referee for a proposed move, the walk that shows whether a move set actually connects a class,
+and the tripod decided — carrying the local/global distinction that gets misquoted.
+
+**Two exponentials in the rank were found and killed.** `frobeniusSchur` walked the whole finite
+group per label — `|Λ/D|^r · m`, which is 823 543 elements at rank 6 — and froze the page for 137
+seconds on T⁶/Z₇. Character orthogonality collapses the translation sum to one integrality test per
+character: 185 ms, 740×. The enumeration budget was counting multisets rather than the datum size and
+so bounded nothing; it now divides by the sum of the cone orders.
+
+**The fibre panels became controls.** The plan and the relief share one cursor — a mark in either
+stands in the other — and picking a cell answers with what is standing in it: the multiplicity
+vectors and their apparent unbroken groups. The relief pick was wrong at first and the round trip
+caught it: `pickSurface` prefers the *deepest* mesh vertex within its radius, which on a stepped
+relief is the column behind; replaced by projecting each column top, which is cheaper and exact.
+
+**Inline help**: `src/view/help.js`, 50 terms, 68 marks across all 23 sections, one delegated
+listener. Where `site/docs.html` already had a definition its wording is reused rather than
+rewritten. `_test_help.py` gates the three ways this fails in silence — a misspelt key deletes a
+mark, an unreachable entry, a mark outside a template literal shipping as visible text — and carries
+its own deliberately-broken input, like `_test_editiongate.py`.
+
+**The narrow layout**: the rail was not hidden below 960px, it was *promoted* — twenty-three section
+names before anything a reader came for. It is a drawer now. And `min-width:auto` on grid items
+floored every panel at the intrinsic width of its canvas: Hierarchy laid out 785px inside a 390px
+phone, twelve of twenty-three sections overflowed. None do. (`.card div:has(>table)` was correct and
+cost **forty-five seconds** of style invalidation per class toggle; measured both ways, then
+replaced by the pre-`:has()` idiom.)
+
+**Speed, and it was one mistake made twice — recomputing what did not change.** The resolver ran on
+every render, including section switches on an identical model; and two sections resolved the whole
+module chain *per published row*, every render, for models that are fixed data. One memo now, keyed
+on the module set plus the entire serialised model, exposed as `ctx.resolveModel`. Then the
+computations themselves: **`VGrid`** evaluates V on a regular grid by splitting the phase with
+cos(A+B) and indexing by the integer 2qk (7×, and it *refuses* if a charge is not a half-integer),
+and **`FGrid`** evaluates F over a set of alphas with the atom collapse `atlas.mjs` already had, the
+sign as a phase shift, and a Chebyshev recurrence (44×). Both are gated pointwise against V and F in
+`_test_wilson.mjs` and `_test_hierarchy.mjs`. 818 → 193 ms, 817 → 94, 819 → 70, 586 → 15; nothing
+over 300 ms. All 23 sections render identically before and after — text *and* canvas pixel hashes.
+
+**bcclass gained the class lattice.** The only relation preserves `p−s` and `q−r`, the map class →
+cell is a bijection (probed: no cell holds two classes), and after the parity turn the lattice is
+complete `(N+1)×(N+1)` at every N and both parities. Clicking a cell **loads** that class, so the
+members, the groups and the energy follow the pointer. T²/Z₃ is refused, because there a boundary
+condition is a 3×3 matrix and this pair is not its class.
+
+**And the census was tried and dropped**, which is the lesson of the pass. `N(A_4, 8D)` is a count on
+a 2D integer lattice, so the same panel *should* have fitted; built on that argument it produced an
+illegible smear and a forest of spikes, because the congruence leaves one cell in six and each rung
+sits on a different residue class mod 3, so the rows are not even aligned. No honest dense picture of
+it exists. Removed rather than left as decoration. The four-minute probe that settled `bcclass`
+before a line was written is the one that should have run first.
+
+**DEPLOY**: `ghu-explorer` `1a94460` carries everything above except the bcclass lattice, which
+landed after it (`ghu-lab df866e1`). `data/series.json` had stopped at Part VIII and the site was
+one command away from being published without the paper of the day — `make_series.py`'s own comment
+warns about exactly that. It has ten parts now, all fetched.
+
+**Next, agreed with Carles 2026-09-02**: combining functions into single, more powerful tools — his
+idea, to be shaped next session. Standing gaps named in the same conversation: the SU(N) builder is
+S¹/Z₂ and **one** Wilson phase only (multi-phase is the biggest hole); brane matter cannot be added
+even though the anomaly ledger says brane fermions pay the bill; no Yukawas anywhere; the literature
+census shortlists papers but cannot load one and run it; and T²/Z₃ and T²/Z₆ have no class lattice
+because nobody knows what their invariants are — which is research, not interface.
 
 ## 2026-08-29 — Part VIII enters: the map backwards, the clusters, and the census
 

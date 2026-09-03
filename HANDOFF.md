@@ -85,6 +85,16 @@ remote made plausible. **Verify a pasted report against the tree and the served 
 on it** — three of five items here were already done, and the two that were real were worth the
 whole pass.
 
+### One small thing observed and deliberately not changed
+
+`build_site.py` sorts the changelog by `(date, filename)` descending, so **within one day the order
+is alphabetical and therefore arbitrary** — today's two newest entries land at the bottom of the
+twelve dated 2026-09-03, and the home page's "What has moved" block did not change when they were
+added. It is consistent rather than broken (the other twelve are in arbitrary order too, and every
+entry carries its date), and giving entries a real intra-day order would reshuffle a published page
+for a cosmetic reason. Carles' call if it ever matters; a `seq:` field in the front matter would be
+the smallest fix.
+
 ### Still on the list
 
 Unchanged in order: the SM cell at the vacuum; a paper-model loader with anchors (Burdman–Nomura

@@ -1,0 +1,4 @@
+N=5 done, 9128 rows, 43 s
+N=6 done, 22820 rows, 192 s
+N=7 done, 42380 rows, 630 s
+exit 0

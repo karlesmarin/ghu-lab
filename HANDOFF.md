@@ -97,7 +97,27 @@ contents show a Q by bending Y). **Two traps met:** 2̄ ≅ 2 for SU(2) (else L 
 Λ²3 = 3̄ (else uᶜ is never found). Dossier group "The Standard Model", three lines, invariant on
 all 86 classes. `an5PieceData`/`an5PieceCharge` exported from `anomaly5d.mjs` for it.
 
-**Build green across 31 harnesses; drive 115/115; site 28 ok; console clean.**
+**THE SIMULATOR AND THE SCAN, fifth pass.** `src/kernel/running.mjs` (one-loop SM running,
+PDG 2024 MS-bar inputs in `experiment.mjs`), `src/modules/predict.mjs` + `predict_section.js`
+("Simulator", 25th section): 1/R from m_W, m_H from the curvature via **HHKY hep-ph/0401183
+eq. (22)**, m_H² = (3g₄²/32π⁶R²)·∂²(V/C)/∂a², g₄ = g₂(1/R), sin²θ_W embedding vs running, towers
+in GeV; a turnable 3D tower landscape and a search-style reach plot; **no event simulated**.
+**Anchor**: HHKY Fig. 1 content on SU(3) [1,0,0,2] — their a = 0.058 → ours 0.0583, their
+m_H R/g₄ = 0.031 → ours 0.0306, their eq. (20) to 1e-9 (`_test_predict.mjs`, 11 checks;
+`_test_running.mjs`, 10). Name trap: `predict` collides with `eta.mjs`; it is `predictModel`.
+**The scan** (`tools/scan_cells.mjs`, 42 380 models, 11 min; `scan_predict.mjs`; `scan_map.py`;
+results in `data/scan_2026-09-03/`, the 25 MB JSONL is regenerated, not stored): 304 full
+generations, 148 with a Higgs doublet, ALL owing at the minimum; 62 theories with a W, 1/R from
+0.32 to 2.11 TeV (none clears CMS 6.6 TeV), m_H 10–47 GeV; sin²θ_W ∈ {3/8, 21/44, 3/92, 3/20};
+1 332 vacua break colour. The little hierarchy as a number over the space: t never below 0.038,
+6.6 TeV needs 0.012 → large multiplicities, which is where the published models live.
+
+**Deep-read this pass:** Part VII §2 (the KM25 dictionary carries an unresolved residual, ratios
+1.03–2.08 on α; every absolute 6D scale carries it) and §6 (m_h = K√F″/α, K = (√3/2π³) m_W g₄);
+HHKY 2004 §3 (their SU(3)_W model, eq. (20) height difference, eq. (22) dictionary, eq. (25)
+numbers) — the 5D dictionary reproduces HHKY and does not carry Part VI's 6D residual.
+
+**Build green across 33 harnesses; drive with the simulator; site 28 ok.**
 
 **Next, in the order a GHU researcher would ask for them** (the list handed to Carles this
 session): brane matter that pays the ledger, with the boundary-mass matching gate of Part I;

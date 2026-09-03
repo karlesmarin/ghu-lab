@@ -32,6 +32,24 @@ export const EXPERIMENT = {
          source: "PDG 2024 review 'Top Quark'",
          url: "https://pdg.lbl.gov/2024/reviews/rpp2024-rev-top-quark.pdf", read: "2026-09-03" },
 
+  /* the couplings at M_Z, MS-bar, from the PDG 2024 electroweak review (Erler–Freitas) */
+  alpha_inv_MZ: { value: 127.930, error: 0.008, unit: "1",
+         what: "α̂⁽⁵⁾(M_Z)⁻¹, MS-bar, five flavours",
+         source: "PDG 2024 review 'Electroweak Model and Constraints on New Physics': 'α̂⁽⁵⁾(M_Z)⁻¹ = 127.930 ± 0.008'",
+         url: "https://pdg.lbl.gov/2024/reviews/rpp2024-rev-standard-model.pdf", read: "2026-09-03" },
+  sin2_MZ_msbar: { value: 0.23129, error: 0.00004, unit: "1",
+         what: "ŝ²_Z, the MS-bar weak mixing angle at M_Z (SM best fit)",
+         source: "PDG 2024 review 'Electroweak Model and Constraints on New Physics', Table of schemes: 'MS ŝ²_Z 0.23129 ± 0.00004'",
+         url: "https://pdg.lbl.gov/2024/reviews/rpp2024-rev-standard-model.pdf", read: "2026-09-03" },
+  alpha_s_MZ: { value: 0.1187, error: 0.0017, unit: "1",
+         what: "α_s(M_Z) from the electroweak global fit of the same review (the QCD review's world average is 0.1180 ± 0.0009)",
+         source: "PDG 2024 review 'Electroweak Model and Constraints on New Physics': 'α_s(M_Z) = 0.1187 ± 0.0017 from the global fit'",
+         url: "https://pdg.lbl.gov/2024/reviews/rpp2024-rev-standard-model.pdf", read: "2026-09-03" },
+  m_Z: { value: 91.1876, error: 0.0021, unit: "GeV",
+         what: "Z boson mass, the LEP value the electroweak review takes as input",
+         source: "PDG 2024 review 'Electroweak Model and Constraints on New Physics', input M_Z = 91.1876 ± 0.0021 GeV",
+         url: "https://pdg.lbl.gov/2024/reviews/rpp2024-rev-standard-model.pdf", read: "2026-09-03" },
+
   /* lower mass limits at 95% CL on narrow dijet resonances, CMS, full Run 2 */
   dijet_coloron: { value: 6600, unit: "GeV",
          what: "axigluons and colorons — a colour-octet vector coupling to quarks: the shape of a first KK gluon",

@@ -697,6 +697,33 @@ H("one model, every verdict — the class walk, on the built page");
 }
 await shot("6-dossier");
 
+/* ---- the simulator: the HHKY anchor content on the builder, predicted, on the built page ------ */
+H("the simulator — HHKY's SU(3) content, the table against measurement, and both pictures");
+{
+  await js(`SUN5D_S.blocks = { nPP: 1, nPM: 0, nMP: 0, nMM: 2 };
+            SUN5D_S.bulk = { "adj|1|dirac": 2, "fund|-1|dirac": 8, "fund|1|scalar": 4, "fund|-1|scalar": 2 };
+            document.querySelector('#rail a[data-id="predict"]').click(); true`);
+  await sleep(1800);
+  const cell = (k) => `[...document.querySelectorAll('#prTable tr')]` +
+    `.find((t) => t.textContent.includes(${JSON.stringify(k)}))?.children[1].textContent.trim()`;
+  ok("the table is drawn with 1/R, m_H, sin²θ_W and the bulk fields",
+     (await js(`document.querySelectorAll('#prTable tr').length`)) >= 5);
+  ok("1/R from the measured W at HHKY's vacuum is 2.75 TeV", /2\.75\d TeV/.test(await js(cell("1/R"))), String(await js(cell("1/R"))));
+  ok("the predicted Higgs mass is the anchored 54 GeV, printed beside 125.20",
+     /^5[3-5]\.\d GeV$/.test(await js(cell("m_H"))), String(await js(cell("m_H"))));
+  ok("the tower note carries 1/R and the picture is not blank",
+     /1\/R = <b>2\.75/.test(await js(`document.getElementById('prTowerNote').innerHTML`)) &&
+     (await js(`(() => { const c = document.getElementById('prTower'); const d = c.getContext('2d').getImageData(0, 0, c.width, c.height).data; let n = 0; for (let i = 3; i < d.length; i += 4) if (d[i]) n++; return n; })()`)) > 2000);
+  ok("the reach plot says no event is simulated", /No event is simulated/.test(await js(`document.getElementById('prReachNote').textContent`)));
+  await js(`document.getElementById('prG4').value = 1.0; document.getElementById('prG4').dispatchEvent(new Event('input')); true`);
+  await sleep(900);
+  ok("moving g₄ to 1.0 moves the predicted Higgs mass with it, to about 83 GeV",
+     /^8[1-5]\.\d GeV$/.test(await js(cell("m_H"))), String(await js(cell("m_H"))));
+  await js(`document.getElementById('prG4Reset').click(); true`);
+  await sleep(600);
+}
+await shot("7-simulator");
+
 /* ---- every degree of freedom in the link, and a link that is garbage ------------------------ */
 /* AN OUTSIDE AUDIT OF THE DEPLOYED SOURCE, 2026-09-03, found two things here and both are real.
  * The permalink carried the multiplicities and not eta or the matter/gauge role, although both are

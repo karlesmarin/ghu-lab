@@ -1,0 +1,73 @@
+42380 rows
+
+======== 1. full cells: how many, where, with what
+full cell (5/5): 304 of 42380 rows
+  by N: {5: 4, 6: 216, 7: 84}
+  by boundary condition: {'SU(5) [0,2,0,3]': 2, 'SU(5) [0,3,0,2]': 2, 'SU(6) [0,2,1,3]': 8, 'SU(6) [1,1,0,4]': 8, 'SU(6) [0,3,1,2]': 38, 'SU(6) [1,2,0,3]': 38, 'SU(6) [0,4,1,1]': 8, 'SU(6) [1,3,0,2]': 8, 'SU(6) [1,1,4,0]': 8, 'SU(6) [2,0,3,1]': 8, 'SU(6) [2,1,3,0]': 38, 'SU(6) [3,0,2,1]': 38, 'SU(6) [3,1,2,0]': 8, 'SU(6) [4,0,1,1]': 8, 'SU(7) [0,2,3,2]': 1, 'SU(7) [1,1,2,3]': 1, 'SU(7) [2,0,1,4]': 1, 'SU(7) [0,2,4,1]': 1, 'SU(7) [1,1,3,2]': 1, 'SU(7) [2,0,2,3]': 1, 'SU(7) [0,3,2,2]': 6, 'SU(7) [1,2,1,3]': 6, 'SU(7) [2,1,0,4]': 6, 'SU(7) [0,4,2,1]': 6, 'SU(7) [1,3,1,2]': 6, 'SU(7) [2,2,0,3]': 6, 'SU(7) [1,2,4,0]': 6, 'SU(7) [2,1,3,1]': 6, 'SU(7) [3,0,2,2]': 6, 'SU(7) [1,4,2,0]': 1, 'SU(7) [2,3,1,1]': 1, 'SU(7) [3,2,0,2]': 1, 'SU(7) [2,2,3,0]': 6, 'SU(7) [3,1,2,1]': 6, 'SU(7) [4,0,1,2]': 6, 'SU(7) [2,3,2,0]': 1, 'SU(7) [3,2,1,1]': 1, 'SU(7) [4,1,0,2]': 1}
+  sin2 values among full cells: {'3/8': 256, '21/44': 24, '3/92': 18, '3/20': 6}
+  with a Higgs doublet: 148 of 304
+  full cell + Higgs + anomaly cancels at the minimum: 0 of 304
+  minimal contents (fewest fields) with full cell + Higgs:
+    SU(6) [0,2,1,3] anti+,anti-,adj+: sin2=3/8 exotics=5 (dim 18) anomaly@min=owes vacuum=broken — 1 pair at t = 0.6571 mWR=0.1714255928993227 1/R=468.8
+    SU(6) [0,2,1,3] anti+,sym-,adj+: sin2=3/8 exotics=5 (dim 18) anomaly@min=owes vacuum=[0, 2, 1, 3] — a symmetric point mWR=None 1/R=None
+    SU(6) [1,1,0,4] anti+,anti-,adj+: sin2=3/8 exotics=5 (dim 18) anomaly@min=owes vacuum=broken — 1 pair at t = 0.6571 mWR=0.17142559289932247 1/R=468.8
+    SU(6) [1,1,0,4] anti+,sym-,adj+: sin2=3/8 exotics=5 (dim 18) anomaly@min=owes vacuum=[0, 2, 1, 3] — a symmetric point mWR=None 1/R=None
+    SU(6) [0,4,1,1] anti+,anti-,adj+: sin2=3/8 exotics=5 (dim 18) anomaly@min=owes vacuum=broken — 1 pair at t = 0.3429 mWR=0.17142559289932247 1/R=468.8
+    SU(6) [0,4,1,1] anti+,sym-,adj+: sin2=3/8 exotics=5 (dim 18) anomaly@min=owes vacuum=[1, 3, 0, 2] — a symmetric point mWR=None 1/R=None
+    SU(6) [1,3,0,2] anti+,anti-,adj+: sin2=3/8 exotics=5 (dim 18) anomaly@min=owes vacuum=broken — 1 pair at t = 0.3429 mWR=0.17142559289932258 1/R=468.8
+    SU(6) [1,3,0,2] anti+,sym-,adj+: sin2=3/8 exotics=5 (dim 18) anomaly@min=owes vacuum=[1, 3, 0, 2] — a symmetric point mWR=None 1/R=None
+    SU(6) [1,1,4,0] anti+,anti-,adj+: sin2=3/8 exotics=5 (dim 18) anomaly@min=owes vacuum=broken — 1 pair at t = 0.3429 mWR=0.17142559289932247 1/R=468.8
+    SU(6) [1,1,4,0] anti+,sym-,adj+: sin2=3/8 exotics=5 (dim 18) anomaly@min=owes vacuum=[2, 0, 3, 1] — a symmetric point mWR=None 1/R=None
+    SU(6) [2,0,3,1] anti+,anti-,adj+: sin2=3/8 exotics=5 (dim 18) anomaly@min=owes vacuum=broken — 1 pair at t = 0.3429 mWR=0.17142559289932258 1/R=468.8
+    SU(6) [2,0,3,1] anti+,sym-,adj+: sin2=3/8 exotics=5 (dim 18) anomaly@min=owes vacuum=[2, 0, 3, 1] — a symmetric point mWR=None 1/R=None
+
+======== 2. what the cell needs: phases, class size, energetics
+  phases among full cells: {0: 4, 1: 216, 2: 84}
+  class-preferred member (lowest N_v) among full cells: {None: 304}
+  phases over all rows: {0: 11736, 1: 15648, 2: 11736, 3: 3260}
+
+======== 3. the vacuum of the full-cell models
+  where the vacuum sits (symmetric point / broken): {'symmetric': 168, 'broken': 136}
+  distance to nearest symmetric point, full cells: {0: 168, 0.3429: 16, 0.1889: 8, 0.1538: 8, 0.5: 24, 0.3103: 8, 0.3513: 8, 0.0975: 4, 0.4766: 24, 0.4338: 12, 0.4489: 12, 0.3149: 12}
+  weak block broken by the vacuum: {False: 224, True: 80}  colour broken: {False: 228, True: 76}
+  full cells with a Wilson-line W (scale set): 136
+    SU(7) [1,2,1,3] anti+,sym+,sym-,adj+: mWR=0.0381 1/R=2.11 TeV below the bound weakBroken=True colourBroken=True higgs=2 anomaly@min=owes
+    SU(7) [2,1,0,4] anti+,sym+,sym-,adj+: mWR=0.0381 1/R=2.11 TeV below the bound weakBroken=False colourBroken=True higgs=2 anomaly@min=owes
+    SU(7) [0,4,2,1] anti+,sym+,sym-,adj+: mWR=0.0381 1/R=2.11 TeV below the bound weakBroken=False colourBroken=True higgs=2 anomaly@min=owes
+    SU(7) [1,2,4,0] anti+,sym+,sym-,adj+: mWR=0.0381 1/R=2.11 TeV below the bound weakBroken=False colourBroken=True higgs=2 anomaly@min=owes
+    SU(7) [3,1,2,1] anti+,sym+,sym-,adj+: mWR=0.0381 1/R=2.11 TeV below the bound weakBroken=True colourBroken=True higgs=2 anomaly@min=owes
+    SU(7) [4,0,1,2] anti+,sym+,sym-,adj+: mWR=0.0381 1/R=2.11 TeV below the bound weakBroken=False colourBroken=True higgs=2 anomaly@min=owes
+    SU(7) [0,3,2,2] anti+,sym+,sym-,adj+: mWR=0.0381 1/R=2.11 TeV below the bound weakBroken=True colourBroken=False higgs=2 anomaly@min=owes
+    SU(7) [1,3,1,2] anti+,sym+,sym-,adj+: mWR=0.0381 1/R=2.11 TeV below the bound weakBroken=True colourBroken=True higgs=2 anomaly@min=owes
+    SU(7) [2,2,0,3] anti+,sym+,sym-,adj+: mWR=0.0381 1/R=2.11 TeV below the bound weakBroken=True colourBroken=False higgs=2 anomaly@min=owes
+    SU(7) [2,1,3,1] anti+,sym+,sym-,adj+: mWR=0.0381 1/R=2.11 TeV below the bound weakBroken=True colourBroken=True higgs=2 anomaly@min=owes
+
+======== 4. sin2 across ALL cells that fix Y (not only full)
+  rows with Y fixed: 6712; sin2 values: {'3/8': 3622, '3/5': 926, '15/16': 534, '3/20': 392, '3/23': 246, '3/32': 135, '12/53': 120, '3/77': 96, '12/29': 88, '6/19': 66, '3/44': 64, '3/41': 60}
+  by number of fields found: {1: {'15/16': 534, '3/8': 438, '3/23': 210}, 2: {'3/8': 886, '3/20': 205, '3/5': 142, '12/53': 120, '3/77': 96}, 3: {'3/8': 1254, '3/5': 566, '3/20': 145, '3/32': 38, '3/44': 18}, 4: {'3/8': 788, '3/5': 218, '3/29': 52, '3/20': 36, '3/32': 34}, 5: {'3/8': 256, '21/44': 24, '3/92': 18, '3/20': 6}}
+
+======== 5. which fields are missing most, and where Q ever appears
+  missing counts over rows with a partial cell: {'Q': 4208, 'dᶜ': 4767, 'L': 2652, 'eᶜ': 3669, 'uᶜ': 2569}
+  rows where Q is found: 2982  their sin2: {'3/8': 993, '3/5': 666, '15/16': 534, '3/20': 177, 'None': 152, '12/29': 88, '3/32': 84, '3/41': 60}
+  boundary conditions hosting Q: {'SU(6) [0,3,1,2]': 126, 'SU(6) [1,2,0,3]': 126, 'SU(5) [2,0,3,0]': 121, 'SU(5) [3,0,2,0]': 121, 'SU(6) [2,1,3,0]': 121, 'SU(6) [3,0,2,1]': 121, 'SU(5) [0,2,0,3]': 118, 'SU(5) [0,3,0,2]': 118, 'SU(6) [1,0,2,3]': 49, 'SU(6) [0,2,3,1]': 49, 'SU(6) [2,0,1,3]': 49, 'SU(6) [1,3,2,0]': 49}
+
+======== 6. anomalies at the minimum vs at the symmetric point of the frame
+  anomaly verdict at the minimum, all rows: {'no subject': 1672, 'owes': 38712, 'cancels': 1996}
+  among full cells: {'cancels': 4, 'owes': 300}
+
+======== 7. exotics: the bill of the full-cell models
+  exotic components (dim) among full cells: {18: 32, 21: 28, 15: 24, 59: 24, 30: 16, 2: 16, 22: 16, 0: 12, 31: 12, 38: 12}
+
+======== 8. the Wilson line and the cell: does breaking ever land on colour?
+  colour broken by the vacuum, all rows with a cell: {False: 5858, True: 1332}
+  examples: ['SU(5) [1,1,1,2] anti-,adj+ θ=[0.1239, 0.8761]', 'SU(5) [1,1,1,2] anti+,anti-,sym+ θ=[0.1239, 0.8761]', 'SU(5) [1,1,1,2] sym+,adj+,adj- θ=[0.2292, 0.7708]', 'SU(5) [1,1,1,2] fund+,fund-,anti-,adj+ θ=[0.1913, 0.8087]', 'SU(5) [1,1,1,2] fund-,anti-,sym+,adj+ θ=[0.4699, 0.5301]']
+
+======== 9. laws to test: every full-cell row satisfies ...
+  sin2 = 3/8: FAILS on 256/304  counterexample SU(7) [0,2,3,2] anti+,sym+,adj+,adj-
+  at least one Wilson-line phase: FAILS on 300/304  counterexample SU(5) [0,2,0,3] fund+,fund-,anti+,anti-
+  the weak block has size 2 and colour size 3 in DIFFERENT letters: HOLDS on 304/304
+  N >= 6: FAILS on 300/304  counterexample SU(5) [0,2,0,3] fund+,fund-,anti+,anti-
+  content has both an η=+ and an η=− field: HOLDS on 304/304
+  content has an antisymmetric: FAILS on 280/304  counterexample SU(7) [0,3,2,2] sym+,sym-,adj+
+  the vacuum does not break colour: FAILS on 228/304  counterexample SU(6) [1,1,0,4] anti+,anti-,adj+
+  anomaly at the minimum is not 'no subject': HOLDS on 304/304

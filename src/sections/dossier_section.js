@@ -342,6 +342,13 @@ const DOSS_SECTION = {
          : `Here the vacuum is not located, so the lines at the minimum decline.`) +
       ` <span class="chip mea">measured</span>` +
 
+      `<p style="margin:11px 0 0"><b>Against the data, with the hypothesis named.</b> The vacuum ` +
+      `fixes m_W·R; the measured m_W (PDG 2025) fixes 1/R and every state in GeV. The one bound ` +
+      `applied is CMS's full-Run-2 dijet limit on colour-octet vectors, 6.6 TeV, and it holds only ` +
+      `<b>if colour lives in the bulk</b> — the line says so. Which massless piece is a quark, the ` +
+      `hypercharges and sin²θ_W need the Standard-Model cell at the vacuum, which is not computed ` +
+      `yet.${helpMark("against-the-data")} <span class="chip mea">measured</span></p>` +
+
       `<p style="margin:11px 0 0"><b>What the minimum lines still do not say.</b> The scalars are ` +
       `the tree-level zero modes of A_y — the flat directions before the one-loop curvature gives ` +
       `them a mass. Whether a phase sits at 0, at 1 or strictly inside, and whether two phases ` +

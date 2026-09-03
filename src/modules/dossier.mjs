@@ -45,7 +45,7 @@ import { sun5dBlocks, sun5dUnbroken, sun5dTerms, sun5dMinimum, sun5dMinimumResta
 import { sp5ZeroModes } from "./spectrum5d.mjs";
 import { an5Ledger } from "./anomaly5d.mjs";
 import { bcClasses, bcEnergy, bcPreferred, bcShow } from "./bcclass.mjs";
-import { vac5At, vac5Ladder } from "./vacuum5d.mjs";
+import { vac5At, vac5Ladder, vac5Confront } from "./vacuum5d.mjs";
 import { moments, alphaMin, coordinates, stabilityW } from "../kernel/potential.mjs";
 
 /* ------------------------------------------------------------------ the shared computation */
@@ -84,7 +84,10 @@ export function dossierContext(bc, content, { grid = 400, windings = 300, restar
    * the minimiser's own reason. */
   ctx.vac = ctx.min ? vac5At(b, content, ctx.min.theta)
           : b.phases === 0 ? vac5At(b, content, []) : null;
-  if (ctx.vac) ctx.vac.ladder = vac5Ladder(ctx.vac.frame, content);
+  if (ctx.vac) {
+    ctx.vac.ladder = vac5Ladder(ctx.vac.frame, content);
+    ctx.vac.confront = vac5Confront(ctx.vac.ladder);
+  }
   return ctx;
 }
 
@@ -182,7 +185,7 @@ export const DOSSIER_LINES = [
     get: (c) => (c.vac ? String(c.vac.anom.offending.length) : null) },
   { key: "vacMW", group: "At the minimum", label: "Lightest massive vector, m·R — the W",
     cite: "the eigenvalues of P₁′P₀ on the adjoint: t/2 for a letter⊗pair vector, t for pair⊗pair",
-    get: (c) => (c.vac ? (c.vac.ladder.mWR === null ? "none — no massive vector"
+    get: (c) => (c.vac ? (c.vac.ladder.mWR === null ? "none — no vector is massive by the Wilson line"
                                                     : n6(c.vac.ladder.mWR)) : null) },
   { key: "vacLadder", group: "At the minimum", label: "Lightest state of each bulk field, in units of m_W",
     cite: "the same eigenvalue list on the bulk representations; 0 marks a massless state",
@@ -195,6 +198,19 @@ export const DOSSIER_LINES = [
         `${r.massless ? `${r.massless} massless` : ""}${r.massless && r.overW !== null ? ", " : ""}` +
         `${r.overW !== null ? `first massive at ${n6(r.overW)} m_W` : ""}`).join(" · ");
     } },
+
+  /* AND THEN THE DATA.  One measured mass makes the ladder dimensionful; the verdict names the
+   * hypothesis it rests on, because a dijet bound on a colour-octet vector says nothing about a
+   * model whose colour is not in the bulk. */
+  { key: "expInvR", group: "Against the data", label: "Compactification scale 1/R from m_W",
+    cite: "m_W = 80.3692 ± 0.0133 GeV (PDG 2025); 1/R = m_W / (m_W·R)",
+    get: (c) => (!c.vac ? null : c.vac.confront.located
+                   ? `${(c.vac.confront.invRGeV / 1000).toFixed(3)} TeV`
+                   : "not set — no vector is massive by the Wilson line at this vacuum") },
+  { key: "expKK", group: "Against the data", label: "First KK level of the unbroken vectors vs CMS dijet",
+    cite: "CMS JHEP 05 (2020) 033, 137 fb⁻¹: axigluons/colorons > 6.6 TeV — applies if colour is in the bulk",
+    get: (c) => (!c.vac ? null : c.vac.confront.located ? c.vac.confront.kk.verdict
+                   : "not set — the scale is not fixed") },
 
   { key: "N0", group: "The class energy", label: "N₀ — the constant piece",
     cite: "Haba–Hosotani–Kawamura eq. (3.25), gauge sector only",

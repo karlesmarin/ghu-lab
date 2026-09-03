@@ -64,6 +64,7 @@
  * angles coincide.  And the minimum itself is the grid minimiser's, one or two phases, as before.
  */
 import { an5LedgerOnFrame, an5PieceDim } from "./anomaly5d.mjs";
+import { EXPERIMENT, invRFromW } from "../kernel/experiment.mjs";
 
 export const VAC5_EPS = 1e-6;
 
@@ -517,10 +518,51 @@ export function vac5Ladder(frame, content = {}) {
     if (kind === "scalar") put(name, f.rep, eta, 1, m);
     else { put(`${name} (L)`, f.rep, eta, 1, m); put(`${name} (R)`, f.rep, -eta, -1, m); }
   }
+  /* THE W IS A WILSON-LINE MASS, NOT A KALUZA-KLEIN LEVEL.  At a symmetric vacuum the lightest
+   * massive vector is the first KK mode at 1/R (or 1/2R), and calling that "the W" would set the
+   * scale from a number the Wilson line had nothing to do with.  So the unit is the lightest
+   * vector strictly inside the tower — a generic angle — and a symmetric vacuum has none. */
   const vec = rows.find((r) => r.field === "A_μ");
-  const mW = vec && vec.lowestMassive !== null ? vec.lowestMassive : null;
+  const inside = vec ? vec.families.filter((f) => f.kind === "generic").map((f) => f.x) : [];
+  const mW = inside.length ? Math.min(...inside) : null;
   for (const r of rows) r.overW = mW && r.lowestMassive !== null ? r.lowestMassive / mW : null;
   return { rows, mWR: mW };
+}
+
+/* ------------------------------------------------------------------ against the data
+ *
+ * ONE MEASURED MASS MAKES THE LADDER DIMENSIONFUL.  The vacuum fixes m_W·R; the measured m_W then
+ * fixes 1/R, and with it every state of the ladder in GeV.  What can then be held against a
+ * published bound WITHOUT knowing which factor of the vacuum group is colour or hypercharge is
+ * exactly one thing: the first KK level of the unbroken vectors sits at 1/R, and if colour lives
+ * in the bulk that level is a colour-octet vector with coloron-like couplings, which the CMS
+ * full-Run-2 dijet search bounds at 6.6 TeV.  The verdict carries that hypothesis in its text.
+ * Everything finer — which massless piece is a quark, whether a state at 1 m_W is coloured, the
+ * hypercharges, sin²θ_W — needs the Standard-Model cell at the vacuum, which is the next tool
+ * and is not pretended here. */
+export function vac5Confront(ladder, exp = EXPERIMENT) {
+  const mWR = ladder.mWR;
+  if (mWR === null)
+    return { located: false,
+             why: "no vector gets its mass from the Wilson line (a symmetric vacuum, or no Wilson " +
+                  "line at all), so m_W does not set 1/R here" };
+  const invR = invRFromW(mWR, exp.m_W.value);
+  const rows = ladder.rows.map((r) => ({
+    field: r.field, massless: r.massless,
+    firstMassiveGeV: r.lowestMassive === null ? null : r.lowestMassive * invR,
+  }));
+  const bound = exp.dijet_coloron;
+  const kk = {
+    levelGeV: invR, boundGeV: bound.value, source: bound.source, url: bound.url,
+    hypothesis: bound.hypothesis,
+    verdict: invR >= bound.value ? "above the bound" : "below the bound",
+    sentence: invR >= bound.value
+      ? `the first KK level, 1/R = ${(invR / 1000).toFixed(2)} TeV, sits above the CMS coloron ` +
+        `bound of ${(bound.value / 1000).toFixed(1)} TeV`
+      : `the first KK level, 1/R = ${(invR / 1000).toFixed(2)} TeV, sits BELOW the CMS coloron ` +
+        `bound of ${(bound.value / 1000).toFixed(1)} TeV: excluded if colour lives in the bulk`,
+  };
+  return { located: true, mWR, invRGeV: invR, mW: exp.m_W, rows, kk };
 }
 
 /* THE DECOY: what reading the KK families at n = 0 would say.  A state of charge Q and offset h

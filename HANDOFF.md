@@ -72,7 +72,19 @@ counts and the folded angles of ρ(P₁′P₀) on ten (BC, θ) cases: **200 of 
 1e-16 pivots cos(π)/sin(π) leave, giving nullities too small and once negative; SVD with a
 tolerance fixed every one. The angles had agreed from the start.
 
-**Build 1 678 checks green across 30 harnesses; drive 115/115; site 28 ok; console clean.**
+**AGAINST THE DATA, third pass of the day.** `src/kernel/experiment.mjs` holds the measured
+numbers with source, URL and read date (m_W PDG 2025 world average 80.3692 ± 0.0133 GeV — NOT
+CDF 2022; m_h, m_t PDG 2024; CMS full-Run-2 dijet: colorons 6.6 TeV, q* 6.3, Z′ 2.9; ATLAS
+Z′_ψ 4.5 TeV; CMS-EXO-24-011 contact scales 17/37 TeV; Super-K p→e⁺π⁰ 2.4e34 y). `vac5Confront`
+turns m_W·R into 1/R and the ladder into GeV, and holds the first KK level against the coloron
+bound **with the hypothesis in the sentence** (colour in the bulk). The W that sets the unit is
+the lightest vector STRICTLY INSIDE the tower; a symmetric vacuum says nothing sets its scale.
+Dossier group "Against the data" (two lines, invariant on all 86 classes); the spectrum section's
+ladder gets a GeV column and the verdict. The harness refuses an experiment entry without a
+source or a date. Not done, on purpose: quark identification, hypercharges, sin²θ_W, m_h from
+V″, proton rate — each needs the SM cell at the vacuum or an anchored normalisation.
+
+**Build green across 30 harnesses; drive 115/115; site 28 ok; console clean.**
 
 **Next, in the order a GHU researcher would ask for them** (the list handed to Carles this
 session): brane matter that pays the ledger, with the boundary-mass matching gate of Part I;

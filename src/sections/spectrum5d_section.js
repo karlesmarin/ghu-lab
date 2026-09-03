@@ -278,7 +278,13 @@ const SPEC5D_SECTION = {
       el.innerHTML += `<div class="note">the exact tower declined: ${e.message}</div>`;
       return;
     }
+    const X = vac5Confront(L);
     const f4 = (x) => (Math.abs(x - Math.round(x)) < 1e-9 ? String(Math.round(x)) : x.toFixed(4));
+    const gev = (r) => {
+      if (!X.located) return "—";
+      const row = X.rows.find((q) => q.field === r.field);
+      return row && row.firstMassiveGeV !== null ? `${Math.round(row.firstMassiveGeV)}` : "—";
+    };
     const fam = (r) => r.families.map((f) =>
       f.x === 0 ? `${f.massless ? `${f.massless}×0` : ""}${f.massless && f.odd ? ", " : ""}` +
                   `${f.odd ? `${f.odd}×(n≥1)` : ""}`
@@ -291,12 +297,21 @@ const SPEC5D_SECTION = {
       (L.mWR === null ? `no massive vector to measure against` :
        `the lightest massive vector, the W, sits at <b>m·R = ${f4(L.mWR)}</b>`) + `</span></div>` +
       `<div style="overflow-x:auto"><table><thead><tr><th>field</th><th>towers</th>` +
-      `<th class="num">massless</th><th class="num">first massive / m_W</th></tr></thead><tbody>` +
+      `<th class="num">massless</th><th class="num">first massive / m_W</th>` +
+      `<th class="num">first massive, GeV</th></tr></thead><tbody>` +
       L.rows.map((r) => `<tr><td>${r.field}</td>` +
         `<td style="font-family:var(--mono);font-size:12px">${fam(r)}</td>` +
         `<td class="num">${r.massless}</td>` +
-        `<td class="num">${r.overW === null ? "—" : f4(r.overW)}</td></tr>`).join("") +
+        `<td class="num">${r.overW === null ? "—" : f4(r.overW)}</td>` +
+        `<td class="num">${gev(r)}</td></tr>`).join("") +
       `</tbody></table></div>` +
+      (X.located
+        ? `<div class="note" style="margin-top:6px"><b>Against the data:</b> with ` +
+          `m_W = ${X.mW.value} ± ${X.mW.error} GeV (PDG 2025), 1/R = ` +
+          `<b>${(X.invRGeV / 1000).toFixed(3)} TeV</b>; ${X.kk.sentence} ` +
+          `(CMS JHEP 05 (2020) 033).${helpMark("against-the-data")} ` +
+          `<span class="chip ${X.kk.verdict === "above the bound" ? "ver" : "bad"}">${X.kk.verdict}</span></div>`
+        : ``) +
       `<div class="note" style="margin-top:6px">The families above are the potential's multiset ` +
       `and are right for it; at a broken vacuum they are wrong at the <b>lowest level</b> of the ` +
       `adjoint and of the symmetric tensor, where the Cartan direction they keep at charge zero ` +

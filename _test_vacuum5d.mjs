@@ -25,8 +25,9 @@ import { an5Ledger, rShow } from "./src/modules/anomaly5d.mjs";
 import { bcClasses } from "./src/modules/bcclass.mjs";
 import { vac5Pairs, vac5Frame, vac5Unbroken, vac5ZeroModes, vac5Ledger, vac5Direct, vac5Count,
          vac5NaiveFromStates, vac5At, vac5Matrices, vac5Rank, vac5Tower, vac5TowerPotential,
-         vac5Ladder, VAC5_EPS }
+         vac5Ladder, vac5Confront, VAC5_EPS }
   from "./src/modules/vacuum5d.mjs";
+import { EXPERIMENT, invRFromW } from "./src/kernel/experiment.mjs";
 import { sun5dV, SUN5D_DOF } from "./src/modules/sun5d.mjs";
 
 let pass = 0, fail = 0;
@@ -310,6 +311,33 @@ H("the ladder: the W, and what sits where, in units of it");
   const S = vac5Ladder(vac5Frame(B([1, 0, 0, 1]), [0.3]), GAUGE);
   ok("SU(2) at θ = 0.3, gauge only: the W tower sits at x = θ and there is no massless vector",
      S.mWR !== null && Math.abs(S.mWR - 0.3) < 1e-12 && S.rows[0].massless === 0);
+}
+
+/* ------------------------------------------------------------------ 7c. against the data */
+
+H("against the data: every measured number carries its source and date, and the scale follows the W");
+{
+  const missing = Object.entries(EXPERIMENT).filter(([, e]) =>
+    !(typeof e.value === "number" && e.unit && e.source && e.url && /^\d{4}-\d{2}-\d{2}$/.test(e.read)));
+  ok(`${Object.keys(EXPERIMENT).length} measured entries, each with value, unit, source, url and the date it was read`,
+     missing.length === 0, missing.map(([k]) => k).join(", "));
+  ok("m_W is the PDG 2025 world average, 80.3692 ± 0.0133 GeV, and not the CDF 2022 value",
+     EXPERIMENT.m_W.value === 80.3692 && EXPERIMENT.m_W.error === 0.0133 && /CDF 2022/.test(EXPERIMENT.m_W.note));
+  ok("1/R = m_W / (m_W·R): a vacuum at m_W·R = 0.01 puts the KK scale at 8.04 TeV",
+     Math.abs(invRFromW(0.01) - 8036.92) < 1e-6, String(invRFromW(0.01)));
+  const b = B([2, 0, 0, 1]);
+  const small = vac5Confront(vac5Ladder(vac5Frame(b, [0.01]), MIX));
+  const big = vac5Confront(vac5Ladder(vac5Frame(b, [0.3]), MIX));
+  ok("SU(3) [2,0,0,1] at θ = 0.01: the W at t/2 gives 1/R = 16.07 TeV, above the coloron bound",
+     small.located && Math.abs(small.invRGeV - 16073.84) < 0.01 && small.kk.verdict === "above the bound",
+     `${small.invRGeV} ${small.kk.verdict}`);
+  ok("...and at θ = 0.3 it gives 0.54 TeV, below it — and the sentence names the hypothesis",
+     big.kk.verdict === "below the bound" && /if colour lives in the bulk/.test(big.kk.sentence),
+     big.kk.sentence);
+  ok("every ladder row is carried into GeV, the bulk fundamental's first state at m_W itself",
+     Math.abs(small.rows.find((r) => r.field.startsWith("1× dirac fund")).firstMassiveGeV - 80.3692) < 1e-9);
+  ok("a model with no massive vector is told nothing sets its scale",
+     vac5Confront(vac5Ladder(vac5Frame(B([1, 0, 0, 1]), [0]), GAUGE)).located === false);
 }
 
 /* ------------------------------------------------------------------ 7. the tolerance is named */

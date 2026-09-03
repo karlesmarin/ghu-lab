@@ -356,6 +356,18 @@ const HELP_TERMS = {
       + "of the representative you happen to be holding. The same three, read <b>at the minimum</b>, "
       + "come back invariant — and that too is measured on the render.",
   },
+  "against-the-data": {
+    term: "against the data",
+    body: "The vacuum fixes <code>m_W·R</code>, a number with no units; the measured "
+      + "<code>m_W = 80.3692 ± 0.0133 GeV</code> (PDG 2025) then fixes <code>1/R</code> and every "
+      + "state of the ladder in GeV. The one bound that applies without knowing which factor of the "
+      + "vacuum group is colour is the CMS full-Run-2 dijet limit on colour-octet vectors, "
+      + "6.6 TeV (JHEP 05 (2020) 033) — and it applies only <b>if colour lives in the bulk</b>, "
+      + "which the verdict says. Which massless piece is a quark, the hypercharges and "
+      + "<code>sin²θ_W</code> need the Standard-Model cell at the vacuum, which the instrument does "
+      + "not compute yet. Every measured number carries its source and the date it was read "
+      + "(<code>src/kernel/experiment.mjs</code>).",
+  },
   "at-the-minimum": {
     term: "the content at the minimum",
     body: "Gauge the constant A_y away and the reflection about y = πR becomes "

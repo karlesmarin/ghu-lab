@@ -30,7 +30,7 @@ VERSION = "0.2.0"
 
 # `cite.mjs` before `latex.mjs`, and both after `card.mjs`: the inliner concatenates in this
 # order into ONE scope, so a file may only use names the files before it have declared.
-KERNEL = ["meta.mjs", "status.mjs", "model.mjs", "potential.mjs", "canonical.mjs", "screens.mjs",
+KERNEL = ["meta.mjs", "status.mjs", "experiment.mjs", "model.mjs", "potential.mjs", "canonical.mjs", "screens.mjs",
           "charges.mjs", "multiplets.mjs", "wilson.mjs", "surface.mjs", "resolve.mjs", "card.mjs",
           "cite.mjs", "latex.mjs", "blkt.mjs", "alphabet.mjs", "fibres.mjs", "moves.mjs", "rotations.mjs", "unbroken.mjs", "tripod.mjs"]
 VIEW = ["fibre_panels.js", "help.js"]

@@ -166,6 +166,21 @@ const CENSUS_SECTION = {
       `<tr><td colspan="6" class="note">Not built yet. The archived run says what to expect: ` +
       Object.entries(T).map(([k, v]) => `<b>${v.enumerated.toLocaleString("en")}</b> at 8D = ${k}`)
         .join(", ") + `. The button above recomputes all of it here.</td></tr>`;
+    /* AND THE TWO VERDICT BOXES BELOW, which this branch used to leave holding the dashes they
+     * were built with.  `render` returns here whenever the lattice has not been built — which is
+     * every arrival, before the button is pressed — so the fix inside `_recurrence` was correct
+     * and unreachable: the caller returned first.  A guard in the caller is a hypothesis missing
+     * from the function, and this is the third time that shape has cost something here. */
+    document.getElementById("cnRec").className = "verdict";
+    document.getElementById("cnRec").innerHTML =
+      `<b>Not checked yet</b><span>The recurrence is verified on the whole grid rather than ` +
+      `asserted, and that is a sweep. Press the button above and this box will say how many grid ` +
+      `points were tested and how many failed. <span class="chip bad">not run</span></span>`;
+    document.getElementById("cnFibre").className = "verdict";
+    document.getElementById("cnFibre").innerHTML =
+      `<b>Not built yet</b><span>The fibre — how many contents on one rung share a single ` +
+      `potential — is read off the lattice, so it appears with it. ` +
+      `<span class="chip bad">not run</span></span>`;
     document.getElementById("cnTotalsNote").textContent =
       seed === "candidate"
         ? "The archived census is the published seed's. On the candidate seed the table is still " +
@@ -281,7 +296,20 @@ const CENSUS_SECTION = {
   _recurrence(ctx) {
     const C = CEN_C, r = CEN_S.rec;
     const el = document.getElementById("cnRec");
-    if (!r) { el.innerHTML = "<b>—</b><span>—</span>"; return; }
+    /* NEVER AN EMPTY CELL — the page prints that rule in its own footer, and this box broke it.
+     * Until the sweep is pressed the recurrence has not been checked, and the honest thing to say
+     * is that, not a dash: a verdict box holding its template placeholder reads as a computation
+     * that ran and decided nothing, which is exactly the failure mode this instrument refuses in
+     * its numbers and was committing in its markup.  Found on 2026-09-03 by walking every section
+     * in states nobody had put it in (`build/extremes.mjs`); two more boxes had the same shape. */
+    if (!r) {
+      el.className = "verdict";
+      el.innerHTML = `<b>Not checked yet</b><span>The recurrence is verified on the whole grid ` +
+        `rather than asserted, and that is a sweep — press <b>run the sweep</b> above and this ` +
+        `box will say how many points were tested and how many failed. ` +
+        `<span class="chip bad">not run</span></span>`;
+      return;
+    }
     el.className = r.failures === 0 ? "verdict breaks" : "verdict stable";
     el.innerHTML =
       `<b>N(A₄, 8D + ${C.step}) = N(A₄, 8D) − P(A₄ − A₄<sub>gauge</sub>, 8D − 8D<sub>gauge</sub>)</b>` +
@@ -324,7 +352,9 @@ const CENSUS_SECTION = {
           (best === null || Math.abs(c.invR - pdg.lo) < Math.abs(best.invR - pdg.lo)) ? c : best), null)
       : null;
     const el = document.getElementById("cnFibre");
-    el.className = "verdict breaks";
+    /* AND THE CLASS IS PICKED BY THE PHYSICS, so it can fail to exist for two different reasons —
+     * which is why the empty branch below names WHICH.  It said "—", and a dash is not a reason. */
+    el.className = big ? "verdict breaks" : "verdict";
     el.innerHTML = big
       ? `<b>${big.n} contents, one potential</b><span>At (A₄, 8D) = (${f.A4}, ${f.k8D}) the rung ` +
         `holds ${f.n.toLocaleString("en")} contents in <b>${f.nClasses}</b> exact classes of ` +
@@ -338,7 +368,19 @@ const CENSUS_SECTION = {
             `multiplets and one of ${big.sizeMax}. <span class="chip thm">theorem</span>`
           : `<b>${big.nW2}</b> values of 2W, so its members do NOT all share a potential.`) +
         `</span>`
-      : `<b>—</b><span>—</span>`;
+      /* the same rule as `cnRec`, and the reason is named rather than implied: the class shown is
+         the one at the measured-mass point, so it is missing when there is no measured window to
+         compare against, or when no class on this rung has a scale at all */
+      : `<b>No class to show, and here is which of the two reasons</b><span>` +
+        (pdg
+          ? `This rung's ${f.nClasses} exact classes of (2U, V) carry <b>no computable 1/R₅</b> ` +
+            `between them, so there is no measured-mass point to pick one by. The classes are in ` +
+            `the table below; what is missing is the scale, not the classification.`
+          : `The published measured window is not in this dataset, and the class shown here is ` +
+            `<b>chosen by the physics</b> — the one sitting at the measured mass — rather than by ` +
+            `size. Picking the biggest instead would be a coincidence waiting to break, so the ` +
+            `panel declines.`) +
+        ` <span class="chip bad">no subject</span></span>`;
     document.getElementById("cnClasses").innerHTML = f.classes.slice(0, 8).map((c) =>
       `<tr${c === big ? ' style="background:var(--green-l)"' : ""}>` +
       `<td class="num">${c.U2}</td><td class="num">${c.V}</td><td class="num">${c.n}</td>` +

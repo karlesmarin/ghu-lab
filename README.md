@@ -24,6 +24,10 @@ The deployed page is a build artifact. This is where it comes from, and why it s
 🌐  python build/build_site.py --legacy ../ghu-explorer/tools-2026-07     # → site/, then gates itself
 📸  node   build/shoot.mjs       # headless screenshots of every section + console + which model
 🖱️  node   build/drive.mjs       # USES the panels: a real mouse through the DevTools Input domain
+📏  node   build/layout.mjs      # is anything wider than the box that holds it — every section,
+                                 # every width, and every state: help open, demo running
+🧪  node   build/extremes.mjs    # the states no gate visits: cleared, one multiplet, every slot
+                                 # at its ceiling, boundary conditions at the corners
 ✅  node   tests/run.mjs         # the built page against the Python engine of Part VII
 ```
 
@@ -32,7 +36,9 @@ The deployed page is a build artifact. This is where it comes from, and why it s
 
 ## 🧪 What is checked, and against what
 
-**1 802 checks across 35 harnesses**, plus 144 driven through a real mouse and 28 on the built site.
+**1 805 checks across 35 harnesses**, plus 153 driven through a real mouse, 28 on the built site,
+and two tools that measure what the reader sees: 0 clipped boxes and 416 clean renders in the
+states no gate visits.
 The ones that carry weight are the ones an outside computation could lose:
 
 | harness | what it puts at risk |
@@ -59,7 +65,9 @@ The ones that carry weight are the ones an outside computation could lose:
 | 🎯 `_test_dossier.mjs` | the claim that is a **classification** rather than a number: which verdicts are the theory's and which the frame's, measured on every member of the equivalence class — with two decoy lines whose answers are settled before the tagger runs, and the requirement that the lines read at the vacuum come back invariant on all 86 multi-member classes of SU(4)…SU(7) |
 | 🧩 `_test_app.mjs` | the page that **ships**, not the sources it came from: the inliner, the module stripper and the data injection are the only code no other test covers |
 | 🌐 `_test_site.py` | thirteen site checks, and then **each of them again against a site broken on purpose** |
-| 🖱️ `build/drive.mjs` | the panels answer a **real mouse** through the DevTools Input domain, not events dispatched from inside the page — including the buttons that write files, the permalinks that make a page sendable, the class-mate click that must leave the vacuum's verdicts standing, and the simulator's own anchored numbers |
+| 🖱️ `build/drive.mjs` | the panels answer a **real mouse** through the DevTools Input domain, not events dispatched from inside the page — including the buttons that write files, the permalinks that make a page sendable (**with the empty model, which is the case that was broken**), the class-mate click that must leave the vacuum's verdicts standing, the published-model label that must go the moment any dial moves, and the rule that no verdict box in any of the 26 sections may open holding a dash |
+| 📏 `build/layout.mjs` | **what a reader sees and no other gate can**: anything whose content is wider than the box that holds it, in every section, at several widths, and in every state — how-to open, each help bubble open, the demo running. It tells apart a box that scrolls, a box that **clips** (a column is simply gone) and a box that truncates with an ellipsis and can give the text back through its `title`. Written the day a reader reported a table running off the edge of a card; it found eleven such boxes across four sections, all from one CSS rule that was scoped to phones |
+| 🧪 `build/extremes.mjs` | **the states no gate visits**: every family cleared, a single multiplet, every slot at its ceiling, and boundary conditions at the corners of the block simplex — at a desktop width and at 380 px. It looks for the six ways a template literal says it was handed something it did not expect (`NaN`, `undefined`, `[object Object]`, `Infinity`, `null`, an unresolved `${…}`), for a section that rendered nothing, and for a verdict box that ran and decided nothing. 416 (section, state, width) renders |
 
 Every guard here has been fired at least once by breaking something on purpose. A guard that has
 never failed is not a guard, and `HANDOFF.md` carries the index of what each one cost.

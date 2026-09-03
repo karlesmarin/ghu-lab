@@ -124,8 +124,10 @@ const BCC_SECTION = {
         sixth roots of unity, so each reduction gives exactly one of each diagonal pattern.</div>
         <div style="overflow-x:auto"><table><thead><tr><th class="num">N</th>
           <th class="num">states</th><th class="num">diagonal</th><th class="num">C(N+5,5)</th>
-          <th class="num">off-diagonal</th><th class="num">their sum</th>
-          <th class="num">their eq. (5.9)</th><th class="num">closed form</th></tr></thead>
+          <!-- eight columns in a half-width card: the headers are abbreviated so that the two
+               quoted expressions, which are the point of the table, are not behind a drag -->
+          <th class="num">off-diag.</th><th class="num">their sum</th>
+          <th class="num">their (5.9)</th><th class="num">closed form</th></tr></thead>
           <tbody id="bccZ6"></tbody></table></div>
         <div class="note" style="margin-top:9px" id="bccZ6Note">—</div>
       </div>

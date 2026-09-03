@@ -130,8 +130,10 @@ const HIERARCHY_SECTION = {
         number each reading predicts, before any such row exists:</p>
         <div style="overflow-x:auto"><table><thead><tr><th>candidate</th>
           <th class="num">α ours</th><th class="num">m_h</th>
-          <th class="num">α theirs, if the 48 is the locus</th>
-          <th class="num">…if small α is</th></tr></thead><tbody id="h6Rows"></tbody></table></div>
+          <!-- short headers, because the long ones pushed two columns behind a horizontal drag
+               in a half-width card; the paragraph above says which reading each one is -->
+          <th class="num">α theirs · if 48</th>
+          <th class="num">α theirs · if small α</th></tr></thead><tbody id="h6Rows"></tbody></table></div>
         <div class="note" style="margin-top:9px" id="h6Note">—</div>
       </div>
     </div>
@@ -324,6 +326,13 @@ const HIERARCHY_SECTION = {
     }
     this._seed(v, ctx);
     this._lead(v, ctx, r);
+    /* THE CAVEAT IS NOT PART OF THE LEAD, and it used to be — written at the end of `_lead`, which
+     * returns early for a content that breaks nothing.  So the one state where the page has no
+     * number at all was the one state where the sentence saying the numbers are not settled
+     * silently disappeared, leaving the dash it was built with.  It is its own call now, made
+     * unconditionally, for the same reason the census one is: a guard in the caller is a
+     * hypothesis missing from the function. */
+    this._gapBox(ctx, r);
     this._stats(v, ctx.DATA);
     this._laws(v);
     this._vacuum(v);
@@ -558,8 +567,23 @@ const HIERARCHY_SECTION = {
             `${(-vac.F_gap_to_global).toFixed(2)} — a deeper minimum W &gt; 0 cannot see. `) +
         `The number is a stationary point, not a prediction.`);
 
+  },
+
+  /* THE CAVEAT DOES NOT GO AWAY WHEN THERE IS NOTHING TO ATTACH IT TO.  With the model emptied
+   * there is no α of ours to compare with anyone's, and this box used to keep the dash it was
+   * built with — which reads as "settled", the opposite of what it exists to say.  Clear the
+   * model and the sentence changes to name the reason; it never disappears. */
+  _gapBox(ctx, r) {
     const g = this._gap(ctx.DATA, r && r.model);
-    if (!g) return;
+    if (!g) {
+      document.getElementById("gap").className = "verdict";
+      document.getElementById("gap").innerHTML =
+        `<b>Nothing to compare yet.</b><span>With no bulk content there is no α of ours, so the ` +
+        `ratio against the published rows has no subject. It is not settled either way: put a ` +
+        `content in and this box will say by how much ours and theirs disagree on it. ` +
+        `<span class="chip bad">no subject</span></span>`;
+      return;
+    }
     /* A verdict box is <b>title</b> + <span>body</span>: `.verdict > b` is a block, so every bold
      * number written as a direct child got its own line -- the same rule, the other way round. */
     document.getElementById("gap").innerHTML =

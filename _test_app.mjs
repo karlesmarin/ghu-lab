@@ -275,6 +275,23 @@ ok("and the smoke actually rendered them", rendered === secs.filter((x) => x.rea
  * The honesty vocabulary is per VALUE, and a status on every number does not add up to the shape of
  * what is missing.  Two things carry that shape, and both are easy to delete by accident because
  * nothing computes from them: the limits panel, and the caveat on the model the tool opens with. */
+/* AND THE HEAD, WHICH NOTHING HAD EVER READ.  `_test_site.py`'s head gate skips `app/index.html`
+ * by name — it is a carried artifact there — so the title and the description were the only prose
+ * on this page that no gate had ever looked at, and they still described a single bulk model and
+ * a handful of computations from a build with five sections and one family.  An outside reader
+ * found them on 2026-09-03.  The assertions are on the CLAIM rather than on a count, so they
+ * cannot go stale the next time a section is added. */
+{
+  const title = /<title>([\s\S]*?)<\/title>/.exec(PAGE);
+  const desc = /name="description" content="([\s\S]*?)"/.exec(PAGE);
+  ok("the page has a title and a description at all", !!title && !!desc);
+  ok("...and neither of them still says this is one model",
+     !/one model|one bulk model/i.test(title[1] + " " + desc[1]),
+     `${title[1]} / ${desc[1].slice(0, 80)}`);
+  ok("...and the description names the builder, which is the thing that stopped it being one model",
+     /builder/i.test(desc[1]), desc[1].slice(0, 120));
+}
+
 ok("the page states what it cannot tell you, once, permanently",
    PAGE.includes("What this tool cannot tell you"));
 for (const claim of ["Absolute scales are not settled", "One published case",

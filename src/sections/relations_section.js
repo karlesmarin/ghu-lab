@@ -159,7 +159,14 @@ const RELATIONS_SECTION = {
       <button class="ghost" id="relJudge">judge it</button>
       <span class="note" id="relMoveNote"></span>
     </div>
-    <div class="verdict stable" id="relMoveV" style="margin-top:12px"><b>&mdash;</b><span>&mdash;</span></div>
+    <!-- NEVER AN EMPTY CELL, which is this page's own footer rule and which this box broke until
+         2026-09-03: it sat holding two dashes from the moment the section opened until the reader
+         pressed "judge it", and a verdict box showing a dash reads as a computation that ran and
+         decided nothing.  It is only judged on demand, so the opening state says exactly that. -->
+    <div class="verdict" id="relMoveV" style="margin-top:12px"><b>Nothing judged yet</b><span>Write
+      a move as one side, an arrow, the other side &mdash; for example <span
+      style="font-family:var(--mono)">7 8 -&gt; 5 6</span> &mdash; and press <b>judge it</b>.
+      <span class="chip bad">not run</span></span></div>
     <div style="overflow-x:auto;margin-top:12px"><table id="relLetters"></table></div>
   </div>
 

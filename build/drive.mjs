@@ -869,6 +869,75 @@ await shot("8-reading");
  * The checks below are the ones that were missing rather than the ones that were easy: a ROUND TRIP
  * through the real buttons, with a control leg that would fail if the reset were not happening, and
  * a set of deliberately broken hashes with the rule that none of them may stop the interface. */
+/* ---- no verdict box may show the dash it was built with ------------------------------------ */
+/* The footer states the rule in the page's own words: a verdict is "said out loud with its reason
+ * — never an empty cell".  Three boxes broke it — two in the census, one in the relations panel —
+ * by sitting on the `<b>—</b><span>—</span>` they were built with until the reader pressed
+ * something.  A box holding a dash reads as a computation that ran and decided nothing, which is
+ * the one thing this instrument is built not to do.  Found by walking every section in states
+ * nobody had put it in; kept honest here, on the real page, for every section at once. */
+H("every verdict box says something, in every section, on arrival");
+{
+  await js(`location.hash = ""; location.reload(); true`);
+  await sleep(1800);
+  const ids = JSON.parse(await js(
+    `JSON.stringify([...document.querySelectorAll('#rail a[data-id]')].map((a) => a.dataset.id))`));
+  const empties = [];
+  for (const s of ids) {
+    await js(`document.querySelector('#rail a[data-id="${s}"]').click(); true`);
+    await sleep(420);
+    const bad = JSON.parse(await js(`JSON.stringify(
+      [...document.querySelectorAll('#section .verdict')]
+        .filter((v) => { const t = (v.textContent || "").replace(/\\s+/g, "").replace(/—/g, "");
+                         return t.length === 0; })
+        .map((v) => v.id || "(no id)"))`));
+    for (const b of bad) empties.push(`${s}#${b}`);
+  }
+  ok(`all ${ids.length} sections open with every verdict box saying something`,
+     empties.length === 0, empties.join(" · "));
+}
+
+/* ---- the anchor label has to go the moment the model stops being the anchor ---------------- */
+/* The header says "opening on <the published row> — <its caveat>" while the model is untouched,
+ * and the comment beside it promises it disappears the moment you change anything.  It did not:
+ * the signature compared the representation, the parities and the multiplicity, and the interface
+ * moves four more things — η, the role, the gauge seed and the brane.  Reported by an outside
+ * reader, 2026-09-03.  A caveat attached to numbers that are no longer the published model's is
+ * exactly the kind of wrong provenance this instrument exists to refuse. */
+H("the published-model caveat goes as soon as any dial moves");
+{
+  const caveat = `(document.getElementById('topCaveat')?.textContent || '').trim()`;
+  await js(`location.hash = ""; location.reload(); true`);
+  await sleep(1800);
+  await js(`document.querySelector('#rail a[data-id="hierarchy"]').click(); true`);
+  await sleep(900);
+  const c0 = await js(caveat);
+  ok("on the untouched anchor the header names the published row and its caveat",
+     /opening on/.test(c0), c0.slice(0, 90));
+
+  await js(`document.getElementById('hSeedC').checked = true;
+            document.getElementById('hSeedC').dispatchEvent(new Event('change')); true`);
+  await sleep(900);
+  ok("changing the GAUGE SEED drops it — the seed is part of the model", !(await js(caveat)),
+     (await js(caveat)).slice(0, 90));
+  await js(`document.getElementById('hSeedP').checked = true;
+            document.getElementById('hSeedP').dispatchEvent(new Event('change')); true`);
+  await sleep(900);
+  ok("...and putting the seed back brings it back", /opening on/.test(await js(caveat)));
+
+  await js(`document.querySelector('#rail a[data-id="escape"]').click(); true`);
+  await sleep(900);
+  await js(`const x = document.getElementById('egXQ'); x.value = '1/3';
+            x.dispatchEvent(new Event('change')); true`);
+  await sleep(900);
+  await js(`document.querySelector('#rail a[data-id="hierarchy"]').click(); true`);
+  await sleep(900);
+  ok("typing a BRANE charge drops it too — the brane is part of the model", !(await js(caveat)),
+     (await js(caveat)).slice(0, 90));
+  await js(`location.hash = ""; location.reload(); true`);
+  await sleep(1800);
+}
+
 H("the permalink carries every dial, and no hash a reader can type may blank the page");
 {
   await js(`document.querySelector('#rail a[data-id="calculator"]').click()`);
@@ -909,6 +978,38 @@ H("the permalink carries every dial, and no hash a reader can type may blank the
   ok("and the link that carries them opens on exactly what was on screen when it was copied",
      (await js(eta)) === eta1 && (await js(role)) === role1,
      `${await js(eta)}/${await js(role)}`);
+
+  /* AN EMPTY MODEL IS A MODEL, and the link has to carry it.  Every family opens on its published
+   * anchor, so `clear` is the one edit that makes a family's parameter empty — and an omitted
+   * parameter meant "leave it alone" at the far end, so opening your own link brought the anchor
+   * back.  Reported by an outside reader on 2026-09-03, and it is the exact shape of a bug a
+   * round-trip test cannot see unless it round-trips the EMPTY case: clear, copy, open, count. */
+  await js(`document.getElementById('cClear').click(); true`);
+  await sleep(900);
+  const empty = await js(`document.querySelectorAll('#cRows tr').length`);
+  const cleared = await js(`location.hash`);
+  ok("clearing the model empties the table", empty === 0, `${empty} rows left`);
+  ok("...and the link names the family with an empty value rather than omitting it",
+     /(^|&)su4_ahmn=($|&)/.test(cleared), cleared);
+  /* THE BACKWARD-COMPATIBILITY LEG, and the first version of it asked the wrong question.  It set
+   * a hash with no family key on the tab that had just been cleared and expected the anchor back —
+   * but an absent key means "leave this family alone", not "reload its anchor", and leaving it
+   * alone on that tab correctly leaves it empty.  The guarantee is about a link opened FRESH, so
+   * it is measured on a fresh load: a link written before this family existed must still open on
+   * the anchor. */
+  await js(`location.hash = "#s=calculator"; location.reload(); true`);
+  await sleep(2000);
+  const back = await js(`document.querySelectorAll('#cRows tr').length`);
+  ok("a link that does NOT name the family opens on the anchor, as every old link must",
+     back > 0, `${back} rows`);
+  /* and now the one that was actually shared, on that same fresh page */
+  await js(`location.hash = ${JSON.stringify(cleared)}; true`);
+  await sleep(900);
+  const cameBack = await js(`document.querySelectorAll('#cRows tr').length`);
+  ok("...while the cleared link comes back EMPTY, which is what was on screen when it was copied",
+     cameBack === 0, `${cameBack} rows came back`);
+  await js(`location.hash = ${JSON.stringify(link)}; true`);
+  await sleep(900);
 
   /* and now the hashes nobody should have to survive */
   for (const bad of ["x=%", "x=%E0%A4%A", "s=calculator&su4_ahmn=%ZZ", "===", "%"]) {

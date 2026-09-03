@@ -87,17 +87,6 @@ const ANOMALIES_SECTION = {
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>The whole catalogue, and the ceiling the escape moves</h2>
-        <p class="lead" id="aCatLead">—</p>
-        <canvas id="aCat" width="560" height="230"></canvas>
-        <table><thead><tr><th class="num">multiplets</th><th class="num">contents</th>
-          <th class="num">in window</th><th class="num">hold host</th><th class="num">can pay</th>
-          <th class="num">best 1/R₅</th><th class="num">best that pays</th></tr></thead>
-          <tbody id="aCatRows"></tbody></table>
-        <div class="note" style="margin-top:9px" id="aCatNote">—</div>
-      </div>
-
-      <div class="card" style="margin-top:18px">
         <h2>The headline as a region — the wedge${helpMark("ceiling")}</h2>
         <p class="note" style="margin:0 0 10px">The exposed half of "row (2) is the unique row"
         is D, computed from the very formulas that fail the anchor. So take the <b>whole family</b>
@@ -113,6 +102,22 @@ const ANOMALIES_SECTION = {
         <div class="note" style="margin-top:9px" id="aWedgeNote">—</div>
       </div>
     </div>
+  </div>
+
+  <!-- FULL WIDTH, AND NOT FOR LOOKS.  Seven columns of counts and a 560px plot do not fit in half
+       of a 1240px page: in the two-column grid this table needed 160px of horizontal dragging and
+       two of its columns — the two that carry the answer, the best scale and the best scale that
+       can pay — were the ones behind the drag.  A reader reported it.  A card whose content has an
+       intrinsic width belongs outside the grid rather than inside it with a scrollbar. -->
+  <div class="card" style="margin-top:18px">
+    <h2>The whole catalogue, and the ceiling the escape moves</h2>
+    <p class="lead" id="aCatLead">—</p>
+    <canvas id="aCat" width="560" height="230"></canvas>
+    <table><thead><tr><th class="num">multiplets</th><th class="num">contents</th>
+      <th class="num">in window</th><th class="num">hold host</th><th class="num">can pay</th>
+      <th class="num">best 1/R₅</th><th class="num">best that pays</th></tr></thead>
+      <tbody id="aCatRows"></tbody></table>
+    <div class="note" style="margin-top:9px" id="aCatNote">—</div>
   </div>`,
 
   init(ctx) {

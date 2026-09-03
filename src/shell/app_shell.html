@@ -6,8 +6,14 @@
 <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAzMiAzMic+PHJlY3Qgd2lkdGg9JzMyJyBoZWlnaHQ9JzMyJyByeD0nNycgZmlsbD0nIzE2MjAyYScvPjxnIHN0cm9rZT0nIzVmYjZkNCcgc3Ryb2tlLXdpZHRoPScyLjYnIHN0cm9rZS1saW5lY2FwPSdyb3VuZCcgZmlsbD0nbm9uZSc+PHBhdGggZD0nTTggOWgxNicvPjxwYXRoIGQ9J004IDE2aDMuNU0yMC41IDE2SDI0Jy8+PHBhdGggZD0nTTggMjNoMTYnLz48L2c+PC9zdmc+">
 <!-- The ladder of odd eighths, middle rung absent, drawn inline: the tab shows the one
      picture the series is about, and the page still reaches nothing outside itself. -->
-<title>GHU Lab — one model, every section</title>
-<meta name="description" content="An instrument for 6D gauge-Higgs unification: one bulk model, several computations over it, every output carrying what is known about it.">
+<!-- THE HEAD WAS THE LAST STALE THING ON THE PAGE, and it was stale because nothing looked at it:
+     `_test_site.py`'s head gate skips `app/index.html` by name, so the title and the description
+     were the only prose here that no gate had ever read.  They still described a single bulk model
+     and a handful of computations, from a build with five sections and one family.  An outside
+     reader found them, which is the second time this week that the unwatched half of a gate is
+     where the defect was.  `_test_app.mjs` now reads them. -->
+<title>GHU Lab — three anchored models, one builder, every verdict</title>
+<meta name="description" content="An instrument for gauge-Higgs unification: three published models, a builder for SU(N) models nobody has written yet, and a computation for each question a model builder asks — every output carrying what is known about it: theorem, verified, measured or unknown.">
 <style>
 :root{
   --ink:#16202a; --ink2:#4a5b6a; --ink3:#7d8c99;
@@ -158,17 +164,26 @@ details.cannot p{margin:11px 0 0;line-height:1.55}
    whole document measured 427px on a 390px screen -- every panel dragged sideways, and the header
    with it.  This one declaration is most of what "no funciona bien en el movil" was. */
 .wrap>*{min-width:0}
+/* AND THE THING THAT WOULD NOT SHRINK WAS A TABLE, which is the one element here entitled not to:
+   the local-data tables carry one column per fixed point, the letters table one per weight, and the
+   catalogue seven columns of counts.  Its own block box makes it scroll inside itself instead of
+   widening the page.
+   THIS RULE LIVED INSIDE `@media(max-width:959px)` UNTIL 2026-09-03, and that was the bug a reader
+   reported: above 960px a table that did not fit simply pushed its card wider and the seventh
+   column was cut off at the edge.  It was invisible to every gate -- the numbers were right, the
+   DOM was right, the console was clean, and a screenshot is a picture of the defect rather than a
+   complaint about it -- so `build/layout.mjs` now measures it in every section and every state.
+   Eleven clipped boxes across four sections, one declaration, and it was scoped to phones.
+   It was `.card div:has(>table)` for one build.  That was correct, and it cost more than
+   forty-five seconds of style invalidation on every class toggle -- `:has()` turns every div in a
+   card into a subject, and these cards are deep.  Measured both ways before replacing it. */
+.card table{display:block;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain}
 #railBtn{display:none}
 @media(max-width:959px){
   #railBtn{display:inline-flex;align-items:center;gap:5px}
   #rail{display:none;position:static;max-height:none}
-  /* AND THE THING THAT WOULD NOT SHRINK WAS A TABLE, which is the one element here entitled not
-     to: the local-data tables carry one column per fixed point, the letters table one per weight.
-     Its own block box makes it scroll inside itself instead of widening the page.
-     This was `.card div:has(>table)` for one build.  It was correct, and it cost more than
-     forty-five seconds of style invalidation on every class toggle -- `:has()` turns every div in
-     a card into a subject, and these cards are deep.  Measured both ways before replacing it. */
-  .card table{display:block;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain}
+  /* the table rule that used to live here is now unconditional, above: a column cut off at the
+     edge of a card is not a phone problem, and scoping it here is what hid it on the desktop */
   /* A LABEL AND ITS VALUE ON ONE LINE is right until the value is a sentence.  With every grid
      released this was the only thing still sticking out of a 390px screen, and twelve pixels of
      overflow drags the whole page just as well as four hundred do. */

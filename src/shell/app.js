@@ -228,8 +228,16 @@
   function encode() {
     const parts = [`s=${state.section}`];
     for (const f of FAMILIES) {
+      /* AN EMPTY MODEL IS A MODEL, and writing nothing for it was a bug with a very clean shape:
+       * every family starts on its published anchor, so `clear` is the one thing a reader can do
+       * that makes `encGroup` return "" — and an omitted parameter is indistinguishable, at the
+       * far end, from a link written before the family existed.  Opening your own link brought the
+       * ANCHOR back, silently, while the button's tooltip promised the whole state.  So a cleared
+       * family writes its key with an empty value, `su7_km25=`, and the decoder keys on the
+       * PRESENCE of the key rather than on its truthiness.  Reported by an outside reader,
+       * 2026-09-03; the round trip is now in `_test_app.mjs` and driven in `drive.mjs`. */
       const c = encGroup(f.group);
-      if (c) parts.push(`${f.group}=${encodeURIComponent(c)}`);
+      parts.push(c ? `${f.group}=${encodeURIComponent(c)}` : `${f.group}=`);
       if (state.seed[f.group] !== "published") parts.push(`${f.group}.seed=${state.seed[f.group]}`);
       /* the brane travels exactly as the seed does: only what the user typed, nothing defaulted */
       const b = state.brane[f.group], bp = [];
@@ -279,7 +287,12 @@
         else if (k === "r") raw.rungs = val.split(",");
       }
       state.brane[f.group] = cleanBrane(bb ? raw : null);
-      if (!q[f.group]) continue;
+      /* PRESENT-BUT-EMPTY IS NOT ABSENT.  `if (!q[f.group])` treated a cleared family exactly like
+       * a family the link never mentioned, so the anchor loaded at startup was left standing and
+       * the reader got back a model they had emptied.  A link written before this family existed
+       * still omits the key entirely, and still means "leave it alone" — which is why the test is
+       * on the key and not on its value. */
+      if (!Object.prototype.hasOwnProperty.call(q, f.group)) continue;
       /* η and the role go back to the ANCHOR's values before the link is read, so what comes back
        * is the model the link describes rather than that model laid over whatever this tab was
        * holding — and an omitted marker means the anchor's value on both sides of the trip */
@@ -287,6 +300,7 @@
       const anc = anchorEtaRole(f.group);
       state.eta[f.group] = anc.eta.slice();
       state.role[f.group] = anc.role.slice();
+      if (!q[f.group]) continue;                       /* an empty model, and it stays empty */
       for (const tok of q[f.group].split(";")) {
         /* the trailing group is optional, so every link written before η travelled still parses */
         const mm = tok.match(/^(.+?)(\(.,.\))\*(\d+)((?:\.[er][mp])*)$/);
@@ -332,14 +346,35 @@
     });
   }
 
-  /* Is the model on screen still the untouched anchor? */
+  /* Is the model on screen still the untouched anchor?
+   *
+   * AND "UNTOUCHED" HAS TO MEAN EVERY DIAL, which it did not.  This signature compared the
+   * representation, the parities and the multiplicity — and nothing else — while the interface
+   * lets a reader move η, the role, the gauge seed and the brane, all of which are part of the
+   * model and all of which change the numbers.  So flipping η on the anchor content left the
+   * header still saying this is the published model, with the published model's caveat attached
+   * to numbers that were no longer its.  In an instrument whose whole claim is that every output
+   * carries what is known about it, a provenance label that is wrong is worse than none.
+   * Reported by an outside reader, 2026-09-03; `_test_app.mjs` now moves each dial in turn and
+   * requires the label to go.
+   *
+   * The comparison is over what a READER can move, not over the whole record: a normalised model
+   * carries a schema version and an orbifold name that no anchor file repeats. */
   function onAnchor(group = activeGroup()) {
     const A = DATASETS[group].anchor;
     if (!A || !A.bulk) return null;
+    const sg = (v) => (v === undefined ? 1 : v) > 0 ? "+" : "-";
     const sig = (bulk) => (bulk || []).filter((b) => b.multiplicity)
-      .map((b) => `${b.rep}${b.parities.map((p) => (p > 0 ? "+" : "-")).join("")}*${b.multiplicity}`)
+      .map((b) => `${b.rep}${b.parities.map((p) => (p > 0 ? "+" : "-")).join("")}*${b.multiplicity}`
+                + `e${sg(b.eta)}r${sg(b.role)}`)
       .sort().join(";");
-    return sig(model(group).bulk) === sig(A.bulk) ? A : null;
+    if (sig(model(group).bulk) !== sig(A.bulk)) return null;
+    /* the two halves of the model that are not in `bulk` at all.  An anchor file carries neither,
+     * so the anchor IS "the published seed and nothing on the brane" — which is what the published
+     * rows are, and what `braneList` returns until the reader types something. */
+    if (DATASETS[group].gauge_seeds && state.seed[group] !== "published") return null;
+    if (JSON.stringify(braneList(group)) !== JSON.stringify(A.brane || [])) return null;
+    return A;
   }
 
   /* A SECTION THAT DOES NOT STAND ON THE SHELL'S MODEL SAYS WHAT IT DOES STAND ON.
@@ -356,17 +391,29 @@
    * shell model's values, and none of them were computed for what the section is holding.  A
    * single chip says so instead.  DESIGN.md D6 said one model per group; this says what happens
    * when a section has no group. */
+  /* THE MODEL LINE IS DELIBERATELY ONE LINE, and on a narrow window it ends in an ellipsis — which
+   * is a design and not a defect, EXCEPT that until 2026-09-03 there was no way to read the rest.
+   * The full line goes into `title` at the same moment it goes into the element, so hovering gives
+   * back exactly what was truncated. `build/layout.mjs` distinguishes the two cases and requires
+   * a truncated element to carry its own text: a box that hides content and cannot give it back
+   * is a clipped box wearing an ellipsis. */
+  function setModelLine(text) {
+    const el = $("topModel");
+    el.textContent = text;
+    el.title = text;
+  }
+
   function header(r) {
     const sec = active();
     const own = sec.holds ? sec.holds(ctx()) : null;
     if (own) {
-      $("topModel").textContent = own;
+      setModelLine(own);
       const cav = $("topCaveat");
       if (cav) { cav.innerHTML = ""; cav.style.display = "none"; }
       $("topChips").innerHTML = `<span class="chip live">this section holds its own model</span>`;
       return;
     }
-    $("topModel").textContent = describe(r.model);
+    setModelLine(describe(r.model));
     /* A tool that opens on its best-agreeing case and does not say so is flattering itself.  The
      * SU(7) anchor IS that case -- 1.03x against theirs where the other four rows run to 2.08x --
      * so while the opening model is untouched the header says which row it is and why that

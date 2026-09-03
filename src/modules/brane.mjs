@@ -516,9 +516,13 @@ export function brSummary(b, content = {}, branes = []) {
   return {
     bill, gate,
     control: brGateControl(gate),
-    line: `${bill.brane.reduce((a, p) => a + p.copies, 0)} brane piece(s) · ` +
-          `${bill.owedBefore} → ${bill.owedAfter} channel(s) owing · ` +
-          `${gate.before} → ${gate.after} massless Weyl components`,
+    /* SHORT ON PURPOSE: this goes into the header, which is one line and ends in an ellipsis when
+     * it does not fit.  The first version spelled out "brane piece(s)", "channel(s) owing" and
+     * "massless Weyl components" and was 29px too long at 1180px — the words were the part a
+     * reader loses, and the numbers are the part they came for. */
+    line: `brane ${bill.brane.reduce((a, p) => a + p.copies, 0)} · ` +
+          `owing ${bill.owedBefore} → ${bill.owedAfter} · ` +
+          `massless ${gate.before} → ${gate.after}`,
   };
 }
 

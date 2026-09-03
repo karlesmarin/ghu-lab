@@ -1,7 +1,99 @@
 # HANDOFF — GHU Lab
 
-> State at 2026-09-03, third pass. The section below is the newest; the earlier handoffs follow it
+> State at 2026-09-03, fourth pass. The section below is the newest; the earlier handoffs follow it
 > unchanged and are still the map of the code.
+
+## 2026-09-03 (fourth) — what a reader sees, and what no gate could see
+
+A reader looked at the deployed page and one table ran off the edge of its card. That is the whole
+origin of this pass, and it turned into two new tools and eight real fixes. **Build green across 35
+harnesses, 1 805 checks; `drive.mjs` 153/153; site 28 ok; `layout.mjs` 0 defects and 0 boxes that
+need a drag; `extremes.mjs` 416 clean renders, nothing found.** Deployed and verified on the served
+copy.
+
+### THE FIRST THING TO KNOW: `ghu-lab` HAS A REMOTE AND IT MUST BE PUSHED
+
+`origin` is `github.com/karlesmarin/ghu-lab`. The brane commit sat local while `ghu-explorer` was
+pushed, and an outside reviewer then read the **public** source, found it a commit behind, and
+reported three defects that had already been fixed — which cost a verification pass to refute. Push
+both repositories, every time. The public source is the artifact a reader audits.
+
+### The layout defect, and why nothing had ever seen it
+
+One CSS declaration, and it was the right one in the wrong place:
+`.card table{display:block;max-width:100%;overflow-x:auto}` — the rule that lets a wide table scroll
+inside its card instead of widening it — **lived inside `@media(max-width:959px)`**. Above 960 px a
+table that did not fit pushed its card out and the columns past the edge were gone: **eleven boxes
+across four sections**, and on `anomalies` and `escape` the whole page scrolled sideways. It is
+unconditional now. Then three tables still wanted a horizontal drag, which is a scrollbar standing
+in for a decision: the SU(7) catalogue **moved out of the two-column grid to full width** (seven
+columns and a 560 px plot do not fit in half a page), and the pre-registered sixth row and the
+T²/Z₆ census got abbreviated headers.
+
+**`build/layout.mjs` is the new instrument, and it is the point of the pass.** It walks every
+section at several widths and in every state a reader can put it in — how-to open, each help bubble
+open, the demo driving — and separates three cases that look alike and are not: a box that
+**scrolls** (fine), a box that **clips** (a column is simply gone — a defect), and a box that
+**truncates with an ellipsis**, which is a design and passes only if it carries its own text in
+`title`. The header model line is the third kind; it now sets `title` at the same moment it sets
+the text, and `brSummary`'s line was shortened, because the words were the part a reader loses.
+
+**`build/extremes.mjs` is the second one, and it answers a different question.** The harnesses check
+the mathematics against outside computations; this drives the states **no gate visits** — every
+family cleared, one multiplet, every slot at its ceiling, boundary conditions at the corners of the
+block simplex, at 1440 px and at 380 px — and looks for the six ways a template literal says it was
+handed something it did not expect, for a section that rendered nothing, and for a verdict box that
+ran and decided nothing. It found **five verdict boxes holding the dash they were built with**, in
+`census` (two), `relations` and `hierarchy` — and the page's own footer says a verdict is *"said out
+loud with its reason — never an empty cell"*. Each now says what it is waiting for.
+
+**And two of those five fixes did not work the first time, for the same reason as each other:** the
+caller returned before the code ran. `census.render` bails to `_empty` whenever the lattice is not
+built — which is every arrival — and `_lead` returns early for a content that breaks nothing, so the
+α caveat vanished in exactly the one state where the page has no number at all. `_gapBox` is its own
+call now. **A guard in the caller is a hypothesis missing from the function, and this house has now
+paid for that shape four times.** `drive.mjs` gates the rule on the real page for all 26 sections.
+
+### Two real bugs from an outside review, and three claims that did not reproduce
+
+Carles pasted a second external review. **Two findings were real:**
+
+- **A cleared model did not survive its own permalink.** Every family opens on its anchor, so
+  `clear` is the one edit that empties a family's parameter — and the encoder wrote nothing for an
+  empty family, while an omitted key correctly means *leave this family alone* (an old link written
+  before the family existed). So you cleared the model, copied the link, opened it, and the anchor
+  came back. A cleared family now writes `group=` and the decoder keys on `hasOwnProperty`, not on
+  truthiness. Both meanings are driven in `drive.mjs`: an old link still opens on the anchor, a
+  cleared link still opens empty.
+- **`onAnchor` compared three of seven dials.** Representation, parities and multiplicity — while
+  the interface moves η, the role, the gauge seed and the brane. The published row's caveat stayed
+  attached to numbers that were no longer its. It compares every dial now; the seed and the brane
+  are driven, and η/role are covered by the signature but have no visible effect today because the
+  only family with η controls (`su4_ahmn`) has an anchor with no caveat.
+- **The head of the page was stale** — *"one model, every section"*, *"one bulk model"* — because
+  nothing had ever read it: `_test_site.py`'s head gate skips `app/index.html` by name. `_test_app.mjs`
+  reads it now, and asserts the **claim** rather than a count so it cannot go stale again.
+
+**Three claims did not reproduce, and the reason matters more than the claims.** The review said
+`app_shell.html` still contained "Two models, not a framework" and "only the result card as JSON"
+so a clean build must be RED; that the deployed app showed those sentences; and that the home page
+said the code is MIT. All three are false against the current source **and** against the deployed
+copy — `grep` on `app_shell.html`, on the served `app/index.html` and on the served `index.html`
+returns nothing for any of them, and the build was green throughout. Even `origin/main` at
+`9baf017` already had the corrected sentence. The reviewer had read a cached view, which the stale
+remote made plausible. **Verify a pasted report against the tree and the served copy before acting
+on it** — three of five items here were already done, and the two that were real were worth the
+whole pass.
+
+### Still on the list
+
+Unchanged in order: the SM cell at the vacuum; a paper-model loader with anchors (Burdman–Nomura
+SU(6), Kubo–Lim–Yamashita SU(3), Hosotani–Kobayashi SU(5), HHK's own SU(5)); the sweep filtering on
+the VACUUM content rather than the symmetric point's; and the Higgs mass from V″ at the minimum with
+its normalisation anchored to a published number. **Opened by this pass**: the brane gate is at the
+symmetric point (the local groups do not move with the Wilson line but which modes are massless
+does); and `layout.mjs`/`extremes.mjs` are run by hand, not by `build_app.py` — they need Chromium
+and about seven minutes each, so the decision to make either of them a build gate is Carles'.
 
 ## 2026-09-03 (third) — the apology in the anomaly panel becomes a control
 

@@ -366,7 +366,7 @@ H("the one line a header carries");
   const b = B([3, 2, 0, 0]);
   const s = brSummary(b, G([D("fund", 1)]), []);
   ok("it names the brane pieces, the channels owing before and after, and the massless count",
-     /brane piece\(s\) · \d+ → \d+ channel\(s\) owing · \d+ → \d+ massless/.test(s.line), s.line);
+     /^brane \d+ · owing \d+ → \d+ · massless \d+ → \d+$/.test(s.line), s.line);
   ok("the control travels with it", s.control === true);
 }
 

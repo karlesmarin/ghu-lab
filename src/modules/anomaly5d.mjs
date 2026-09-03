@@ -192,6 +192,10 @@ function pieceDim(frame, p) {
 /* the same, exported for the frame that lives in another module (`vacuum5d.mjs` counts its
  * massless pieces with it), so that there is one place the dimension of a piece is computed */
 export const an5PieceDim = (frame, p) => pieceDim(frame, p);
+/* and the two the Standard-Model cell reads: what a piece is under block k (kind, copies, conj),
+ * and its charge under the k-th canonical U(1), both in the left-handed convention */
+export const an5PieceData = (frame, p, k) => pieceData(frame, p, k);
+export const an5PieceCharge = (frame, p, k) => pieceCharge(frame, p, k);
 
 /* ------------------------------------------------------------------ the ledger */
 

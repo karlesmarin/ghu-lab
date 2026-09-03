@@ -106,7 +106,7 @@ H("the invariant lines stay invariant over EVERY class at N = 4…7");
    * members' minimisers landed on different vacua of equal depth would split these, and that
    * would be a finding, not a tolerance to widen. */
   const vac = ["vacWhere", "vacUnbroken", "vacVectors", "vacScalars", "vacFermions", "vacAnomaly",
-               "vacOwing", "vacMW", "vacLadder", "expInvR", "expKK"];
+               "vacOwing", "vacMW", "vacLadder", "expInvR", "expKK", "smCell", "smSin2", "smExotics"];
   const MIX = { gauge: true, bulk: [{ rep: "fund", eta: +1, kind: "dirac", multiplicity: 1 },
                                     { rep: "anti", eta: -1, kind: "dirac", multiplicity: 1 }] };
   const broken = [], brokenVac = [], declinedVac = [];

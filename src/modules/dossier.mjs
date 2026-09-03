@@ -46,6 +46,7 @@ import { sp5ZeroModes } from "./spectrum5d.mjs";
 import { an5Ledger } from "./anomaly5d.mjs";
 import { bcClasses, bcEnergy, bcPreferred, bcShow } from "./bcclass.mjs";
 import { vac5At, vac5Ladder, vac5Confront } from "./vacuum5d.mjs";
+import { smCellNear, smShowNear } from "./smcell.mjs";
 import { moments, alphaMin, coordinates, stabilityW } from "../kernel/potential.mjs";
 
 /* ------------------------------------------------------------------ the shared computation */
@@ -87,6 +88,9 @@ export function dossierContext(bc, content, { grid = 400, windings = 300, restar
   if (ctx.vac) {
     ctx.vac.ladder = vac5Ladder(ctx.vac.frame, content);
     ctx.vac.confront = vac5Confront(ctx.vac.ladder);
+    /* the Standard Model is read at the symmetric point NEAREST the vacuum — the vacuum breaks
+     * SU(2)×U(1), that is its job — and the point is chosen by the vacuum, so it is the theory's */
+    ctx.vac.sm = smCellNear(b, content, ctx.min ? ctx.min.theta : []);
   }
   return ctx;
 }
@@ -198,6 +202,22 @@ export const DOSSIER_LINES = [
         `${r.massless ? `${r.massless} massless` : ""}${r.massless && r.overW !== null ? ", " : ""}` +
         `${r.overW !== null ? `first massive at ${n6(r.overW)} m_W` : ""}`).join(" · ");
     } },
+
+  /* THE STANDARD MODEL, at the symmetric point the vacuum sits next to */
+  { key: "smCell", group: "The Standard Model", label: "The SM cell at the symmetric point nearest the vacuum",
+    cite: "colour = a block of size 3, weak = a block of size 2, Y solved exactly on the massless pieces; Part II's counting",
+    get: (c) => (c.vac ? smShowNear(c.vac.sm) : null) },
+  { key: "smSin2", group: "The Standard Model", label: "sin²θ_W forced by the embedding",
+    cite: "tr T₃² / (tr T₃² + tr Y²) over the fundamental — 3/8 for the Georgi–Glashow direction",
+    get: (c) => (c.vac ? (c.vac.sm.cell.best && c.vac.sm.cell.best.fixed ? c.vac.sm.cell.best.sin2
+                          : c.vac.sm.cell.best ? "not fixed by the fields found" : "no cell") : null) },
+  { key: "smExotics", group: "The Standard Model", label: "Massless pieces outside the cell (the brane's bill)",
+    cite: "each with colour, weak isospin and Y under the solved hypercharge",
+    get: (c) => (c.vac ? (c.vac.sm.cell.best && c.vac.sm.cell.best.fixed
+                          ? (c.vac.sm.cell.best.exotics.length
+                              ? c.vac.sm.cell.best.exotics.map((e) => `${e.copies > 1 ? e.copies + "×" : ""}(${e.colour},${e.weak})_{${e.Y}}${e.chirality === "R" ? "ᴿ" : ""}`).join(" ")
+                              : "none")
+                          : "—") : null) },
 
   /* AND THEN THE DATA.  One measured mass makes the ladder dimensionful; the verdict names the
    * hypothesis it rests on, because a dijet bound on a colour-octet vector says nothing about a

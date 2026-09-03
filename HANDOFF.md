@@ -84,7 +84,20 @@ ladder gets a GeV column and the verdict. The harness refuses an experiment entr
 source or a date. Not done, on purpose: quark identification, hypercharges, sin²θ_W, m_h from
 V″, proton rate — each needs the SM cell at the vacuum or an anchored normalisation.
 
-**Build green across 30 harnesses; drive 115/115; site 28 ok; console clean.**
+**THE STANDARD-MODEL CELL, fourth pass.** `src/modules/smcell.mjs` + `_test_smcell.mjs` (20
+checks). Colour = a block of size 3, weak = a block of size 2, Y solved EXACTLY (rationals, own
+Gaussian elimination `smSolve`) on the pieces offered as Q, uᶜ, dᶜ, L, eᶜ; largest assignment
+kept, missing fields named, exotics listed as (colour, weak)_Y; sin²θ_W = tr T₃²/(tr T₃² + tr Y²)
+when Y is fixed. **Read at the symmetric point NEAREST the vacuum** (`smCellNear`: phases rounded
+to 0/1, distance printed, blocks the vacuum breaks named) — the vacuum breaks SU(2)×U(1), so
+asking at the minimum would refuse every realistic model. Anchors: 3/8 on SU(5) [3,0,0,2],
+[2,3,0,0] and SU(6) [3,1,2,0]; the full cell + A_y Higgs doublet (Y = ½) on SU(6) [3,1,2,0]
+with fund±, anti±; the absence: on SU(5) [3,0,0,2] no two-rep content has Q or dᶜ at 3/8 (13
+contents show a Q by bending Y). **Two traps met:** 2̄ ≅ 2 for SU(2) (else L is never found), and
+Λ²3 = 3̄ (else uᶜ is never found). Dossier group "The Standard Model", three lines, invariant on
+all 86 classes. `an5PieceData`/`an5PieceCharge` exported from `anomaly5d.mjs` for it.
+
+**Build green across 31 harnesses; drive 115/115; site 28 ok; console clean.**
 
 **Next, in the order a GHU researcher would ask for them** (the list handed to Carles this
 session): brane matter that pays the ledger, with the boundary-mass matching gate of Part I;

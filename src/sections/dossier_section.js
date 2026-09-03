@@ -342,6 +342,13 @@ const DOSS_SECTION = {
          : `Here the vacuum is not located, so the lines at the minimum decline.`) +
       ` <span class="chip mea">measured</span>` +
 
+      `<p style="margin:11px 0 0"><b>The Standard Model is read where it lives.</b> The cell — ` +
+      `colour as a block of size three, weak isospin as a block of size two, Y solved exactly on ` +
+      `the massless pieces — is taken at the symmetric point <b>nearest the vacuum</b>, because ` +
+      `the vacuum's job is to break SU(2)×U(1) to U(1)_em; the line says how far the vacuum sits ` +
+      `from that point and which blocks it breaks. What is not there is listed as missing rather ` +
+      `than supplied.${helpMark("sm-cell")} <span class="chip mea">measured</span></p>` +
+
       `<p style="margin:11px 0 0"><b>Against the data, with the hypothesis named.</b> The vacuum ` +
       `fixes m_W·R; the measured m_W (PDG 2025) fixes 1/R and every state in GeV. The one bound ` +
       `applied is CMS's full-Run-2 dijet limit on colour-octet vectors, 6.6 TeV, and it holds only ` +

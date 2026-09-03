@@ -356,6 +356,18 @@ const HELP_TERMS = {
       + "of the representative you happen to be holding. The same three, read <b>at the minimum</b>, "
       + "come back invariant — and that too is measured on the render.",
   },
+  "sm-cell": {
+    term: "the Standard-Model cell",
+    body: "Is SU(3)×SU(2)×U(1)_Y in the unbroken group, with massless pieces carrying Q, uᶜ, dᶜ, L and "
+      + "eᶜ at their hypercharges? Colour is a block of size three, weak isospin a block of size two, "
+      + "and Y is solved <b>exactly</b> in the blocks' U(1) generators on the pieces offered as each "
+      + "field — Part II's counting: K − 1 unknowns against one constraint per field. When the fields "
+      + "fix Y the embedding fixes <code>sin²θ_W = tr T₃² / (tr T₃² + tr Y²)</code>, 3/8 for "
+      + "Georgi–Glashow's direction. It is read at the symmetric point <b>nearest the vacuum</b>, "
+      + "because the vacuum's job is to break SU(2)×U(1); the distance says whether the electroweak "
+      + "sector is light. What is not found is listed as <i>missing</i> — on SU(5) with "
+      + "P = diag(+,+,+,−,−) that is always Q and dᶜ, which the literature puts on the brane.",
+  },
   "against-the-data": {
     term: "against the data",
     body: "The vacuum fixes <code>m_W·R</code>, a number with no units; the measured "

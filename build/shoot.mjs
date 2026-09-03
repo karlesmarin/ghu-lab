@@ -363,6 +363,22 @@ const VARIANTS = {
                    return true; })()`,
     wait: 3000,
   }],
+  /* THE SIMULATOR OPENS ON THE BUILDER'S DEFAULT, WHICH SETS NO SCALE.  The builder starts on a
+   * boundary condition with no bulk content, whose vacuum is a symmetric point: no Wilson-line W,
+   * so no 1/R, no Higgs mass, no towers in GeV — the honest empty view, and useless as a picture.
+   * The case worth photographing is the ANCHOR: Haba-Hosotani-Kawamura-Yamashita's own Fig. 1
+   * content on SU(3) with P = diag(+,-,-), where their published a = 0.058 and m_H R/g4 = 0.031
+   * come out as 0.0583 and 0.0306.  Set it through the builder, because the model belongs to the
+   * builder. */
+  predict: [{
+    name: "predict-hhky", label: "HHKY 2004 Fig. 1 on SU(3) [1,0,0,2]: their vacuum, in GeV against the data",
+    set: `(() => { SUN5D_S.blocks = { nPP: 1, nPM: 0, nMP: 0, nMM: 2 };
+                   SUN5D_S.bulk = { "adj|1|dirac": 2, "fund|-1|dirac": 8,
+                                    "fund|1|scalar": 4, "fund|-1|scalar": 2 };
+                   document.querySelector('#rail a[data-id="predict"]').click();
+                   return true; })()`,
+    wait: 3000,
+  }],
   fived: [{
     name: "fived-pure-gauge", label: "pure gauge: D = -9, nothing breaks",
     set: `(() => { const b = document.querySelector('#fvClear');

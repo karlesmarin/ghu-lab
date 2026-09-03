@@ -6,15 +6,21 @@
  *
  * WHAT IT SHOWS.  The minimiser's vacuum (or a probe the reader moves), the W and 1/R from the
  * measured m_W, the Higgs mass from the curvature through HHKY's eq. (22), sin²θ_W from the
- * embedding against the Standard-Model running, and every field's tower in GeV.  Two pictures:
- * the towers as a landscape in three dimensions the reader can turn, with the measured masses
- * as lines and the CMS coloron bound as a plane; and a mass axis drawn as a search reach plot,
- * with the excluded region shaded and the predicted states as ticks.
+ * embedding against the Standard-Model running, every field's tower in GeV, and the masses the
+ * Wilson line gives the Standard-Model fermions.  Two pictures: the towers as a landscape in
+ * three dimensions the reader can turn (`tower3d.js`, shared with the spectrum section), with the
+ * measured masses as lines and the CMS coloron bound as a plane; and a mass axis drawn as a
+ * search reach plot, with the excluded region shaded and the predicted states as ticks.
  *
  * WHAT IT IS NOT.  No event is simulated and no distribution is invented: every mark is a
  * predicted mass or a published bound, and the shading says which bound and under which
  * hypothesis.  A picture that looked like data and was not would be the one dishonest thing
  * on this site.
+ *
+ * TWO THINGS THE FIRST DEPLOYMENT TAUGHT.  The canvases were 720 px wide in a half-width card
+ * and overflowed; they size to their card now.  And g₄ scales only the Higgs mass — the towers
+ * are fixed by m_W — so a reader moving the slider and watching the landscape saw nothing move;
+ * the note says what g₄ touches and the predicted m_H is drawn in the landscape as well.
  *
  * Edited BY HAND.
  */
@@ -23,7 +29,7 @@ const PRED_S = { g4: null, probe: false, theta: null, az: 0.75, el: 0.55 };
 const PRED_SECTION = {
   id: "predict",
   label: "Simulator",
-  paper: "HHKY 2004 eq. (22) · PDG 2024/2025 · CMS JHEP 05 (2020) 033",
+  paper: "HHKY 2004 eq. (22) · CCP 2005 · PDG 2024/2025 · CMS JHEP 05 (2020) 033",
   ready: true,
   modules: [],
 
@@ -37,12 +43,25 @@ const PRED_SECTION = {
     <p class="lead">The model on the <b>SU(N) builder</b>, taken to its vacuum and turned into the
     numbers a detector measures: the compactification scale from the measured W mass, the Higgs
     mass from the curvature of the potential, sin²θ_W from the embedding against the running of
-    the data, every field's tower in GeV. Each number sits beside its measured partner and its
-    source.${helpMark("against-the-data")}</p>
-    <div class="note" style="margin-top:9px"><b>Nothing here is simulated data.</b> Every mark is
-    a predicted mass or a published bound; the shading names the bound and the hypothesis it
-    rests on. The assumptions are listed under the table, and the anchor — Haba–Hosotani–Kawamura–
-    Yamashita's vacuum at a = 0.058 and m_H R/g₄ = 0.031 — is recomputed by the harness.</div>
+    the data, every field's tower in GeV, and the masses the Wilson line gives the Standard-Model
+    fermions. Each number sits beside its measured partner and its source.${helpMark("against-the-data")}</p>
+    <details class="note" style="margin-top:9px"><summary style="cursor:pointer"><b>How to use this section</b></summary>
+      <ol style="margin:8px 0 0 18px;line-height:1.6">
+        <li>Load a model in <b>SU(N) builder</b>: the boundary condition [n₊₊, n₊₋, n₋₊, n₋₋] and the bulk
+            fields with their ηη′. This section reads that model and edits nothing.</li>
+        <li><b>At the minimum</b> uses the vacuum the minimiser found (a grid for one or two phases, restarts
+            above). <b>Probe</b> lets you move the Wilson-line phase by hand to see how every number responds.</li>
+        <li><b>g₄</b> is the bulk gauge coupling. It scales the Higgs mass only — m_H ∝ g₄ — and nothing else,
+            because every other mass is fixed by the measured m_W. Default: the SU(2) coupling run to 1/R.</li>
+        <li>Read the table: <i>predicted</i> beside <i>measured</i>, with the note saying the hypothesis each
+            comparison rests on. A model with its vacuum at a symmetric point has no W and sets no scale.</li>
+        <li>Drag the landscape to turn it; the sliders do the same. The reach plot is a mass axis with the
+            CMS exclusion shaded.</li>
+      </ol>
+      <p style="margin:8px 0 0"><b>Nothing here is simulated data.</b> Every mark is a predicted mass or a
+      published bound. The anchor — Haba–Hosotani–Kawamura–Yamashita's vacuum at a = 0.058 and
+      m_H R/g₄ = 0.031 — is recomputed by the harness every build.</p>
+    </details>
   </div>
 
   <div class="grid two">
@@ -53,7 +72,8 @@ const PRED_SECTION = {
           <input type="range" id="prG4" min="0.40" max="1.20" step="0.01" style="flex:1">
           <span class="num" id="prG4v" style="width:56px">—</span>
           <button class="ghost" id="prG4Reset" style="width:auto;padding:2px 8px">= g₂(1/R)</button></div>
-        <div class="rowm" style="margin-top:8px"><span class="nm">Wilson line</span>
+        <div class="note" style="margin:4px 0 8px">g₄ scales the Higgs mass only: m_H ∝ g₄. The towers and 1/R are fixed by m_W.</div>
+        <div class="rowm"><span class="nm">Wilson line</span>
           <button class="st" id="prAtMin" style="width:auto;padding:3px 10px">at the minimum</button>
           <button class="ghost" id="prProbe" style="width:auto;padding:3px 10px">probe</button>
           <input type="range" id="prTheta" min="0.005" max="0.995" step="0.005" style="flex:1">
@@ -64,7 +84,23 @@ const PRED_SECTION = {
         <h2>Prediction against measurement</h2>
         <div style="overflow-x:auto"><table><thead><tr><th>observable</th><th>predicted</th>
           <th>measured</th><th>note</th></tr></thead><tbody id="prTable"></tbody></table></div>
-        <div class="note" style="margin-top:9px" id="prAssume">—</div>
+        <details class="note" style="margin-top:9px"><summary style="cursor:pointer"><b>Assumptions and sources</b></summary>
+          <div id="prAssume" style="margin-top:6px">—</div></details>
+      </div>
+      <div class="card" style="margin-top:18px">
+        <h2>Fermion masses from the Wilson line${helpMark("sm-cell")}</h2>
+        <div style="overflow-x:auto"><table><thead><tr><th>field</th><th>piece</th><th class="num">components</th>
+          <th>at the vacuum</th><th>measured (heaviest generation)</th></tr></thead><tbody id="prYuk"></tbody></table></div>
+        <details class="note" style="margin-top:9px"><summary style="cursor:pointer"><b>How to read this table</b></summary>
+          <div style="margin-top:6px">Each Standard-Model field is a massless piece at the symmetric point the vacuum sits
+          next to. At the vacuum some of its components move off zero: a component sharing an index with the rotated
+          pair sits at t/(2R), which is m_W when the W is a letter⊗pair vector; a symmetric tensor's diagonal on the
+          pair sits at 2m_W; a component with both indices in the pair, opposite signs, stays massless. This is the
+          tree-level, pure-bulk answer — no bulk masses, no brane mixing — and it is what Cacciapaglia–Csaki–Park
+          (hep-ph/0510366) state: "m_q → m_W" for a fundamental, "at tree level m_t = 2m_W" from a larger
+          representation. The gap to the measured masses is the Yukawa problem of flat gauge–Higgs unification, in
+          numbers. One generation only: a bulk field gives every copy the same mass.</div></details>
+        <div class="note" style="margin-top:6px" id="prYukNote">—</div>
       </div>
     </div>
     <div>
@@ -74,13 +110,16 @@ const PRED_SECTION = {
           <input type="range" id="prAz" min="0" max="6.28" step="0.02" style="flex:1">
           <span class="nm">tilt</span>
           <input type="range" id="prEl" min="0.15" max="1.4" step="0.02" style="flex:1"></div>
-        <canvas id="prTower" width="720" height="420" style="margin-top:8px;cursor:grab"></canvas>
-        <div class="note" style="margin-top:6px" id="prTowerNote">—</div>
+        <canvas id="prTower" style="margin-top:8px;cursor:grab;max-width:100%"></canvas>
+        <div class="note" id="prTowerLegend" style="margin-top:4px;line-height:1.7">—</div>
+        <details class="note" style="margin-top:6px"><summary style="cursor:pointer"><b>How to read the landscape</b></summary>
+          <div id="prTowerNote" style="margin-top:6px">—</div></details>
       </div>
       <div class="card" style="margin-top:18px">
         <h2>The mass axis, read like a search</h2>
-        <canvas id="prReach" width="720" height="200" style="margin-top:4px"></canvas>
-        <div class="note" style="margin-top:6px" id="prReachNote">—</div>
+        <canvas id="prReach" style="margin-top:4px;max-width:100%"></canvas>
+        <details class="note" style="margin-top:6px"><summary style="cursor:pointer"><b>How to read the axis</b></summary>
+          <div id="prReachNote" style="margin-top:6px">—</div></details>
       </div>
     </div>
   </div>`,
@@ -100,19 +139,8 @@ const PRED_SECTION = {
     $("prAtMin").onclick = () => { PRED_S.probe = false; ctx.refresh(); };
     $("prProbe").onclick = () => { PRED_S.probe = true; ctx.refresh(); };
     $("prTheta").oninput = (e) => { PRED_S.theta = +e.target.value; PRED_S.probe = true; ctx.refresh(); };
-    $("prAz").oninput = (e) => { PRED_S.az = +e.target.value; this._tower(); };
-    $("prEl").oninput = (e) => { PRED_S.el = +e.target.value; this._tower(); };
-    let drag = null;
-    const c = $("prTower");
-    c.onmousedown = (e) => { drag = [e.clientX, e.clientY, PRED_S.az, PRED_S.el]; };
-    window.addEventListener("mousemove", (e) => {
-      if (!drag) return;
-      PRED_S.az = drag[2] + (e.clientX - drag[0]) * 0.01;
-      PRED_S.el = Math.min(1.4, Math.max(0.15, drag[3] + (e.clientY - drag[1]) * 0.01));
-      $("prAz").value = ((PRED_S.az % 6.28) + 6.28) % 6.28; $("prEl").value = PRED_S.el;
-      this._tower();
-    });
-    window.addEventListener("mouseup", () => { drag = null; });
+    tower3dControl($("prTower"), PRED_S, () => this._tower(), $("prAz"), $("prEl"));
+    window.addEventListener("resize", () => { if (this._P) { this._tower(); this._reach(); } });
   },
 
   render(ctx) {
@@ -133,8 +161,7 @@ const PRED_SECTION = {
     $("prProbe").className = PRED_S.probe ? "st" : "ghost";
     $("prAz").value = ((PRED_S.az % 6.28) + 6.28) % 6.28; $("prEl").value = PRED_S.el;
 
-    const exp = PRED_S.g4 === null ? EXPERIMENT : EXPERIMENT;
-    const P = predictModel(b, content, theta, terms, { exp });
+    const P = predictModel(b, content, theta, terms);
     if (P.located && PRED_S.g4 !== null) {
       /* the reader's g₄ replaces g₂(1/R): every scalar mass scales with it */
       const k = PRED_S.g4 / P.run.g2;
@@ -144,7 +171,7 @@ const PRED_SECTION = {
     }
     $("prG4").value = P.located ? (PRED_S.g4 ?? P.run.g2) : 0.65;
     $("prG4v").textContent = P.located ? (PRED_S.g4 ?? P.run.g2).toFixed(3) : "—";
-    this._P = P; this._b = b;
+    this._P = P; this._b = b; this._theta = theta; this._content_ = content;
     $("prParamNote").innerHTML = !b.phases
       ? `No Wilson-line phase in this boundary condition: nothing to minimise and no W to set the scale.`
       : (PRED_S.probe ? `<b>Probe:</b> the observables at a phase you chose, not at the minimum — ` +
@@ -153,6 +180,7 @@ const PRED_SECTION = {
         (min && min.atEdge && !PRED_S.probe ? ` The minimum is a <b>symmetric point</b>: no Hosotani breaking, ` +
                                              `no W, no scale — move the probe to see what a broken vacuum would give.` : ``);
     this._table(P);
+    this._yukawa(b, content, theta);
     this._tower();
     this._reach();
   },
@@ -170,78 +198,46 @@ const PRED_SECTION = {
       : `<b>Not located:</b> ${P.why}. <span class="chip bad">unknown</span>`;
   },
 
+  _yukawa(b, content, theta) {
+    const tb = document.getElementById("prYuk"), note = document.getElementById("prYukNote");
+    let Y;
+    try { Y = yukawaTable(b, content, theta); } catch (e) { tb.innerHTML = ""; note.textContent = `declined: ${e.message}`; return; }
+    if (Y.why) { tb.innerHTML = ""; note.innerHTML = `${Y.why}. <span class="chip bad">unknown</span>`; return; }
+    const f = (x) => (Math.abs(x - Math.round(x)) < 1e-6 ? String(Math.round(x)) : x.toFixed(2));
+    tb.innerHTML = Y.rows.map((r) => `<tr><td><b>${r.field}</b></td><td class="note">${r.piece}</td>` +
+      `<td class="num">${f(r.components)}</td>` +
+      `<td>${r.massless > 1e-9 ? `${f(r.massless)} massless` : ""}${r.massless > 1e-9 && r.masses.length ? "; " : ""}` +
+      r.masses.map((g) => `${f(g.n)} at <b>${g.GeV.toFixed(1)} GeV</b> (${g.overW.toFixed(2)} m_W)`).join(", ") + `</td>` +
+      `<td class="note">${r.measured.map((m) => `${m.name}: ${m.v ? m.v + " GeV" : "0"}`).join(", ")}</td></tr>`).join("");
+    const heavy = Y.rows.flatMap((r) => r.masses.map((g) => g.overW));
+    note.innerHTML = `Tree level, pure bulk, one generation; 1/R = ${(Y.invRGeV / 1000).toFixed(3)} TeV. ` +
+      (heavy.length ? `Every massive component sits at ${[...new Set(heavy.map((x) => x.toFixed(2)))].join(" or ")} × m_W: ` +
+                      `the Yukawa problem of flat gauge–Higgs unification, as a number.` : `No component of the cell is lifted by this vacuum.`) +
+      ` <span class="chip thm">theorem</span>`;
+  },
+
   /* ---------------------------------------------------------------- the towers, in 3D */
 
   _tower() {
     const P = this._P; if (!P) return;
-    const c = document.getElementById("prTower"), d = window.devicePixelRatio || 1;
-    const W = 720, Hh = 420;
-    c.width = W * d; c.height = Hh * d; c.style.width = W + "px"; c.style.height = Hh + "px";
-    const g = c.getContext("2d"); g.setTransform(d, 0, 0, d, 0, 0);
-    g.clearRect(0, 0, W, Hh);
+    const c = document.getElementById("prTower");
     const note = document.getElementById("prTowerNote");
-    if (!P.located) { g.fillStyle = "#888"; g.font = "13px sans-serif"; g.fillText("no scale set at this point", 20, 40);
-                      note.textContent = "The towers need a W to be in GeV."; return; }
-    const invR = P.invRGeV;
-    const fields = P.ladder.rows;
-    const LEVELS = 4;
-    const lo = Math.log10(30), hi = Math.log10(Math.max(invR * (LEVELS + 0.5), 8000));
-    const y = (m) => (Math.log10(Math.max(m, 30)) - lo) / (hi - lo);
-    /* isometric-ish projection */
-    const az = PRED_S.az, el = PRED_S.el, cx = W / 2, cy = Hh * 0.62, sc = Math.min(W, Hh) * 0.36;
-    const proj = (x, z, h) => {
-      const X = (x - 0.5) * 1.6, Z = (z - 0.5) * 1.0;
-      const rx = X * Math.cos(az) - Z * Math.sin(az), rz = X * Math.sin(az) + Z * Math.cos(az);
-      return [cx + rx * sc, cy + rz * Math.sin(el) * sc - h * Math.cos(el) * sc * 1.1];
-    };
-    /* floor and the CMS plane */
-    g.strokeStyle = "rgba(120,120,120,.35)"; g.lineWidth = 1;
-    for (let i = 0; i <= 4; i++) {
-      const a = proj(0, i / 4, 0), b2 = proj(1, i / 4, 0); g.beginPath(); g.moveTo(...a); g.lineTo(...b2); g.stroke();
+    if (!P.located) {
+      const d = window.devicePixelRatio || 1; c.width = 300 * d; c.height = 60 * d; c.style.width = "300px"; c.style.height = "60px";
+      const g = c.getContext("2d"); g.setTransform(d, 0, 0, d, 0, 0); g.fillStyle = "#888"; g.font = "13px sans-serif"; g.fillText("no scale set at this point", 10, 36);
+      note.textContent = "The towers need a W to be in GeV."; return;
     }
-    const bound = EXPERIMENT.dijet_coloron.value;
-    const plane = [proj(0, 0, y(bound)), proj(1, 0, y(bound)), proj(1, 1, y(bound)), proj(0, 1, y(bound))];
-    g.fillStyle = "rgba(220,60,60,.10)"; g.strokeStyle = "rgba(220,60,60,.6)";
-    g.beginPath(); plane.forEach((p, i) => (i ? g.lineTo(...p) : g.moveTo(...p))); g.closePath(); g.fill(); g.stroke();
-    /* measured lines: m_W, m_h, m_t */
-    for (const [m, lab, col] of [[EXPERIMENT.m_W.value, "m_W", "#3a7"], [EXPERIMENT.m_h.value, "m_h", "#37c"], [EXPERIMENT.m_t.value, "m_t", "#a63"]]) {
-      const a = proj(0, 0, y(m)), b2 = proj(1, 0, y(m));
-      g.strokeStyle = col; g.setLineDash([4, 3]); g.beginPath(); g.moveTo(...a); g.lineTo(...b2); g.stroke(); g.setLineDash([]);
-      g.fillStyle = col; g.font = "11px sans-serif"; g.fillText(lab, b2[0] + 4, b2[1] + 3);
-    }
-    /* the towers: one column per field, one bar per level, drawn back to front */
-    const n = fields.length;
-    const items = [];
-    fields.forEach((r, fi) => {
-      const x = n === 1 ? 0.5 : fi / (n - 1);
-      /* the first LEVELS masses of the field, from its families */
-      const masses = [];
-      for (const f of r.families) {
-        if (f.x === 0) { for (let k = (f.massless ? 0 : 1); k < LEVELS + 1; k++) masses.push({ m: k * invR, w: k === 0 ? f.massless : f.massless + f.odd }); }
-        else if (f.x === 0.5) { for (let k = 0; k < LEVELS; k++) masses.push({ m: (k + 0.5) * invR, w: f.towers }); }
-        else { for (let k = 0; k < LEVELS; k++) { masses.push({ m: (k + f.x) * invR, w: f.towers }); masses.push({ m: (k + 1 - f.x) * invR, w: f.towers }); } }
-      }
-      masses.sort((a, b2) => a.m - b2.m);
-      const seen = [];
-      for (const s of masses) { if (seen.length >= LEVELS) break; if (s.m > 0 && !seen.some((q) => Math.abs(q.m - s.m) < 1e-6)) seen.push(s); }
-      seen.forEach((s, li) => items.push({ x, z: li / Math.max(1, LEVELS - 1), h: y(s.m), m: s.m, field: r.field, w: s.w, massless: r.massless && li === 0 && s.m === 0 }));
-      if (r.massless) items.push({ x, z: 0, h: 0, m: 0, field: r.field, w: r.massless, massless: true });
-    });
-    items.sort((a, b2) => (proj(a.x, a.z, 0)[1] - proj(b2.x, b2.z, 0)[1]));
-    for (const it of items) {
-      const [x0, y0] = proj(it.x, it.z, 0), [x1, y1] = proj(it.x, it.z, it.h);
-      const col = /^A_μ/.test(it.field) ? "#c84" : /^A_y/.test(it.field) ? "#37c" : "#5a5";
-      g.strokeStyle = col; g.lineWidth = 3 + Math.min(6, it.w);
-      g.beginPath(); g.moveTo(x0, y0); g.lineTo(x1, y1); g.stroke();
-      g.fillStyle = col; g.beginPath(); g.arc(x1, y1, it.massless ? 5 : 3, 0, 6.29); g.fill();
-    }
-    /* labels at the base */
-    g.fillStyle = "#666"; g.font = "10.5px sans-serif";
-    fields.forEach((r, fi) => { const x = n === 1 ? 0.5 : fi / (n - 1); const p = proj(x, -0.08, 0); g.fillText(r.field.slice(0, 22), p[0] - 20, p[1] + 12); });
-    note.innerHTML = `Columns are fields, depth is the Kaluza–Klein level, height is mass on a log scale ` +
-      `from 30 GeV to ${(Math.pow(10, hi) / 1000).toFixed(1)} TeV. Dashed lines: the measured m_W, m_h, m_t. The red plane ` +
+    const lines = [{ m: EXPERIMENT.m_W.value, label: "m_W", colour: "#3a7" }, { m: EXPERIMENT.m_h.value, label: "m_h", colour: "#37c" },
+                   { m: EXPERIMENT.m_t.value, label: "m_t", colour: "#a63" }];
+    if (P.mHGeV) lines.push({ m: P.mHGeV, label: `m_H predicted ${P.mHGeV.toFixed(0)}`, colour: "#15a" });
+    tower3dDraw(c, P.ladder.rows, { scale: P.invRGeV, unit: "GeV", lines, az: PRED_S.az, el: PRED_S.el,
+                                    plane: { m: EXPERIMENT.dijet_coloron.value, label: "CMS 6.6 TeV" }, floor: 30 });
+    document.getElementById("prTowerLegend").innerHTML = tower3dLegend(P.ladder.rows);
+    note.innerHTML = `Columns are fields — numbered on the floor, named in the legend under the picture — ` +
+      `depth is the Kaluza–Klein level, height is mass on a log scale. ` +
+      `Dashed lines, labelled down the right edge: the measured m_W, m_h, m_t, and the predicted m_H (which is what g₄ moves). The red plane ` +
       `is the CMS coloron bound at 6.6 TeV — it cuts a coloured vector tower only if colour lives in the bulk. ` +
-      `A big dot at the floor is a massless state. 1/R = <b>${(invR / 1000).toFixed(3)} TeV</b>; drag to turn.`;
+      `A big dot at the floor is a massless state. 1/R = <b>${(P.invRGeV / 1000).toFixed(3)} TeV</b>; drag to turn.`;
   },
 
   /* ---------------------------------------------------------------- the reach plot */
@@ -249,7 +245,10 @@ const PRED_SECTION = {
   _reach() {
     const P = this._P; if (!P) return;
     const c = document.getElementById("prReach"), d = window.devicePixelRatio || 1;
-    const W = 720, Hh = 200;
+    /* the width comes from the card, so a half-width column does not overflow — and the harness
+     * renders every section into a document with no layout, where clientWidth is undefined */
+    const avail = c.parentElement && c.parentElement.clientWidth ? c.parentElement.clientWidth - 8 : 720;
+    const W = Math.max(280, Math.min(760, avail)), Hh = 200;
     c.width = W * d; c.height = Hh * d; c.style.width = W + "px"; c.style.height = Hh + "px";
     const g = c.getContext("2d"); g.setTransform(d, 0, 0, d, 0, 0);
     g.clearRect(0, 0, W, Hh);
@@ -258,34 +257,39 @@ const PRED_SECTION = {
     const lo = Math.log10(50), hi = Math.log10(20000);
     const X = (m) => 40 + (W - 80) * (Math.log10(Math.max(m, 50)) - lo) / (hi - lo);
     const base = Hh - 40;
-    /* the excluded region for coloured vectors */
     const bound = EXPERIMENT.dijet_coloron.value;
     g.fillStyle = "rgba(220,60,60,.12)"; g.fillRect(40, 30, X(bound) - 40, base - 30);
     g.strokeStyle = "rgba(220,60,60,.7)"; g.beginPath(); g.moveTo(X(bound), 30); g.lineTo(X(bound), base); g.stroke();
     g.fillStyle = "#c33"; g.font = "11px sans-serif"; g.fillText("excluded for colour-octet vectors (CMS, 6.6 TeV)", 46, 44);
-    /* axis */
     g.strokeStyle = "#888"; g.beginPath(); g.moveTo(40, base); g.lineTo(W - 40, base); g.stroke();
     g.fillStyle = "#666"; g.font = "10.5px sans-serif";
     for (const m of [100, 200, 500, 1000, 2000, 5000, 10000]) { g.beginPath(); g.moveTo(X(m), base); g.lineTo(X(m), base + 5); g.stroke(); g.fillText(m >= 1000 ? `${m / 1000} TeV` : `${m}`, X(m) - 12, base + 18); }
-    /* measured masses */
+    /* THE MEASURED MASSES ARE LABELLED ABOVE THE AXIS AND THE PREDICTIONS BELOW IT, and both are
+     * pushed apart when they collide: on a log axis from 50 GeV to 20 TeV, m_W, m_h and m_t sit
+     * within 40 px of each other and their labels overlapped on the first deployment. */
+    const place = (used, x, w = 34) => { let p = x; for (let i = 0; i < 40; i++) { if (!used.some((q) => Math.abs(q - p) < w)) break; p += 6; } used.push(p); return p; };
+    const usedTop = [];
     for (const [m, lab, col] of [[EXPERIMENT.m_W.value, "m_W", "#3a7"], [EXPERIMENT.m_h.value, "m_h", "#37c"], [EXPERIMENT.m_t.value, "m_t", "#a63"]]) {
-      g.strokeStyle = col; g.setLineDash([3, 3]); g.beginPath(); g.moveTo(X(m), 55); g.lineTo(X(m), base); g.stroke(); g.setLineDash([]);
-      g.fillStyle = col; g.fillText(lab, X(m) - 8, 52);
+      g.strokeStyle = col; g.setLineDash([3, 3]); g.beginPath(); g.moveTo(X(m), 58); g.lineTo(X(m), base); g.stroke(); g.setLineDash([]);
+      g.fillStyle = col; g.fillText(lab, place(usedTop, X(m) - 9, 26), 54);
     }
-    /* predicted: the KK levels 1/R, 2/R, 3/R for the unbroken vectors, and the first massive state of every field */
     const invR = P.invRGeV;
-    for (let k = 1; k <= 3; k++) { g.strokeStyle = "#c84"; g.lineWidth = 2.5; g.beginPath(); g.moveTo(X(k * invR), base); g.lineTo(X(k * invR), base - 70); g.stroke(); g.fillStyle = "#c84"; g.fillText(`${k}/R`, X(k * invR) - 8, base - 74); }
-    let yy = base - 12;
-    for (const r of P.confront.rows.filter((r) => r.firstMassiveGeV !== null && !/^A_μ/.test(r.field))) {
+    const usedKK = [];
+    for (let k = 1; k <= 3; k++) { g.strokeStyle = "#c84"; g.lineWidth = 2.5; g.beginPath(); g.moveTo(X(k * invR), base); g.lineTo(X(k * invR), base - 64); g.stroke(); g.fillStyle = "#c84"; g.fillText(`${k}/R`, place(usedKK, X(k * invR) - 8, 22), base - 68); }
+    /* the bulk fields' first massive states: numbered, with the legend under the canvas */
+    const fields = P.confront.rows.filter((r) => r.firstMassiveGeV !== null && !/^A_μ/.test(r.field));
+    const usedF = [];
+    fields.forEach((r, i) => {
       const col = /^A_y/.test(r.field) ? "#37c" : "#5a5";
-      g.strokeStyle = col; g.lineWidth = 2; g.beginPath(); g.moveTo(X(r.firstMassiveGeV), base); g.lineTo(X(r.firstMassiveGeV), yy - 30); g.stroke();
-      g.fillStyle = col; g.fillText(r.field.slice(0, 18), X(r.firstMassiveGeV) + 3, yy - 30); yy -= 14; if (yy < 80) yy = base - 12;
-    }
-    if (P.mHGeV) { g.strokeStyle = "#37c"; g.lineWidth = 3; g.beginPath(); g.moveTo(X(P.mHGeV), base); g.lineTo(X(P.mHGeV), 70); g.stroke(); g.fillStyle = "#37c"; g.fillText(`m_H pred ${P.mHGeV.toFixed(0)}`, X(P.mHGeV) + 3, 68); }
-    note.innerHTML = `A log mass axis from 50 GeV to 20 TeV. Orange: the KK levels of the unbroken vectors at ` +
-      `k/R; green and blue: the first massive state of each bulk field and of A_y; the thick blue line is the ` +
-      `predicted Higgs mass. Dashed: measured. The shaded region is what CMS excludes for a colour-octet vector, ` +
-      `and it applies to the orange ticks only if colour is in the bulk. <b>No event is simulated.</b>`;
+      g.strokeStyle = col; g.lineWidth = 2; g.beginPath(); g.moveTo(X(r.firstMassiveGeV), base); g.lineTo(X(r.firstMassiveGeV), base - 34); g.stroke();
+      g.fillStyle = col; g.font = "11px sans-serif"; g.fillText(String(i + 1), place(usedF, X(r.firstMassiveGeV) - 3, 11), base - 38);
+    });
+    if (P.mHGeV) { g.strokeStyle = "#15a"; g.lineWidth = 3; g.beginPath(); g.moveTo(X(P.mHGeV), base); g.lineTo(X(P.mHGeV), 78); g.stroke(); g.fillStyle = "#15a"; g.fillText(`m_H pred ${P.mHGeV.toFixed(0)}`, Math.min(W - 120, X(P.mHGeV) + 4), 76); }
+    note.innerHTML = `A log mass axis from 50 GeV to 20 TeV. Above the axis, the measured masses (dashed). Below it, ` +
+      `orange: the Kaluza–Klein levels of the unbroken vectors at k/R; numbered ticks: the first massive state of each ` +
+      `bulk field and of A_y — ` + fields.map((r, i) => `<b>${i + 1}</b> ${r.field}`).join(" · ") +
+      `. The thick blue line is the predicted Higgs mass. The shaded region is what CMS excludes for a colour-octet ` +
+      `vector, and it applies to the orange ticks only if colour is in the bulk. <b>No event is simulated.</b>`;
   },
 
   texExport() {

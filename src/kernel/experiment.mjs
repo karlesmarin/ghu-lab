@@ -32,6 +32,25 @@ export const EXPERIMENT = {
          source: "PDG 2024 review 'Top Quark'",
          url: "https://pdg.lbl.gov/2024/reviews/rpp2024-rev-top-quark.pdf", read: "2026-09-03" },
 
+  /* the fermion masses a Wilson-line mass is held against: the heaviest generation, since a bulk
+   * field gives every copy the same mass */
+  m_b: { value: 4.18, error: 0.008, unit: "GeV",
+         what: "b quark MS-bar mass m̂_b(m̂_b)",
+         source: "PDG 2024 review 'Electroweak Model and Constraints on New Physics', eq. (10.16): 'm̂_b(m̂_b) = 4180 ± 8 −108 [α_s(M_Z) − 0.1182] MeV'",
+         url: "https://pdg.lbl.gov/2024/reviews/rpp2024-rev-standard-model.pdf", read: "2026-09-03" },
+  m_c: { value: 1.274, error: 0.008, unit: "GeV",
+         what: "c quark MS-bar mass m̂_c(m̂_c)",
+         source: "PDG 2024 review 'Electroweak Model and Constraints on New Physics', eq. (10.15): 'm̂_c(m̂_c) = 1274 ± 8 + 2616 [α_s(M_Z) − 0.1182] MeV'",
+         url: "https://pdg.lbl.gov/2024/reviews/rpp2024-rev-standard-model.pdf", read: "2026-09-03" },
+  m_tau: { value: 1.77693, error: 0.00009, unit: "GeV",
+         what: "τ lepton mass",
+         source: "PDG 2024 listing 'τ mass': 1776.93 ± 0.09 MeV",
+         url: "https://pdg.lbl.gov/2024/listings/rpp2024-list-tau.pdf", read: "2026-09-03" },
+  m_mu: { value: 0.1056583755, error: 0.0000000023, unit: "GeV",
+         what: "μ mass",
+         source: "PDG 2024 listing 'μ mass': 105.6583755(23) MeV",
+         url: "https://pdg.lbl.gov/2024/listings/rpp2024-list-muon.pdf", read: "2026-09-03" },
+
   /* the couplings at M_Z, MS-bar, from the PDG 2024 electroweak review (Erler–Freitas) */
   alpha_inv_MZ: { value: 127.930, error: 0.008, unit: "1",
          what: "α̂⁽⁵⁾(M_Z)⁻¹, MS-bar, five flavours",

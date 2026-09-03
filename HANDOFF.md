@@ -117,7 +117,37 @@ generations, 148 with a Higgs doublet, ALL owing at the minimum; 62 theories wit
 HHKY 2004 §3 (their SU(3)_W model, eq. (20) height difference, eq. (22) dictionary, eq. (25)
 numbers) — the 5D dictionary reproduces HHKY and does not carry Part VI's 6D residual.
 
-**Build green across 33 harnesses; drive with the simulator; site 28 ok.**
+**FERMION MASSES AND THE PICTURES, sixth pass.** `src/modules/yukawa.mjs` + `_test_yukawa.mjs`
+(11 checks): the Wilson-line mass of every component of every cell field. Eigenvectors of the
+twisted translation: unpaired letters at Θ = 0 or ½, each rotated pair at ±t/2 via
+(e_i ± i e_j)/√2; tensors add, the adjoint subtracts, ηη′ = − shifts by ½. **THE TRAP, and it
+cost the first version:** a vacuum eigenstate is NOT a component of one near piece — e₊e₋ on a
+symmetric tensor is (e_ie_i + e_je_j)/√2, half in (+,+)(+,+) and half in (−,−)(−,−). Attribution
+is by squared overlap; weights sum to 1 per state, to the dimension per piece, and to
+`vac5Count`'s left+right massless counts (the harness's control, 40 cases). **Anchors (CCP
+hep-ph/0510366):** fundamental's paired component at m_W ("m_q → m_W", §3); symmetric tensor's
+pair diagonal at 2 m_W ("at tree level m_t = 2m_W", §5). Verdict on the page: charged lepton at
+80.4 GeV against τ = 1.777 GeV — the Yukawa problem as a number. Missing on purpose: bulk masses,
+brane mixing, boundary kinetic terms.
+
+`src/view/tower3d.js` is ONE renderer for both sections (spectrum in 1/R, Simulator in GeV with
+the measured lines and the CMS plane). **Two reader-reported bugs fixed:** the canvases were
+720 px in a half-width card and overflowed (they size to the card now — and `clientWidth` is
+undefined in `_test_app.mjs`'s layout-less document, which is why the guard is a guard); and g₄
+appeared dead because it scales ONLY m_H, which the parameter card now says and the landscape now
+draws. All the new help is in `<details>` blocks.
+
+**PDG masses added to `experiment.mjs`:** m_b = 4.18 GeV and m_c = 1.274 GeV (electroweak review
+eqs. 10.15–10.16), m_τ = 1.77693 GeV, m_μ = 0.1056583755 GeV, plus α̂⁻¹(M_Z) = 127.930,
+ŝ²_Z = 0.23129, α_s = 0.1187, M_Z = 91.1876.
+
+**The ten GitHub READMEs of the series carry IX-A and IX-B** (`update_series_readmes.py`, applied
+and verified: ten rows, one "(this repo)" marker each). Two fixes there: the script could not
+carry two records with one part number (the marker keys on the repo now), and its regex demanded
+the header line end at "of a series", so IX-B — whose header says "companion to Part IX-A" — was
+silently skipped; the suffix is preserved as content.
+
+**Build green across 32 harnesses; drive 121/121; site 28 ok.**
 
 **Next, in the order a GHU researcher would ask for them** (the list handed to Carles this
 session): brane matter that pays the ledger, with the boundary-mass matching gate of Part I;

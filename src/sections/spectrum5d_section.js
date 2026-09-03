@@ -312,12 +312,33 @@ const SPEC5D_SECTION = {
           `(CMS JHEP 05 (2020) 033).${helpMark("against-the-data")} ` +
           `<span class="chip ${X.kk.verdict === "above the bound" ? "ver" : "bad"}">${X.kk.verdict}</span></div>`
         : ``) +
-      `<div class="note" style="margin-top:6px">The families above are the potential's multiset ` +
+      `<details class="note" style="margin-top:6px"><summary style="cursor:pointer"><b>Why a second table</b></summary>` +
+      `<div style="margin-top:6px">The families above are the potential's multiset ` +
       `and are right for it; at a broken vacuum they are wrong at the <b>lowest level</b> of the ` +
       `adjoint and of the symmetric tensor, where the Cartan direction they keep at charge zero ` +
       `has become the W. This table reads the eigenvalues of P₁′P₀ with the Θ = 0 eigenspace split ` +
       `by the joint invariants, and its tower multiset reproduces the potential above to 10⁻⁹ ` +
-      `(<code>_test_vacuum5d.mjs</code>). <span class="chip thm">theorem</span></div></div>`;
+      `(<code>_test_vacuum5d.mjs</code>). <span class="chip thm">theorem</span></div></details>` +
+      `<div style="margin-top:10px"><div class="rowm"><span class="nm">turn</span>` +
+      `<input type="range" id="spAz" min="0" max="6.28" step="0.02" style="flex:1">` +
+      `<span class="nm">tilt</span><input type="range" id="spEl" min="0.15" max="1.4" step="0.02" style="flex:1"></div>` +
+      `<canvas id="spTower3d" style="margin-top:6px;cursor:grab;max-width:100%"></canvas>` +
+      `<div class="note" id="spTowerLegend" style="margin-top:4px;line-height:1.7"></div>` +
+      `<details class="note" style="margin-top:6px"><summary style="cursor:pointer"><b>How to read the landscape</b></summary>` +
+      `<div style="margin-top:6px">One column per field — numbered on the floor, named in the legend — one bar per Kaluza–Klein level, height on a log scale in ` +
+      `units of 1/R${X.located ? ` (1/R = ${(X.invRGeV / 1000).toFixed(3)} TeV from the measured W here)` : ``}. A big dot ` +
+      `on the floor is a massless state; the bar's thickness is how many states share the level. Orange is A_μ, blue ` +
+      `is A_y, green a bulk fermion, purple a bulk scalar. Drag to turn, or use the sliders. The same picture in GeV, ` +
+      `with the measured masses and the CMS bound, is in <b>Simulator</b>.</div></details></div>`;
+    this._towerState = this._towerState || { az: 0.75, el: 0.55 };
+    const cv = document.getElementById("spTower3d");
+    const draw = () => {
+      tower3dDraw(cv, L.rows, { scale: 1, unit: "1/R", az: this._towerState.az, el: this._towerState.el });
+      document.getElementById("spTowerLegend").innerHTML = tower3dLegend(L.rows);
+    };
+    tower3dControl(cv, this._towerState, draw, document.getElementById("spAz"), document.getElementById("spEl"));
+    document.getElementById("spAz").value = this._towerState.az; document.getElementById("spEl").value = this._towerState.el;
+    draw();
   },
 
   /* ---------------------------------------------------------------- the cross-check */

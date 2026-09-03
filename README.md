@@ -1,16 +1,25 @@
 # 🔧 GHU Lab — the source tree of the gauge–Higgs unification instrument
 
 This repository builds **[karlesmarin.github.io/ghu-explorer](https://karlesmarin.github.io/ghu-explorer/)**:
-one self-contained HTML page holding **twenty-four** computations — including tools for models nobody has
+one self-contained HTML page holding **twenty-five** computations — including tools for models nobody has
 written yet — over three published models:
 1️⃣ SU(7) on S¹/Z₂×S¹/Z₂ (Komori–Maru), 2️⃣ SU(4) on T²/Z₂ (AHMN), and 3️⃣ Haba–Yamashita's 5D SU(N) on
 S¹/Z₂ — with **every output carrying what is known about it**: `theorem`, `verified`, `measured`
 or `unknown`, as fields in the exported result card rather than as decoration.
 
+The 5D family goes from a boundary condition to numbers a detector measures: the Wilson-line
+potential of **any** SU(N) model, its vacuum, the four-dimensional spectrum there, the anomaly
+ledger, which of those verdicts are properties of the theory rather than of the frame, whether
+SU(3)×SU(2)×U(1)_Y with a full generation is inside it, and then the **Simulator** — 1/R from the
+measured W mass, the Higgs mass from the curvature of the potential, sin²θ_W against the running
+of the data, the Kaluza–Klein towers in GeV against the CMS dijet bound, and the masses the
+Wilson line gives the fermions. Every measured number carries its source and the date it was
+read; no event is ever simulated.
+
 The deployed page is a build artifact. This is where it comes from, and why it says what it says.
 
 ```
-🏗️  python build/build_app.py    # inline → collision guard → edition gate → 29 harnesses → app/index.html
+🏗️  python build/build_app.py    # inline → collision guard → edition gate → 34 harnesses → app/index.html
 🌐  python build/build_site.py --legacy ../ghu-explorer/tools-2026-07     # → site/, then gates itself
 📸  node   build/shoot.mjs       # headless screenshots of every section + console + which model
 🖱️  node   build/drive.mjs       # USES the panels: a real mouse through the DevTools Input domain
@@ -22,7 +31,7 @@ The deployed page is a build artifact. This is where it comes from, and why it s
 
 ## 🧪 What is checked, and against what
 
-**1 632 checks across 29 harnesses**, plus 113 driven through a real mouse and 28 on the built site.
+**1 737 checks across 34 harnesses**, plus 121 driven through a real mouse and 28 on the built site.
 The ones that carry weight are the ones an outside computation could lose:
 
 | harness | what it puts at risk |
@@ -41,9 +50,14 @@ The ones that carry weight are the ones an outside computation could lose:
 | ⚖️ `_test_anomaly5d.mjs` | the **anomaly ledger**: the indices and cubic anomalies re-derived from fund ⊗ fund = sym ⊕ antisym rather than tabulated; an **adjoint** bulk fermion required to be anomaly-free on every boundary condition, because the adjoint is real; a piece fed in with its own conjugate, which tests every sign at once; and chiral contents that must come out **anomalous**, with the channel named, or "anomaly-free" would be the only thing it ever said |
 | 🌡️ `_test_blkt.mjs` | **brane-localized kinetic terms**: the tower when the masses stop being n/R. The special functions against **mpmath at 40 digits** (`tests/blkt_reference.json`), and the limit that decides the rest — as c → 0 the roots of the transcendental mass equation must become the ordinary twisted tower, which is computed in closed form from the poles and shares no line of code with the solver. It found three real defects, catastrophic cancellation among them. And the join: the authors' own eq. (3.22), solved here, reproduces their eq. (5.19) ten pages later, with the error falling like α² |
 | 📄 `_test_latex.mjs` | the **export that goes into a paper**: the LaTeX is the result card and not a second version of it; every string in `data/` survives the transport, and an unmapped glyph **throws** rather than being dropped; the potential reads as the paper prints it; and no file in the tree contradicts the citation registry — a gate that exists because one reference had drifted into seven files with the wrong volume |
+| 🌀 `_test_vacuum5d.mjs` | the massless content **at the vacuum**, by two constructions that share no code — the representation theory of the pairs the Wilson line rotates, and the explicit matrices ρ(P₀), ρ(P₁′) with the joint eigenspace counted by elimination — on 880 cases including three phases; at θ = 0 and θ = 1 it must reproduce the parity rule of the boundary condition and of its **class-mate**, character for character. A third route in SageMath agrees on 200 of 200 (`tools/vacuum5d_sage_control.py`). And a decoy that must FAIL: reading the Kaluza–Klein families at n = 0 says two massless vectors for SU(2) at θ = 1 where there is one |
+| 🧬 `_test_smcell.mjs` | the **Standard-Model cell**: the hypercharge solved in exact rationals on the massless pieces, with sin²θ_W = 3/8 coming out of three different boundary conditions, a full generation found where one exists, and the absence pinned where it holds — on SU(5) with P = diag(+,+,+,−,−) no bulk content hosts Q or dᶜ at 3/8, over all 64 two-representation contents. The solver is made to fail on purpose: change eᶜ's hypercharge and the anchor content stops working |
+| 🔮 `_test_predict.mjs` · `_test_running.mjs` | the **simulator** against a published vacuum: Haba–Hosotani–Kawamura–Yamashita's own model (hep-ph/0401183, Fig. 1) has its minimum at a = 0.058 and m_H R/g₄ = 0.031, and this returns 0.0583 and 0.0306, with their eq. (20) reproduced to 1e-9. The running returns its inputs at M_Z, meets α₁ = α₂ near 10¹³ GeV, and the coefficients are the textbook (41/10, −19/6, −7) |
+| ⚛️ `_test_yukawa.mjs` | the **fermion masses** the Wilson line gives: attribution of every vacuum eigenstate to the pieces of the nearest symmetric point by squared overlap, with the weights required to sum to one per state, to the dimension per piece, and to the vacuum module's massless counts. The anchors are Cacciapaglia–Csaki–Park's own sentences: a bulk fundamental at m_W, a symmetric tensor's pair diagonal at 2 m_W |
+| 🎯 `_test_dossier.mjs` | the claim that is a **classification** rather than a number: which verdicts are the theory's and which the frame's, measured on every member of the equivalence class — with two decoy lines whose answers are settled before the tagger runs, and the requirement that the lines read at the vacuum come back invariant on all 86 multi-member classes of SU(4)…SU(7) |
 | 🧩 `_test_app.mjs` | the page that **ships**, not the sources it came from: the inliner, the module stripper and the data injection are the only code no other test covers |
 | 🌐 `_test_site.py` | thirteen site checks, and then **each of them again against a site broken on purpose** |
-| 🖱️ `build/drive.mjs` | the panels answer a **real mouse** through the DevTools Input domain, not events dispatched from inside the page — including the buttons that write files and the permalinks that make a page sendable |
+| 🖱️ `build/drive.mjs` | the panels answer a **real mouse** through the DevTools Input domain, not events dispatched from inside the page — including the buttons that write files, the permalinks that make a page sendable, the class-mate click that must leave the vacuum's verdicts standing, and the simulator's own anchored numbers |
 
 Every guard here has been fired at least once by breaking something on purpose. A guard that has
 never failed is not a guard, and `HANDOFF.md` carries the index of what each one cost.
@@ -101,13 +115,18 @@ changed — it had always used the absolute value, which is what the paper says.
 ```
 🧠 src/kernel/     the mathematics: potential, moments, closed form, exact-rational charges,
                    the five complete invariants, the BLKT tower, the relief renderer, the
-                   citation registry, the LaTeX writer, the resolver
+                   citation registry, the LaTeX writer, the resolver — and `experiment.mjs`,
+                   the measured numbers with their source and the date each was read, plus
+                   `running.mjs`, the one-loop Standard-Model running of the couplings
+🖼️ src/view/       the DOM layer: the fibre panels, the shared 3-D tower renderer, the inline help
 🧰 src/modules/    one capability each, with a status and a source on every value
 🖼️ src/sections/   one file per section of the page; adding a section is a file and a line
 🏠 src/shell/      the shell: one model per group, a rail grouped by family, the permalink
 🌐 src/site/       the source of the surrounding site (home, per-paper pages, docs, changes)
 🏗️ build/          the builders, the gates, the shooters, the mouse driver
-💾 data/           extracted, never typed — one JSON per group
+💾 data/           extracted, never typed — one JSON per group, plus the archived scans
+🛠️ tools/          the sweeps that are not part of the page: the 42 380-model scan of SU(5)–SU(7),
+                   its report and map, and the SageMath control of the vacuum module
 ✅ tests/          the golden suite that travels with the deployed artifact
 📝 changes/        the change log, one file per entry, rendered onto the site
 ```

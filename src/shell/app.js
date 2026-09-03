@@ -544,7 +544,16 @@
     header(r);
     const sec = active();
     if (mounted !== sec.id) {
-      $("section").innerHTML = sec.html;
+      /* THE HOW-TO IS MOUNTED BY THE SHELL, not written into each section: twenty-five sections
+       * would be twenty-five chances to forget one, and a section that forgot would look like a
+       * section with nothing to explain.  `_test_howto.py` fails if a built section has no entry. */
+      $("section").innerHTML = howToBlock(sec.id) + sec.html;
+      /* the demo button lives in the how-to's summary, which the shell wrote, so the shell wires
+       * it — and a section change stops a running demo rather than leaving it driving a panel
+       * that is no longer on screen */
+      if (DEMO_S.id && DEMO_S.id !== sec.id) demoStop(null);
+      const dbtn = document.getElementById("demoRun");
+      if (dbtn) dbtn.onclick = (e) => { e.preventDefault(); e.stopPropagation(); demoStart(sec.id, ctx()); };
       mounted = sec.id;
       if (sec.init) sec.init(ctx());
     }

@@ -86,6 +86,11 @@ const DOSS_SECTION = {
 
     <div>
       <div class="card">
+        <h2>What these numbers say</h2>
+        <div id="dsReading">—</div>
+      </div>
+
+      <div class="card" style="margin-top:18px">
         <h2>What this cannot tell you</h2>
         <div class="note" id="dsHonesty">—</div>
       </div>
@@ -161,6 +166,7 @@ const DOSS_SECTION = {
     this._members(ctx, d);
     this._lines(d);
     this._separation(d);
+    document.getElementById("dsReading").innerHTML = readingHTML(readDossier(d));
     this._honesty(d);
   },
 

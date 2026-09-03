@@ -33,12 +33,12 @@ VERSION = "0.2.0"
 KERNEL = ["meta.mjs", "status.mjs", "experiment.mjs", "running.mjs", "model.mjs", "potential.mjs", "canonical.mjs", "screens.mjs",
           "charges.mjs", "multiplets.mjs", "wilson.mjs", "surface.mjs", "resolve.mjs", "card.mjs",
           "cite.mjs", "latex.mjs", "blkt.mjs", "alphabet.mjs", "fibres.mjs", "moves.mjs", "rotations.mjs", "unbroken.mjs", "tripod.mjs"]
-VIEW = ["fibre_panels.js", "tower3d.js", "help.js"]
+VIEW = ["fibre_panels.js", "tower3d.js", "demo.js", "howto.js", "help.js"]
 MODULES = ["selection.mjs", "calculator.mjs", "hierarchy.mjs", "anomalies.mjs", "escape.mjs",
            "samepot.mjs", "screen.mjs", "collider.mjs", "atlas.mjs", "eta.mjs", "fived.mjs",
            "spectrum.mjs", "inverse.mjs", "census.mjs", "sun5d.mjs", "bcclass.mjs",
            "spectrum5d.mjs", "anomaly5d.mjs", "vacuum5d.mjs", "smcell.mjs", "yukawa.mjs",
-           "predict.mjs", "sweep5d.mjs", "dossier.mjs"]
+           "predict.mjs", "reading.mjs", "sweep5d.mjs", "dossier.mjs"]
 SECTIONS = ["torus_panels.js", "hierarchy_section.js", "inverse_section.js", "census_section.js",
             "atlas_section.js", "samepot_section.js",
             "anomalies_section.js", "escape_section.js", "screen_section.js",
@@ -190,6 +190,7 @@ def main(argv=None):
                 ["node", "_test_spectrum5d.mjs"], ["node", "_test_anomaly5d.mjs"],
                 ["node", "_test_vacuum5d.mjs"], ["node", "_test_smcell.mjs"],
                 ["node", "_test_running.mjs"], ["node", "_test_predict.mjs"], ["node", "_test_yukawa.mjs"],
+                ["node", "_test_reading.mjs"],
                 ["node", "_test_sweep5d.mjs"], ["node", "_test_latex.mjs"], ["node", "_test_blkt.mjs"], ["node", "_test_census_lit.mjs"],
                 ["node", "_test_dossier.mjs"],
                 # the golden suite that SHIPS with the artifact: the built page against the
@@ -197,7 +198,7 @@ def main(argv=None):
                 # carry a suite the build has not just seen pass.
                 ["node", "tests/run.mjs"],
                 [sys.executable, "_test_editiongate.py"],
-                [sys.executable, "_test_help.py"]):
+                [sys.executable, "_test_help.py"], [sys.executable, "_test_howto.py"]):
         # DECODE AS UTF-8, EXPLICITLY.  `text=True` alone uses the machine's ANSI codepage, and on
         # Windows that is cp1252, which has five UNMAPPED bytes (0x81, 0x8D, 0x8F, 0x90, 0x9D).  A
         # harness that prints a character whose UTF-8 encoding contains one of them -- an omega,

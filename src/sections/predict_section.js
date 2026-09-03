@@ -45,23 +45,10 @@ const PRED_SECTION = {
     mass from the curvature of the potential, sin²θ_W from the embedding against the running of
     the data, every field's tower in GeV, and the masses the Wilson line gives the Standard-Model
     fermions. Each number sits beside its measured partner and its source.${helpMark("against-the-data")}</p>
-    <details class="note" style="margin-top:9px"><summary style="cursor:pointer"><b>How to use this section</b></summary>
-      <ol style="margin:8px 0 0 18px;line-height:1.6">
-        <li>Load a model in <b>SU(N) builder</b>: the boundary condition [n₊₊, n₊₋, n₋₊, n₋₋] and the bulk
-            fields with their ηη′. This section reads that model and edits nothing.</li>
-        <li><b>At the minimum</b> uses the vacuum the minimiser found (a grid for one or two phases, restarts
-            above). <b>Probe</b> lets you move the Wilson-line phase by hand to see how every number responds.</li>
-        <li><b>g₄</b> is the bulk gauge coupling. It scales the Higgs mass only — m_H ∝ g₄ — and nothing else,
-            because every other mass is fixed by the measured m_W. Default: the SU(2) coupling run to 1/R.</li>
-        <li>Read the table: <i>predicted</i> beside <i>measured</i>, with the note saying the hypothesis each
-            comparison rests on. A model with its vacuum at a symmetric point has no W and sets no scale.</li>
-        <li>Drag the landscape to turn it; the sliders do the same. The reach plot is a mass axis with the
-            CMS exclusion shaded.</li>
-      </ol>
-      <p style="margin:8px 0 0"><b>Nothing here is simulated data.</b> Every mark is a predicted mass or a
-      published bound. The anchor — Haba–Hosotani–Kawamura–Yamashita's vacuum at a = 0.058 and
-      m_H R/g₄ = 0.031 — is recomputed by the harness every build.</p>
-    </details>
+    <div class="note" style="margin-top:9px"><b>Nothing here is simulated data.</b> Every mark is a
+    predicted mass or a published bound. The anchor — Haba–Hosotani–Kawamura–Yamashita's vacuum at
+    a = 0.058 and m_H R/g₄ = 0.031 — is recomputed by the harness every build, and the how-to at the
+    top of this page says which button does what.</div>
   </div>
 
   <div class="grid two">
@@ -80,6 +67,14 @@ const PRED_SECTION = {
           <span class="num" id="prThetaV" style="width:64px">—</span></div>
         <div class="note" style="margin-top:8px" id="prParamNote">—</div>
       </div>
+      <div class="card" style="margin-top:18px">
+        <h2>What these numbers say</h2>
+        <div id="prReading">—</div>
+        <div class="note" style="margin-top:8px">Every sentence is a function of the numbers above:
+        move a parameter and the reading changes with it. What the instrument cannot decide is
+        said here too, rather than left out.</div>
+      </div>
+
       <div class="card" style="margin-top:18px">
         <h2>Prediction against measurement</h2>
         <div style="overflow-x:auto"><table><thead><tr><th>observable</th><th>predicted</th>
@@ -180,7 +175,9 @@ const PRED_SECTION = {
         (min && min.atEdge && !PRED_S.probe ? ` The minimum is a <b>symmetric point</b>: no Hosotani breaking, ` +
                                              `no W, no scale — move the probe to see what a broken vacuum would give.` : ``);
     this._table(P);
-    this._yukawa(b, content, theta);
+    const Y = this._yukawa(b, content, theta);
+    /* the reading comes AFTER the two tables are computed, because it reads both */
+    document.getElementById("prReading").innerHTML = readingHTML(readSimulator(P, Y));
     this._tower();
     this._reach();
   },
@@ -201,8 +198,8 @@ const PRED_SECTION = {
   _yukawa(b, content, theta) {
     const tb = document.getElementById("prYuk"), note = document.getElementById("prYukNote");
     let Y;
-    try { Y = yukawaTable(b, content, theta); } catch (e) { tb.innerHTML = ""; note.textContent = `declined: ${e.message}`; return; }
-    if (Y.why) { tb.innerHTML = ""; note.innerHTML = `${Y.why}. <span class="chip bad">unknown</span>`; return; }
+    try { Y = yukawaTable(b, content, theta); } catch (e) { tb.innerHTML = ""; note.textContent = `declined: ${e.message}`; return null; }
+    if (Y.why) { tb.innerHTML = ""; note.innerHTML = `${Y.why}. <span class="chip bad">unknown</span>`; return Y; }
     const f = (x) => (Math.abs(x - Math.round(x)) < 1e-6 ? String(Math.round(x)) : x.toFixed(2));
     tb.innerHTML = Y.rows.map((r) => `<tr><td><b>${r.field}</b></td><td class="note">${r.piece}</td>` +
       `<td class="num">${f(r.components)}</td>` +
@@ -214,6 +211,7 @@ const PRED_SECTION = {
       (heavy.length ? `Every massive component sits at ${[...new Set(heavy.map((x) => x.toFixed(2)))].join(" or ")} × m_W: ` +
                       `the Yukawa problem of flat gauge–Higgs unification, as a number.` : `No component of the cell is lifted by this vacuum.`) +
       ` <span class="chip thm">theorem</span>`;
+    return Y;
   },
 
   /* ---------------------------------------------------------------- the towers, in 3D */

@@ -724,6 +724,69 @@ H("the simulator — HHKY's SU(3) content, the table against measurement, and bo
 }
 await shot("7-simulator");
 
+/* ---- the how-to: every section carries one, and it OPENS ---------------------------------- */
+H("every section opens with a how-to, and pressing it shows steps");
+{
+  const ids = await js(`JSON.stringify(SECTIONS.filter((s) => s.ready !== false).map((s) => s.id))`);
+  const list = JSON.parse(ids);
+  let missing = [], thin = [];
+  for (const id of list) {
+    await js(`document.querySelector('#rail a[data-id="${id}"]').click(); true`);
+    await sleep(400);
+    const has = await js(`!!document.querySelector('#section details.howto')`);
+    if (!has) { missing.push(id); continue; }
+    const n = await js(`document.querySelectorAll('#section details.howto ol li').length`);
+    if (n < 2) thin.push(`${id}:${n}`);
+  }
+  ok(`all ${list.length} built sections mount a how-to`, missing.length === 0, missing.join(", "));
+  ok("...and every one carries at least two steps", thin.length === 0, thin.join(", "));
+  await js(`document.querySelector('#rail a[data-id="predict"]').click(); true`);
+  await sleep(500);
+  await js(`document.querySelector('#section details.howto').open = true; true`);
+  await sleep(300);
+  ok("the block opens and its text is visible",
+     (await js(`document.querySelector('#section details.howto').offsetHeight`)) > 60);
+}
+
+/* ---- the demo, and the reading: both must MOVE when a parameter moves ---------------------- */
+H("the demo drives the panel, and the reading follows the numbers");
+{
+  await js(`SUN5D_S.blocks = { nPP: 1, nPM: 0, nMP: 0, nMM: 2 };
+            SUN5D_S.bulk = { "adj|1|dirac": 2, "fund|-1|dirac": 8, "fund|1|scalar": 4, "fund|-1|scalar": 2 };
+            document.querySelector('#rail a[data-id="predict"]').click(); true`);
+  await sleep(1600);
+  const reading = `document.getElementById('prReading').textContent`;
+  const before = await js(reading);
+  ok("the reading names the scale, the bound and the hypothesis it rests on",
+     /2\.7\d\d TeV/.test(before) && /6\.600 TeV/.test(before) && /colour lives in the bulk/i.test(before),
+     String(before).slice(0, 120));
+  ok("...and it is not the same sentence for every model: it carries this Higgs mass",
+     /5[0-9]\.\d GeV/.test(before), String(before).slice(0, 160));
+  /* move one parameter through its own control and require the reading to move */
+  await js(`document.getElementById('prProbe').click(); true`);
+  await sleep(600);
+  await js(`const s = document.getElementById('prTheta'); s.value = 0.02; s.dispatchEvent(new Event('input')); true`);
+  await sleep(1400);
+  const after = await js(reading);
+  ok("moving the Wilson line moves the reading, and the scale with it",
+     after !== before && /8\.0\d\d TeV/.test(after), String(after).slice(0, 120));
+  /* the demo button exists here and runs */
+  ok("the section carries a demo button", (await js(`!!document.getElementById('demoRun')`)) === true);
+  await js(`document.getElementById('demoRun').click(); true`);
+  await sleep(1500);
+  ok("pressing it opens the caption bar with a step counter",
+     /demo 1\/6/.test(await js(`document.getElementById('demoBar').textContent`)),
+     String(await js(`document.getElementById('demoBar') && document.getElementById('demoBar').textContent`)).slice(0, 80));
+  await js(`document.getElementById('demoNext').click(); true`);
+  await sleep(1200);
+  ok("...and `next` advances it", /demo 2\/6/.test(await js(`document.getElementById('demoBar').textContent`)));
+  await js(`document.getElementById('demoStop').click(); true`);
+  await sleep(900);
+  ok("...and `stop` removes the bar and leaves the model it found",
+     (await js(`!document.getElementById('demoBar')`)) === true);
+}
+await shot("8-reading");
+
 /* ---- every degree of freedom in the link, and a link that is garbage ------------------------ */
 /* AN OUTSIDE AUDIT OF THE DEPLOYED SOURCE, 2026-09-03, found two things here and both are real.
  * The permalink carried the multiplicities and not eta or the matter/gauge role, although both are

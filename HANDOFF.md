@@ -147,7 +147,26 @@ carry two records with one part number (the marker keys on the repo now), and it
 the header line end at "of a series", so IX-B — whose header says "companion to Part IX-A" — was
 silently skipped; the suffix is preserved as content.
 
-**Build green across 32 harnesses; drive 121/121; site 28 ok.**
+**THE PAGE EXPLAINS ITSELF, seventh pass — asked for by Carles after using it.** Three pieces, no
+new numbers. `src/view/howto.js`: one entry per section (what it answers · what to press · how to
+read it, including what makes it not apply), **mounted by the shell** above every section so a new
+section cannot ship helpless; `_test_howto.py` gates missing, orphan, thin and self-repeating
+entries, each fired against input built to break it. `src/view/demo.js`: a scripted run for
+`sun5d`, `spectrum5d`, `dossier`, `bcclass` and `predict` — real edits through the page's own
+state, one change per step, caption bar with next/stop, auto-advance, and the reader's model
+restored on stop. `src/modules/reading.mjs` + `_test_reading.mjs` (19 checks): the computed object
+turned into ordered sentences, each a FUNCTION of the numbers, carrying the hypothesis and the
+source, saying what cannot be decided — and forbidden to recommend (the harness fails on
+"promising", "viable", "recommend").
+
+**`drive.mjs` earned its keep again**: it walks all 25 sections demanding a how-to with ≥ 2 steps,
+then drives the demo, and caught `next` advancing the counter twice — one demo step never ran.
+
+**Two reader-reported defects fixed the same pass**: the canvases sized to 720 px in a half-width
+card (they size to the card; `clientWidth` is undefined in the harness's layout-less document, so
+the read is guarded), and g₄ looked dead because it scales ONLY m_H.
+
+**Build green across 36 harnesses; drive 131/131; site 28 ok.**
 
 **Next, in the order a GHU researcher would ask for them** (the list handed to Carles this
 session): brane matter that pays the ledger, with the boundary-mass matching gate of Part I;

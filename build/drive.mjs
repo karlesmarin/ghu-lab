@@ -628,6 +628,129 @@ H("the page does not assert more in their absence than the letter says to their 
      /measures their equation/.test(note));
 }
 
+/* ---- the dossier: the claim is an INTERACTION, so it is driven --------------------------- */
+/* The section says that clicking a gauge-equivalent boundary condition leaves the invariant rows
+ * standing and moves the frame rows.  That is a sentence in a harness and a fact on a page, and
+ * only a real click on the real table decides which.  Also driven: the stale-sweep band, which is
+ * the panel's own version of the failure it exists to name. */
+H("one model, every verdict — the class walk, on the built page");
+{
+  await js(`SUN5D_S.blocks = { nPP: 1, nPM: 0, nMP: 4, nMM: 1 };
+            SUN5D_S.bulk = { "fund|1|dirac": 1 };
+            document.querySelector('#rail a[data-id="dossier"]').click(); true`);
+  await sleep(1600);
+  const row = (k) => `[...document.querySelectorAll('#dsLines tr')]` +
+    `.find((t) => t.textContent.includes(${JSON.stringify(k)}))` +
+    `?.children[1].textContent.trim().split("across")[0].trim()`;
+  const tag = (k) => `[...document.querySelectorAll('#dsLines tr')]` +
+    `.find((t) => t.textContent.includes(${JSON.stringify(k)}))` +
+    `?.children[2].textContent.trim()`;
+  ok("the table is drawn and every group heading is in it",
+     (await js(`document.querySelectorAll('#dsLines tr').length`)) > 18);
+  ok("SU(6) [1,0,4,1] with one bulk fundamental owes, and the anomaly verdict is the FRAME's",
+     (await js(row("Anomaly verdict"))) === "owes" &&
+     (await js(tag("Anomaly verdict"))) === "the frame",
+     `${await js(row("Anomaly verdict"))} / ${await js(tag("Anomaly verdict"))}`);
+
+  const depth0 = await js(row("Depth of the vacuum")), grp0 = await js(row("Apparent unbroken"));
+  const other = await js(`[...document.querySelectorAll('#dsMembers tr[data-bc]')]` +
+    `.find((t) => t.dataset.bc !== "1,0,4,1")?.dataset.bc`);
+  ok("the class has another member to stand on", typeof other === "string" && other.length > 0,
+     String(other));
+  await js(`[...document.querySelectorAll('#dsMembers tr[data-bc]')]` +
+    `.find((t) => t.dataset.bc !== "1,0,4,1").click(); true`);
+  await sleep(1600);
+  const depth1 = await js(row("Depth of the vacuum")), grp1 = await js(row("Apparent unbroken"));
+  ok("standing somewhere else in the same theory leaves the depth of the vacuum exactly where it was",
+     depth0 === depth1 && depth0 !== undefined, `${depth0} -> ${depth1}`);
+  ok("...and moves the apparent unbroken group, which is the whole claim",
+     grp0 !== grp1, `${grp0} -> ${grp1}`);
+  ok("...and the builder is now holding the other one, so the model really moved",
+     (await js(`JSON.stringify([SUN5D_S.blocks.nPP, SUN5D_S.blocks.nPM,` +
+               ` SUN5D_S.blocks.nMP, SUN5D_S.blocks.nMM])`)) ===
+     JSON.stringify(other.split(",").map(Number)));
+
+  /* the sweep, and then the same sweep left standing under a different N */
+  await js(`document.getElementById('dsSepGo').click(); true`);
+  await sleep(4000);
+  ok("the separation sweep draws, and finds lines that separate nothing",
+     /separates nothing/.test(await js(`document.getElementById('dsSep').innerHTML`)));
+  await js(`SUN5D_S.blocks = { nPP: 1, nPM: 0, nMP: 3, nMM: 1 };
+            document.querySelector('#rail a[data-id="sun5d"]').click(); true`);
+  await sleep(900);
+  await js(`document.querySelector('#rail a[data-id="dossier"]').click(); true`);
+  await sleep(1600);
+  ok("a sweep from another N is banded as such rather than read as this model's answer",
+     /This sweep is SU\(6\), and the model is SU\(5\)/
+       .test(await js(`document.getElementById('dsSep').textContent`)),
+     (await js(`document.getElementById('dsSep').textContent`)).slice(0, 90));
+}
+await shot("6-dossier");
+
+/* ---- every degree of freedom in the link, and a link that is garbage ------------------------ */
+/* AN OUTSIDE AUDIT OF THE DEPLOYED SOURCE, 2026-09-03, found two things here and both are real.
+ * The permalink carried the multiplicities and not eta or the matter/gauge role, although both are
+ * buttons in the calculator and both go into `model()` -- so a link reproduced a DIFFERENT model
+ * from the one on screen when it was copied, under a button that says "the whole state, in the
+ * address bar".  And `decodeURIComponent` ran unguarded at startup, so a hash with a lone "%" threw
+ * before anything was mounted and left the reader a blank page.
+ *
+ * The checks below are the ones that were missing rather than the ones that were easy: a ROUND TRIP
+ * through the real buttons, with a control leg that would fail if the reset were not happening, and
+ * a set of deliberately broken hashes with the rule that none of them may stop the interface. */
+H("the permalink carries every dial, and no hash a reader can type may blank the page");
+{
+  await js(`document.querySelector('#rail a[data-id="calculator"]').click()`);
+  await sleep(800);
+  const eta = `document.querySelector('#cRows button[data-eta]').textContent.trim()`;
+  const role = `document.querySelector('#cRows button[data-role]').textContent.trim()`;
+  ok("the calculator has a content in it to toggle",
+     (await js(`document.querySelectorAll('#cRows tr').length`)) >= 1);
+  const eta0 = await js(eta), role0 = await js(role);
+
+  await js(`document.querySelector('#cRows button[data-eta]').click()`);
+  await sleep(400);
+  await js(`document.querySelector('#cRows button[data-role]').click()`);
+  await sleep(400);
+  const eta1 = await js(eta), role1 = await js(role);
+  ok("clicking the two buttons moves eta and the role", eta1 !== eta0 && role1 !== role0,
+     `${eta0}/${role0} -> ${eta1}/${role1}`);
+
+  const link = await js(`location.hash`);
+  ok("...and BOTH are now in the URL", /\.e[mp]/.test(link) && /\.r[mp]/.test(link), link);
+  /* and the link a reader copies has nothing in it a mail client can maul */
+  ok("...with no percent-escape in the markers themselves", !/\.[er]%/.test(link), link);
+
+  /* THE CONTROL LEG, and it is what caught the subtler half of this bug.  A link carries only what
+   * differs from the default, and the default is NOT +1: the anchor content of a group carries
+   * eta = -1 and role = gauge on some slots, and this group does.  So a link stripped of its
+   * markers must come back on the ANCHOR's values — which is also the proof that the round trip
+   * below is not passing by simply never resetting anything. */
+  const bare = link.replace(/\.[er][mp]/g, "");
+  await js(`location.hash = ${JSON.stringify(bare)}; true`);
+  await sleep(900);
+  ok("a link without the markers opens on the anchor's own eta and role, not on +1 and matter",
+     (await js(eta)) === eta0 && (await js(role)) === role0,
+     `${await js(eta)}/${await js(role)} (anchor is ${eta0}/${role0})`);
+
+  await js(`location.hash = ${JSON.stringify(link)}; true`);
+  await sleep(900);
+  ok("and the link that carries them opens on exactly what was on screen when it was copied",
+     (await js(eta)) === eta1 && (await js(role)) === role1,
+     `${await js(eta)}/${await js(role)}`);
+
+  /* and now the hashes nobody should have to survive */
+  for (const bad of ["x=%", "x=%E0%A4%A", "s=calculator&su4_ahmn=%ZZ", "===", "%"]) {
+    await js(`location.hash = ${JSON.stringify("#" + bad)}; true`);
+    await sleep(700);
+    const alive = await js(`!!document.querySelector('#rail a') && ` +
+                           `document.getElementById('section').children.length > 0`);
+    ok(`a hash of "${bad}" leaves the instrument standing`, alive === true);
+  }
+  await js(`location.hash = "#s=calculator"; true`);
+  await sleep(800);
+}
+
 /* ---- the console ------------------------------------------------------------------------- */
 
 const errs = events.filter((e) => e.method === "Log.entryAdded" &&

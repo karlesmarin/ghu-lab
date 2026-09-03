@@ -344,6 +344,26 @@ const HELP_TERMS = {
       + "of its own</b>.",
   },
 
+  /* ---------------------------------------------------------------- the theory or the frame */
+  "gauge-or-physics": {
+    term: "the theory, or the frame",
+    body: "A number the instrument computes about a boundary condition is only a statement about "
+      + "the <b>theory</b> if it survives replacing that boundary condition by a "
+      + "gauge-equivalent one. The dossier recomputes every line on every member of the class and "
+      + "tags it by what came back — so the tag is a <b>measurement made on this render</b>, never "
+      + "a list of which lines ought to be invariant. Most of them are not: the apparent unbroken "
+      + "group, the massless content and the anomaly ledger are all read at the symmetric point of "
+      + "the representative you happen to be holding.",
+  },
+  "separates-nothing": {
+    term: "invariant, and still useless",
+    body: "A line can be the same on every member of a class and also the same for <i>every</i> "
+      + "class, and then it distinguishes no theory from any other however stable it is — "
+      + "<code>N₀</code> is one, and so is N. The two axes are independent and are measured "
+      + "separately: splitting <b>within</b> a class makes a line the frame's, and taking one "
+      + "value <b>between</b> classes makes it no verdict at all.",
+  },
+
   /* ---------------------------------------------------------------- reading the literature */
   "keyword-sweep": {
     term: "what a keyword sweep is worth",

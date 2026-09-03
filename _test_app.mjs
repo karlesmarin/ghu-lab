@@ -161,9 +161,14 @@ ok("any unbuilt section still names itself fully",
 /* A typo'd id does not throw: getElementById returns null, the optional call does nothing, and the
  * panel simply never fills in.  It is invisible in every test that checks numbers, so it is checked
  * here: every id a section reaches for must be created somewhere in that same section. */
+/* EVERY function on the section, not `render` and `init` alone.  Most sections keep their DOM in
+ * helpers -- `_cells`, `_members`, `_verdict` -- and the two named hooks then contain no
+ * getElementById at all, so a section that put ALL of its ids in helpers was checked against
+ * nothing and passed.  Found when a section written that way made the anti-vacuity check below go
+ * red: the check was doing its job and the one above it was not. */
 const idMisses = [];
 for (const s of secs.filter((x) => x.ready)) {
-  const src = String(s.render || "") + String(s.init || "");
+  const src = Object.values(s).filter((v) => typeof v === "function").map(String).join("\n");
   const made = new Set([...String(s.html).matchAll(/id="([^"]+)"/g)].map((m) => m[1]));
   /* ids the section writes into its own innerHTML later count as created too */
   for (const m of src.matchAll(/id="([^"${]+)"/g)) made.add(m[1]);
@@ -176,7 +181,8 @@ ok("every id a section reaches for is an id that section creates", idMisses.leng
 /* anti-vacuity: the check above proves nothing unless it is actually looking at ids */
 ok("and that check found ids to look at",
    secs.filter((x) => x.ready).every((s) =>
-     /(?:getElementById|\$)\(\s*"/.test(String(s.render) + String(s.init))));
+     /(?:getElementById|\$)\(\s*"/.test(
+       Object.values(s).filter((v) => typeof v === "function").map(String).join("\n"))));
 
 /* A ReferenceError inside render() leaves the panel blank and throws into a console nobody reads.
  * The id check above catches a typo'd id; this catches everything else, by actually RUNNING every
@@ -272,9 +278,23 @@ ok("and the smoke actually rendered them", rendered === secs.filter((x) => x.rea
 ok("the page states what it cannot tell you, once, permanently",
    PAGE.includes("What this tool cannot tell you"));
 for (const claim of ["Absolute scales are not settled", "One published case",
-                     "Two models, not a framework", "One loop, no running",
+                     "Three anchored models, and one builder that is not anchored to anything",
+                     "One loop, no running",
                      "It is a page, not a library"])
   ok(`and names the limit: ${claim.toLowerCase()}`, PAGE.includes(claim));
+/* AND THE BLOCK HAS TO KEEP UP WITH THE TOOL.  An outside audit read the deployed page on
+ * 2026-09-03 and found this list still saying "Two models, not a framework" and "only the result
+ * card as JSON" — both true when they were written and neither true since the SU(N) builder and
+ * the LaTeX export arrived.  Stale limits are worse than none: a reader believes them.  So the
+ * two facts that went stale are asserted directly, against the code that provides them. */
+ok("...and the limits it names are the CURRENT ones, not a previous version's",
+   !PAGE.includes("Two models, not a framework") &&
+   !PAGE.includes("only the result card as JSON"));
+ok("...it names every format that actually leaves the page",
+   ["JSON", "LaTeX", "BibTeX"].every((f) => /It is a page, not a library[\s\S]{0,700}/.exec(PAGE)[0]
+                                              .includes(f)));
+ok("...and the builder's real ceiling, which is the phase count and not the group",
+   /one and two Wilson-line phases/.test(PAGE) && /no Yukawa couplings anywhere/.test(PAGE));
 ok("and it says which quantities escape the caveat",
    /mass ratio[\s\S]{0,120}bill in eighths[\s\S]{0,120}arithmetic laws/.test(PAGE));
 
@@ -377,9 +397,39 @@ ok("the gauge seed is a declared default, echoed like every other",
    PAGE.includes("conventions.gauge_seed") && PAGE.includes("as printed in arXiv:2503.04090 eq. (68)"));
 
 /* A page opened WITH a permalink used to render nothing: `if (!decode()) render();`.  The guard is
- * a string, because the DOM is not here; the shooter opens a real permalink and is the proof. */
+ * a string, because the DOM is not here; the shooter opens a real permalink and is the proof.
+ *
+ * The second failure had the same symptom by a different door and an outside audit found it on
+ * 2026-09-03: `decodeURIComponent` throws URIError on a lone "%", it ran unguarded, and it ran
+ * BEFORE render -- so `#x=%` was a blank instrument too.  `render()` must be reachable whatever
+ * the hash says, so the string checked here is the guarded form. */
 ok("a permalink is decoded AND rendered -- deep links are not dead on arrival",
-   /decode\(\);\s*\n\s*render\(\);/.test(PAGE) && !/\n\s*if \(!decode\(\)\) render\(\);/.test(PAGE));
+   /try \{ decode\(\); \}[\s\S]{0,120}\n\s*render\(\);/.test(PAGE) &&
+   !/\n\s*if \(!decode\(\)\) render\(\);/.test(PAGE));
+ok("...and no hash can stop it: every decodeURIComponent in the shell is guarded",
+   [...PAGE.matchAll(/decodeURIComponent\(/g)].length > 0 &&
+   /const unesc = \(s\) => \{ try \{ return decodeURIComponent\(s\); \} catch \{ return null; \} \};/
+     .test(PAGE) &&
+   /\[, v\]\) => v !== null\)/.test(PAGE));
+ok("...and eta and the role travel in the link, which for two years they did not",
+   /mark\(state\.eta\[g\]\[i\], a\.eta\[i\], "e"\)/.test(PAGE) &&
+   /mark\(state\.role\[g\]\[i\], a\.role\[i\], "r"\)/.test(PAGE) &&
+   /\(\?:\\\.\[er\]\[mp\]\)\*/.test(PAGE));
+/* and the marker is URL-safe: a plus becomes %2B in the address bar, which is exactly the kind of
+ * thing that does not survive being pasted into a letter */
+ok("...and the markers carry no character encodeURIComponent will escape",
+   /cur < 0 \? "m" : "p"/.test(PAGE));
+/* And the DEFAULT they are measured against is the anchor's, not +1.  The anchor content of a
+ * group carries eta = -1 and role = gauge on some slots; encoding against +1 and resetting to +1
+ * would drop the anchor's own values from an untouched model, which is the same bug one level
+ * down.  Both sides call the same function, so they cannot disagree about what "omitted" means. */
+ok("...and both sides read the same default, which is the anchor's and not +1",
+   /function anchorEtaRole\(group\)/.test(PAGE) &&
+   /const a = anchorEtaRole\(g\);/.test(PAGE) &&
+   /const anc = anchorEtaRole\(f\.group\);/.test(PAGE));
+/* and the two-download pattern the LaTeX button was already fixed for */
+ok("the card export staggers its two files, as the .bib does and for the same reason",
+   /setTimeout\(\(\) => download\(`ghu-\$\{modelId\(r\.model\)\}\.txt`/.test(PAGE));
 
 /* The brane travels in the permalink exactly as the seed does, and both go through one sanitiser:
  * a typed field and a shared link cannot obey different rules. */

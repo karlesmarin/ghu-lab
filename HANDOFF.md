@@ -1,7 +1,100 @@
 # HANDOFF — GHU Lab
 
-> State at 2026-09-02. The section below is the newest; the earlier handoffs follow it unchanged
+> State at 2026-09-03. The section below is the newest; the earlier handoffs follow it unchanged
 > and are still the map of the code.
+
+## 2026-09-03 — the panels are joined, and most of what they say is not about the theory
+
+**The bcclass lattice was deployed first**, closing the one gap the 2 September pass left between
+the code and the public site (`ghu-explorer f105071`). Then Carles' next agreed thing — *combining
+functions into single, more powerful tools* — and it shaped itself, because the probe ran before
+the panel this time.
+
+**THE PROBE, WHICH IS THE LESSON OF THE PREVIOUS PASS APPLIED.** Before a line of interface: run
+every verdict the instrument can produce about a boundary condition over every member of its
+equivalence class, and see what the composition surface actually looks like. Four numbers came back
+and they decided everything.
+
+- **The chain is cheap and total**: 2.4 ms per dossier, 400 ms for a whole SU(6) sheet of 84.
+- **Two Wilson phases is the ceiling on the vacuum**, and it is not a wall: every boundary
+  condition of SU(N) is covered up to N = 5, 95% at N = 6, 87% at N = 7, 62% at N = 10. So
+  multi-phase is the ceiling above SU(8), not a prerequisite for the tool.
+- **Of eighteen verdicts, seven are about the theory and eleven about the frame.** Constant on the
+  class at N = 4…7 and over every class: phase count, #terms in V, depth of the vacuum, whether it
+  sits at a symmetric point, N_Δ. Not constant: the apparent unbroken group, where the vacuum sits,
+  **Part VII's W**, all three massless counts, the **whole anomaly ledger**, N_v.
+- **And invariant is not informative**: `N₀` and `N` take one value over every class at a given N,
+  so they separate no theory from any other. Two independent axes, measured separately.
+
+**`One model, every verdict`** is that, as a section — `src/modules/dossier.mjs` +
+`dossier_section.js` + `_test_dossier.mjs` (21 checks). The tag is computed on every render, never
+read off a list, and the harness hands the same tagger **two decoy lines whose answers are settled
+before it runs** — `p`, which the class relation moves, and `p − s`, which it preserves — and
+requires the two different tags at three N. Clicking a class-mate keeps the theory and changes the
+frame, and the table redraws with the invariant rows standing still: the dynamical rearrangement of
+gauge symmetry done to a table rather than described. `drive.mjs` drives exactly that click.
+
+**IT FOUND A FALSE VERDICT ON ITS FIRST RUN, and that is the argument for the whole idea.** *"Is
+this model anomaly-free?"* answered **YES for one member of a class and NO for another** — the same
+theory — on 4 of the 16 multi-member classes of SU(5) and 5 of the 25 of SU(6). The arithmetic was
+never wrong; the word was. With n₊₊ = 0 there is no massless fermion for a bulk fundamental to
+leave, so every channel is zero and `clean` came back true about nothing. `an5Ledger` returns a
+three-state `verdict` now — *no subject* / *cancels* / *owes* — and the section reads it instead of
+keeping its own copy of the condition; the header line beside it had been saying "every channel
+cancels" for a model with no fermion in it.
+
+**The same shape, three times in one afternoon, and it generalises: a guard that lives in the
+caller is a hypothesis missing from the function.** `sun5dTermTable` refused two phases by name and
+was **blind to zero** — no term, no loop, an empty table, a clean pass, and Part VII's five
+coordinates and its stability verdict handed to a model with no α to be about. It takes the phase
+count now. The dossier's own separation panel warned that its sweep belonged to another N and then
+assigned the table over the top of the warning. And `_test_app.mjs`'s id check read `render` and
+`init` only, so a section that keeps its DOM in helpers — most of them — was checked against
+nothing.
+
+### An outside audit of the deployed source, and five of five were real
+
+Carles pasted a review of the two public repositories the same day. Every finding held up:
+
+- **The permalink carried neither η nor the matter/gauge role**, though both are buttons in the
+  calculator and both enter `model()`. A link reproduced a *different model* from the one on screen
+  when it was copied. **This is the worst of the five** for a tool whose use is that a claim in a
+  letter becomes checkable in thirty seconds.
+- **`decodeURIComponent` ran unguarded before `render()`**, so `#x=%` was a blank instrument — the
+  2026-08-26 dead-permalink bug through another door.
+- **The card export fired two downloads in one tick**, the pattern the `.bib` had already been
+  fixed for.
+- **The limits block had gone stale** ("Two models, not a framework", "only the result card as
+  JSON") — both true when written, neither since the SU(N) builder and the LaTeX export.
+- **The site footer said MIT** while both `LICENSE` files say Apache 2.0.
+
+Fixing the first turned up a **second layer under it**: a link carries only what differs from the
+default, and *the default is not +1* — the anchor content of a group carries η = −1 and role =
+gauge on some slots. Encoding against +1 and resetting to +1 would have lost the anchor's own
+values from an untouched model. Both sides call one `anchorEtaRole` now. And the marker is `.em` /
+`.ep` rather than `.e-` / `.e+`, because `encodeURIComponent` turns a plus into `%2B` in the
+address bar — the same lesson as the pipe that became a comma in the BLKT permalink.
+
+`drive.mjs` gained the checks that were **missing** rather than the ones that were easy: a round
+trip through the real buttons with a **control leg that strips the markers and demands the anchor's
+own values back**, so the trip cannot pass by never resetting anything; and five deliberately
+broken hashes under one rule — *no string a reader can put in the address bar may stop the
+interface appearing*. **113 checks, console clean.** `_test_app.mjs` asserts the stale sentences
+are **gone**, not merely that some sentences are present.
+
+**Build 1 632 checks green across 29 harnesses; 24 sections; site 28 ok; drive 113/113; zero
+console errors at 1440 and at 390.**
+
+**Next, still open and unchanged by this pass**: the SU(N) builder is S¹/Z₂ and its vacuum is one
+or two Wilson phases; **brane matter cannot be added** even though the anomaly ledger says brane
+fermions pay the bill; **no Yukawas anywhere**; the literature census shortlists papers but cannot
+load one and run it; and T²/Z₃ and T²/Z₆ have no class lattice because nobody knows what their
+invariants are — which is research, not interface. **And the dossier names a new one that is the
+sharpest of them**: every line except the depth and position of the minimum is computed at the
+*symmetric point* of the representative, which is exactly why they move across the class. The
+massless content **at the minimum** is what would turn the spectrum, the anomaly ledger and the
+apparent group into statements about the theory. That is a gap in the tool, not a subtlety of the
+physics, and it is written on the page.
 
 ## 2026-09-02 — Part IX enters, the panels answer back, and the instrument stops being slow
 

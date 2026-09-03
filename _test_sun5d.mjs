@@ -315,6 +315,29 @@ H("the potential, and the vacuum it has");
      m2 !== null && m2.theta.length === 2);
   ok("...and the (m, s, c) bridge refuses that model out loud rather than silently dropping a phase",
      (() => { try { sun5dTermTable(t2); return false; } catch (e) { return /one Wilson-line phase/.test(e.message); } })());
+
+  /* THE PHASE THE TERMS CANNOT SPEAK FOR.  The per-term test above reads t.v.length, so it sees
+   * two phases and three and is blind to ZERO: no term, no loop, an empty table and a clean pass.
+   * Both facts are asserted, the blind one first, because it is the reason the `phases` option
+   * exists and a later "simplification" that refuses every empty table would fail the flat case
+   * below instead of failing here. */
+  {
+    const nowl = sun5dBlocks({ nPP: 6, nPM: 0, nMP: 0, nMM: 0 });            /* SU(6), no phase */
+    const t0 = sun5dTerms(nowl, { bulk: [{ rep: "fund", eta: +1, kind: "dirac" }] });
+    ok("a boundary condition with no Wilson line has no term at all",
+       nowl.phases === 0 && t0.length === 0);
+    ok("...and the per-term test alone lets it through, which is the hole",
+       sun5dTermTable(t0).length === 0);
+    ok("...so the bridge refuses it when told the phase count, and says there is no Wilson line",
+       (() => { try { sun5dTermTable(t0, { phases: nowl.phases }); return false; }
+                catch (e) { return /no Wilson line to bridge/.test(e.message); } })());
+    ok("...while an empty table at ONE phase stays legal — a flat potential sits at the origin",
+       sun5dTermTable([], { phases: 1 }).length === 0);
+    /* and this is what the refusal is protecting: Part VII's coordinates and its stability
+     * verdict, handed to a model that has no α for them to be about */
+    ok("...which is what W = 0 and the five coordinates at the origin would otherwise have claimed",
+       stabilityW(sun5dTermTable(t0)) === 0);
+  }
 }
 
 console.log(`\n${fail === 0 ? "PASSED" : "*** FAILED ***"}   ${pass} ok, ${fail} failed`);

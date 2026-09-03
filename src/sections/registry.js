@@ -43,6 +43,11 @@ const SECTIONS = [
    * writes into the same shared model, so a hit found here lands in the builder and the other
    * three panels read it: the loop closes rather than ending in a list. */
   { ...SWEEP5D_SECTION, group: "su3_hy", family: "5D on S¹/Z₂ · Haba–Yamashita" },
+  /* and the five of them JOINED on one model rather than chained over a space.  It is the only
+   * section whose subject is the other sections' answers: it recomputes each of them on every
+   * gauge-equivalent boundary condition and reports which survived, because most do not.  It sits
+   * last in this family because it is what you read after the other four have spoken. */
+  { ...DOSS_SECTION, group: "su3_hy", family: "5D on S¹/Z₂ · Haba–Yamashita" },
   /* A family of its own, because it is about neither a model nor a dimension: it is about which
    * BOUNDARY CONDITIONS are the same theory, on S¹/Z₂ and on T²/Z₃.  Like the builder it holds
    * its own model and takes nothing from the shell. */

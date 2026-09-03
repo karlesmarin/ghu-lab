@@ -223,5 +223,37 @@ H("the unbroken boundary condition is the MAXIMALLY chiral one, and the ledger s
   ok("a brane fermion conjugate to it pays the bill exactly — Part VI's pairing, in one line",
      paired.clean);
 }
+
+/* ---------------------------------------------- 8. the verdict that had no subject, and its class
+ *
+ * `clean` is an empty-sum pass when the model has no massless fermion, and the only reason the
+ * page never printed it was a guard written in the SECTION.  The way it surfaced is the check:
+ * two boundary conditions in the same equivalence class answered the question differently. */
+
+H("a ledger with no fermion in it is not a ledger that balances");
+{
+  const none = B([0, 1, 4, 0]);                      /* p = 0: the fundamental has no (+,+) mode */
+  const L0 = an5Ledger(none, { bulk: [D("fund", +1, 1)] });
+  ok("SU(5) [0,1,4,0] with one bulk fundamental has no massless fermion at all",
+     L0.pieces.length === 0 && L0.nFermions === 0);
+  ok("...so every channel is zero and `clean` comes back TRUE — the empty sum passing",
+     L0.clean === true);
+  ok("...and that is exactly why `clean` is not the verdict: `vacuous` marks it",
+     L0.vacuous === true && L0.verdict === "no subject");
+
+  const some = B([1, 0, 3, 1]);       /* its neighbour under [p,q,r,s] ~ [p−1,q+1,r+1,s−1] */
+  const L1 = an5Ledger(some, { bulk: [D("fund", +1, 1)] });
+  ok("its class-mate [1,0,3,1] — the SAME theory — does have fermions, and they owe",
+     L1.pieces.length > 0 && L1.clean === false && L1.verdict === "owes");
+  ok("...so `clean` alone flips inside one equivalence class, and `verdict` does not lie about it",
+     L0.clean !== L1.clean && L0.verdict !== "cancels" && L1.verdict !== "cancels");
+
+  /* and the third state has to occur, or `verdict` is a two-valued flag with a longer name */
+  const real = an5LedgerFromPieces(B([5, 0, 0, 0]), [
+    { rep: "fund", blockA: 0, blockB: null, chirality: "L", copies: 1 },
+    { rep: "fund", blockA: 0, blockB: null, chirality: "R", copies: 1 }]);
+  ok("...and `cancels` is reached by a content that really does cancel, so all three states occur",
+     real.verdict === "cancels" && real.vacuous === false);
+}
 console.log(`\n${fail === 0 ? "PASSED" : "*** FAILED ***"}   ${pass} ok, ${fail} failed`);
 process.exit(fail === 0 ? 0 : 1);

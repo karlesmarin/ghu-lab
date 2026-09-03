@@ -230,15 +230,24 @@ details.cannot p{margin:11px 0 0;line-height:1.55}
         <b>two arithmetic laws</b> do not: no normalisation enters them.</li>
     <li><b>One published case is the whole validation of the calculator</b> — AHMN's 1.2046. The
         engine reproduces it to 1.2045. Nothing else anchors it.</li>
-    <li><b>Two models, not a framework.</b> SU(7) on S¹/Z₂ × S¹/Z₂ and SU(4) on T²/Z₂, with fixed
-        orbifolds, fixed conventions and a fixed catalogue. You cannot put your own group,
-        orbifold or boundary conditions in. What you vary are multiplicities.</li>
+    <li><b>Three anchored models, and one builder that is not anchored to anything.</b> The three
+        — SU(7) on S¹/Z₂ × S¹/Z₂, SU(4) on T²/Z₂ and Haba–Yamashita's SU(3) on S¹/Z₂ — have fixed
+        orbifolds, fixed conventions and a fixed catalogue; what you vary in them is
+        multiplicities. The <b>SU(N) builder</b> is the other thing: there the model <em>is</em>
+        the input, any SU(N) and any boundary condition on S¹/Z₂, and no data file in this tool has
+        heard of it. What it does not have: <b>one orbifold only</b> (S¹/Z₂ — T²/Z₃ and T²/Z₆ are
+        counted and classified here but carry no potential), <b>no brane matter</b> even though the
+        anomaly ledger says brane fermions pay the bill, <b>no Yukawa couplings anywhere</b>, and
+        the vacuum is located for <b>one and two Wilson-line phases</b> and declines past that,
+        which covers every boundary condition of SU(N) up to N = 5, 95% of them at N = 6 and 62%
+        at N = 10.</li>
     <li><b>One loop, no running, no matching.</b> There is no RGE evolution to the weak scale, no
         threshold matching, no scheme dependence and no error bars. The Higgs mass here is the
         curvature of a one-loop Wilson-line potential, not a prediction you can confront with data.</li>
-    <li><b>It is a page, not a library.</b> There is no Python API and no LHE/SLHA/UFO export — only
-        the result card as JSON. If you need this inside a pipeline, take the card and the formulas,
-        not the page.</li>
+    <li><b>It is a page, not a library.</b> There is no Python API and no LHE/SLHA/UFO export. What
+        leaves is the result card as <b>JSON</b> and as plain <b>text</b>, and the model as
+        <b>LaTeX</b> with its <b>BibTeX</b> — every value carrying its own honesty label as a field.
+        If you need this inside a pipeline, take the card and the formulas, not the page.</li>
   </ul>
   <p>What it <em>is</em> good for: screening a candidate content on the exact, normalisation-free
   quantities before anyone computes anything; checking your own implementation against the one

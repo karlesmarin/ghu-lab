@@ -348,6 +348,21 @@ const VARIANTS = {
                    document.querySelector('#swRun').click(); return true; })()`,
     wait: 9000,
   }],
+  /* THE DOSSIER OPENS ON WHAT THE BUILDER IS HOLDING, and the builder opens on the gauge sector
+   * alone -- a content with no fermion, whose anomaly verdict is "no subject" on every member of
+   * the class, so the panel's own headline case renders for nobody.  The case worth photographing
+   * is SU(6) with one bulk fundamental at [1,0,4,1]: there the anomaly verdict is "owes" here and
+   * "no subject" one boundary condition away, in the SAME theory, which is the finding that made
+   * this section exist.  Set it through the builder, because the model belongs to the builder.
+   * (`#dsSepGo` is in the on-demand button list below, so both shots carry the sweep table.) */
+  dossier: [{
+    name: "dossier-su6-flip", label: "SU(6) [1,0,4,1], one bulk fundamental: the anomaly verdict is the frame's",
+    set: `(() => { SUN5D_S.blocks = { nPP: 1, nPM: 0, nMP: 4, nMM: 1 };
+                   SUN5D_S.bulk = { "fund|1|dirac": 1 };
+                   document.querySelector('#rail a[data-id="dossier"]').click();
+                   return true; })()`,
+    wait: 3000,
+  }],
   fived: [{
     name: "fived-pure-gauge", label: "pure gauge: D = -9, nothing breaks",
     set: `(() => { const b = document.querySelector('#fvClear');
@@ -371,7 +386,8 @@ for (const s of wanted) {
    * unpressed panel documents the button, not the result -- and wait long enough for the slow one,
    * which feeds the browser the catalogue ten representations at a time. */
   const pressed = await evalJs(`(() => {
-    const ids = ['#sSweep', '#eSweepGo', '#cSweepGo', '#hSweepGo', '#eAtGo', '#a7Go', '#cnGo'];
+    const ids = ['#sSweep', '#eSweepGo', '#cSweepGo', '#hSweepGo', '#eAtGo', '#a7Go', '#cnGo',
+                 '#dsSepGo'];
     let n = 0;
     for (const id of ids) { const b = document.querySelector(id); if (b) { b.click(); n++; } }
     return n; })()`);

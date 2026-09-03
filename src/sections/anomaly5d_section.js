@@ -36,7 +36,12 @@ const ANOM5D_SECTION = {
     const L = an5Ledger(b, this._content());
     return `SU(${b.N}) · S¹/Z₂ · (${b.nPP},${b.nPM},${b.nMP},${b.nMM}) · ` +
            `${L.nFermions} massless Weyl fermion${L.nFermions === 1 ? "" : "s"} · ` +
-           (L.clean ? "every channel cancels" : `${L.offending.length} channel(s) owing`);
+           /* the header said "every channel cancels" with no fermion in the model, which is the
+            * empty sum passing a test nobody gave it; the card below always said "No massless
+            * fermions" and the two disagreed in the one line a permalink carries */
+           (L.verdict === "no subject" ? "nothing to cancel"
+             : L.verdict === "cancels" ? "every channel cancels"
+             : `${L.offending.length} channel(s) owing`);
   },
 
   _content() {
@@ -121,7 +126,10 @@ const ANOM5D_SECTION = {
 
   _verdict(b, L) {
     const el = document.getElementById("anVerdict");
-    if (!L.pieces.length) {
+    /* the ledger's own word, not a second copy of the condition here: `clean` is true about
+     * nothing when there is no fermion, and the module now says so rather than leaving this
+     * branch as the only thing standing between that flag and a reader */
+    if (L.verdict === "no subject") {
       el.className = "verdict stable";
       el.innerHTML = `<b>No massless fermions</b><span>The gauge sector carries no anomaly, and ` +
         `there are no bulk Dirac fermions in the model. Add one in the builder and there will be ` +

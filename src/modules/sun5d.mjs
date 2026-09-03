@@ -225,8 +225,25 @@ export function sun5dV(terms, theta, windings = 600) {
 /* THE BRIDGE.  One phase, and the terms are the kernel's own (m, s, c) triples — so the closed
  * form, the five coordinates, the arithmetic laws, the census and the inverse map all apply to
  * whatever SU(N) model was just built.  The kernel's F has no ½, so the factor is carried here
- * and named rather than left for someone to rediscover. */
-export function sun5dTermTable(terms, { half = true } = {}) {
+ * and named rather than left for someone to rediscover.
+ *
+ * PASS `phases`, BECAUSE THE TERMS CANNOT TELL YOU ABOUT A PHASE THAT PRODUCED NO TERM.  The
+ * per-term test below reads `t.v.length`, so it catches two phases and three — and is blind to
+ * ZERO, where the loop never runs and an empty table comes back as a clean pass.  A zero-phase
+ * boundary condition is a model with no Wilson line at all: 24 of the 84 boundary conditions of
+ * SU(6) are one.  For those, `coordinates` returns the ORIGIN of Part VII's five-dimensional
+ * lattice and `stabilityW` returns W = 0, which reads as a marginal stability verdict about a
+ * quantity that has no subject — there is no α to be stable in.  The two callers in
+ * `sun5d_section.js` had each written `if (b.phases === 1)` around the call, so the page was
+ * right and the module was not; a guard that lives in the caller is a hypothesis missing from
+ * the function, and it is missing again for every caller that comes later.
+ *
+ * One phase whose terms all CANCEL is a different thing and stays legal: the potential is flat,
+ * the table is empty for a reason inside the physics, and the origin is then the honest answer. */
+export function sun5dTermTable(terms, { half = true, phases } = {}) {
+  if (phases !== undefined && phases !== 1)
+    throw new Error(`the (m, s, c) form needs exactly one Wilson-line phase; this model has ` +
+                    `${phases}` + (phases === 0 ? `, so there is no Wilson line to bridge` : ``));
   const out = [];
   for (const t of terms) {
     if (t.v.length !== 1)

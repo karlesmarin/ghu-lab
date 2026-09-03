@@ -232,7 +232,23 @@ export function an5LedgerFromPieces(b, pieces) {
   }
 
   const bad = rows.filter((r) => !rZero(r.value));
+  /* `clean` IS NOT A VERDICT ON ITS OWN, and the difference only shows when something composes
+   * this module with something else.  With no massless fermion there is no anomaly to cancel, so
+   * every channel is zero and `clean` comes back TRUE about nothing — the empty sum passing the
+   * test it was never given.  `anomaly5d_section.js` had written `if (!L.pieces.length)` around
+   * the verdict and printed "No massless fermions" instead, so the page has always been right and
+   * the flag has always been wrong; a guard in the caller is a hypothesis missing from here, and
+   * it is missing again for the next caller.
+   *
+   * How it was found, and it is worth keeping because the method generalises: running the ledger
+   * over a whole EQUIVALENCE CLASS of boundary conditions.  On S¹/Z₂, [p,q,r,s] ~ [p−1,q+1,r+1,s−1]
+   * are the same theory, and with one bulk fundamental the member with p = 0 has no (+,+) zero
+   * mode at all.  So "is this model anomaly-free?" answered YES for one member and NO for another
+   * member of the SAME theory — on 4 of the 16 multi-member classes of SU(5) and 5 of the 25 of
+   * SU(6).  The arithmetic was never wrong; the word was. */
   return { pieces, rows, clean: bad.length === 0, offending: bad,
+           vacuous: pieces.length === 0,
+           verdict: pieces.length === 0 ? "no subject" : bad.length === 0 ? "cancels" : "owes",
            nFermions: pieces.reduce((a, p) => a + pieceDim(b, p) * p.copies, 0) };
 }
 

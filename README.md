@@ -1,7 +1,7 @@
 # 🔧 GHU Lab — the source tree of the gauge–Higgs unification instrument
 
 This repository builds **[karlesmarin.github.io/ghu-explorer](https://karlesmarin.github.io/ghu-explorer/)**:
-one self-contained HTML page holding **twenty** computations — including tools for models nobody has
+one self-contained HTML page holding **twenty-four** computations — including tools for models nobody has
 written yet — over three published models:
 1️⃣ SU(7) on S¹/Z₂×S¹/Z₂ (Komori–Maru), 2️⃣ SU(4) on T²/Z₂ (AHMN), and 3️⃣ Haba–Yamashita's 5D SU(N) on
 S¹/Z₂ — with **every output carrying what is known about it**: `theorem`, `verified`, `measured`
@@ -10,7 +10,7 @@ or `unknown`, as fields in the exported result card rather than as decoration.
 The deployed page is a build artifact. This is where it comes from, and why it says what it says.
 
 ```
-🏗️  python build/build_app.py    # inline → collision guard → edition gate → 26 harnesses → app/index.html
+🏗️  python build/build_app.py    # inline → collision guard → edition gate → 29 harnesses → app/index.html
 🌐  python build/build_site.py --legacy ../ghu-explorer/tools-2026-07     # → site/, then gates itself
 📸  node   build/shoot.mjs       # headless screenshots of every section + console + which model
 🖱️  node   build/drive.mjs       # USES the panels: a real mouse through the DevTools Input domain
@@ -22,7 +22,7 @@ The deployed page is a build artifact. This is where it comes from, and why it s
 
 ## 🧪 What is checked, and against what
 
-**1 557 checks across 26 harnesses**, plus 51 driven through a real mouse and 28 on the built site.
+**1 632 checks across 29 harnesses**, plus 113 driven through a real mouse and 28 on the built site.
 The ones that carry weight are the ones an outside computation could lose:
 
 | harness | what it puts at risk |

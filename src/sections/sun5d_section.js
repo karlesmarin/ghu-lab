@@ -460,7 +460,7 @@ const SUN5D_SECTION = {
     /* and with one phase, the criterion by name: Part VII eq. (34), on somebody else's model */
     let w = "";
     if (b.phases === 1) {
-      const tt = sun5dTermTable(terms);
+      const tt = sun5dTermTable(terms, { phases: b.phases });
       const W = stabilityW(tt);
       /* the paper writes V = (C/2)Σ… and the kernel's F has no ½, so the criterion's value is
        * twice the difference this panel prints in V/C.  The factor is stated and the harness
@@ -494,7 +494,7 @@ const SUN5D_SECTION = {
           `min(n₊₊, n₋₋) + min(n₊₋, n₋₊) = 1 and everything below appears.`;
       return;
     }
-    const tt = sun5dTermTable(terms);
+    const tt = sun5dTermTable(terms, { phases: b.phases });
     const mo = moments(tt);
     const a = alphaMin(mo);
     const co = coordinates(tt);

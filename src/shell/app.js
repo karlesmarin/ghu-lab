@@ -86,6 +86,27 @@
      * recorded in the data file beside the rows themselves. */
     return null;
   }
+  /* THE ANCHOR'S OWN eta AND role, AS A FUNCTION, because `decode` needs the same thing.
+   *
+   * A link carries only what differs from the default -- the rule the seed and the brane already
+   * follow -- so "no marker on this slot" has to mean the same thing on both sides of the trip.
+   * The default is not +1: the anchor content of a group may itself carry eta = -1 or role =
+   * gauge on a slot, and it does.  Resetting to +1 before reading a link would therefore lose the
+   * anchor's own values on an untouched model, which is the audited bug in its subtler form.
+   * Reset to THIS, and omission means "as the anchor has it" on both sides. */
+  function anchorEtaRole(group) {
+    const eta = SLOTS[group].map(() => 1), role = SLOTS[group].map(() => 1);
+    const bulk = anchorOf(group);
+    if (bulk) SLOTS[group].forEach((s, i) => {
+      const b = bulk.find((x) => x.rep === s.rep &&
+        (x.parities[0] > 0 ? "+" : "-") === s.key[1] &&
+        (x.parities[1] > 0 ? "+" : "-") === s.key[3]);
+      if (!b) return;
+      eta[i] = b.eta === undefined ? 1 : b.eta;
+      role[i] = b.role === undefined ? 1 : b.role;
+    });
+    return { eta, role };
+  }
   for (const f of FAMILIES) {
     const bulk = anchorOf(f.group);
     if (!bulk) continue;
@@ -95,9 +116,10 @@
         (x.parities[1] > 0 ? "+" : "-") === s.key[3]);
       if (!b) return;
       state.n[f.group][i] = b.multiplicity;
-      state.eta[f.group][i] = b.eta === undefined ? 1 : b.eta;
-      state.role[f.group][i] = b.role === undefined ? 1 : b.role;
     });
+    const a = anchorEtaRole(f.group);
+    state.eta[f.group] = a.eta;
+    state.role[f.group] = a.role;
   }
 
   const active = () => SECTIONS.find((s) => s.id === state.section);
@@ -171,9 +193,37 @@
 
   /* ---------------------------------------------------------------- permalink */
 
-  const encGroup = (g) =>
-    state.n[g].map((v, i) => (v ? `${SLOTS[g][i].rep}${SLOTS[g][i].key}*${v}` : null))
-              .filter(Boolean).join(";");
+  /* THE PERMALINK CARRIES THE WHOLE MODEL, WHICH FOR TWO YEARS MEANT "the multiplicities".
+   *
+   * η and the matter/gauge role are toggles in the calculator — `ctx.setEta`, `ctx.setRole` — and
+   * they go into `model()` beside the multiplicity, so they change every number on the page.  They
+   * were not in this string.  A link therefore reproduced a DIFFERENT model from the one whose
+   * results were on screen when it was copied, silently, and the button that makes it says "the
+   * whole state, in the address bar".  Found by an outside audit of the deployed source,
+   * 2026-09-03.
+   *
+   * A default is omitted, as everywhere else here: only what differs from η = +1, matter travels.
+   * Old links carry no suffix and still parse — and `decode` now RESETS η and the role before
+   * reading, so a link is a complete description of the model rather than a patch applied to
+   * whatever the tab was already holding.  That is the property the round trip in `_test_app.mjs`
+   * asserts: model → encode → fresh state → decode → the same model, field for field. */
+  const encGroup = (g) => {
+    const a = anchorEtaRole(g);
+    return state.n[g].map((v, i) => {
+      if (!v) return null;
+      /* `.e` and `.r` name the VALUE, not a flip, so a token reads the same on its own as it does
+       * after any other token: `.em` is eta = -1, `.ep` is eta = +1.  Only a slot that differs
+       * from the anchor writes one.
+       *
+       * `m` and `p` rather than `-` and `+` because `encodeURIComponent` turns a plus into `%2B`:
+       * the link still worked, and the address bar showed `.r%2B` in the middle of a model — which
+       * is the kind of thing a reader pastes into a letter and a mail client mauls.  This is the
+       * same lesson as the pipe that became a comma in the BLKT permalink. */
+      const mark = (cur, def, k) => (cur === def ? "" : `.${k}${cur < 0 ? "m" : "p"}`);
+      return `${SLOTS[g][i].rep}${SLOTS[g][i].key}*${v}`
+             + mark(state.eta[g][i], a.eta[i], "e") + mark(state.role[g][i], a.role[i], "r");
+    }).filter(Boolean).join(";");
+  };
 
   function encode() {
     const parts = [`s=${state.section}`];
@@ -200,13 +250,21 @@
     return "#" + parts.join("&");
   }
 
+  /* NO STRING A READER CAN PUT IN THE ADDRESS BAR MAY STOP THE INSTRUMENT FROM APPEARING.
+   * `decodeURIComponent` throws URIError on a lone "%" or a truncated escape, and this ran at
+   * startup with `decode(); render();` — so `#x=%` threw before anything was mounted and left a
+   * blank page, which is the same symptom as the dead-permalink bug of 2026-08-26 arriving by a
+   * different door.  A parameter that cannot be decoded is DROPPED, and the rest of the link still
+   * works; a link is data from outside and is treated as such. */
+  const unesc = (s) => { try { return decodeURIComponent(s); } catch { return null; } };
+
   function decode() {
     const h = location.hash.replace(/^#/, "");
     if (!h) return false;
     const q = Object.fromEntries(h.split("&").map((kv) => {
       const i = kv.indexOf("=");
-      return i < 0 ? [kv, ""] : [kv.slice(0, i), decodeURIComponent(kv.slice(i + 1))];
-    }));
+      return i < 0 ? [kv, ""] : [kv.slice(0, i), unesc(kv.slice(i + 1))];
+    }).filter(([, v]) => v !== null));
     if (q.s && SECTIONS.some((x) => x.id === q.s && x.ready !== false)) state.section = q.s;
     for (const f of FAMILIES) {
       const sd = q[`${f.group}.seed`], Dg = DATASETS[f.group];
@@ -222,12 +280,24 @@
       }
       state.brane[f.group] = cleanBrane(bb ? raw : null);
       if (!q[f.group]) continue;
+      /* η and the role go back to the ANCHOR's values before the link is read, so what comes back
+       * is the model the link describes rather than that model laid over whatever this tab was
+       * holding — and an omitted marker means the anchor's value on both sides of the trip */
       state.n[f.group] = SLOTS[f.group].map(() => 0);
+      const anc = anchorEtaRole(f.group);
+      state.eta[f.group] = anc.eta.slice();
+      state.role[f.group] = anc.role.slice();
       for (const tok of q[f.group].split(";")) {
-        const mm = tok.match(/^(.+?)(\(.,.\))\*(\d+)$/);
+        /* the trailing group is optional, so every link written before η travelled still parses */
+        const mm = tok.match(/^(.+?)(\(.,.\))\*(\d+)((?:\.[er][mp])*)$/);
         if (!mm) continue;
         const i = SLOTS[f.group].findIndex((s) => s.rep === mm[1] && s.key === mm[2]);
-        if (i >= 0) state.n[f.group][i] = Math.min(30, +mm[3]);
+        if (i < 0) continue;
+        state.n[f.group][i] = Math.min(30, +mm[3]);
+        const mk = (k) => (mm[4].includes(`.${k}m`) ? -1 : mm[4].includes(`.${k}p`) ? 1 : null);
+        const e = mk("e"), r = mk("r");
+        if (e !== null) state.eta[f.group][i] = e;
+        if (r !== null) state.role[f.group][i] = r;
       }
     }
     /* the other half of the section permalink; a section given no parameter is reset to its
@@ -345,7 +415,12 @@
       .reduce((acc, s) => Object.assign(acc, s.certificates || {}), {});
     const card = makeCard(r.model, r.values, { version: VERSION, build: BUILD, certificates: certs });
     download(`ghu-${modelId(r.model)}.json`, JSON.stringify(card, null, 1), "application/json");
-    download(`ghu-${modelId(r.model)}.txt`, toText(card), "text/plain");
+    /* THE SAME 500 ms THE .bib GETS, AND FOR THE SAME REASON.  Two downloads in one tick make
+     * Chrome raise its multiple-download prompt and, if it is declined or auto-blocked, drop the
+     * second file — so the reader gets the JSON, no .txt, and no error.  The LaTeX button below
+     * had already been fixed for exactly this and this one had been left on the old pattern; an
+     * outside audit read the two of them side by side on 2026-09-03 and said so. */
+    setTimeout(() => download(`ghu-${modelId(r.model)}.txt`, toText(card), "text/plain"), 500);
   };
 
   /* THE SAME CARD, IN THE FORM THAT GOES INTO A PAPER.
@@ -479,7 +554,11 @@
     history.replaceState(null, "", encode());
   }
 
-  window.addEventListener("hashchange", () => { if (decode()) { mounted = null; render(); } });
+  window.addEventListener("hashchange", () => {
+    let ok = false;
+    try { ok = decode(); } catch (e) { console.warn("permalink ignored:", e && e.message); }
+    if (ok) { mounted = null; render(); }
+  });
   window.addEventListener("resize", () => render());
   $("footBuild").textContent =
     `ghu-lab ${VERSION} · built ${BUILD} · ` +
@@ -494,8 +573,13 @@
    * And this read `if (!decode()) render();` -- so a page opened WITH a permalink decoded it and
    * then rendered nothing at all: an empty rail, no section, a blank instrument.  Every deep link
    * this tool ever handed out was dead on arrival, and no harness opened one until the seed
-   * toggle needed a permalink to be photographed.  Decode, then render, unconditionally. */
-  decode();
+   * toggle needed a permalink to be photographed.  Decode, then render, unconditionally.
+   *
+   * And `render` is now unconditional in the stronger sense too: the belt inside `decode` drops a
+   * parameter it cannot read, and this brace catches anything else a hand-typed hash can do, so
+   * the instrument appears on its defaults rather than not at all.  A link is input from outside
+   * the program and there is no string it may refuse to survive. */
+  try { decode(); } catch (e) { console.warn("permalink ignored:", e && e.message); }
   render();
 })();
 

@@ -379,6 +379,25 @@ const VARIANTS = {
                    return true; })()`,
     wait: 3000,
   }],
+  /* The brane section opens on whatever the builder holds, and the builder's default model has no
+   * bulk fermion at all -- so the branch that is the whole point, matter on a fixed point paying a
+   * bill and lifting a zero mode, renders for nobody unless a shot forces it.  Load Kawamura's
+   * SU(5), take the partner the panel itself offers, shoot, and put the shared model back: this
+   * section writes into the builder's model, so a variant that did not restore would silently
+   * change the screenshots of every section photographed after it. */
+  brane: [{
+    name: "brane-paid", label: "Kawamura's SU(5), with the conjugate the panel offered on a brane",
+    set: `(() => { const e = document.querySelector('#brExample'); if (!e) return false;
+                   e.click();
+                   const a = document.querySelector('#brPartners button[data-add]');
+                   if (a) a.click();
+                   return true; })()`,
+    wait: 1500,
+  }, {
+    name: "brane-restore", label: "",
+    set: `(() => { const b = document.querySelector('#brReset'); if (b) b.click(); return false; })()`,
+    wait: 900,
+  }],
   fived: [{
     name: "fived-pure-gauge", label: "pure gauge: D = -9, nothing breaks",
     set: `(() => { const b = document.querySelector('#fvClear');

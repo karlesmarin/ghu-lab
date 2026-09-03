@@ -177,6 +177,25 @@ const HELP_TERMS = {
       + "as well as in the bulk, and that matters twice over: the anomaly of this class of models "
       + "sits entirely on the fixed points, and brane fermions are what pay for unwanted zero modes.",
   },
+  "local-group": {
+    term: "the local group at a fixed point",
+    body: "At <code>y = 0</code> only the reflection <code>P₀</code> acts, so a field living there "
+      + "has to respect the commutant of <code>P₀</code> alone — with the parities diagonal, "
+      + "<code>S(U(n₊₊ + n₊₋) × U(n₋₊ + n₋₋))</code>. At <code>y = πR</code> it is the commutant of "
+      + "<code>P₁</code>. <b>The two are different groups whenever the orbifold breaks anything</b>, "
+      + "and the four-dimensional group is what commutes with both. So a brane field is a "
+      + "representation of a group the 4D theory does not have, and it <i>splits</i> into several "
+      + "pieces when it lands in four dimensions.",
+  },
+  "boundary-mass": {
+    term: "a boundary mass, and the rank test",
+    body: "A Weyl fermion on a fixed point can pair with a bulk zero mode and give it a mass. In a "
+      + "fully left-handed convention the rule is one line: a mode in <code>r_q</code> pairs with a "
+      + "localised Weyl in <code>r̄₋q</code> — conjugate representation, opposite charge. What is "
+      + "easy to get wrong is the counting: with generic couplings the mass matrix has maximal rank, "
+      + "so what survives is <b>|difference| in each class separately</b>, and a count of exotics "
+      + "that skips the decomposition can declare a mass allowed that is not.",
+  },
   "one-loop-potential": {
     term: "the one-loop potential",
     body: "The effective potential for <code>α</code>, summed over the whole Kaluza–Klein tower and "

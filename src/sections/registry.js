@@ -39,6 +39,10 @@ const SECTIONS = [
   { ...SPEC5D_SECTION, group: "su3_hy", family: "5D on S¹/Z₂ · Haba–Yamashita" },
   /* and the gate that content has to pass.  Same shared model: one model, three views. */
   { ...ANOM5D_SECTION, group: "su3_hy", family: "5D on S¹/Z₂ · Haba–Yamashita" },
+  /* and where that gate's bill is PAID.  The anomaly panel ends by saying a non-zero row is not a
+   * verdict, because brane fermions pay into the same channels; this one puts them there and holds
+   * the same fields to Part I's boundary-mass gate at the same time.  Fourth view of one model. */
+  { ...BRANE_SECTION, group: "su3_hy", family: "5D on S¹/Z₂ · Haba–Yamashita" },
   /* and the four of them CHAINED, walking the space instead of answering about one model.  It
    * writes into the same shared model, so a hit found here lands in the builder and the other
    * three panels read it: the loop closes rather than ending in a list. */

@@ -454,7 +454,7 @@ H("the LaTeX button appears only where it exports what is on screen");
   for (const id of ["hierarchy", "atlas", "collider", "sun5d", "blkt", "litcensus"])
     ok(`visible on ${id}`, await shown(id));
   /* sections holding a model they do not export: the file would be about something else */
-  for (const id of ["spectrum5d", "anomaly5d", "sweep5d", "bcclass"])
+  for (const id of ["spectrum5d", "anomaly5d", "brane", "sweep5d", "bcclass"])
     ok(`hidden on ${id}`, !(await shown(id)));
 
   /* and hidden is not disabled: pressing it anyway must do nothing */
@@ -696,6 +696,77 @@ H("one model, every verdict — the class walk, on the built page");
      (await js(`document.getElementById('dsSep').textContent`)).slice(0, 90));
 }
 await shot("6-dossier");
+
+/* ---- brane matter: two verdicts that must move together, and a third that must not ---------- */
+/* The section's whole claim is that ONE choice moves TWO answers -- the anomaly bill and the
+ * massless content -- and that the page holds it to both.  A harness can check the arithmetic; only
+ * a real click on the button the page itself offered can check that the button does what the row
+ * beside it says.  The partner is not typed in here on purpose: it is whatever the panel put at the
+ * top of its own list, so a wrong list shows up as a wrong verdict. */
+H("brane matter — one click, and both verdicts move");
+{
+  await js(`document.querySelector('#rail a[data-id="brane"]').click(); true`);
+  await sleep(800);
+  await js(`document.getElementById('brExample').click(); true`);
+  await sleep(1000);
+
+  const fixed = await js(`document.getElementById('brFixed').textContent`);
+  ok("Kawamura's SU(5): the whole group at one fixed point, the Standard Model at the other",
+     /SU\(5\)/.test(fixed) && /SU\(3\) × SU\(2\) × U\(1\)/.test(fixed), fixed.slice(0, 160));
+  ok("...and the page says the two branes are different groups",
+     /different groups/.test(await js(`document.getElementById('brFixedNote').textContent`)));
+
+  const bill = () => js(`document.querySelector('#brVerdict b').textContent`);
+  const gate = () => js(`document.querySelector('#brGateVerdict b').textContent`);
+  const owed0 = await bill(), mass0 = await gate();
+  ok("with the bulk alone the ledger owes, and nothing has a boundary mass",
+     /owing/.test(owed0) && /massless/.test(mass0), `${owed0} / ${mass0}`);
+
+  const target = await js(`document.querySelector('#brTargets button')?.textContent`);
+  ok("a massless mode is offered as the target of the partner search",
+     typeof target === "string" && target.length > 0, String(target));
+  /* SCROLL IT INTO VIEW FIRST, and this is not housekeeping: `getBoundingClientRect` answers for an
+   * element that is nowhere near the window, so a real mouse click at those coordinates lands on
+   * nothing and every verdict below stays where it was — which is exactly how this block failed the
+   * first time it ran, with the card three screens down the left column. */
+  await js(`document.querySelector('#brPartners button[data-add]')
+              ?.scrollIntoView({ block: "center" }); true`);
+  await sleep(400);
+  const r = await rect("#brPartners button[data-add]");
+  ok("the panel offers at least one brane field containing its conjugate", r && r.w > 0);
+  ok("...and it is where the mouse can reach it",
+     r && r.y > 0 && r.y + r.h < 1000, JSON.stringify(r));
+  await mouse("mouseMoved", r.x + r.w / 2, r.y + r.h / 2, { buttons: 0 });
+  await mouse("mousePressed", r.x + r.w / 2, r.y + r.h / 2);
+  await mouse("mouseReleased", r.x + r.w / 2, r.y + r.h / 2, { buttons: 0 });
+  await sleep(1000);
+
+  const owed1 = await bill(), mass1 = await gate();
+  ok("one real click on the field the page suggested, and the bill moves",
+     owed1 !== owed0, `${owed0} -> ${owed1}`);
+  ok("...and the massless count moves with it — the same field, held to both jobs",
+     mass1 !== mass0, `${mass0} -> ${mass1}`);
+  ok("...and the mass gate's own control is green on the page, not only in the harness",
+     /the anomaly of what survives equals the anomaly of everything/
+       .test(await js(`document.getElementById('brGateVerdict').textContent`)),
+     (await js(`document.getElementById('brGateVerdict').textContent`)).slice(0, 140));
+  ok("the field really is on the shared model, so the builder is holding it too",
+     (await js(`Object.keys(SUN5D_S.brane).length`)) > 0);
+
+  /* THE THIRD VERDICT, which must NOT move: the local groups are statements about the two
+   * reflections, and putting matter on a brane cannot change them. */
+  ok("the two branes are the same two groups after the click — matter does not move a commutant",
+     (await js(`document.getElementById('brFixed').textContent`)) === fixed);
+
+  await js(`document.getElementById('brReset').click(); true`);
+  await sleep(800);
+  ok("and the way back leaves the shared model exactly as the builder's default",
+     (await js(`JSON.stringify([SUN5D_S.blocks.nPP, SUN5D_S.blocks.nPM,` +
+               ` SUN5D_S.blocks.nMP, SUN5D_S.blocks.nMM])`)) === "[1,0,0,2]" &&
+     (await js(`Object.keys(SUN5D_S.brane).length`)) === 0 &&
+     (await js(`Object.keys(SUN5D_S.bulk).length`)) === 0);
+}
+await shot("7-brane");
 
 /* ---- the simulator: the HHKY anchor content on the builder, predicted, on the built page ------ */
 H("the simulator — HHKY's SU(3) content, the table against measurement, and both pictures");

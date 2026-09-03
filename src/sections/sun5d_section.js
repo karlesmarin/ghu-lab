@@ -43,6 +43,11 @@ const SUN5D_REPS = [
 const SUN5D_S = {
   blocks: { nPP: 1, nPM: 0, nMP: 0, nMM: 2 },
   bulk: {},                       /* "rep|eta|kind" -> multiplicity */
+  /* the matter on the two fixed points, keyed by WHAT it is rather than by an index into a list:
+   * "fp|rep|blockA|blockB|chirality" -> { copies, q }.  `q` is the local U(1) charge, null when it
+   * is the one the field's indices imply.  It lives here and not in `brane_section.js` for the
+   * same reason `bulk` does: the builder's model is one object and four sections read it. */
+  brane: {},
   probe: [0.2, 0.2],
 };
 

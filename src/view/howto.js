@@ -120,6 +120,14 @@ const HOWTO = {
             "Read the verdict: no subject, cancels, or owes."],
     read: "A non-zero row is a BILL, not an inconsistency: the brane fermions such a model needs pay into the same channels with the opposite sign. And a model with no massless fermion has nothing to cancel — that is `no subject`, not `cancels`.",
   },
+  brane: {
+    what: "Who pays that bill, and what it costs: matter on the two fixed points, held at once to the anomaly ledger and to Part I's boundary-mass gate.",
+    steps: ["Edit the model in SU(N) builder — or press the example to load Kawamura's SU(5).",
+            "Read the two branes first: they are different groups whenever the orbifold breaks anything.",
+            "Add fields with the + buttons, or pick a massless mode and let the partners panel say which representations contain its conjugate.",
+            "Press solve to get the local charges that cancel the linear channels."],
+    read: "Two verdicts, kept apart on purpose: the bill before and after, and the massless count before and after. The same field can pay one and not the other, because the charge that cancels an anomaly is not in general the charge a mass term needs. The surviving count is a lower bound — the rank test assumes generic couplings.",
+  },
   sweep5d: {
     what: "The model-building loop closed: walk the whole space of boundary conditions and contents through filters.",
     steps: ["Choose N and the maximum content size.", "Tick the filters you want — they run cheapest first.",

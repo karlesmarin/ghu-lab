@@ -1,7 +1,7 @@
 # 🔧 GHU Lab — the source tree of the gauge–Higgs unification instrument
 
 This repository builds **[karlesmarin.github.io/ghu-explorer](https://karlesmarin.github.io/ghu-explorer/)**:
-one self-contained HTML page holding **twenty-five** computations — including tools for models nobody has
+one self-contained HTML page holding **twenty-six** computations — including tools for models nobody has
 written yet — over three published models:
 1️⃣ SU(7) on S¹/Z₂×S¹/Z₂ (Komori–Maru), 2️⃣ SU(4) on T²/Z₂ (AHMN), and 3️⃣ Haba–Yamashita's 5D SU(N) on
 S¹/Z₂ — with **every output carrying what is known about it**: `theorem`, `verified`, `measured`
@@ -9,7 +9,8 @@ or `unknown`, as fields in the exported result card rather than as decoration.
 
 The 5D family goes from a boundary condition to numbers a detector measures: the Wilson-line
 potential of **any** SU(N) model, its vacuum, the four-dimensional spectrum there, the anomaly
-ledger, which of those verdicts are properties of the theory rather than of the frame, whether
+ledger, the matter on the two fixed points that pays that ledger and gives the unwanted zero modes
+a mass, which of those verdicts are properties of the theory rather than of the frame, whether
 SU(3)×SU(2)×U(1)_Y with a full generation is inside it, and then the **Simulator** — 1/R from the
 measured W mass, the Higgs mass from the curvature of the potential, sin²θ_W against the running
 of the data, the Kaluza–Klein towers in GeV against the CMS dijet bound, and the masses the
@@ -19,7 +20,7 @@ read; no event is ever simulated.
 The deployed page is a build artifact. This is where it comes from, and why it says what it says.
 
 ```
-🏗️  python build/build_app.py    # inline → collision guard → edition gate → 34 harnesses → app/index.html
+🏗️  python build/build_app.py    # inline → collision guard → edition gate → 35 harnesses → app/index.html
 🌐  python build/build_site.py --legacy ../ghu-explorer/tools-2026-07     # → site/, then gates itself
 📸  node   build/shoot.mjs       # headless screenshots of every section + console + which model
 🖱️  node   build/drive.mjs       # USES the panels: a real mouse through the DevTools Input domain
@@ -31,7 +32,7 @@ The deployed page is a build artifact. This is where it comes from, and why it s
 
 ## 🧪 What is checked, and against what
 
-**1 737 checks across 34 harnesses**, plus 121 driven through a real mouse and 28 on the built site.
+**1 802 checks across 35 harnesses**, plus 144 driven through a real mouse and 28 on the built site.
 The ones that carry weight are the ones an outside computation could lose:
 
 | harness | what it puts at risk |
@@ -52,6 +53,7 @@ The ones that carry weight are the ones an outside computation could lose:
 | 📄 `_test_latex.mjs` | the **export that goes into a paper**: the LaTeX is the result card and not a second version of it; every string in `data/` survives the transport, and an unmapped glyph **throws** rather than being dropped; the potential reads as the paper prints it; and no file in the tree contradicts the citation registry — a gate that exists because one reference had drifted into seven files with the wrong volume |
 | 🌀 `_test_vacuum5d.mjs` | the massless content **at the vacuum**, by two constructions that share no code — the representation theory of the pairs the Wilson line rotates, and the explicit matrices ρ(P₀), ρ(P₁′) with the joint eigenspace counted by elimination — on 880 cases including three phases; at θ = 0 and θ = 1 it must reproduce the parity rule of the boundary condition and of its **class-mate**, character for character. A third route in SageMath agrees on 200 of 200 (`tools/vacuum5d_sage_control.py`). And a decoy that must FAIL: reading the Kaluza–Klein families at n = 0 says two massless vectors for SU(2) at θ = 1 where there is one |
 | 🧬 `_test_smcell.mjs` | the **Standard-Model cell**: the hypercharge solved in exact rationals on the massless pieces, with sin²θ_W = 3/8 coming out of three different boundary conditions, a full generation found where one exists, and the absence pinned where it holds — on SU(5) with P = diag(+,+,+,−,−) no bulk content hosts Q or dᶜ at 3/8, over all 64 two-representation contents. The solver is made to fail on purpose: change eᶜ's hypercharge and the anchor content stops working |
+| 🧱 `_test_brane.mjs` | **matter on the fixed points**, held to two routines that were never told about each other: paired classes are vectorlike, so the anomaly ledger of what survives the boundary-mass gate must equal the ledger of everything that entered it, row for row — on every boundary condition of SU(3)…SU(6) with bulk and brane content, 8 190 models, 0 disagreements. The anchor is the textbook one: Kawamura's SU(5) keeps the whole group at one fixed point and only SU(3)×SU(2)×U(1) at the other. And a **decoy** that must disagree, which is Part I's "rank test, not a count" as a number: the same gate run on keys that ignore the U(1) charges over-lifts on 89 models and under-lifts on 166 |
 | 🔮 `_test_predict.mjs` · `_test_running.mjs` | the **simulator** against a published vacuum: Haba–Hosotani–Kawamura–Yamashita's own model (hep-ph/0401183, Fig. 1) has its minimum at a = 0.058 and m_H R/g₄ = 0.031, and this returns 0.0583 and 0.0306, with their eq. (20) reproduced to 1e-9. The running returns its inputs at M_Z, meets α₁ = α₂ near 10¹³ GeV, and the coefficients are the textbook (41/10, −19/6, −7) |
 | ⚛️ `_test_yukawa.mjs` | the **fermion masses** the Wilson line gives: attribution of every vacuum eigenstate to the pieces of the nearest symmetric point by squared overlap, with the weights required to sum to one per state, to the dimension per piece, and to the vacuum module's massless counts. The anchors are Cacciapaglia–Csaki–Park's own sentences: a bulk fundamental at m_W, a symmetric tensor's pair diagonal at 2 m_W |
 | 🎯 `_test_dossier.mjs` | the claim that is a **classification** rather than a number: which verdicts are the theory's and which the frame's, measured on every member of the equivalence class — with two decoy lines whose answers are settled before the tagger runs, and the requirement that the lines read at the vacuum come back invariant on all 86 multi-member classes of SU(4)…SU(7) |

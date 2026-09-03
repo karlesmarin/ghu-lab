@@ -168,13 +168,25 @@ function pieceData(frame, p, k) {
 }
 
 /* the U(1)_c charge of a piece.  A right-handed field is counted as a left-handed one in the
- * conjugate representation, so its charges and its cubic anomaly flip sign. */
+ * conjugate representation, so its charges and its cubic anomaly flip sign.
+ *
+ * AND A PIECE MAY CARRY `dq`, WHICH IS NOT A CONVENIENCE.  A piece that came from a bulk field is
+ * a piece of an SU(N) representation and its abelian charges are forced by its indices — there is
+ * nothing to add.  A piece that came from a field on a FIXED POINT is not: it is a representation
+ * of the local group there, which has a U(1) of its own, and the charge under that U(1) is a free
+ * rational the model builder chooses (Part VI solves for exactly one such number).  Changing it
+ * shifts the piece's weight along one Cartan direction, so every U(1)_c charge shifts with it by
+ * a fixed rational; `brane.mjs` computes those shifts and hands them here.  It is `null` for every
+ * bulk piece, and then this is the function it always was.  In the LEFT-HANDED convention: the
+ * offset is applied after the conjugation above, so it is the shift of the charge as the ledger
+ * uses it. */
 function pieceCharge(frame, p, c) {
   const Y = an5U1Frame(frame, c);
   const q = p.blockB === null ? Y[p.blockA]
           : p.rep === "adj" ? rAdd(Y[p.blockA], rMul(rat(-1), Y[p.blockB]))
           : rAdd(Y[p.blockA], Y[p.blockB]);
-  return p.chirality === "R" ? rMul(rat(-1), q) : q;
+  const q0 = p.chirality === "R" ? rMul(rat(-1), q) : q;
+  return p.dq ? rAdd(q0, p.dq[c]) : q0;
 }
 
 /* how many states a piece has, which is the multiplicity a U(1)-only channel sums over */

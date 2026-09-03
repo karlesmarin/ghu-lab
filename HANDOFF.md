@@ -1,7 +1,97 @@
 # HANDOFF — GHU Lab
 
-> State at 2026-09-03, second pass. The section below is the newest; the earlier handoffs follow it
+> State at 2026-09-03, third pass. The section below is the newest; the earlier handoffs follow it
 > unchanged and are still the map of the code.
+
+## 2026-09-03 (third) — the apology in the anomaly panel becomes a control
+
+The first item on the list this file handed over — *brane matter that pays the ledger, with the
+boundary-mass matching gate of Part I* — is done. `src/modules/brane.mjs` +
+`src/sections/brane_section.js` + `_test_brane.mjs` (46 checks). **Build green across 35 harnesses,
+1 802 checks; `drive.mjs` 144/144; 26 sections; console clean.**
+
+**WHY IT IS A SECTION AND NOT A SECOND LEDGER.** "Anomalies" has always ended in a sentence that
+was an apology: a non-zero row is not a verdict, because every model of this kind carries brane
+fields and Komori–Maru say right after their eq. (76) that one introduces the 4D fermion *conjugate*
+to each unwanted zero mode. Here that sentence is a control the reader moves, and the same choice
+is held to **two** verdicts at once — the bill, and what stays massless.
+
+**THE FOUR FACTS IT IS BUILT ON.**
+
+- **A brane field is a representation of the LOCAL group.** At y = 0 only P₀ acts, so the symmetry
+  is the commutant of P₀ alone, S(U(n₊₊+n₊₋) × U(n₋₊+n₋₋)); at y = πR it is P₁'s. Written as a
+  two-block **frame**, so the ledger, the U(1) generators and the charge of a piece are the same
+  routines as everywhere else on a coarser partition of the same N indices. The anchor is the one
+  everybody knows: Kawamura's SU(5), which in letters is [3,2,0,0], keeps the **whole SU(5)** at
+  one fixed point and only SU(3)×SU(2)×U(1) at the other.
+- **So a conjugate arrives in a package.** A local irreducible splits into several pieces of the
+  unbroken group, so "add the conjugate of that mode and stop" is not an instruction anyone can
+  follow. `brPartnersFor` lists the candidates and what each drags in.
+- **Its abelian charge is FREE.** A representation of SU(a)×SU(b)×U(1) may carry any rational
+  charge under that U(1); shifting it moves the weight along one Cartan direction, so every U(1)_c
+  charge shifts by a fixed rational — `brShiftDirection`, exact, with the property Σ_c T(c)·dir_c = 1
+  gated on every boundary condition that has a local U(1). `anomaly5d.mjs` gained an optional `dq`
+  on a piece for this, applied after conjugation, `null` for every bulk piece.
+- **AND THE SAME FIELD CANNOT ALWAYS DO BOTH JOBS.** The mass term needs one specific charge; the
+  anomaly wants another. Move it to pay the bill and the mass goes away. That is the section's real
+  content and it is a check: same representation, charge moved by one, lifts nothing.
+
+**PART I's GATE, TRANSPLANTED.** `BOUNDARY_MASS_PROGRAM.md` states it for the 6D model and the
+statement is dimension-blind: in a fully left-handed convention a mode in r_q pairs with a localised
+Weyl in r̄_{−q}, and — "test de rango, no de conteo" — what survives is |difference| in **each class
+separately**. A class here is the representation under every block AND all its U(1) charges;
+`smUnder` from `smcell.mjs` names the representation (with Λ²3 = 3̄, Λ²2 = 1, S²2 = 3 already in it)
+and `brCanon`/`brBar` add the one thing naming does not need and pairing does: a real representation
+is its own conjugate, Λ²4 = 6 among them.
+
+**THE CONTROL THAT HOLDS THE FILE UP, and it is the argument for the design.** A paired class and
+its conjugate are vectorlike, so the anomaly of what SURVIVES the mass gate must equal the anomaly
+of everything that entered it, row for row. A rank test over class keys and an exact rational ledger
+agreeing on **8 190 models** of SU(3)…SU(6) — and they can only agree if the keys really are
+conjugate. The gate lifted something in 6 972 of them, so it is not a control that never fires.
+
+**AND A DECOY THAT MUST DISAGREE.** The same gate on keys that ignore the charges **over-lifts on
+89 models** — Part I's warning, as a number — and **under-lifts on 166**, which is the half that is
+easy to miss: a real representation carrying opposite charges is one blind key equal to its own
+conjugate, so the blind gate skips a pairing the real one makes. They agree on 445.
+
+**PART VI's QUESTION FOR ANY MODEL.** `brSolveCharges`: the pure non-abelian cubes do not see the
+charges, U(1)×[SU(n)]² and U(1)×[grav]² are **linear** in them, U(1)³ is cubic. So the linear block
+is solved exactly (`smSolve`) and the cubic ones are evaluated at the answer and reported **apart** —
+paying the linear channels does not make a model anomaly-free and the solve refuses to say it does.
+The columns are obtained by evaluating the ledger at Δ = 1 and then the assumption that made that
+legal is checked at Δ = 2. Worked case in the harness: SU(5) [3,2,0,0] with a 5 and a 10 owes
+3/5, −3/5, 12/5, −12/5; a 3 and an S²3 on the broken brane force **−8/15 and −2/15**, unique, with
+two cubic channels left standing.
+
+**TRAPS PAID THIS PASS.** (1) `brPartnersFor` searched one chirality, which silently halves the
+menu — a right-handed Weyl in S is a left-handed one in S̄ and only one of the two carries the
+conjugate. (2) The first version of the decoy asserted the blind gate only ever over-lifts; it also
+under-lifts, and the assertion was the wrong claim rather than a broken gate. (3) A check written as
+`… || true` went in and had to come out: the direction now has a falsifiable property instead.
+(4) `drive.mjs` clicked at coordinates three screens below the window — `getBoundingClientRect`
+answers for an element that is nowhere near the viewport, so the real mouse landed on nothing and
+every verdict below stayed where it was. It scrolls into view and asserts the button is reachable.
+(5) Two tables overflowed their half-width cards; the fix was shorter headers and merging the
+"brane" column into the representation cell, and the local block names lost their spaces
+("P₀=+", not "P₀ = +") because that is where they wrapped.
+
+**THE SHOOTER AND THE DRIVER BOTH TOUCH IT.** `VARIANTS.brane` loads Kawamura's SU(5), takes the
+partner **the panel itself offered** and shoots that — otherwise the branch that is the whole point
+renders for nobody, since the builder's default model has no bulk fermion at all — and then presses
+`#brReset`, because this section writes into the shared model and an unrestored variant would
+silently change every screenshot taken after it. `drive.mjs` drives the same click with a real
+mouse and checks that **both** verdicts move, that the control chip is green on the page and not
+only in the harness, and that the two local groups do **not** move, because matter cannot change a
+commutant.
+
+**Still on the list, unchanged in order**: the SM cell at the vacuum; a paper-model loader with
+anchors (Burdman–Nomura SU(6), Kubo–Lim–Yamashita SU(3), Hosotani–Kobayashi SU(5), HHK's own SU(5));
+the sweep filtering on the VACUUM content rather than the symmetric point's; and the Higgs mass from
+V″ at the minimum with its normalisation anchored to a published number. **And one this pass
+opened**: the brane gate is at the symmetric point — the local groups do not move with the Wilson
+line but which modes are massless does, and pairing the vacuum's content against brane matter is a
+longer computation. The page says so rather than implying otherwise.
 
 ## 2026-09-03 (later) — the content at the minimum, and the three lines stop moving
 

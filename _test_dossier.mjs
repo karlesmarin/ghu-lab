@@ -101,20 +101,64 @@ H("two decoy lines whose tags are known before the tagger runs");
 H("the invariant lines stay invariant over EVERY class at N = 4…7");
 {
   const claimed = ["phases", "nterms", "vmin", "edge", "Nd"];
-  const broken = [];
+  /* THE LINES AT THE MINIMUM ARE THE POINT OF vacuum5d.mjs, and here they are measured rather than
+   * believed: on every multi-member class, on every member, with two contents.  A class whose
+   * members' minimisers landed on different vacua of equal depth would split these, and that
+   * would be a finding, not a tolerance to widen. */
+  const vac = ["vacWhere", "vacUnbroken", "vacVectors", "vacScalars", "vacFermions", "vacAnomaly",
+               "vacOwing"];
+  const MIX = { gauge: true, bulk: [{ rep: "fund", eta: +1, kind: "dirac", multiplicity: 1 },
+                                    { rep: "anti", eta: -1, kind: "dirac", multiplicity: 1 }] };
+  const broken = [], brokenVac = [], declinedVac = [];
+  let classes = 0, located = 0;
   for (let N = 4; N <= 7; N++) {
     const C = bcClasses(N, "S1/Z2");
     for (const cl of C.classes) {
       if (cl.size < 2) continue;
-      const d = dossierForClass(cl.members[0], FUND, FAST);
-      for (const k of claimed) {
-        const l = d.lines.find((x) => x.key === k);
-        if (l.tag === "gauge") broken.push(`SU(${N}) [${cl.members[0]}] ${k}`);
+      classes++;
+      for (const content of [FUND, MIX]) {
+        const d = dossierForClass(cl.members[0], content, FAST);
+        for (const k of claimed) {
+          const l = d.lines.find((x) => x.key === k);
+          if (l.tag === "gauge") broken.push(`SU(${N}) [${cl.members[0]}] ${k}`);
+        }
+        for (const k of vac) {
+          const l = d.lines.find((x) => x.key === k);
+          if (l.tag === "gauge") brokenVac.push(`SU(${N}) [${cl.members[0]}] ${k}: ${l.distinct.join(" / ")}`);
+          if (l.tag === "declined" && content === FUND) declinedVac.push(`SU(${N}) [${cl.members[0]}]`);
+        }
+        if (content === FUND && d.lines.find((x) => x.key === "vacUnbroken").tag === "invariant") located++;
       }
     }
   }
   ok("phases, #terms, the depth of the vacuum, whether it sits at a symmetric point, and N_Δ",
      broken.length === 0, broken.slice(0, 4).join("; "));
+  ok(`and EVERY line at the minimum — where it stands, the group, the three counts, the ledger — ` +
+     `on ${classes} classes × 2 contents`, brokenVac.length === 0, brokenVac.slice(0, 4).join("; "));
+  ok(`...located on ${located} of the ${classes} classes; the rest declined with the minimiser's ` +
+     `reason (three phases or more)`, located + new Set(declinedVac).size === classes,
+     `${located} + ${new Set(declinedVac).size} vs ${classes}`);
+}
+
+/* ------------------------------------------ 4b. the minimum is where the frame lines become the theory's */
+
+H("what was the frame's at the symmetric point is the theory's at the minimum");
+{
+  const d = dossierForClass([1, 0, 4, 1], FUND, FAST);
+  const tag = (k) => d.lines.find((l) => l.key === k).tag;
+  const val = (k) => d.lines.find((l) => l.key === k).value;
+  ok("SU(6) [1,0,4,1]: the apparent group is the frame's and the group at the minimum is the theory's",
+     tag("unbroken") === "gauge" && tag("vacUnbroken") === "invariant",
+     `${tag("unbroken")} / ${tag("vacUnbroken")}`);
+  ok("...the same for the massless fermions and the anomaly verdict",
+     tag("fermions") === "gauge" && tag("vacFermions") === "invariant" &&
+     tag("anomaly") === "gauge" && tag("vacAnomaly") === "invariant");
+  ok("...and the vacuum line says where it stands, in words a reader can check",
+     /a symmetric point|broken — /.test(val("vacWhere")), val("vacWhere"));
+  ok("a zero-phase boundary condition reads its vacuum at the symmetric point and says so",
+     (() => { const z = dossierForClass([6, 0, 0, 0], FUND, FAST);
+              const w = z.lines.find((l) => l.key === "vacWhere");
+              return w.tag !== "declined" && /\[6, 0, 0, 0\] — a symmetric point/.test(w.value); })());
 }
 
 /* ---------------------------------------------- 5. the third axis: separating nothing */

@@ -351,9 +351,23 @@ const HELP_TERMS = {
       + "the <b>theory</b> if it survives replacing that boundary condition by a "
       + "gauge-equivalent one. The dossier recomputes every line on every member of the class and "
       + "tags it by what came back — so the tag is a <b>measurement made on this render</b>, never "
-      + "a list of which lines ought to be invariant. Most of them are not: the apparent unbroken "
-      + "group, the massless content and the anomaly ledger are all read at the symmetric point of "
-      + "the representative you happen to be holding.",
+      + "a list of which lines ought to be invariant. Most of the symmetric-point lines are not: "
+      + "the apparent unbroken group, the massless content and the anomaly ledger are read at θ = 0 "
+      + "of the representative you happen to be holding. The same three, read <b>at the minimum</b>, "
+      + "come back invariant — and that too is measured on the render.",
+  },
+  "at-the-minimum": {
+    term: "the content at the minimum",
+    body: "Gauge the constant A_y away and the reflection about y = πR becomes "
+      + "<code>P₁′ = W⁻¹P₁</code>, with W the holonomy round the circle (Hosotani; "
+      + "Haba–Hosotani–Kawamura §2). A massless four-dimensional mode is a vector fixed by both P₀ "
+      + "and P₁′, so the content at the minimum is a joint eigenspace — linear algebra, not a parity "
+      + "table. When every phase is 0 or 1 it is the parity rule applied to a <b>class-mate</b>; when "
+      + "a phase is strictly inside, the vacuum is broken and no member of the class has that "
+      + "content. The instrument reaches the count by two routes that share no code — the "
+      + "representation theory of the pairs the Wilson line rotates, and the explicit matrices — "
+      + "and the harness holds one to the other. The scalars are tree-level flat directions; the "
+      + "tolerance for \"at an end\" is 10⁻⁶.",
   },
   "separates-nothing": {
     term: "invariant, and still useless",

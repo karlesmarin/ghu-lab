@@ -45,6 +45,7 @@ import { sun5dBlocks, sun5dUnbroken, sun5dTerms, sun5dMinimum, sun5dTermTable }
 import { sp5ZeroModes } from "./spectrum5d.mjs";
 import { an5Ledger } from "./anomaly5d.mjs";
 import { bcClasses, bcEnergy, bcPreferred, bcShow } from "./bcclass.mjs";
+import { vac5At } from "./vacuum5d.mjs";
 import { moments, alphaMin, coordinates, stabilityW } from "../kernel/potential.mjs";
 
 /* ------------------------------------------------------------------ the shared computation */
@@ -70,6 +71,13 @@ export function dossierContext(bc, content, { grid = 400, windings = 300 } = {})
     ctx.refused.min = b.phases === 0
       ? "there is no Wilson-line phase, so there is no potential to minimise"
       : `${b.phases} phases: minimising on a ${b.phases}-torus by grid is a hope, not an instrument`;
+  /* AND THE SAME QUESTIONS AT THE MINIMUM, which is where the theory sits.  With no phase the
+   * symmetric point IS the vacuum; with one or two the minimiser's θ is handed to `vacuum5d.mjs`,
+   * which builds P₁′ = W⁻¹P₁ there and reads the group, the massless content and the ledger off
+   * the joint invariants.  Past two phases there is no located vacuum and the lines decline with
+   * the minimiser's own reason. */
+  ctx.vac = ctx.min ? vac5At(b, content, ctx.min.theta)
+          : b.phases === 0 ? vac5At(b, content, []) : null;
   return ctx;
 }
 
@@ -137,6 +145,32 @@ export const DOSSIER_LINES = [
     cite: "Part VII Theorem 3 — complete invariants of the potential",
     get: (c) => (c.bridge ? [c.bridge.coords.A4, c.bridge.coords.D8, c.bridge.coords.U2,
                              c.bridge.coords.V, c.bridge.coords.W2].map(n6).join(", ") : null) },
+
+  /* THE LINES THAT SHOULD BE THE THEORY'S, and the tagger is still not told so: they are computed
+   * on every member like the rest, and if a class disagreed on one of them the page would say so.
+   * `_test_dossier.mjs` requires them invariant on every class at N = 4…7, which is the claim of
+   * `vacuum5d.mjs` measured rather than asserted. */
+  { key: "vacWhere", group: "At the minimum", label: "Where the vacuum stands",
+    cite: "Hosotani; HHK §2 — P₁ → W⁻¹P₁ at the minimum: a class-mate, or a broken vacuum",
+    get: (c) => (c.vac ? c.vac.where : null) },
+  { key: "vacUnbroken", group: "At the minimum", label: "Unbroken group at the minimum",
+    cite: "the commutant of P₀ and W⁻¹P₁, named from its irreducibles",
+    get: (c) => (c.vac ? c.vac.unbroken : null) },
+  { key: "vacVectors", group: "At the minimum", label: "Massless vectors at the minimum",
+    cite: "joint (+,+) invariants of the adjoint under P₀ and W⁻¹P₁",
+    get: (c) => (c.vac ? String(c.vac.zero.vectors) : null) },
+  { key: "vacScalars", group: "At the minimum", label: "Massless scalars at the minimum (tree level)",
+    cite: "the (−,−) invariants — A_y's flat directions before the one-loop curvature",
+    get: (c) => (c.vac ? String(c.vac.zero.scalars) : null) },
+  { key: "vacFermions", group: "At the minimum", label: "Massless Weyl fermions at the minimum",
+    cite: "one chirality of each bulk Dirac fermion, read at the minimum",
+    get: (c) => (c.vac ? String(c.vac.zero.fermions) : null) },
+  { key: "vacAnomaly", group: "At the minimum", label: "Anomaly verdict at the minimum",
+    cite: "the same ledger, over the blocks the minimum leaves",
+    get: (c) => (c.vac ? c.vac.anom.verdict : null) },
+  { key: "vacOwing", group: "At the minimum", label: "Channels left owing at the minimum",
+    cite: "the same ledger",
+    get: (c) => (c.vac ? String(c.vac.anom.offending.length) : null) },
 
   { key: "N0", group: "The class energy", label: "N₀ — the constant piece",
     cite: "Haba–Hosotani–Kawamura eq. (3.25), gauge sector only",

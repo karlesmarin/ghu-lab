@@ -48,10 +48,12 @@ const DOSS_SECTION = {
 
   html: `
   <div class="card" style="margin-bottom:18px">
-    <p class="lead">Five sections answer about this one model. Stacked, they give eighteen numbers
-    — and <b>most of them are not properties of the model</b>. They move when the boundary
-    condition is swapped for a gauge-equivalent one, which is the <b>same theory</b>. This page
-    computes every line on every member of the class and says which is which.</p>
+    <p class="lead">Five sections answer about this one model. Stacked, they give
+    ${DOSSIER_LINES.length} numbers — and <b>most of the ones read at the symmetric point are not
+    properties of the model</b>. They move when the boundary condition is swapped for a
+    gauge-equivalent one, which is the <b>same theory</b>. This page computes every line on every
+    member of the class and says which is which — and reads the group, the massless content and
+    the anomaly ledger a second time <b>at the minimum</b>, where they stop moving.</p>
     <div class="note" style="margin-top:9px">The tag is a <b>measurement</b>, not a list:
     <b>invariant</b> means the line came back the same on every member of the class,
     <b>frame</b> means two members that are one theory disagreed, and <b>declined</b> means the
@@ -319,21 +321,39 @@ const DOSS_SECTION = {
   /* ---------------------------------------------------------------- the honesty */
 
   _honesty(d) {
+    const v = d.ctx.vac;
     document.getElementById("dsHonesty").innerHTML =
-      `<b>Invariant on the class is not the same as true of the vacuum.</b> Every line here except ` +
-      `the depth and position of the minimum is computed at the <b>symmetric point</b> of the ` +
-      `boundary condition loaded — the massless content, the anomaly ledger and the apparent ` +
-      `group all read the (+,+) states at θ = 0. That is exactly why they move across the class: ` +
+      `<b>The symmetric-point lines are the frame's, and the lines at the minimum are the ` +
+      `theory's — and that is measured, not declared.</b> The apparent group, the massless ` +
+      `content and the anomaly ledger in their own groups are read at the <b>symmetric point</b> ` +
+      `of the boundary condition loaded, θ = 0, which is exactly why they move across the class: ` +
       `the class relation is a shift along the Wilson line, so a class-mate's symmetric point is ` +
-      `this one's <em>other</em> symmetric point. The instrument does not yet compute the massless ` +
-      `content <b>at the minimum</b>, which is what would turn those three lines into statements ` +
-      `about the theory rather than about the frame. That is a gap in the tool, not a subtlety of ` +
-      `the physics. <span class="chip bad">unknown</span>` +
+      `this one's <em>other</em> symmetric point. The group <b>At the minimum</b> reads the same ` +
+      `three questions where the theory sits: the reflection about y = πR becomes ` +
+      `<b>P₁′ = W⁻¹P₁</b> at the minimum (the dynamical rearrangement, HHK §2), and a massless ` +
+      `mode is a vector fixed by both P₀ and P₁′. At a symmetric point that is the parity rule ` +
+      `applied to a class-mate; strictly inside it is the Hosotani mechanism, which no member of ` +
+      `the class can show.${helpMark("at-the-minimum")} ` +
+      (v ? (v.frame.symmetric
+              ? `Here the vacuum stands at <b>${v.where}</b>, so the content at the minimum is ` +
+                `that class-mate's.`
+              : `Here the vacuum is <b>${v.where}</b>: the content at the minimum belongs to no ` +
+                `member of the class.`)
+         : `Here the vacuum is not located, so the lines at the minimum decline.`) +
+      ` <span class="chip mea">measured</span>` +
+
+      `<p style="margin:11px 0 0"><b>What the minimum lines still do not say.</b> The scalars are ` +
+      `the tree-level zero modes of A_y — the flat directions before the one-loop curvature gives ` +
+      `them a mass. Whether a phase sits at 0, at 1 or strictly inside, and whether two phases ` +
+      `coincide (which enhances the group), is decided to a tolerance of 10⁻⁶, the minimiser's ` +
+      `own. And the minimum is the grid minimiser's: one global minimum, not the vacuum manifold. ` +
+      `<span class="chip bad">unknown</span></p>` +
 
       `<p style="margin:11px 0 0"><b>Two phases is the ceiling on the vacuum.</b> The minimiser ` +
       `covers one and two; past that a grid on a torus is a hope rather than an instrument, and ` +
-      `the line declines. That bites at ${"SU(8)"} and above: every boundary condition of SU(N) is ` +
-      `covered up to N = 5, 95% at N = 6, 87% at N = 7 and 62% at N = 10.</p>` +
+      `the line declines — and with it every line at the minimum. That bites at ${"SU(8)"} and ` +
+      `above: every boundary condition of SU(N) is covered up to N = 5, 95% at N = 6, 87% at ` +
+      `N = 7 and 62% at N = 10.</p>` +
 
       `<p style="margin:11px 0 0"><b>And a class of one measures nothing.</b> The tag is an ` +
       `equality across members; with one member every line is trivially equal to itself. ` +

@@ -60,19 +60,40 @@ const rZero = (x) => isZero(x);
 export const rShow = (x) => str(x);
 export const rNum = (x) => toNum(x);
 
+/* ------------------------------------------------------------------ the frame
+ *
+ * THE LEDGER IS WRITTEN OVER A FRAME, NOT OVER FOUR BLOCKS.  A frame is the list of blocks the
+ * unbroken group S(∏ U(m_k)) is made of: each has a `size` m_k — the rank of its U(m_k) — and a
+ * `dim` d_k, the number of fundamental indices one copy of it occupies.  At the symmetric point of
+ * a boundary condition the frame is the four parity letters, every one of dimension one, and the
+ * ledger is exactly what it was.  At a MINIMUM of the Wilson-line potential (`vacuum5d.mjs`) the
+ * Wilson line pairs indices across blocks, and a pair rotated by a generic angle is a block of
+ * dimension TWO that no parity letter names.  The same ledger runs over that frame unchanged: the
+ * group theory of a piece never asked which parities its block was made of, only its size.  So
+ * the generalisation is the frame, and the four-block ledger is its first instance. */
+export function an5Frame(b) {
+  const NAMES = ["(+,+)", "(+,−)", "(−,+)", "(−,−)"];
+  return { N: b.N, blocks: [b.nPP, b.nPM, b.nMP, b.nMM]
+                            .map((n, a) => ({ name: NAMES[a], size: n, dim: 1 })) };
+}
+
 /* ------------------------------------------------------------------ the group theory */
 
-/* The four canonical U(1) generators: Y_a is 1 on block a and 0 elsewhere, made traceless by
- * subtracting n_a/N.  There are four and one relation, Σ_a Y_a = 0, so three are independent —
- * which is the U(1)³ the unbroken group carries.  All four are reported and the relation is
- * stated, because choosing three would be choosing a basis and hiding it. */
-export function an5U1(b, c) {
-  const sizes = [b.nPP, b.nPM, b.nMP, b.nMM];
-  /* the VALUE of Y_c on block a is δ_{ac} − n_c/N.  The first version wrote n_a where n_c belongs
-   * and produced generators that were not traceless — which the first check caught, and which
-   * would otherwise have poisoned every U(1) channel silently. */
-  return sizes.map((_, a) => rat((a === c ? b.N : 0) - sizes[c], b.N));
+/* The canonical U(1) generators, one per block: Y_c is 1 on block c and 0 elsewhere, made
+ * traceless by subtracting its trace over N.  With k blocks there are k generators and one
+ * relation, Σ_c Y_c = 0, so k − 1 are independent — which is the U(1)^{k−1} the unbroken group
+ * carries.  All are reported and the relation is stated, because choosing k − 1 would be choosing
+ * a basis and hiding it. */
+export function an5U1Frame(frame, c) {
+  /* the VALUE of Y_c on block a is δ_{ac} − tr(Y_c)/N, and the trace is d_c·m_c: a block of
+   * dimension two occupies two fundamental indices per copy.  The first version wrote n_a where
+   * n_c belongs and produced generators that were not traceless — which the first check caught,
+   * and which would otherwise have poisoned every U(1) channel silently. */
+  const trc = frame.blocks[c].dim * frame.blocks[c].size;
+  return frame.blocks.map((_, a) => rat((a === c ? frame.N : 0) - trc, frame.N));
 }
+
+export const an5U1 = (b, c) => an5U1Frame(an5Frame(b), c);
 
 /* index and cubic anomaly of the representations that occur, for SU(n).  Textbook; the harness
  * re-derives them from fund ⊗ fund = sym ⊕ antisym rather than trusting the table. */
@@ -89,7 +110,8 @@ const A_OF = { fund: () => rat(1), adj: () => rat(0), anti: (n) => rat(n - 4),
  * representations.  `_test_anomaly5d.mjs` checks the two agree on the component count, which is
  * two routes to one number rather than one routine used twice. */
 export function an5Pieces(b, content = {}) {
-  const sizes = [b.nPP, b.nPM, b.nMP, b.nMM];
+  const frame = an5Frame(b);
+  const sizes = frame.blocks.map((k) => k.size);
   const SIGN = [[+1, +1], [+1, -1], [-1, +1], [-1, -1]];
   const out = [];
   const emit = (rep, ba, bb, chir, copies) => {
@@ -98,7 +120,7 @@ export function an5Pieces(b, content = {}) {
     const p = { rep, blockA: ba, blockB: bb, chirality: chir, copies };
     /* a piece with no states is not a piece: the antisymmetric of a block of size one is empty,
      * and emitting it would put an entry in the ledger that stands for nothing */
-    if (pieceDim(b, p) === 0) return;
+    if (pieceDim(frame, p) === 0) return;
     out.push(p);
   };
   for (const f of content.bulk || []) {
@@ -125,8 +147,8 @@ export function an5Pieces(b, content = {}) {
 }
 
 /* what a piece looks like under the SU factor of block k, and its U(1) charges */
-function pieceData(b, p, k) {
-  const sizes = [b.nPP, b.nPM, b.nMP, b.nMM];
+function pieceData(frame, p, k) {
+  const sizes = frame.blocks.map((x) => x.size);
   const nk = sizes[k];
   if (p.blockB === null)
     return { kind: p.blockA === k ? "fund" : "singlet", copies: p.blockA === k ? 1 : 0, nk, conj: 1 };
@@ -147,8 +169,8 @@ function pieceData(b, p, k) {
 
 /* the U(1)_c charge of a piece.  A right-handed field is counted as a left-handed one in the
  * conjugate representation, so its charges and its cubic anomaly flip sign. */
-function pieceCharge(b, p, c) {
-  const Y = an5U1(b, c);
+function pieceCharge(frame, p, c) {
+  const Y = an5U1Frame(frame, c);
   const q = p.blockB === null ? Y[p.blockA]
           : p.rep === "adj" ? rAdd(Y[p.blockA], rMul(rat(-1), Y[p.blockB]))
           : rAdd(Y[p.blockA], Y[p.blockB]);
@@ -156,8 +178,8 @@ function pieceCharge(b, p, c) {
 }
 
 /* how many states a piece has, which is the multiplicity a U(1)-only channel sums over */
-function pieceDim(b, p) {
-  const sizes = [b.nPP, b.nPM, b.nMP, b.nMM];
+function pieceDim(frame, p) {
+  const sizes = frame.blocks.map((x) => x.size);
   const na = sizes[p.blockA];
   if (p.blockB === null) return na;
   const nb = sizes[p.blockB];
@@ -166,6 +188,10 @@ function pieceDim(b, p) {
   if (p.rep === "anti") return (na * (na - 1)) / 2;
   return (na * (na + 1)) / 2;
 }
+
+/* the same, exported for the frame that lives in another module (`vacuum5d.mjs` counts its
+ * massless pieces with it), so that there is one place the dimension of a piece is computed */
+export const an5PieceDim = (frame, p) => pieceDim(frame, p);
 
 /* ------------------------------------------------------------------ the ledger */
 
@@ -176,17 +202,22 @@ export const an5Ledger = (b, content = {}) => an5LedgerFromPieces(b, an5Pieces(b
 
 /* the same, on a piece list handed in directly — which is what lets a harness feed a piece and its
  * conjugate and demand zero, the one test every sign convention in here has to survive */
-export function an5LedgerFromPieces(b, pieces) {
-  const sizes = [b.nPP, b.nPM, b.nMP, b.nMM];
-  const NAMES = ["(+,+)", "(+,−)", "(−,+)", "(−,−)"];
+export const an5LedgerFromPieces = (b, pieces) => an5LedgerOnFrame(an5Frame(b), pieces);
+
+/* and the general form, over any frame: the four parity letters, or the blocks a minimum of the
+ * Wilson-line potential leaves.  Everything above is this with `an5Frame(b)`. */
+export function an5LedgerOnFrame(frame, pieces) {
+  const sizes = frame.blocks.map((x) => x.size);
+  const NAMES = frame.blocks.map((x) => x.name);
+  const K = frame.blocks.length;
   const rows = [];
 
   /* [SU(n_k)]³ */
-  for (let k = 0; k < 4; k++) {
+  for (let k = 0; k < K; k++) {
     if (sizes[k] < 3) continue;              /* SU(2) has no cubic anomaly, SU(1) is nothing */
     let tot = rat(0);
     for (const p of pieces) {
-      const d = pieceData(b, p, k);
+      const d = pieceData(frame, p, k);
       if (!d.copies) continue;
       let A = rMul(rat(d.conj), A_OF[d.kind](d.nk));
       if (p.chirality === "R") A = rMul(rat(-1), A);
@@ -196,23 +227,24 @@ export function an5LedgerFromPieces(b, pieces) {
   }
 
   /* WHICH U(1)s EXIST.  With k blocks filled the unbroken group carries k − 1 abelian factors, not
-   * four: if only one block is filled, every Y_c vanishes identically on it and there is no U(1)
-   * at all.  Listing a channel whose generator is the zero matrix would print rows that are zero
-   * for no reason, which reads as a cancellation and is not one. */
-  const live = [0, 1, 2, 3].filter((c) => {
-    const Y = an5U1(b, c);
+   * one per block: if only one block is filled, every Y_c vanishes identically on it and there is
+   * no U(1) at all.  Listing a channel whose generator is the zero matrix would print rows that
+   * are zero for no reason, which reads as a cancellation and is not one. */
+  const live = frame.blocks.map((_, c) => c).filter((c) => {
+    const Y = an5U1Frame(frame, c);
     return sizes.some((n, a) => n > 0 && !rZero(Y[a]));
   });
 
   /* U(1)_c × [SU(n_k)]² */
   for (const c of live) {
-    for (let k = 0; k < 4; k++) {
+    for (let k = 0; k < K; k++) {
       if (sizes[k] < 2) continue;
       let tot = rat(0);
       for (const p of pieces) {
-        const d = pieceData(b, p, k);
+        const d = pieceData(frame, p, k);
         if (!d.copies) continue;
-        tot = rAdd(tot, rMul(rat(d.copies * p.copies), rMul(T_OF[d.kind](d.nk), pieceCharge(b, p, c))));
+        tot = rAdd(tot, rMul(rat(d.copies * p.copies),
+                             rMul(T_OF[d.kind](d.nk), pieceCharge(frame, p, c))));
       }
       rows.push({ channel: `U(1)${NAMES[c]} × [SU(${sizes[k]})${NAMES[k]}]²`, kind: "mixed",
                   value: tot });
@@ -223,7 +255,7 @@ export function an5LedgerFromPieces(b, pieces) {
   for (const c of live) {
     let cube = rat(0), grav = rat(0);
     for (const p of pieces) {
-      const q = pieceCharge(b, p, c), n = rat(pieceDim(b, p) * p.copies);
+      const q = pieceCharge(frame, p, c), n = rat(pieceDim(frame, p) * p.copies);
       cube = rAdd(cube, rMul(n, rMul(q, rMul(q, q))));
       grav = rAdd(grav, rMul(n, q));
     }
@@ -249,7 +281,7 @@ export function an5LedgerFromPieces(b, pieces) {
   return { pieces, rows, clean: bad.length === 0, offending: bad,
            vacuous: pieces.length === 0,
            verdict: pieces.length === 0 ? "no subject" : bad.length === 0 ? "cancels" : "owes",
-           nFermions: pieces.reduce((a, p) => a + pieceDim(b, p) * p.copies, 0) };
+           nFermions: pieces.reduce((a, p) => a + pieceDim(frame, p) * p.copies, 0) };
 }
 
 /* the same ledger for an arbitrary SU(N) boundary condition given as four block sizes */
@@ -276,7 +308,8 @@ export function an5TraceModes(b, content = {}) {
 }
 
 export function an5FermionComponents(b, content) {
-  return an5Pieces(b, content).reduce((a, p) => a + pieceDim(b, p) * p.copies, 0)
+  const frame = an5Frame(b);
+  return an5Pieces(b, content).reduce((a, p) => a + pieceDim(frame, p) * p.copies, 0)
        - an5TraceModes(b, content);
 }
 

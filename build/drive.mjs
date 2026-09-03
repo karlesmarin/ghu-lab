@@ -653,6 +653,7 @@ H("one model, every verdict — the class walk, on the built page");
      `${await js(row("Anomaly verdict"))} / ${await js(tag("Anomaly verdict"))}`);
 
   const depth0 = await js(row("Depth of the vacuum")), grp0 = await js(row("Apparent unbroken"));
+  const vacAtMin0 = await js(row("Unbroken group at the minimum"));
   const other = await js(`[...document.querySelectorAll('#dsMembers tr[data-bc]')]` +
     `.find((t) => t.dataset.bc !== "1,0,4,1")?.dataset.bc`);
   ok("the class has another member to stand on", typeof other === "string" && other.length > 0,
@@ -665,6 +666,15 @@ H("one model, every verdict — the class walk, on the built page");
      depth0 === depth1 && depth0 !== undefined, `${depth0} -> ${depth1}`);
   ok("...and moves the apparent unbroken group, which is the whole claim",
      grp0 !== grp1, `${grp0} -> ${grp1}`);
+  /* and the group AT THE MINIMUM, which is the theory's, must not have moved on the same click */
+  const vac1 = await js(row("Unbroken group at the minimum"));
+  ok("...while the unbroken group at the minimum stays, and is tagged the theory's",
+     typeof vac1 === "string" && vac1.length > 0 && vac1 === vacAtMin0 &&
+     (await js(tag("Unbroken group at the minimum"))) === "the theory",
+     `${vacAtMin0} -> ${vac1} / ${await js(tag("Unbroken group at the minimum"))}`);
+  ok("...and the vacuum line says where it stands",
+     /a symmetric point|broken — /.test(await js(row("Where the vacuum stands"))),
+     String(await js(row("Where the vacuum stands"))));
   ok("...and the builder is now holding the other one, so the model really moved",
      (await js(`JSON.stringify([SUN5D_S.blocks.nPP, SUN5D_S.blocks.nPM,` +
                ` SUN5D_S.blocks.nMP, SUN5D_S.blocks.nMM])`)) ===

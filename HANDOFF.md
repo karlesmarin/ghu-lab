@@ -1,7 +1,54 @@
 # HANDOFF — GHU Lab
 
-> State at 2026-09-03. The section below is the newest; the earlier handoffs follow it unchanged
-> and are still the map of the code.
+> State at 2026-09-03, second pass. The section below is the newest; the earlier handoffs follow it
+> unchanged and are still the map of the code.
+
+## 2026-09-03 (later) — the content at the minimum, and the three lines stop moving
+
+The gap the morning's dossier named as the sharpest — every line except the depth and position of
+the minimum read at the *symmetric point* — is closed. `src/modules/vacuum5d.mjs` reads the
+group, the massless content and the anomaly ledger **at the minimum**, and the dossier tags them
+with the same measurement as everything else: **invariant on all 86 multi-member classes of
+SU(4)…SU(7), two bulk contents, 81 located and 5 declined for carrying three phases or more.**
+
+**THE PHYSICS, IN THREE LINES.** Gauge the constant A_y away and the reflection about y = πR
+becomes **P₁′ = W⁻¹P₁** (Hosotani; HHK §2). A massless 4D mode is a vector fixed by both P₀ and
+P₁′ — for unitary P₁′ the linear term of a + b·y dies outright, b ∈ ker(U′−1) ∩ ker(U′−1)^⊥. So
+the content at twist (ε₀, ε₁) is a joint eigenspace, and the unbroken group is the commutant of
+{P₀, P₁′} = S(∏ U(m_i)) over the irreducibles of ⟨P₀, P₁′⟩: four one-dimensional letters and one
+two-dimensional D(cos πt) per angle at which a pair is rotated. At a symmetric point that is the
+parity rule of a **class-mate**; strictly inside it is the Hosotani mechanism, which no member of
+the class can show. An A-pair at θ and a B-pair at φ carry the same irreducible when θ = 1 − φ
+(a B-pair's P₁ is −σ₃), and two pairs at one angle give an SU(2) the symmetric point never had.
+
+**THE FRAME.** `anomaly5d.mjs` is now written over a *frame* — blocks with a `size` and a `dim` —
+and `an5Frame(b)` (four letters, dim 1) is its first instance; `an5LedgerOnFrame` is the ledger,
+`an5LedgerFromPieces` is that with the four-letter frame, output unchanged character for
+character. A rotated pair is a block of dim 2 with the same group theory. `an5PieceDim` is
+exported so `vacuum5d.mjs` counts with the same routine.
+
+**TWO ROUTES AND A DECOY.** `vac5Rep` gives the pieces by representation theory (letters twist
+into letters, D(c) → D(±c), S²D(c) = (+,+) ⊕ D(2c²−1), Λ²D(c) = (−,−)); `vac5Direct` builds
+ρ(P₀), ρ(P₁′) on fund/adj/anti/sym and counts by elimination. `_test_vacuum5d.mjs` (27 checks)
+holds them to each other on 880 cases including three phases, and at θ = 0 / θ = 1 holds the
+result to `sp5ZeroModes` + `an5Ledger` of the boundary condition and of its class-mate on every
+one-phase BC of SU(4)…SU(7) with three contents. The decoy — reading the KK families at n = 0 —
+says TWO massless vectors for SU(2) at θ = 1 where there is one (W = −1 is central); the Cartan
+direction is not massless at a broken vacuum, it mixes into the W of mass θ. The harness requires
+the decoy to disagree.
+
+**WHAT IS STILL NOT SAID, and it is on the page:** scalars are tree-level flat directions; "at an
+end" and "same angle" are decided to 10⁻⁶; the minimum is the grid minimiser's and one or two
+phases. `drive.mjs` clicks the class-mate and checks the group at the minimum does not move
+(115/115). **Build 1 665 checks green across 30 harnesses; 24 sections; console clean.**
+
+**A tower at the vacuum is now cheap and exact, and is the next thing to build**: the KK spectrum
+of any field at the minimum is the eigenvalue list of ρ(P₁′P₀) — Θ = 0 for (+,+)/(−,−) letters,
+½ for the other two, ±t/2 per pair, products for the tensors — with the Θ ∈ {0, ½} eigenspaces
+split by the joint counts this module already has. That gives every field's lightest mass in
+units of the lightest massive vector (m_W R = t/2), which is the number a model builder wants
+first; `sp5Families` is right for the potential's multiset and wrong at the lowest level of the
+adjoint and the symmetric tensor, for the same reason as the decoy.
 
 ## 2026-09-03 — the panels are joined, and most of what they say is not about the theory
 

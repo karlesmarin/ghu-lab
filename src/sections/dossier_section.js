@@ -349,11 +349,15 @@ const DOSS_SECTION = {
       `own. And the minimum is the grid minimiser's: one global minimum, not the vacuum manifold. ` +
       `<span class="chip bad">unknown</span></p>` +
 
-      `<p style="margin:11px 0 0"><b>Two phases is the ceiling on the vacuum.</b> The minimiser ` +
-      `covers one and two; past that a grid on a torus is a hope rather than an instrument, and ` +
-      `the line declines — and with it every line at the minimum. That bites at ${"SU(8)"} and ` +
-      `above: every boundary condition of SU(N) is covered up to N = 5, 95% at N = 6, 87% at ` +
-      `N = 7 and 62% at N = 10.</p>` +
+      `<p style="margin:11px 0 0"><b>Two phases is the ceiling on the grid, not on the vacuum.</b> ` +
+      `The grid minimiser covers one and two phases; past that a grid on a torus is a hope rather ` +
+      `than an instrument, so the minimum comes from <b>restarts</b> — a descent from every ` +
+      `symmetric corner and from a batch of reproducible random points, keeping the deepest and ` +
+      `saying how many starts reached it — and every line that reads it carries the word ` +
+      `<i>restarts, not certified</i>. Where a grid exists the restarts agree with it to 10⁻⁹ on ` +
+      `222 (boundary condition, content) cases of SU(4)…SU(6) (<code>_test_sun5d.mjs</code>); ` +
+      `above two phases there is nothing to hold them to but each other.` +
+      (d.ctx.notes && d.ctx.notes.min ? ` Here: ${d.ctx.notes.min}.` : ``) + `</p>` +
 
       `<p style="margin:11px 0 0"><b>And a class of one measures nothing.</b> The tag is an ` +
       `equality across members; with one member every line is trivially equal to itself. ` +

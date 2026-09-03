@@ -27,7 +27,9 @@
 import { readFileSync } from "node:fs";
 import { moments, alphaMin, F, stabilityW, F1minusF0 } from "./src/kernel/potential.mjs";
 import { sun5dBlocks, sun5dUnbroken, sun5dRepTerms, sun5dTerms, sun5dV, sun5dTermTable,
-         sun5dMinimum, sun5dNames, sun5dShow, SUN5D_DOF } from "./src/modules/sun5d.mjs";
+         sun5dMinimum, sun5dNames, sun5dShow, SUN5D_DOF, sun5dMinimumRestarts }
+  from "./src/modules/sun5d.mjs";
+import { bcClasses } from "./src/modules/bcclass.mjs";
 
 const HY = JSON.parse(readFileSync(new URL("./data/su3_hy.json", import.meta.url), "utf8"));
 
@@ -338,6 +340,55 @@ H("the potential, and the vacuum it has");
     ok("...which is what W = 0 and the five coordinates at the origin would otherwise have claimed",
        stabilityW(sun5dTermTable(t0)) === 0);
   }
+}
+
+/* ------------------------------------------------------------------ restarts against the grid */
+
+H("above two phases the minimum comes from restarts, and the restarts agree with the grid below");
+{
+  const FUND = { gauge: true, bulk: [{ rep: "fund", eta: +1, kind: "dirac", multiplicity: 1 }] };
+  const MIX = { gauge: true, bulk: [{ rep: "fund", eta: +1, kind: "dirac", multiplicity: 2 },
+                                    { rep: "anti", eta: -1, kind: "dirac", multiplicity: 1 }] };
+  let n = 0, bad = [], hitsMin = Infinity;
+  for (let N = 4; N <= 6; N++)
+    for (const bc of bcClasses(N, "S1/Z2").all) {
+      const b = sun5dBlocks({ nPP: bc[0], nPM: bc[1], nMP: bc[2], nMM: bc[3] });
+      if (b.phases < 1 || b.phases > 2) continue;
+      for (const content of [FUND, MIX]) {
+        const terms = sun5dTerms(b, content);
+        if (!terms.length) continue;
+        const g = sun5dMinimum(terms, b.phases, { grid: 240, windings: 200 });
+        const r = sun5dMinimumRestarts(terms, b.phases, { restarts: 24, windings: 200 });
+        n++;
+        hitsMin = Math.min(hitsMin, r.hits);
+        const depth = Math.abs(g.V - r.V) < 1e-9;
+        /* the position, up to the permutation of same-kind phases and the reflection the grid's
+         * [0,1] box already fixes: compare the sorted A-part and the sorted B-part */
+        const key = (t) => [t.slice(0, b.A).map((x) => +x.toFixed(4)).sort().join(","),
+                            t.slice(b.A).map((x) => +x.toFixed(4)).sort().join(",")].join("|");
+        if (!depth || (key(g.theta) !== key(r.theta) && Math.abs(g.V - r.V) >= 1e-9))
+          bad.push(`[${bc}] grid ${g.V.toFixed(9)} @ ${g.theta.map((x) => x.toFixed(4))} vs ` +
+                   `restarts ${r.V.toFixed(9)} @ ${r.theta.map((x) => x.toFixed(4))}`);
+      }
+    }
+  ok(`${n} (one- or two-phase boundary condition, content) cases of SU(4)…SU(6): the restart ` +
+     `minimum is as deep as the grid's to 1e-9 on all`, bad.length === 0, bad.slice(0, 3).join(" | "));
+  ok(`...and the deepest value was reached by at least ${hitsMin} of the starts in every case`,
+     hitsMin >= 2, String(hitsMin));
+  /* three phases: SU(6) [1,2,2,1] has A = 1, B = 2.  No grid to hold it to; what can be held is
+   * that the answer is no shallower than every symmetric corner and than a coarse grid. */
+  const b3 = sun5dBlocks({ nPP: 1, nPM: 2, nMP: 2, nMM: 1 });
+  const t3 = sun5dTerms(b3, MIX);
+  const r3 = sun5dMinimumRestarts(t3, 3, { restarts: 32, windings: 200 });
+  let coarse = Infinity;
+  for (let i = 0; i <= 12; i++) for (let j = 0; j <= 12; j++) for (let k = 0; k <= 12; k++)
+    coarse = Math.min(coarse, sun5dV(t3, [i / 12, j / 12, k / 12], 200) / 2);
+  ok(`SU(6) [1,2,2,1], three phases: the restart minimum (${r3.V.toFixed(6)}) is no shallower ` +
+     `than a 13³ grid (${coarse.toFixed(6)}), and is labelled uncertified`,
+     r3.V <= coarse + 1e-12 && r3.certified === false && r3.method === "restarts",
+     `${r3.V} vs ${coarse}`);
+  ok("...and it reports how many starts reached it and how many distinct minima were seen",
+     r3.hits >= 1 && r3.distinct >= 1 && r3.starts === 8 + 32, `${r3.hits}/${r3.distinct}/${r3.starts}`);
 }
 
 console.log(`\n${fail === 0 ? "PASSED" : "*** FAILED ***"}   ${pass} ok, ${fail} failed`);

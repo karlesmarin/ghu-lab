@@ -415,6 +415,114 @@ export function vac5Count(frame, rep, e0, e1) {
   return n - (rep === "adj" && e0 > 0 && e1 > 0 ? 1 : 0);
 }
 
+/* ------------------------------------------------------------------ the tower at the vacuum
+ *
+ * THE WHOLE KALUZA–KLEIN SPECTRUM AT THE MINIMUM, EXACTLY, AND WHY IT IS AN EIGENVALUE LIST.
+ * With the constant A_y gauged away the field is periodic up to U′ = P₁′P₀, the composition of
+ * the two reflections, so its modes are e^{i(n+Θ)y/R} with e^{2πiΘ} an eigenvalue of ρ(U′) and
+ * n ∈ Z, and the orbifold identifies the eigenvalue Θ with −Θ (P₀U′P₀ = U′⁻¹).  So a conjugate
+ * pair of eigenvalues at ±x, 0 < x < ½, is ONE tower |n + x|, n ∈ Z; an eigenvalue at 0 splits
+ * under P₀ into an even part with modes n ≥ 0 (the massless ones, exactly the joint invariants
+ * this module counts) and an odd part with n ≥ 1; and an eigenvalue at ½ gives n + ½, n ≥ 0,
+ * whichever its P₀ sign.  A twist with ε₀ε₁ = −1 shifts every Θ by ½.
+ *
+ * The eigenvalues of ρ(U′) never need a matrix: on the fundamental, a (+,+) or (−,−) letter is
+ * Θ = 0, a (+,−) or (−,+) letter is Θ = ½, and a pair rotated by t is ±t/2; the adjoint takes
+ * differences, the tensors sums.  What this gets right that `sp5Families` cannot is the lowest
+ * level of the adjoint and of the symmetric tensor at a broken vacuum, where the per-state
+ * bookkeeping keeps a Cartan direction massless that has in fact become the W of mass t.
+ *
+ * TWO CONTROLS, both in the harness.  The split at Θ = 0 and the count at Θ = ½ are checked
+ * against the joint-invariant counts of the other twists, which the tower did not use; and the
+ * multiset of towers must reproduce the Wilson-line potential of `sun5d.mjs` up to a constant —
+ * Σ_n n⁻⁵ cos(2πn x) per tower — which ties the spectrum at the vacuum to the potential whose
+ * minimum put it there, by a route that shares no code with either. */
+export function vac5Tower(frame, rep, e0, e1) {
+  const th = [];
+  for (const k of frame.blocks) {
+    if (!k.size) continue;
+    if (k.kind === "letter") for (let i = 0; i < k.size; i++) th.push(k.p0 * k.p1 > 0 ? 0 : 0.5);
+    else for (let i = 0; i < k.size; i++) th.push(k.t / 2, -k.t / 2);
+  }
+  const N = th.length, all = [];
+  if (rep === "fund") all.push(...th);
+  else if (rep === "adj") {
+    for (let i = 0; i < N; i++) for (let j = 0; j < N; j++) if (i !== j) all.push(th[i] - th[j]);
+    for (let i = 0; i < N - 1; i++) all.push(0);
+  } else if (rep === "anti") {
+    for (let i = 0; i < N; i++) for (let j = i + 1; j < N; j++) all.push(th[i] + th[j]);
+  } else if (rep === "sym") {
+    for (let i = 0; i < N; i++) for (let j = i; j < N; j++) all.push(th[i] + th[j]);
+  } else throw new Error(`unknown representation "${rep}"`);
+  const shift = e0 * e1 < 0 ? 0.5 : 0;
+  const fold = (x) => { let y = ((x + shift) % 1 + 1) % 1; if (y > 0.5) y = 1 - y; return y; };
+  const eps = frame.eps;
+  const bins = [];
+  for (const x of all.map(fold)) {
+    const b = bins.find((q) => Math.abs(q.x - x) < eps);
+    if (b) b.m++; else bins.push({ x, m: 1 });
+  }
+  bins.sort((a, b) => a.x - b.x);
+  const even = vac5Count(frame, rep, e0, e1);
+  const families = bins.map((b) => {
+    if (b.x < eps) {
+      const odd = b.m - even;
+      return { x: 0, kind: "integer", towers: b.m, massless: even, odd,
+               lowest: even > 0 ? 0 : 1, first: odd > 0 || even > 0 ? (even > 0 ? 0 : 1) : null };
+    }
+    if (b.x > 0.5 - eps) return { x: 0.5, kind: "half", towers: b.m, massless: 0, lowest: 0.5 };
+    return { x: b.x, kind: "generic", towers: b.m / 2, massless: 0, lowest: b.x,
+             /* an eigenvalue strictly inside comes with its conjugate; an odd count means the
+              * fold merged two different angles, which the tolerance would have to be blamed for */
+             paired: b.m % 2 === 0 };
+  });
+  const lowestMassive = Math.min(...families.map((f) => (f.x === 0 ? (f.odd > 0 ? 1 : Infinity) : f.x)));
+  return { rep, e0, e1, dim: all.length, families,
+           massless: even, lowestMassive: isFinite(lowestMassive) ? lowestMassive : null };
+}
+
+/* the θ-dependent part of the one-loop potential a tower multiset implies, Σ_n n⁻⁵ cos(2πn x)
+ * per tower, in the same units as `sun5dV` (its ½ included): the control that the spectrum at
+ * the vacuum and the potential are one object.  Returned with the θ-independent Θ = 0 and Θ = ½
+ * towers included, so a caller compares DIFFERENCES between two points and never a level. */
+export function vac5TowerPotential(frame, rep, e0, e1, windings = 300) {
+  const T = vac5Tower(frame, rep, e0, e1);
+  let v = 0;
+  for (const f of T.families) {
+    const w = f.x === 0 ? f.towers / 2 : f.x === 0.5 ? f.towers / 2 : f.towers;
+    let s = 0;
+    for (let n = 1; n <= windings; n++) s += Math.cos(2 * Math.PI * n * f.x) / n ** 5;
+    v += w * s;
+  }
+  return v;
+}
+
+/* THE LADDER: every field of the model at the minimum, its lightest mass in units of 1/R and of
+ * the lightest massive vector — which is the W in a model that has one, m_W R = t/2 for a single
+ * pair.  A number a model builder reads first, and one that no symmetric-point panel can print. */
+export function vac5Ladder(frame, content = {}) {
+  const rows = [];
+  const put = (field, rep, e0, e1, copies = 1) => {
+    const T = vac5Tower(frame, rep, e0, e1);
+    rows.push({ field, rep, twist: [e0, e1], copies, massless: T.massless * copies,
+                lowestMassive: T.lowestMassive, families: T.families });
+  };
+  if (content.gauge !== false) { put("A_μ", "adj", +1, +1); put("A_y", "adj", -1, -1); }
+  for (const f of content.bulk || []) {
+    const m = f.multiplicity ?? 1;
+    if (!m) continue;
+    const eta = f.eta > 0 ? 1 : -1;
+    const kind = f.kind || "dirac";
+    const name = `${m}× ${kind} ${f.rep}, ηη′ = ${eta > 0 ? "+" : "−"}`;
+    if (kind === "scalar") put(name, f.rep, eta, 1, m);
+    else { put(`${name} (L)`, f.rep, eta, 1, m); put(`${name} (R)`, f.rep, -eta, -1, m); }
+  }
+  const vec = rows.find((r) => r.field === "A_μ");
+  const mW = vec && vec.lowestMassive !== null ? vec.lowestMassive : null;
+  for (const r of rows) r.overW = mW && r.lowestMassive !== null ? r.lowestMassive / mW : null;
+  return { rows, mWR: mW };
+}
+
 /* THE DECOY: what reading the KK families at n = 0 would say.  A state of charge Q and offset h
  * sits at zero mass when n + h + Q = 0 has a solution in the range its parity allows — n ≥ 0 for
  * (+,+) and the half-integer towers, n ≥ 1 for (−,−).  It over-counts at every symmetric point

@@ -106,7 +106,7 @@ H("the invariant lines stay invariant over EVERY class at N = 4…7");
    * members' minimisers landed on different vacua of equal depth would split these, and that
    * would be a finding, not a tolerance to widen. */
   const vac = ["vacWhere", "vacUnbroken", "vacVectors", "vacScalars", "vacFermions", "vacAnomaly",
-               "vacOwing"];
+               "vacOwing", "vacMW", "vacLadder"];
   const MIX = { gauge: true, bulk: [{ rep: "fund", eta: +1, kind: "dirac", multiplicity: 1 },
                                     { rep: "anti", eta: -1, kind: "dirac", multiplicity: 1 }] };
   const broken = [], brokenVac = [], declinedVac = [];
@@ -135,9 +135,15 @@ H("the invariant lines stay invariant over EVERY class at N = 4…7");
      broken.length === 0, broken.slice(0, 4).join("; "));
   ok(`and EVERY line at the minimum — where it stands, the group, the three counts, the ledger — ` +
      `on ${classes} classes × 2 contents`, brokenVac.length === 0, brokenVac.slice(0, 4).join("; "));
-  ok(`...located on ${located} of the ${classes} classes; the rest declined with the minimiser's ` +
-     `reason (three phases or more)`, located + new Set(declinedVac).size === classes,
-     `${located} + ${new Set(declinedVac).size} vs ${classes}`);
+  ok(`...located on all ${classes} classes — by grid up to two phases and by restarts above, ` +
+     `which is ${classes - 81} of them — and none declined`,
+     located === classes && declinedVac.length === 0,
+     `${located} located, ${new Set(declinedVac).size} declined, of ${classes}`);
+  /* and the restart lines say so, on the class that needs them */
+  const three = dossierForClass([1, 2, 2, 1], FUND, FAST);
+  const vm = three.lines.find((l) => l.key === "vmin");
+  ok("SU(6) [1,2,2,1], three phases: the depth is found by restarts and the line carries the word",
+     vm.tag === "invariant" && /restarts, not certified/.test(vm.value), `${vm.tag} ${vm.value}`);
 }
 
 /* ------------------------------------------ 4b. the minimum is where the frame lines become the theory's */

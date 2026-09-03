@@ -40,12 +40,12 @@
  * therefore computed with no matter and say so; the dial that does carry the pair lives in
  * Boundary conditions, where it belongs.
  */
-import { sun5dBlocks, sun5dUnbroken, sun5dTerms, sun5dMinimum, sun5dTermTable }
-  from "./sun5d.mjs";
+import { sun5dBlocks, sun5dUnbroken, sun5dTerms, sun5dMinimum, sun5dMinimumRestarts,
+         sun5dTermTable } from "./sun5d.mjs";
 import { sp5ZeroModes } from "./spectrum5d.mjs";
 import { an5Ledger } from "./anomaly5d.mjs";
 import { bcClasses, bcEnergy, bcPreferred, bcShow } from "./bcclass.mjs";
-import { vac5At } from "./vacuum5d.mjs";
+import { vac5At, vac5Ladder } from "./vacuum5d.mjs";
 import { moments, alphaMin, coordinates, stabilityW } from "../kernel/potential.mjs";
 
 /* ------------------------------------------------------------------ the shared computation */
@@ -55,11 +55,16 @@ export const dossierSpec = ([p, q, r, s]) => ({ nPP: p, nPM: q, nMP: r, nMM: s }
 /* Everything the lines read, computed once per boundary condition.  A stage that refuses records
  * WHY rather than throwing: a dossier with one missing line is the honest object, and a dossier
  * that cannot exist because the closed form declined is not. */
-export function dossierContext(bc, content, { grid = 400, windings = 300 } = {}) {
+export function dossierContext(bc, content, { grid = 400, windings = 300, restarts = 32 } = {}) {
   const b = sun5dBlocks(dossierSpec(bc));
   const terms = sun5dTerms(b, content);
   const ctx = { bc, b, content, terms, refused: {} };
   ctx.min = sun5dMinimum(terms, b.phases, { grid, windings });
+  /* THREE PHASES AND MORE: restarts, labelled.  The grid declines there and is right to; the
+   * descent from every corner and a batch of reproducible random starts is what stands above
+   * it, and every line that reads it says "restarts" so the reader knows it is not a grid. */
+  if (!ctx.min && b.phases > 2)
+    ctx.min = sun5dMinimumRestarts(terms, b.phases, { restarts, windings });
   ctx.zero = sp5ZeroModes(b, content);
   ctx.anom = an5Ledger(b, content);
   ctx.energy = bcEnergy(bc, {});
@@ -68,9 +73,10 @@ export function dossierContext(bc, content, { grid = 400, windings = 300 } = {})
     ctx.bridge = { tt, W: stabilityW(tt), coords: coordinates(tt), alpha: alphaMin(moments(tt)) };
   } catch (e) { ctx.bridge = null; ctx.refused.bridge = e.message; }
   if (!ctx.min)
-    ctx.refused.min = b.phases === 0
-      ? "there is no Wilson-line phase, so there is no potential to minimise"
-      : `${b.phases} phases: minimising on a ${b.phases}-torus by grid is a hope, not an instrument`;
+    ctx.refused.min = "there is no Wilson-line phase, so there is no potential to minimise";
+  else if (ctx.min.method === "restarts")
+    ctx.notes = { min: `${b.phases} phases: the minimum is the deepest of ${ctx.min.starts} descents ` +
+                      `(${ctx.min.hits} reached it, ${ctx.min.distinct} distinct minima seen), not a grid` };
   /* AND THE SAME QUESTIONS AT THE MINIMUM, which is where the theory sits.  With no phase the
    * symmetric point IS the vacuum; with one or two the minimiser's θ is handed to `vacuum5d.mjs`,
    * which builds P₁′ = W⁻¹P₁ there and reads the group, the massless content and the ledger off
@@ -78,6 +84,7 @@ export function dossierContext(bc, content, { grid = 400, windings = 300 } = {})
    * the minimiser's own reason. */
   ctx.vac = ctx.min ? vac5At(b, content, ctx.min.theta)
           : b.phases === 0 ? vac5At(b, content, []) : null;
+  if (ctx.vac) ctx.vac.ladder = vac5Ladder(ctx.vac.frame, content);
   return ctx;
 }
 
@@ -91,6 +98,8 @@ export function dossierContext(bc, content, { grid = 400, windings = 300 } = {})
  * `cite` is where the quantity comes from.  It is on the row rather than in a paragraph because
  * the row is what gets read.  */
 const n6 = (x) => (Math.abs(x) < 5e-7 ? "0" : x.toFixed(6));
+/* a value found by restarts carries the word, so a reader never mistakes it for a grid's */
+const restartsMark = (c) => (c.min && c.min.method === "restarts" ? " (restarts, not certified)" : "");
 
 export const DOSSIER_LINES = [
   { key: "unbroken", group: "The gauge symmetry", label: "Apparent unbroken group",
@@ -104,15 +113,15 @@ export const DOSSIER_LINES = [
     cite: "Haba–Yamashita §5, assembled here",
     get: (c) => String(c.terms.length) },
   { key: "vmin", group: "The Wilson line", label: "Depth of the vacuum, V/C",
-    cite: "minimised here, on the torus of phases",
-    get: (c) => (c.min ? n6(c.min.V) : null) },
+    cite: "minimised here, on the torus of phases — a grid for one or two, restarts above",
+    get: (c) => (c.min ? n6(c.min.V) + restartsMark(c) : null) },
   { key: "theta", group: "The Wilson line", label: "Where the vacuum sits, θ",
     cite: "the same minimisation",
-    get: (c) => (c.min ? c.min.theta.map((x) => x.toFixed(4)).join(", ") : null) },
+    get: (c) => (c.min ? c.min.theta.map((x) => x.toFixed(4)).join(", ") + restartsMark(c) : null) },
   { key: "edge", group: "The Wilson line", label: "At a symmetric point?",
     cite: "V has period 2 and is even, so [0,1]'s ends are the two symmetric points",
     get: (c) => (c.min ? (c.min.atEdge ? "yes — no Hosotani breaking" : "no — broken vacuum")
-                       : null) },
+                         + restartsMark(c) : null) },
 
   { key: "vectors", group: "The massless content", label: "Massless vectors",
     cite: "Haba–Hosotani–Kawamura §3 — the (+,+) states of A_μ",
@@ -171,6 +180,21 @@ export const DOSSIER_LINES = [
   { key: "vacOwing", group: "At the minimum", label: "Channels left owing at the minimum",
     cite: "the same ledger",
     get: (c) => (c.vac ? String(c.vac.anom.offending.length) : null) },
+  { key: "vacMW", group: "At the minimum", label: "Lightest massive vector, m·R — the W",
+    cite: "the eigenvalues of P₁′P₀ on the adjoint: t/2 for a letter⊗pair vector, t for pair⊗pair",
+    get: (c) => (c.vac ? (c.vac.ladder.mWR === null ? "none — no massive vector"
+                                                    : n6(c.vac.ladder.mWR)) : null) },
+  { key: "vacLadder", group: "At the minimum", label: "Lightest state of each bulk field, in units of m_W",
+    cite: "the same eigenvalue list on the bulk representations; 0 marks a massless state",
+    get: (c) => {
+      if (!c.vac) return null;
+      const rows = c.vac.ladder.rows.filter((r) => !/^A_/.test(r.field));
+      if (!rows.length) return "no bulk field";
+      if (c.vac.ladder.mWR === null) return "no W to measure against";
+      return rows.map((r) => `${r.field.replace(/^(\d+)× /, "$1×")}: ` +
+        `${r.massless ? `${r.massless} massless` : ""}${r.massless && r.overW !== null ? ", " : ""}` +
+        `${r.overW !== null ? `first massive at ${n6(r.overW)} m_W` : ""}`).join(" · ");
+    } },
 
   { key: "N0", group: "The class energy", label: "N₀ — the constant piece",
     cite: "Haba–Hosotani–Kawamura eq. (3.25), gauge sector only",

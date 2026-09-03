@@ -24,8 +24,10 @@ import { sp5ZeroModes, sp5States } from "./src/modules/spectrum5d.mjs";
 import { an5Ledger, rShow } from "./src/modules/anomaly5d.mjs";
 import { bcClasses } from "./src/modules/bcclass.mjs";
 import { vac5Pairs, vac5Frame, vac5Unbroken, vac5ZeroModes, vac5Ledger, vac5Direct, vac5Count,
-         vac5NaiveFromStates, vac5At, vac5Matrices, vac5Rank, VAC5_EPS }
+         vac5NaiveFromStates, vac5At, vac5Matrices, vac5Rank, vac5Tower, vac5TowerPotential,
+         vac5Ladder, VAC5_EPS }
   from "./src/modules/vacuum5d.mjs";
+import { sun5dV, SUN5D_DOF } from "./src/modules/sun5d.mjs";
 
 let pass = 0, fail = 0;
 const ok = (n, c, d = "") => { if (c) { pass++; console.log(`  ok   ${n}`); }
@@ -216,6 +218,98 @@ H("read at the minimiser's own vacuum, on the case the dossier opens with");
      `${v.unbroken} / ${vm.unbroken}; ${v.where} / ${vm.where}`);
   ok("...while at the two symmetric points they do not, which is the gap this module closes",
      sun5dUnbroken(b) !== sun5dUnbroken(bm));
+}
+
+/* ------------------------------------------------------------------ 7b. the tower at the vacuum */
+
+H("the tower at the vacuum: its Θ = 0 split and Θ = ½ count against counts it did not use");
+{
+  let n = 0, bad = [];
+  for (const bc of [[1, 0, 0, 1], [2, 0, 0, 1], [1, 1, 1, 1], [2, 1, 1, 1], [3, 0, 0, 2], [1, 0, 3, 1]]) {
+    const b = B(bc);
+    const ths = b.phases === 1 ? [[0], [0.3], [0.5], [1]] : [[0, 0], [0.3, 0.3], [0.2, 0.7], [1, 0.4]];
+    for (const th of ths) {
+      const fr = vac5Frame(b, th);
+      for (const rep of ["fund", "adj", "anti", "sym"])
+        for (const [e0, e1] of [[1, 1], [1, -1], [-1, 1], [-1, -1]]) {
+          const T = vac5Tower(fr, rep, e0, e1);
+          n++;
+          const z = T.families.find((f) => f.x === 0), h = T.families.find((f) => f.x === 0.5);
+          const odd = z ? z.odd : 0, half = h ? h.towers : 0;
+          const wantOdd = vac5Count(fr, rep, -e0, -e1);
+          const wantHalf = vac5Count(fr, rep, e0, -e1) + vac5Count(fr, rep, -e0, e1);
+          const dim = rep === "fund" ? b.N : rep === "adj" ? b.N * b.N - 1
+                    : rep === "anti" ? b.N * (b.N - 1) / 2 : b.N * (b.N + 1) / 2;
+          const paired = T.families.every((f) => f.kind !== "generic" || f.paired);
+          if (odd !== wantOdd || half !== wantHalf || T.dim !== dim || !paired)
+            bad.push(`[${bc}] θ=${th} ${rep} (${e0},${e1}): odd ${odd}/${wantOdd} half ${half}/${wantHalf} dim ${T.dim}/${dim} ${paired}`);
+        }
+    }
+  }
+  ok(`${n} towers: the P₀-odd part at Θ = 0 is the (−ε₀,−ε₁) count, the Θ = ½ part is the ` +
+     `(ε₀,−ε₁) + (−ε₀,ε₁) count, every generic eigenvalue is paired, and the dimension is the ` +
+     `representation's`, bad.length === 0, bad.slice(0, 3).join(" | "));
+}
+
+H("the towers reproduce the Wilson-line potential of sun5d.mjs, by differences, on a mixed content");
+{
+  const cases = [[[2, 0, 0, 1], MIX], [[1, 0, 3, 1], MIX], [[1, 1, 1, 1], MIX], [[2, 1, 1, 1], FUND],
+                 [[3, 0, 0, 2], MIX]];
+  let worst = 0, n = 0;
+  for (const [bc, content] of cases) {
+    const b = B(bc), terms = sun5dTerms(b, content);
+    const pts = b.phases === 1 ? [[0.13], [0.41], [0.77], [1]] : [[0.13, 0.62], [0.41, 0.2], [0.9, 0.9], [1, 0]];
+    const tow = (th) => {
+      const fr = vac5Frame(b, th);
+      let v = SUN5D_DOF.gauge * vac5TowerPotential(fr, "adj", 1, 1, 300);
+      for (const f of content.bulk || []) {
+        const dof = SUN5D_DOF[f.kind || "dirac"], m = f.multiplicity ?? 1, eta = f.eta > 0 ? 1 : -1;
+        v += dof * m * vac5TowerPotential(fr, f.rep, eta, 1, 300);
+      }
+      return v / 2;
+    };
+    const ref = sun5dV(terms, pts[0], 300), t0 = tow(pts[0]);
+    for (const p of pts.slice(1)) {
+      n++;
+      worst = Math.max(worst, Math.abs((sun5dV(terms, p, 300) - ref) - (tow(p) - t0)));
+    }
+  }
+  ok(`${n} differences of the potential between two points, on five (boundary condition, content) ` +
+     `pairs: the towers' sum and Haba–Yamashita's formula agree to ${worst.toExponential(1)}`,
+     worst < 1e-9, String(worst));
+}
+
+H("the ladder: the W, and what sits where, in units of it");
+{
+  const b = B([2, 0, 0, 1]);
+  const L = vac5Ladder(vac5Frame(b, [0.3]), MIX);
+  const row = (s) => L.rows.find((r) => r.field.startsWith(s));
+  ok("SU(3) [2,0,0,1] at θ = 0.3: the lightest massive vector is the W at m_W R = θ/2",
+     Math.abs(L.mWR - 0.15) < 1e-12, String(L.mWR));
+  ok("...the bulk fundamental's lightest state sits at m_W, and so does the symmetric tensor's " +
+     "letter⊗pair component — while its pair⊗pair component sits at 2 m_W, the top of the lore",
+     Math.abs(row("1× dirac fund").overW - 1) < 1e-9 && Math.abs(row("1× dirac sym").overW - 1) < 1e-9 &&
+     row("1× dirac sym").families.some((f) => Math.abs(f.x - 0.3) < 1e-9),
+     `${row("1× dirac fund").overW} / ${row("1× dirac sym").overW}`);
+  /* and the ratio is about where the W lives, not about the tensor: in SU(2) the only massive
+   * vector is the pair⊗pair one at x = t, so m_W R = t there and the symmetric tensor's pair⊗pair
+   * state sits AT m_W.  The "top at 2 m_W" of the SU(3) lore needs the W to be a letter⊗pair
+   * component at t/2, which is what [2,0,0,1] has and [1,0,0,1] has not. */
+  const P = vac5Ladder(vac5Frame(B([1, 0, 0, 1]), [0.3]), MIX);
+  ok("SU(2) at θ = 0.3: m_W R = t (the W is pair⊗pair), and the symmetric's state sits at m_W",
+     Math.abs(P.mWR - 0.3) < 1e-12 &&
+     Math.abs(P.rows.find((r) => r.field.startsWith("1× dirac sym")).overW - 1) < 1e-9,
+     `${P.mWR} / ${P.rows.find((r) => r.field.startsWith("1× dirac sym")).overW}`);
+  ok("...and A_y keeps one massless scalar, the flat direction, with its first massive state at m_W",
+     row("A_y").massless === 1 && Math.abs(row("A_y").overW - 1) < 1e-9,
+     `${row("A_y").massless} / ${row("A_y").overW}`);
+  const T = vac5Tower(vac5Frame(B([1, 0, 0, 1]), [1]), "adj", 1, 1);
+  ok("SU(2) at θ = 1: the adjoint tower is the θ = 0 tower — one massless vector, nothing at ½",
+     T.massless === 1 && !T.families.some((f) => f.x === 0.5) && T.lowestMassive === 1,
+     JSON.stringify(T.families));
+  const S = vac5Ladder(vac5Frame(B([1, 0, 0, 1]), [0.3]), GAUGE);
+  ok("SU(2) at θ = 0.3, gauge only: the W tower sits at x = θ and there is no massless vector",
+     S.mWR !== null && Math.abs(S.mWR - 0.3) < 1e-12 && S.rows[0].massless === 0);
 }
 
 /* ------------------------------------------------------------------ 7. the tolerance is named */

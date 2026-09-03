@@ -300,6 +300,63 @@ export function sun5dMinimum(terms, nPhase, { grid = 400, refine = 30, windings 
            other: sun5dV(terms, at.map(() => hi), windings) / 2 };
 }
 
+/* THREE PHASES AND MORE: RESTARTS, NOT A GRID — and the line says so.  A grid on a 3-torus at
+ * the resolution the 2-torus gets is 10⁷ evaluations, and on a 4-torus it is not an instrument
+ * at all; the section that refused above two phases was right to refuse a grid.  What it can do
+ * instead is the descent it already trusts, started from every symmetric corner and from a
+ * batch of reproducible random points, keeping the deepest and COUNTING how many starts reached
+ * it and how many distinct minima were seen.  That is a heuristic and it is labelled as one:
+ * `certified: false`, `method: "restarts"`, with `hits` and `distinct` beside the answer.
+ *
+ * The control lives where a grid exists: `_test_sun5d.mjs` runs this on every one- and
+ * two-phase boundary condition of SU(4)…SU(6) with a content and requires the same depth as the
+ * grid to 1e-9 and the same position (or its mirror) to 1e-4.  A heuristic that agrees with the
+ * exhaustive method everywhere the exhaustive method can be run is what one has above it. */
+export function sun5dMinimumRestarts(terms, nPhase, { restarts = 48, refine = 44, windings = 300,
+                                                       lo = 0, hi = 1, seed = 12345 } = {}) {
+  if (nPhase < 1) return null;
+  /* a linear congruential generator, so a render and a harness see the same starts */
+  let s = seed >>> 0;
+  const rnd = () => { s = (Math.imul(1664525, s) + 1013904223) >>> 0; return s / 4294967296; };
+  const starts = [];
+  const corners = Math.min(1 << nPhase, 64);
+  for (let c = 0; c < corners; c++)
+    starts.push(Array.from({ length: nPhase }, (_, k) => ((c >> k) & 1 ? hi : lo)));
+  while (starts.length < corners + restarts)
+    starts.push(Array.from({ length: nPhase }, () => lo + (hi - lo) * rnd()));
+  const found = [];
+  for (const st of starts) {
+    let at = st.slice(), best = sun5dV(terms, at, windings), step = (hi - lo) / 8;
+    for (let r = 0; r < refine; r++) {
+      let moved = false;
+      for (let k = 0; k < nPhase; k++)
+        for (const sg of [1, -1]) {
+          const trial = at.slice();
+          trial[k] = Math.min(hi, Math.max(lo, trial[k] + sg * step));
+          const v = sun5dV(terms, trial, windings);
+          if (v < best - 1e-15) { best = v; at = trial; moved = true; }
+        }
+      if (!moved) step /= 2;
+      if (step < 1e-11) break;
+    }
+    found.push({ theta: at, V: best });
+  }
+  found.sort((a, b) => a.V - b.V);
+  const top = found[0];
+  const distinct = [];
+  for (const f of found)
+    if (!distinct.some((d) => d.theta.every((x, i) => Math.abs(x - f.theta[i]) < 1e-4)))
+      distinct.push({ theta: f.theta, V: f.V / 2 });
+  const eps = 1e-6;
+  return { theta: top.theta, V: top.V / 2,
+           atEdge: top.theta.some((t) => t <= lo + eps || t >= hi - eps),
+           symmetric: sun5dV(terms, top.theta.map(() => 0), windings) / 2,
+           other: sun5dV(terms, top.theta.map(() => hi), windings) / 2,
+           method: "restarts", certified: false, starts: starts.length,
+           hits: found.filter((f) => Math.abs(f.V - top.V) < 1e-9).length,
+           distinct: distinct.length, minima: distinct.slice(0, 8) };
+}
+
 /* ------------------------------------------------------------------ reading it back */
 
 /* A term, in the notation the paper prints — so a reader can hold the page against the paper

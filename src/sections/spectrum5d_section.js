@@ -133,7 +133,8 @@ const SPEC5D_SECTION = {
       return { theta: Array.from({ length: b.phases }, (_, i) => SPEC5D_S.theta[i] ?? 0),
                edge: false, typed: true };
     if (!terms.length) return { theta: new Array(b.phases).fill(0), edge: true };
-    const m = sun5dMinimum(terms, b.phases, { grid: b.phases === 1 ? 400 : 160 });
+    const m = sun5dMinimum(terms, b.phases, { grid: b.phases === 1 ? 400 : 160 })
+           || (b.phases > 2 ? sun5dMinimumRestarts(terms, b.phases, { restarts: 24 }) : null);
     return m ? { theta: m.theta, edge: m.atEdge } : { theta: new Array(b.phases).fill(0), edge: true };
   },
 
@@ -261,6 +262,47 @@ const SPEC5D_SECTION = {
         `tower depends on the <em>product</em> P₀P₁, and A_y flips <em>both</em> parities, which ` +
         `leaves the product alone. What it changes is which states have a <b>zero mode</b> — the ` +
         `panel on the left — and nothing at all about the tower.</div>`;
+    this._ladder(el, b, content, theta);
+  },
+
+  /* THE EXACT TOWER AT THIS POINT, and why it is a second block rather than a correction to the
+   * first.  The families above are the potential's multiset and are right for it; at a broken
+   * vacuum they are wrong at the LOWEST level of the adjoint and the symmetric tensor, where a
+   * Cartan direction the per-state bookkeeping keeps at charge zero has in fact become the W of
+   * mass t.  The block below reads the eigenvalues of P₁′P₀ instead (vacuum5d.mjs), splits the
+   * Θ = 0 eigenspace by the joint invariants, and prints every field's lightest state in units
+   * of the lightest massive vector — the number a model builder wants first. */
+  _ladder(el, b, content, theta) {
+    let L;
+    try { L = vac5Ladder(vac5Frame(b, theta), content); } catch (e) {
+      el.innerHTML += `<div class="note">the exact tower declined: ${e.message}</div>`;
+      return;
+    }
+    const f4 = (x) => (Math.abs(x - Math.round(x)) < 1e-9 ? String(Math.round(x)) : x.toFixed(4));
+    const fam = (r) => r.families.map((f) =>
+      f.x === 0 ? `${f.massless ? `${f.massless}×0` : ""}${f.massless && f.odd ? ", " : ""}` +
+                  `${f.odd ? `${f.odd}×(n≥1)` : ""}`
+      : f.x === 0.5 ? `${f.towers}×(n+½)`
+      : `${f.towers}×|n ± ${f4(f.x)}|`).filter(Boolean).join("  ·  ");
+    el.innerHTML += `<div style="border-top:1px solid var(--line);padding-top:10px;margin-top:10px">` +
+      `<div style="font-size:12.5px;color:var(--ink2);font-weight:650">The exact tower at this ` +
+      `point, from the eigenvalues of P₁′P₀${helpMark("at-the-minimum")}` +
+      `<span class="note" style="font-weight:400"> — masses in units of 1/R; ` +
+      (L.mWR === null ? `no massive vector to measure against` :
+       `the lightest massive vector, the W, sits at <b>m·R = ${f4(L.mWR)}</b>`) + `</span></div>` +
+      `<div style="overflow-x:auto"><table><thead><tr><th>field</th><th>towers</th>` +
+      `<th class="num">massless</th><th class="num">first massive / m_W</th></tr></thead><tbody>` +
+      L.rows.map((r) => `<tr><td>${r.field}</td>` +
+        `<td style="font-family:var(--mono);font-size:12px">${fam(r)}</td>` +
+        `<td class="num">${r.massless}</td>` +
+        `<td class="num">${r.overW === null ? "—" : f4(r.overW)}</td></tr>`).join("") +
+      `</tbody></table></div>` +
+      `<div class="note" style="margin-top:6px">The families above are the potential's multiset ` +
+      `and are right for it; at a broken vacuum they are wrong at the <b>lowest level</b> of the ` +
+      `adjoint and of the symmetric tensor, where the Cartan direction they keep at charge zero ` +
+      `has become the W. This table reads the eigenvalues of P₁′P₀ with the Θ = 0 eigenspace split ` +
+      `by the joint invariants, and its tower multiset reproduces the potential above to 10⁻⁹ ` +
+      `(<code>_test_vacuum5d.mjs</code>). <span class="chip thm">theorem</span></div></div>`;
   },
 
   /* ---------------------------------------------------------------- the cross-check */

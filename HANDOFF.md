@@ -42,13 +42,45 @@ end" and "same angle" are decided to 10⁻⁶; the minimum is the grid minimiser
 phases. `drive.mjs` clicks the class-mate and checks the group at the minimum does not move
 (115/115). **Build 1 665 checks green across 30 harnesses; 24 sections; console clean.**
 
-**A tower at the vacuum is now cheap and exact, and is the next thing to build**: the KK spectrum
-of any field at the minimum is the eigenvalue list of ρ(P₁′P₀) — Θ = 0 for (+,+)/(−,−) letters,
-½ for the other two, ±t/2 per pair, products for the tensors — with the Θ ∈ {0, ½} eigenspaces
-split by the joint counts this module already has. That gives every field's lightest mass in
-units of the lightest massive vector (m_W R = t/2), which is the number a model builder wants
-first; `sp5Families` is right for the potential's multiset and wrong at the lowest level of the
-adjoint and the symmetric tensor, for the same reason as the decoy.
+**THE TOWER AT THE VACUUM, built the same afternoon.** `vac5Tower` reads the KK spectrum of any
+field at the minimum off the eigenvalues of ρ(P₁′P₀) — Θ = 0 for (+,+)/(−,−) letters, ½ for
+the other two, ±t/2 per pair, differences for the adjoint and sums for the tensors — with the
+Θ = 0 eigenspace split by the joint counts (even: n ≥ 0, the massless; odd: n ≥ 1) and Θ = ½
+as n + ½. `vac5Ladder` gives every field's lightest state in units of the lightest massive
+vector, the W. Two controls: the Θ = 0 odd part and the Θ = ½ count equal the joint counts of
+the OTHER twists, and the tower multiset, weighted by HY's d.o.f., reproduces `sun5dV` between
+any two points to 1e-9. The spectrum section prints the table under its families (which stay:
+they are the potential's multiset, wrong only at the lowest level of the adjoint and the
+symmetric tensor); the dossier gains `vacMW` and `vacLadder`, invariant on the class. **Where
+the W lives decides the ratio**: SU(3) [2,0,0,1] has the W letter⊗pair at t/2 and the symmetric
+tensor's pair⊗pair state at t = 2 m_W (the top of the lore); SU(2) has only the pair⊗pair W at
+t, so the same state sits at 1 m_W.
+
+**THREE PHASES AND MORE: restarts, labelled.** `sun5dMinimumRestarts` (in `sun5d.mjs`) descends
+from every symmetric corner and a reproducible LCG batch of random starts, keeps the deepest and
+reports `hits`/`distinct`/`starts`, `certified: false`, `method: "restarts"`. Held to the grid
+where the grid exists: 222 (BC, content) cases of SU(4)…SU(6), same depth to 1e-9, ≥ 10 starts
+reaching it in every case. The dossier and the spectrum section fall back to it above two
+phases, every line reading it carries "(restarts, not certified)", and the five three-phase
+classes of SU(4)…SU(7) that declined in the morning are located and invariant now: **all 86.**
+
+**A THIRD ROUTE, IN SAGE.** `tools/vacuum5d_sage_control.py` builds P₀, P₁′ and the four
+representation matrices in SageMath (docker `sage_pacemaker`, `sage -python`, and
+`MSYS_NO_PATHCONV=1` from Git Bash or `/tmp` becomes a Windows path) and recomputes the joint
+counts and the folded angles of ρ(P₁′P₀) on ten (BC, θ) cases: **200 of 200 agree** with
+`vac5Count`/`vac5Tower`. The first run showed 39 mismatches, all Sage's: RDF `rank()` counts the
+1e-16 pivots cos(π)/sin(π) leave, giving nullities too small and once negative; SVD with a
+tolerance fixed every one. The angles had agreed from the start.
+
+**Build 1 678 checks green across 30 harnesses; drive 115/115; site 28 ok; console clean.**
+
+**Next, in the order a GHU researcher would ask for them** (the list handed to Carles this
+session): brane matter that pays the ledger, with the boundary-mass matching gate of Part I;
+the SM cell at the vacuum (a hypercharge in the span of the vacuum's U(1)s reproducing
+Q, u, d, L, e on the massless pieces, with sin²θ_W read off the embedding); a paper-model loader
+with anchors (Burdman–Nomura SU(6), Kubo–Lim–Yamashita SU(3), Hosotani–Kobayashi SU(5), HHK's
+own SU(5) examples); the sweep filtering on the VACUUM content rather than the symmetric point's;
+and the Higgs mass from V'' at the minimum with its normalisation anchored to a published number.
 
 ## 2026-09-03 — the panels are joined, and most of what they say is not about the theory
 

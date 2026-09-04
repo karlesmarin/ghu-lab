@@ -353,7 +353,9 @@ function makeTorusPanels(cfg) {
     attach() {
       const repaint = coalesced(paint);
       const mapEl = el("map"), surfEl = el("surf");
-      let dragMap = false;
+      /* on P, not a local: the window listeners below are wired once for the page while `attach`
+       * runs once per mount, so a local would leave the ender closing over the FIRST mount's flag
+       * and every later drag would never end */
       const mapPoint = (e) => {
         if (!P.box) return null;
         const [px, py] = localXY(mapEl, e, mapEl.clientWidth || 560, H);
@@ -366,12 +368,19 @@ function makeTorusPanels(cfg) {
       mapEl.addEventListener("pointerdown", (e) => {
         if (!P.field || e.button !== 0 || !e.isPrimary) return;
         try { mapEl.setPointerCapture(e.pointerId); } catch (_) { /* not fatal */ }
-        stop(); dragMap = true; P.cur = mapPoint(e); repaint(); e.preventDefault();
+        stop(); P.dragMap = true; P.cur = mapPoint(e); repaint(); e.preventDefault();
       });
-      mapEl.addEventListener("pointermove", (e) => { if (dragMap) { P.cur = mapPoint(e); repaint(); } });
+      mapEl.addEventListener("pointermove", (e) => { if (P.dragMap) { P.cur = mapPoint(e); repaint(); } });
       mapEl.addEventListener("dblclick", (e) => { P.cur = null; paint(); e.preventDefault(); });
-      window.addEventListener("pointerup", () => { dragMap = false; });
-      window.addEventListener("pointercancel", () => { dragMap = false; });
+      /* `attach` runs on every mount of the section, not once for the page, so these two are
+       * registered through a flag on the panel's own state: the comment above says "wired once"
+       * and until `build/leaks.mjs` counted them it was only a comment.  They are on `window`
+       * because a drag must end wherever the button comes up. */
+      if (!P.windowWired) {
+        P.windowWired = true;
+        window.addEventListener("pointerup", () => { P.dragMap = false; });
+        window.addEventListener("pointercancel", () => { P.dragMap = false; });
+      }
 
       const surf = attachSurface(surfEl, P.view, {
         width: () => surfEl.clientWidth || 560,

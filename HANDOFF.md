@@ -1,7 +1,91 @@
 # HANDOFF — GHU Lab
 
-> State at 2026-09-04. The section below is the newest; the earlier handoffs follow it
-> unchanged and are still the map of the code.
+> State at 2026-09-04 (second pass of the day). The section below is the newest; the
+> earlier handoffs follow it unchanged and are still the map of the code.
+
+## 2026-09-04 (second) — the twenty-four errors had four sources, and none of them was a section
+
+**Build green across 36 harnesses, 1 919 checks; `drive.mjs` 157/157; site 28 ok; `layout.mjs` 0 to
+fix; `extremes.mjs` 432 clean renders; `leaks.mjs` nothing grows; console 0, in the standalone and
+in the site's copy. STILL NOT DEPLOYED — the decision is below, not the blocker.**
+
+### THE FIRST THING TO KNOW: the baseline was measured, and the answer was "not yours"
+
+The previous pass could not say whether its 24 console errors were new, because the comparison run
+was the `git stash` that went red. A worktree at `90a9b4a` — build, shoot, count — says **24 there
+too**. Pre-existing, and the papers section never touched a tower. That is the whole content of the
+first open item, and it took four minutes; it should have been the first thing done, not the
+handover.
+
+### The instrument the measurement needed: `build/leaks.mjs`
+
+`shoot.mjs` prints the message of an exception and drops the stack. Printing the whole
+`exception.description` named the line in one run: `predict_section`'s **`resize` listener** calling
+`_tower` on a canvas that was gone. But that is one locus and the shape is a class, so the question
+was made measurable instead of chased: **walk the rail twice and ask the browser, through
+`DOMDebugger.getEventListeners`, how many handlers hang off `window` and `document` after each
+pass.** The claim it gates is one sentence — *the second walk must add none* — and it found three
+more sources than the console did.
+
+At `90a9b4a`:
+
+```
+on load        window   4      after walk 1   41      after walk 2   78      27 errors
+resize 5→8 · pointerup 11→22 · pointercancel 11→22 · mousemove/touchmove/mouseup/touchend 3→6
+```
+
+Now: `4 → 17 → 17`, nothing grows, 0 errors. **+37 listeners per walk of the rail, from four
+places, and only one of them ever threw anything.**
+
+### The four, and they are four spellings of one mistake
+
+- **`predict_section`'s `resize`.** The one that threw. `init` runs on every mount, so the listener
+  survived the mount — and it guarded on `this._P`, **the model, which persists**, rather than on
+  the canvas, **which the shell replaces with `innerHTML` the moment the reader leaves**. It was
+  also redundant: `app.js` already re-renders every section on resize and `render` ends by calling
+  both `_tower` and `_reach`. Deleted, and both functions now return when their canvas is not
+  there — *a guard in the caller is a hypothesis missing from the function*, and this one was wrong
+  for every caller that was not `render`.
+- **`tower3dControl`.** Four `window` listeners **per call**, and `spectrum5d` calls it from
+  `render`, which runs on every change of the model. The three moving handlers are now installed
+  once for the page over a single record of what is under the pointer; the per-canvas ones stay as
+  property assignments, which a replaced node takes with it.
+- **`attachSurface`.** `pointerup`/`pointercancel` per attach — eleven panels, so twenty-two after
+  two walks. It has had a `detach()` since it was written and **nobody has ever called it**. One
+  pair for the page now, over a registry that drops a canvas the shell has replaced rather than
+  calling it.
+- **`mountFibrePanels`.** A `resize` per attach. A flag on the pair does not fix it, because
+  `bcclass` and `orbifold` build their pair **inside `init`** — a new object every visit. The
+  registry is keyed by the id of the plan canvas instead: the newest instance owns the ids, which is
+  also the only one with anything to draw.
+
+`torus_panels` had the same shape with a comment above it that said *"wired once"*. It was only a
+comment until something counted. Its `dragMap` moved onto `P` at the same time: wire the ender once
+and leave the flag local and every drag after the first mount never ends.
+
+### And the towers had never been dragged
+
+Both tower canvases say *"drag to turn"* and no gate had ever turned one — the caption was the only
+evidence the feature existed, which is a bad place to be on the day you rewrite the wiring under it.
+`drive.mjs` 153 → **157**: each tower dragged through the DevTools Input domain, then the section
+left and re-entered and dragged again, because the precise way this change could break the feature
+is a stale closure that keeps the FIRST canvas. Two failures paid for on the way in: a press
+dispatched at coordinates below the window lands on nothing (scroll it into view **before** reading
+the rectangle), and `registry.js` hands the shell a **spread copy** of each section, so `this` in
+`render` is the copy and `_towerState` does not live on the module's own object.
+
+### Left open
+
+1. **NOT DEPLOYED.** `ghu-explorer` still has none of this pass or the papers one. The blocker the
+   previous handoff named is settled; the deploy itself is Carles' call, and it is **two pushes**.
+2. `leaks.mjs` is run by hand, like `layout.mjs` and `extremes.mjs` — it needs Chromium and about a
+   minute and a half. It is the cheapest of the three; whether any of them becomes a build gate is
+   still Carles' call.
+3. Unchanged: the sweep filtering on the **vacuum** content rather than the symmetric point's; the
+   Higgs mass from V″ with its normalisation anchored, which `sun5dHessian` and the KLY rows have
+   most of the machinery for; and `sp5ZeroModes` hardwiring η₁ = +1, so a lone bulk scalar at
+   (η₀, η₁) = (+,−) cannot be written.
+4. Whether the Kubo–Lim–Yamashita eq. (35) reading goes to C. S. Lim has not been started.
 
 ## 2026-09-04 — four published models against one engine, and one of their equations differs
 
@@ -84,7 +168,10 @@ Whether any of this goes to C. S. Lim is Carles' call and has not been started.
 
 ### Left open, and this is what the next session starts on
 
-1. **`shoot.mjs` reports 24 console errors** — `TypeError: Cannot read properties of null (reading
+1. ~~**`shoot.mjs` reports 24 console errors**~~ **DONE 2026-09-04 (second pass)** — measured
+   against a clean worktree at `90a9b4a` (pre-existing, as suspected), traced to four leaking
+   registrations rather than one, fixed, and gated by the new `build/leaks.mjs`. Original text:
+   **`shoot.mjs` reports 24 console errors** — `TypeError: Cannot read properties of null (reading
    'parentElement')`, one per section switch, from `tower3dControl` in `src/view/tower3d.js`, which
    adds `window` mousemove/touchmove/mouseup listeners on **every render and never removes them**;
    the stale closures then redraw a canvas that is gone. It is almost certainly **pre-existing and
@@ -93,7 +180,10 @@ Whether any of this goes to C. S. Lim is Carles' call and has not been started.
    build, shoot, count), then fix `tower3dControl` to register once or to remove its listeners.
 2. **NOT DEPLOYED.** `ghu-lab` is committed and pushed; `ghu-explorer` has NOT received this. Do
    not publish until (1) is settled — and remember it is **two pushes, not one**.
-3. `build/layout.mjs` and `build/extremes.mjs` have not been run on the new section. They need
+3. ~~`build/layout.mjs` and `build/extremes.mjs` have not been run on the new section.~~ **DONE
+   2026-09-04 (second pass)**: `layout.mjs` 0 to fix and 16 boxes that scroll, none of them the
+   papers table; `extremes.mjs` 432 clean renders. Original text: `build/layout.mjs` and
+   `build/extremes.mjs` have not been run on the new section. They need
    Chromium and ~7 minutes each, and the section ships a wide five-column table.
 4. Unchanged from before: the sweep filtering on the **vacuum** content rather than the symmetric
    point's (stages 1–3 of `sweep5d.mjs` all read `sun5dBlocks` of the written boundary condition,

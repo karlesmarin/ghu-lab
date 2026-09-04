@@ -28,6 +28,8 @@ The deployed page is a build artifact. This is where it comes from, and why it s
                                  # every width, and every state: help open, demo running
 🧪  node   build/extremes.mjs    # the states no gate visits: cleared, one multiplet, every slot
                                  # at its ceiling, boundary conditions at the corners
+🧹  node   build/leaks.mjs       # what the page KEEPS: walks the rail twice and counts the
+                                 # listeners on window and document — the second walk must add none
 ✅  node   tests/run.mjs         # the built page against the Python engine of Part VII
 ```
 
@@ -68,6 +70,7 @@ The ones that carry weight are the ones an outside computation could lose:
 | 🖱️ `build/drive.mjs` | the panels answer a **real mouse** through the DevTools Input domain, not events dispatched from inside the page — including the buttons that write files, the permalinks that make a page sendable (**with the empty model, which is the case that was broken**), the class-mate click that must leave the vacuum's verdicts standing, the published-model label that must go the moment any dial moves, and the rule that no verdict box in any of the 26 sections may open holding a dash |
 | 📏 `build/layout.mjs` | **what a reader sees and no other gate can**: anything whose content is wider than the box that holds it, in every section, at several widths, and in every state — how-to open, each help bubble open, the demo running. It tells apart a box that scrolls, a box that **clips** (a column is simply gone) and a box that truncates with an ellipsis and can give the text back through its `title`. Written the day a reader reported a table running off the edge of a card; it found eleven such boxes across four sections, all from one CSS rule that was scoped to phones |
 | 🧪 `build/extremes.mjs` | **the states no gate visits**: every family cleared, a single multiplet, every slot at its ceiling, and boundary conditions at the corners of the block simplex — at a desktop width and at 380 px. It looks for the six ways a template literal says it was handed something it did not expect (`NaN`, `undefined`, `[object Object]`, `Infinity`, `null`, an unresolved `${…}`), for a section that rendered nothing, and for a verdict box that ran and decided nothing. 416 (section, state, width) renders |
+| 🧹 `build/leaks.mjs` | **what the page keeps**. Every other tool asks whether a section is right when it is on screen; this one asks what a section leaves behind when it is not. It walks the rail twice and asks the browser itself, through `DOMDebugger.getEventListeners`, how many handlers hang off `window` and `document` after each pass — and fails if the second walk added any. It was written because 24 console errors of one kind had no locus: they came from four different places that all registered a `window` listener per mount or per render and never removed it, so a resize later redrew a canvas the shell had already replaced. Before: 4 → 41 → 78 listeners, 27 errors. After: 4 → 17 → 17, and none |
 
 Every guard here has been fired at least once by breaking something on purpose. A guard that has
 never failed is not a guard, and `HANDOFF.md` carries the index of what each one cost.

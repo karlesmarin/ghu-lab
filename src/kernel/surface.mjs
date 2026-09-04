@@ -362,6 +362,30 @@ export function coalesced(fn, { rescue = 120 } = {}) {
  *
  * Returns { detach, mode(m), reset() }.  `detach` matters: a section is torn down and rebuilt when
  * the model changes, and a listener left on a dead canvas keeps the old model alive behind it. */
+/* THE END OF A DRAG IS A PAGE EVENT, AND SO IS ITS LISTENER.  A drag that leaves the panel must
+ * still end when the button comes up somewhere else, which is why the two enders live on `window`
+ * — but `attachSurface` is called from a section's `init`, which runs again on every mount, and
+ * a pair added per attach is a pair that is never removed: `build/leaks.mjs` measured twenty-two
+ * of them after two walks of the rail where eleven panels exist.  One pair for the page, then, and
+ * a registry of the panels that want to hear it; a canvas the shell has replaced is dropped rather
+ * than called, so the registry is the size of what is on screen and not of the session. */
+const SURFACE_UPS = new Set();
+let SURFACE_WINDOW = false;
+
+function surfacePrune() {
+  for (const r of [...SURFACE_UPS]) if (r.canvas && r.canvas.isConnected === false) SURFACE_UPS.delete(r);
+}
+
+function surfaceWindow() {
+  if (SURFACE_WINDOW) return;
+  /* the smoke harness runs this file in node with no window; a panel there simply does not drag */
+  if (typeof window === "undefined" || typeof window.addEventListener !== "function") return;
+  SURFACE_WINDOW = true;
+  const end = () => { surfacePrune(); for (const r of SURFACE_UPS) r.up(); };
+  window.addEventListener("pointerup", end);
+  window.addEventListener("pointercancel", end);
+}
+
 export function attachSurface(canvas, view, { onPick, onView, pick, width, height,
                                              mode = "move" } = {}) {
   const home = { az: view.az, el: view.el, h: view.h };
@@ -416,11 +440,13 @@ export function attachSurface(canvas, view, { onPick, onView, pick, width, heigh
   canvas.addEventListener("wheel", wheel, { passive: false });
   canvas.addEventListener("dblclick", dbl);
   canvas.addEventListener("keydown", key);
-  /* On the WINDOW, not the canvas, and named as such: a drag that leaves the panel must keep
-   * working and must still end when the button comes up somewhere else.  Spelled `window.` rather
-   * than bare so that a headless harness with a stubbed window can run this file at all. */
-  window.addEventListener("pointerup", up);
-  window.addEventListener("pointercancel", up);
+  /* On the WINDOW, not the canvas: a drag that leaves the panel must keep working and must still
+   * end when the button comes up somewhere else.  Through the page-wide pair above, so that
+   * mounting this panel again does not add a second one. */
+  surfaceWindow();
+  surfacePrune();
+  const registration = { canvas, up };
+  SURFACE_UPS.add(registration);
 
   return {
     reset,
@@ -431,8 +457,7 @@ export function attachSurface(canvas, view, { onPick, onView, pick, width, heigh
       canvas.removeEventListener("wheel", wheel);
       canvas.removeEventListener("dblclick", dbl);
       canvas.removeEventListener("keydown", key);
-      window.removeEventListener("pointerup", up);
-      window.removeEventListener("pointercancel", up);
+      SURFACE_UPS.delete(registration);
       up();
     },
   };

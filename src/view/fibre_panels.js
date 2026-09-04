@@ -72,6 +72,24 @@ export function stepField(grid) {
   return { field: heightField(out, NX, NY), NX, NY, miss, hi, aspect: [nx, ny] };
 }
 
+/* ONE RESIZE LISTENER FOR THE PAGE, AND ONE ENTRY PER PANEL.  Two sections build their pair inside
+ * `init`, which runs on every mount, so the pair itself is a new object each visit — a flag on it
+ * cannot make anything happen once.  The registry is keyed by the id of the plan canvas instead:
+ * a section mounted again writes over its own entry, because the two instances share the ids and
+ * only the newest one has anything to draw.  Measured by `build/leaks.mjs`, which walks the rail
+ * twice and fails if the second walk adds a listener. */
+const FIBRE_LIVE = new Map();          /* ids.map -> { drawPlan, drawRelief } */
+let FIBRE_WINDOW = false;
+
+function fibreWindow() {
+  if (FIBRE_WINDOW) return;
+  if (typeof globalThis === "undefined" || typeof globalThis.addEventListener !== "function") return;
+  FIBRE_WINDOW = true;
+  globalThis.addEventListener("resize", () => {
+    for (const p of FIBRE_LIVE.values()) { p.drawPlan(); p.drawRelief(); }
+  });
+}
+
 /* The pair.  `cfg.ids` names the two canvases and the caption; `cfg.field()` returns the current
  * fibre field, and `cfg.onPick(cell)` is told which class the reader pointed at. */
 export function mountFibrePanels(cfg) {
@@ -276,9 +294,9 @@ export function mountFibrePanels(cfg) {
           },
         });
       }
-      if (typeof globalThis.addEventListener === "function") {
-        globalThis.addEventListener("resize", () => { drawPlan(); drawRelief(); });
-      }
+      /* the page's one resize listener, and this pair as the current occupant of its ids */
+      fibreWindow();
+      FIBRE_LIVE.set(ids.map, { drawPlan, drawRelief });
     },
   };
 }

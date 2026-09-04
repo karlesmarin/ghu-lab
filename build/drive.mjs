@@ -795,6 +795,54 @@ H("the simulator — HHKY's SU(3) content, the table against measurement, and bo
 }
 await shot("7-simulator");
 
+/* ---- the towers turn, and they still turn on the SECOND visit ---------------------------- */
+/* Both tower canvases say "drag to turn" and until now nothing ever dragged one — the caption was
+ * the only evidence the feature existed.  It is driven here because the wiring underneath it was
+ * rewritten: the three moving handlers used to be registered on `window` once per call, which left
+ * one live closure per render holding a canvas the shell had already replaced.  They are now
+ * registered once for the page, over a single record of what is under the pointer, and the way
+ * that change could break the feature is precise — a stale closure keeps the FIRST canvas and the
+ * second visit turns nothing.  So each tower is dragged, the section is left and re-entered, and
+ * it is dragged again. */
+H("the Kaluza–Klein towers turn under a real drag, and still turn after a remount");
+{
+  const turn = async (secId, canvasSel, readAz) => {
+    await js(`document.querySelector('#rail a[data-id="${secId}"]').click(); true`);
+    await sleep(1200);
+    /* the towers sit far down their sections, and a press dispatched at viewport coordinates that
+     * are off the bottom of the window lands on nothing at all — the canvas has to be brought
+     * into view before its rectangle is read, not after */
+    await js(`document.querySelector(${JSON.stringify(canvasSel)})?.scrollIntoView({ block: "center" }); true`);
+    await sleep(400);
+    const r = await rect(canvasSel);
+    if (!r || !r.w) return null;
+    const az0 = await js(readAz);
+    await drag(r.x + r.w * 0.5, r.y + r.h * 0.5, r.x + r.w * 0.5 + 90, r.y + r.h * 0.5);
+    const az1 = await js(readAz);
+    return { az0, az1, moved: Math.abs(az1 - az0) };
+  };
+  /* 90 px at the control's 0.01 rad/px is 0.9; anything above a tenth of that is a turn and not a
+   * rounding, and nothing else on the page writes these two numbers. */
+  const pr1 = await turn("predict", "#prTower", `PRED_S.az`);
+  ok("dragging the simulator's tower turns it", pr1 && pr1.moved > 0.5, JSON.stringify(pr1));
+  await js(`document.querySelector('#rail a[data-id="sun5d"]').click(); true`);
+  await sleep(700);
+  const pr2 = await turn("predict", "#prTower", `PRED_S.az`);
+  ok("and it still turns after leaving the section and coming back",
+     pr2 && pr2.moved > 0.5 && Math.abs(pr2.az0 - pr1.az1) < 1e-9, JSON.stringify(pr2));
+
+  /* the rail holds a SPREAD COPY of each section (`registry.js`), so `this` inside render is the
+   * copy and not the module's own object — the tilt lives on the entry the shell actually runs */
+  const spAz = `SECTIONS.find((s) => s.id === "spectrum5d")._towerState.az`;
+  const sp1 = await turn("spectrum5d", "#spTower3d", spAz);
+  ok("dragging the spectrum's tower turns it", sp1 && sp1.moved > 0.5, JSON.stringify(sp1));
+  await js(`document.querySelector('#rail a[data-id="sun5d"]').click(); true`);
+  await sleep(700);
+  const sp2 = await turn("spectrum5d", "#spTower3d", spAz);
+  ok("and so does it — this is the one whose control is re-wired on every render",
+     sp2 && sp2.moved > 0.5, JSON.stringify(sp2));
+}
+
 /* ---- the how-to: every section carries one, and it OPENS ---------------------------------- */
 H("every section opens with a how-to, and pressing it shows steps");
 {

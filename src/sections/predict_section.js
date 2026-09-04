@@ -135,7 +135,13 @@ const PRED_SECTION = {
     $("prProbe").onclick = () => { PRED_S.probe = true; ctx.refresh(); };
     $("prTheta").oninput = (e) => { PRED_S.theta = +e.target.value; PRED_S.probe = true; ctx.refresh(); };
     tower3dControl($("prTower"), PRED_S, () => this._tower(), $("prAz"), $("prEl"));
-    window.addEventListener("resize", () => { if (this._P) { this._tower(); this._reach(); } });
+    /* NO `resize` LISTENER HERE.  There was one, and it was the source of every console error the
+     * page had: `init` runs on each mount, so a listener per mount survived the mount, and it
+     * guarded on `this._P` — the model, which persists — rather than on the canvas, which the
+     * shell replaces the moment the reader leaves this section.  On the next resize it redrew a
+     * canvas that no longer existed.  The shell already re-renders every section on resize
+     * (`app.js`), and `render` ends by calling both `_tower` and `_reach`, so this listener never
+     * added anything but the leak.  `build/leaks.mjs` gates the shape. */
   },
 
   render(ctx) {
@@ -220,6 +226,9 @@ const PRED_SECTION = {
     const P = this._P; if (!P) return;
     const c = document.getElementById("prTower");
     const note = document.getElementById("prTowerNote");
+    /* the model outlives the section; the canvas does not.  A guard on `P` alone is a hypothesis
+     * about the caller, and it was wrong for every caller that was not `render`. */
+    if (!c || !note) return;
     if (!P.located) {
       const d = window.devicePixelRatio || 1; c.width = 300 * d; c.height = 60 * d; c.style.width = "300px"; c.style.height = "60px";
       const g = c.getContext("2d"); g.setTransform(d, 0, 0, d, 0, 0); g.fillStyle = "#888"; g.font = "13px sans-serif"; g.fillText("no scale set at this point", 10, 36);
@@ -243,6 +252,7 @@ const PRED_SECTION = {
   _reach() {
     const P = this._P; if (!P) return;
     const c = document.getElementById("prReach"), d = window.devicePixelRatio || 1;
+    if (!c) return;                                   /* same as `_tower`: the canvas can be gone */
     /* the width comes from the card, so a half-width column does not overflow — and the harness
      * renders every section into a document with no layout, where clientWidth is undefined */
     const avail = c.parentElement && c.parentElement.clientWidth ? c.parentElement.clientWidth - 8 : 720;

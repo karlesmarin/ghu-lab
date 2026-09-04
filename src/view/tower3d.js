@@ -129,23 +129,51 @@ function tower3dLegend(rows) {
       `${r.field}</span>`).join("") + `</span>`;
 }
 
-/* wire the drag-to-turn and the two sliders once; returns a redraw function */
-function tower3dControl(canvas, state, redraw, azInput = null, elInput = null) {
-  let drag = null;
-  canvas.onmousedown = (e) => { drag = [e.clientX, e.clientY, state.az, state.el]; e.preventDefault(); };
-  canvas.ontouchstart = (e) => { const t = e.touches[0]; drag = [t.clientX, t.clientY, state.az, state.el]; };
+/* THE DRAG BELONGS TO THE PAGE, NOT TO THE CALL.  A turn must keep working when the pointer
+ * leaves the canvas and must end wherever the button comes up, so the three moving handlers live
+ * on `window` — and are therefore installed ONCE, here, rather than inside `tower3dControl`.
+ *
+ * The first version installed them per call, and `spectrum5d` calls the control from `render`,
+ * which runs on every change of the model, while `predict` calls it from `init`, which runs on
+ * every mount.  Each call left four live closures holding a canvas the shell had already replaced
+ * with `innerHTML`; `build/leaks.mjs` measures four more per walk of the rail.  A stale closure is
+ * not idle either: it redraws a node that is no longer in the document, which is where
+ * `Cannot read properties of null` came from.
+ *
+ * One record, because only one tower can be under the pointer at a time. */
+let TOWER3D_DRAG = null;      /* {state, redraw, azInput, elInput, x0, y0, az0, el0} while turning */
+let TOWER3D_WINDOW = false;
+
+function tower3dWindow() {
+  if (TOWER3D_WINDOW) return;
+  /* the smoke harness renders in node with no window; the panel simply does not turn there */
+  if (typeof window === "undefined" || typeof window.addEventListener !== "function") return;
+  TOWER3D_WINDOW = true;
   const move = (cx, cy) => {
-    if (!drag) return;
-    state.az = drag[2] + (cx - drag[0]) * 0.01;
-    state.el = Math.min(1.4, Math.max(0.15, drag[3] + (cy - drag[1]) * 0.01));
-    if (azInput) azInput.value = ((state.az % 6.28) + 6.28) % 6.28;
-    if (elInput) elInput.value = state.el;
-    redraw();
+    const d = TOWER3D_DRAG; if (!d) return;
+    d.state.az = d.az0 + (cx - d.x0) * 0.01;
+    d.state.el = Math.min(1.4, Math.max(0.15, d.el0 + (cy - d.y0) * 0.01));
+    if (d.azInput) d.azInput.value = ((d.state.az % 6.28) + 6.28) % 6.28;
+    if (d.elInput) d.elInput.value = d.state.el;
+    d.redraw();
   };
   window.addEventListener("mousemove", (e) => move(e.clientX, e.clientY));
-  window.addEventListener("touchmove", (e) => { if (drag) move(e.touches[0].clientX, e.touches[0].clientY); });
-  window.addEventListener("mouseup", () => { drag = null; });
-  window.addEventListener("touchend", () => { drag = null; });
+  window.addEventListener("touchmove", (e) => { if (TOWER3D_DRAG) move(e.touches[0].clientX, e.touches[0].clientY); });
+  window.addEventListener("mouseup", () => { TOWER3D_DRAG = null; });
+  window.addEventListener("touchend", () => { TOWER3D_DRAG = null; });
+}
+
+/* wire the drag-to-turn and the two sliders; safe to call again on the same canvas or on a new one */
+function tower3dControl(canvas, state, redraw, azInput = null, elInput = null) {
+  if (!canvas) return;
+  tower3dWindow();
+  /* assignments, not `addEventListener`: re-wiring the same node replaces the handler instead of
+   * adding a second one, and a node the shell has replaced takes its handlers with it */
+  const start = (cx, cy) => {
+    TOWER3D_DRAG = { state, redraw, azInput, elInput, x0: cx, y0: cy, az0: state.az, el0: state.el };
+  };
+  canvas.onmousedown = (e) => { start(e.clientX, e.clientY); e.preventDefault(); };
+  canvas.ontouchstart = (e) => { const t = e.touches[0]; start(t.clientX, t.clientY); };
   if (azInput) azInput.oninput = (e) => { state.az = +e.target.value; redraw(); };
   if (elInput) elInput.oninput = (e) => { state.el = +e.target.value; redraw(); };
 }

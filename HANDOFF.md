@@ -76,8 +76,11 @@ the rectangle), and `registry.js` hands the shell a **spread copy** of each sect
 
 ### Left open
 
-1. **NOT DEPLOYED.** `ghu-explorer` still has none of this pass or the papers one. The blocker the
-   previous handoff named is settled; the deploy itself is Carles' call, and it is **two pushes**.
+1. ~~**NOT DEPLOYED.**~~ **DEPLOYED**, same day, on Carles' go: `ghu-explorer` **a03beaf** carries
+   this pass and the papers one. Both pushes done (`ghu-lab` 1e9126e). The site also gained the
+   changelog entry this pass needed — `changes/2026-09-04-what-the-page-keeps-after-you-leave-a-section.md`
+   — which is why `ghu-lab` has a second commit after the fixes: the deploy copy is built from
+   `changes/*.md`, so an entry written after the build does not travel.
 2. `leaks.mjs` is run by hand, like `layout.mjs` and `extremes.mjs` — it needs Chromium and about a
    minute and a half. It is the cheapest of the three; whether any of them becomes a build gate is
    still Carles' call.

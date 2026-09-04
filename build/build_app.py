@@ -39,7 +39,7 @@ MODULES = ["selection.mjs", "calculator.mjs", "hierarchy.mjs", "anomalies.mjs", 
            "spectrum.mjs", "inverse.mjs", "census.mjs", "sun5d.mjs", "bcclass.mjs",
            "spectrum5d.mjs", "anomaly5d.mjs", "vacuum5d.mjs", "smcell.mjs", "brane.mjs",
            "yukawa.mjs",
-           "predict.mjs", "reading.mjs", "sweep5d.mjs", "dossier.mjs"]
+           "predict.mjs", "reading.mjs", "sweep5d.mjs", "dossier.mjs", "papers.mjs"]
 SECTIONS = ["torus_panels.js", "hierarchy_section.js", "inverse_section.js", "census_section.js",
             "atlas_section.js", "samepot_section.js",
             "anomalies_section.js", "escape_section.js", "screen_section.js",
@@ -47,6 +47,7 @@ SECTIONS = ["torus_panels.js", "hierarchy_section.js", "inverse_section.js", "ce
             "selection_section.js", "fived_section.js", "sun5d_section.js",
             "spectrum5d_section.js", "anomaly5d_section.js", "sweep5d_section.js",
             "dossier_section.js", "predict_section.js", "brane_section.js",
+            "papers_section.js",
             "bcclass_section.js", "orbifold_section.js", "relations_section.js", "blkt_section.js",
             "census_lit_section.js",
             "multiplets_section.js",
@@ -193,7 +194,8 @@ def main(argv=None):
                 ["node", "_test_brane.mjs"],
                 ["node", "_test_running.mjs"], ["node", "_test_predict.mjs"], ["node", "_test_yukawa.mjs"],
                 ["node", "_test_reading.mjs"],
-                ["node", "_test_sweep5d.mjs"], ["node", "_test_latex.mjs"], ["node", "_test_blkt.mjs"], ["node", "_test_census_lit.mjs"],
+                ["node", "_test_sweep5d.mjs"], ["node", "_test_papers.mjs"],
+                ["node", "_test_latex.mjs"], ["node", "_test_blkt.mjs"], ["node", "_test_census_lit.mjs"],
                 ["node", "_test_dossier.mjs"],
                 # the golden suite that SHIPS with the artifact: the built page against the
                 # Python engine of Part VII.  It runs here too, so the deployed copy can never

@@ -452,6 +452,22 @@ const HELP_TERMS = {
       + "one, about the toric ideal itself, and the Z₄ tripod separates the two: local yes, "
       + "global no. Quoting one for the other is the misreading this page exists to prevent.",
   },
+  "anchor-verdicts": {
+    term: "three verdicts, and the amber one is the output",
+    body: "<b>Green</b>: the instrument returns what the paper prints. <b>Amber</b>: it does not — "
+      + "and the row names which of that paper's <i>own</i> equations agrees with which, and what "
+      + "moves as a result. <b>Grey</b>: outside this engine, said out loud, because a blank cell "
+      + "reads as a no and \"we did not compute it\" is not \"it does not hold\". A verdict that "
+      + "<i>changes</i> is what fails the build; a verdict that differs is what this page is for.",
+  },
+  "anchor-scope": {
+    term: "what each row was read at",
+    body: "Three of the four models are <b>supersymmetric</b> and this engine's one-loop potential "
+      + "is not, so their rows are parity linear algebra only — which boundary condition, which "
+      + "unbroken group, which zero modes — and never their dynamics. Kubo–Lim–Yamashita is not "
+      + "supersymmetric, which is why its potential, its vacuum and its Higgs mass can be anchored "
+      + "at all, and why it is the one where this engine can be wrong by a number.",
+  },
 };
 
 /* The mark, for a section to drop next to the word.  An unknown key renders NOTHING: a mark that

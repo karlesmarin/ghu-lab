@@ -541,6 +541,15 @@
        * touching the model.  Without this a section reaches for setN(0, 0), which is a no-op only
        * as long as nothing else clamps. */
       refresh() { render(); },
+      /* A section that WRITES the shared model needs to be able to send the reader to a panel that
+       * READS it — otherwise a "load this model" button is a button that appears to do nothing,
+       * because the panel it changed is somewhere else on the rail.  Same operation the rail
+       * performs, and it refuses an id that is not built rather than leaving a blank page. */
+      go(id) {
+        const s = SECTIONS.find((x) => x.id === id);
+        if (!s || s.ready === false) return false;
+        state.section = s.id; render(); return true;
+      },
       setEta(i, v) { state.eta[g][i] = v; render(); },
       setRole(i, v) { state.role[g][i] = v; render(); },
       get seed() { return state.seed[g]; },

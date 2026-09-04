@@ -34,6 +34,12 @@ const SECTIONS = [
    * because the family no longer is one, and the builder declares `holds()` so the header names
    * the group the reader typed instead of the one the shell is carrying. */
   { ...SUN5D_SECTION, group: "su3_hy", family: "5D on S¹/Z₂ · Haba–Yamashita" },
+  /* and the builder pointed at FOUR MODELS SOMEBODY ELSE PUBLISHED.  It sits immediately after the
+   * builder because its one action is to WRITE the builder's model — a reader loads Burdman-Nomura
+   * and then walks the four views below with it — and because it is the only section in this family
+   * whose subject is whether the engine is right: every statement those four papers print that this
+   * engine can compute, beside what it returns, with the disagreements shown rather than filtered. */
+  { ...PAP_SECTION, group: "su3_hy", family: "5D on S¹/Z₂ · Haba–Yamashita" },
   /* the same model the builder holds, read the other way: not its dynamics but its CONTENT.  It
    * shares the builder's state on purpose -- one model, two views. */
   { ...SPEC5D_SECTION, group: "su3_hy", family: "5D on S¹/Z₂ · Haba–Yamashita" },

@@ -1,7 +1,110 @@
 # HANDOFF — GHU Lab
 
-> State at 2026-09-03, fourth pass. The section below is the newest; the earlier handoffs follow it
+> State at 2026-09-04. The section below is the newest; the earlier handoffs follow it
 > unchanged and are still the map of the code.
+
+## 2026-09-04 — four published models against one engine, and one of their equations differs
+
+**Build green across 36 harnesses, 1 919 checks; site 28 ok. NOT DEPLOYED — see "left open" below.**
+
+### What was built
+
+`src/modules/papers.mjs` + `_test_papers.mjs` (114 checks) + `src/sections/papers_section.js`, the
+new section **Paper models**, sitting immediately after the SU(N) builder because its one action is
+to *write* the builder's model. Four published 5D gauge-Higgs models taken off their own pages,
+with **28 anchors**: 24 reproduced, 1 differing, 3 outside this engine and saying which
+representation or which file they would need.
+
+| model | letters | phases | anchors |
+|---|---|---|---|
+| Kubo–Lim–Yamashita SU(3), `Kubo:2001zc`, hep-ph/0111327 | (1,0,0,2) | 1 | 8 same, 1 differs |
+| Kawamura SU(5), `Kawamura:2000ev`, hep-ph/0012125 | (2,3,0,0) | 0 | 7 same |
+| Burdman–Nomura SU(6), `Burdman:2002se`, hep-ph/0210257 | (2,3,0,1) | 1 | 6 same, 2 outside |
+| Haba–Hosotani–Kawamura SU(5), `Haba:2003ux`, hep-ph/0309088 | (2,3,0,0) | 0 | 3 same, 1 outside |
+
+The three new sources are in `cite.mjs`, every field verified against INSPIRE
+(`api/arxiv/<eprint>`), with the titles **as printed on the papers' own first pages** rather than
+INSPIRE's ASCII-folded forms. `sun5dHessian` is new in `sun5d.mjs`: the exact analytic curvature of
+V, which is also half of the standing "Higgs mass from V″" item.
+
+### THE FIRST THING TO KNOW: the HANDOFF list had a paper that does not exist
+
+The item said *"Hosotani–Kobayashi SU(5)"*. `Hosotani:2008by` (arXiv:0812.4782) is **SO(5)×U(1) in
+Randall–Sundrum**, not SU(5) on S¹/Z₂, and this engine cannot touch it. Kawamura hep-ph/0012125 was
+substituted — the canonical SU(5) orbifold GUT, which `brane.mjs` already cites. And the same list's
+first item, *"the SM cell at the vacuum"*, was **already done** at commit `1e2dd4e`: `smCellNear`
+exists and dossier, predict, yukawa and the archived scan all use it. A carried-over list is a
+claim like any other and this one had two stale entries out of four.
+
+### The result: Kubo–Lim–Yamashita eq. (35)
+
+Their eq. (35), the Higgs mass-squared at their α = 0 vacuum, reads **(9 − N_f)** where their own
+eq. (33) differentiates to **(9 − 2N_f)**. Four things make it a reading and not a guess:
+
+- the same second derivative at their **other** vacuum reproduces their eq. (39) **exactly**, for
+  every N_f — so the machinery and the normalisation are right;
+- at **N_f = 0** eq. (35) agrees, which pins the prefactor 3g₄²ζ(3)/(64π⁴R²) and leaves the
+  fermion term as the only thing in question;
+- their **eq. (34)** is an independent witness: exact with the 4N_f of eq. (32), and wrong by a
+  factor of three with a 2N_f;
+- it is arithmetic on their own eq. (33): V″(0) = π²ζ(3)(18 − 4N_f).
+
+**Nothing in their paper moves.** α = 0 is the vacuum only for N_f ≤ 1, and both readings give a
+positive mass there. The difference first bites at N_f = 5, where ours makes α = 0 a local maximum
+and theirs a minimum — past the N_f ≥ 2 at which α = 1 is the global vacuum anyway. Read off the
+**rendered page** with PyMuPDF at 260 dpi, not a text extraction, because this house spent
+2026-08-30 proving a correct published formula wrong on a delimiter that extraction dropped.
+
+Their eq. (34) separately needs its printed lower limit **n = 1 read as n = 0**: with n = 1 the
+closed form is ~222× too small. The sign, which is all their argument uses, survives either way.
+
+Whether any of this goes to C. S. Lim is Carles' call and has not been started.
+
+### Two conventions, marked rather than hidden
+
+- **Chirality labels are mirrored.** Their eq. (28) puts the singlet in ψ_R and the doublet in ψ_L;
+  we return the opposite. Only the *relative* chirality is physical — the absolute labels follow
+  the γ₅ sign in their eq. (1), which is the opposite of `spectrum5d.mjs`'s — and the potential,
+  which cannot see γ₅, pins η = +1 either way and comes out exact. The anchor compares the pair.
+- **The split of η into (η₀, η₁).** For a hypermultiplet only the PRODUCT is physical, which is why
+  Burdman–Nomura's eqs. (38) AND (39) — ten parity assignments, both halves of one field — both
+  fall out of `{ rep: "anti", eta: −1 }` with nothing else set.
+
+### Three traps paid for this pass
+
+- **The inliner's collision guard fired**, correctly: `papers.mjs` declared its own `ZETA5` and
+  `bcclass.mjs` already had one. It imports it now. A constant declared twice can drift in one of
+  the two places.
+- **`ctx` had no way to change section**, so a "load this model" button was a button that appears
+  to do nothing — the panel it changes is elsewhere on the rail. `ctx.go(id)` added to `app.js`,
+  the same two lines the rail already performs, refusing an id that is not built.
+- **A `git stash` to measure a baseline left the tree half-reverted and the build RED.** Recovered
+  with `stash pop`, nothing lost, but the measurement never happened. Do not stash a working tree
+  to run a comparison build; build the baseline in a worktree or not at all.
+
+### Left open, and this is what the next session starts on
+
+1. **`shoot.mjs` reports 24 console errors** — `TypeError: Cannot read properties of null (reading
+   'parentElement')`, one per section switch, from `tower3dControl` in `src/view/tower3d.js`, which
+   adds `window` mousemove/touchmove/mouseup listeners on **every render and never removes them**;
+   the stale closures then redraw a canvas that is gone. It is almost certainly **pre-existing and
+   not from this pass** — nothing here draws a tower — but that was NOT measured, because the
+   baseline run is the stash that went red. **Measure it first** (a clean worktree at `90a9b4a`,
+   build, shoot, count), then fix `tower3dControl` to register once or to remove its listeners.
+2. **NOT DEPLOYED.** `ghu-lab` is committed and pushed; `ghu-explorer` has NOT received this. Do
+   not publish until (1) is settled — and remember it is **two pushes, not one**.
+3. `build/layout.mjs` and `build/extremes.mjs` have not been run on the new section. They need
+   Chromium and ~7 minutes each, and the section ships a wide five-column table.
+4. Unchanged from before: the sweep filtering on the **vacuum** content rather than the symmetric
+   point's (stages 1–3 of `sweep5d.mjs` all read `sun5dBlocks` of the written boundary condition,
+   and the cheap prefilter is **not** a superset — Hosotani reorders as well as breaks, so a model
+   whose vacuum has SU(3)×SU(2) can be thrown out by a filter applied where it does not sit); and
+   the Higgs mass from V″ with its normalisation anchored, which `sun5dHessian` and the KLY rows
+   now have most of the machinery for.
+5. Observed and not acted on: `sp5ZeroModes` takes one `eta` and hardwires η₁ = +1, which is right
+   for a Dirac fermion or a hypermultiplet (only the product is physical) but means a **lone bulk
+   scalar** at (η₀, η₁) = (+,−) cannot be written. Not a defect for any model in the registry;
+   worth deciding before somebody hits it.
 
 ## 2026-09-03 (fourth) — what a reader sees, and what no gate could see
 

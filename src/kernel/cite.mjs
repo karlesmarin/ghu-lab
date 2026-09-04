@@ -49,6 +49,40 @@ export const SOURCES = Object.freeze({
     short: "Haba-Hosotani-Kawamura",
     note: "the equivalence classes of boundary conditions",
   },
+  /* The three models the `Paper models` section loads.  Every field verified against INSPIRE
+   * (`api/arxiv/<eprint>`); the titles are the ones PRINTED on the papers' own first pages, not
+   * INSPIRE's ASCII-folded forms ("S**1 / Z(2)", "Triplet doublet"), because a title in a .bib
+   * lands in someone else's bibliography. */
+  KLY02: {
+    texkey: "Kubo:2001zc",
+    authors: ["M. Kubo", "C. S. Lim", "H. Yamashita"],
+    title: "The Hosotani mechanism in bulk gauge theories with an orbifold extra space $S^1/Z_2$",
+    journal: "Mod. Phys. Lett. A", volume: "17", year: 2002, pages: "2249-2264",
+    doi: "10.1142/S0217732302008988",
+    eprint: "hep-ph/0111327", archivePrefix: "arXiv", primaryClass: "hep-ph",
+    short: "Kubo-Lim-Yamashita",
+    note: "the SU(3) model whose potential, vacuum and Higgs mass this instrument reproduces",
+  },
+  BN02: {
+    texkey: "Burdman:2002se",
+    authors: ["G. Burdman", "Y. Nomura"],
+    title: "Unification of Higgs and gauge fields in five dimensions",
+    journal: "Nucl. Phys. B", volume: "656", year: 2003, pages: "3-22",
+    doi: "10.1016/S0550-3213(03)00088-9",
+    eprint: "hep-ph/0210257", archivePrefix: "arXiv", primaryClass: "hep-ph",
+    short: "Burdman-Nomura",
+    note: "the 5D SU(6) model with the two Higgs doublets in the gauge multiplet",
+  },
+  KAW00: {
+    texkey: "Kawamura:2000ev",
+    authors: ["Y. Kawamura"],
+    title: "Triplet-doublet splitting, proton stability and an extra dimension",
+    journal: "Prog. Theor. Phys.", volume: "105", year: 2001, pages: "999-1006",
+    doi: "10.1143/PTP.105.999",
+    eprint: "hep-ph/0012125", archivePrefix: "arXiv", primaryClass: "hep-ph",
+    short: "Kawamura",
+    note: "the SU(5) orbifold GUT: the boundary condition that splits triplet from doublet",
+  },
   ACG01: {
     texkey: "Arkani-Hamed:2001uol",
     authors: ["N. Arkani-Hamed", "A. G. Cohen", "H. Georgi"],

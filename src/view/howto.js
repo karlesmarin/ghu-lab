@@ -171,6 +171,13 @@ const HOWTO = {
             "Read the table, then the fermion masses; drag the landscape to turn it."],
     read: "No event is simulated: every mark is a predicted mass or a published bound. A vacuum at a symmetric point sets no scale and the page says so instead of inventing one.",
   },
+  papers: {
+    what: "Four models somebody else published, taken off their pages and run through this instrument's engine.",
+    steps: ["Pick one of the four; Kubo–Lim–Yamashita carries a dial, the number of triplet fermions.",
+            "Read the table: what the paper prints, then what this returns, then the verdict.",
+            "Press Load into the SU(N) builder and walk the spectrum, the ledger and the simulator on their model."],
+    read: "Three of the four are supersymmetric and this engine's potential is not, so their rows are boundary-condition and zero-mode statements only. An amber row disagrees with one printed equation, not with a paper, and names which of that paper's own equations agrees with which.",
+  },
   litcensus: {
     what: "The reading list behind the series: what each paper publishes, and which ones a person has actually read.",
     steps: ["Search or filter.", "Read the measured row: what the file contains and which signals fired.",

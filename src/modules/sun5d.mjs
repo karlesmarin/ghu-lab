@@ -222,6 +222,39 @@ export function sun5dV(terms, theta, windings = 600) {
   return total / 2;
 }
 
+/* THE CURVATURE, EXACTLY, IN THE SAME UNITS AS `sun5dV` — the Hessian ∂²(V/C)/∂θ_i∂θ_j.
+ *
+ * WHY IT IS NOT A FINITE DIFFERENCE.  V is a sum of cosines whose second derivative is another
+ * sum of cosines with a slowly-converging n⁻³ tail, so differentiating term by term is both exact
+ * and cheaper than a difference quotient that would have to fight the tail twice.  From
+ * V/C = ½ Σ_t m_t Σ_n n⁻⁵ (−1)^{n d_t} cos(nπ v_t·θ),
+ *
+ *     ∂²(V/C)/∂θ_i∂θ_j = −(π²/2) Σ_t m_t v_{t,i} v_{t,j} Σ_n n⁻³ (−1)^{n d_t} cos(nπ v_t·θ).
+ *
+ * WHAT IT IS FOR, AND WHAT IT IS NOT.  At a minimum this is the mass matrix of the Wilson-line
+ * scalars up to one overall constant — the Higgs mass in a gauge-Higgs model.  That constant
+ * carries the field normalisation and the 5D coupling, so this function deliberately returns the
+ * DIMENSIONLESS curvature and leaves the conversion to whoever states a convention: a mass in GeV
+ * off this number without a stated normalisation is a number with no instrument behind it.
+ * `papers.mjs` does the conversion for one published model and shows its arithmetic. */
+export function sun5dHessian(terms, theta, windings = 4000) {
+  const k = theta.length;
+  const H = [...Array(k)].map(() => new Array(k).fill(0));
+  for (const t of terms) {
+    let x = 0;
+    for (let i = 0; i < t.v.length; i++) x += t.v[i] * theta[i];
+    let sub = 0;
+    for (let n = 1; n <= windings; n++) {
+      const sign = t.d ? (n % 2 ? -1 : 1) : 1;
+      sub += sign * Math.cos(n * Math.PI * x) / n ** 3;
+    }
+    const w = -(Math.PI ** 2 / 2) * t.m * sub;
+    for (let i = 0; i < k; i++)
+      for (let j = 0; j < k; j++) H[i][j] += w * t.v[i] * t.v[j];
+  }
+  return H;
+}
+
 /* THE BRIDGE.  One phase, and the terms are the kernel's own (m, s, c) triples — so the closed
  * form, the five coordinates, the arithmetic laws, the census and the inverse map all apply to
  * whatever SU(N) model was just built.  The kernel's F has no ½, so the factor is carried here

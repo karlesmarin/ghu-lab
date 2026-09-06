@@ -120,6 +120,63 @@ So, using the machinery the instrument already has (`helpMark()`, `src/view/help
 - **Every empty panel says why it is empty.** `UNKNOWN` with one sentence beats a blank card, and
   it is the same rule the rest of the instrument already follows.
 
+### 1b · THE RECIPE CHAIN — the interaction model, borrowed from `tafagent`
+
+**This is the part that decides whether a researcher uses the section or reads it.** The rest of
+the instrument answers *"what is this model?"*; this section should answer *"I typed a boundary
+condition — now show me everything that follows, and show me how you got there."*
+
+`tafagent` already solved this shape for the TAF series and it is the house's own solution, so it
+is copied rather than reinvented. Its three parts, mapped onto this section:
+
+**Named recipes.** `tafagent` has X-1, X-2, X-3, X-5, X-19 and the research diagnostics X-21 to
+X-23, each a decision procedure with an identifier that can be cited in a letter. The conjugate
+section gets the same, and the identifier is what makes a result *quotable*:
+
+| id | what it decides | status |
+|---|---|---|
+| `C-1` | symmetry type of each twist, and therefore the real form: SO(N) or Sp(N/2) | `THEOREM` |
+| `C-2` | the class of this pair, and its members | `VERIFIED` once the quotient is in the module |
+| `C-3` | how many classes at this N, against the ordinary (N+1)² | `VERIFIED` |
+| `C-4` | the surviving A_mu and A_5 dimensions — the unbroken group and the Higgs directions | `VERIFIED` |
+| `C-5` | the KK tower from the Scherk–Schwarz phase, and the one-loop potential it generates | `UNKNOWN` until computed |
+| `C-6` | the same six numbers for the *ordinary* condition alongside, as a contrast | `VERIFIED` |
+
+**One card that runs them all.** `tafagent`'s **Profile** takes one input and fires five recipes at
+once. Here: type `N` and the two twists, press nothing, and `C-1` to `C-4` and `C-6` run on every
+keystroke — this is a browser doing linear algebra on matrices of size ≤ 24, so there is no reason
+to make anyone press a button. `C-5` stays behind an explicit run, because it is a winding sum.
+
+**And the Computation Chain, which is the real borrowing.** Every result shows *the steps*, each
+one collapsed to a line and expandable to: the formula, the inputs it received, the output, one
+sentence of interpretation, and **the citation for that step**. A researcher does not want a
+number; they want to find the step where their conventions and ours part company. For `C-1` the
+chain reads:
+
+```
+  1  sigma(X) = -P X* P^dagger                   the twist on A_mu     [AAF 2026 eq. (5)]
+  2  sigma^2 = id  =>  P P* = c . 1              consistency
+  3  conjugating (2)  =>  c = c*  =>  c = +/-1   antilinearity          <- the step that surprises
+  4  c = +1  =>  P = P^T  =>  SO(N)              real form              [standard]
+     c = -1  =>  P = -P^T =>  Sp(N/2)            quaternionic
+  5  dim so(5) = 10, measured on the projector    receipt: 10 of 24
+```
+
+Step 3 is the one a reader will stop at, and it is the one the ordinary case does not have — so it
+carries the contrast inline: *a linear twist admits all N phases of the centre; an antilinear one
+admits two.*
+
+**Guided demos, pre-filled.** `tafagent` ships walkthroughs rather than an empty form. Two here,
+each a permalink, each landing with the data already in:
+
+- *the same theory twice* — SU(5), the ordinary `[2,0,0,3]` and `[1,1,1,2]`, class 14 of 36 in both;
+- *the count that does not grow* — sweep N from 2 to 8 with both conditions side by side, and watch
+  `(N+1)²` climb while the conjugate count sits at 4.
+
+**And the retirement rule, which is the part most tools skip.** `tafagent` keeps X-21 callable and
+labels it **✗ RETIRED**, with the reason and the reference, because a tool's output is acted on
+rather than cited. Any recipe here that a later result kills stays reachable and stays labelled.
+
 ### 2 · THE CONJUGATE CONDITION *(the dial)*
 
 The input, and the condition printed above it in its own notation so nobody has to guess which

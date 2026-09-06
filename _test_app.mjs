@@ -456,6 +456,94 @@ ok("the model record carries what the user typed of the brane",
    /brane:\s*braneList\(group\)/.test(PAGE) && /cleanBrane\(/.test(PAGE));
 
 
+/* ---- the sections that hold their own model, and can now be sent -------------------------- */
+/* `registry.js` states the rule: a section that declares `holds()` carries something the shell's
+ * permalink does not know about, and until it is in the URL that section cannot be SENT to anyone.
+ * Thirteen sections declared `holds()` and three could travel, so the two panels a stranger most
+ * needs -- the class quotient and the builder -- could be described in a letter and not handed
+ * over.  These two run the trip for real, on the SHIPPED page: build a state, encode it, wipe the
+ * state to something else, decode, and require the model back field for field.  A string check
+ * would not have caught the shell's own 2026-09-03 bug, where eta and the role were simply absent
+ * from a link whose button promised "the whole state". */
+console.log("\n  the sections that hold their own model:");
+
+const sliceOf = (id, from, to) => {
+  const base = PAGE.indexOf(`id: "${id}"`);
+  if (base < 0) return null;
+  const a = PAGE.indexOf(from, base);
+  const b = PAGE.indexOf(to, a);
+  return a < 0 || b < 0 ? null : PAGE.slice(a, b);
+};
+
+/* the dials and their defaults travel together with the two methods: `decodeState` resets to them,
+ * so a harness that supplied its own would be testing something the page does not run */
+const constsOf = (first, last) => {
+  const a = PAGE.indexOf(first);
+  const b = PAGE.indexOf(last, a);
+  const c = PAGE.indexOf("\n};", b);
+  return a < 0 || b < 0 ? null : PAGE.slice(a, (c < 0 ? PAGE.indexOf(";", b) : c) + 3);
+};
+
+const runTrip = (name, constsFirst, constsLast, id, stateName, build, wipe, read) => {
+  const consts = constsOf(constsFirst, constsLast);
+  const methods = sliceOf(id, "  encodeState() {", "  html: `");
+  if (!consts || !methods) { ok(`${name}: encodeState/decodeState are in the shipped page`, false);
+                             return; }
+  ok(`${name}: encodeState/decodeState are in the shipped page`, true);
+  try {
+    const f = new Function(`${consts}\nconst SEC = {\n${methods}};\nreturn { SEC, S: ${stateName} };`);
+    const { SEC, S } = f();
+    build(S);
+    const want = JSON.stringify(read(S));          /* snapshot BEFORE anything is wiped */
+    const wire = SEC.encodeState();
+    /* the link is pasted into letters, so the only characters encodeURIComponent may touch are the
+     * separators it has always touched -- a `~` or `!` that came back as %7E would be the same
+     * class of defect as the plus that became %2B in the shell's own permalink */
+    ok(`${name}: the link carries nothing encodeURIComponent will mangle beyond , : and |`,
+       decodeURIComponent(encodeURIComponent(wire)) === wire &&
+       !/[&#=?%]/.test(wire), wire);
+    wipe(S);
+    SEC.decodeState(wire);
+    ok(`${name}: model -> encode -> wiped state -> decode returns the same model`,
+       JSON.stringify(read(S)) === want, `${JSON.stringify(read(S))} vs ${want}`);
+    /* AND THE OTHER HALF, which is the one the shell got wrong: a link must be a whole description
+     * and not a patch.  Decoding an EMPTY string over a dirtied state has to give the defaults. */
+    wipe(S);
+    SEC.decodeState("");
+    ok(`${name}: an empty link resets the dials rather than leaving what the tab held`,
+       JSON.stringify(read(S)) !== want);
+    /* and no string a reader can type may throw: a link is data from outside */
+    for (const junk of ["%", "o:", "~~~", "n:999999", "bc:-1,-1", "b:0,0,0,0", "u:x!y", "f:a!b!c"])
+      SEC.decodeState(junk);
+    ok(`${name}: hostile link text is dropped rather than thrown on`, true);
+  } catch (e) {
+    ok(`${name}: the round trip runs`, false, e && e.message);
+  }
+};
+
+runTrip("bcclass", "const BCC_S = {", "const BCC_DEFAULTS = ", "bcclass", "BCC_S",
+        (S) => { S.orbifold = "S1/Z2"; S.N = 5; S.bc = [1, 1, 1, 2];
+                 S.matter = { scalarF: { "++": 0 }, diracF: { "++": 0, "+-": 3 },
+                              diracA: { "++": 0 } }; },
+        (S) => { S.orbifold = "T2/Z3"; S.N = 3; S.bc = [3, 0, 0, 0, 0, 0, 0, 0, 0];
+                 S.matter = { scalarF: { "--": 7 }, diracF: {}, diracA: {} }; },
+        (S) => [S.orbifold, S.N, S.bc, (S.matter.diracF || {})["+-"] || 0]);
+
+runTrip("sun5d", "const SUN5D_S = {", "const SUN5D_DEFAULTS = ", "sun5d", "SUN5D_S",
+        (S) => { S.blocks = { nPP: 1, nPM: 3, nMP: 0, nMM: 2 };
+                 S.bulk = { "fund|1|dirac": 4, "anti|-1|scalar": 2 };
+                 S.brane = { "0|fund|0|-|L": { copies: 2, q: 0.5 } };
+                 S.probe = [0.4, 0.6]; },
+        (S) => { S.blocks = { nPP: 2, nPM: 0, nMP: 0, nMM: 2 }; S.bulk = { "adj|1|dirac": 9 };
+                 S.brane = {}; S.probe = [0.9, 0.1]; },
+        (S) => [S.blocks, S.bulk, S.brane, S.probe]);
+
+/* The whole point of the two above is one link, so the link is asserted rather than described. */
+ok("...and the builder's model is five sections' model, not one",
+   ["brane", "anomaly5d", "dossier", "spectrum5d"].every((s) =>
+     PAGE.includes(`id: "${s}"`)) && PAGE.includes("SUN5D_DEFAULTS"));
+
+
 /* ---- the catalogue, and the escape's price on it ---------------------------------------- */
 /* The five rows are their Table 1.  The catalogue block is the rest of the lattice, enumerated by
  * ceiling_ilp.py and certified there -- so what this harness can do is refuse to take any of it on

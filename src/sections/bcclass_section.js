@@ -37,6 +37,28 @@ const BCC_S = {
   plane: null,
 };
 
+/* THE DIALS ARE DECLARED ONCE, because the matter table and the permalink both walk them and a
+ * constant declared twice drifts in one of the two places -- the lesson `papers.mjs` paid for
+ * with its second `ZETA5`. */
+const BCC_MATTER_ROWS = [["scalarF", "complex scalar, fundamental"],
+                         ["diracF", "Dirac fermion, fundamental"],
+                         ["diracA", "Dirac fermion, antisymmetric"]];
+const BCC_ETAS = ["++", "+-", "-+", "--"];
+const BCC_MATTER_MAX = 20;
+
+/* `S1/Z2` carries a slash, and `encodeURIComponent` turns it into `%2F` in the middle of a link
+ * somebody pastes into a letter.  Same lesson as the plus that became `%2B` in the shell's own
+ * permalink: the token that travels is chosen so the address bar stays readable. */
+const BCC_ORB_CODE = { "S1/Z2": "s1z2", "T2/Z3": "t2z3" };
+
+/* the ceiling the N dial enforces, declared here so a LINK cannot walk past what the buttons
+ * allow -- T2/Z3 enumerates C(N+8,8) boundary conditions and a hostile N is a hung page */
+const BCC_MAX_N = { "S1/Z2": 16, "T2/Z3": 6 };
+
+/* what `decodeState` resets to before reading, so a link is a whole description of the panel and
+ * not a patch laid over whatever the tab was already holding */
+const BCC_DEFAULTS = { orbifold: "S1/Z2", N: 5, bc: [2, 0, 0, 3] };
+
 /* THE CLASS INVARIANT, and the coordinates that make its lattice complete.
  *
  * The only relation on S1/Z2 is [p,q,r,s] ~ [p-1,q+1,r+1,s-1], which leaves p-s and q-r alone, so a
@@ -60,6 +82,71 @@ const BCC_SECTION = {
     return `SU(${BCC_S.N}) · ${ORBIFOLDS[BCC_S.orbifold].label} · ${bcShow(BCC_S.bc)} → ` +
            `${bcUnbroken(BCC_S.bc)}` +
            (C ? ` · class ${C.of(BCC_S.bc) + 1} of ${C.nClasses}` : "");
+  },
+
+  /* THE DIALS TRAVEL, so a class can be SENT rather than described.
+   *
+   * The shell's per-group model says nothing about this panel: the orbifold, N, the boundary
+   * condition and the matter content live here and nowhere else.  Until they were in the URL the
+   * one thing this section exists to do -- show somebody that [2,0,0,3] and [1,1,1,2] are ONE
+   * theory -- could be asserted in a letter but not handed over, which is what `registry.js` says
+   * about any section that declares `holds()`.
+   *
+   * Separators: `~` between fields and `!` inside the matter entries, both of which
+   * `encodeURIComponent` leaves alone, so the link stays readable in an address bar and in a mail
+   * client.  `decodeState` resets every dial before reading, so a link is a whole description and
+   * not a patch over whatever the tab was holding -- the property `_test_app.mjs` asserts as a
+   * round trip. */
+  encodeState() {
+    const p = [`o:${BCC_ORB_CODE[BCC_S.orbifold]}`, `n:${BCC_S.N}`, `bc:${BCC_S.bc.join(",")}`];
+    const m = [];
+    for (const [k] of BCC_MATTER_ROWS)
+      for (const e of BCC_ETAS) {
+        const v = (BCC_S.matter[k] || {})[e] || 0;
+        if (v) m.push(`${k}!${e}!${v}`);
+      }
+    if (m.length) p.push("m:" + m.join(","));
+    return p.join("~");
+  },
+
+  decodeState(v) {
+    BCC_S.orbifold = BCC_DEFAULTS.orbifold;
+    BCC_S.N = BCC_DEFAULTS.N;
+    BCC_S.bc = BCC_DEFAULTS.bc.slice();
+    BCC_S.matter = { scalarF: { "++": 0 }, diracF: { "++": 0 }, diracA: { "++": 0 } };
+    BCC_S.cache = null;
+    /* the orbifold is read FIRST wherever it appears, because it is what bounds N and fixes how
+     * many cells a boundary condition has -- reading them in token order would let `n:16` past
+     * the T2/Z3 ceiling whenever the writer happened to put `n` before `o` */
+    const toks = String(v || "").split("~").map((t) => {
+      const i = t.indexOf(":");
+      return i < 0 ? null : [t.slice(0, i), t.slice(i + 1)];
+    }).filter(Boolean);
+    const orb = toks.find(([k]) => k === "o");
+    if (orb) {
+      const key = Object.keys(BCC_ORB_CODE).find((q) => BCC_ORB_CODE[q] === orb[1]);
+      if (key) BCC_S.orbifold = key;
+    }
+    for (const [k, x] of toks) {
+      if (k === "n") {
+        const n = parseInt(x, 10);
+        if (Number.isFinite(n) && n >= 1 && n <= BCC_MAX_N[BCC_S.orbifold]) BCC_S.N = n;
+      } else if (k === "bc") {
+        const a = x.split(",").map((s) => parseInt(s, 10));
+        if (a.length && a.every((z) => Number.isFinite(z) && z >= 0)) BCC_S.bc = a;
+      } else if (k === "m") {
+        for (const t of x.split(",")) {
+          const [row, eta, num] = t.split("!");
+          if (!BCC_MATTER_ROWS.some(([r]) => r === row) || !BCC_ETAS.includes(eta)) continue;
+          const c = parseInt(num, 10);
+          if (!Number.isFinite(c) || c < 0 || c > BCC_MATTER_MAX) continue;
+          BCC_S.matter = { ...BCC_S.matter, [row]: { ...(BCC_S.matter[row] || {}), [eta]: c } };
+        }
+      }
+    }
+    /* A BOUNDARY CONDITION THAT DOES NOT SUM TO N IS NOT REPAIRED HERE: `render` already replaces
+     * one whose total or length is wrong with `_defaultBC()`, so a mangled link degrades to the
+     * default rather than to a broken panel, and that repair stays in ONE place. */
   },
 
   html: `
@@ -486,9 +573,7 @@ const BCC_SECTION = {
   /* ---------------------------------------------------------------- the matter */
 
   _matter(ctx) {
-    const ROWS = [["scalarF", "complex scalar, fundamental"], ["diracF", "Dirac fermion, fundamental"],
-                  ["diracA", "Dirac fermion, antisymmetric"]];
-    const ETAS = ["++", "+-", "-+", "--"];
+    const ROWS = BCC_MATTER_ROWS, ETAS = BCC_ETAS;
     document.getElementById("bccMatter").innerHTML = ROWS.flatMap(([k, name]) =>
       ETAS.map((e) => {
         const v = (BCC_S.matter[k] || {})[e] || 0;
@@ -503,7 +588,7 @@ const BCC_SECTION = {
       b.onclick = () => {
         const [k, e] = b.dataset.m.split("|");
         const cur = { ...(BCC_S.matter[k] || {}) };
-        cur[e] = Math.max(0, Math.min(20, (cur[e] || 0) + +b.dataset.d));
+        cur[e] = Math.max(0, Math.min(BCC_MATTER_MAX, (cur[e] || 0) + +b.dataset.d));
         BCC_S.matter = { ...BCC_S.matter, [k]: cur };
         ctx.refresh();
       };

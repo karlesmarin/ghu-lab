@@ -35,11 +35,20 @@ const PAP_SECTION = {
   ready: true,
   modules: [],
 
+  /* THE HEADER HAS TO NAME WHICH PAPER AND AT WHICH KNOB, because this section is the one whose
+   * permalink gets pasted into letters to the people who wrote those papers.  It used to read
+   * "SU(3) · S¹/Z₂ · (1,0,0,2) → SU(2) × U(1) · 8 of 9 statements reproduced", which is the same
+   * line for four different papers and says nothing about the dial that decides the count: the two
+   * links that differ only in N_f produced headers a reader could not tell apart, and the
+   * difference between them -- 9 of 9 at N_f = 0 and 8 of 9 at N_f = 5 -- is the whole point of
+   * sending them.  Caught by `build/links.mjs` opening the two links it promises. */
   holds() {
     const m = paperById(PAP_S.model) || PAPER_MODELS[0];
     const b = paperRun(m, { Nf: PAP_S.Nf });
-    return `${m.group} · ${m.orbifold} · (${b.b.nPP},${b.b.nPM},${b.b.nMP},${b.b.nMM}) → ` +
-           `${sun5dUnbroken(b.b)} · ${b.same} of ${b.rows.length} statements reproduced`;
+    const knob = m.knob ? ` · ${m.knob.label} = ${PAP_S.Nf}` : "";
+    return `${m.label} · ${m.orbifold} · ` +
+           `(${b.b.nPP},${b.b.nPM},${b.b.nMP},${b.b.nMM}) → ${sun5dUnbroken(b.b)}${knob} · ` +
+           `${b.same} of ${b.rows.length} statements reproduced`;
   },
 
   html: `

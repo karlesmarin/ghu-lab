@@ -51,6 +51,14 @@ const SUN5D_S = {
   probe: [0.2, 0.2],
 };
 
+/* what `decodeState` resets to before reading a link, declared beside the state it mirrors so the
+ * two cannot drift: a permalink has to be a whole description of the model rather than a patch
+ * laid over whatever the tab was already holding */
+const SUN5D_DEFAULTS = {
+  blocks: { nPP: 1, nPM: 0, nMP: 0, nMM: 2 },
+  probe: [0.2, 0.2],
+};
+
 const SUN5D_SECTION = {
   id: "sun5d",
   label: "SU(N) builder",
@@ -65,6 +73,81 @@ const SUN5D_SECTION = {
     return `SU(${b.N}) · S¹/Z₂ · (${b.nPP},${b.nPM},${b.nMP},${b.nMM}) → ${sun5dUnbroken(b)} · ` +
            `${b.phases} Wilson-line phase${b.phases === 1 ? "" : "s"}` +
            (n ? ` · ${n} bulk field${n === 1 ? "" : "s"}` : " · gauge sector only");
+  },
+
+  /* THE BUILDER'S MODEL TRAVELS, AND IT IS FIVE SECTIONS' MODEL, NOT ONE.
+   *
+   * `SUN5D_S` is read by `sun5d`, `brane`, `anomaly5d`, `dossier` and `spectrum5d`, and written by
+   * the "load this model" button in `papers`.  It is not the shell's per-group model, so none of
+   * it was in the URL: you could press that button, land on a potential nobody else had ever
+   * drawn, and have no way to hand it to anyone.  That is the exact failure `registry.js` names
+   * for a section that declares `holds()`.
+   *
+   * IT GOES IN WHOLE OR NOT AT ALL.  Encoding the blocks but not the bulk content would make a
+   * link restore a DIFFERENT model from the one on screen when it was copied -- silently, which is
+   * the bug an outside reader found in the shell's own permalink on 2026-09-03 when eta and the
+   * matter role were left out of it.  So all four dials travel: blocks, bulk, brane and the probe.
+   *
+   * Separators are `~` between fields, `,` between entries and `!` between an entry's key and its
+   * value.  The keys themselves already contain `|` (`rep|eta|kind`, `fp|rep|blockA|blockB|chi`),
+   * which is why `|` is not used as one here; `~` and `!` survive `encodeURIComponent` untouched,
+   * so the link stays legible in an address bar and in a mail client. */
+  encodeState() {
+    const B = SUN5D_S.blocks, D = SUN5D_DEFAULTS;
+    const p = [`b:${B.nPP},${B.nPM},${B.nMP},${B.nMM}`];
+    const u = Object.entries(SUN5D_S.bulk).filter(([, m]) => m).map(([k, m]) => `${k}!${m}`);
+    if (u.length) p.push("u:" + u.join(","));
+    const f = Object.entries(SUN5D_S.brane).filter(([, r]) => r && r.copies)
+      .map(([k, r]) => `${k}!${r.copies}!${r.q === null || r.q === undefined ? "-" : r.q}`);
+    if (f.length) p.push("f:" + f.join(","));
+    if (SUN5D_S.probe[0] !== D.probe[0] || SUN5D_S.probe[1] !== D.probe[1])
+      p.push(`p:${SUN5D_S.probe[0]},${SUN5D_S.probe[1]}`);
+    return p.join("~");
+  },
+
+  decodeState(v) {
+    const D = SUN5D_DEFAULTS;
+    SUN5D_S.blocks = { ...D.blocks };
+    SUN5D_S.bulk = {};
+    SUN5D_S.brane = {};
+    SUN5D_S.probe = D.probe.slice();
+    for (const tok of String(v || "").split("~")) {
+      const i = tok.indexOf(":");
+      if (i < 0) continue;
+      const k = tok.slice(0, i), x = tok.slice(i + 1);
+      if (k === "b") {
+        const a = x.split(",").map((s) => parseInt(s, 10));
+        const N = a.reduce((s, z) => s + z, 0);
+        /* the same two conditions the dial enforces: no negative block, and 2 <= N <= 24.  A link
+         * that fails them is dropped whole rather than applied in part, so what comes back is the
+         * default model and not a half-built one. */
+        if (a.length === 4 && a.every((z) => Number.isFinite(z) && z >= 0) && N >= 2 && N <= 24)
+          SUN5D_S.blocks = { nPP: a[0], nPM: a[1], nMP: a[2], nMM: a[3] };
+      } else if (k === "u") {
+        for (const t of x.split(",")) {
+          const j = t.lastIndexOf("!");
+          if (j < 0) continue;
+          const key = t.slice(0, j), m = parseInt(t.slice(j + 1), 10);
+          if (!/^[a-z]+\|-?1\|(dirac|scalar)$/.test(key)) continue;
+          if (Number.isFinite(m) && m > 0 && m <= 30) SUN5D_S.bulk[key] = m;
+        }
+      } else if (k === "f") {
+        for (const t of x.split(",")) {
+          const q = t.split("!");
+          if (q.length !== 3) continue;
+          const [key, cs, qs] = q;
+          if (key.split("|").length !== 5) continue;
+          const c = parseInt(cs, 10);
+          if (!Number.isFinite(c) || c <= 0 || c > 20) continue;
+          const qv = qs === "-" ? null : Number(qs);
+          SUN5D_S.brane[key] = { copies: c, q: qs === "-" || !Number.isFinite(qv) ? null : qv };
+        }
+      } else if (k === "p") {
+        const a = x.split(",").map(Number);
+        if (a.length === 2 && a.every((z) => Number.isFinite(z) && z >= 0 && z <= 1))
+          SUN5D_S.probe = a;
+      }
+    }
   },
 
   html: `

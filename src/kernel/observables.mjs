@@ -99,23 +99,61 @@ export const OBSERVABLES = {
     missing: "the instrument does not compute the rate — the EXPERIMENT entry already says so, and"
       + " until it does there is no overlap to compare with anything",
   },
+  /* THE ONE ENTRY WITH A RESOLUTION, AND IT IS STILL NOT AN OVERLAP RESOLUTION.
+   *
+   * The window is the ATLAS+CMS combination Carson-Okada quote, and `higgsrate.mjs` reproduces
+   * their Table 1 from it: with the top KK tower alone, R_gg >= 0.89 puts M_KK above 1.32 TeV, and
+   * this repository gets 1.322.  So the number below came from a measurement and has been used to
+   * recover somebody's published bound -- which is what a sourced resolution should mean.
+   *
+   * And it changes NOTHING about the coupling verdicts, on purpose.  `resolutionOf: "rate"` makes
+   * `overlapVerdict` refuse it, because a window on a production rate is not a resolution on an
+   * overlap matrix: the map between them runs through a squared amplitude and phase space and is
+   * model-dependent.  The register is now one entry less empty and exactly as cautious.  That gap
+   * is the next piece of physics, not a missing citation. */
   higgs_couplings: {
-    what: "the Higgs boson's couplings to SM fields, as signal strengths",
-    channel: "pp -> h -> XX, all measured decay modes",
-    symmetries: "the SM gauge group; the strengths are ratios to the SM prediction",
+    what: "the Higgs production rate in gluon fusion, relative to the Standard Model",
+    channel: "gg -> h, as the ratio R_gg",
+    symmetries: "the SM gauge group; the ratio is to the SM prediction with the same final state",
     source: null,
-    hypothesis: "the light scalar of the model IS the observed 125 GeV state",
-    resolution: null,
-    missing: "the ATLAS+CMS combined signal strengths and their covariance are not in"
-      + " `experiment.mjs` yet; Carson-Okada (arXiv:1510.03092) use exactly these to bound the"
-      + " lightest bulk fermion at around 1 TeV, so that paper is where the numbers and the"
-      + " covariance would be read from",
+    hypothesis: "the light scalar of the model IS the observed 125 GeV state, and the only new"
+      + " coloured states in the loop are the ones this instrument lists",
+    resolution: 0.11,
+    resolutionOf: "rate",
+    resolutionSource: "0.89 <= R_gg <= 1.19, the ATLAS+CMS combined analysis as quoted by"
+      + " Carson-Okada arXiv:1510.03092 (their ref. [4]); the half-width of the lower half is"
+      + " 0.11, and only the lower edge binds because a KK tower is destructive",
+    reproduced: "higgsrate.mjs recovers their Table 1 last row, M_KK >= 1.32 TeV, getting 1.322",
+    missing: "to decide an OVERLAP this would have to be turned into a resolution on Z, which"
+      + " needs the derivation named in `rateToOverlap`. Until then every coupling verdict under"
+      + " this entry stays `not-computed` — now for a reason that has been demonstrated rather"
+      + " than assumed",
   },
 };
 
+/* A RESOLUTION IS A NUMBER ON SOME QUANTITY, AND WHICH ONE IS NOT OPTIONAL.
+ *
+ * The first version of this file typed `resolution` as a bare number and let `overlapVerdict`
+ * compare it with sigma_max of the overlap block.  That is wrong for every source it then listed.
+ * What a collider paper publishes is an uncertainty on a RATE -- a signal strength, a sigma x BR,
+ * a limit at a reference coupling -- and sigma_max is a number on the OVERLAP.  Substituting one
+ * for the other is a units error dressed as a verdict, and it is exactly the mistake this file was
+ * written to stop somebody else from making.
+ *
+ * So an entry declares `resolutionOf`, and the verdict function REFUSES to compare unless it reads
+ * "overlap".  Turning a rate uncertainty into an overlap resolution needs a derivation -- the rate
+ * is a squared amplitude through phase space, so the map is neither linear nor model-independent --
+ * and until that derivation exists and is named in `rateToOverlap`, the honest answer is
+ * `not-computed`.  Carles's own reading of Carson-Okada is the case in point: they publish
+ * 0.89 <= R_gg <= 1.19 and bounds in their Table 1, but INSIDE an SU(3)xU(1)' model with specific
+ * contents and boundary conditions. Reproducing one of their rows under their hypotheses comes
+ * first; only then can one ask which entries here admit that contrast. */
+export const RESOLUTION_KINDS = ["overlap", "rate", "mass", "lifetime"];
+
 /* An entry is only in the register if it says what it is, in what channel, under what symmetries,
- * where it came from, and either its resolution or why it has none.  Returns the list of faults,
- * empty when the entry is admissible — the harness turns a non-empty list into a red build. */
+ * where it came from, and either its resolution -- with the quantity it is a resolution ON -- or
+ * why it has none.  Returns the list of faults, empty when the entry is admissible; the harness
+ * turns a non-empty list into a red build. */
 export function registryFaults(key, e) {
   const faults = [];
   for (const field of ["what", "channel", "symmetries", "hypothesis"]) {
@@ -126,6 +164,15 @@ export function registryFaults(key, e) {
     faults.push(key + ": no resolution and no `missing` saying what would give it one");
   }
   if (e.resolution !== null && !(e.resolution > 0)) faults.push(key + ": resolution must be positive");
+  if (e.resolution !== null && !RESOLUTION_KINDS.includes(e.resolutionOf)) {
+    faults.push(key + ": a resolution must declare `resolutionOf` — one of "
+      + RESOLUTION_KINDS.join(", ") + ". A number with no quantity attached is how a rate"
+      + " uncertainty ends up compared with an overlap");
+  }
+  if (e.resolutionOf === "overlap" && !e.rateToOverlap) {
+    faults.push(key + ": an overlap resolution must name the derivation that produced it in"
+      + " `rateToOverlap` — no published number is an overlap resolution as printed");
+  }
   if (e.source === undefined) faults.push(key + ": source is undefined — use null deliberately");
   return faults;
 }
@@ -235,6 +282,14 @@ export function overlapVerdict(entry, Z, opts = {}) {
     return { verdict: "not-computed", sigmas, smax,
              why: "this operator has no declared resolution, so 'compatible with zero' has no"
                + " meaning here" + (entry && entry.missing ? ": " + entry.missing : "") };
+  }
+  /* THE UNITS GATE.  sigma_max lives on the overlap; a published uncertainty almost never does. */
+  if (entry.resolutionOf !== "overlap") {
+    return { verdict: "not-computed", sigmas, smax, resolution: res,
+             why: "the declared resolution is on the " + (entry.resolutionOf || "unstated")
+               + ", not on the overlap, and a resolution on a rate does not become one on Z by"
+               + " being compared with it — the map goes through a squared amplitude and phase"
+               + " space, and is model-dependent. Name the derivation in `rateToOverlap` first." };
   }
   /* THE INSTRUMENT'S OWN FLOOR.  Below it this routine cannot tell a zero from a small number, so
    * it says that rather than returning whichever side of the threshold the noise fell on. */

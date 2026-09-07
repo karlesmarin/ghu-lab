@@ -16,22 +16,25 @@
  * and is not pretended here."  `smCell` is that tool.  Nothing new is computed here; what is new is
  * that the two are put in the same row, which is the form a reader can falsify.
  *
- * TWO COLUMNS ARE OPEN, AND THEY ARE THE TWO THAT MATTER MOST.  They are printed with their reason
- * rather than left out, because a missing column reads as "no such thing":
+ * THE TWO HARD COLUMNS ANSWER, AND EACH ANSWERS LESS THAN ITS NAME SUGGESTS.  Both were open when
+ * this file was first written; what closed them was narrowing the question until it was one the
+ * instrument can settle exactly, and naming what stayed outside:
  *
- *   STABILITY.  A residual parity makes the lightest state carrying it stable, and that is where a
- *   dark-matter candidate would come from.  The mechanism is known in the literature — the KK
- *   parity of the orbifold's reflection, and the accidental Z_2 of a half-periodic field that
- *   Carson-Okada (arXiv:1510.03092) use — but the GENERAL criterion in this instrument's language
- *   is not derived: which subgroup of the space group survives as a symmetry of the vacuum, and how
- *   each letter transforms under it.  That is a derivation with its own gate, not a lookup, and
- *   guessing it would produce a column that looks right and is wrong on half the rows.
+ *   STABILITY is KK PARITY, and it is two exact conditions.  The reflection y -> piR - y swaps the
+ *   two fixed points, so it is a symmetry of the boundary condition exactly when the (+,-) and
+ *   (-,+) blocks have the same size; and it sends alpha -> -alpha, so a generic Wilson-line vacuum
+ *   BREAKS IT -- the Hosotani mechanism does.  Three verdicts, `none`, `broken-by-vacuum` and
+ *   `present`, each reached by a real configuration in the harness.  NOT CHECKED, and said rather
+ *   than assumed: at generic alpha the reflection composed with a gauge transformation taking
+ *   -alpha back to alpha could still be a symmetry, which needs the twist matrices.  So `present`
+ *   licenses "the lightest odd state is a CANDIDATE", never "it is stable": these are necessary
+ *   conditions and this file does not ship them as sufficient ones.
  *
- *   WIDTH AND CHANNELS.  The vertex is fixed by the framework itself — gauge and Yukawa are the
- *   same coupling in gauge-Higgs unification, which is the one genuine advantage here — but phase
- *   space, KK-number conservation and its violation at the fixed points have not been done in this
- *   instrument, and a wrong width does not look wrong.  It waits for an anchor: a published width
- *   or lifetime in this class to reproduce first, the way `papers.mjs` anchors everything else.
+ *   WIDTH is the CHANNEL CENSUS, because a rate needs a vertex and phase space and this file has
+ *   neither.  What it does instead is the falsifiable half: enumerate the open two-body channels,
+ *   imposing only kinematics and KK level, and NOT charge or colour when the Standard-Model cell is
+ *   not located -- so the list is an upper bound.  That is the useful direction: AN EMPTY UPPER
+ *   BOUND IS A THEOREM.  What remains missing is only the rate, and only that.
  *
  * AND "DOES NOT COUPLE" IS NEVER SAID.  Per `observables.mjs`: there is no unobservable in the
  * abstract, only "not distinguished by a declared set of operators at a declared resolution".  So
@@ -85,8 +88,27 @@ export function particleTable(b, content = {}, theta = [], opts = {}) {
     }
   }
   rows.sort((a, b2) => a.massR - b2.massR);
+
+  /* THE TWO COLUMNS, FILLED.  Both need the whole table, so they are a second pass: KK parity is a
+   * property of the content and the vacuum (one verdict, carried by every row, because it is not a
+   * per-state fact), and the channel census needs every lighter row to exist first. */
+  const parity = kkParity(b, ladder.rows, alphaOf(theta));
+  for (const r of rows) {
+    r.stability = { ...parity };
+    if (parity.verdict === "present") {
+      /* only then does a per-state parity exist, and only for the self-paired towers */
+      const selfPaired = r.twist[0] === r.twist[1];
+      r.stability.kkParity = selfPaired ? (r.level % 2 === 0 ? +1 : -1) : null;
+      if (!selfPaired) {
+        r.stability.kkParityWhy = "this tower is exchanged with its mirror by the reflection, so a"
+          + " single mode of it carries no definite parity; the combinations do.";
+      }
+    }
+    r.width = openChannels(rows, r);
+  }
+
   return {
-    rows, levels, frame, ladder, confront, cell,
+    rows, levels, frame, ladder, confront, cell, parity,
     scale: invR === null
       ? { located: false, why: confront.why }
       : { located: true, invRGeV: invR, mWR: ladder.mWR },
@@ -94,21 +116,151 @@ export function particleTable(b, content = {}, theta = [], opts = {}) {
   };
 }
 
-/* The two columns that are not computed, with the reason each carries into every row. */
+/* ------------------------------------------------------------------ STABILITY: KK parity
+ *
+ * WHAT IS ACTUALLY DERIVABLE HERE, and it is less than "which states are stable" and more than
+ * nothing.  On S^1/Z_2 the two fixed points are y = 0 and y = pi R, and the reflection
+ *
+ *     Rf :  y -> pi R - y
+ *
+ * exchanges them.  It is a symmetry of the GEOMETRY always.  It is a symmetry of the THEORY only
+ * if it maps the boundary condition to itself, and it acts on a field's twist by swapping the two
+ * parities: (e0, e1) -> (e1, e0).  So the first condition is combinatorial and exact:
+ *
+ *     the multiset of twists over the whole content must be invariant under (e0,e1) -> (e1,e0)
+ *
+ * The (+,+) and (-,-) towers are self-paired and their level-n modes pick up (-1)^n, which is KK
+ * parity; the (+,-) and (-,+) towers are exchanged, so they must appear in equal numbers or the
+ * reflection is not a symmetry at all.
+ *
+ * THE SECOND CONDITION IS THE VACUUM, AND IT IS THE ONE THAT USUALLY KILLS IT.  The reflection
+ * sends A_y -> -A_y, so it sends the Wilson-line phase alpha -> -alpha.  A vacuum at generic alpha
+ * is therefore NOT invariant, and KK parity is broken by the Hosotani mechanism itself.  Only the
+ * symmetric points survive it: 2*alpha integer.
+ *
+ * WHAT IS NOT CHECKED, AND IT IS NAMED RATHER THAN ASSUMED.  At generic alpha the reflection could
+ * still be a symmetry when COMPOSED with a gauge transformation taking -alpha back to alpha, which
+ * exists when the relevant automorphism is inner.  Deciding that needs the twist matrices and is
+ * not done here.  So a "broken" verdict below is: broken by the reflection alone, with that
+ * loophole stated.  A NECESSARY CONDITION IS NOT A SUFFICIENT ONE and this file does not ship it
+ * as one -- when both conditions hold the verdict is "present", and what that licenses is that the
+ * lightest odd state is a stability CANDIDATE, not that it is stable.
+ */
+export function kkParity(b, rows, alpha) {
+  /* THE BOUNDARY CONDITION FIRST, AND IT IS THE HALF AN EARLIER VERSION OF THIS FUNCTION MISSED.
+   * The asymmetry between the two fixed points lives in the BLOCK SIZES, not in the fields'
+   * intrinsic parities: P0 = diag(+1 x nPP+nPM, -1 x nMP+nMM) and P1 = diag(+1 x nPP+nMP, ...).
+   * Swapping the fixed points swaps P0 with P1, which exchanges the (+,-) block with the (-,+)
+   * one, so the gauge sector is invariant exactly when nPM = nMP.  Reading only the content's
+   * (e0,e1) twists -- which is what the first version did -- measures the eta assignment and is
+   * blind to this; an SU(3) condition (1,1,0,1) came out "present" when it has no reflection at
+   * all. */
+  if (b && (b.nPM !== b.nMP)) {
+    return { verdict: "none", why: "the reflection y -> piR - y swaps the two fixed points, so it"
+      + " exchanges the (+,-) block of the boundary condition with the (-,+) one; here they have"
+      + " sizes " + b.nPM + " and " + b.nMP + ", so the reflection is not a symmetry of the"
+      + " boundary condition and there is no KK parity." };
+  }
+  const key = (t) => t[0] + "," + t[1];
+  const count = new Map();
+  for (const r of rows) count.set(key(r.twist), (count.get(key(r.twist)) || 0) + (r.copies || 1));
+  const swapped = [];
+  for (const [k, v] of count) {
+    const [a, b2] = k.split(",").map(Number);
+    const other = count.get(b2 + "," + a) || 0;
+    if (v !== other) swapped.push(`(${a},${b2}) appears ${v} times and (${b2},${a}) ${other}`);
+  }
+  if (swapped.length) {
+    return { verdict: "none", why: "the boundary condition is symmetric between the fixed points,"
+      + " but the bulk content is not: " + swapped[0] + ". With no residual reflection there is no"
+      + " KK parity and nothing is stable by it." };
+  }
+  const symmetric = Math.abs(2 * alpha - Math.round(2 * alpha)) < 1e-9;
+  if (!symmetric) {
+    return { verdict: "broken-by-vacuum", why: "the boundary condition IS invariant under the"
+      + " reflection, but the reflection sends alpha -> -alpha and this vacuum sits at alpha = "
+      + alpha.toPrecision(6) + ", which is not a fixed point (2*alpha is not an integer). KK parity"
+      + " is broken by the Hosotani mechanism itself. Not checked: whether composing the reflection"
+      + " with a gauge transformation taking -alpha back to alpha restores it, which needs the"
+      + " twist matrices." };
+  }
+  return { verdict: "present", why: "the content is invariant under the reflection that swaps the"
+    + " fixed points, and the vacuum sits at a symmetric point, so KK parity survives: a mode of"
+    + " level n from a (+,+) or (-,-) tower carries (-1)^n. The lightest odd state is a stability"
+    + " CANDIDATE — necessary conditions, not a proof that it is stable." };
+}
+
+/* ------------------------------------------------------------------ WIDTHS: the channel census
+ *
+ * A WIDTH NEEDS A VERTEX AND PHASE SPACE AND THIS FILE HAS NEITHER.  What it can do instead is the
+ * half that is falsifiable without them: enumerate the channels that are OPEN, and notice when
+ * there are none.
+ *
+ * The list is deliberately an UPPER BOUND.  Only two things are imposed:
+ *
+ *     kinematics       m_i > m_j + m_k, on the masses in units of 1/R
+ *     KK level         n_i = n_j + n_k, reported separately from the rest, because the orbifold
+ *                      fixed points violate KK number and channels that need that violation are
+ *                      suppressed rather than forbidden
+ *
+ * Charge and colour are NOT imposed when the Standard-Model cell is not located at this vacuum,
+ * because then the quantum numbers do not exist to impose.  That makes the list too generous, and
+ * that is the useful direction: AN EMPTY UPPER BOUND IS A THEOREM.  A state with no kinematically
+ * open two-body channel cannot decay to two of the states in this table, whatever the couplings
+ * turn out to be, and that is a stability statement that does not depend on the missing physics.
+ *
+ * What stays open is only the RATE, and the reason is now one line long instead of a paragraph.
+ */
+export function openChannels(rows, self, opts = {}) {
+  const tol = opts.tol ?? 1e-9;
+  /* A MASSLESS STATE IS NOT "STABLE BECAUSE NOTHING IS LIGHT ENOUGH", IT IS MASSLESS.  Reporting
+   * the two as one word made the first run announce a stable photon-like mode as a finding, which
+   * is vacuous: there is nothing below zero to decay to and that says nothing about the model. */
+  if (self.massless) {
+    return { verdict: "massless", conserving: [], violating: [],
+             why: "a massless state has nothing lighter to decay into; that is its mass, not a"
+               + " statement about its couplings or about this table." };
+  }
+  const lighter = rows.filter((r) => r !== self && r.massR < self.massR - tol);
+  const conserving = [], violating = [];
+  for (let i = 0; i < lighter.length; i++) {
+    for (let j = i; j < lighter.length; j++) {
+      const a = lighter[i], b = lighter[j];
+      if (a.massR + b.massR >= self.massR - tol) continue;
+      const ch = { to: [channelLabel(a), channelLabel(b)], massR: a.massR + b.massR };
+      if (a.level + b.level === self.level) conserving.push(ch); else violating.push(ch);
+    }
+  }
+  if (!conserving.length && !violating.length) {
+    return { verdict: "no-open-channel", conserving, violating,
+             why: "no two states in this table are light enough to add up to this one, so it cannot"
+               + " decay to a pair of them whatever the couplings are. That is kinematics and it"
+               + " does not depend on the vertex — but it is a statement about THIS table: a"
+               + " channel into states the table does not carry is not excluded by it." };
+  }
+  return { verdict: "channels-open", conserving, violating,
+           why: conserving.length + " channel(s) conserve KK level and " + violating.length
+             + " need the fixed-point violation, which suppresses them rather than forbidding"
+             + " them. The list is an upper bound: charge and colour are not imposed"
+             + " when the Standard-Model cell is not located. What is still missing for a WIDTH is"
+             + " the vertex normalisation and phase space, and only that." };
+}
+
+const channelLabel = (r) => r.origin + " n=" + r.level + (r.offset ? " (x=" + r.offset.toFixed(4) + ")" : "");
+
+/* Kept for callers that ask what this table still cannot do; both columns now answer, and what is
+ * open is narrower and named. */
 export const OPEN_COLUMNS = {
   stability: {
-    verdict: "not-derived",
-    why: "a residual parity would make the lightest state carrying it stable, but the general"
-      + " criterion — which subgroup of the space group survives as a symmetry of the vacuum, and"
-      + " how each letter transforms under it — is not derived in this instrument. The mechanism is"
-      + " in the literature (KK parity; the accidental Z_2 of a half-periodic field used by"
-      + " Carson-Okada, arXiv:1510.03092); the general rule is not.",
+    verdict: "computed",
+    why: "KK parity, from the reflection that swaps the two fixed points: exact on the boundary"
+      + " condition, and broken by a generic Wilson-line vacuum. The loophole not checked is a"
+      + " compensating gauge transformation at generic alpha.",
   },
   width: {
-    verdict: "not-computed",
-    why: "the vertex is fixed by the framework (gauge and Yukawa are one coupling here), but phase"
-      + " space, KK-number conservation and its violation at the fixed points are not implemented."
-      + " It waits for a published width in this class to reproduce first.",
+    verdict: "channels-only",
+    why: "the open channels are enumerated and an empty list is a stability theorem; the RATE"
+      + " needs the vertex normalisation and phase space, which are not implemented.",
   },
 };
 
@@ -131,8 +283,9 @@ function makeRow(r, f, s, n, massR, invR, isGauge, cell, frame) {
     parities: { P5: r.twist[0], P5prime: r.twist[1], P6: null,
                 P6why: "this is a five-dimensional model: there is no sixth coordinate to have a"
                   + " parity. The column exists because a six-dimensional model has one." },
-    stability: OPEN_COLUMNS.stability,
-    width: OPEN_COLUMNS.width,
+    /* filled by the second pass in `particleTable`: both need the whole table */
+    stability: null,
+    width: null,
     couplings: couplingVerdicts(),
   };
 }
@@ -172,8 +325,14 @@ export function particleShow(t) {
   const scale = t.scale.located
     ? "1/R = " + (t.scale.invRGeV / 1000).toFixed(2) + " TeV"
     : "no scale (" + t.scale.why + ")";
-  const open = Object.keys(t.openColumns).join(" and ");
+  const stable = t.rows.filter((r) => r.width && r.width.verdict === "no-open-channel").length;
   return n + " rows to " + t.levels + " KK levels, " + zero + " of them massless; " + scale
-    + "; " + open + " are declared open, and every coupling verdict is `not-computed` because no"
-    + " observable in the register has a sourced resolution yet";
+    + "; KK parity " + t.parity.verdict + "; " + stable + " row(s) with no open two-body channel"
+    + " in this table; the rate is still not computed, and every coupling verdict is"
+    + " `not-computed` because no observable in the register has a resolution ON THE OVERLAP";
+}
+
+/* alpha from the vacuum: one phase on S^1/Z_2, and nothing is guessed when there is none. */
+function alphaOf(theta) {
+  return Array.isArray(theta) && theta.length ? theta[0] : 0;
 }

@@ -31,6 +31,14 @@ console.log("=".repeat(96));
 console.log("   observables.mjs — the declared set, and what a null overlap is allowed to mean");
 console.log("=".repeat(96));
 
+/* THE FIXTURE, AND IT HAS TO INVENT TWO THINGS TO EXIST AT ALL.  No entry in the register has an
+ * overlap resolution, because no published number is one as printed: a collider paper measures a
+ * RATE.  This object invents both the resolution and the derivation that would justify it, purely
+ * so the five words can be exercised.  That it cannot be built out of a real entry is not a gap in
+ * the test — it is the state of the register, and section 7 counts it. */
+const withRes = { ...OBSERVABLES.dijet_octet, resolution: 1.0, resolutionOf: "overlap",
+                  rateToOverlap: "none — a test fixture, not a derivation" };
+
 console.log("\n   1 -- THE REGISTER REFUSES AN ENTRY THAT DOES NOT DECLARE ITSELF\n");
 let allFaults = [];
 for (const [k, e] of Object.entries(OBSERVABLES)) allFaults = allFaults.concat(registryFaults(k, e));
@@ -43,6 +51,24 @@ const badFaults = registryFaults("decoy", { what: "x", channel: "y", symmetries:
 ok(badFaults.length === 1 && badFaults[0].includes("missing"),
    "and an entry with no resolution and no `missing` is refused",
    badFaults.join("; "));
+
+/* THE UNITS GATE, both halves.  A number with no quantity attached is how a rate uncertainty ends
+ * up compared with an overlap; and an entry that DOES claim an overlap resolution has to name the
+ * derivation, because no published number is one as printed. */
+const noKind = registryFaults("decoy2", { what: "x", channel: "y", symmetries: "z", hypothesis: "w",
+                                          resolution: 1.0, source: null });
+ok(noKind.some((f) => f.includes("resolutionOf")),
+   "a resolution with no declared quantity is refused", noKind.join("; ").slice(0, 90));
+const noDeriv = registryFaults("decoy3", { what: "x", channel: "y", symmetries: "z", hypothesis: "w",
+                                          resolution: 1.0, resolutionOf: "overlap", source: null });
+ok(noDeriv.some((f) => f.includes("rateToOverlap")),
+   "and an overlap resolution with no named derivation is refused too",
+   noDeriv.join("; ").slice(0, 90));
+const rateEntry = { ...OBSERVABLES.dijet_octet, resolution: 0.15, resolutionOf: "rate" };
+const rateVerdict = overlapVerdict(rateEntry, [[10, 0]]);
+ok(rateVerdict.verdict === "not-computed" && rateVerdict.why.includes("does not become one on Z"),
+   "and a resolution on a RATE never decides an overlap, however big the overlap is",
+   rateVerdict.why.slice(0, 88));
 
 console.log("\n   2 -- EVERY SOURCE IS A KEY THAT EXISTS, WITH ITS URL AND DATE\n");
 for (const [k, e] of Object.entries(OBSERVABLES)) {
@@ -95,7 +121,7 @@ ok(sn[2] < SIGMA_FLOOR * sn[0] && snr[2] < SIGMA_FLOOR * snr[0],
    + (snr[2] / snr[0]).toExponential(2) + ", floor " + SIGMA_FLOOR);
 
 /* AND THE FLOOR IS ENFORCED, not just documented: a resolution finer than it is refused. */
-const tooFine = overlapVerdict({ ...OBSERVABLES.dijet_octet, resolution: 1e-12 }, [[1, 0, 0]]);
+const tooFine = overlapVerdict({ ...withRes, resolution: 1e-12 }, [[1, 0, 0]]);
 ok(tooFine.verdict === "not-computed" && tooFine.why.includes("finer"),
    "and a resolution finer than the floor is refused rather than answered",
    tooFine.why.slice(0, 76));
@@ -114,7 +140,6 @@ ok(sph.every((x, i) => Math.abs(x - s0[i]) < 1e-12),
    sph.map((x) => x.toFixed(6)).join(", "));
 
 console.log("\n   5 -- THE FIVE VERDICTS, AND NO SIXTH\n");
-const withRes = { ...OBSERVABLES.dijet_octet, resolution: 1.0 };
 const seen = new Set();
 const cases = [
   ["not-computed", overlapVerdict(withRes, null)],
@@ -139,13 +164,25 @@ ok(subj.state && subj.operator && subj.channel && subj.symmetries && subj.hypoth
    "the subject carries the state, the operator, the channel, the symmetries and the context",
    subj.hypothesis.slice(0, 56) + "...");
 
-console.log("\n   7 -- WHAT THE REGISTER CANNOT DO YET, COUNTED RATHER THAN HIDDEN\n");
-const noRes = Object.entries(OBSERVABLES).filter(([, e]) => e.resolution === null);
-ok(noRes.length === Object.keys(OBSERVABLES).length,
-   "ALL " + noRes.length + " entries still lack a sourced resolution, so every state under them"
-   + " comes back `not-computed`",
-   "each says in `missing` which number would change that — that is the register's current state,"
-   + " not a bug");
+console.log("\n   7 -- WHAT THE REGISTER CANNOT DO YET, AS AN INVARIANT AND NOT AS A COUNT\n");
+/* AN EARLIER VERSION ASSERTED "ALL FIVE ENTRIES LACK A RESOLUTION", AND THAT WAS A CHECK ON THE
+ * STATE.  It went red the day one entry gained a sourced resolution -- which is progress, not a
+ * regression, and a suite that goes red on progress is measuring itself.  What must hold is the
+ * INVARIANT: no entry has a resolution on the OVERLAP, because no published number is one. */
+const withRes2 = Object.entries(OBSERVABLES).filter(([, e]) => e.resolution !== null);
+const overlapRes = withRes2.filter(([, e]) => e.resolutionOf === "overlap");
+ok(overlapRes.length === 0,
+   "no entry has a resolution ON THE OVERLAP, so every coupling verdict is still `not-computed`",
+   withRes2.length + " of " + Object.keys(OBSERVABLES).length + " now carry a sourced resolution,"
+   + " all of them on a rate — that is the register's state and it is allowed to improve");
+ok(withRes2.length > 0 && withRes2.every(([, e]) => e.resolutionSource && e.missing),
+   "and an entry that HAS a resolution says where it came from and what it still cannot decide",
+   withRes2.map(([k]) => k).join(", "));
+/* the one that has been reproduced says so, which is what separates a sourced number from a cited one */
+ok(OBSERVABLES.higgs_couplings.reproduced
+   && OBSERVABLES.higgs_couplings.reproduced.includes("1.322"),
+   "the sourced entry names the published row this repository recovered from it",
+   OBSERVABLES.higgs_couplings.reproduced);
 
 console.log(`\n${fail === 0 ? "PASSED" : "*** FAILED ***"}   ${pass} ok, ${fail} failed`);
 process.exit(fail === 0 ? 0 : 1);

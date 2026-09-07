@@ -215,7 +215,14 @@ function jacobiEigenvalues(M0) {
 export function overlapVerdict(entry, Z, opts = {}) {
   const band = opts.band || 3;      /* how close to the threshold counts as undetermined */
   if (!Z || !Z.length) {
-    return { verdict: "not-computed", why: "no overlap block was supplied for this operator", sigmas: [] };
+    /* BOTH FACTS ARE TRUE AND THE USEFUL ONE IS THE SECOND.  "No block was supplied" says what the
+     * caller did; the entry's `missing` says what would have to be READ for the answer to exist at
+     * all.  An earlier version returned only the first, so every row of a particle table carried
+     * the same empty sentence and the register's own account of the gap never reached the reader. */
+    const m = entry && entry.missing;
+    return { verdict: "not-computed", sigmas: [],
+             why: "no overlap block was supplied for this operator"
+               + (m ? ", and it would not settle anything yet: " + m : "") };
   }
   const sigmas = singularValues(Z);
   const smax = sigmas.length ? sigmas[0] : 0;

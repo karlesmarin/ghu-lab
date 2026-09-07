@@ -42,7 +42,9 @@ VERSION = "0.2.0"
 # order into ONE scope, so a file may only use names the files before it have declared.
 KERNEL = ["meta.mjs", "status.mjs", "experiment.mjs", "running.mjs", "model.mjs", "potential.mjs", "canonical.mjs", "screens.mjs",
           "charges.mjs", "multiplets.mjs", "wilson.mjs", "surface.mjs", "resolve.mjs", "card.mjs",
-          "cite.mjs", "latex.mjs", "blkt.mjs", "alphabet.mjs", "fibres.mjs", "moves.mjs", "rotations.mjs", "unbroken.mjs", "tripod.mjs"]
+          "cite.mjs", "latex.mjs", "blkt.mjs", "alphabet.mjs", "fibres.mjs", "moves.mjs", "rotations.mjs",
+          # rank.mjs before unbroken.mjs: the second calls the first, and one scope means order is the import.
+          "rank.mjs", "unbroken.mjs", "tripod.mjs"]
 VIEW = ["fibre_panels.js", "tower3d.js", "demo.js", "howto.js", "help.js"]
 MODULES = ["selection.mjs", "calculator.mjs", "hierarchy.mjs", "anomalies.mjs", "escape.mjs",
            "samepot.mjs", "screen.mjs", "collider.mjs", "atlas.mjs", "eta.mjs", "fived.mjs",
@@ -304,7 +306,7 @@ def main(argv=None):
                 ["node", "_test_reading.mjs"],
                 ["node", "_test_sweep5d.mjs"], ["node", "_test_papers.mjs"],
                 ["node", "_test_latex.mjs"], ["node", "_test_blkt.mjs"], ["node", "_test_census_lit.mjs"],
-                ["node", "_test_dossier.mjs"],
+                ["node", "_test_dossier.mjs"], ["node", "_test_rank.mjs"],
                 # the golden suite that SHIPS with the artifact: the built page against the
                 # Python engine of Part VII.  It runs here too, so the deployed copy can never
                 # carry a suite the build has not just seen pass.

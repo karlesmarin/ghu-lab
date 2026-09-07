@@ -498,10 +498,15 @@ const ORBIFOLD_SECTION = {
         return;
       }
       note.textContent = "";
-      const g = unbrokenGroup(C.letters, n);
+      const g = unbrokenGroup(C.letters, n, ORB_S.family);
       const name = unbrokenName(g);
       v.className = "verdict " + (g.exact ? "stable" : "breaks");
-      v.innerHTML = "<b>" + name + "</b><span>rank " + g.sum + ". " + g.why + "</span>";
+      /* `sum` is the DIMENSION and `rank` is the rank; this line used to print the first under the
+       * name of the second, which is false for every weighted alphabet and off by one even for a
+       * diagonal one over SU(N). */
+      v.innerHTML = "<b>" + name + "</b><span>dimension " + g.sum + ", rank " + g.rank
+        + " of " + g.ambient + (g.drop > 0 ? " &mdash; the rank drops by " + g.drop : "")
+        + ". " + g.why + "</span>";
 
       /* the rest of the class, when the rank is within what the page will enumerate */
       if (g.sum < 1 || g.sum > C.cap) {
@@ -519,14 +524,14 @@ const ORBIFOLD_SECTION = {
       }));
       const f = F.fibres.get(mine);
       const rows = (f ? f.members : []).map((mem) => {
-        const nm = unbrokenName(unbrokenGroup(C.letters, mem));
+        const nm = unbrokenName(unbrokenGroup(C.letters, mem, ORB_S.family));
         const same = mem.every((x, i) => x === n[i]);
         return "<tr" + (same ? ' style="font-weight:600"' : "") + '><td><code>'
           + mem.join(" ") + "</code></td><td>" + nm + "</td><td>"
           + (same ? "yours" : "") + "</td></tr>";
       });
       const groups = new Set((f ? f.members : []).map(
-        (mem) => unbrokenName(unbrokenGroup(C.letters, mem))));
+        (mem) => unbrokenName(unbrokenGroup(C.letters, mem, ORB_S.family))));
       tbl.innerHTML = '<thead><tr><th>multiplicities</th><th>apparent unbroken group</th><th></th>'
         + "</tr></thead><tbody>" + rows.join("") + "</tbody>"
         + '<tfoot><tr><td colspan="3" class="note">' + (f ? f.members.length : 0)
@@ -654,10 +659,10 @@ const ORBIFOLD_SECTION = {
     const rows = cell.examples.map((pick) => {
       const v = vec(pick);
       return "<tr><td><code>" + v.join(" ") + "</code></td><td>"
-        + unbrokenName(unbrokenGroup(C.letters, v)) + "</td></tr>";
+        + unbrokenName(unbrokenGroup(C.letters, v, ORB_S.family)) + "</td></tr>";
     });
     const names = new Set(cell.examples.map((pick) =>
-      unbrokenName(unbrokenGroup(C.letters, vec(pick)))));
+      unbrokenName(unbrokenGroup(C.letters, vec(pick), ORB_S.family))));
     const shown = cell.examples.length, all = cell.conditions;
     box.innerHTML =
       '<div class="verdict ' + (names.size > 1 ? "breaks" : "stable") + '"><b>'

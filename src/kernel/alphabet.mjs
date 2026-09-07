@@ -559,11 +559,34 @@ export function realForm(A, m, family) {
   return out;
 }
 
-/* Two labels are conjugate when one's character orbit is the negative of the other's. */
+/* Two labels are conjugate when one's character orbit is the negative of the other's AND their
+ * eps are conjugate.  Both halves are needed, and the second was missing.
+ *
+ * WHY THE ORBIT ALONE IS NOT ENOUGH.  A label is (orbit, eps): the character orbit says how the
+ * translations act, eps says how rho acts on the wrap.  Over one fixed character there are d = m/s
+ * labels differing ONLY in eps, and they all share the same orbit — so an orbit test declares all
+ * d of them conjugate to each other's negatives and the pairing takes whichever comes first.  The
+ * dual of (orbit, eps) is (-orbit, conj eps), so picking the wrong eps pairs a label with something
+ * that is NOT its dual, and the resulting letter carries no invariant bilinear form at all.
+ *
+ * HOW MUCH IT MATTERED, measured rather than guessed.  On the four T^2/Z_m rotations the alphabet
+ * profiles, the local-data multisets and the class counts come out IDENTICAL either way, because
+ * each letter's datum is built from its own label's conjugate datum and the profile only counts
+ * pairs -- so every gate this repository had was blind to it by construction.  But the number of
+ * labels with more than one orbit-candidate grows with the rank: 6 on T^2/Z_3, 4 on T^2/Z_6, and
+ * then 24 of 24 on T^4/Z_5 and 48 of 48 on T^6/Z_7 -- which is exactly the heterotic range this
+ * kernel was made rank-general to reach.  `_test_alphabet.mjs` holds the archived rows to prove
+ * the fix moves nothing, and checks that the strict rule is a PERFECT MATCHING, which the loose
+ * one is not.
+ *
+ * The defect is inherited from `bc_preflight.py`, which is an ancillary script of the published
+ * record and is deliberately not edited; the correction lives here, in the port. */
 function abIsConjugate(a, b) {
   const neg = a.orbit.map((v) => abMod1(v.num.map((x) => -x), v.den)).map(abKeyOf).sort();
   const bs = b.orbit.map(abKeyOf).sort();
-  return neg.length === bs.length && neg.every((x, i) => x === bs[i]);
+  if (neg.length !== bs.length || !neg.every((x, i) => x === bs[i])) return false;
+  if (a.epsDen !== b.epsDen) return false;
+  return (a.epsNum + b.epsNum) % a.epsDen === 0;
 }
 
 /* ------------------------------------------------------------------ the rule, and the count

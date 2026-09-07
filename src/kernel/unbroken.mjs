@@ -30,12 +30,15 @@
  *
  * D3: no gauge group is named here.  N and the letters go in; a list of factors comes out.
  */
+import { unbrokenWithWeight } from "./rank.mjs";
 
 /* The unbroken group of a boundary condition, given as multiplicities over the letters.
  *
- * Returns { factors, rank, sum, exact, why } — `exact` is false when the alphabet has weighted
- * letters in play, and then `why` says what is missing rather than the answer pretending. */
-export function unbrokenGroup(letters, mult) {
+ * Returns { factors, sum, rank, ambient, drop, exact, why }.  `sum` is the DIMENSION N and `rank`
+ * is the rank — they are different numbers and the difference is the whole point of this file.
+ * `exact` is false when the alphabet has weighted letters in play, and refers to the NAMING of the
+ * factors only: the rank is exact either way, from `rank.mjs`. */
+export function unbrokenGroup(letters, mult, family = "SU") {
   const used = [];
   let sum = 0, weighted = false;
   for (let i = 0; i < letters.length; i++) {
@@ -49,8 +52,16 @@ export function unbrokenGroup(letters, mult) {
   /* one U(n) per letter used; the determinant condition removes one U(1) overall */
   const factors = used.map((u) => ({ letter: u.letter, n: u.n * u.weight, weight: u.weight }));
   const u1 = Math.max(0, factors.length - 1);
+  /* THE RANK IS EXACT EVEN WHEN THE NAME IS NOT, and the two must not be conflated.  Naming the
+   * factors of a weighted letter needs the joint distribution of eigenvalues across cones, which
+   * the local data do not carry — that is the refusal above and it stands.  But the RANK does not
+   * need the joint: it needs the letter's Frobenius-Schur type against the ambient form, which is
+   * exact, and that is `rank.mjs`.  So `sum` is the dimension N, `rank` is the rank, and the page
+   * must not print one under the other's name. */
+  const r = unbrokenWithWeight(family, letters, mult);
   return {
     factors, u1, sum,
+    rank: r.rank, ambient: r.ambient, drop: r.drop, suLaw: r.suLaw, rankFactors: r.factors,
     exact: !weighted,
     why: weighted
       ? "some letters here have weight above one. Their indices share a datum at each cone but the"
@@ -69,7 +80,20 @@ export function unbrokenGroup(letters, mult) {
  * counts them: [1,1,1,2] came out U(1)^6 where it is U(1)^3.  Each U(n) carries exactly one U(1),
  * whatever n is, and the determinant condition removes one overall — that is the whole rule.
  * Factors are written largest first, which is how they are read. */
-export function unbrokenName(g) {
+export function unbrokenName(g, family = "SU") {
+  /* OUTSIDE SU(N) THE FACTORS ARE NOT SU(n), and writing them so was a false claim on the page:
+   * the section already lets a reader choose the orthogonal or symplectic family, and the name
+   * came back in unitary letters whatever they chose.  `rank.mjs` says which classical algebra
+   * each letter contributes -- so(n), sp(2n) or gl(n) -- so the name can follow it.  There is no
+   * determinant U(1) to remove here: SO(N) and Sp(N) are already unimodular. */
+  if (family !== "SU" && g.rankFactors) {
+    const named = g.rankFactors.map((f) => {
+      if (f.algebra === "so") return f.n > 2 ? "SO(" + f.n + ")" : (f.n === 2 ? "U(1)" : null);
+      if (f.algebra === "sp") return "Sp(" + f.n + ")";
+      return f.n > 1 ? "U(" + f.n + ")" : "U(1)";
+    }).filter(Boolean);
+    return named.length ? named.join(" x ") : "nothing — the condition leaves no continuous symmetry";
+  }
   const parts = g.factors.map((f) => f.n).filter((n) => n > 1)
     .sort((a, b) => b - a).map((n) => "SU(" + n + ")");
   const u1 = Math.max(0, g.factors.length - 1);

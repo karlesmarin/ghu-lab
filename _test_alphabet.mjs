@@ -149,6 +149,48 @@ ok(!seenTypes.has(-1),
    "NOT COVERED: no quaternionic label occurs at rank 2, so that branch of realForm is untested",
    "it needs an orbifold that produces one before it can be believed");
 
+console.log("\n   6b -- PAIRING A COMPLEX LABEL WITH ITS DUAL IS A PERFECT MATCHING\n");
+/* The dual of a label (orbit, eps) is (-orbit, conj eps).  Pairing on the ORBIT ALONE -- which is
+ * what this port inherited from the oracle -- cannot tell apart the d = m/s labels that share a
+ * character orbit and differ only in eps, so it pairs a label with something that is not its dual
+ * and the letter that comes out carries no invariant bilinear form.  The counts and alphabets
+ * above cannot see that (each letter's datum is built from its own label), so it needs its own
+ * check: under the strict rule every complex label must have EXACTLY ONE partner.  Written out
+ * here rather than imported, so this is a second implementation and not the same function agreeing
+ * with itself.  The last column is how many candidates the loose rule would have had to choose
+ * between -- anything above 1 is a coin flip it was taking. */
+const keyOf = (v) => v.num.map((x) => ((x % v.den) + v.den) % v.den).join(",") + "/" + v.den;
+const negKey = (v) => v.num.map((x) => ((-x % v.den) + v.den) % v.den).join(",") + "/" + v.den;
+const orbitMatches = (a, b) => {
+  const x = a.orbit.map(negKey).sort().join(";");
+  const y = b.orbit.map(keyOf).sort().join(";");
+  return x === y;
+};
+for (const [name, A] of [...Object.entries(ROT), ["T^4/Z_5", companion([1, 1, 1, 1, 1], 1)],
+                         ["T^6/Z_7", companion([1, 1, 1, 1, 1, 1, 1], 1)]]) {
+  const m = orderOf(A);
+  const labs = alphabet(A, m);
+  const ts = labs.map((L) => frobeniusSchur(L, A, m));
+  let strictBad = 0, looseMax = 0, complexN = 0;
+  for (let i = 0; i < labs.length; i++) {
+    if (ts[i] !== 0) continue;
+    complexN++;
+    let strict = 0, loose = 0;
+    for (let j = 0; j < labs.length; j++) {
+      if (j === i || ts[j] !== 0 || labs[j].weight !== labs[i].weight) continue;
+      if (!orbitMatches(labs[i], labs[j])) continue;
+      loose++;
+      if (labs[i].epsDen === labs[j].epsDen
+          && (labs[i].epsNum + labs[j].epsNum) % labs[i].epsDen === 0) strict++;
+    }
+    if (strict !== 1) strictBad++;
+    looseMax = Math.max(looseMax, loose);
+  }
+  ok(strictBad === 0,
+     name + ": every one of its " + complexN + " complex labels has exactly one dual",
+     strictBad ? strictBad + " do not" : "the loose rule had up to " + looseMax + " candidates");
+}
+
 console.log("\n   7 -- THE COUNTS: distinct tuples of local data\n");
 /* TRANSCRIBED from outputs/bc_preflight.txt, section 1. */
 const COUNT = {

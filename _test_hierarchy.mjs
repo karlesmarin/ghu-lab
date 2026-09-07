@@ -24,7 +24,7 @@ import { anomaliesModule, bill } from "./src/modules/anomalies.mjs";
 import { escapeModule } from "./src/modules/escape.mjs";
 import { selectionModule, repFacts, halfDomain, centreCharge } from "./src/modules/selection.mjs";
 import { termTable, moments, rung, numericMin, localMin, F, FGrid, coordinates, surfaceInvR5,
-         kConst }
+         kConst, curvatureAtMin, curvatureSummed, higgsMass, higgsMassSummed }
   from "./src/kernel/potential.mjs";
 import { dF } from "./src/kernel/screens.mjs";
 
@@ -661,6 +661,56 @@ ok("the candidate seed's relaxation ceiling is lower and sits one rung up, at 8D
   let differ = false;
   for (let i = 0; i < g1.length; i++) if (Math.abs(g1[i] - g2[i]) > 1e-9) { differ = true; break; }
   ok("...and the check can fail: two different contents give different curves", differ);
+}
+
+/* ------------------------------------------------------------------ H129F: the two routes to m_h
+ *
+ * The small-phase curvature and the summed one are DIFFERENT OBJECTS, and on the published SU(7)
+ * permalink they land on opposite sides of the 125-127 GeV window.  Both numbers are fixed here
+ * against the H129E audit, which computed them independently in Python from the deployed page.
+ */
+{
+  const su7 = JSON.parse(readFileSync("./data/su7_km25.json", "utf8"));
+  const gauge = (su7.gauge_seeds && su7.gauge_seeds.published && su7.gauge_seeds.published.gauge)
+    || su7.gauge;
+  const terms = gauge.map((t) => t.slice());
+  for (const [rep, par, cnt] of [["28", "(+,+)", 1], ["84", "(+,+)", 4]])
+    for (const [m, s, c] of su7.reps[rep][par]) terms.push([m * cnt, s, c]);
+  const mW = 80.4, g4 = 0.63;
+
+  /* 1. the summed curvature against a finite difference of F -- an independent route to the same
+   *    number, so this is a measurement and not a restatement */
+  const a = 0.083061761, h = 1e-4;
+  const fd = (F(terms, a + h, 2000) - 2 * F(terms, a, 2000) + F(terms, a - h, 2000)) / (h * h);
+  const cs = curvatureSummed(terms, a, 2000);
+  ok("curvatureSummed agrees with a finite difference of F to 1e-5", Math.abs(fd / cs - 1) < 1e-5,
+     `finite difference ${fd.toFixed(6)}, analytic ${cs.toFixed(6)}`);
+
+  /* 2. the two masses, against the numbers H129E obtained in Python from the deployed page */
+  const mhBranch = higgsMass(moments(terms), 0.083579003, mW, g4);
+  const mhSummed = higgsMassSummed(terms, a, mW, g4, 600);
+  ok("the small-phase branch reproduces the audit's 125.8524 GeV",
+     Math.abs(mhBranch - 125.8524) < 5e-4, `got ${mhBranch.toFixed(4)}`);
+  ok("the summed potential reproduces the audit's 127.8536 GeV",
+     Math.abs(mhSummed - 127.8536) < 5e-4, `got ${mhSummed.toFixed(4)}`);
+  ok("and they fall on OPPOSITE sides of the 125-127 window, which is why both are printed",
+     mhBranch <= 127 && mhSummed > 127, `${mhBranch.toFixed(2)} in, ${mhSummed.toFixed(2)} out`);
+
+  /* 3. THE TRAP, RECORDED SO NOBODY "FIXES" IT.  curvatureAtMin is the curvature at the BRANCH's
+   *    stationary point with the logarithm eliminated by the stationarity condition.  Away from
+   *    that point it tends to -2x the true curvature, which looks like a sign-and-factor bug and
+   *    is not one: at the branch root the two agree to 1e-9. */
+  const mo7 = moments(terms);
+  const small = curvatureAtMin(mo7, 1e-4), summed = curvatureSummed(terms, 1e-4, 4000);
+  ok("curvatureAtMin away from the branch root is NOT the summed curvature (it is -2x)",
+     Math.abs(small / summed + 2) < 1e-3, `ratio ${(small / summed).toFixed(6)} — expected, not a bug`);
+  const xb = Math.PI * 0.083579003;
+  const correct = -(Math.PI ** 2) * 1.2020569031595943 * (mo7.D)
+    + (Math.PI ** 2) * (xb * xb / 2) * ((1.5 - Math.log(xb)) * mo7.A4 - mo7.A4L
+                                        - Math.LN2 * mo7.B4);
+  ok("...while AT the branch root it equals the correct small-phase expansion",
+     Math.abs(curvatureAtMin(mo7, 0.083579003) / correct - 1) < 1e-6,
+     "the branch equation IS the condition that these two are equal");
 }
 
 console.log(`\n${fail === 0 ? "PASSED" : "*** FAILED ***"}   ${pass} ok, ${fail} failed`);

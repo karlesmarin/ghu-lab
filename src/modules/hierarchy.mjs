@@ -18,7 +18,7 @@
  */
 
 import { STATUS, val, unknown } from "../kernel/status.mjs";
-import { termTable, moments, rung, alphaMin, curvatureAtMin, higgsMass, invR5, numericMin, F,
+import { termTable, moments, rung, alphaMin, curvatureAtMin, higgsMass, higgsMassSummed, invR5, numericMin, F,
          gaugeSeed, stabilityW, F1minusF0, coordinates, localMin }
   from "../kernel/potential.mjs";
 
@@ -130,7 +130,8 @@ export const arithmeticModule = (data) => ({
 
 export const hierarchyModule = (data) => ({
   id: "hierarchy",
-  provides: ["alpha_min", "F_second", "m_h", "invR5", "in_window", "ceiling_fraction", "vacuum"],
+  provides: ["alpha_min", "F_second", "m_h", "invR5", "in_window", "m_h_summed", "in_window_summed",
+             "ceiling_fraction", "vacuum"],
   requires: ["moments", "W", "terms"],
   compute({ model, get }) {
     const mo = get("moments").value;
@@ -272,8 +273,37 @@ export const hierarchyModule = (data) => ({
     out.m_h = val(mh, { units: "GeV", status: STATUS.MEASURED, source: ANCHOR + falseVac });
     out.invR5 = val(R, { units: "GeV", status: STATUS.MEASURED, source: ANCHOR + falseVac });
     out.in_window = val(mh >= win[0] && mh <= win[1], {
-      status: STATUS.MEASURED, source: `the window ${win[0]}-${win[1]} GeV of arXiv:2503.04090`,
+      status: STATUS.MEASURED,
+      source: `the window ${win[0]}-${win[1]} GeV of arXiv:2503.04090, judged on the SMALL-PHASE `
+        + `BRANCH mass. That is what this flag has always been and the label was missing: at `
+        + `alpha ~ 0.083 the expansion is at the edge of its domain, and on the published SU(7) `
+        + `permalink it puts m_h at 125.85 where the summed potential gives 127.85 — one inside `
+        + `the window and one outside. See in_window_summed, which is the arbiter`,
     });
+
+    /* THE SUMMED ROUTE, AND IT IS THE ARBITER.  Both are printed because they are different
+     * objects, not two estimates of one: the branch root and the summed root differ by 0.6%, and
+     * the curvature by 3% at this alpha.  Neither silently replaces the other — the reader gets
+     * the two numbers and which one decides.  H129F establishes that the gap is the expansion's
+     * domain and not a defect in either route. */
+    const aSum = alphaGlobal !== null ? alphaGlobal : a;
+    const mhSum = higgsMassSummed(terms, aSum, mW, g4, 600);
+    if (mhSum === null) {
+      const why = `the summed curvature at alpha = ${aSum.toFixed(8)} is not positive, so the `
+        + `summed route returns no real Higgs mass there`;
+      out.m_h_summed = unknown(why, { units: "GeV" });
+      out.in_window_summed = unknown(why);
+    } else {
+      out.m_h_summed = val(mhSum, { units: "GeV", status: STATUS.MEASURED,
+        source: `the same mass formula with F'' differentiated from the winding sum at the `
+          + `numeric minimum, 600 windings${falseVac}` });
+      out.in_window_summed = val(mhSum >= win[0] && mhSum <= win[1], {
+        status: STATUS.MEASURED,
+        source: `the window ${win[0]}-${win[1]} GeV of arXiv:2503.04090 on the summed potential. `
+          + `This is the one to quote: the small-phase branch cannot resolve a 2 GeV window at `
+          + `this alpha, corrected or not`,
+      });
+    }
     out.ceiling_fraction = val(R / CEIL.GeV, {
       status: STATUS.THEOREM,
       source: `${CEIL.source}; on the seed as printed. A content above it has either a false ` +

@@ -189,6 +189,42 @@ export function F(terms, alpha, windings = 600) {
   return total;
 }
 
+/* THE CURVATURE FROM THE SUM, and why it is a separate function from `curvatureAtMin`.
+ *
+ * `curvatureAtMin` is the small-phase curvature written AT THE BRANCH'S STATIONARY POINT: the
+ * stationarity condition is used to eliminate the logarithm, which is why its source line says the
+ * logarithm cancels there.  That makes it exact where it is meant to be used and MEANINGLESS
+ * anywhere else -- evaluated at small alpha it tends to -2 times the true curvature, which looks
+ * exactly like a sign-and-factor bug and is not one (H129F).
+ *
+ * This function differentiates the sum itself, so it is valid at any alpha:
+ *
+ *     F''(a) = -pi^2 sum_{m,s,c} m c^2 sum_n s^n cos(n c pi a) / n^3
+ *
+ * The two are not interchangeable and the difference is not academic: on the published SU(7)
+ * permalink the branch route gives m_h = 125.85 GeV and this one 127.85, and the 125-127 window
+ * contains one and not the other.  The branch root and the summed root also differ by 0.6%.  That
+ * gap is the expansion's domain at alpha ~ 0.083, not a defect in either. */
+export function curvatureSummed(terms, alpha, windings = 600) {
+  let total = 0;
+  for (const [m, s, c] of terms) {
+    let sub = 0;
+    for (let n = 1; n <= windings; n++) {
+      const sign = s > 0 ? 1 : (n % 2 ? -1 : 1);
+      sub += sign * Math.cos(n * c * Math.PI * alpha) / n ** 3;
+    }
+    total += m * c * c * sub;
+  }
+  return -(Math.PI ** 2) * total;
+}
+
+/* The Higgs mass from the summed curvature, with the SAME normalisation as `higgsMass`: the two
+ * differ only in where F'' comes from, which is the whole point of having both. */
+export function higgsMassSummed(terms, alpha, mW, g4, windings = 600) {
+  const fpp = curvatureSummed(terms, alpha, windings);
+  return fpp > 0 ? kConst(mW, g4) * Math.sqrt(fpp) / alpha : null;
+}
+
 /* F at MANY alphas at once.  Same sum, three exact rearrangements and one measured one -- see the
  * note in this file's history and `_test_hierarchy.mjs`, which holds it to F pointwise.
  *

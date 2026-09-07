@@ -23,6 +23,16 @@ import sys
 
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent
+
+# The parent's own stdout is cp1252 on this machine, and the FIRST time a harness went red the
+# build died inside `print(r.stdout[-1800:])` on a U+FFFD -- the replacement character its own
+# UTF-8 capture had just put there.  A build that crashes while reporting a failure reports
+# nothing, which is worse than a build that never checked.  The capture was already fixed; this
+# is the other end of the same pipe.
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except (AttributeError, ValueError):        # a stdout that cannot be reconfigured is left alone
+    pass
 sys.path.insert(0, str(HERE))
 from editiongate import check, report                                    # noqa: E402
 
@@ -48,7 +58,8 @@ SECTIONS = ["torus_panels.js", "hierarchy_section.js", "inverse_section.js", "ce
             "spectrum5d_section.js", "anomaly5d_section.js", "sweep5d_section.js",
             "dossier_section.js", "predict_section.js", "brane_section.js",
             "papers_section.js",
-            "bcclass_section.js", "orbifold_section.js", "relations_section.js", "blkt_section.js",
+            "bcclass_section.js", "orbifold_section.js", "relations_section.js",
+            "cbclass_section.js", "blkt_section.js",
             "census_lit_section.js",
             "multiplets_section.js",
             "registry.js"]
@@ -156,16 +167,113 @@ def build(edition=False, home=None, out_path=None):
     # the panel was extracted this line started reporting six sections for five, which is the same
     # class of bug as counting unbuilt sections -- a number that drifts when the code is refactored
     # rather than when the thing it measures changes.
-    built = sum(1 for s in SECTIONS if s.endswith("_section.js"))
+    # ...and a section registered `ready: false` is a FILE that is not a live section.  The comment
+    # above warned about exactly this number drifting on a refactor; the first `ready: false`
+    # section made it drift on a registration instead, so the count now reads the declaration
+    # rather than the directory listing.  The shell's own footer says "N of M sections built" from
+    # the same field, and the two must not disagree.
+    files = [s for s in SECTIONS if s.endswith("_section.js")]
+    unbuilt = [s for s in files
+               if "ready: false" in (ROOT / "src" / "sections" / s).read_text(encoding="utf-8")]
+    built = len(files) - len(unbuilt)
+    tail = f", {len(unbuilt)} listed and not built" if unbuilt else ""
     print(f"built {out}  ({len(page) / 1024:.1f} kB, one file, nothing external, "
-          f"{built} section{'s' if built != 1 else ''} live)")
+          f"{built} section{'s' if built != 1 else ''} live{tail})")
     return out
+
+
+# =================================================================================================
+# THE BROWSER TIER, and the decision it settles.
+# =================================================================================================
+# HANDOFF item 2 asked whether `leaks.mjs`, `layout.mjs` and `extremes.mjs` become build gates.
+# They now are, in the only shape that survives contact with a real day's work.
+#
+# NOT as part of every build.  They need Chromium and about two and a half minutes between them,
+# and a build slow enough to skip is a build that gets skipped -- at which point the gate is worse
+# than absent, because everyone believes it ran.  The failure mode here was never "it is too slow
+# to run"; it was "I forgot", and a slow default build does not fix forgetting.
+#
+# So: `--browser` runs the three, and a STAMP records the fingerprint of every source they saw.
+# A default build compares the stamp against the sources it just inlined, and if they differ it
+# says so, names how many files moved, and REFUSES THE WORD GREEN -- it prints BUILD GREEN (browser
+# tier STALE) instead.  You can still build fast all day; you cannot end the day believing a green
+# build covered the browser.
+#
+# The stamp is a fingerprint of sources, not a timestamp, so touching a file without changing it
+# does not go stale and reverting a change un-stales it.  Deliberately NOT fatal to a build and
+# deliberately fatal to the word "green": publishing is where a stale browser tier does damage,
+# and wiring `--browser` into the publish path is the next step, not this one.
+BROWSER_GATES = [("leaks.mjs", []), ("layout.mjs", ["--quiet"]), ("extremes.mjs", [])]
+STAMP = HERE / ".browser_gate.json"
+
+
+def source_fingerprint():
+    """A hash per source file the browser gates could possibly be affected by."""
+    import hashlib
+    out = {}
+    for rel in ([f"src/kernel/{f}" for f in KERNEL] + [f"src/modules/{f}" for f in MODULES]
+                + [f"src/sections/{f}" for f in SECTIONS] + [f"src/view/{f}" for f in VIEW]
+                + ["src/shell/app.js", "src/shell/app_shell.html",
+                   # THE BUILDER ITSELF.  It decides what is inlined and in what order, so a change
+                   # to it can change the page the browser gates measured.  Leaving it out was a
+                   # hole: editing the build would have kept the tier "clean" over a page it had
+                   # never seen.  The cost is that touching this file marks the tier stale, which
+                   # is the correct answer and clears in one run.
+                   "build/build_app.py"]):
+        p = ROOT / rel
+        if p.exists():
+            out[rel] = hashlib.sha256(p.read_bytes()).hexdigest()[:16]
+    return out
+
+
+def run_browser_tier():
+    """Run the three, then stamp what they saw.  Returns the worst exit code."""
+    print("\nbrowser tier (Chromium; ~2.5 min):")
+    worst = 0
+    for name, extra in BROWSER_GATES:
+        r = subprocess.run(["node", str(HERE / name), *extra], cwd=ROOT,
+                           capture_output=True, encoding="utf-8", errors="replace")
+        text = (r.stdout or "").strip()
+        tail = [ln for ln in text.split("\n") if ln.strip()][-1:] or ["(no output)"]
+        print(f"  {name:<16} {'PASSED' if r.returncode == 0 else '*** FAILED ***':<16} "
+              f"{tail[0].strip()[:90]}")
+        if r.returncode:
+            print((r.stdout or "")[-1200:])
+            print((r.stderr or "")[-400:])
+        worst = max(worst, r.returncode)
+    if worst == 0:
+        STAMP.write_text(json.dumps({"when": datetime.datetime.now().isoformat(timespec="seconds"),
+                                     "sources": source_fingerprint()}, indent=1), encoding="utf-8")
+        print(f"  stamped {STAMP.name}")
+    else:
+        print("  NOT stamped: a red tier does not certify anything")
+    return worst
+
+
+def browser_staleness():
+    """(stale?, message).  A missing stamp is stale -- absence of evidence is not evidence."""
+    if not STAMP.exists():
+        return True, "never run (no stamp)"
+    try:
+        old = json.loads(STAMP.read_text(encoding="utf-8"))
+    except (ValueError, OSError):
+        return True, "stamp unreadable"
+    new = source_fingerprint()
+    moved = sorted(set(old.get("sources", {}).items()) ^ set(new.items()))
+    names = sorted({k for k, _ in moved})
+    if not names:
+        return False, f"clean, last run {old.get('when', '?')}"
+    return True, (f"{len(names)} source file{'s' if len(names) != 1 else ''} changed since "
+                  f"{old.get('when', '?')}: " + ", ".join(n.split('/')[-1] for n in names[:6])
+                  + (" ..." if len(names) > 6 else ""))
 
 
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--edition", action="store_true")
     ap.add_argument("--skip-tests", action="store_true")
+    ap.add_argument("--browser", action="store_true",
+                    help="also run leaks.mjs, layout.mjs and extremes.mjs, and stamp them")
     a = ap.parse_args(argv)
 
     out = build(a.edition)
@@ -202,7 +310,10 @@ def main(argv=None):
                 # carry a suite the build has not just seen pass.
                 ["node", "tests/run.mjs"],
                 [sys.executable, "_test_editiongate.py"],
-                [sys.executable, "_test_help.py"], [sys.executable, "_test_howto.py"]):
+                [sys.executable, "_test_help.py"], [sys.executable, "_test_howto.py"],
+                # the gate on the gate: the browser tier's staleness detector, checked for FIRING
+                # and not only for absolving.  Cheap, no Chromium, so it runs every build.
+                [sys.executable, "_test_browsergate.py"]):
         # DECODE AS UTF-8, EXPLICITLY.  `text=True` alone uses the machine's ANSI codepage, and on
         # Windows that is cp1252, which has five UNMAPPED bytes (0x81, 0x8D, 0x8F, 0x90, 0x9D).  A
         # harness that prints a character whose UTF-8 encoding contains one of them -- an omega,
@@ -223,7 +334,19 @@ def main(argv=None):
         worst = max(worst, r.returncode)
         if r.returncode:
             print(r.stdout[-1800:])
-    print("\n" + ("BUILD GREEN" if worst == 0 else "*** BUILD RED — do not publish ***"))
+
+    if a.browser:
+        worst = max(worst, run_browser_tier())
+    stale, why = browser_staleness()
+
+    if worst:
+        print("\n*** BUILD RED — do not publish ***")
+    elif stale:
+        print(f"\nbrowser tier: STALE — {why}")
+        print("BUILD GREEN (browser tier STALE — run: python build/build_app.py --browser)")
+    else:
+        print(f"\nbrowser tier: {why}")
+        print("BUILD GREEN")
     return worst
 
 

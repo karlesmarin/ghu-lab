@@ -11,3 +11,8 @@ app/
 __pycache__/
 
 build/sources.local
+
+# The browser tier's stamp is MACHINE-LOCAL EVIDENCE: it certifies that leaks/layout/extremes
+# ran on THIS checkout. A clone must not inherit a certification it never earned, so it stays out
+# of git and `_test_browsergate.py` handles its absence as "stale", which is the honest answer.
+build/.browser_gate.json

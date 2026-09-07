@@ -1,6 +1,18 @@
 # Design — `cbclass`, the conjugate boundary conditions section
 
-Carles Marín + Claude (AI assistant). 2026-09-06.
+Carles Marín + Claude (AI assistant). 2026-09-06. **Updated 2026-09-07 — see the box.**
+
+> **WHAT HAS CHANGED SINCE THIS WAS WRITTEN.** Step 1 of "Order of work" — derive the relation —
+> is **DONE**, and so is the potential of §5, which the table below listed as `UNKNOWN`. Both live
+> in the private repo at `research/smeft_formalization/part_ix/cbc`, five gates with receipts. The
+> answers are in the header of `src/sections/cbclass_section.js`, which is the file this design now
+> has: registered `ready: false`, listed and not hidden, exactly as this document asked.
+>
+> Steps 2–4 are **not** done: there is no `cbclass.mjs` and no `_test_cbclass.mjs`, so the house
+> rule of two independent routes is unmet. And the independence of `Ω(0)` and `Ω(πR)` for a
+> *conjugate* condition — which the whole count rests on — **remains open**: it is what the
+> ordinary treatment does, and it is not verified for this one. The rest of this document stands
+> unedited; where it says a thing is unknown and the box above says otherwise, the box is newer.
 
 **This designs a panel for mathematics we have not done yet.** That is stated first because it
 decides the order of everything below: the section is registered `ready: false` — *listed, not

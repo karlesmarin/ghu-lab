@@ -1,7 +1,79 @@
 # HANDOFF — GHU Lab
 
-> State at 2026-09-04 (second pass of the day). The section below is the newest; the
-> earlier handoffs follow it unchanged and are still the map of the code.
+> State at 2026-09-07. The section below is the newest; the earlier handoffs follow it
+> unchanged and are still the map of the code.
+
+## 2026-09-07 — the browser tier is a gate now, and the first unbuilt section gave three counters a subject
+
+**Build green, 27 sections live and 1 listed and not built, `_test_howto.py` and `_test_app.mjs`
+both green after being corrected rather than appeased.**
+
+### Open item 2 is CLOSED, and here is the ruling
+
+`leaks.mjs`, `layout.mjs` and `extremes.mjs` **are build gates**, in the only shape that survives a
+real day: **not on every build.**
+
+```
+python build/build_app.py              fast; refuses the word GREEN if the tier is stale
+python build/build_app.py --browser    runs the three and STAMPS what they saw
+```
+
+The reasoning, because the shape matters more than the answer. They need Chromium and about two and
+a half minutes. A build slow enough to skip **gets** skipped, and then the gate is worse than
+absent, because everyone believes it ran. The failure mode was never "too slow to run" — it was
+**"I forgot"**, and a slow default build does not fix forgetting.
+
+So `build/.browser_gate.json` records a **sha256 fingerprint of every source** the tier saw — not a
+timestamp, so touching a file without changing it does not go stale and reverting un-stales it. A
+default build compares, names how many files moved and since when, and ends on
+
+```
+BUILD GREEN (browser tier STALE — run: python build/build_app.py --browser)
+```
+
+Deliberately **not fatal to the build** and deliberately **fatal to the word "green"**: a stale
+tier does its damage at publish time, not at build time. **Wiring `--browser` into the publish path
+is the next step and is NOT done.**
+
+Also fixed on the way: `build_app.py` died inside `print(r.stdout[...])` the first time a harness
+went red, because the **parent's** stdout is cp1252 and cannot encode the `U+FFFD` its own UTF-8
+capture had just inserted. A build that crashes while reporting a failure reports nothing. The
+capture end of that pipe was fixed months ago; this is the other end.
+
+### The first `ready: false` section, and the three counters it caught
+
+`src/sections/cbclass_section.js` registers **Conjugate boundary conditions** as `ready: false`,
+listed beside `bcclass` and `orbifold` on purpose — the section next to it is the contrast that
+explains what is missing. The shell needed **no change**: `soon`, "not built yet", unclickable,
+excluded from `decodeState`, and the footer already read the field.
+
+The research is done and lives in the private working repo (five gates with receipts). The file's
+header carries the results and, more importantly, the three reasons it is still `false`: no
+`cbclass.mjs`, no `_test_cbclass.mjs`, and an **open question** — whether `Omega(0)` and
+`Omega(pi R)` may be taken independent for a *conjugate* condition, which is what the ordinary
+treatment does and is not verified for this one. The whole count is conditional on it.
+
+Registering it gave three counters their first real subject, and all three were wrong:
+
+| where | what it counted | now |
+|---|---|---|
+| `build_app.py` | `built` = files named `*_section.js` — its own comment warned about this number drifting | reads `ready: false`; prints "27 sections live, 1 listed and not built" |
+| `_test_howto.py` | "every **built** section has a how-to entry" — ranged over all of them | exempts `ready: false`, **and the exempting half now has its own control, both directions** — an exemption nobody probes is a hole |
+| `_test_app.mjs` | "no UNBUILT section smuggles in modules", `!s.modules` | it was right and the new file was wrong: `[]` is truthy in JS. The key is gone. This check had never had a subject |
+
+### Left open
+
+1. **`--browser` is not wired into the publish path.** That is where a stale tier does damage.
+2. `src/modules/cbclass.mjs` + `_test_cbclass.mjs`, two independent routes — the only thing between
+   here and `ready: true` that does not depend on anyone answering a letter.
+3. Unchanged from 2026-09-04: the sweep filtering on the **vacuum** content rather than the
+   symmetric point's; the Higgs mass from V″ with its normalisation anchored; and `sp5ZeroModes`
+   hardwiring η₁ = +1.
+4. Whether the Kubo–Lim–Yamashita eq. (35) reading goes to C. S. Lim has not been started.
+
+---
+
+> Earlier state at 2026-09-04 (second pass of the day).
 
 ## 2026-09-04 (second) — the twenty-four errors had four sources, and none of them was a section
 

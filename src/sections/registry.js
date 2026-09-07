@@ -78,6 +78,14 @@ const SECTIONS = [
    * already has a name and a published table -- plus the walk that shows whether a
    * proposed move set actually reaches every member of a class. */
   { ...RELATIONS_SECTION, group: "su3_hy", family: "Orbifold boundary conditions" },
+  /* And the family's declared gap.  `bcclass` and `orbifold` handle ORDINARY conditions, where the
+   * twist is linear and the classification is settled.  There is a second family in the
+   * literature -- CONJUGATE conditions, where the twist is ANTILINEAR and the quotient is a
+   * congruence rather than a similarity -- and this instrument does not compute it yet.  It sits
+   * here, `ready: false`, because the header of this file says a gap you can see is honest where
+   * an absence is not, and because the section next to it is exactly the contrast a reader needs
+   * to understand what is missing.  See docs/DESIGN_CBCLASS.md and the header of its file. */
+  { ...CBC_SECTION, group: "su3_hy", family: "Orbifold boundary conditions" },
   /* A DEMONSTRATION RATHER THAN A MODEL.  It holds its own dial, carries its own permalink, and
    * exists to show what the machinery does and why the answer can be believed -- so it sits in a
    * family of its own rather than pretending to be one of the three models. */

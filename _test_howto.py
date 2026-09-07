@@ -36,10 +36,14 @@ def audit(howto, shell, sections):
     have = set(keys)
     dupes = sorted({k for k in keys if keys.count(k) > 1})
 
+    # BUILT, which is what check 1 has always said and never measured.  A section registered
+    # `ready: false` is listed in the rail as "not built yet" and cannot be opened, so demanding a
+    # how-to for it would make the tree describe a panel that does not exist -- the opposite of
+    # what this gate is for.  The `orphan` check below still bites if an entry is written for one.
     ids = set()
     for src in sections.values():
         m = ID_RE.search(src)
-        if m:
+        if m and "ready: false" not in src:
             ids.add(m.group(1))
 
     missing = sorted(ids - have)
@@ -109,6 +113,21 @@ def main():
         print(f"  {'ok  ' if ok else 'FAIL'} fires: {label}")
         fired += not ok
     bad += fired
+
+    # AND THE HALF THAT ABSOLVES, which nothing above tests.  `ready: false` was made an exemption
+    # from check 1; an exemption nobody probes is a hole.  Both directions, on synthetic input:
+    print("\nAND THE EXEMPTION ITSELF, both ways")
+    unbuilt = {"a.js": '  id: "alpha",\n', "b.js": '  id: "beta",\n  ready: false,\n'}
+    r = audit(good_howto, good_shell, unbuilt)
+    for label, cond in (
+            ("a `ready: false` section is NOT required to have an entry", not r[0][1]),
+            ("...and writing one for it anyway is still caught as an orphan",
+             bool(audit(good_howto + "", good_shell,
+                        {"b.js": '  id: "alpha",\n  ready: false,\n'})[1][1])),
+            ("...and a BUILT section beside it is still required to have one",
+             bool(audit('const HOWTO = {\n};\n', good_shell, unbuilt)[0][1]))):
+        print(f"  {'ok  ' if cond else 'FAIL'} {label}")
+        bad += not cond
 
     print(f"\n{'PASSED' if not bad else '*** FAILED ***'}   {bad} failed")
     return 1 if bad else 0

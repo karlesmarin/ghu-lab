@@ -302,6 +302,70 @@ const RELATIONS_SECTION = {
     document.getElementById("relLetters").innerHTML = head + "<tbody>" + rows + "</tbody>";
   },
 
+  /* THE SEMIGROUP, AND WHOSE IT IS.
+   *
+   * This section is mostly an ATTRIBUTION service: the configuration usually already has a name
+   * and a published table, and the useful thing the page does is stop a reader deriving something
+   * Sturmfels and Sullivant published. So the card carries the attribution as a value -- with the
+   * citation, and with whether this page DERIVED the row or read it from Part IX-B. A card that
+   * printed the invariants without saying which of the two they are would be handing over somebody
+   * else's theorem in our format, which is the one thing this panel exists to prevent. */
+  texExport() {
+    const C = relState();
+    const d = REL_DICT[REL_S.orbifold];
+    const top = C.P ? relTopDegree(C.P) : null;
+
+    const values = {
+      orbifold: val(C.label, { status: STATUS.THEOREM, source: "the rotation, as entered" }),
+      family: val(`${REL_S.family}(N)`,
+        { status: STATUS.THEOREM, source: "the real form the alphabet is taken over" }),
+      rank: val(REL_S.N, { status: STATUS.THEOREM, source: "the rank the fibres are walked at" }),
+      signature: val(`(${C.sig.join(", ")})`,
+        { status: STATUS.THEOREM, source: "the orders of the cone points" }),
+      letters: val(C.letters.length,
+        { status: STATUS.THEOREM, source: "Part IX-A: one semigroup generator per letter" }),
+      classes: val(C.ranked.length,
+        { status: STATUS.VERIFIED,
+          source: "the fibres of the marginal map, walked at this rank" }),
+      largest_class: val(C.ranked[0] ? C.ranked[0].members.length : 0,
+        { status: STATUS.VERIFIED, source: "the biggest fibre found" }),
+    };
+    values.relations_top_degree = top === null
+      ? unknown("no closed form for the numerator was computed at this rank")
+      : val(top, { status: STATUS.VERIFIED,
+                   source: "the top degree of the Hilbert numerator, from the class counts" });
+    /* WHOSE RESULT THIS IS. `computed` is the flag that separates a row this page derives from a
+     * row Part IX-B reads out of the literature, and it is the difference between a measurement
+     * and a citation. */
+    if (d && d.name) {
+      values.configuration = val(d.name,
+        { status: d.computed ? STATUS.VERIFIED : STATUS.THEOREM,
+          source: d.computed
+            ? "named in Part IX-B; the invariants above are derived on this page"
+            : "named in Part IX-B, read from the literature rather than derived here" });
+      if (d.cite)
+        values.attribution = val(String(d.cite).replace(/<[^>]+>/g, ""),
+          { status: STATUS.THEOREM,
+            source: "the published source for this configuration — the point of this panel is " +
+                    "that you should cite it rather than rederive it" });
+    } else {
+      values.configuration = unknown("this configuration is not named in Part IX-B; the counts " +
+                                     "above are this page's own and carry no attribution");
+    }
+    values.scale = unknown("a semigroup has no units");
+
+    return {
+      card: makeCard({ group: "su3_hy", section: "relations", orbifold: REL_S.orbifold,
+                       family: REL_S.family, N: REL_S.N, rotation: C.A },
+                     values, { version: VERSION, build: BUILD }),
+      caption: `The affine semigroup of ${REL_S.family}(N) boundary conditions on ${C.label} at ` +
+               `rank ${REL_S.N}: ${C.letters.length} generators, ${C.ranked.length} classes` +
+               (d && d.name && d.name !== "not named in Part IX-B"
+                 ? `, which is ${d.name.replace(/<[^>]+>/g, "")}.`
+                 : `. This configuration is not named in Part IX-B.`),
+    };
+  },
+
   render(ctx) {
     const $ = (id) => document.getElementById(id);
     const C = relState();

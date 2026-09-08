@@ -299,6 +299,76 @@ const BCC_SECTION = {
     return bc;
   },
 
+  /* A CLASS, EXPORTED AS A CLASS.
+   *
+   * This section's whole subject is that two boundary conditions can be ONE theory, so the card
+   * carries the class -- its size, its members, the invariant that labels it -- and not only the
+   * condition that happens to be typed. An export naming [2,0,0,3] and nothing else would be an
+   * export of the coordinate rather than of the object, which is the confusion the panel exists to
+   * remove.
+   *
+   * THE APPARENT UNBROKEN GROUP IS NOT A CLASS INVARIANT and the card says so beside it, because
+   * that is the single most likely thing for a reader to carry away wrongly: it is a property of
+   * the representative, and the class-mates disagree about it. */
+  texExport() {
+    const C = BCC_S.cache || bcClasses(BCC_S.N, BCC_S.orbifold);
+    const orb = ORBIFOLDS[BCC_S.orbifold];
+    const id = C.of(BCC_S.bc);
+    const cls = C.classes[id];
+    const E = bcEnergy(BCC_S.bc, BCC_S.matter);
+    const pref = bcPreferred(cls.members, BCC_S.matter);
+
+    const values = {
+      N: val(BCC_S.N, { status: STATUS.THEOREM, source: "the cells of the condition sum to N" }),
+      orbifold: val(orb.label, { status: STATUS.THEOREM, source: orb.source }),
+      boundary_condition: val(`[${BCC_S.bc.join(", ")}]`,
+        { status: STATUS.THEOREM, source: "the multiplicities of the diagonal patterns" }),
+      apparent_unbroken: val(bcUnbroken(BCC_S.bc),
+        { status: STATUS.THEOREM,
+          source: "read off THIS representative — it is NOT a class invariant, and the members " +
+                  "below disagree about it" }),
+      class: val(`${id + 1} of ${C.nClasses}`,
+        { status: STATUS.VERIFIED,
+          source: "orbits actually walked under the moves, not a quoted count" }),
+      class_size: val(cls.size,
+        { status: STATUS.VERIFIED, source: "the members of this orbit" }),
+      class_members: val(cls.members.map((m) => `[${m.join(",")}]`).join("; "),
+        { status: STATUS.VERIFIED,
+          source: "every condition reachable from this one — one theory in different coordinates" }),
+      boundary_conditions_total: val(C.nBC,
+        { status: STATUS.THEOREM, source: "the compositions of N into the orbifold's cells" }),
+      classes_total: val(C.nClasses,
+        { status: STATUS.VERIFIED,
+          source: BCC_S.orbifold === "S1/Z2"
+            ? "walked here; Haba-Hosotani-Kawamura give (N+1)^2 for this orbifold"
+            : "walked here, on Takeuchi-Inagaki's moves" }),
+      /* The energetics, which is the one thing here that is about the physics rather than the
+       * combinatorics -- and the only quantity a class-mate comparison is licensed to use. */
+      N_delta: val(E.Nd,
+        { status: STATUS.THEOREM, source: "Haba-Hosotani-Kawamura eq. (3.27); constant on a class" }),
+      N_v: val(E.Nv,
+        { status: STATUS.THEOREM, source: "Haba-Hosotani-Kawamura eq. (3.27)" }),
+      preferred_member: val(pref.winners.map((w) => `[${w.bc.join(",")}]`).join("; "),
+        { status: STATUS.THEOREM,
+          source: pref.tied
+            ? "smallest N_v in the class — TIED, and the tie is reported rather than broken"
+            : "smallest N_v in the class, which is unambiguous because N_delta is constant there" }),
+    };
+    values.scale = unknown("nothing here carries a unit: this panel is a count of orbits and an " +
+                           "energy in units of the same C the source paper leaves undetermined");
+
+    return {
+      card: makeCard({ group: "su3_hy", section: "bcclass", N: BCC_S.N,
+                       orbifold: BCC_S.orbifold, bc: BCC_S.bc, matter: BCC_S.matter },
+                     values, { version: VERSION, build: BUILD }),
+      mathKeys: ["apparent_unbroken"],
+      caption: `The equivalence class of the boundary condition ` +
+               `$[${BCC_S.bc.join(",\\,")}]$ of SU(${BCC_S.N}) on ${orb.label}: ` +
+               `${cls.size} condition${cls.size === 1 ? "" : "s"} that are one theory, ` +
+               `class ${id + 1} of ${C.nClasses}. The orbits are walked here rather than quoted.`,
+    };
+  },
+
   render(ctx) {
     const $ = (id) => document.getElementById(id);
     if (!BCC_S.cache || BCC_S.cache.N !== BCC_S.N || BCC_S.cache.orbifold !== BCC_S.orbifold)

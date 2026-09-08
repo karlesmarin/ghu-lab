@@ -55,3 +55,7 @@ so
   than the builder's — four of them share the SU(N) builder's model but not its numbers, so
   delegating would export the right model with the wrong values, which is the same lie one level
   down. They are listed here so the gap is visible rather than absent.
+
+  **That gap closed the same day**, and this paragraph is left standing rather than edited because
+  it is what was true when the fix shipped. All seven export their own model now — see *The seven
+  panels that could not export*, below.

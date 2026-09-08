@@ -138,6 +138,75 @@ const SPEC5D_SECTION = {
     return m ? { theta: m.theta, edge: m.atEdge } : { theta: new Array(b.phases).fill(0), edge: true };
   },
 
+  /* THE CONTENT, EXPORTED AT THE POINT IT WAS READ AT.
+   *
+   * Everything on this page depends on WHERE the Wilson line is, and the page offers two answers:
+   * the vacuum the builder locates, or a phase the reader typed. An export that printed the
+   * spectrum without saying which of the two it stood at would be a table of numbers with no
+   * hypothesis -- and the two differ at the lowest level of the adjoint, which is the whole point
+   * of the section. So `at` and `wilson_line` are values, not decoration.
+   *
+   * THE MASSLESS COUNT AND THE FAMILIES ARE SEPARATE ROWS ON PURPOSE. The families are what the
+   * papers publish; the massless content comes from the PARITY rule and not from evaluating a
+   * family at n = 0, because a (+,+) state expands in cos and has a zero mode and a (-,-) state
+   * expands in sin and has none. Deriving one from the other is how a tower comes to put states at
+   * zero mass that are not there. */
+  texExport() {
+    const b = sun5dBlocks(SUN5D_S.blocks);
+    const content = { bulk: Object.entries(SUN5D_S.bulk).filter(([, m]) => m).map(([k, m]) => {
+      const [rep, eta, kind] = k.split("|");
+      return { rep, eta: +eta, kind, multiplicity: m };
+    }) };
+    const terms = sun5dTerms(b, content);
+    const { theta, edge, typed } = this._theta(b, terms);
+    const zm = sp5ZeroModes(b, content);
+    const fams = sp5AllFamilies(b, content, theta);
+    const blocks = `(${b.nPP}, ${b.nPM}, ${b.nMP}, ${b.nMM})`;
+
+    const values = {
+      N: val(b.N, { status: STATUS.THEOREM, source: "the four block sizes sum to N" }),
+      boundary_condition: val(blocks,
+        { status: STATUS.THEOREM, source: "Haba-Yamashita eq. (5.1), simultaneously diagonal" }),
+      unbroken: val(sun5dUnbroken(b),
+        { status: STATUS.THEOREM, source: "Haba-Yamashita eq. (5.2)" }),
+      at: val(typed ? "a typed Wilson line" : edge ? "a symmetric point" : "the vacuum",
+        { status: typed ? STATUS.MEASURED : STATUS.MEASURED,
+          source: typed ? "the reader typed the phases; this is not a claim about the minimum"
+                        : "the deepest point the builder locates, recomputed here" }),
+      wilson_line: b.phases
+        ? val(theta.map((t) => Number(t.toFixed(6))).join(", "),
+            { status: STATUS.MEASURED, source: "grid, then coordinate refinement" })
+        : val("none", { status: STATUS.THEOREM,
+                        source: "this boundary condition leaves no Wilson-line phase" }),
+      massless_vectors: val(zm.vectors,
+        { status: STATUS.THEOREM, source: "the parity rule: only (+,+) has a zero mode" }),
+      massless_scalars: val(zm.scalars,
+        { status: STATUS.THEOREM,
+          source: "A_y is the adjoint with both parities flipped — the Higgs candidates" }),
+      massless_fermions: val(zm.fermions,
+        { status: STATUS.THEOREM, source: "the parity rule, per chirality" }),
+      eigenvalue_families: val(fams.reduce((a, f) => a + f.families.length, 0),
+        { status: STATUS.THEOREM,
+          source: "Haba-Yamashita's own multiset form: a multiplicity, a KK offset and a charge" }),
+    };
+    values.scale = unknown("the tower is in units of 1/R: turning it into GeV needs an anchor, " +
+                           "which is the Simulator's job and not this panel's");
+
+    return {
+      card: makeCard({ group: "su3_hy", section: "spectrum5d", N: b.N,
+                       blocks: [b.nPP, b.nPM, b.nMP, b.nMM], bulk: content.bulk,
+                       wilson_line: theta.map((t) => Number(t.toFixed(6))),
+                       wilson_line_source: typed ? "typed" : "the minimum" },
+                     values, { version: VERSION, build: BUILD }),
+      mathKeys: ["unbroken"],
+      caption: `The four-dimensional content of SU(${b.N}) on $S^1/Z_2$ with blocks ` +
+               `$(n_{++}, n_{+-}, n_{-+}, n_{--}) = ${blocks}$, read at ` +
+               `${typed ? "a typed Wilson line" : edge ? "a symmetric point" : "the vacuum"}. ` +
+               `The massless content is the parity rule; the families are the multisets the ` +
+               `source papers print.`,
+    };
+  },
+
   render(ctx) {
     const $ = (id) => document.getElementById(id);
     const b = sun5dBlocks(SUN5D_S.blocks);

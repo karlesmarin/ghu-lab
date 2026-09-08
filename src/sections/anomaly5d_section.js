@@ -111,6 +111,73 @@ const ANOM5D_SECTION = {
     };
   },
 
+  /* THE LEDGER, EXPORTED AS THE LEDGER.
+   *
+   * This section shares the builder's model but not its numbers, so it cannot borrow the builder's
+   * card: an export naming this boundary condition and then tabulating the potential would be
+   * about the right model and the wrong computation, which is the same lie one level down from the
+   * one that made this method necessary.  Until 2026-09-08 there was no export here at all -- the
+   * card button was showing and quietly writing the SHELL's model, which was neither.
+   *
+   * THE VERDICT IS THREE-VALUED AND STAYS THREE-VALUED.  `clean` is true of a model with no
+   * massless fermion, which is the empty sum passing a test nobody gave it; the module says so with
+   * `verdict: "no subject"` and the card carries that word rather than "anomaly-free". */
+  texExport() {
+    const b = sun5dBlocks(SUN5D_S.blocks);
+    const content = this._content();
+    const L = an5Ledger(b, content);
+    const blocks = `(${b.nPP}, ${b.nPM}, ${b.nMP}, ${b.nMM})`;
+
+    const values = {
+      N: val(b.N, { status: STATUS.THEOREM, source: "the four block sizes sum to N" }),
+      boundary_condition: val(blocks,
+        { status: STATUS.THEOREM, source: "Haba-Yamashita eq. (5.1), simultaneously diagonal" }),
+      unbroken: val(sun5dUnbroken(b),
+        { status: STATUS.THEOREM, source: "Haba-Yamashita eq. (5.2)" }),
+      massless_weyl_fermions: val(L.nFermions,
+        { status: STATUS.THEOREM,
+          source: "the parity rule: only (+,+) has a zero mode" }),
+      channels_checked: val(L.rows.length,
+        { status: STATUS.THEOREM,
+          source: "cubic non-abelian, mixed and cubic abelian, over the live U(1)s only" }),
+    };
+    if (L.vacuous) {
+      values.verdict = val("no subject",
+        { status: STATUS.THEOREM,
+          source: "no massless fermion, so there is no anomaly to cancel — every channel is zero " +
+                  "about nothing, and that is not the same statement as anomaly-free" });
+    } else {
+      values.verdict = val(L.clean ? "every channel cancels" : "owes",
+        { status: STATUS.THEOREM,
+          source: "indices re-derived from fund (x) fund = sym (+) antisym, in exact rationals" });
+      values.channels_owing = val(L.offending.length,
+        { status: STATUS.THEOREM, source: "rows whose exact rational total is non-zero" });
+      if (L.offending.length)
+        values.owing_channels = val(L.offending.map((r) => r.channel).join("; "),
+          { status: STATUS.THEOREM, source: "named, because a non-zero total is not a verdict on " +
+                                            "the model until you know which channel it is in" });
+    }
+    /* THE VERDICT IS ABOUT THE FRAME, NOT THE THEORY, and the dossier is where that is measured.
+     * A boundary condition and its class-mates are one theory and can disagree here, so the card
+     * says which of the two it is about rather than letting a reader assume the stronger one. */
+    values.about = val("this boundary condition, not its equivalence class",
+      { status: STATUS.THEOREM,
+        source: "gauge-equivalent conditions can disagree on this row; the dossier walks the class" });
+    values.scale = unknown("no absolute scale enters an anomaly ledger: it is arithmetic in " +
+                           "exact rationals");
+
+    return {
+      card: makeCard({ group: "su3_hy", section: "anomaly5d", N: b.N,
+                       blocks: [b.nPP, b.nPM, b.nMP, b.nMM], bulk: content.bulk },
+                     values, { version: VERSION, build: BUILD }),
+      mathKeys: ["unbroken"],
+      caption: `The anomaly ledger of SU(${b.N}) on $S^1/Z_2$ with blocks ` +
+               `$(n_{++}, n_{+-}, n_{-+}, n_{--}) = ${blocks}$, over the bulk content shown. ` +
+               `Bulk fermions only: a non-zero row is not a verdict on the model, because brane ` +
+               `fermions pay into the same channels.`,
+    };
+  },
+
   render(ctx) {
     const b = sun5dBlocks(SUN5D_S.blocks);
     const content = this._content();

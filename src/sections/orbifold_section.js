@@ -391,6 +391,81 @@ const ORBIFOLD_SECTION = {
     ORB_S.panels.attach();
   },
 
+  /* THE CLASSIFICATION, EXPORTED FROM THE MATRIX IT WAS DERIVED FROM.
+   *
+   * Nothing on this page is entered: the signature, the alphabet, the local data and the degree
+   * all come out of the rotation. So the rotation itself is the input the card carries -- a reader
+   * who has the matrix can redo every row without this tool, which is what an export is for.
+   *
+   * A REFUSAL IS AN ANSWER AND IT EXPORTS AS ONE. `orbState` refuses three ways: a matrix of
+   * infinite order (the crystallographic restriction, showing up as a property of the input), a
+   * rotation fixing a whole subtorus (outside Part IX-A's hypothesis, where the machinery would
+   * return an empty alphabet and degree zero -- an answer shaped like a real one), and a cost past
+   * this page's budget. Exporting a card full of zeroes in any of those cases would hand over
+   * exactly the false answer the refusal exists to prevent, so the card carries the refusal and no
+   * numbers at all. */
+  texExport() {
+    const C = orbState();
+    const family = ORB_S.family;
+
+    if (C.refused) {
+      const values = {
+        orbifold: val(C.label, { status: STATUS.THEOREM, source: "the rotation, as entered" }),
+        rotation: val(JSON.stringify(C.A),
+          { status: STATUS.THEOREM, source: "the matrix this page was asked to classify" }),
+        classification: unknown(C.refused),
+      };
+      return {
+        card: makeCard({ group: "su3_hy", section: "orbifold", orbifold: ORB_S.orbifold,
+                         family, rotation: C.A, refused: true },
+                       values, { version: VERSION, build: BUILD }),
+        caption: `${C.label}: this page declines to classify this rotation, and the reason is the ` +
+                 `result. An empty alphabet and degree zero would look like an answer.`,
+      };
+    }
+
+    const deg = predictedDegree(C.sig, family);
+    const values = {
+      orbifold: val(C.label, { status: STATUS.THEOREM, source: "the rotation, as entered" }),
+      family: val(`${family}(N)`,
+        { status: STATUS.THEOREM, source: "the real form the alphabet is taken over" }),
+      rank: val(C.rank, { status: STATUS.THEOREM, source: "the size of the rotation matrix" }),
+      order: val(C.m,
+        { status: STATUS.THEOREM, source: "the least m with A^m = I, computed from the matrix" }),
+      signature: val(`(${C.sig.join(", ")})`,
+        { status: STATUS.THEOREM,
+          source: "the orders of the isolated cone points, enumerated on the lattice" }),
+      fixed_points: val(C.cones.length,
+        { status: STATUS.THEOREM, source: "the cone points of the rotation" }),
+      alphabet: val(orbShape(C.letters),
+        { status: STATUS.THEOREM,
+          source: "Part IX-A: a boundary condition is a representation, and the alphabet is " +
+                  "forced by the fixed-point counts" }),
+      letters: val(C.letters.length,
+        { status: STATUS.THEOREM, source: "one generator per letter" }),
+      degree: val(deg,
+        { status: STATUS.THEOREM, source: "Part IX-A, predicted from the signature alone" }),
+    };
+    /* THE SERIES IS THE ONE ROW THIS PAGE CAN FAIL TO HAVE, and when it does the reason is a
+     * budget rather than a mathematical obstruction. Saying "no closed form" without saying which
+     * would be the wrong claim in the reader's notes. */
+    values.hilbert_numerator = C.P
+      ? val(JSON.stringify(C.P),
+          { status: STATUS.VERIFIED,
+            source: "from the class counts up to the total weight, over the letter weights" })
+      : unknown(C.seriesWhy || "no closed form was computed on this page");
+    values.scale = unknown("this panel is a classification: nothing in it carries a unit");
+
+    return {
+      card: makeCard({ group: "su3_hy", section: "orbifold", orbifold: ORB_S.orbifold,
+                       family, rotation: C.A, rank: C.rank },
+                     values, { version: VERSION, build: BUILD }),
+      caption: `The boundary-condition alphabet of ${family}(N) on ${C.label}, derived from the ` +
+               `rotation alone: signature $(${C.sig.join(",\\,")})$, alphabet ` +
+               `${orbShape(C.letters)}, degree ${deg}. Nothing here is entered.`,
+    };
+  },
+
   render(ctx) {
     const $ = (id) => document.getElementById(id);
     const C = orbState();

@@ -124,6 +124,94 @@ const SWEEP5D_SECTION = {
     };
   },
 
+  /* A SCAN, EXPORTED AS THE FUNNEL AND NOT AS THE ANSWER.
+   *
+   * The number a reader wants from here is a survivor count, and it is the number most easily
+   * quoted wrongly, so the card carries the whole funnel: the denominator each stage started from
+   * and what it kept. A survivor count with no denominator says nothing about the space.
+   *
+   * AND IT CARRIES BOTH COUNTS. The survivors are boundary conditions; some of them are the same
+   * theory. `24 surviving conditions that are 16 theories` reads as 24 results to anyone who does
+   * not know to quotient, so both are printed and neither is called "the answer".
+   *
+   * A SCAN THAT HAS NOT RUN EXPORTS THAT IT HAS NOT RUN. The alternative -- running it inside the
+   * export -- would hand back a card whose numbers the reader never saw on screen. */
+  texExport() {
+    const o = this._opts();
+    const r = SWEEP5D_S.result;
+    const filters = [
+      o.want && o.want.length ? `contains SU(${o.want.join(")xSU(")})` : null,
+      o.needHiggs && o.needHiggs !== "none" ? `a massless scalar: ${o.needHiggs}` : null,
+      o.needChiral ? "chiral" : null,
+      o.needAnomalyFree ? "anomaly-free on the bulk alone" : null,
+      o.needBreaking ? "the Wilson line breaks it further" : null,
+    ].filter(Boolean);
+
+    const values = {
+      N: val(o.N, { status: STATUS.THEOREM, source: "the rank scanned" }),
+      max_multiplets: val(o.maxMult,
+        { status: STATUS.THEOREM, source: "the ceiling on the bulk content" }),
+      filters: val(filters.length ? filters.join("; ") : "none",
+        { status: STATUS.THEOREM,
+          source: "ordered cheapest first, so the expensive one runs on the fewest candidates" }),
+    };
+
+    if (!r || SWEEP5D_S.ran === null) {
+      values.survivors = unknown("the scan has not been run on this page. Press Run and export " +
+                                 "again — this card will not run it for you, because a number " +
+                                 "you never saw is not a result you can stand behind");
+      return {
+        card: makeCard({ group: "su3_hy", section: "sweep5d", ...o, ran: false },
+                       values, { version: VERSION, build: BUILD }),
+        caption: `The scan of SU(${o.N}) on $S^1/Z_2$, not yet run.`,
+      };
+    }
+
+    values.boundary_conditions = val(r.nBC,
+      { status: STATUS.THEOREM, source: "every boundary condition of this rank" });
+    values.equivalence_classes = val(r.nClasses,
+      { status: STATUS.VERIFIED, source: "orbits walked, not quoted" });
+    values.bulk_contents = val(r.nContents,
+      { status: STATUS.THEOREM, source: "every bulk up to the multiplet ceiling" });
+    values.survivors = val(r.total,
+      { status: STATUS.VERIFIED, source: "boundary conditions passing every filter" });
+    values.survivor_classes = val(r.classesLeft,
+      { status: STATUS.VERIFIED,
+        source: "how many THEORIES those are — the survivors are conditions, and some of them " +
+                "are the same theory" });
+    values.funnel = val(r.stages.map((s) => `${s.name}: ${s.kept}`).join("; "),
+      { status: STATUS.VERIFIED,
+        source: "stage by stage, so a survivor count is never quoted without its denominator" });
+
+    /* WHAT THE SCAN DID NOT DECIDE, and it is a number rather than a caveat. The minimiser handles
+     * one Wilson-line phase and two; a model with three or more is UNDECIDED, not a model that
+     * does not break, and the two were being reported as one until a harness said so. The budget
+     * cut is the same shape and is counted with it. */
+    const vac = r.stages.find((s) => s.undecided !== undefined);
+    if (vac) {
+      values.undecided = val(vac.undecided,
+        { status: STATUS.MEASURED,
+          source: "three or more Wilson-line phases, or past the vacuum budget — an undecided " +
+                  "model is not a model that does not break" });
+      if (vac.capped)
+        values.budget_cut = val("yes",
+          { status: STATUS.MEASURED,
+            source: "the vacuum stage stopped at its cap; the survivor count is a floor, not a " +
+                    "total, and this row says so rather than the count pretending otherwise" });
+    }
+    values.scale = unknown("a scan of a space carries no absolute scale");
+
+    return {
+      card: makeCard({ group: "su3_hy", section: "sweep5d", ...o, ran: true },
+                     values, { version: VERSION, build: BUILD }),
+      caption: `Every boundary condition of SU(${o.N}) on $S^1/Z_2$ crossed with every bulk of at ` +
+               `most ${o.maxMult} multiplet${o.maxMult === 1 ? "" : "s"}: ` +
+               `${r.total} surviving condition${r.total === 1 ? "" : "s"} in ${r.classesLeft} ` +
+               `equivalence class${r.classesLeft === 1 ? "" : "es"}. Both counts are given ` +
+               `because they are different questions.`,
+    };
+  },
+
   render(ctx) {
     this._controls(ctx);
     const r = SWEEP5D_S.result;

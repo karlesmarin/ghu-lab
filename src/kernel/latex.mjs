@@ -66,6 +66,18 @@ const GLYPH = new Map(Object.entries({
   "⁰": M("^0"), "¹": M("^1"), "²": M("^2"), "³": M("^3"), "⁴": M("^4"),
   "⁵": M("^5"), "⁶": M("^6"), "⁷": M("^7"), "⁸": M("^8"), "⁹": M("^9"),
   "⁺": M("^+"), "⁻": M("^-"), "′": M("'"), "″": M("''"),
+  /* THE CHIRALITY SUPERSCRIPTS, and they cost this project a silently dead button.
+   *
+   * `papers.mjs` prints "a triplet leaves ψ₁ᴿ, ψ₂ᴸ, ψ₃ᴸ" and the dossier marks an exotic with ᴿ.
+   * Neither U+1D3F nor U+1D38 was here, so `tex()` did what this file's header says it must and
+   * THREW -- inside a click handler, where the exception goes to a console nobody has open.  The
+   * LaTeX button on the papers panel had therefore done nothing at all, for as long as that line
+   * has existed, and no harness had ever pressed it.  The rule was right; the table was short. */
+  "ᴿ": M("^R"), "ᴸ": M("^L"), "ᶜ": M("^c"), "⁽": M("^("), "⁾": M("^)"),
+  /* the conjugate bar and the hat, in every form this instrument writes them.  A COMBINING mark is
+   * not here: it modifies the character before it and is handled in `tex` itself, because a table
+   * that maps one code point to one string cannot reach backwards. */
+  "ī": "\\={\\i}", "‾": M("\\overline{\\phantom{x}}"), "ŝ": M("\\hat{s}"), "½": M("\\tfrac12"),
   /* operators and relations.  U+2212 is the one that bites: it looks like a hyphen and is not. */
   "−": M("-"), "×": M("\\times"), "÷": M("\\div"), "±": M("\\pm"), "∓": M("\\mp"),
   "·": M("\\cdot"), "∘": M("\\circ"), "⊗": M("\\otimes"), "⊕": M("\\oplus"),
@@ -88,18 +100,40 @@ const GLYPH = new Map(Object.entries({
  *
  * Split by CODE POINT rather than by code unit, so an astral character is one glyph to complain
  * about rather than two halves of one that match nothing. */
+/* A COMBINING MARK MODIFIES WHAT CAME BEFORE IT, which a one-code-point-to-one-string table cannot
+ * express.  `3̄` is "3" followed by U+0304, and the LaTeX for it is `\bar{3}` -- a fact about the
+ * PAIR.  The instrument writes conjugate representations this way all over `brane`, `smcell` and
+ * `papers`, so without this they throw, which is how the papers panel's LaTeX button came to do
+ * nothing at all for as long as that line existed. */
+const COMBINING = new Map(Object.entries({
+  "̄": "bar",        /* combining macron: the conjugate representation */
+  "̂": "hat",        /* combining circumflex: the hatted Mandelstam variable */
+}));
+
 export function tex(s) {
-  return Array.from(String(s ?? "")).map((ch) => {
+  const out = [];
+  for (const ch of Array.from(String(s ?? ""))) {
+    const comb = COMBINING.get(ch);
+    if (comb !== undefined) {
+      /* it has to have something to sit on: a combining mark opening a string is malformed input,
+       * and inventing a base character for it would be a silent repair */
+      if (!out.length)
+        throw new Error(`latex: a combining U+${ch.codePointAt(0).toString(16).toUpperCase()
+                        .padStart(4, "0")} with nothing before it`);
+      out.push(`\\ensuremath{\\${comb}{${out.pop()}}}`);
+      continue;
+    }
     const sp = SPECIAL[ch];
-    if (sp !== undefined) return sp;
-    if (ch === "\n" || (ch >= " " && ch <= "~")) return ch;
+    if (sp !== undefined) { out.push(sp); continue; }
+    if (ch === "\n" || (ch >= " " && ch <= "~")) { out.push(ch); continue; }
     const t = GLYPH.get(ch);
     if (t === undefined)
       throw new Error(`latex: no LaTeX for U+${ch.codePointAt(0).toString(16).toUpperCase()
                       .padStart(4, "0")} (${JSON.stringify(ch)}) - add it to GLYPH rather than ` +
                       `letting the export lose it`);
-    return t;
-  }).join("");
+    out.push(t);
+  }
+  return out.join("");
 }
 
 /* Does this string survive the transport?  For a caller that would rather ask than catch. */

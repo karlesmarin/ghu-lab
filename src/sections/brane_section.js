@@ -203,6 +203,71 @@ const BRANE_SECTION = {
     };
   },
 
+  /* WHAT THE BRANE CONTENT DID, EXPORTED AS TWO NUMBERS THAT MOVED.
+   *
+   * The brane fields are part of the model and live in `SUN5D_S.brane`, so this card carries them
+   * beside the bulk -- an export of this panel that listed only the bulk would describe a model
+   * that cannot reproduce the numbers printed next to it.
+   *
+   * THE TWO JOBS ARE REPORTED SEPARATELY BECAUSE THEY ARE SEPARATE.  Brane fermions pay the
+   * anomaly bill AND give the unwanted zero modes a mass, and a content can do one without the
+   * other.  Collapsing them into one "works / does not work" would hide exactly the trade the
+   * panel exists to let a reader make. */
+  texExport() {
+    const b = sun5dBlocks(SUN5D_S.blocks);
+    const content = this._content();
+    const branes = this._branes(b);
+    const s = brSummary(b, content, branes);
+    const blocks = `(${b.nPP}, ${b.nPM}, ${b.nMP}, ${b.nMM})`;
+
+    const values = {
+      N: val(b.N, { status: STATUS.THEOREM, source: "the four block sizes sum to N" }),
+      boundary_condition: val(blocks,
+        { status: STATUS.THEOREM, source: "Haba-Yamashita eq. (5.1), simultaneously diagonal" }),
+      unbroken: val(sun5dUnbroken(b),
+        { status: STATUS.THEOREM, source: "Haba-Yamashita eq. (5.2)" }),
+      brane_pieces: val(branes.reduce((a, p) => a + p.copies, 0),
+        { status: STATUS.THEOREM, source: "chosen on the two fixed points, listed in the input" }),
+      channels_owing_before: val(s.bill.owedBefore,
+        { status: STATUS.THEOREM, source: "the ledger of the bulk alone" }),
+      channels_owing_after: val(s.bill.owedAfter,
+        { status: STATUS.THEOREM, source: "the same ledger with the brane pieces added" }),
+      massless_before: val(s.gate.before,
+        { status: STATUS.THEOREM, source: "Weyl components with a zero mode, bulk and brane" }),
+      massless_after: val(s.gate.after,
+        { status: STATUS.THEOREM, source: "what survives after every vectorlike pair is lifted" }),
+      lifted_pairs: val(s.gate.lifted,
+        { status: STATUS.THEOREM, source: "a class paired with its conjugate admits a mass term" }),
+    };
+    if (s.bill.broken.length)
+      values.channels_broken = val(s.bill.broken.map((r) => r.channel).join("; "),
+        { status: STATUS.THEOREM,
+          source: "channels the bulk had already cancelled and the brane content un-cancelled — " +
+                  "paying one bill can open another, and it is named rather than netted off" });
+    /* THE CONTROL TRAVELS WITH THE ANSWER.  A paired class and its conjugate are vectorlike, so
+     * the ledger of the survivors must equal the ledger of everything row for row.  A card that
+     * printed the mass gate's verdict without saying whether its own control held would be asking
+     * to be trusted on a computation nobody re-ran. */
+    values.mass_gate_control = val(s.control ? "holds" : "FAILS",
+      { status: STATUS.VERIFIED,
+        source: "the survivors' ledger against the full ledger, row for row — lifting a " +
+                "vectorlike pair may not move any anomaly" });
+    values.scale = unknown("no absolute scale here: this panel counts states and cancels " +
+                           "channels, neither of which carries a unit");
+
+    return {
+      card: makeCard({ group: "su3_hy", section: "brane", N: b.N,
+                       blocks: [b.nPP, b.nPM, b.nMP, b.nMM], bulk: content.bulk,
+                       brane: branes.map((p) => ({ fp: p.fp, rep: p.rep, chirality: p.chirality,
+                                                   copies: p.copies, q: p.q })) },
+                     values, { version: VERSION, build: BUILD }),
+      mathKeys: ["unbroken"],
+      caption: `Brane-localized fermions on the two fixed points of SU(${b.N}) on $S^1/Z_2$ with ` +
+               `blocks $(n_{++}, n_{+-}, n_{-+}, n_{--}) = ${blocks}$, held to both jobs at once: ` +
+               `the anomaly bill the bulk left unpaid, and the mass the unwanted zero modes get.`,
+    };
+  },
+
   render(ctx) {
     const b = sun5dBlocks(SUN5D_S.blocks);
     const content = this._content();

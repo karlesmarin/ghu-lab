@@ -458,26 +458,44 @@ H("both export buttons appear only where they export what is on screen");
       tex: !document.getElementById('btnTex').hidden,
       card: !document.getElementById('btnCard').hidden })`));
   };
-  /* sections that stand on the shell's model, or hand over their own */
-  for (const id of ["hierarchy", "atlas", "collider", "sun5d", "blkt", "litcensus"]) {
-    const v = await shown(id);
-    ok(`visible on ${id}`, v.tex && v.card, JSON.stringify(v));
-  }
-  /* sections holding a model they do not export: the file would be about something else.
+  /* sections that stand on the shell's model, or hand over their own.
    *
    * THE CARD BUTTON WAS NOT IN THIS LIST FOR FIVE DAYS.  The rule was written for LaTeX, the
    * driver checked LaTeX, and `⇩ card` -- the JSON and the plain text, which is what a reader
    * actually keeps -- called `run()` from all thirteen sections that hold their own model and
    * wrote the shell's out instead.  Asking about the two buttons in one pass is the point: the
-   * defect was never that either rule was wrong, it was that only one control obeyed it. */
-  for (const id of ["spectrum5d", "anomaly5d", "brane", "sweep5d", "bcclass"]) {
+   * defect was never that either rule was wrong, it was that only one control obeyed it.
+   *
+   * AND ON 2026-09-08 THE SEVEN THAT COULD NOT EXPORT LEARNED HOW, so every section on the rail is
+   * in this list and none is in the other one.  A `holds()` section is asked for both buttons AND
+   * for the two files agreeing, below. */
+  const EVERY = ["hierarchy", "atlas", "collider", "sun5d", "blkt", "litcensus",
+                 "spectrum5d", "anomaly5d", "brane", "sweep5d", "bcclass", "orbifold",
+                 "relations", "dossier", "predict", "papers"];
+  for (const id of EVERY) {
     const v = await shown(id);
-    ok(`hidden on ${id} — both of them`, !v.tex && !v.card, JSON.stringify(v));
+    ok(`visible on ${id} — both of them`, v.tex && v.card, JSON.stringify(v));
   }
 
-  /* and hidden is not disabled: pressing either anyway must do nothing */
+  /* THE HALF THAT HIDES, WHICH NOW HAS NO SECTION LEFT TO EXERCISE IT.
+   *
+   * Every panel exports, so the false branch of `exportUsable` is never taken on this build -- and
+   * a guard whose refusing half nothing reaches is a guard nobody is testing.  It is still the
+   * rule that keeps the next own-model section honest, so it is falsified directly: take one
+   * section's `texExport` away in the live page and both buttons must go.  This is the only check
+   * here that constructs its failure rather than finding it. */
   await js(`document.querySelector('#rail a[data-id="bcclass"]').click()`);
-  await sleep(600);
+  await sleep(700);
+  await js(`window.__savedTex = SECTIONS.find((x) => x.id === "bcclass").texExport;
+            delete SECTIONS.find((x) => x.id === "bcclass").texExport; true`);
+  /* leave and come back, because the buttons are set on the render that mounts a section */
+  await js(`document.querySelector('#rail a[data-id="hierarchy"]').click()`);
+  await sleep(400);
+  const stripped = await shown("bcclass");
+  ok("a holds() section WITHOUT texExport hides both buttons",
+     !stripped.tex && !stripped.card, JSON.stringify(stripped));
+
+  /* and hidden is not disabled: pressing either anyway must do nothing */
   await js(`window.__blobs = []; URL.createObjectURL = (b) => { window.__blobs.push(b); return "blob:stub"; }; true`);
   await js(`document.getElementById('btnTex').click(); true`);
   await js(`document.getElementById('btnCard').click(); true`);
@@ -485,6 +503,49 @@ H("both export buttons appear only where they export what is on screen");
   ok("...and pressing either there writes nothing at all",
      (await js(`window.__blobs.length`)) === 0);
   await js(`URL.createObjectURL = window.__realCreate; true`);
+
+  /* put it back, or every check after this one runs on a page this harness broke */
+  await js(`SECTIONS.find((x) => x.id === "bcclass").texExport = window.__savedTex; true`);
+  await js(`document.querySelector('#rail a[data-id="hierarchy"]').click()`);
+  await sleep(300);
+  const restored = await shown("bcclass");
+  ok("...and the harness put it back", restored.tex && restored.card, JSON.stringify(restored));
+}
+
+/* ---- and every own-model section actually produces a card ----------------------------------- */
+/* A `texExport` THAT THROWS IS A BUTTON THAT DOES NOTHING, and nothing above would notice: the
+ * button is visible because the METHOD EXISTS, and whether it runs is a different question from
+ * whether it is there.  Seven of these were written in one sitting on 2026-09-08, against seven
+ * different modules, and the only honest way to know they work is to press them.
+ *
+ * The check is deliberately shallow and total rather than deep and partial: every section that
+ * holds its own model, both buttons, and the file must exist, name a model, and name the SAME one.
+ * A per-section assertion about the contents would be a second copy of each section's own harness. */
+H("every section that holds its own model exports a card that is about that model");
+{
+  const holders = JSON.parse(await js(
+    `JSON.stringify(SECTIONS.filter((s) => typeof s.holds === "function" && s.ready !== false)
+                            .map((s) => s.id))`));
+  ok(`there are own-model sections to ask about (${holders.length})`, holders.length >= 12,
+     JSON.stringify(holders));
+
+  for (const id of holders) {
+    await js(`document.querySelector('#rail a[data-id="${id}"]').click()`);
+    await sleep(700);
+    const names = JSON.parse(await js(`(() => {
+      window.__n = [];
+      const c = HTMLAnchorElement.prototype.click;
+      HTMLAnchorElement.prototype.click = function () { window.__n.push(this.download); };
+      URL.createObjectURL = (b) => "blob:stub";
+      try { document.getElementById('btnCard').click(); document.getElementById('btnTex').click(); }
+      finally { HTMLAnchorElement.prototype.click = c; URL.createObjectURL = window.__realCreate; }
+      return JSON.stringify(window.__n);
+    })()`));
+    const ids = [...new Set(names.map((n) => (n || "").replace(/^ghu-/, "").replace(/\.[a-z]+$/, "")))];
+    ok(`${id}: both buttons wrote a file`, names.length >= 2, JSON.stringify(names));
+    ok(`${id}: and the .json and the .tex name one model`, ids.length === 1 && !!ids[0],
+       JSON.stringify(ids));
+  }
 }
 
 /* ---- and where they ARE shown, the two files are about the SAME model ------------------------ */

@@ -71,6 +71,54 @@ H("every string the instrument can export actually survives");
      bad.slice(0, 3).join(" | "));
 }
 
+H("and the strings that live in CODE, which is where the sweep above cannot look");
+{
+  /* THE BLIND SPOT, FOUND ON 2026-09-08.  The sweep above reads `data/` and the citation registry,
+   * and every value it ever cleared was in a JSON file.  The string that actually broke an export
+   * was a JS literal: `papers.mjs` prints "a triplet leaves ψ₁ᴿ, ψ₂ᴸ, ψ₃ᴸ", neither superscript
+   * was in GLYPH, and `tex()` did what it must and threw -- inside a click handler, where the
+   * exception goes to a console nobody has open.  The LaTeX button on that panel had done nothing
+   * for as long as the line existed, and no harness had pressed it.
+   *
+   * A region a gate filters out is where it is blind, so the gate is widened to the region: every
+   * non-ASCII character in the value-producing source, with comments stripped, must survive.  It
+   * found nine more of the same defect in one pass -- the conjugate bar, the KK half, the
+   * superscript c, the hatted Mandelstam variable.
+   *
+   * Sections are NOT swept: their HTML carries arrows and glyphs that are presentation and never
+   * reach `tex()`. Modules and the kernel are where a VALUE is made. */
+  const COMMENT = /\/\*[\s\S]*?\*\//g, LINE = /(?<!:)\/\/[^\n]*/g;
+  const chars = new Map();
+  let files = 0;
+  for (const dir of ["src/modules/", "src/kernel/"]) {
+    for (const f of readdirSync(new URL("./" + dir, import.meta.url))) {
+      if (!f.endsWith(".mjs")) continue;
+      files++;
+      const code = readFileSync(new URL(`./${dir}${f}`, import.meta.url), "utf8")
+        .replace(COMMENT, "").replace(LINE, "");
+      for (const ch of code)
+        if (ch.codePointAt(0) > 127 && !chars.has(ch)) chars.set(ch, dir + f);
+    }
+  }
+  ok(`there is source to sweep (${files} files, ${chars.size} distinct non-ASCII characters)`,
+     files >= 20 && chars.size >= 20);
+
+  /* A COMBINING MARK IS TESTED ON A BASE, NOT ALONE.  Alone it throws by design -- there is
+   * nothing for it to sit on, and inventing a base would be a silent repair -- so testing it in
+   * isolation would fail the gate for the one correct behaviour it has. */
+  const COMBINING = /[̀-ͯ]/;
+  const unsafe = [...chars.entries()]
+    .filter(([ch]) => !texSafe(COMBINING.test(ch) ? "n" + ch : ch))
+    .map(([ch, where]) => `U+${ch.codePointAt(0).toString(16).toUpperCase().padStart(4, "0")} in ${where}`);
+  ok("every non-ASCII character in the modules and the kernel survives tex()",
+     unsafe.length === 0, unsafe.slice(0, 5).join(" | "));
+
+  /* and the pair rule itself, since it is the part a table cannot express */
+  ok("a combining mark wraps the character before it", tex("3̄") === "\\ensuremath{\\bar{3}}");
+  ok("...and alone it is refused rather than repaired",
+     texSafe("̄") === false);
+}
+
 H("a symbol is typeset as a symbol, and prose as prose");
 {
   /* `sun5dUnbroken` returns a formula.  Escaped as text, its caret becomes a visible accent. */

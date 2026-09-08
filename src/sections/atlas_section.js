@@ -56,7 +56,7 @@ const ATLAS_SECTION = {
     const $ = (id) => document.getElementById(id);
     $("a7Go").onclick = () => {
       $("a7Note").textContent = "summing the atoms…";
-      setTimeout(() => {
+      ctx.later(() => {
         ATLAS7 = buildAtlas7(ctx.DATA);
         ATLAS7_SEL = null;
         ctx.refresh();

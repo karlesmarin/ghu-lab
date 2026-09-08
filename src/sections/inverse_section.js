@@ -182,7 +182,7 @@ const INVERSE_SECTION = {
     $("ivGo").onclick = () => this._run(ctx);
     $("ivResolve").onclick = () => {
       $("ivResolveNote").textContent = "enumerating the rungs a page can reach…";
-      setTimeout(() => {
+      ctx.later(() => {
         const seed = ctx.seed === "candidate" ? "candidate" : "published";
         const box = inverseBox(1, 2, INV_S.mhLo, INV_S.mhHi, ctx.model().conventions);
         const out = {};
@@ -222,6 +222,11 @@ const INVERSE_SECTION = {
     });
   },
 
+  /* Same reason as the dossier's: the sweep is cancelled on the way out, and `busy` is set before
+   * it and cleared inside it.  Left true, the panel reopens saying "walking the rungs…" about a
+   * walk that is not happening -- a caption is a claim about the present tense. */
+  dispose() { INV_S.busy = false; },
+
   /* the expensive half runs off the event loop, so the button paints "working" first */
   _run(ctx) {
     const $ = (id) => document.getElementById(id);
@@ -229,7 +234,7 @@ const INVERSE_SECTION = {
     INV_S.busy = true;
     $("ivBusy").textContent = "walking the rungs…";
     ctx.refresh();
-    setTimeout(() => {
+    ctx.later(() => {
       const L = INV_L, D = ctx.DATA;
       const conv = ctx.model().conventions;
       const r = INV_S.target * 1000, f = INV_S.tolPct / 100;

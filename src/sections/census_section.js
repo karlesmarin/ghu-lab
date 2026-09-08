@@ -132,12 +132,13 @@ const CENSUS_SECTION = {
   _build(ctx) {
     const $ = (id) => document.getElementById(id);
     $("cnBusy").textContent = "summing the table…";
-    setTimeout(() => {
+    ctx.later(() => {
       CEN_L = inverseLattice(ctx.DATA, gaugeSeed(ctx.model(), ctx.DATA).gauge);
       CEN_C = buildCensus(CEN_L, { tMax: CEN_S.wide ? 900 : 560 });
       CEN_S.rec = recurrenceCheck(CEN_C, { tSpan: 320, kMax: 60 });
       CEN_S.fibre = null;
-      $("cnBusy").textContent = "";
+      const busy = $("cnBusy");
+      if (busy) busy.textContent = "";
       ctx.refresh();
     }, 20);
   },

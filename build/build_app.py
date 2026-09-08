@@ -206,7 +206,14 @@ def build(edition=False, home=None, out_path=None):
 # does not go stale and reverting a change un-stales it.  Deliberately NOT fatal to a build and
 # deliberately fatal to the word "green": publishing is where a stale browser tier does damage,
 # and wiring `--browser` into the publish path is the next step, not this one.
-BROWSER_GATES = [("leaks.mjs", []), ("layout.mjs", ["--quiet"]), ("extremes.mjs", [])]
+#
+# `lifecycle.mjs` joined them on 2026-09-08.  `leaks.mjs` had closed the question of what the page
+# KEEPS -- listeners still hanging off window after the rail is walked -- and could not see what
+# the page is still DOING: a `setTimeout` chain scheduled by a section that the reader has since
+# left.  It is the same defect one turn later, and it threw three `null.textContent` TypeErrors in
+# the build that was live when it was written.
+BROWSER_GATES = [("leaks.mjs", []), ("layout.mjs", ["--quiet"]), ("extremes.mjs", []),
+                 ("lifecycle.mjs", [])]
 STAMP = HERE / ".browser_gate.json"
 
 
@@ -290,6 +297,7 @@ def main(argv=None):
 
     print("\nharnesses (the same mathematics, run outside the page):")
     worst = 0
+    tally = []
     for cmd in (["node", "_test_kernel.mjs"], ["node", "_test_hierarchy.mjs"],
                 ["node", "_test_app.mjs"], ["node", "_test_groups.mjs"], ["node", "_test_wilson.mjs"],
                 ["node", "_test_eta.mjs"], ["node", "_test_selection.mjs"],
@@ -316,7 +324,11 @@ def main(argv=None):
                 [sys.executable, "_test_help.py"], [sys.executable, "_test_howto.py"],
                 # the gate on the gate: the browser tier's staleness detector, checked for FIRING
                 # and not only for absolving.  Cheap, no Chromium, so it runs every build.
-                [sys.executable, "_test_browsergate.py"]):
+                [sys.executable, "_test_browsergate.py"],
+                # the cheap half of the abandoned-work rule.  `lifecycle.mjs` measures nine panels
+                # in a browser; this reads all thirty section files, so the next panel to grow a
+                # sweep cannot reintroduce the defect somewhere no case looks.
+                [sys.executable, "_test_lifecycle.py"]):
         # DECODE AS UTF-8, EXPLICITLY.  `text=True` alone uses the machine's ANSI codepage, and on
         # Windows that is cp1252, which has five UNMAPPED bytes (0x81, 0x8D, 0x8F, 0x90, 0x9D).  A
         # harness that prints a character whose UTF-8 encoding contains one of them -- an omega,
@@ -334,9 +346,19 @@ def main(argv=None):
                              f"call it either.")
         tail = [ln for ln in r.stdout.strip().split("\n") if ln.strip()][-1:] or ["(no output)"]
         print(f"  {cmd[-1]:<24} {tail[0].strip()}")
+        # THE TOTAL, MEASURED RATHER THAN REMEMBERED.  README.md quotes a count of checks and of
+        # harnesses, and quoted "1 805 across 35" for weeks after it was neither -- the same defect
+        # the home page had, in the one file a reader opens first.  The build now prints what it
+        # actually ran, so keeping the sentence true is reading one line rather than counting
+        # forty-five harnesses by hand.
+        m = re.search(r"\b(\d+)\s+(?:ok\b|checks pass)", tail[0])
+        tally.append((cmd[-1], int(m.group(1)) if m else 0))
         worst = max(worst, r.returncode)
         if r.returncode:
             print(r.stdout[-1800:])
+
+    print(f"\n  {sum(n for _, n in tally)} checks across {len(tally)} harnesses "
+          f"(the number README.md quotes)")
 
     if a.browser:
         worst = max(worst, run_browser_tier())

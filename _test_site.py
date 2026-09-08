@@ -36,6 +36,7 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "build"))
 from editiongate import check as edition_check                             # noqa: E402
+import build_site                                                          # noqa: E402
 from build_site import ROMAN, SLUG, SEVERITIES, APP_HOME                   # noqa: E402
 from build_app import HOME_PLAIN, HOME_LINKED                              # noqa: E402
 
@@ -236,6 +237,33 @@ def check_honesty(w):
              f"first screen, not in a footnote" for s in missing])
 
 
+def check_counts(w):
+    """DOES THE SITE'S ARITHMETIC MATCH THE INSTRUMENT?
+
+    Nothing here had ever asked.  `check_honesty` guards the sentence that says the numbers are not
+    citable; no check guarded the numbers ABOUT the tool, and the home page advertised "One bulk
+    model, eleven computations over it" and "Seven papers" long after it was three models,
+    twenty-seven panels and ten records.  Prose written once and true once.
+
+    The counts are generated now, so the failure this catches is narrower and worse: a page that
+    states a count `site_counts()` does not return, which means somebody re-typed a numeral instead
+    of using a token, and it will go stale again the same way.  Every spelled-out number in the two
+    door blurbs and in the series lead must be one the registry and series.json currently support.
+    """
+    want = set(build_site.site_counts().values())
+    bad = []
+    # the sentences that carry a count about the tool, and nowhere else -- the body prose is full
+    # of numbers that are about physics and are not this gate's business
+    for rel, rx in (("index.html", r'<span>The (?:instrument|series)\.(.*?)</span>'),
+                    ("papers/index.html", r'<p class="lead">(.*?)</p>')):
+        for blurb in re.findall(rx, w["pages"].get(rel, ""), re.S):
+            for word in re.findall(r"\b([a-z]+(?:-[a-z]+)?)\b", blurb.lower()):
+                if word in build_site.NUMWORD and word not in want:
+                    bad.append(f"{rel} says {word!r}, which is not a count the registry supports "
+                               f"(it holds {sorted(want)}) — a numeral was typed instead of a token")
+    return bad
+
+
 def check_entries(w):
     bad = []
     for p in w["changes"]:
@@ -310,6 +338,7 @@ CHECKS = [
     ("every page has a title, a description and a viewport", check_head),
     ("no substitution token survived", check_placeholders),
     ("the home page still says the numbers are not citable", check_honesty),
+    ("every count the site states is one the registry supports", check_counts),
     ("severity and 'affects the record' agree in every entry", check_entries),
     ("every entry appears in the stream AND on its paper's page", check_echo),
 ]
@@ -420,6 +449,17 @@ def break_honesty(w):
     return b
 
 
+def break_counts(w):
+    """Exactly the failure that shipped: a door blurb with a numeral typed into it.  "eleven" is
+    the word the page actually carried, so the break is the historical defect rather than a
+    synthetic one."""
+    b = _copy(w)
+    b["pages"]["index.html"] = re.sub(
+        r"(<span>The instrument\.)", r"\1 One bulk model, eleven computations over it, and",
+        b["pages"]["index.html"], count=1)
+    return b
+
+
 def break_entries(w):
     """The only check whose input is on disk rather than in memory, so it is broken by pointing it
     at a synthetic entry rather than by editing a real one."""
@@ -451,11 +491,18 @@ def break_double_escape(w):
     return b
 
 
-BREAKERS = dict(zip([c[0] for c in CHECKS],
-                    [break_double_escape,
-                     break_links, break_assets, break_dois, break_undeposited, break_dead_links,
-                     break_app, break_palette, break_coverage, break_head, break_placeholders,
-                     break_honesty, break_entries, break_echo]))
+_BREAKS = [break_double_escape,
+           break_links, break_assets, break_dois, break_undeposited, break_dead_links,
+           break_app, break_palette, break_coverage, break_head, break_placeholders,
+           break_honesty, break_counts, break_entries, break_echo]
+# ZIP TRUNCATES, WHICH IS THE WRONG FAILURE HERE.  Adding a check without adding its breaker would
+# have paired the two lists silently and simply stopped falsifying the last check -- the harness
+# would still print a full green column, one row shorter than the list of checks, and the missing
+# row is the one nobody counts.  Adding `check_counts` is exactly when that would have happened.
+if len(_BREAKS) != len(CHECKS):
+    sys.exit(f"FATAL: {len(CHECKS)} checks and {len(_BREAKS)} breakers. Every check is falsified "
+             f"here or the second half of this file is decoration.")
+BREAKERS = dict(zip([c[0] for c in CHECKS], _BREAKS))
 
 
 # ------------------------------------------------------------------ run

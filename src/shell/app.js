@@ -518,16 +518,56 @@
     if (bib) setTimeout(() => download(`ghu-${use.provenance.model_id}.bib`, bib, "text/plain"), 500);
   };
 
+  /* "COPIED" IS A CLAIM ABOUT THE CLIPBOARD, so it waits to find out.
+   *
+   * This said `copied` unconditionally and swallowed the rejection, which is a lie on exactly the
+   * readers this page was built for: the Clipboard API is absent or refused outside a secure
+   * context, and `file://` -- which the README advertises, and which is how the offline copy is
+   * meant to be opened -- is not one in every browser.  The address bar is updated either way, so
+   * the honest failure still leaves the reader holding the link; it just has to say which of the
+   * two things happened. */
   $("btnLink").onclick = () => {
     location.hash = encode();
-    if (navigator.clipboard) navigator.clipboard.writeText(location.href).catch(() => {});
-    $("btnLink").textContent = "🔗 copied";
-    setTimeout(() => ($("btnLink").textContent = "🔗 link"), 1400);
+    const done = (msg) => {
+      $("btnLink").textContent = msg;
+      setTimeout(() => ($("btnLink").textContent = "🔗 link"), 1400);
+    };
+    const url = location.href;
+    if (!navigator.clipboard || !navigator.clipboard.writeText) return done("🔗 in the bar");
+    navigator.clipboard.writeText(url).then(() => done("🔗 copied"), () => done("🔗 in the bar"));
   };
 
   /* ---------------------------------------------------------------- the loop */
 
   let mounted = null;
+  let mountedSec = null;
+
+  /* THE LISTENERS OF A SECTION WERE GIVEN A LIFECYCLE; ITS TIMERS WERE NOT.
+   *
+   * Every long computation on this page is handed to the browser in slices so the page keeps
+   * answering while it runs -- `setTimeout(step, 0)` down the calculator's seventeen-second sweep,
+   * `setTimeout(tick, 620)` along the BLKT demo's eight stops, and eight more of the same shape.
+   * Each was scheduled by a section and then written as though that section were still on screen.
+   * It need not be: the rail replaces the whole of `#section` the moment the reader picks another
+   * panel, and the pending timer outlives the elements its callback reaches for.
+   *
+   * `document.getElementById("cSweepNote").textContent = …` is then `null.textContent`.  The
+   * exception does not merely dirty the console -- it lands BEFORE the lines that would have put
+   * the section back, so the BLKT demo's `running` stayed true and its ▶ button was dead for the
+   * rest of the page's life.
+   *
+   * A null-check at each of the ten call sites would silence the exception and KEEP the bug: the
+   * work would still run, off screen, against a model the reader has since changed, and the result
+   * would be cached as though it were about what is now on the page.  So a timer belongs to the
+   * MOUNT rather than to the closure that asked for it.  `ctx.later` registers it here; leaving the
+   * section cancels every one.  `build/lifecycle.mjs` is the harness that holds this. */
+  let JOBS = new Set();
+  let epoch = 0;
+
+  function jobsStop() {
+    for (const t of JOBS) clearTimeout(t);
+    JOBS.clear();
+  }
 
   function ctx() {
     const g = activeGroup();
@@ -541,6 +581,25 @@
        * touching the model.  Without this a section reaches for setN(0, 0), which is a no-op only
        * as long as nothing else clamps. */
       refresh() { render(); },
+      /* Work that belongs to THIS mount.  Cancelled on the way out of the section, and refused if
+       * it somehow survives that -- coming back to the same panel is a new mount, not a
+       * continuation of the old one, and the epoch is what says so.  Every deferred computation in
+       * every section goes through here; `_test_lifecycle.py` fails the build on a bare
+       * `setTimeout` in `src/sections/`. */
+      later(fn, ms) {
+        const born = epoch;
+        const t = setTimeout(() => {
+          JOBS.delete(t);
+          if (born !== epoch) return;
+          fn();
+        }, ms || 0);
+        JOBS.add(t);
+        return t;
+      },
+      /* For the one kind of pending work this shell cannot hold on the reader's behalf -- an
+       * animation frame, a promise already in flight -- the same question, asked directly. */
+      mountToken: () => epoch,
+      stillMounted: (token) => token === epoch,
       /* A section that WRITES the shared model needs to be able to send the reader to a panel that
        * READS it — otherwise a "load this model" button is a button that appears to do nothing,
        * because the panel it changed is somewhere else on the rail.  Same operation the rail
@@ -565,16 +624,29 @@
         state.brane[g] = cleanBrane({ ...state.brane[g], ...patch });
         render();
       },
+      /* LOADING A MODEL REPLACES THE MODEL, INCLUDING THE PART THAT IS NOT ON SCREEN.
+       *
+       * This wrote η and role only for the slots the incoming model NAMES, and left the others
+       * carrying whatever the previous model had put there.  Their multiplicity goes to zero, so
+       * the page looks right and the exported card is right -- until the reader adds one of those
+       * slots back.  `setN(i, 1)` from the catalogue's + button sets the multiplicity and nothing
+       * else, so the multiplet returns wearing the η of a model that is no longer loaded, and the
+       * potential it feeds is not the one the screen describes.
+       *
+       * Zero multiplicity is not absence: it is a slot with hidden state.  So the reset is
+       * unconditional and the incoming model then writes its own -- the same two lines `clear()`
+       * has always run, for the same reason. */
       load(bulk) {
-        state.n[g] = SLOTS[g].map((s) => {
+        state.eta[g] = SLOTS[g].map(() => 1);
+        state.role[g] = SLOTS[g].map(() => 1);
+        state.n[g] = SLOTS[g].map((s, i) => {
           const b = (bulk || []).find((x) => x.rep === s.rep &&
             (x.parities[0] > 0 ? "+" : "-") === s.key[1] &&
             (x.parities[1] > 0 ? "+" : "-") === s.key[3]);
-          if (b) {
-            state.eta[g][SLOTS[g].indexOf(s)] = b.eta === undefined ? 1 : b.eta;
-            state.role[g][SLOTS[g].indexOf(s)] = b.role === undefined ? 1 : b.role;
-          }
-          return b ? b.multiplicity : 0;
+          if (!b) return 0;
+          state.eta[g][i] = b.eta === undefined ? 1 : b.eta;
+          state.role[g][i] = b.role === undefined ? 1 : b.role;
+          return b.multiplicity;
         });
         render();
       },
@@ -600,6 +672,17 @@
     header(r);
     const sec = active();
     if (mounted !== sec.id) {
+      /* LEAVING A SECTION IS AN OPERATION, not the absence of one.  The panel on screen may be
+       * holding a running demo, a half-finished sweep, and a flag that says so; it is told first,
+       * while its own elements still exist, and only then are its pending timers cancelled and its
+       * HTML replaced.  A section that throws on the way out does not get to stop the section the
+       * reader asked for, so the call is braced. */
+      if (mountedSec && mountedSec.dispose) {
+        try { mountedSec.dispose(); }
+        catch (e) { console.warn("dispose:", e && e.message); }
+      }
+      jobsStop();
+      epoch++;
       /* THE HOW-TO IS MOUNTED BY THE SHELL, not written into each section: twenty-five sections
        * would be twenty-five chances to forget one, and a section that forgot would look like a
        * section with nothing to explain.  `_test_howto.py` fails if a built section has no entry. */
@@ -611,6 +694,7 @@
       const dbtn = document.getElementById("demoRun");
       if (dbtn) dbtn.onclick = (e) => { e.preventDefault(); e.stopPropagation(); demoStart(sec.id, ctx()); };
       mounted = sec.id;
+      mountedSec = sec;
       if (sec.init) sec.init(ctx());
     }
     sec.render(ctx(), r);

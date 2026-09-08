@@ -148,15 +148,27 @@ const DOSS_SECTION = {
       DOSS_S.running = true;
       document.getElementById("dsSep").innerHTML =
         '<div class="note">walking every class…</div>';
-      /* a frame so the note paints before the sweep blocks the thread */
-      requestAnimationFrame(() => setTimeout(() => {
+      /* A DEFERRAL, NOT A FRAME, and the difference is the whole lifecycle.  This was
+       * `requestAnimationFrame(() => setTimeout(…))`, so that the note painted before the sweep
+       * took the thread.  A plain 20 ms does that just as well and is what the other eight panels
+       * already use -- but the frame had also become a way OUT of the cancellation: `ctx.later`
+       * takes ownership of the mount that is current WHEN IT IS CALLED, and a frame callback that
+       * fires after the reader has gone calls it from the next section's mount, which owns it,
+       * which runs it.  The work has to be claimed at the moment of the click. */
+      ctx.later(() => {
         const b = sun5dBlocks(SUN5D_S.blocks);
         DOSS_S.separation = dossierSeparation(b.N, this._content(), { grid: 120, windings: 120 });
         DOSS_S.running = false;
         ctx.refresh();
-      }, 0));
+      }, 20);
     };
   },
+
+  /* The shell cancels the separation sweep when the reader leaves, which is the point -- but the
+   * line that clears `running` lived at the END of that cancelled callback, and `running` is what
+   * the button checks before it will start another.  Cancelling the work has to cancel the flag
+   * that says work is happening, or the panel comes back permanently busy. */
+  dispose() { DOSS_S.running = false; },
 
   render(ctx) {
     const bc = this._bc(), content = this._content();

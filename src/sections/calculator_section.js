@@ -119,14 +119,18 @@ const CALCULATOR_SECTION = {
       const step = () => {
         rows = rows.concat(sweepDomain(ctx.DATA, halfOf, { names: names.slice(i, i + 10) }).rows);
         i += 10;
-        document.getElementById("cSweepNote").textContent =
+        const note = document.getElementById("cSweepNote");
+        if (note) note.textContent =
           i < names.length ? `${Math.min(i, names.length)} of ${names.length}…` : "";
-        if (i < names.length) return setTimeout(step, 0);
+        /* through the shell, so leaving the section during those seventeen seconds ENDS the sweep
+         * rather than continuing it against a page that is no longer here.  A partial `rows` never
+         * reaches `CALC_SWEEP`: the chain simply stops, and coming back offers the button again. */
+        if (i < names.length) return ctx.later(step, 0);
         CALC_SWEEP = summariseDomain(rows);
         ctx.refresh();
       };
       document.getElementById("cSweepNote").textContent = "running…";
-      setTimeout(step, 20);
+      ctx.later(step, 20);
     };
     const $ = (id) => document.getElementById(id);
     const D = ctx.DATA;

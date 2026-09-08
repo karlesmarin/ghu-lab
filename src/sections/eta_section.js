@@ -153,14 +153,14 @@ const ETA_SECTION = {
     ETA_PANELS.attach();
     $("eSweepGo").onclick = () => {
       $("eSweepNote").textContent = "running…";
-      setTimeout(() => { ETA_SWEEP = sweepEta(ctx.DATA); ctx.refresh(); }, 20);
+      ctx.later(() => { ETA_SWEEP = sweepEta(ctx.DATA); ctx.refresh(); }, 20);
     };
 
     /* THE ATLAS.  Recomputed on a mode change and only redrawn on a filter or sort change -- the
      * fields do not depend on which tiles you are looking at or in what order. */
     const drawIt = (recompute) => {
       $("eAtNote").textContent = recompute ? "drawing…" : "";
-      setTimeout(() => {
+      ctx.later(() => {
         if (recompute || !ETA_ATLAS) ETA_ATLAS = atlas(ctx.DATA, { mode: $("eAtMode").value });
         this._atlas(ctx);
       }, 20);

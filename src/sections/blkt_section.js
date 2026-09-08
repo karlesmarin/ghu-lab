@@ -29,7 +29,7 @@
  * (we proved the sum does not determine the tower); and the single-sector potential, not their
  * full (4.3), which needs a field content this module does not carry.
  */
-const BLK_S = { c: 4, m: 1, q: 0, a1: 0.44, a2: 0.30, step: 0, running: false };
+const BLK_S = { c: 4, m: 1, q: 0, a1: 0.44, a2: 0.30, step: 0, running: false, was: 4 };
 
 /* THEIR PAPER PRINTS TWO MINIMA, ONE PER VALUE OF c, AND THEY ARE NOT INTERCHANGEABLE.  Reading
  * the c = 0 minimum at c = 15 gives 1213 GeV and is simply the wrong pairing; `build/drive.mjs`
@@ -206,25 +206,41 @@ const BLKT_SECTION = {
   _demo(ctx) {
     if (BLK_S.running) return;
     const $ = (id) => document.getElementById(id);
-    const was = BLK_S.c;
+    /* the borrowed dial is parked on the state rather than in this closure, because the reader may
+     * leave in the middle and it is `dispose` -- not this function -- that will have to give it back */
+    BLK_S.was = BLK_S.c;
     BLK_S.running = true;
     const stops = [0, 0.5, 1, 2, 4, 8, 15, 25];
     let i = 0;
     const tick = () => {
+      const busy = $("bkBusy");
       if (i >= stops.length) {
         BLK_S.running = false;
-        BLK_S.c = was;
-        $("bkBusy").textContent = "";
+        BLK_S.c = BLK_S.was;
+        if (busy) busy.textContent = "";
         ctx.refresh();
         return;
       }
       BLK_S.c = stops[i];
-      $("bkBusy").textContent = `c = ${stops[i]}  (${i + 1} of ${stops.length})`;
+      if (busy) busy.textContent = `c = ${stops[i]}  (${i + 1} of ${stops.length})`;
       ctx.refresh();
       i++;
-      setTimeout(tick, 620);
+      ctx.later(tick, 620);
     };
     tick();
+  },
+
+  /* FIVE SECONDS IS LONG ENOUGH TO LEAVE IN THE MIDDLE OF, and leaving used to be permanent.
+   *
+   * The tick wrote `c = 4 (3 of 8)` into a caption that the rail had already replaced, and the
+   * `null.textContent` that followed landed above `running = false`: the flag stayed true, `_demo`
+   * opens with `if (BLK_S.running) return;`, and the ▶ button was dead until the page was
+   * reloaded.  The shell now cancels the ticks; what it cannot know is that the demo is holding
+   * the reader's coefficient, so that is given back here. */
+  dispose() {
+    if (!BLK_S.running) return;
+    BLK_S.running = false;
+    BLK_S.c = BLK_S.was;
   },
 
   /* WHAT THIS SECTION EXPORTS.

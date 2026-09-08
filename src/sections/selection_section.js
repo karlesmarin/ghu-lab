@@ -126,7 +126,7 @@ const SELECTION_SECTION = {
     $("sSweep").onclick = () => {
       $("sSweepNote").textContent = "running…";
       /* next frame, so the word is painted before the loop blocks */
-      setTimeout(() => { SEL_SWEEP = sweepAll(ctx.DATA); ctx.refresh(); }, 20);
+      ctx.later(() => { SEL_SWEEP = sweepAll(ctx.DATA); ctx.refresh(); }, 20);
     };
   },
 

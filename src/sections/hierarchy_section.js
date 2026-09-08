@@ -247,7 +247,7 @@ const HIERARCHY_SECTION = {
       /* the repaint has to land before the main thread goes away for six seconds */
       /* on the seed the model stands on -- a sweep of the printed seed under a candidate model
        * would be a picture of a different lattice */
-      setTimeout(() => {
+      ctx.later(() => {
         HIER_SWEEP = sweepHierarchy(ctx.DATA, { gauge: gaugeSeed(ctx.model(), ctx.DATA).gauge });
         HIER_SWEEP.seed = ctx.seed;
         ctx.refresh();

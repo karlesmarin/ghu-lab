@@ -95,3 +95,24 @@ const SECTIONS = [
    * section whose subject is the field rather than a theory in it. */
   { ...CENSUS_LIT_SECTION, group: "su3_hy", family: "The literature" },
 ];
+
+/* WHICH OF THE FAMILIES ARE MODELS, said once, here, where the families are declared.
+ *
+ * Three of the six are a published model this instrument computes over.  The other three are not,
+ * and the comments above say so in prose -- the BLKT dial is "a demonstration rather than a model",
+ * the literature census is "not a model and not about one", and the orbifold family "is about
+ * neither a model nor a dimension".  Prose is not countable, and what could not be counted went
+ * stale: the home page advertised "one bulk model, eleven computations over it" for months after
+ * there were three models and twenty-seven panels, because the numeral lived in a sentence
+ * somebody had to remember to edit.
+ *
+ * So the site does not carry a numeral at all.  `build/build_site.py` counts THIS list and the
+ * registrations above, and `_test_site.py` fails the build if a page states a count these do not
+ * support.  Every name here must match a family above -- rename one and the build stops rather
+ * than quietly dropping it from the total.  Adding a family is then a decision, taken here, about
+ * whether it is a model. */
+const MODEL_FAMILIES = [
+  "SU(7) · Komori-Maru",
+  "SU(4) · AHMN",
+  "5D on S¹/Z₂ · Haba–Yamashita",
+];

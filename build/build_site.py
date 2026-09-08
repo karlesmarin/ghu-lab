@@ -274,6 +274,86 @@ def anchor_sentence(groups):
              "delete this gate deliberately — or a data file lost its caveat.")
 
 
+NUMWORD = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+           "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen",
+           "eighteen", "nineteen", "twenty", "twenty-one", "twenty-two", "twenty-three",
+           "twenty-four", "twenty-five", "twenty-six", "twenty-seven", "twenty-eight",
+           "twenty-nine", "thirty"]
+
+
+def numword(n):
+    """The house voice spells small numbers out.  A count that has to be re-typed as a word is a
+    count that will go stale as a word, so the word is generated too."""
+    return NUMWORD[n] if 0 <= n < len(NUMWORD) else str(n)
+
+
+REG_ENTRY = re.compile(r"\{\s*\.\.\.([A-Z0-9_]+_SECTION)[^}]*?family:\s*\"([^\"]+)\"", re.S)
+REG_MODELS = re.compile(r"const MODEL_FAMILIES\s*=\s*\[(.*?)\]", re.S)
+
+
+def site_counts():
+    """WHAT THE INSTRUMENT ACTUALLY HOLDS, counted from the registry rather than remembered.
+
+    The home page said "One bulk model, eleven computations over it" and "Seven papers" for months
+    after both had stopped being true -- it was three models, twenty-seven panels and ten records,
+    and nothing could notice because the numerals were words inside a sentence.  `_test_site.py`
+    checked that the page kept its honesty sentence; no gate had ever been asked whether the page
+    kept its arithmetic.
+
+    Counted here, substituted as tokens, and gated: a page may not state a count this function does
+    not return.  Every name in MODEL_FAMILIES must match a family that exists, so renaming a family
+    stops the build instead of quietly shrinking the total."""
+    src = (ROOT / "src" / "sections" / "registry.js").read_text(encoding="utf-8")
+    body = src[src.index("const SECTIONS = ["):]
+    entries = REG_ENTRY.findall(body)
+    if len(entries) < 20:
+        sys.exit(f"FATAL: read only {len(entries)} section registrations — the registry's shape "
+                 f"changed and this count is no longer measuring what it claims to.")
+
+    families = list(dict.fromkeys(f for _, f in entries))
+    m = REG_MODELS.search(src)
+    if not m:
+        sys.exit("FATAL: registry.js has no MODEL_FAMILIES — the home page's model count has "
+                 "nothing to stand on.")
+    models = re.findall(r'"([^"]+)"', m.group(1))
+    unknown = [x for x in models if x not in families]
+    if unknown:
+        sys.exit(f"FATAL: MODEL_FAMILIES names {unknown!r}, which is not a family in the registry. "
+                 f"A family was renamed and the model count silently lost it.")
+
+    # A section registered `ready: false` is LISTED and not built -- the registry's own rule -- so
+    # it is not one of the panels the page offers a reader.
+    notready = sum(1 for p in sorted((ROOT / "src" / "sections").glob("*_section.js"))
+                   if re.search(r"^\s*ready:\s*false", p.read_text(encoding="utf-8"), re.M))
+    panels = len(entries) - notready
+
+    parts = json.loads((ROOT / "data" / "series.json").read_text(encoding="utf-8"))["parts"]
+    # IX went out as two records under one part number, so the records and the parts are different
+    # counts and the page says both rather than picking whichever reads better.
+    numerals = [p["numeral"] for p in parts]
+    stems = [n.split("-")[0] for n in numerals]
+    # WHICH PART WENT OUT AS MORE THAN ONE RECORD.  Derived, because the sentence explaining why
+    # the two totals differ carries a number too, and a hand-typed "two" there is the same defect
+    # one clause later -- the gate below catches it, which is how this line came to exist.
+    split = sorted({s for s in stems if stems.count(s) > 1}, key=stems.index)
+    out = {
+        "__N_PANELS__": numword(panels),
+        "__N_MODELS__": numword(len(models)),
+        "__N_FAMILIES__": numword(len(families)),
+        "__N_RECORDS__": numword(len(numerals)),
+        "__N_PARTS__": numword(len(set(stems))),
+        "__N_SPLIT__": numword(max((stems.count(s) for s in split), default=0)),
+    }
+    # A generated word still has to start a sentence, and "The instrument. twenty-seven panels"
+    # is the kind of seam that makes generated prose look generated.
+    out.update({k[:-2] + "_C__": v.capitalize() for k, v in list(out.items())})
+    # the clause vanishes rather than reading "Part  went out as zero" the day the series stops
+    # having a split part
+    out["__SPLIT_CLAUSE__"] = (
+        f" &mdash; Part {split[0]} went out as {out['__N_SPLIT__']}" if split else "")
+    return out
+
+
 # ------------------------------------------------------------------ rendering
 
 TABLE_RX = re.compile(r"<table>.*?</table>", re.S)
@@ -480,14 +560,18 @@ def main(argv=None):
         written.append(rel)
 
     # --- home
+    counts = site_counts()
     home = ((SITE_SRC / "home.html").read_text(encoding="utf-8")
             .replace("__ANCHOR_SENTENCE__", anchor_sentence(groups))
             .replace("__SERIES_TABLE__", series_table(parts, changes, 0))
             .replace("__CHANGES_RECENT__", "".join(entry_html(c, 0) for c in changes[:2])))
+    for token, word in counts.items():
+        home = home.replace(token, word)
     write("index.html", page(shell, css,
                              title="GHU Lab — an instrument for gauge-Higgs unification",
-                             desc="One bulk model, several computations over it, every output "
-                                  "carrying what is known about it. Runs offline in the browser.",
+                             desc=f"{counts['__N_PANELS__'].capitalize()} panels over "
+                                  f"{counts['__N_MODELS__']} published models, every output "
+                                  f"carrying what is known about it. Runs offline in the browser.",
                              body=home, depth=0, here="", build=build))
 
     # --- the instrument.  Rebuilt rather than copied, because the site's copy carries one thing
@@ -497,15 +581,23 @@ def main(argv=None):
     written.append("app/index.html")
 
     # --- the series index and one page per paper
-    idx = (f'<h1>The series</h1><p class="lead">Seven papers on six-dimensional gauge-Higgs '
-           f'unification. They are independent and are best read in order. Each has a page here '
+    # SIX-DIMENSIONAL WAS TRUE OF THE FIRST FIVE AND OF NOTHING SINCE.  Parts VI to VIII are SU(7)
+    # on T²/Z₂ but Part IX is about orbifold boundary conditions at any rank and either dimension,
+    # and the instrument's third family is five-dimensional outright.  The qualifier is dropped
+    # rather than corrected: the series is about gauge-Higgs unification.
+    idx = (f'<h1>The series</h1><p class="lead">{counts["__N_PARTS_C__"]} parts on '
+           f'gauge-Higgs unification, in {counts["__N_RECORDS__"]} records'
+           f'{counts["__SPLIT_CLAUSE__"]}. They are independent and are best read in order. '
+           f'Each has a page here '
            f'that says what its record is, what has moved since, and which part of the instrument '
            f'it is behind.</p>{series_table(parts, changes, 1)}'
            f'<div class="note">A paper page is <strong>living</strong>; the record it points to is '
            f'<strong>frozen</strong>. That is what a DOI is for, and the banner at the top of each '
            f'page says which of the two you are reading.</div>')
     write("papers/index.html", page(shell, css, title="The series — GHU Lab",
-                                    desc="Seven papers on six-dimensional gauge-Higgs unification.",
+                                    desc=f"{counts['__N_PARTS__'].capitalize()} parts on "
+                                         f"gauge-Higgs unification, in "
+                                         f"{counts['__N_RECORDS__']} records.",
                                     body=idx, depth=1, here="PAPERS", build=build))
     for p in parts:
         write(f"papers/{SLUG[p['numeral']]}/index.html", paper_page(p, changes, build, shell, css))

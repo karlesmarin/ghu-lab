@@ -1,7 +1,7 @@
 # 🔧 GHU Lab — the source tree of the gauge–Higgs unification instrument
 
 This repository builds **[karlesmarin.github.io/ghu-explorer](https://karlesmarin.github.io/ghu-explorer/)**:
-one self-contained HTML page holding **twenty-six** computations — including tools for models nobody has
+one self-contained HTML page holding **twenty-seven** panels — including tools for models nobody has
 written yet — over three published models:
 1️⃣ SU(7) on S¹/Z₂×S¹/Z₂ (Komori–Maru), 2️⃣ SU(4) on T²/Z₂ (AHMN), and 3️⃣ Haba–Yamashita's 5D SU(N) on
 S¹/Z₂ — with **every output carrying what is known about it**: `theorem`, `verified`, `measured`
@@ -20,7 +20,8 @@ read; no event is ever simulated.
 The deployed page is a build artifact. This is where it comes from, and why it says what it says.
 
 ```
-🏗️  python build/build_app.py    # inline → collision guard → edition gate → 35 harnesses → app/index.html
+🏗️  python build/build_app.py    # inline → collision guard → edition gate → 47 harnesses → app/index.html
+                                 # (it prints its own total; that is where the number below comes from)
 🌐  python build/build_site.py --legacy ../ghu-explorer/tools-2026-07     # → site/, then gates itself
 📸  node   build/shoot.mjs       # headless screenshots of every section + console + which model
 🖱️  node   build/drive.mjs       # USES the panels: a real mouse through the DevTools Input domain
@@ -30,6 +31,9 @@ The deployed page is a build artifact. This is where it comes from, and why it s
                                  # at its ceiling, boundary conditions at the corners
 🧹  node   build/leaks.mjs       # what the page KEEPS: walks the rail twice and counts the
                                  # listeners on window and document — the second walk must add none
+🚪  node   build/lifecycle.mjs   # what the page is still DOING: starts a long computation in nine
+                                 # panels and walks away mid-flight — nothing may throw, no timer
+                                 # may outlive its section, and the panel must still work on return
 ✅  node   tests/run.mjs         # the built page against the Python engine of Part VII
 ```
 
@@ -38,9 +42,9 @@ The deployed page is a build artifact. This is where it comes from, and why it s
 
 ## 🧪 What is checked, and against what
 
-**1 805 checks across 35 harnesses**, plus 153 driven through a real mouse, 28 on the built site,
-and two tools that measure what the reader sees: 0 clipped boxes and 416 clean renders in the
-states no gate visits.
+**1 964 checks across 47 harnesses**, plus 157 driven through a real mouse, 30 on the built site,
+and three tools that measure what the reader sees: 0 clipped boxes, 448 clean renders in the
+states no gate visits, and nine panels started and then abandoned mid-computation.
 The ones that carry weight are the ones an outside computation could lose:
 
 | harness | what it puts at risk |

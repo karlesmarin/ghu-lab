@@ -212,8 +212,18 @@ def build(edition=False, home=None, out_path=None):
 # the page is still DOING: a `setTimeout` chain scheduled by a section that the reader has since
 # left.  It is the same defect one turn later, and it threw three `null.textContent` TypeErrors in
 # the build that was live when it was written.
+#
+# AND `drive.mjs` JOINED THEM THE SAME DAY, which is a bigger admission.  It is the oldest browser
+# tool here and the only one that presses real controls, and it was never in any tier: it ran when
+# somebody remembered.  On 2026-09-08 an outside audit found that `drive.mjs` had a section-by-
+# section rule about which export buttons may be shown, checked it for the LaTeX button, and had
+# never asked about the card button beside it -- so the card export wrote the shell's model out of
+# thirteen sections that hold their own.  The regression that catches it now lives in `drive.mjs`.
+# Leaving the only gate for that defect outside every tier would be the same mistake in the same
+# week: the header above this list says the failure mode was never "too slow to run", it was
+# "I forgot".  It costs about two minutes.
 BROWSER_GATES = [("leaks.mjs", []), ("layout.mjs", ["--quiet"]), ("extremes.mjs", []),
-                 ("lifecycle.mjs", [])]
+                 ("lifecycle.mjs", []), ("drive.mjs", [])]
 STAMP = HERE / ".browser_gate.json"
 
 

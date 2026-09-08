@@ -446,7 +446,21 @@ ok("...and both sides read the same default, which is the anchor's and not +1",
    /const anc = anchorEtaRole\(f\.group\);/.test(PAGE));
 /* and the two-download pattern the LaTeX button was already fixed for */
 ok("the card export staggers its two files, as the .bib does and for the same reason",
-   /setTimeout\(\(\) => download\(`ghu-\$\{modelId\(r\.model\)\}\.txt`/.test(PAGE));
+   /setTimeout\(\(\) => download\(`ghu-\$\{id\}\.txt`/.test(PAGE));
+/* THE TWO EXPORTS ASK THE SAME QUESTION.  `⇩ card` called `run()` -- the shell's model -- from
+ * inside sections that hold their own, so the .json and the .tex written from one screen could be
+ * about different models.  Both go through `exportCard()` now, and the file is named after the
+ * model INSIDE it rather than after the shell's, which is how two files could carry the same name
+ * and different contents.  `drive.mjs` checks the behaviour; this checks that neither handler has
+ * been given a private path back to `run()`. */
+ok("neither export builds its own card: both go through the one function that picks the model",
+   /const \{ card \} = exportCard\(\);/.test(PAGE) &&
+   /const \{ g, card: use, extra \} = exportCard\(\);/.test(PAGE) &&
+   /const id = card\.provenance\.model_id;/.test(PAGE));
+ok("...and one predicate hides both buttons, so they cannot drift apart again",
+   /\$\("btnTex"\)\.hidden = !usable;/.test(PAGE) &&
+   /\$\("btnCard"\)\.hidden = !usable;/.test(PAGE) &&
+   !/texUsable/.test(PAGE));
 
 /* The brane travels in the permalink exactly as the seed does, and both go through one sanitiser:
  * a typed field and a shared link cannot obey different rules. */

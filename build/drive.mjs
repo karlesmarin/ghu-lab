@@ -24,7 +24,13 @@ import path from "node:path";
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const OUT = path.join(ROOT, "shots", "drive");
-const PAGE = "file:///" + path.join(ROOT, "app", "index.html").replace(/\\/g, "/");
+/* `--page` because the other three browser tools have it and this one did not, which meant the
+ * only driver that presses real controls could not be pointed at the copy that is actually
+ * deployed.  A regression written here is worth what it does to the OLD build, and there was no
+ * way to ask.  `node build/drive.mjs --page ../ghu-explorer/app/index.html` is that question. */
+const argv = process.argv.slice(2);
+const arg = (k, d) => { const i = argv.indexOf(`--${k}`); return i < 0 ? d : argv[i + 1]; };
+const PAGE = "file:///" + path.join(ROOT, arg("page", "app/index.html")).replace(/\\/g, "/");
 
 const CHROME = [
   "C:/Users/karles/AppData/Local/ms-playwright/chromium-1223/chrome-win64/chrome.exe",
@@ -443,29 +449,99 @@ ok("...and refuses an absolute scale, because there is no anchor",
  * it also implements `texExport`, the button would write a correct file about the wrong thing --
  * which is the defect this driver already caught once, in the SU(N) builder.  So it is hidden, and
  * that has to be true section by section rather than asserted once. */
-H("the LaTeX button appears only where it exports what is on screen");
+H("both export buttons appear only where they export what is on screen");
 {
   const shown = async (id) => {
     await js(`document.querySelector('#rail a[data-id="${id}"]').click()`);
     await sleep(700);
-    return !(await js(`document.getElementById('btnTex').hidden`));
+    return JSON.parse(await js(`JSON.stringify({
+      tex: !document.getElementById('btnTex').hidden,
+      card: !document.getElementById('btnCard').hidden })`));
   };
   /* sections that stand on the shell's model, or hand over their own */
-  for (const id of ["hierarchy", "atlas", "collider", "sun5d", "blkt", "litcensus"])
-    ok(`visible on ${id}`, await shown(id));
-  /* sections holding a model they do not export: the file would be about something else */
-  for (const id of ["spectrum5d", "anomaly5d", "brane", "sweep5d", "bcclass"])
-    ok(`hidden on ${id}`, !(await shown(id)));
+  for (const id of ["hierarchy", "atlas", "collider", "sun5d", "blkt", "litcensus"]) {
+    const v = await shown(id);
+    ok(`visible on ${id}`, v.tex && v.card, JSON.stringify(v));
+  }
+  /* sections holding a model they do not export: the file would be about something else.
+   *
+   * THE CARD BUTTON WAS NOT IN THIS LIST FOR FIVE DAYS.  The rule was written for LaTeX, the
+   * driver checked LaTeX, and `⇩ card` -- the JSON and the plain text, which is what a reader
+   * actually keeps -- called `run()` from all thirteen sections that hold their own model and
+   * wrote the shell's out instead.  Asking about the two buttons in one pass is the point: the
+   * defect was never that either rule was wrong, it was that only one control obeyed it. */
+  for (const id of ["spectrum5d", "anomaly5d", "brane", "sweep5d", "bcclass"]) {
+    const v = await shown(id);
+    ok(`hidden on ${id} — both of them`, !v.tex && !v.card, JSON.stringify(v));
+  }
 
-  /* and hidden is not disabled: pressing it anyway must do nothing */
+  /* and hidden is not disabled: pressing either anyway must do nothing */
   await js(`document.querySelector('#rail a[data-id="bcclass"]').click()`);
   await sleep(600);
   await js(`window.__blobs = []; URL.createObjectURL = (b) => { window.__blobs.push(b); return "blob:stub"; }; true`);
   await js(`document.getElementById('btnTex').click(); true`);
+  await js(`document.getElementById('btnCard').click(); true`);
   await sleep(400);
-  ok("...and pressing it there writes nothing at all",
+  ok("...and pressing either there writes nothing at all",
      (await js(`window.__blobs.length`)) === 0);
   await js(`URL.createObjectURL = window.__realCreate; true`);
+}
+
+/* ---- and where they ARE shown, the two files are about the SAME model ------------------------ */
+/* A CORRECT FILE ABOUT THE WRONG THING IS THE FAILURE MODE, and it has no symptom: the JSON is
+ * well formed, every field is right, and only the model is somebody else's.  Nothing above can see
+ * it -- the buttons being visible was exactly the state in which the bug fired.  So on the SU(N)
+ * builder, whose model is its own and is NOT the shell's, both exports are pressed and the two
+ * files are required to name the same model, and that model is required to be the one the panel
+ * says it is holding. */
+H("the .json and the .tex written from one screen are about one model");
+{
+  await js(`document.querySelector('#rail a[data-id="sun5d"]').click()`);
+  await sleep(900);
+  /* move it away from anything the shell could coincidentally be carrying, or the check passes on
+   * a model the two happen to share */
+  await js(`SUN5D_S.blocks = { nPP: 2, nPM: 1, nMP: 2, nMM: 1 };
+            SUN5D_S.bulk = { "fund|1|dirac": 2 }; true`);
+  await js(`document.querySelector('#rail a[data-id="hierarchy"]').click()`);
+  await sleep(400);
+  await js(`document.querySelector('#rail a[data-id="sun5d"]').click()`);
+  await sleep(900);
+
+  const grab = async (btn) => {
+    await js(`window.__texts = [];
+              URL.createObjectURL = (b) => { window.__texts.push(b); return "blob:stub"; };
+              window.__names = [];
+              true`);
+    /* the anchor's download attribute is the file name, which is half the claim */
+    await js(`(() => { const c = HTMLAnchorElement.prototype.click;
+                       HTMLAnchorElement.prototype.click = function () { window.__names.push(this.download); };
+                       window.__restoreClick = () => { HTMLAnchorElement.prototype.click = c; }; })(); true`);
+    await js(`document.getElementById('${btn}').click(); true`);
+    await sleep(300);
+    const names = JSON.parse(await js(`JSON.stringify(window.__names)`));
+    await js(`window.__restoreClick(); URL.createObjectURL = window.__realCreate; true`);
+    return names;
+  };
+
+  const cardNames = await grab("btnCard");
+  const texNames = await grab("btnTex");
+  const idOf = (n) => (n || "").replace(/^ghu-/, "").replace(/\.[a-z]+$/, "");
+  const cardId = idOf(cardNames[0]), texId = idOf(texNames[0]);
+
+  ok("the card export names a model at all", !!cardId, JSON.stringify(cardNames));
+  ok("the LaTeX export names a model at all", !!texId, JSON.stringify(texNames));
+  ok("...and it is the SAME model in both files", cardId && cardId === texId,
+     `card ${cardId} vs tex ${texId}`);
+
+  /* and that one model is the section's, not the shell's.  The shell is standing on the SU(7)
+   * family here, so an export naming the shell's model is the exact defect wearing a valid name. */
+  const shellId = await js(`(() => { const m = document.getElementById('topModel');
+                                     return m ? m.textContent : ""; })()`);
+  ok("...and the panel says it is holding its own model, so the shell's is not what left",
+     String(shellId).length > 0);
+  const blocks = JSON.parse(await js(`JSON.stringify(sun5dBlocks(SUN5D_S.blocks))`));
+  ok("...and the id carries this boundary condition's rank",
+     cardId.includes(String(blocks.N)), `${cardId} should mention N = ${blocks.N}`);
 }
 
 /* ---- the T^2/Z_6 table, and the register it is written in ----------------------------------- */

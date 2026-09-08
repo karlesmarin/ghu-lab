@@ -436,16 +436,44 @@
 
   /* ---------------------------------------------------------------- exports */
 
-  /* WHEN THE LaTeX EXPORT MEANS ANYTHING, AND WHEN IT DOES NOT.
+  /* WHEN AN EXPORT MEANS ANYTHING, AND WHEN IT DOES NOT.
    *
    * The shell's card is about the shell's model.  A section that declares `holds()` is showing a
    * DIFFERENT model -- its own -- so unless it also implements `texExport` to hand over that one,
-   * pressing the button would produce a correct file about the wrong thing.  That is the same
-   * defect `drive.mjs` caught in the SU(N) builder, and it is still latent in every other section
-   * that holds its own model.  Rather than exporting something misleading, the button is not
-   * shown: a control that cannot do the thing its label promises is worse than a missing one. */
-  const texUsable = (sec) => !!sec && (typeof sec.holds !== "function" ||
-                                       typeof sec.texExport === "function");
+   * pressing an export button would produce a correct file about the wrong thing.  That is the
+   * defect `drive.mjs` caught in the SU(N) builder.  Rather than exporting something misleading,
+   * the button is not shown: a control that cannot do the thing its label promises is worse than a
+   * missing one.
+   *
+   * THIS RULE GOVERNED ONE OF THE TWO BUTTONS FOR FIVE DAYS.  `⇩ LaTeX` was gated; `⇩ card` -- the
+   * JSON and the plain text, which is what a reader actually keeps -- called `run()` unconditionally
+   * and wrote the shell's model out of all THIRTEEN sections that hold their own.  Six of them were
+   * the worst shape: the same screen handed you a .tex about the model in front of you and a .json
+   * about a different one, so the two files disagreed and neither said which was which.
+   *
+   * An outside audit read the two handlers side by side on 2026-09-08 and asked why only one of
+   * them had the guard.  There was no reason; the guard had been written for the button that came
+   * second and never carried back.  So it is one predicate and one card now, and the reason for
+   * folding them together rather than adding a second gate is that two of them drifted once. */
+  const exportUsable = (sec) => !!sec && (typeof sec.holds !== "function" ||
+                                          typeof sec.texExport === "function");
+
+  /* THE ONE PLACE THAT DECIDES WHICH MODEL IS LEAVING THE PAGE.  Every export asks this and none
+   * of them builds a card of its own: `texExport` returning `{card}` is how a section hands over
+   * the model it is actually showing, and the caller cannot forget to ask.  `extra` is what the
+   * section has BEYOND the card -- a potential to typeset, its own sources for the bibliography --
+   * which the JSON has no place for and the LaTeX does. */
+  function exportCard() {
+    const sec = SECTIONS.find((x) => x.id === state.section) || {};
+    const r = run();
+    const g = activeGroup();
+    const certs = SECTIONS.filter((s) => s.group === g)
+      .reduce((acc, s) => Object.assign(acc, s.certificates || {}), {});
+    const shellCard = makeCard(r.model, r.values,
+                               { version: VERSION, build: BUILD, certificates: certs });
+    const { card: own, ...extra } = sec.texExport ? sec.texExport(ctx(), r) : {};
+    return { sec, g, card: own || shellCard, extra };
+  }
 
 
   function download(name, text, mime) {
@@ -457,17 +485,20 @@
   }
 
   $("btnCard").onclick = () => {
-    const r = run();
-    const certs = SECTIONS.filter((s) => s.group === activeGroup())
-      .reduce((acc, s) => Object.assign(acc, s.certificates || {}), {});
-    const card = makeCard(r.model, r.values, { version: VERSION, build: BUILD, certificates: certs });
-    download(`ghu-${modelId(r.model)}.json`, JSON.stringify(card, null, 1), "application/json");
+    /* hidden is not disabled: a stale keyboard focus or a script could still reach it */
+    if (!exportUsable(SECTIONS.find((x) => x.id === state.section))) return;
+    const { card } = exportCard();
+    /* THE FILE IS NAMED AFTER THE MODEL INSIDE IT.  This read `modelId(r.model)` -- the shell's --
+     * while the contents could be the section's own, so a reader with two exports on their disk
+     * had two files whose names said they were about the same model and whose contents were not. */
+    const id = card.provenance.model_id;
+    download(`ghu-${id}.json`, JSON.stringify(card, null, 1), "application/json");
     /* THE SAME 500 ms THE .bib GETS, AND FOR THE SAME REASON.  Two downloads in one tick make
      * Chrome raise its multiple-download prompt and, if it is declined or auto-blocked, drop the
      * second file — so the reader gets the JSON, no .txt, and no error.  The LaTeX button below
      * had already been fixed for exactly this and this one had been left on the old pattern; an
      * outside audit read the two of them side by side on 2026-09-03 and said so. */
-    setTimeout(() => download(`ghu-${modelId(r.model)}.txt`, toText(card), "text/plain"), 500);
+    setTimeout(() => download(`ghu-${id}.txt`, toText(card), "text/plain"), 500);
   };
 
   /* THE SAME CARD, IN THE FORM THAT GOES INTO A PAPER.
@@ -482,25 +513,17 @@
    */
   $("btnTex").onclick = () => {
     /* hidden is not disabled: a stale keyboard focus or a script could still reach it */
-    if (!texUsable(SECTIONS.find((x) => x.id === state.section))) return;
-    const r = run();
-    const g = activeGroup();
-    const certs = SECTIONS.filter((s) => s.group === g)
-      .reduce((acc, s) => Object.assign(acc, s.certificates || {}), {});
-    const card = makeCard(r.model, r.values, { version: VERSION, build: BUILD, certificates: certs });
+    if (!exportUsable(SECTIONS.find((x) => x.id === state.section))) return;
     /* a value that is a group or a formula is typeset as one; everything else is prose.  The list
      * is explicit because guessing which strings are maths is how a value ends up in the wrong
      * mode, silently. */
     const mathKeys = ["unbroken", "unbroken_group", "gauge_group", "residual"];
-    /* A SECTION MAY HAVE MORE TO EXPORT THAN THE CARD HOLDS.  The card carries values; the SU(N)
-     * builder also has the model's POTENTIAL, which is the thing a reader most wants typeset and
-     * which is not a value.  A section that has one says so with `texExport`; a section that has
-     * none exports the table and the bibliography, which is still the whole card. */
-    const sec = SECTIONS.find((x) => x.id === state.section) || {};
-    const { card: own, ...extra } = sec.texExport ? sec.texExport(ctx(), r) : {};
-    /* A SECTION THAT HOLDS ITS OWN MODEL EXPORTS ITS OWN CARD.  Pairing this section's potential
-     * with the shell's card would put two models in one file; `drive.mjs` asserts it does not. */
-    const use = own || card;
+    /* THE SAME CARD THE JSON GETS.  A SECTION MAY HAVE MORE TO EXPORT THAN THE CARD HOLDS -- the
+     * SU(N) builder also has the model's POTENTIAL, which is the thing a reader most wants typeset
+     * and which is not a value -- and that travels in `extra`.  A section that holds its own model
+     * exports its own card: pairing this section's potential with the shell's card would put two
+     * models in one file; `drive.mjs` asserts it does not, and now asserts the JSON agrees. */
+    const { g, card: use, extra } = exportCard();
     const tex = toLatex(use, Object.assign({
       group: g, mathKeys, date: new Date().toISOString().slice(0, 10),
       label: `tab:ghu-${use.provenance.model_id}`,
@@ -698,8 +721,13 @@
       if (sec.init) sec.init(ctx());
     }
     sec.render(ctx(), r);
-    /* the button follows the section, not the page */
-    $("btnTex").hidden = !texUsable(sec);
+    /* THE BUTTONS FOLLOW THE SECTION, NOT THE PAGE, and they follow it TOGETHER.  Only the LaTeX
+     * one did, so on the thirteen sections that hold their own model the card button stayed
+     * offering a download of something else.  One predicate for both; `drive.mjs` walks the rail
+     * and requires them to agree section by section, so they cannot drift apart again. */
+    const usable = exportUsable(sec);
+    $("btnTex").hidden = !usable;
+    $("btnCard").hidden = !usable;
     history.replaceState(null, "", encode());
   }
 

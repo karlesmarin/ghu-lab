@@ -385,7 +385,7 @@
     "multiplicity": 4
    }
   ],
-  "caveat": "the row where our alpha agrees best with theirs (1.03x); across the 5 rows the ratio runs 1.03x to 2.08x, and this is the only row whose m_h falls inside the 125-127 GeV window"
+  "caveat": "the row where our alpha agrees best with theirs (1.03x); across the 5 rows the ratio runs 1.03x to 2.08x; the Higgs-mass window is decided by the summed potential (see Hierarchy)"
  },
  "constants": {
   "ceiling_GeV": 10034.0,

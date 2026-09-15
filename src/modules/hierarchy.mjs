@@ -181,9 +181,16 @@ export const hierarchyModule = (data) => ({
                                           alpha_local: alphaLocal, state: stateOf(),
                                           true: stateOf() === "true-vacuum" ? true
                                               : stateOf() === "false-vacuum" ? false : null,
-                                          ...vacuumExtra }, {
+                                          ...vacuumExtra,
+                                          scope: {
+                                            geometry: "fixed",
+                                            varied_fields: ["wilson_line_phase"],
+                                            radius_stability: "not-evaluated",
+                                            joint_higgs_radius_stability: "not-evaluated",
+                                          } }, {
       status: deepest === null ? STATUS.THEOREM : STATUS.VERIFIED,
-      source: (symmetricOK
+      source: "Angular vacuum at fixed geometry. Radius stability and joint Higgs-radius " +
+        "stability: not evaluated. " + (symmetricOK
         ? `W = ${W} > 0: F(1) - F(0) = ${gap.toFixed(3)}, so the electroweak point is deeper than ` +
           `the other symmetric point -- [8]'s criterion, Part VII eq. (34); necessary, and 2W odd ` +
           `means never a tie`

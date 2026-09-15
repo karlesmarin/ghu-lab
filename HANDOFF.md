@@ -1,7 +1,94 @@
 # HANDOFF — GHU Lab
 
-> State at 2026-09-07. The section below is the newest; the earlier handoffs follow it
+> State at 2026-09-15. The section below is the newest; the earlier handoffs follow it
 > unchanged and are still the map of the code.
+
+## 2026-09-15 — the vacuum verdict now says what it did NOT test, and a caveat that was an overclaim came out
+
+**Build green: 1 982 checks across 47 harnesses · `drive.mjs` 206/206 · site 30 ok ·
+`layout.mjs` 0 to fix, 17 boxes that scroll · `extremes.mjs` 448 clean renders ·
+`leaks.mjs` nothing grew, 0 console over both walks · `lifecycle.mjs` 9 panels started and
+abandoned, nothing left behind · 27 sections live, 1 listed and not built.**
+Deployed to `ghu-explorer/app/index.html` (same build, 20:14).
+
+### 1. The angular vacuum declares its scope, and it travels into BOTH exports
+
+`hierarchyModule`'s `vacuum` result now carries
+
+```
+scope: { geometry: "fixed",
+         varied_fields: ["wilson_line_phase"],
+         radius_stability: "not-evaluated",
+         joint_higgs_radius_stability: "not-evaluated" }
+```
+
+and the `source` string opens with *«Angular vacuum at fixed geometry. Radius stability and joint
+Higgs-radius stability: not evaluated.»*
+
+**Why it matters and why it is a gate, not a comment.** A `true-vacuum` verdict obtained by varying
+the Wilson-line phase at fixed geometry is not a statement about the vacuum of the theory — the
+radius is a field too. Without the scope, an exported card reads as more than it measured. So the
+scope is not prose: `_test_hierarchy.mjs` has a new harness with **four cases × three assertions**
+(published angular minimum · false angular vacuum · no electroweak breaking · no branch located),
+and each one checks that the verdict still answers the original question **and** that the scope
+appears in the **JSON** card **and** in the **text** export. An export that loses the scope fails
+the build.
+
+### 2. A caveat in `data/su7_km25.json` was an overclaim, and it is out
+
+It used to end: *«…and this is the only row whose `m_h` falls inside the 125–127 GeV window.»*
+That is true by the **approximate** route and **false** by the **summed** one, and the two fall on
+opposite sides. It now reads *«…the Higgs-mass window is decided by the summed potential (see
+Hierarchy)»*, which is what the panel computes.
+
+`build/drive.mjs` gained the harness that holds the panel to it — **nine assertions through a real
+mouse**, and the load-bearing ones are:
+
+- the anchor header names the **summed** potential as the window arbiter;
+- the actual anchor spans **opposite sides**: `in_window == true`, `in_window_summed == false`;
+- both routes are visible with their distinct values (`125.85` and `127.85 GeV`);
+- **only** the summed flag can admit a true angular vacuum;
+- an **unavailable** summed mass gives *window undetermined*, not a pass;
+- and the three negative states stay distinguishable: *false vacuum* · *No electroweak breaking* ·
+  *No small-phase branch located*.
+
+That last triple is the point: three different reasons for "no" that a single flag would have
+merged.
+
+### 3. The Edition policy is amended, and the docs that still promised the old one are fixed
+
+`DESIGN.md` carries the amendment of 2026-09-09: an Edition is cut **by need**, not per paper —
+*«Ten records later none had been cut, which is evidence about the rule rather than about the
+discipline.»* What makes a result checkable are the gate scripts and their archived receipts, and
+those travel with every record, and since Part IX-A inside the arXiv submission itself.
+
+**And `SITE.md` had not been updated, so it documented a file that does not exist.** In three
+places it promised `/editions/part-vii-v1.0.html`, *«byte-identical to the one archived with the
+paper, still on the site, still openable»*. `editions/` is **empty** — that Edition was never cut,
+for any record. Fixed in all three: the tree now says *frozen copies, cut BY NEED — (empty: no
+record has needed one yet)*, the paper-page Downloads row now offers *the gate scripts and their
+receipts*, and the closing section says plainly what does **not** travel with a paper.
+
+`src/site/home.html` says the same thing to the reader: the instrument is living and rewritten
+often; what travels with a paper is its **evidence**, and what is kept alive is every URL a
+published record points at.
+
+### 4. `README.md`: two counters were stale
+
+`1 964 checks` → **1 982**, and `157 driven through a real mouse` → **206**. The rest were current
+and were verified rather than assumed: 30 on the site, 0 clipped boxes, 448 clean renders, nine
+abandoned panels, twenty-seven panels.
+
+### Left open
+
+1. The **radius** direction is still not evaluated anywhere — the scope now says so, which is the
+   honest floor, not a fix. A dynamical-radius verdict is a new module, not a new field.
+2. `leaks.mjs`, `layout.mjs` and `extremes.mjs` remain on the `--browser` tier with the staleness
+   fingerprint; today's run stamped it at 20:08.
+
+---
+
+> Earlier state at 2026-09-07.
 
 ## 2026-09-07 — the browser tier is a gate now, and the first unbuilt section gave three counters a subject
 

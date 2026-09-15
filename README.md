@@ -42,7 +42,7 @@ The deployed page is a build artifact. This is where it comes from, and why it s
 
 ## 🧪 What is checked, and against what
 
-**1 964 checks across 47 harnesses**, plus 157 driven through a real mouse, 30 on the built site,
+**1 982 checks across 47 harnesses**, plus 206 driven through a real mouse, 30 on the built site,
 and three tools that measure what the reader sees: 0 clipped boxes, 448 clean renders in the
 states no gate visits, and nine panels started and then abandoned mid-computation.
 The ones that carry weight are the ones an outside computation could lose:

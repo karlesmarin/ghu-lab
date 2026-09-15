@@ -31,7 +31,7 @@ essentially unchanged since 1999, cited thousands of times.
 
 | | **Edition** (Tier 1) | **App** (Tier 2) |
 |---|---|---|
-| what | one frozen HTML file per published paper | the living multi-section instrument |
+| what | one frozen, self-contained HTML file | the living multi-section instrument |
 | where | Zenodo, DOI'd, alongside the paper | GitHub Pages, and openable from `file://` |
 | may use | nothing external. No `fetch`, no `import(`, no `new Worker(`, no `<script src=`, no `http(s)://` asset, no WASM | ES modules, workers, precomputed tables |
 | changes | **never** after release | continuously |
@@ -47,6 +47,18 @@ re-run it in node against numbers produced outside the page* — stays as the se
 
 > **Cost, stated:** the Edition can never carry a feature that needs a worker, a network or WASM. We
 > accept that. A published claim must be checkable from a file on a disk.
+
+**Amendment, 2026-09-09 — an Edition is cut by need, not per paper.** This decision originally said
+*one frozen file per published paper*. Ten records later none had been cut, which is evidence about
+the rule rather than about the discipline: the instrument evolves on its own clock, and a snapshot
+per paper is a permanent bill for a problem the receipts already settle — what makes a result
+checkable are the gate scripts and their archived outputs, and those travel with every record, and
+since Part IX-A inside the arXiv submission itself. So the trigger changes and nothing else does:
+**an Edition is cut when a claim needs the tool to run in order to be checked.** No paper of the
+series has needed that yet. Everything above about what an Edition may contain, and the mechanical
+enforcement in `build/editiongate.py`, stands unchanged and is what makes cutting one cheap on the
+day it is needed. What the project promises in the meantime is the narrower thing it has in fact
+kept: a URL a published record points at does not break (`tools-2026-07/`).
 
 ---
 

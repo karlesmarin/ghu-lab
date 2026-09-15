@@ -1123,6 +1123,53 @@ H("the published-model caveat goes as soon as any dial moves");
   await sleep(1800);
 }
 
+H("hierarchy: the summed Higgs mass decides the selection window");
+{
+  await js(`location.hash = "#s=hierarchy"; location.reload(); true`);
+  await sleep(1800);
+  await js(`document.getElementById('tour').click(); true`);
+  await sleep(600);
+  const result = await js(`(() => {
+    const data = DATASETS.su7_km25, section = SECTIONS.find(s => s.id === 'hierarchy');
+    const row = data.published_rows[1];
+    const make = bulk => resolve(modules(data), complete({ ...emptyModel(), group: data.group,
+      orbifold: {name:data.orbifold.name}, bulk }).model).values;
+    const values = make(row.bulk);
+    const text = id => document.getElementById(id).textContent;
+    const render = v => {section._stats(v, data);section._vacuum(v);return {verdict:text('vd'),vacuum:text('vVac')};};
+    const baseline = {approx:text('sM'),summed:text('sMSum'),verdict:text('vd'),
+      approxFlag:values.get('in_window').value, summedFlag:values.get('in_window_summed').value};
+    const changed = new Map(values);
+    changed.set('m_h_summed', {...values.get('m_h_summed'),value:126});
+    changed.set('in_window_summed', {...values.get('in_window_summed'),value:true});
+    changed.set('in_window', {...values.get('in_window'),value:false});
+    const eligible = render(changed);
+    changed.set('vacuum',{...values.get('vacuum'),value:{...values.get('vacuum').value,true:null,state:'undetermined'}});
+    const undecided = render(changed);
+    changed.set('vacuum',values.get('vacuum'));
+    changed.set('m_h_summed',{status:'unknown',reason:'test: unavailable summed curvature'});
+    changed.set('in_window_summed',{status:'unknown',reason:'test: unavailable summed curvature'});
+    const missing = render(changed);
+    const falseVac = render(make([{rep:'7',parities:[1,1],multiplicity:1},
+      {rep:'48',parities:[1,-1],multiplicity:1},{rep:'84',parities:[1,1],multiplicity:1}]));
+    const noBreaking = render(make([{rep:'7',parities:[1,1],multiplicity:2}]));
+    const noBranch = render(make([...row.bulk,{rep:'7',parities:[1,-1],multiplicity:40}]));
+    render(values);
+    return {baseline,eligible,undecided,missing,falseVac,noBreaking,noBranch};
+  })()`);
+  ok("the anchor header identifies the summed potential as the window arbiter",
+    /window is decided by the summed potential/.test(await js("document.getElementById('topCaveat').textContent")));
+  ok("the actual anchor spans opposite sides of the window", result.baseline?.approxFlag === true && result.baseline?.summedFlag === false);
+  ok("both routes are visible with their distinct values", result.baseline?.approx === '125.85' && result.baseline?.summed === '127.85 GeV');
+  ok("the actual anchor is outside by the summed route", /outside the window/.test(result.baseline?.verdict) && !/A candidate row/.test(result.baseline?.verdict));
+  ok("only the summed flag can admit a true angular vacuum", /A candidate row/.test(result.eligible?.verdict));
+  ok("an undecided angular vacuum remains undecided in both panels", /undetermined/.test(result.undecided?.verdict) && /undetermined/.test(result.undecided?.vacuum));
+  ok("an unavailable summed mass cannot pass the window", /window undetermined/.test(result.missing?.verdict));
+  ok("a deeper interior vacuum rejects the branch", /false vacuum/.test(result.falseVac?.verdict));
+  ok("no electroweak point gets no angular vacuum verdict", /No electroweak breaking/.test(result.noBreaking?.verdict) && /No electroweak breaking/.test(result.noBreaking?.vacuum));
+  ok("a missing branch is distinct from absence of breaking", /No small-phase branch located/.test(result.noBranch?.verdict) && /No small-phase branch located/.test(result.noBranch?.vacuum));
+}
+
 H("the permalink carries every dial, and no hash a reader can type may blank the page");
 {
   await js(`document.querySelector('#rail a[data-id="calculator"]').click()`);

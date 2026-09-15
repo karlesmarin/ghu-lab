@@ -674,27 +674,52 @@ def main(argv=None):
             written.append(dest)
             carried.append((src_name, dest))
 
-    ed_rows = "".join(f'<tr><td><a href="{n}">{n}</a></td><td>frozen copy of the instrument</td>'
-                      f'</tr>' for n in frozen) or \
-              '<tr><td colspan="2" style="color:var(--ink3)">No edition has been cut yet. The ' \
-              'first is cut when the first paper that cites the tool is deposited.</td></tr>'
+    # This page used to promise a frozen copy of the instrument PER PUBLISHED PAPER, byte-identical
+    # to a copy archived with it.  Ten records later it had cut none, and that is the tell: the
+    # promise was wrong, not the execution.  The tool evolves on its own clock and a snapshot per
+    # paper costs a permanent bill for a problem the receipts already solve -- what makes a result
+    # checkable are the gate scripts and their archived outputs, and those DO travel with every
+    # record and, since Part IX-A, inside the arXiv submission itself.  So the page now states the
+    # narrower promise this project actually keeps, and which it has kept: a URL that a published
+    # record points at does not break.  The machinery for cutting an Edition stays (DESIGN.md D1,
+    # `editiongate.py`) -- it is cut when a claim needs the tool to run, not by the calendar.
+    ed_tbl = ("".join(f'<tr><td><a href="{n}">{n}</a></td><td>frozen copy of the instrument</td>'
+                      f'</tr>' for n in frozen))
+    ed_tbl = (f'<h2>Editions cut so far</h2>'
+              f'<table><thead><tr><th>file</th><th>what it is</th></tr></thead>'
+              f'<tbody>{ed_tbl}</tbody></table>') if frozen else ''
     car = ("".join(f'<li><a href="../{d}">/{d}</a> &mdash; the page previously served as '
                    f'<code>/{s}</code>, carried over byte for byte</li>' for s, d in carried)
            if carried else
            "<li>None carried in this build. Pass <code>--legacy</code> with the working copy of "
            "the published repository to bring them in.</li>")
     eds = (f'<h1>Editions</h1>'
-           f'<p class="lead">A frozen copy of the instrument, one per released paper, '
-           f'byte-identical to the copy archived with it. The living tool may be rewritten; a link '
-           f'in a paper must not die because of that.</p>'
-           f'<table><thead><tr><th>file</th><th>what it is</th></tr></thead>'
-           f'<tbody>{ed_rows}</tbody></table>'
+           f'<p class="lead">This site is the living instrument, and it is rewritten continuously. '
+           f'What is archived with a paper is not the tool but its evidence &mdash; the gate '
+           f'scripts and their receipts &mdash; so a published result stays checkable whether or '
+           f'not this page still looks the way it did. What this page promises is the narrower '
+           f'thing the tool can actually keep: a URL a published record points at does not '
+           f'break.</p>'
            f'<h2>Pages carried over from the earlier tools</h2>'
            f'<p>Five published Zenodo records link to the host these pages were served from. A URL '
-           f'in a published record is not ours to break, so they keep working:</p><ul>{car}</ul>')
+           f'in a published record is not ours to break, so they keep working:</p><ul>{car}</ul>'
+           f'{ed_tbl}'
+           f'<h2>When an edition is cut</h2>'
+           f'<p>An <em>edition</em> is one self-contained HTML file, carrying everything it needs '
+           f'and loading nothing, so that it still runs in ten years from a disk. The build can '
+           f'produce one and <code>build/editiongate.py</code> refuses to ship it if it can reach '
+           f'outside itself. What has changed is when one is cut: <strong>not once per '
+           f'paper</strong>, but when a claim needs the tool to run in order to be checked. No '
+           f'paper of this series has needed that &mdash; every number in each of them regenerates '
+           f'from the scripts archived with it, without this site.</p>'
+           f'<h2>What changed since the paper you are reading</h2>'
+           f'<p>That is the question a frozen copy was meant to answer, and the '
+           f'<a href="../changes/index.html">log of changes</a> answers it better: every entry '
+           f'says what moved, why, and whether it affects the version of record. The papers are '
+           f'frozen; this site says out loud when it is not.</p>')
     write("editions/index.html", page(shell, css, title="Editions — GHU Lab",
-                                      desc="The frozen copies of the instrument, one per released "
-                                           "paper.",
+                                      desc="Why this instrument is living, which URLs are kept "
+                                           "alive, and when a frozen edition is cut.",
                                       body=eds, depth=1, here="EDITIONS", build=build))
 
     total = sum((OUT / w).stat().st_size for w in written)

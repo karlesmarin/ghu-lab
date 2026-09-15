@@ -30,7 +30,7 @@ const HIERARCHY_SECTION = {
     <div class="note" style="margin-top:9px">
       In gauge–Higgs unification the compactification scale is tied to the weak scale by
       <span style="font-family:var(--mono)">α<sub>min</sub> = 2 m<sub>W</sub> R₅</span>, so the
-      vacuum of this potential <em>is</em> the electroweak hierarchy.
+      angular vacuum at fixed geometry sets the electroweak hierarchy.
     </div>
   </div>
 
@@ -88,10 +88,15 @@ const HIERARCHY_SECTION = {
         <table style="margin-top:11px"><tbody>
           <tr><td>endpoint stability — is α = 0 deeper than α = 1?</td>
               <td class="num" id="vHalf1">—</td></tr>
-          <tr><td>global vacuum — is the small-α branch the deepest point of F?</td>
+          <tr><td>angular vacuum at fixed geometry — is the small-α branch the deepest point of F?</td>
               <td class="num" id="vHalf2">—</td></tr>
         </tbody></table>
         <div class="verdict" id="vVac" style="margin-top:12px"><b>—</b><span>—</span></div>
+        <div class="note" id="vGeometryScope" style="margin-top:9px">
+          <b>Geometry held fixed.</b> Radius stability: <span class="chip unk">not evaluated</span>.
+          Joint Higgs–radius stability: <span class="chip unk">not evaluated</span>.
+          A minimum in the Wilson-line phase does not establish a stable size for the extra dimension.
+        </div>
         <div class="note" style="margin-top:9px">D says whether α = 0 is a maximum; it says nothing
         about whether the interior minimum is the <em>deepest</em> point. That is [8]'s criterion —
         compare the two symmetric points — and it is what took the ceiling from 10.01 to 9.22 TeV:
@@ -177,16 +182,24 @@ const HIERARCHY_SECTION = {
       <div class="card" style="margin-top:18px">
         <h2>The numbers</h2>
         <div class="pair">
-          <div class="stat"><div class="k">α<sub>min</sub></div><div class="v" id="sA">—</div>
+          <div class="stat"><div class="k">α<sub>min</sub> · small-phase approximation</div><div class="v" id="sA">—</div>
             <div class="s" id="sAs">—</div></div>
-          <div class="stat"><div class="k">m<sub>h</sub></div><div class="v" id="sM">—</div>
+          <div class="stat"><div class="k">m<sub>h</sub> · small-phase approximation</div><div class="v" id="sM">—</div>
             <div class="s" id="sMs">—</div></div>
         </div>
-        <div class="stat" style="margin-top:10px"><div class="k">1 / R₅</div>
+        <div class="stat" style="margin-top:10px" id="summedMassStat">
+          <div class="k">m<sub>h</sub> · summed potential · decides the window</div>
+          <div class="v" id="sMSum">—</div><div class="s" id="sMSums">—</div>
+          <div class="s" id="sMSumAt">—</div></div>
+        <div class="note" style="margin-top:9px">125–127 GeV is the paper's selection window.
+          It is not an experimental confidence interval.</div>
+        <div class="stat" style="margin-top:10px"><div class="k">1 / R₅ · small-phase approximation</div>
           <div class="v" id="sR">—</div>
           <div class="bar"><i id="sBar" style="width:0"></i></div>
           <div class="s" id="sRs">—</div></div>
         <div class="verdict" id="vd" style="margin-top:12px"><b>—</b><span>—</span></div>
+        <div class="note" style="margin-top:9px">These results use a fixed geometry.
+        The radius potential and the joint Higgs–radius stability have not been evaluated.</div>
       </div>
 
     </div>
@@ -369,21 +382,25 @@ const HIERARCHY_SECTION = {
     $("sW").textContent = fr(W.value);
     $("sGap").textContent = vac.value.F1_minus_F0.toFixed(3);
     const D8 = v.get("D8").value;
-    const ok = vac.value.true !== false, V = vac.value;   /* null = nothing to break: not "false" */
+    const ok = vac.value.true === true, V = vac.value;   /* null = nothing to break: not "false" */
     /* THE TWO HALVES, NAMED AND RANKED.  An outside audit read `W > 0` under a THEOREM chip as a
      * claim about the global vacuum; the criterion only compares the two symmetric points.  The
      * strip says which question each half answers and what kind of answer it is. */
     $("vHalf1").innerHTML = V.symmetric_ok
       ? `<span class="chip thm">yes · theorem</span>` : `<span class="chip bad">no · theorem</span>`;
     $("vHalf2").innerHTML = V.deepest === null
-      ? `<span class="chip live">no interior minimum to test</span>`
+      ? `<span class="chip live">not decided on this render</span>`
       : V.deepest ? `<span class="chip ver">yes · verified here</span>`
                   : `<span class="chip bad">no — deeper at α = ${V.alpha_global.toFixed(3)} · verified here</span>`;
     $("vVac").className = "verdict " + (ok ? (D8 > 0 ? "breaks" : "") : "stable");
-    $("vVac").innerHTML = !V.symmetric_ok
+    $("vVac").innerHTML = V.true === null
+      ? `<b>${V.state === "no-electroweak-breaking" ? "No electroweak breaking"
+           : V.state === "no-branch-located" ? "No small-phase branch located" : "Angular vacuum undetermined"}</b>` +
+        `<span>The angular vacuum test has no verdict for an electroweak point on this render.</span>`
+      : !V.symmetric_ok
       ? `<b style="color:var(--rust)">A false vacuum</b><span>F(1) − F(0) = ${V.F1_minus_F0.toFixed(3)} < 0: ` +
         `the potential is <b>deeper at α = 1</b>, so whatever minimum the closed form finds is not ` +
-        `the vacuum of this content. The numbers above are still computed at the stationary point — ` +
+        `the vacuum of this content. The small-phase numbers refer to the stationary point — ` +
         `and labelled. <span class="chip thm">theorem</span> Part VII eqs. (34)–(35)</span>`
       : V.deepest === false
         ? `<b style="color:var(--rust)">A false vacuum W alone cannot see</b><span>F(1) − F(0) = ` +
@@ -602,39 +619,59 @@ const HIERARCHY_SECTION = {
   _stats(v, DATA) {
     const $ = (id) => document.getElementById(id);
     const a = v.get("alpha_min"), mh = v.get("m_h"), R = v.get("invR5");
+    const summed = v.get("m_h_summed"), windowSum = v.get("in_window_summed");
+    const V = v.get("vacuum").value;
+    const known = (x) => x && x.status !== "unknown" && Number.isFinite(x.value);
+    const windowKnown = known(summed) && windowSum && windowSum.status !== "unknown"
+      && typeof windowSum.value === "boolean";
+    const candidate = V.true === true && windowKnown && windowSum.value;
     const CEIL = DATA.ceilings ? DATA.ceilings.true_vacuum.GeV : DATA.constants.ceiling_GeV;
-    $("sA").textContent = a.status === "unknown" ? "—" : a.value.toFixed(6);
-    $("sAs").textContent = a.status === "unknown" ? a.reason.slice(0, 70)
-                                                  : `[${a.status}] closed form`;
-    $("sM").textContent = mh.status === "unknown" ? "—" : mh.value.toFixed(2);
-    $("sMs").textContent = mh.status === "unknown" ? "no real Higgs mass here"
-      : (v.get("in_window").value ? "inside 125–127 GeV" : "outside 125–127 GeV");
-    $("sR").textContent = R.status === "unknown" ? "—" : Math.round(R.value) + " GeV";
-    const f = R.status === "unknown" ? 0 : v.get("ceiling_fraction").value;
+    $("sA").textContent = known(a) ? a.value.toFixed(6) : "—";
+    $("sAs").textContent = known(a) ? `[${a.status}] closed form` : a.reason.slice(0, 70);
+    $("sM").textContent = known(mh) ? mh.value.toFixed(2) : "—";
+    $("sMs").textContent = known(mh) ? "GeV · at the small-phase stationary point"
+      : "small-phase Higgs mass unavailable";
+    $("sMSum").textContent = known(summed) ? summed.value.toFixed(2) + " GeV" : "—";
+    $("sMSums").textContent = windowKnown
+      ? (windowSum.value ? "inside 125–127 GeV" : "outside 125–127 GeV")
+      : "summed mass window not evaluated";
+    $("sMSumAt").textContent = !known(summed) ? ""
+      : Number.isFinite(V.alpha_global)
+        ? `at the numeric minimum α = ${V.alpha_global.toFixed(6)} · 600 windings`
+        : `at the branch α = ${a.value.toFixed(6)} · global minimum undetermined`;
+    $("sR").textContent = known(R) ? Math.round(R.value) + " GeV" : "—";
+    const f = known(R) ? v.get("ceiling_fraction").value : 0;
     const bar = $("sBar");
     bar.style.width = Math.min(100, f * 100).toFixed(1) + "%";
     bar.className = f > 1 ? "over" : "";
-    $("sRs").textContent = R.status === "unknown" ? "—"
-      : `${(100 * f).toFixed(1)} % of the ${(CEIL / 1000).toFixed(2)} TeV ceiling, true vacuum required  ` +
-        `[${v.get("ceiling_fraction").status}]`;
+    $("sRs").textContent = known(R)
+      ? `${(100 * f).toFixed(1)} % of the ${(CEIL / 1000).toFixed(2)} TeV ceiling, true vacuum required  ` +
+        `[${v.get("ceiling_fraction").status}]` : "—";
 
-    const vd = $("vd"), br = R.status !== "unknown";
-    const falseVac = br && v.get("vacuum").value.true === false;
-    vd.className = "verdict " + (br && !falseVac ? (v.get("in_window").value ? "breaks" : "") : "stable");
-    vd.innerHTML = !br
-      ? `<b>No electroweak breaking</b><span>${v.get("alpha_min").reason}</span>`
-      : falseVac
-        ? `<b style="color:var(--rust)">A stationary point in a false vacuum</b><span>Electroweak ` +
-          `symmetry breaks at this α, ${v.get("in_window").value ? "the Higgs mass even lands in the window" :
-          "m_h falls outside 125–127 GeV"} — and none of it is the vacuum: F is lower at ` +
-          `${v.get("vacuum").value.symmetric_ok
-             ? `α = ${v.get("vacuum").value.alpha_global.toFixed(3)}, an interior minimum W alone cannot see`
-             : "α = 1, the other symmetric point"}.</span>`
-        : `<b>${v.get("in_window").value ? "A candidate row" : "Breaks, but m_h is wrong"}</b>` +
-          `<span>${v.get("in_window").value
-            ? "Electroweak symmetry breaks, the point is the true vacuum, and the Higgs mass lands in their own window."
-            : "Electroweak symmetry breaks in the true vacuum, but m_h falls outside 125–127 GeV."}</span>`;
+    const vd = $("vd");
+    vd.className = "verdict " + (candidate ? "breaks" : "stable");
+    vd.innerHTML = V.state === "no-electroweak-breaking"
+      ? `<b>No electroweak breaking</b><span>${a.reason}</span>`
+      : V.state === "no-branch-located"
+        ? `<b>No small-phase branch located</b><span>${a.reason}</span>`
+        : V.true === false
+          ? `<b style="color:var(--rust)">A stationary point in a false vacuum</b>` +
+            `<span>The small-phase branch is not the angular vacuum: F is lower at ` +
+            `${V.symmetric_ok && Number.isFinite(V.alpha_global)
+              ? `α = ${V.alpha_global.toFixed(3)}` : "α = 1, the other symmetric point"}. ` +
+            `The mass window cannot make this branch a candidate.</span>`
+          : V.true !== true
+            ? `<b>Angular vacuum undetermined</b><span>A candidate requires a confirmed angular minimum ` +
+              `and a summed Higgs mass inside the selection window.</span>`
+            : !windowKnown
+              ? `<b>Higgs mass window undetermined</b><span>The angular minimum is established at fixed ` +
+                `geometry; the summed mass needed for the window verdict is unavailable.</span>`
+              : `<b>${candidate ? "A candidate row" : "Breaks, but summed m_h is outside the window"}</b>` +
+                `<span>Electroweak symmetry breaks in the angular vacuum at fixed geometry. ` +
+                `The summed Higgs mass is ${summed.value.toFixed(2)} GeV, ` +
+                `${candidate ? "inside" : "outside"} the 125–127 GeV selection window.</span>`;
   },
+
 
   _laws(v) {
     const L = v.get("laws").value, S = v.get("seed").value;

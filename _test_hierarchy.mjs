@@ -713,5 +713,34 @@ ok("the candidate seed's relaxation ceiling is lower and sits one rung up, at 8D
      "the branch equation IS the condition that these two are equal");
 }
 
+// A true angular vacuum can be exported without having tested a dynamical radius.
+H("the angular verdict carries its geometry scope through both exports");
+{
+  const cases = [
+    ["published angular minimum", row2, true],
+    ["false angular vacuum", { bulk: [
+      { rep: "7", parities: [1, 1], multiplicity: 6 },
+      { rep: "28", parities: [1, -1], multiplicity: 32 }] }, false],
+    ["no electroweak breaking", { bulk: [
+      { rep: "7", parities: [1, 1], multiplicity: 2 }] }, null],
+    ["no branch located", { bulk: [...row2.bulk,
+      { rep: "7", parities: [1, -1], multiplicity: 40 }] }, null],
+  ];
+  for (const [label, row, expected] of cases) {
+    const m = modelOf(row), v = resolve(MODS, m).values;
+    const exported = makeCard(m, v), json = JSON.parse(JSON.stringify(exported));
+    const vacuum = json.results.vacuum.value;
+    ok(`${label}: angular verdict still answers the original question`, vacuum.true === expected);
+    ok(`${label}: JSON identifies the fixed geometry and both untested stability questions`,
+       vacuum.scope.geometry === "fixed" &&
+       vacuum.scope.varied_fields.join() === "wilson_line_phase" &&
+       vacuum.scope.radius_stability === "not-evaluated" &&
+       vacuum.scope.joint_higgs_radius_stability === "not-evaluated");
+    ok(`${label}: the text export carries the same scope`,
+       toText(exported).includes("Angular vacuum at fixed geometry.") &&
+       toText(exported).includes("Radius stability and joint Higgs-radius stability: not evaluated."));
+  }
+}
+
 console.log(`\n${fail === 0 ? "PASSED" : "*** FAILED ***"}   ${pass} ok, ${fail} failed`);
 process.exit(fail === 0 ? 0 : 1);

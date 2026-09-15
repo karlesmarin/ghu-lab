@@ -26,8 +26,8 @@ Follows the decisions in [`DESIGN.md`](DESIGN.md). One repository, GitHub Pages,
 │
 ├── /docs/               conventions, glossary, how to reproduce, how to cite
 │
-└── /editions/           the frozen copies, one per released paper
-      └── part-vii-v1.0.html   ← byte-identical to what Zenodo holds
+└── /editions/           frozen copies, cut BY NEED — see DESIGN.md's amendment of 2026-09-09
+      └── (empty: no record has needed one yet)
 ```
 
 Two doors on the home page, because there are two kinds of visitor:
@@ -92,7 +92,7 @@ without lying about what a DOI means.
 │  The ledger      established · corrected · withdrawn · open           │
 │  Figures         the five, at full size, each with its data           │
 │  ▶ Open in the app with this paper's model                            │
-│  Downloads       PDF · Zenodo · the scripts · the frozen edition      │
+│  Downloads       PDF · Zenodo · the gate scripts and their receipts   │
 │  Changes         what moved since the record, and why                 │
 └──────────────────────────────────────────────────────────────────────┘
 ```
@@ -150,9 +150,14 @@ Both directions, always. The Zenodo description carries the living URL; the livi
 DOI and the date it was frozen. A reader arriving from either side learns the other exists within
 one screen.
 
-And a third copy that matters: `/editions/part-vii-v1.0.html` — **the frozen tool**, byte-identical
-to the one archived with the paper, still on the site, still openable. So a link in a paper never
-dies even if the app is rewritten.
+**And what does NOT travel with a paper: the tool.** This section used to promise a third frozen
+copy per record — `/editions/part-vii-v1.0.html`, byte-identical to the one archived with the paper.
+**It was never cut, for any of the records**, and `DESIGN.md`'s amendment of 2026-09-09 changed the
+rule rather than the discipline: **an Edition is cut when a claim needs the tool to run in order to
+be checked**, and no record of the series has needed that. What makes a result checkable are the
+**gate scripts and their archived receipts**, which travel with every record — and, since Part IX-A,
+inside the arXiv submission itself. What is kept alive instead is **every URL a published record
+points at**, plus the [changes](#) log of what has moved since.
 
 ---
 

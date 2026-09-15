@@ -3,6 +3,20 @@
 > State at 2026-09-15. The section below is the newest; the earlier handoffs follow it
 > unchanged and are still the map of the code.
 
+## 2026-09-16 — publish the compiled panel and update the public information
+
+`ghu-lab` holds sources; GitHub Pages serves `ghu-explorer/main`. Pushing the source commit
+does not deploy the ignored `app/` artifact. The public README, home page, documentation and
+change log now introduce the gravity–gauge panel and link directly to it. The site templates
+contain a quick start, controls, interpretation and limits; the source README explains the
+two-repository publication path.
+
+The site loader explicitly excludes `h185_reference.json` from published group records.
+It contains spectral reference data, not another gauge group; malformed group files still fail.
+The exact committed app passed 2,124 checks in 49 harnesses, 208 driven interaction checks,
+464 extreme renders, and the layout, listener and lifecycle gates. Earlier uncommitted cbclass
+work stays separate from the published artifact.
+
 ## 2026-09-15 — Gravity–gauge · 3D, an interactive diagnostic in the app
 
 **The new panel is in the rail**, under `Gravity & gauge · research`, and has its own model,

@@ -20,7 +20,7 @@ read; no event is ever simulated.
 The deployed page is a build artifact. This is where it comes from, and why it says what it says.
 
 ```
-🏗️  python build/build_app.py    # inline → collision guard → edition gate → 48 harnesses → app/index.html
+🏗️  python build/build_app.py    # inline → collision guard → edition gate → 49 harnesses → app/index.html
                                  # (it prints its own total; that is where the number below comes from)
 🌐  python build/build_site.py --legacy ../ghu-explorer/tools-2026-07     # → site/, then gates itself
 📸  node   build/shoot.mjs       # headless screenshots of every section + console + which model
@@ -101,6 +101,20 @@ away from the reference points, invalid-input rejection and the engine in the co
 It is part of the normal `python build/build_app.py` gate.
 `node build/gravitygauge.mjs` runs the 20 Chromium interaction checks for this panel and saves
 desktop/mobile screenshots in `shots/gravitygauge/`.
+
+## Publishing the app and its documentation
+
+This repository contains the sources. Its generated `app/` and `site/` directories are ignored
+by Git, so pushing `ghu-lab` alone does **not** update the public app. GitHub Pages serves the
+`main` branch of [ghu-explorer](https://github.com/karlesmarin/ghu-explorer).
+
+Run `python build/build_app.py --browser` and require a green build, then
+`python build/build_site.py --legacy ../ghu-explorer/tools-2026-07` and require its site checks
+to pass. Review the generated `site/` changes before copying them to the publication repository.
+Commit and push the app, site pages and updated public README there, then verify the Pages build
+and the [live panel](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=gravitygauge).
+The home page and [public help](https://karlesmarin.github.io/ghu-explorer/docs/index.html#gravitygauge)
+are generated from `src/site/`; edit those templates when changing public documentation.
 
 ## 📤 Taking a model out of the page
 

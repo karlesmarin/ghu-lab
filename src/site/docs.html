@@ -2,6 +2,42 @@
 <p class="lead">Everything a stranger needs to read a number off this site and know exactly what it
 means: the conventions, the vocabulary, how to reproduce it without the tool, and how to cite it.</p>
 
+<h2 id="gravitygauge">Gravity&ndash;gauge &middot; 3D: a quick start</h2>
+<p><a href="../app/index.html#s=gravitygauge">Open the panel</a>, or choose
+<strong>Gravity &amp; gauge &middot; research &rarr; Gravity&ndash;gauge &middot; 3D</strong>
+in the app menu. Its inputs belong to this panel and travel with its exported files and link.</p>
+<ol>
+<li>Start at <strong>p = 1.1</strong>. Compare the presets <strong>&eta; = &minus;0.9</strong>
+and <strong>&eta; = 0</strong>. The paired masses stay fixed, while the response and Wilson
+kinetic scale change.</li>
+<li>Move <strong>&eta;</strong> (the kinetic deformation) and <strong>t</strong> (the source
+position). The table and both plots update immediately. The controls cover
+&minus;0.99 &le; &eta; &le; 4 and 0.12 &le; t &le; 0.98. Here &eta; is a continuous parameter,
+separate from the boundary-condition sign used in the other panels.</li>
+<li>Choose the <strong>spectral-weight ratio</strong> or the <strong>kinetic function Z</strong>
+for the response surface. Its height is logarithmic. Drag to rotate; in <strong>select point</strong>
+mode, click the surface to set &eta; and t. Shift-drag rotates in either mode.</li>
+<li>Focus a plot and use the arrow keys to turn it, the mouse wheel to adjust its relief,
+or double-click to reset the view. <strong>Reset</strong> restores the model and both views.</li>
+<li>Use the header's <strong>card</strong>, <strong>LaTeX</strong> and <strong>link</strong>
+buttons to save the current inputs, outputs and scope. Open the panel's how-to for help in place.</li>
+</ol>
+<p><strong>Read the comparison carefully.</strong> NN means a vanishing normal derivative at both
+ends; DD means a vanishing field at both ends. The tensor-NN and vector-DD massive towers are
+paired under the stated action and boundaries. The vector-NN control has different boundaries
+and its massive levels can move. The tensor zero mode has no vector-DD partner.</p>
+<p>The first three paired masses are dimensionless Python/SciPy reference roots checked by an
+independent differential-equation calculation. The first massive vector-NN root is solved in the
+browser. The source response holds the four-dimensional gauge coupling fixed. The Wilson scale
+is a kinetic normalization; it is not a Higgs mass.</p>
+<p><strong>Scope.</strong> p = 1.1 admits the stated scalar-supported bulk background; p = 1 is
+a kinematic reference, with &eta; = &minus;0.99 recovering the minimal AdS gauge case. Boundary
+dynamics, scalar/radion stability, a complete Higgs potential and collider rates remain open.
+This is not experimental evidence for a graviton or a completed unified model.</p>
+<p><a href="https://github.com/karlesmarin/ghu-lab/blob/main/docs/h185-gravity-gauge.md">Full guide,
+equations, numerical provenance and literature</a>. The source tree includes 104 numerical checks
+and a dedicated Chromium check of the panel's controls, exports and mobile layout.</p>
+
 <h2 id="conventions">Conventions</h2>
 
 <p>Every default the instrument fills in for you, with the source that fixes it. This table is

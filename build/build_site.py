@@ -237,7 +237,8 @@ def load_groups():
     # orbifold or a source paper, and the loader below would be right to refuse them.  Named here
     # rather than skipped by a shape test, so a new group file that is merely malformed still
     # fails loudly instead of being quietly taken for one of these.
-    NOT_A_GROUP = {"series.json", "census.json"}
+    # H185 stores independently checked spectral roots, not a fourth published group.
+    NOT_A_GROUP = {"series.json", "census.json", "h185_reference.json"}
     for p in sorted((ROOT / "data").glob("*.json")):
         if p.name in NOT_A_GROUP:
             continue

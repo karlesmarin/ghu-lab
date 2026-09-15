@@ -62,7 +62,7 @@ The deployed page is a build artifact. This is where it comes from, and why it s
 
 ```
 🏗️  python build/build_app.py    # inline → collision guard → edition gate → 49 harnesses → app/index.html
-                                 # (it prints its own total; that is where the number below comes from)
+                                 # (see the counting note below for the two summaries its tally misses)
 🌐  python build/build_site.py --legacy ../ghu-explorer/tools-2026-07     # → site/, then gates itself
 📸  node   build/shoot.mjs       # headless screenshots of every section + console + which model
 🖱️  node   build/drive.mjs       # USES the panels: a real mouse through the DevTools Input domain
@@ -83,10 +83,21 @@ The deployed page is a build artifact. This is where it comes from, and why it s
 
 ## 🧪 What is checked, and against what
 
-**2 124 checks across 49 harnesses**, plus 208 driven through a real mouse, 30 on the built site,
-and three tools that measure what the reader sees: 0 clipped boxes, 464 clean renders in the
-states no gate visits, and nine panels started and then abandoned mid-computation.
-The ones that carry weight are the ones an outside computation could lose:
+Latest verification of the published app, **16 September 2026**: **49 source harnesses passed**,
+with **2,252 individually counted checks** in their summaries, plus **208 general browser
+interaction checks**, **30 site checks**, and **20 dedicated gravity–gauge browser checks**.
+The browser gates also found no clipped boxes, no growing listener counts or console errors,
+**464 clean renders** across extreme input states, and no abandoned work in the **nine panels**
+covered by the lifecycle test. The 20 dedicated checks also passed against the live public app.
+
+**How the total is counted.** The builder currently prints **2,124**: its tally recognises
+`ok` and `checks pass`, but misses the `passed` summaries from `_test_eta.mjs` (**75**) and
+`_test_selection.mjs` (**53**). Including those gives **2,252**. Three structural harnesses report
+success without an assertion count; they are included in the 49 harnesses but add no invented
+number to that sum. Browser checks, site checks and render counts are reported separately.
+
+The table explains the main independent references and failure cases. The complete list of all
+49 source harnesses and their recorded counts follows it.
 
 | harness | what it puts at risk |
 |---|---|
@@ -99,10 +110,12 @@ The ones that carry weight are the ones an outside computation could lose:
 | ↩️ `_test_inverse.mjs` | the map run **backwards**: the five published rows inverted from their own observables, the certificate roster of every target the paper tabulates, the designs it delivers — and the certificates **falsified**, a rung a Farkas bound closes being enumerated whole to confirm it is empty. It also resolves the two clusters a browser can reach into their **35 and 65 points**, recovering the paper's spacings and the 45× the gap is measured against |
 | 🧮 `_test_census.mjs` | N(A₄, 8D) counted by dynamic programme, against three other things: the archived enumeration (**69 022 464** contents over four rungs), an independent brute force, and the enumerator that builds the contents one by one |
 | 🏛️ `_test_sun5d.mjs` | the **general SU(N)** formula — Haba–Yamashita §5 — against every equation of all four worked examples the same paper prints, transcribed term by term; against the invariance (P, P′) → (−P, −P′) the adjoint cannot see; and, through the one-phase bridge, against the archived 60-row SU(3) prediction bank, which it reproduces to 8e-16 by a route that shares nothing with the special case those rows came from |
+| 📄 [`_test_papers.mjs`](_test_papers.mjs) | **114 checks** for **Paper models**: published formulas reconstructed independently, curvature checked by finite differences, and parity matrices rebuilt from boundary-condition blocks. Tests agreements, the recorded disagreement and out-of-scope statements; checks that model anchors and citations have no dangling entries. The scope of each comparison remains explicit, including the structural-only checks on supersymmetric models |
 | 🔗 `_test_bcclass.mjs` | the **equivalence classes** of orbifold boundary conditions, as orbits actually walked: Haba–Hosotani–Kawamura's C(N+3,3) conditions, (N−1)N(N+1)/6 relations and **(N+1)² classes** reproduced at every N up to 14 as a property of the orbit structure rather than as a quoted theorem; their eq. (3.27) energetics term by term; and the same question asked again on T²/Z₃, where the answer is different and is measured instead of inherited |
 | 📊 `_test_spectrum5d.mjs` | the **4D spectrum**, against the eigenvalue lists Haba–Yamashita print degeneracy by degeneracy — their (3.9), (3.12), (3.16), (3.18), (4.28), (4.32), (4.34) as whole multisets, so nothing can be dropped unnoticed — and HHK's sector counts (3.20) **derived** from the components rather than transcribed. And the control that ties two modules together: summing cos(2πnQ) over the states reproduces the potential's own bracket, exactly twice it, on 96 cases at 5e-15 |
 | ⚖️ `_test_anomaly5d.mjs` | the **anomaly ledger**: the indices and cubic anomalies re-derived from fund ⊗ fund = sym ⊕ antisym rather than tabulated; an **adjoint** bulk fermion required to be anomaly-free on every boundary condition, because the adjoint is real; a piece fed in with its own conjugate, which tests every sign at once; and chiral contents that must come out **anomalous**, with the channel named, or "anomaly-free" would be the only thing it ever said |
 | 🌡️ `_test_blkt.mjs` | **brane-localized kinetic terms**: the tower when the masses stop being n/R. The special functions against **mpmath at 40 digits** (`tests/blkt_reference.json`), and the limit that decides the rest — as c → 0 the roots of the transcendental mass equation must become the ordinary twisted tower, which is computed in closed form from the poles and shares no line of code with the solver. It found three real defects, catastrophic cancellation among them. And the join: the authors' own eq. (3.22), solved here, reproduces their eq. (5.19) ten pages later, with the error falling like α² |
+| 🌌 [`_test_gravitygauge.mjs`](_test_gravitygauge.mjs) | **104 checks** of the gravity–gauge engine against the independent Python/SciPy values in `data/h185_reference.json`: exact weight integrals, Wilson kinetic normalization, source residues, static response, the first paired mass and the live NN root. Also checks the Cauchy bound, numerical convergence away from the benchmark points, invalid-input rejection, the minimal RS limit, model-export conventions, and inclusion of the engine and panel in the compiled app. The displayed paired masses are declared reference inputs; their ODE cross-check is recorded in the reference metadata |
 | 📄 `_test_latex.mjs` | the **export that goes into a paper**: the LaTeX is the result card and not a second version of it; every string in `data/` survives the transport, and an unmapped glyph **throws** rather than being dropped; the potential reads as the paper prints it; and no file in the tree contradicts the citation registry — a gate that exists because one reference had drifted into seven files with the wrong volume |
 | 🌀 `_test_vacuum5d.mjs` | the massless content **at the vacuum**, by two constructions that share no code — the representation theory of the pairs the Wilson line rotates, and the explicit matrices ρ(P₀), ρ(P₁′) with the joint eigenspace counted by elimination — on 880 cases including three phases; at θ = 0 and θ = 1 it must reproduce the parity rule of the boundary condition and of its **class-mate**, character for character. A third route in SageMath agrees on 200 of 200 (`tools/vacuum5d_sage_control.py`). And a decoy that must FAIL: reading the Kaluza–Klein families at n = 0 says two massless vectors for SU(2) at θ = 1 where there is one |
 | 🧬 `_test_smcell.mjs` | the **Standard-Model cell**: the hypercharge solved in exact rationals on the massless pieces, with sin²θ_W = 3/8 coming out of three different boundary conditions, a full generation found where one exists, and the absence pinned where it holds — on SU(5) with P = diag(+,+,+,−,−) no bulk content hosts Q or dᶜ at 3/8, over all 64 two-representation contents. The solver is made to fail on purpose: change eᶜ's hypercharge and the anchor content stops working |
@@ -111,14 +124,92 @@ The ones that carry weight are the ones an outside computation could lose:
 | ⚛️ `_test_yukawa.mjs` | the **fermion masses** the Wilson line gives: attribution of every vacuum eigenstate to the pieces of the nearest symmetric point by squared overlap, with the weights required to sum to one per state, to the dimension per piece, and to the vacuum module's massless counts. The anchors are Cacciapaglia–Csaki–Park's own sentences: a bulk fundamental at m_W, a symmetric tensor's pair diagonal at 2 m_W |
 | 🎯 `_test_dossier.mjs` | the claim that is a **classification** rather than a number: which verdicts are the theory's and which the frame's, measured on every member of the equivalence class — with two decoy lines whose answers are settled before the tagger runs, and the requirement that the lines read at the vacuum come back invariant on all 86 multi-member classes of SU(4)…SU(7) |
 | 🧩 `_test_app.mjs` | the page that **ships**, not the sources it came from: the inliner, the module stripper and the data injection are the only code no other test covers |
-| 🌐 `_test_site.py` | thirteen site checks, and then **each of them again against a site broken on purpose** |
+| 🌐 [`_test_site.py`](_test_site.py) | **30 checks**: 15 checks of the generated site and 15 deliberately broken cases that must be detected. Covers links and local assets, DOI and paper status, the app copy, palette, paper coverage, page metadata, unresolved placeholders, caveats, panel counts, change-entry consistency and HTML escaping |
 | 🖱️ `build/drive.mjs` | the panels answer a **real mouse** through the DevTools Input domain, not events dispatched from inside the page — including the buttons that write files, the permalinks that make a page sendable (**with the empty model, which is the case that was broken**), the class-mate click that must leave the vacuum's verdicts standing, the published-model label that must go the moment any dial moves, and the rule that no verdict box in any of the 28 sections may open holding a dash |
 | 📏 `build/layout.mjs` | **what a reader sees and no other gate can**: anything whose content is wider than the box that holds it, in every section, at several widths, and in every state — how-to open, each help bubble open, the demo running. It tells apart a box that scrolls, a box that **clips** (a column is simply gone) and a box that truncates with an ellipsis and can give the text back through its `title`. Written the day a reader reported a table running off the edge of a card; it found eleven such boxes across four sections, all from one CSS rule that was scoped to phones |
 | 🧪 `build/extremes.mjs` | **the states no gate visits**: every family cleared, a single multiplet, every slot at its ceiling, and boundary conditions at the corners of the block simplex — at a desktop width and at 380 px. It looks for the six ways a template literal says it was handed something it did not expect (`NaN`, `undefined`, `[object Object]`, `Infinity`, `null`, an unresolved `${…}`), for a section that rendered nothing, and for a verdict box that ran and decided nothing. 464 (section, state, width) renders |
+| 🚪 [`_test_lifecycle.py`](_test_lifecycle.py) · [`build/lifecycle.mjs`](build/lifecycle.mjs) | The source check scans every section for timers bypassing the shell's cancellation mechanism. The browser check starts work in **nine selected panels** and leaves mid-operation: exceptions must stay absent, pending timers must return to the idle baseline, and the three panels with busy flags must respond again on return. This is targeted lifecycle coverage, not a claim that every panel runs a long computation |
+| 🖱️🌌 [`build/gravitygauge.mjs`](build/gravitygauge.mjs) | **20 dedicated Chromium checks**: panel and help mount, presets update the response while paired masses stay fixed, singular input is refused, the source slider and surface selection change the model, real mouse input rotates the 3D plot, and both surface quantities work. Exercises JSON/LaTeX exports, model identity and declared unknowns, permalink reload, leave/return, reset, mobile overflow and plot fit, and absence of JavaScript exceptions |
 | 🧹 `build/leaks.mjs` | **what the page keeps**. Every other tool asks whether a section is right when it is on screen; this one asks what a section leaves behind when it is not. It walks the rail twice and asks the browser itself, through `DOMDebugger.getEventListeners`, how many handlers hang off `window` and `document` after each pass — and fails if the second walk added any. It was written because 24 console errors of one kind had no locus: they came from four different places that all registered a `window` listener per mount or per render and never removed it, so a resize later redrew a canvas the shell had already replaced. Before: 4 → 41 → 78 listeners, 27 errors. After: 4 → 17 → 17, and none |
 
-Every guard here has been fired at least once by breaking something on purpose. A guard that has
-never failed is not a guard, and `HANDOFF.md` carries the index of what each one cost.
+Negative controls are described in the individual harnesses: invalid inputs, wrong readings and
+deliberately broken artifacts. The site harness explicitly pairs every check with a broken case;
+this is not a blanket claim that every assertion in every harness has been mutation-tested.
+`HANDOFF.md` records the defects and corrections behind the checks.
+
+<details>
+<summary>📋 Complete source-build inventory — 49 passing harnesses</summary>
+
+Counts below come from the same successful build. “No count emitted” means the harness passed
+without printing an assertion total; it does not mean the harness ran zero checks.
+
+| Harness | Passing checks reported |
+|---|---:|
+| ✅ [`_test_kernel.mjs`](_test_kernel.mjs) | 58 |
+| ✅ [`_test_hierarchy.mjs`](_test_hierarchy.mjs) | 237 |
+| ✅ [`_test_app.mjs`](_test_app.mjs) | 123 |
+| ✅ [`_test_groups.mjs`](_test_groups.mjs) | 22 |
+| ✅ [`_test_wilson.mjs`](_test_wilson.mjs) | 34 |
+| ✅ [`_test_eta.mjs`](_test_eta.mjs) | 75 |
+| ✅ [`_test_selection.mjs`](_test_selection.mjs) | 53 |
+| ✅ [`_test_surface.mjs`](_test_surface.mjs) | 41 |
+| ✅ [`_test_escape.mjs`](_test_escape.mjs) | 91 |
+| ✅ [`_test_samepot.mjs`](_test_samepot.mjs) | 46 |
+| ✅ [`_test_screen.mjs`](_test_screen.mjs) | 37 |
+| ✅ [`_test_multiplets.mjs`](_test_multiplets.mjs) | 178 |
+| ✅ [`_test_fived.mjs`](_test_fived.mjs) | 29 |
+| ✅ [`_test_collider.mjs`](_test_collider.mjs) | 22 |
+| ✅ [`_test_atlas.mjs`](_test_atlas.mjs) | 17 |
+| ✅ [`_test_inverse.mjs`](_test_inverse.mjs) | 93 |
+| ✅ [`_test_census.mjs`](_test_census.mjs) | 42 |
+| ✅ [`_test_sun5d.mjs`](_test_sun5d.mjs) | 53 |
+| ✅ [`_test_bcclass.mjs`](_test_bcclass.mjs) | 67 |
+| ✅ [`_test_cbclass.mjs`](_test_cbclass.mjs) | 38 |
+| ✅ [`_test_spectrum5d.mjs`](_test_spectrum5d.mjs) | 37 |
+| ✅ [`_test_anomaly5d.mjs`](_test_anomaly5d.mjs) | 25 |
+| ✅ [`_test_vacuum5d.mjs`](_test_vacuum5d.mjs) | 42 |
+| ✅ [`_test_smcell.mjs`](_test_smcell.mjs) | 20 |
+| ✅ [`_test_brane.mjs`](_test_brane.mjs) | 46 |
+| ✅ [`_test_running.mjs`](_test_running.mjs) | 10 |
+| ✅ [`_test_predict.mjs`](_test_predict.mjs) | 11 |
+| ✅ [`_test_yukawa.mjs`](_test_yukawa.mjs) | 11 |
+| ✅ [`_test_reading.mjs`](_test_reading.mjs) | 19 |
+| ✅ [`_test_sweep5d.mjs`](_test_sweep5d.mjs) | 46 |
+| ✅ [`_test_papers.mjs`](_test_papers.mjs) | 114 |
+| ✅ [`_test_latex.mjs`](_test_latex.mjs) | 60 |
+| ✅ [`_test_blkt.mjs`](_test_blkt.mjs) | 43 |
+| ✅ [`_test_gravitygauge.mjs`](_test_gravitygauge.mjs) | 104 |
+| ✅ [`_test_census_lit.mjs`](_test_census_lit.mjs) | 20 |
+| ✅ [`_test_dossier.mjs`](_test_dossier.mjs) | 28 |
+| ✅ [`_test_rank.mjs`](_test_rank.mjs) | 37 |
+| ✅ [`_test_observables.mjs`](_test_observables.mjs) | 28 |
+| ✅ [`_test_particles.mjs`](_test_particles.mjs) | 24 |
+| ✅ [`_test_sensitivity.mjs`](_test_sensitivity.mjs) | 15 |
+| ✅ [`_test_higgsrate.mjs`](_test_higgsrate.mjs) | 8 |
+| ✅ [`_test_bundle.mjs`](_test_bundle.mjs) | 21 |
+| ✅ [`_test_robustness.mjs`](_test_robustness.mjs) | 14 |
+| ✅ [`tests/run.mjs`](tests/run.mjs) | 78 |
+| ✅ [`_test_editiongate.py`](_test_editiongate.py) | 26 |
+| ✅ [`_test_help.py`](_test_help.py) | No count emitted |
+| ✅ [`_test_howto.py`](_test_howto.py) | No count emitted |
+| ✅ [`_test_browsergate.py`](_test_browsergate.py) | No count emitted |
+| ✅ [`_test_lifecycle.py`](_test_lifecycle.py) | 9 |
+
+**Counted total: 2,252.** All 49 harnesses passed. Site and browser checks are additional.
+
+</details>
+
+Reproduce the different layers with:
+
+```sh
+python build/build_app.py --browser
+python build/build_site.py --legacy ../ghu-explorer/tools-2026-07
+node build/gravitygauge.mjs
+```
+
+The 104 gravity–gauge source checks run as part of the normal build. Its dedicated 20-check
+Chromium harness is a separate command. Passing these checks verifies the stated calculations
+and interactions; it does not establish a complete GHU vacuum or an experimental detection.
 
 ## 🌌 Gravity–gauge · 3D
 

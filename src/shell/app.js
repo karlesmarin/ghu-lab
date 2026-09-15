@@ -741,7 +741,7 @@
     `ghu-lab ${VERSION} · built ${BUILD} · ` +
     `${SECTIONS.filter((s) => s.ready !== false).length} of ${SECTIONS.length} sections built · ` +
     `${FAMILIES.length} model${FAMILIES.length > 1 ? "s" : ""}, one per group · ` +
-    `computed in your browser, nothing precomputed and nothing fetched`;
+    `computed in your browser · reference data identified per panel · nothing fetched`;
 
   /* The seeding happens once, above, for EVERY group.  What stood here loaded rows[1] into
    * whichever group was active and left the other one empty -- which is how three of the five

@@ -20,6 +20,13 @@
  * D3 SAYS THE KERNEL KNOWS NO DOM, so this is view: data plus one function that returns HTML.
  */
 const HOWTO = {
+  gravitygauge: {
+    what: "Which physical information a complete tower of masses leaves undetermined in a controlled gravity-gauge example.",
+    steps: ["Start with p=1.1 and press eta=-0.9, eta=0, then eta=4. The paired masses stay equal while the Wilson scale and the response change.",
+            "Drag either 3D plot to turn it. On the response surface, switch drag to select point to change eta and the source position together. Shift-drag always turns; the wheel changes relief; arrow keys turn a focused plot.",
+            "Read the table below the plots. Choose gauge kinetic Z as the height to inspect the action. Use the header card or LaTeX buttons to export this exact input, or link to restore it."],
+    read: "The positive paired tensor NN and vector DD masses are protected by their common canonical operator. The gauge NN control has different boundaries and moves. The source position is in the extra dimension, not a laboratory location; the Wilson kinetic scale is not a Higgs mass. For p=1.1 a canonical bulk scalar realizes the family, with stability and cutoff still open.",
+  },
   hierarchy: {
     what: "Given a bulk content of the SU(7) model, where the compactification scale and the Higgs mass land — and how far that content sits below the ceiling no content can pass.",
     steps: ["Set the multiplicities of the eight (representation, parity) types in the left panel — or press a published row to load it.",

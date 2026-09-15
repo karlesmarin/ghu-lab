@@ -52,7 +52,7 @@ MODULES = ["selection.mjs", "calculator.mjs", "hierarchy.mjs", "anomalies.mjs", 
            "spectrum5d.mjs", "anomaly5d.mjs", "vacuum5d.mjs", "smcell.mjs", "brane.mjs",
            "yukawa.mjs",
            "predict.mjs", "reading.mjs", "sweep5d.mjs", "dossier.mjs", "papers.mjs", "particles.mjs",
-           "robustness.mjs"]
+           "robustness.mjs", "gravitygauge.mjs"]
 SECTIONS = ["torus_panels.js", "hierarchy_section.js", "inverse_section.js", "census_section.js",
             "atlas_section.js", "samepot_section.js",
             "anomalies_section.js", "escape_section.js", "screen_section.js",
@@ -65,7 +65,7 @@ SECTIONS = ["torus_panels.js", "hierarchy_section.js", "inverse_section.js", "ce
             "cbclass_section.js", "blkt_section.js",
             "census_lit_section.js",
             "multiplets_section.js",
-            "registry.js"]
+            "gravitygauge_section.js", "registry.js"]
 
 IMPORT_LINE = re.compile(r'^\s*import\s+[^;]*?from\s+["\'][^"\']+["\']\s*;?\s*$', re.M)
 EXPORT_KW = re.compile(r"^\s*export\s+(?=(?:const|let|var|function|class|async))", re.M)
@@ -329,7 +329,7 @@ def main(argv=None):
                 ["node", "_test_running.mjs"], ["node", "_test_predict.mjs"], ["node", "_test_yukawa.mjs"],
                 ["node", "_test_reading.mjs"],
                 ["node", "_test_sweep5d.mjs"], ["node", "_test_papers.mjs"],
-                ["node", "_test_latex.mjs"], ["node", "_test_blkt.mjs"], ["node", "_test_census_lit.mjs"],
+                ["node", "_test_latex.mjs"], ["node", "_test_blkt.mjs"], ["node", "_test_gravitygauge.mjs"], ["node", "_test_census_lit.mjs"],
                 ["node", "_test_dossier.mjs"], ["node", "_test_rank.mjs"], ["node", "_test_observables.mjs"], ["node", "_test_particles.mjs"], ["node", "_test_sensitivity.mjs"], ["node", "_test_higgsrate.mjs"], ["node", "_test_bundle.mjs"], ["node", "_test_robustness.mjs"],
                 # the golden suite that SHIPS with the artifact: the built page against the
                 # Python engine of Part VII.  It runs here too, so the deployed copy can never

@@ -1,7 +1,7 @@
 # 🔧 GHU Lab — the source tree of the gauge–Higgs unification instrument
 
 This repository builds **[karlesmarin.github.io/ghu-explorer](https://karlesmarin.github.io/ghu-explorer/)**:
-one self-contained HTML page holding **twenty-seven** panels — including tools for models nobody has
+one self-contained HTML page holding **interactive panels** — including tools for models nobody has
 written yet — over three published models:
 1️⃣ SU(7) on S¹/Z₂×S¹/Z₂ (Komori–Maru), 2️⃣ SU(4) on T²/Z₂ (AHMN), and 3️⃣ Haba–Yamashita's 5D SU(N) on
 S¹/Z₂ — with **every output carrying what is known about it**: `theorem`, `verified`, `measured`
@@ -42,7 +42,7 @@ The deployed page is a build artifact. This is where it comes from, and why it s
 
 ## 🧪 What is checked, and against what
 
-**2 020 checks across 48 harnesses**, plus 206 driven through a real mouse, 30 on the built site,
+**2 124 checks across 49 harnesses**, plus 206 driven through a real mouse, 30 on the built site,
 and three tools that measure what the reader sees: 0 clipped boxes, 448 clean renders in the
 states no gate visits, and nine panels started and then abandoned mid-computation.
 The ones that carry weight are the ones an outside computation could lose:
@@ -78,6 +78,29 @@ The ones that carry weight are the ones an outside computation could lose:
 
 Every guard here has been fired at least once by breaking something on purpose. A guard that has
 never failed is not a guard, and `HANDOFF.md` carries the index of what each one cost.
+
+## Gravity–gauge · 3D
+
+Open **Gravity & gauge · research → Gravity–gauge · 3D** in the app rail.
+The panel compares a family with the same complete tensor-NN/vector-DD mass tower at fixed g₄,
+but different source responses and Wilson-line kinetic scales.
+
+- Move η or press a preset; the table and both 3D views update in place.
+- Drag to rotate; switch the response plot to **select point** to change η and the source position
+  directly. Keyboard arrows turn a focused plot, the wheel changes relief, and double-click resets it.
+- Choose the spectral-weight ratio or the kinetic function Z as the surface height.
+- The header's **card**, **LaTeX** and **link** buttons carry this panel's model and scope.
+
+The first three paired masses are pinned Python/SciPy reference roots, checked independently by
+an ODE; the first massive NN control is solved in the browser. The domain and logarithmic axes are
+labelled. The Wilson scale is a kinetic normalization, not a computed Higgs mass or collider rate.
+See [the user guide, derivation and limitations](docs/h185-gravity-gauge.md).
+
+`node _test_gravitygauge.mjs` runs **104 checks**, including comparison to Python/SciPy, convergence
+away from the reference points, invalid-input rejection and the engine in the compiled page.
+It is part of the normal `python build/build_app.py` gate.
+`node build/gravitygauge.mjs` runs the 20 Chromium interaction checks for this panel and saves
+desktop/mobile screenshots in `shots/gravitygauge/`.
 
 ## 📤 Taking a model out of the page
 

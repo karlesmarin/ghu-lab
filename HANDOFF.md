@@ -3,6 +3,36 @@
 > State at 2026-09-15. The section below is the newest; the earlier handoffs follow it
 > unchanged and are still the map of the code.
 
+## 2026-09-15 — Gravity–gauge · 3D, an interactive diagnostic in the app
+
+**The new panel is in the rail**, under `Gravity & gauge · research`, and has its own model,
+permalink, header card/LaTeX exports and how-to entry. Open `app/index.html#s=gravitygauge`.
+
+`src/modules/gravitygauge.mjs` evaluates the positive H185 kinetic family and solves the first
+massive gauge-NN root. `data/h185_reference.json` pins the three paired DD/tensor masses for
+each of p=1 and p=1.1 with a Python/SciPy provenance hash. `src/sections/gravitygauge_section.js`
+uses the existing surface renderer for a live response landscape and an exact-mass 3D plot.
+Pointer picking changes eta and the extra-dimensional source position; both plots rotate,
+and the table, exports and permalink read the same state. No flat-space tower offsets are
+used for the warped masses. Resize observers and surface controls detach when the panel closes.
+
+Help is in `src/view/howto.js`, the panel itself, and `docs/h185-gravity-gauge.md`. The global
+footer now says reference inputs are identified per panel, since claiming nothing is precomputed
+would contradict the declared reference roots.
+
+Validation: the ordinary build includes `_test_gravitygauge.mjs` (104 checks against independent
+Python/SciPy values, off-grid convergence, input rejection, and the compiled engine). The full
+mathematical gate passes **2 124 checks across 49 harnesses**. The new panel also passed 20 checks
+in Chromium: real pointer rotation and picking, presets, domain rejection, own-model JSON/LaTeX,
+permalink reload, leaving/returning, reset and mobile layout, with zero browser exceptions.
+
+Scientific scope: the full paired DD spectrum stays fixed while residues and Wilson kinetic
+normalization vary at fixed g4. Gauge NN is an unprotected control. The p>1 bulk scalar realizes
+Z(phi); scalar/radion stability, cutoff, a complete GHU potential and collider rates remain open.
+This is a diagnostic example, not a claim of experimental discovery or a completed unified model.
+
+The change is local to this lab. Previous source edits and the earlier handoffs are preserved.
+
 ## 2026-09-15 — the vacuum verdict now says what it did NOT test, and a caveat that was an overclaim came out
 
 **Build green: 1 982 checks across 47 harnesses · `drive.mjs` 206/206 · site 30 ok ·

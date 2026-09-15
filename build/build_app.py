@@ -318,6 +318,11 @@ def main(argv=None):
                 ["node", "_test_atlas.mjs"],
                 ["node", "_test_inverse.mjs"], ["node", "_test_census.mjs"],
                 ["node", "_test_sun5d.mjs"], ["node", "_test_bcclass.mjs"],
+                # NEXT TO ITS SIBLING ON PURPOSE.  `cbclass` is the conjugate half of the same
+                # question, and its section is `ready: false` -- but the MODULE and its harness are
+                # real and must run, or the module is unguarded code sitting in the tree.  A
+                # harness that is not in this list does not exist: the list is written by hand.
+                ["node", "_test_cbclass.mjs"],
                 ["node", "_test_spectrum5d.mjs"], ["node", "_test_anomaly5d.mjs"],
                 ["node", "_test_vacuum5d.mjs"], ["node", "_test_smcell.mjs"],
                 ["node", "_test_brane.mjs"],

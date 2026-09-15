@@ -20,7 +20,7 @@ read; no event is ever simulated.
 The deployed page is a build artifact. This is where it comes from, and why it says what it says.
 
 ```
-🏗️  python build/build_app.py    # inline → collision guard → edition gate → 47 harnesses → app/index.html
+🏗️  python build/build_app.py    # inline → collision guard → edition gate → 48 harnesses → app/index.html
                                  # (it prints its own total; that is where the number below comes from)
 🌐  python build/build_site.py --legacy ../ghu-explorer/tools-2026-07     # → site/, then gates itself
 📸  node   build/shoot.mjs       # headless screenshots of every section + console + which model
@@ -42,7 +42,7 @@ The deployed page is a build artifact. This is where it comes from, and why it s
 
 ## 🧪 What is checked, and against what
 
-**1 982 checks across 47 harnesses**, plus 206 driven through a real mouse, 30 on the built site,
+**2 020 checks across 48 harnesses**, plus 206 driven through a real mouse, 30 on the built site,
 and three tools that measure what the reader sees: 0 clipped boxes, 448 clean renders in the
 states no gate visits, and nine panels started and then abandoned mid-computation.
 The ones that carry weight are the ones an outside computation could lose:

@@ -25,8 +25,16 @@
  *     similarity, so by Autonne-Takagi the only invariant of an isolated fixed point is the
  *     SYMMETRY TYPE eps = +/-1 of the twist -- not its spectrum;
  *   - hence 4 classes for N even and 1 for N odd, FLAT IN N, against the ordinary (N+1)^2;
- *   - the MIXED classes (eps_0 != eps_1) break SU(N) to U(N/2), smaller than either pure branch,
- *     and they are exactly the ones the literature's P_0 = P_1 simplification cannot reach;
+ *   - the MIXED classes (eps_0 != eps_1) break SU(N) to U(N/2) -- AND THAT SENTENCE NEEDED ITS
+ *     POSITION, which it did not have until 2026-09-15.  U(N/2) is the COMPATIBLE stratum, which
+ *     has measure zero.  At a generic relative position the unbroken group is only U(1)^{N/2}:
+ *     measured dim 4 -> 2 for N = 4 and 9 -> 3 for N = 6, with the drop already complete at
+ *     t = 1e-4 along a unitary interpolation, and the PURE label falling further still, SO(N) to
+ *     trivial.  So the unbroken group is NOT a function of the label -- which is the same headline
+ *     `bcclass` carries, reached here by a different route, and the reason `cbcUnbroken` returns
+ *     two strata instead of one group.  (`cbc_unbroken_gate.py`, calibrated against dim so(N) and
+ *     dim sp(N/2) before being believed.)  They are still exactly the classes the literature's
+ *     P_0 = P_1 simplification cannot reach;
  *   - the one-loop Wilson potential of a conjugate multiplet is
  *         V = (3 / (32 pi^6 R^4)) sum_{k>=1} Re Tr[H^k] / k^5 ,   H = P_1 P_0^* W ,
  *     which reproduces Grzadkowski-Wudka hep-ph/0401232 eq. (14) -- it is THEIRS, checked against
@@ -36,15 +44,41 @@
  * SO WHY IS THIS STILL `ready: false`?  Because the design's own gate has not been met, and it is
  * the gate this repo exists to keep:
  *
- *   - step 2, "enumerate and orbit, TWO INDEPENDENT ROUTES, in src/modules/cbclass.mjs +
- *     _test_cbclass.mjs", has not been written.  There is no module and no harness.
+ *   - ~~step 2 has not been written~~ **DONE 2026-09-15**: `src/modules/cbclass.mjs` and
+ *     `_test_cbclass.mjs` exist, 38 ok / 0 failed, the harness being floating-point linear algebra
+ *     over random unitaries that shares no line with the module's exact combinatorics.  But the
+ *     design's "enumerate and orbit" DOES NOT TRANSFER, and there is a theorem for why: congruence
+ *     uses Omega twice, so the action reaches only squares, mu_n^2 = mu_{n/2}, and no finite group
+ *     of roots of unity is square-closed.  Measured: mu_2 and mu_4 give 5 and 5 orbits at N = 2,
+ *     unchanged -- the null that killed the first explanation written for it (Sylvester's law of
+ *     inertia, which predicted the count would collapse when i was added).
  *   - the whole count rests on taking Omega(0) and Omega(pi R) INDEPENDENT for a conjugate
- *     condition.  That is what the ordinary treatment does; it is NOT verified for this one, and
- *     it remains an OPEN QUESTION.  Until it is settled the count is conditional on it, and this
- *     panel would be shipping a number whose hypothesis is unchecked.
+ *     condition.  **The ordinary argument for that has now been measured, and it DOES NOT
+ *     TRANSFER** (`cbc_absorption_gate.py`).  The ordinary case may take them independent because
+ *     the Wilson line absorbs the relative gauge transformation -- the Hosotani mechanism.  The
+ *     dimension count says the conjugate Wilson line cannot:
+ *         relative positions with the label fixed   N(N-1)/2  =  1,  6, 15   (N = 2, 4, 6)
+ *         surviving zero modes                      N/2       =  1,  2,  3
+ *     so 2 < 6 and 3 < 15, with N = 2 the exact boundary case where 1 = 1 and it does absorb.
+ *     This does NOT show the count of 4 is false.  It removes the only reason that was being
+ *     assumed for it -- which makes the panel's hypothesis MORE conditional, not less.
  *   - the period-halving is FRONTIER, not NOVEL: Grzadkowski-Wudka hep-ph/0401232 and
  *     hep-ph/0501238 and Abe-Adachi-Fujimoto arXiv:2607.11150 were read in full and do not have
- *     it, but Takenaga, Kubo-Lim-Yamashita and the wider Hosotani literature were not swept.
+ *     it.  **The sweep the earlier version of this header declared missing is now DONE**, and the
+ *     empty intersection is measured across twenty-four years of the literature:
+ *         Abe-Goto-Kawamura-Nishikawa 1608.06393      "conjugate" 5   "equivalence class"  0
+ *         Kawamura-Miura 0905.4123                                0                       34
+ *         Kawamura-Kinami-Miura 0808.2333                         0                       25
+ *         Haba-Harada-Hosotani-Kawamura hep-ph/0212035            0                       24
+ *         Kubo-Lim-Yamashita hep-ph/0111327                       0                        0
+ *         Takeuchi-Inagaki 2404.19411 / 2501.05849                0                    10 / 9
+ *         Kojima-Takenaga-Yamashita 1103.1234                     0                        0
+ *     Nobody has taken the quotient of the conjugate ones, and the programme is not dormant --
+ *     Takeuchi-Inagaki were still classifying in 2025.  YOSHIHARU KAWAMURA IS AN AUTHOR OF THREE
+ *     OF THE EQUIVALENCE-CLASS PAPERS AND OF THE CONJUGATE ONE: he holds both halves of the empty
+ *     intersection and did not join them.  And 0808.2333's own abstract says the gauge equivalence
+ *     "is understood by the Hosotani mechanism" -- the argument this repo just measured as not
+ *     transferring.
  *
  * A panel that shipped these numbers today would be the tool telling its first lie -- the design
  * document's own words, and they still hold.  The line moves to `ready: true` when there is a

@@ -162,7 +162,7 @@ const SWEEP5D_SECTION = {
                                  "you never saw is not a result you can stand behind");
       return {
         card: makeCard({ group: "su3_hy", section: "sweep5d", ...o, ran: false },
-                       values, { version: VERSION, build: BUILD }),
+                       values, { version: VERSION, build: BUILD, kernelHash: KERNEL_HASH }),
         caption: `The scan of SU(${o.N}) on $S^1/Z_2$, not yet run.`,
       };
     }
@@ -203,7 +203,7 @@ const SWEEP5D_SECTION = {
 
     return {
       card: makeCard({ group: "su3_hy", section: "sweep5d", ...o, ran: true },
-                     values, { version: VERSION, build: BUILD }),
+                     values, { version: VERSION, build: BUILD, kernelHash: KERNEL_HASH }),
       caption: `Every boundary condition of SU(${o.N}) on $S^1/Z_2$ crossed with every bulk of at ` +
                `most ${o.maxMult} multiplet${o.maxMult === 1 ? "" : "s"}: ` +
                `${r.total} surviving condition${r.total === 1 ? "" : "s"} in ${r.classesLeft} ` +

@@ -67,6 +67,18 @@ SIGNALS = {
 RX = {k: [re.compile(p, re.I) for p in v] for k, v in SIGNALS.items()}
 
 
+_RUTA = re.compile(r"(?:[A-Za-z]:)?(?:\\{1,4}|/)(?:[^'\"\s\\/]+(?:\\{1,4}|/))+([^'\"\s\\/]+)")
+
+
+def _sin_rutas(msg):
+    """Deja el nombre del fichero y quita el arbol que lo contiene.
+
+    Un mensaje de excepcion trae la ruta ABSOLUTA con la que se llamo a la biblioteca, y este
+    censo se publica.  Lo que informa es cual fallo, no donde vive.
+    """
+    return _RUTA.sub(r"\1", msg)
+
+
 def unrenderable(page):
     """Glyphs the text layer cannot carry -- the same test as pdf_glyph_audit.py."""
     n = 0
@@ -86,7 +98,15 @@ def scan(path):
         try:
             doc = fitz.open(path)
         except Exception as e:                                   # a file that will not open is a fact too
-            out["error"] = str(e)[:120]
+            # AND THE FACT IS THE FAILURE, NOT WHERE THE FILE LIVES.  A library exception carries
+            # the ABSOLUTE path it was handed, and this line put it straight into a file that is
+            # committed and published, so `data/census.json` shipped a path into the private
+            # source tree to a PUBLIC repository -- against the standing rule that nothing
+            # published names that tree.  (This comment may not quote it either, which is why it
+            # does not.)  The record already says which file, in `file`, and that it could not be
+            # read, in `readable`: the path was the one part that added nothing.  Scrubbed here
+            # and not in the artifact, or the next regeneration puts it back.
+            out["error"] = _sin_rutas(str(e))[:120]
             out["signals"] = []
             out["readable"] = False
             return out

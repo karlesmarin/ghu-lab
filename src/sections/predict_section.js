@@ -310,7 +310,7 @@ const PRED_SECTION = {
       values.sin2_embedding = P.sin2Embedding === null ? unknown("the cell does not fix Y") : val(P.sin2Embedding, { status: STATUS.THEOREM, source: "the Standard-Model cell at the nearest symmetric point" });
       values.sin2_sm_running_at_invR = val(+P.sin2DataAtInvR.toFixed(5), { status: STATUS.MEASURED, source: "one-loop SM running of PDG 2024 inputs" });
     } else values.scale = unknown(P ? P.why : "not rendered");
-    return { card: makeCard({ group: "su3_hy", section: "predict", N: this._b ? this._b.N : null, blocks: SUN5D_S.blocks, bulk: this._content().bulk }, values, { version: VERSION, build: BUILD }),
+    return { card: makeCard({ group: "su3_hy", section: "predict", N: this._b ? this._b.N : null, blocks: SUN5D_S.blocks, bulk: this._content().bulk }, values, { version: VERSION, build: BUILD, kernelHash: KERNEL_HASH }),
              mathKeys: [], caption: "The model on the builder at its vacuum, turned into 1/R, the Higgs mass and sin^2 theta_W, each beside the measured number." };
   },
 };

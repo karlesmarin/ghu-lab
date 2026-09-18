@@ -21,6 +21,7 @@ import { spawn } from "node:child_process";
 import { mkdirSync, writeFileSync, existsSync, rmSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import { findChrome } from "./_chrome.mjs";
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const OUT = path.join(ROOT, "shots", "drive");
@@ -32,12 +33,7 @@ const argv = process.argv.slice(2);
 const arg = (k, d) => { const i = argv.indexOf(`--${k}`); return i < 0 ? d : argv[i + 1]; };
 const PAGE = "file:///" + path.join(ROOT, arg("page", "app/index.html")).replace(/\\/g, "/");
 
-const CHROME = [
-  "C:/Users/karles/AppData/Local/ms-playwright/chromium-1223/chrome-win64/chrome.exe",
-  "C:/Program Files/Google/Chrome/Application/chrome.exe",
-].find((p) => existsSync(p));
-if (!CHROME) { console.error("no chromium found"); process.exit(2); }
-
+const CHROME = findChrome();
 const PORT = 9335;
 const USERDIR = path.join(ROOT, ".shoot-profile-drive");
 rmSync(USERDIR, { recursive: true, force: true });

@@ -135,7 +135,7 @@ H("a symbol is typeset as a symbol, and prose as prose");
   /* the line between data and authored prose */
   const card = makeCard({ group: "su3_hy" },
                         { g: val("SU(2)", { status: STATUS.THEOREM, source: "eq. (5.2)" }) },
-                        { version: "t" });
+                        { version: "t", kernelHash: "harness" });
   const t1 = resultsTable(card, { caption: "A model on $S^1/Z_2$." });
   ok("an author's caption is passed through verbatim, so they may write maths in it",
      t1.includes("$S^1/Z_2$"), t1.split("\n").find((l) => l.includes("caption")));
@@ -146,7 +146,7 @@ H("a symbol is typeset as a symbol, and prose as prose");
 
   const b = makeCard({ group: "su3_hy" },
                      { edge: val(true, { status: STATUS.MEASURED, source: "grid" }) },
-                     { version: "t" });
+                     { version: "t", kernelHash: "harness" });
   ok("a boolean reads as yes/no, not as the word true in a physics table",
      resultsTable(b).includes("& yes &"));
 }

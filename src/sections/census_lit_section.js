@@ -299,7 +299,7 @@ const CENSUS_LIT_SECTION = {
 
     return {
       card: makeCard({ group: "census", section: "litcensus", read: rows.length },
-                     values, { version: VERSION, build: BUILD }),
+                     values, { version: VERSION, build: BUILD, kernelHash: KERNEL_HASH }),
       caption: `The census in summary. The table of rows is Table~\\ref{tab:ghu-census}.`,
       sources: rows.map((r) => r.cite).filter(Boolean),
       body,

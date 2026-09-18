@@ -5,11 +5,10 @@ import {resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {tmpdir} from 'node:os';
 import {createHash} from 'node:crypto';
+import { findChrome } from './_chrome.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url)), out=resolve(root,'shots/gravitygauge');mkdirSync(out,{recursive:true});
 const app=resolve(root,process.argv[2] || 'app/index.html').replaceAll('\\','/');
-const chromePath=['C:/Users/karles/AppData/Local/ms-playwright/chromium-1223/chrome-win64/chrome.exe',
-  'C:/Program Files/Google/Chrome/Application/chrome.exe'].find(existsSync);
-if(!chromePath)throw new Error('Chromium unavailable');
+const chromePath=findChrome();
 const port=9485, profile=mkdtempSync(resolve(tmpdir(),'ghu-gravitygauge-'));
 const chrome=spawn(chromePath,['--headless=new',`--remote-debugging-port=${port}`,`--user-data-dir=${profile}`,
   '--no-first-run','--no-default-browser-check','--disable-gpu','--allow-file-access-from-files','about:blank'],{stdio:'ignore',windowsHide:true});

@@ -48,17 +48,13 @@ import { spawn } from "node:child_process";
 import { existsSync, rmSync, mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import { findChrome } from "./_chrome.mjs";
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const argv = process.argv.slice(2);
 const ONLY = (argv[argv.indexOf("--only") + 1] || "").split(",").filter(Boolean);
 const PAGE = "file:///" + path.join(ROOT, "app", "index.html").replace(/\\/g, "/");
-const CHROME = [
-  "C:/Users/karles/AppData/Local/ms-playwright/chromium-1223/chrome-win64/chrome.exe",
-  "C:/Program Files/Google/Chrome/Application/chrome.exe",
-].find((p) => existsSync(p));
-if (!CHROME) { console.error("no chromium found"); process.exit(2); }
-
+const CHROME = findChrome();
 const PORT = 9338;
 const USERDIR = path.join(ROOT, ".shoot-profile-extremes");
 rmSync(USERDIR, { recursive: true, force: true });
@@ -154,7 +150,13 @@ const SCAN = `(() => {
   const bad = [];
   /* SIX WAYS A TEMPLATE LITERAL SAYS IT WAS HANDED SOMETHING IT DID NOT EXPECT.  Each is looked
      for as a WORD, so "undefined" inside a sentence about undefined behaviour would have to be
-     written as such to trip it -- and none of the prose here does. */
+     written as such to trip it -- and none of the prose here does.
+
+     THAT LAST CLAUSE IS A PRECONDITION ON THE TREE, not an observation, and on 2026-09-18 the
+     tree grew past it: cbclass wrote "which is the null that killed the first explanation", a
+     true sentence, and it was the only finding in 448 renders.  The prose was reworded rather
+     than the guard loosened -- a panel can always say "negative result", while a leaked value
+     renders as exactly this bare word and nothing else would catch it. */
   for (const p of [/\\bNaN\\b/, /\\bundefined\\b/, /\\[object Object\\]/, /\\bInfinity\\b/,
                    /\\$\\{[^}]*\\}/, /\\bnull\\b/]) {
     const m = p.exec(txt);

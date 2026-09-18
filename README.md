@@ -61,8 +61,7 @@ The table follows the app menu and counts every runnable panel once. **Conjugate
 The deployed page is a build artifact. This is where it comes from, and why it says what it says.
 
 ```
-🏗️  python build/build_app.py    # inline → collision guard → edition gate → 49 harnesses → app/index.html
-                                 # (see the counting note below for the two summaries its tally misses)
+🏗️  python build/build_app.py    # inline → collision guard → edition gate → 51 harnesses → app/index.html
 🌐  python build/build_site.py --legacy ../ghu-explorer/tools-2026-07     # → site/, then gates itself
 📸  node   build/shoot.mjs       # headless screenshots of every section + console + which model
 🖱️  node   build/drive.mjs       # USES the panels: a real mouse through the DevTools Input domain
@@ -83,21 +82,24 @@ The deployed page is a build artifact. This is where it comes from, and why it s
 
 ## 🧪 What is checked, and against what
 
-Latest verification of the published app, **16 September 2026**: **49 source harnesses passed**,
-with **2,252 individually counted checks** in their summaries, plus **208 general browser
+Latest verification of the published app, **18 September 2026**: **51 source harnesses passed**,
+with **2,298 individually counted checks** in their summaries, plus **210 general browser
 interaction checks**, **30 site checks**, and **20 dedicated gravity–gauge browser checks**.
 The browser gates also found no clipped boxes, no growing listener counts or console errors,
 **464 clean renders** across extreme input states, and no abandoned work in the **nine panels**
 covered by the lifecycle test. The 20 dedicated checks also passed against the live public app.
 
-**How the total is counted.** The builder currently prints **2,124**: its tally recognises
-`ok` and `checks pass`, but misses the `passed` summaries from `_test_eta.mjs` (**75**) and
-`_test_selection.mjs` (**53**). Including those gives **2,252**. Three structural harnesses report
-success without an assertion count; they are included in the 49 harnesses but add no invented
-number to that sum. Browser checks, site checks and render counts are reported separately.
+**How the total is counted.** The builder prints the number quoted above, and it is now the
+whole of it. Until 18 September 2026 its tally recognised `ok` and `checks pass` but not `passed`,
+so it silently dropped everything two harnesses do — `_test_eta.mjs` (**75**) and
+`_test_selection.mjs` (**53**), 128 checks that ran, passed and were never counted. That was
+documented here rather than fixed, which is the wrong half of the pair: a tally that measures its
+own wording is not a tally. Three structural harnesses report success without an assertion count;
+they are among the 51 but add no invented number to the sum. Browser checks, site checks and
+render counts are reported separately.
 
 The table explains the main independent references and failure cases. The complete list of all
-49 source harnesses and their recorded counts follows it.
+51 source harnesses and their recorded counts follows it.
 
 | harness | what it puts at risk |
 |---|---|
@@ -138,7 +140,7 @@ this is not a blanket claim that every assertion in every harness has been mutat
 `HANDOFF.md` records the defects and corrections behind the checks.
 
 <details>
-<summary>📋 Complete source-build inventory — 49 passing harnesses</summary>
+<summary>📋 Complete source-build inventory — 51 passing harnesses</summary>
 
 Counts below come from the same successful build. “No count emitted” means the harness passed
 without printing an assertion total; it does not mean the harness ran zero checks.
@@ -194,8 +196,10 @@ without printing an assertion total; it does not mean the harness ran zero check
 | ✅ [`_test_howto.py`](_test_howto.py) | No count emitted |
 | ✅ [`_test_browsergate.py`](_test_browsergate.py) | No count emitted |
 | ✅ [`_test_lifecycle.py`](_test_lifecycle.py) | 9 |
+| ✅ [`_test_privado.py`](_test_privado.py) | 6 |
+| ✅ [`_test_card.mjs`](_test_card.mjs) | 37 |
 
-**Counted total: 2,252.** All 49 harnesses passed. Site and browser checks are additional.
+**Counted total: 2,298.** All 51 harnesses passed. Site and browser checks are additional.
 
 </details>
 

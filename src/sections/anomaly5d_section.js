@@ -169,7 +169,7 @@ const ANOM5D_SECTION = {
     return {
       card: makeCard({ group: "su3_hy", section: "anomaly5d", N: b.N,
                        blocks: [b.nPP, b.nPM, b.nMP, b.nMM], bulk: content.bulk },
-                     values, { version: VERSION, build: BUILD }),
+                     values, { version: VERSION, build: BUILD, kernelHash: KERNEL_HASH }),
       mathKeys: ["unbroken"],
       caption: `The anomaly ledger of SU(${b.N}) on $S^1/Z_2$ with blocks ` +
                `$(n_{++}, n_{+-}, n_{-+}, n_{--}) = ${blocks}$, over the bulk content shown. ` +

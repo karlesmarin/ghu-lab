@@ -38,6 +38,31 @@ This is not experimental evidence for a graviton or a completed unified model.</
 equations, numerical provenance and literature</a>. The source tree includes 104 numerical checks
 and a dedicated Chromium check of the panel's controls, exports and mobile layout.</p>
 
+<h2 id="result-card">The result card &mdash; what the two download buttons give you</h2>
+
+<p>Every panel has <strong>&#8681; card</strong> and <strong>&#8681; LaTeX</strong> in its header.
+The card is the only thing that leaves the tool, and it is deliberately more than a number: it
+carries the input you gave <em>and the defaults the tool applied on your behalf</em>, every value
+with its status, the certificates a referee needs to re-check a bound without this tool, and a
+provenance line.</p>
+
+<p>The status column is the part worth learning. <code>theorem</code> is proved and names the
+statement; <code>verified</code> was checked against an independent implementation;
+<code>measured</code> is true of what was run and no more; and <code>unknown</code> is
+<em>not computed, with the reason printed beside it</em>. An <code>unknown</code> is a verdict, not
+a gap &mdash; a tool that returned a plausible number there would be worse than one that refuses,
+because you would have no way to tell.</p>
+
+<p>The provenance line ends in a <strong>kernel fingerprint</strong>, a digest of the code that
+produced the numbers. It is the field to look at when two cards disagree: same input and same
+fingerprint with different numbers is a bug worth reporting, while a different fingerprint means
+the engine moved between the two runs and the change log says what moved. Without it those two
+situations look identical. Since September 2026 the tool refuses to build a card that cannot name
+its kernel.</p>
+
+<p><a href="https://github.com/karlesmarin/ghu-lab/blob/main/docs/result-card.md">Full guide, with
+a real export read block by block</a>.</p>
+
 <h2 id="conventions">Conventions</h2>
 
 <p>Every default the instrument fills in for you, with the source that fixes it. This table is

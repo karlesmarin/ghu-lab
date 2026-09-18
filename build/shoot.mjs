@@ -17,6 +17,7 @@ import { spawn } from "node:child_process";
 import { mkdirSync, writeFileSync, existsSync, rmSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import { findChrome } from "./_chrome.mjs";
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const argv = process.argv.slice(2);
@@ -41,12 +42,7 @@ const REL = arg("page", "app/index.html");
  */
 const PAGE = arg("url", "") || "file:///" + path.join(ROOT, REL).replace(/\\/g, "/");
 
-const CHROME = [
-  "C:/Users/karles/AppData/Local/ms-playwright/chromium-1223/chrome-win64/chrome.exe",
-  "C:/Program Files/Google/Chrome/Application/chrome.exe",
-].find((p) => existsSync(p));
-if (!CHROME) { console.error("no chromium found"); process.exit(2); }
-
+const CHROME = findChrome();
 /* One port and one profile PER TARGET.  With `--page` there are now two shooters that both want
  * this file, and sharing the profile meant the second run tried to delete a directory the first
  * one's browser still held -- a failure that looks like a bug in the page and is a bug in the

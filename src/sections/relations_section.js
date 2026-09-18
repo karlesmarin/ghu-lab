@@ -357,7 +357,7 @@ const RELATIONS_SECTION = {
     return {
       card: makeCard({ group: "su3_hy", section: "relations", orbifold: REL_S.orbifold,
                        family: REL_S.family, N: REL_S.N, rotation: C.A },
-                     values, { version: VERSION, build: BUILD }),
+                     values, { version: VERSION, build: BUILD, kernelHash: KERNEL_HASH }),
       caption: `The affine semigroup of ${REL_S.family}(N) boundary conditions on ${C.label} at ` +
                `rank ${REL_S.N}: ${C.letters.length} generators, ${C.ranked.length} classes` +
                (d && d.name && d.name !== "not named in Part IX-B"

@@ -40,10 +40,19 @@ def audit(howto, shell, sections):
     # `ready: false` is listed in the rail as "not built yet" and cannot be opened, so demanding a
     # how-to for it would make the tree describe a panel that does not exist -- the opposite of
     # what this gate is for.  The `orphan` check below still bites if an entry is written for one.
+    # AND THE SEARCH HAS TO IGNORE COMMENTS.  `build_app.py` learned this on 2026-09-15, when
+    # cbclass went from `ready: false` to `ready: true` and its header kept the phrase while
+    # TELLING THE STORY of having been false -- and the counter, which grepped the raw text, went
+    # on calling a live section unbuilt.  The fix landed there and NOT here, so this gate went on
+    # reading the same comment and reached the opposite verdict from `drive.mjs`: one said the
+    # section did not exist, the other said it existed and had no help.  A rule that governs one
+    # of two controls is a rule that is not in force.  Strip comments first, as the builder does.
+    _blk = re.compile(r"/\*.*?\*/", re.S)
+    _lin = re.compile(r"^\s*//.*$", re.M)
     ids = set()
     for src in sections.values():
         m = ID_RE.search(src)
-        if m and "ready: false" not in src:
+        if m and "ready: false" not in _lin.sub("", _blk.sub("", src)):
             ids.add(m.group(1))
 
     missing = sorted(ids - have)

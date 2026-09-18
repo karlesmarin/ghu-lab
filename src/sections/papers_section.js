@@ -290,7 +290,7 @@ const PAP_SECTION = {
 
     return {
       card: makeCard({ group: "papers", section: "papers", models: all.length },
-                     values, { version: VERSION, build: BUILD }),
+                     values, { version: VERSION, build: BUILD, kernelHash: KERNEL_HASH }),
       caption: `Four published models against one engine. The table is ` +
                `Table~\\ref{tab:ghu-paper-models}.`,
       sources: PAPER_MODELS.map((x) => x.cite),

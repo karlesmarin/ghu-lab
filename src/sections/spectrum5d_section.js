@@ -197,7 +197,7 @@ const SPEC5D_SECTION = {
                        blocks: [b.nPP, b.nPM, b.nMP, b.nMM], bulk: content.bulk,
                        wilson_line: theta.map((t) => Number(t.toFixed(6))),
                        wilson_line_source: typed ? "typed" : "the minimum" },
-                     values, { version: VERSION, build: BUILD }),
+                     values, { version: VERSION, build: BUILD, kernelHash: KERNEL_HASH }),
       mathKeys: ["unbroken"],
       caption: `The four-dimensional content of SU(${b.N}) on $S^1/Z_2$ with blocks ` +
                `$(n_{++}, n_{+-}, n_{-+}, n_{--}) = ${blocks}$, read at ` +

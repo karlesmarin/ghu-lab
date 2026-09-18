@@ -154,6 +154,13 @@ const HOWTO = {
             "Ask which member the vacuum energy prefers."],
     read: "The counts come out (N+1)² at every N on S¹/Z₂, which is Haba–Hosotani–Kawamura's theorem as a measurement. Press T²/Z₃ and the answer changes.",
   },
+  cbclass: {
+    what: "How many inequivalent CONJUGATE boundary conditions there are on S¹/Z₂ — and, because that count rests on a hypothesis nobody has settled, what each of the two answers would be.",
+    steps: ["Set N with − and +, then choose the twist at y = 0 and at y = πR: symmetric or antisymmetric. For N odd the antisymmetric button refuses, because that label does not exist.",
+            "Read the two counts side by side. Neither is chosen for you: one takes the gauge transformations at the two fixed points as independent, the other does not.",
+            "Open the Wilson-line card. Whether the ordinary case's entitlement transfers is a dimension count, and it is the one measurement that moves this question."],
+    read: "What the panel puts on screen is the disagreement, not a number, and that is the point: the twists move by congruence rather than similarity, and independence decides between four classes flat in N and no finite count at all. What the label leaves unbroken is not a property of the label — the same verdict the ordinary panel reaches by another route. The exported card carries the hypothesis beside the count, so a number never travels without the condition it rests on.",
+  },
   orbifold: {
     what: "The alphabet of an orbifold, derived from its rotation matrix and nothing else.",
     steps: ["Type an integer rotation matrix, up to rank eight.", "Read the cone signature, the alphabet, the local data, the count and its degree.",

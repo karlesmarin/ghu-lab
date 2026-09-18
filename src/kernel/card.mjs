@@ -21,8 +21,20 @@ import { complete, modelId, canonicalJSON } from "./model.mjs";
 import { TOOL, authorLine } from "./meta.mjs";
 import { STATUS, tally, weakest } from "./status.mjs";
 
+/* `kernelHash` IS REQUIRED, and this is the one place in the file that throws.
+ *
+ * It used to default to null, and `toText` printed the line only `if (card.provenance.kernel_hash)`.
+ * The two together made an absent fingerprint INVISIBLE: on 2026-09-18 a count of the call sites
+ * found 17 of 17 passing `version` and `build` and none passing a hash, so every card ever
+ * exported said which tool and which build, and none said which arithmetic.  An optional
+ * identifier that nothing checks is documentation, not provenance.  Defaulting is what let it
+ * drift, so the default is gone: a caller that cannot say which kernel it ran does not get a card.
+ */
 export function makeCard(model, values, { version = "dev", build = null, kernelHash = null,
                                           certificates = {} } = {}) {
+  if (!kernelHash || typeof kernelHash !== "string")
+    throw new Error("makeCard: kernelHash is required — a card without it cannot say which " +
+                    "arithmetic produced its numbers. Pass KERNEL_HASH from the build.");
   const { model: full, applied } = complete(model);
   const results = {};
   for (const [k, v] of (values instanceof Map ? values.entries() : Object.entries(values)))
@@ -61,7 +73,7 @@ export function toText(card) {
   for (const a of card.provenance.authors || [])
     L.push(`author     ${a.name}  ORCID ${a.orcid}${a.affiliation ? "  (" + a.affiliation + ")" : ""}`);
   if (card.provenance.assistant) L.push(`assisted   ${card.provenance.assistant}`);
-  if (card.provenance.kernel_hash) L.push(`kernel     ${card.provenance.kernel_hash}`);
+  L.push(`kernel     ${card.provenance.kernel_hash}`);
   L.push("");
   L.push(`## input`);
   L.push(canonicalJSON(card.input.model));
@@ -74,8 +86,16 @@ export function toText(card) {
   L.push("");
   L.push(`## results`);
   const w = Math.max(...Object.keys(card.results).map((k) => k.length), 4);
+  /* A STRUCTURED VALUE IS STILL A VALUE.  `String({...})` is "[object Object]", and this line used
+   * it: a reader who exported the text form of an SU(7) card got that instead of `moments`,
+   * `coords`, `seed`, `laws` and `vacuum` — five of nineteen rows — with nothing saying anything
+   * had been dropped. The JSON was right the whole time, which is why it survived: the two exports
+   * disagreed and only one of them was ever read. The certificates block below had always used
+   * JSON.stringify; the results block simply never did. */
+  const show = (x) => (x === null ? "—"
+                       : (typeof x === "object" ? JSON.stringify(x) : String(x)));
   for (const [k, v] of Object.entries(card.results)) {
-    const num = v.value === null ? "—" : String(v.value);
+    const num = show(v.value);
     L.push(`  ${k.padEnd(w)}  ${num}${v.units ? " " + v.units : ""}` +
            `   [${v.status}] ${v.source}${v.reason ? " — " + v.reason : ""}`);
   }

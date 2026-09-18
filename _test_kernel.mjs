@@ -167,7 +167,8 @@ ok("the text form carries the sources", txt.includes("[theorem]") && txt.include
 ok("the text form names the defaults as defaults",
    txt.includes("defaults applied by the tool, not chosen by the user"));
 
-const cardU = makeCard(M, resolve([C, B, Abad], M).values, { version: "0.0.1" });
+const cardU = makeCard(M, resolve([C, B, Abad], M).values,
+                       { version: "0.0.1", kernelHash: "deadbeef" });
 ok("a card with unknowns says so in words",
    toText(cardU).includes("That is a verdict, not a gap."));
 

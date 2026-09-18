@@ -421,7 +421,7 @@ const DOSS_SECTION = {
                              `boundary condition, so it is a property of the frame` });
     return {
       card: makeCard({ group: "su3_hy", section: "dossier", N: d.ctx.b.N, blocks: d.bc,
-                       bulk: d.ctx.content.bulk }, values, { version: VERSION, build: BUILD }),
+                       bulk: d.ctx.content.bulk }, values, { version: VERSION, build: BUILD, kernelHash: KERNEL_HASH }),
       mathKeys: ["unbroken"],
       caption: `SU(${d.ctx.b.N}) on $S^1/Z_2$ with boundary condition ` +
                `$(${d.bc.join(", ")})$: every verdict the instrument computes, each marked ` +

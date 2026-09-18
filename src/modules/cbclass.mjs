@@ -265,11 +265,11 @@ export function cbcMonomials(N, units = UNITS_GAUSS) {
  * the signature is what splits it */
 export const cbcSignedPerms = (N) => cbcMonomials(N, UNITS_REAL);
 
-const mul = (A, B) => A.map((r, i) =>
+const cbcMul = (A, B) => A.map((r, i) =>
   B[0].map((_, j) => r.reduce((s, _v, k) => cAdd(s, cMul(A[i][k], B[k][j])), cZero())));
 const tr = (A) => A.map((r, i) => r.map((_, j) => A[j][i]));
 const same = (A, B) => A.every((r, i) => r.every((v, j) => cEq(v, B[i][j])));
-const key = (A) => A.map((r) => r.map((v) => `${v[0]}+${v[1]}i`).join(",")).join(";");
+const cbcKey = (A) => A.map((r) => r.map((v) => `${v[0]}+${v[1]}i`).join(",")).join(";");
 
 /* The symmetry type of an exact integer twist, or null if it is neither. */
 export function cbcEps(P) {
@@ -286,22 +286,22 @@ export function cbcModelTwists(N, units = UNITS_GAUSS) {
 
 /* Congruence by every signed permutation: the moves of the finite model. */
 export function cbcModelMoves(P, N, units = UNITS_GAUSS) {
-  return cbcMonomials(N, units).map((O) => mul(mul(O, P), tr(O)));
+  return cbcMonomials(N, units).map((O) => cbcMul(cbcMul(O, P), tr(O)));
 }
 
 /* The orbits, walked breadth-first — the same shape as `bcClasses`. */
 export function cbcModelOrbits(N, units = UNITS_GAUSS) {
   const twists = cbcModelTwists(N, units), seen = new Map(), orbits = [];
   for (const P of twists) {
-    if (seen.has(key(P))) continue;
+    if (seen.has(cbcKey(P))) continue;
     const orbit = [], queue = [P];
-    seen.set(key(P), orbits.length);
+    seen.set(cbcKey(P), orbits.length);
     while (queue.length) {
       const Q = queue.shift();
       orbit.push(Q);
       for (const R of cbcModelMoves(Q, N, units)) {
-        if (seen.has(key(R))) continue;
-        seen.set(key(R), orbits.length);
+        if (seen.has(cbcKey(R))) continue;
+        seen.set(cbcKey(R), orbits.length);
         queue.push(R);
       }
     }
@@ -349,11 +349,11 @@ export function cbcFiniteModelFaithful(N, units = UNITS_GAUSS) {
  * exactly the data that the single-Omega hypothesis adds to the label and the independent-Omega
  * one throws away.  Exact here, because the finite model is integral. */
 export function cbcHolonomyTraces(P0, P1, N) {
-  const H = mul(P1, P0.map((r) => r.map((v) => [v[0], -v[1]])));   /* P_1 P_0^*  */
+  const H = cbcMul(P1, P0.map((r) => r.map((v) => [v[0], -v[1]])));   /* P_1 P_0^*  */
   let P = H.map((r, i) => r.map((_, j) => (i === j ? [1, 0] : [0, 0])));
   const out = [];
   for (let k = 1; k <= 2 * N; k++) {
-    P = mul(P, H);
+    P = cbcMul(P, H);
     out.push(P.reduce((s, r, i) => cAdd(s, r[i]), cZero()));
   }
   return out;

@@ -102,7 +102,7 @@ ok("and the laws still hold for it", rd.values.get("laws").value.all === true);
 H("the exported card");
 const row2 = DATA.published_rows[1];
 const { values } = resolve(MODS, modelOf(row2));
-const card = makeCard(modelOf(row2), values, { version: "0.1.0",
+const card = makeCard(modelOf(row2), values, { version: "0.1.0", kernelHash: "harness",
                                                certificates: certificates(DATA) });
 ok("carries the ceiling certificate, not just the number",
    card.certificates.ceiling.method.includes("dual"));
@@ -728,7 +728,8 @@ H("the angular verdict carries its geometry scope through both exports");
   ];
   for (const [label, row, expected] of cases) {
     const m = modelOf(row), v = resolve(MODS, m).values;
-    const exported = makeCard(m, v), json = JSON.parse(JSON.stringify(exported));
+    const exported = makeCard(m, v, { kernelHash: "harness" });
+    const json = JSON.parse(JSON.stringify(exported));
     const vacuum = json.results.vacuum.value;
     ok(`${label}: angular verdict still answers the original question`, vacuum.true === expected);
     ok(`${label}: JSON identifies the fixed geometry and both untested stability questions`,

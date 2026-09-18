@@ -16,6 +16,7 @@ import { spawn } from "node:child_process";
 import { mkdirSync, writeFileSync, existsSync, rmSync, readdirSync, statSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import { findChrome } from "./_chrome.mjs";
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const argv = process.argv.slice(2);
@@ -36,12 +37,7 @@ function pages(dir = SITE, acc = []) {
   return acc.filter((r) => r !== "app/index.html").sort();
 }
 
-const CHROME = [
-  "C:/Users/karles/AppData/Local/ms-playwright/chromium-1223/chrome-win64/chrome.exe",
-  "C:/Program Files/Google/Chrome/Application/chrome.exe",
-].find((p) => existsSync(p));
-if (!CHROME) { console.error("no chromium found"); process.exit(2); }
-
+const CHROME = findChrome();
 const LIST = pages();
 if (!LIST.length) {
   console.error("FATAL: no pages in site/ -- refusing to report a clean run with nothing shot.");

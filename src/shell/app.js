@@ -470,7 +470,7 @@
     const certs = SECTIONS.filter((s) => s.group === g)
       .reduce((acc, s) => Object.assign(acc, s.certificates || {}), {});
     const shellCard = makeCard(r.model, r.values,
-                               { version: VERSION, build: BUILD, certificates: certs });
+                               { version: VERSION, build: BUILD, kernelHash: KERNEL_HASH, certificates: certs });
     const { card: own, ...extra } = sec.texExport ? sec.texExport(ctx(), r) : {};
     return { sec, g, card: own || shellCard, extra };
   }

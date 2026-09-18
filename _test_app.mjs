@@ -44,7 +44,8 @@ ok("and the page reaches for nothing", !/\bfetch\s*\(|new\s+Worker\s*\(/.test(PA
 /* Evaluate it exactly as the browser would, and hand back what the page's own UI uses. */
 const api = new Function("DATASETS", "DATA", ENGINE + `
   return { complete, modelId, resolve, modules, certificates, termTable, numericMin,
-           rung, makeCard, toText, tally, SCHEMA_VERSION, TOOL, VERSION, BUILD };`)(DATASETS, DATA);
+           rung, makeCard, toText, tally, SCHEMA_VERSION, TOOL, VERSION, BUILD,
+           KERNEL_HASH };`)(DATASETS, DATA);
 ok("the engine evaluates in a bare scope", typeof api.resolve === "function");
 ok("it is stamped with its version and build", !!api.VERSION && !!api.BUILD,
    `${api.VERSION} / ${api.BUILD}`);
@@ -92,8 +93,16 @@ ok("and still says why", /D = /.test(rd.values.get("alpha_min").reason));
 const m2 = modelOf(DATA.published_rows[1]);
 const card = api.makeCard(m2, api.resolve(MODS, m2).values,
                           { version: api.VERSION, build: api.BUILD,
+                            kernelHash: api.KERNEL_HASH,
                             certificates: api.certificates(DATA) });
 ok("the shipped card carries the ORCID", api.toText(card).includes("0009-0007-5637-9688"));
+/* THE FINGERPRINT HAS TO REACH THE READER, not just the source.  It is the page a reader
+ * downloads that has to say which arithmetic ran, and until 2026-09-18 it did not: the field
+ * existed, the harnesses passed a fake value, and every real section passed none. */
+ok("the engine declares a kernel fingerprint", /^[0-9a-f]{16}$/.test(api.KERNEL_HASH || ""),
+   String(api.KERNEL_HASH));
+ok("and the shipped card carries it", card.provenance.kernel_hash === api.KERNEL_HASH);
+ok("and it is printed, not merely stored", api.toText(card).includes(api.KERNEL_HASH));
 ok("the shipped card carries the certificate", !!card.certificates.ceiling.method);
 ok("and the honesty tally", card.summary.tally.theorem > 0 && card.summary.tally.measured > 0);
 

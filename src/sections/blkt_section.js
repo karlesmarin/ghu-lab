@@ -278,7 +278,7 @@ const BLKT_SECTION = {
 
     return {
       card: makeCard({ group: "su3_hy", section: "blkt", c: o.c, m: o.m, q: o.q,
-                       alpha: [o.alpha1, o.alpha2] }, values, { version: VERSION, build: BUILD }),
+                       alpha: [o.alpha1, o.alpha2] }, values, { version: VERSION, build: BUILD, kernelHash: KERNEL_HASH }),
       mathKeys: ["sector"],
       /* EVERY NUMBER HERE IS THEIRS, SO THE BIBLIOGRAPHY HAS TO BE.  Without this the export
        * inherited the sources of group `su3_hy` -- Haba-Yamashita and four others -- and printed

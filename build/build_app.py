@@ -49,6 +49,7 @@ VIEW = ["fibre_panels.js", "tower3d.js", "demo.js", "howto.js", "help.js"]
 MODULES = ["selection.mjs", "calculator.mjs", "hierarchy.mjs", "anomalies.mjs", "escape.mjs",
            "samepot.mjs", "screen.mjs", "collider.mjs", "atlas.mjs", "eta.mjs", "fived.mjs",
            "spectrum.mjs", "inverse.mjs", "census.mjs", "sun5d.mjs", "bcclass.mjs",
+           "cbclass.mjs",
            "spectrum5d.mjs", "anomaly5d.mjs", "vacuum5d.mjs", "smcell.mjs", "brane.mjs",
            "yukawa.mjs",
            "predict.mjs", "reading.mjs", "sweep5d.mjs", "dossier.mjs", "papers.mjs", "particles.mjs",
@@ -107,6 +108,31 @@ def read(*parts):
     return (ROOT.joinpath(*parts)).read_text(encoding="utf-8")
 
 
+def kernel_hash():
+    """One digest over the code that PRODUCES NUMBERS, for the provenance block of a card.
+
+    WHAT IT COVERS: `src/kernel/` and `src/modules/`, in the declared order, each file's bytes
+    preceded by its name -- so renaming a file moves the digest even if its contents do not.
+
+    WHAT IT DOES NOT COVER, and why that is the right line: sections, views and the shell are
+    presentation.  They choose inputs, and the input the user actually gave is already written
+    into the card, defaults flagged; they do not change what the arithmetic does with it.  Data
+    files are excluded for the same reason -- a card that depends on a reference table says so in
+    that result's `source`, which is per-panel and more precise than a global digest would be.
+
+    It is a SHORT digest (16 hex) on purpose: it is an identifier to compare, not a signature to
+    defend.  `bundle.mjs` is where a full SHA-256 over sources belongs.
+    """
+    import hashlib
+    h = hashlib.sha256()
+    for sub, names in (("kernel", KERNEL), ("modules", MODULES)):
+        for name in names:
+            h.update(name.encode("utf-8"))
+            h.update(b"\0")
+            h.update((ROOT / "src" / sub / name).read_bytes())
+    return h.hexdigest()[:16]
+
+
 # The two forms of the header name.  Exported, because build_site.py renders the second one and
 # _test_site.py has to be able to normalise one into the other to compare the two builds.
 HOME_PLAIN = "GHU Lab"
@@ -136,8 +162,12 @@ def build(edition=False, home=None, out_path=None):
     # rail is grouped by model, and a census pretending to be a model would end up in a family.
     census = json.loads(read("data", "census.json"))
 
+    # And the engine carries its own fingerprint, so an exported card can say WHICH arithmetic
+    # produced it.  See kernel_hash() for what the digest covers and what it deliberately does not.
+
     engine = (f'const VERSION = "{VERSION}";\n'
               f'const BUILD = "{datetime.datetime.now().strftime("%Y-%m-%d %H:%M")}";\n'
+              f'const KERNEL_HASH = "{kernel_hash()}";\n'
               f'const CENSUS = {json.dumps(census, separators=(",", ":"), ensure_ascii=False)};\n'
               + "\n".join(src for name, src in frags if name in KERNEL)
               + "\n".join(src for name, src in frags if name in VIEW)
@@ -175,9 +205,20 @@ def build(edition=False, home=None, out_path=None):
     # section made it drift on a registration instead, so the count now reads the declaration
     # rather than the directory listing.  The shell's own footer says "N of M sections built" from
     # the same field, and the two must not disagree.
+    # AND THE SEARCH HAS TO IGNORE COMMENTS, which cost a red herring on 2026-09-15.  When cbclass
+    # went from `ready: false` to `ready: true`, its header kept the phrase while TELLING THE STORY
+    # of having been false -- and this counter, which greps the raw text, went on reporting "1
+    # listed and not built" for a section that was live.  A counter a comment can fool is a counter
+    # that measures prose.  Block and line comments are stripped before the declaration is read.
     files = [s for s in SECTIONS if s.endswith("_section.js")]
-    unbuilt = [s for s in files
-               if "ready: false" in (ROOT / "src" / "sections" / s).read_text(encoding="utf-8")]
+    _blk = re.compile(r"/\*.*?\*/", re.S)
+    _lin = re.compile(r"^\s*//.*$", re.M)
+
+    def _declares_unbuilt(path):
+        src = path.read_text(encoding="utf-8")
+        return "ready: false" in _lin.sub("", _blk.sub("", src))
+
+    unbuilt = [s for s in files if _declares_unbuilt(ROOT / "src" / "sections" / s)]
     built = len(files) - len(unbuilt)
     tail = f", {len(unbuilt)} listed and not built" if unbuilt else ""
     print(f"built {out}  ({len(page) / 1024:.1f} kB, one file, nothing external, "
@@ -308,7 +349,8 @@ def main(argv=None):
     print("\nharnesses (the same mathematics, run outside the page):")
     worst = 0
     tally = []
-    for cmd in (["node", "_test_kernel.mjs"], ["node", "_test_hierarchy.mjs"],
+    for cmd in (["node", "_test_kernel.mjs"], ["node", "_test_card.mjs"],
+                ["node", "_test_hierarchy.mjs"],
                 ["node", "_test_app.mjs"], ["node", "_test_groups.mjs"], ["node", "_test_wilson.mjs"],
                 ["node", "_test_eta.mjs"], ["node", "_test_selection.mjs"],
                 ["node", "_test_surface.mjs"], ["node", "_test_escape.mjs"],
@@ -343,7 +385,15 @@ def main(argv=None):
                 # the cheap half of the abandoned-work rule.  `lifecycle.mjs` measures nine panels
                 # in a browser; this reads all thirty section files, so the next panel to grow a
                 # sweep cannot reintroduce the defect somewhere no case looks.
-                [sys.executable, "_test_lifecycle.py"]):
+                [sys.executable, "_test_lifecycle.py"],
+                # THE RULE THAT USED TO LIVE IN SOMEBODY'S HEAD.  This repository is public and
+                # nothing tracked in it may name the private tree it is built from, nor anybody's
+                # home directory.  That was enforced by remembering to grep before a push, which
+                # is to say enforced sometimes: `data/census.json` had been shipping an absolute
+                # path since the commit that added it, and nine browser gates carried a hard-coded
+                # user profile that also made them unrunnable by anyone else.  A rule nobody can
+                # run decays; this one runs with the build.
+                [sys.executable, "_test_privado.py"]):
         # DECODE AS UTF-8, EXPLICITLY.  `text=True` alone uses the machine's ANSI codepage, and on
         # Windows that is cp1252, which has five UNMAPPED bytes (0x81, 0x8D, 0x8F, 0x90, 0x9D).  A
         # harness that prints a character whose UTF-8 encoding contains one of them -- an omega,
@@ -366,7 +416,12 @@ def main(argv=None):
         # the home page had, in the one file a reader opens first.  The build now prints what it
         # actually ran, so keeping the sentence true is reading one line rather than counting
         # forty-five harnesses by hand.
-        m = re.search(r"\b(\d+)\s+(?:ok\b|checks pass)", tail[0])
+        # "N ok", "N checks pass" AND "N passed".  The third was missing and the count published
+        # in README.md was short by everything two harnesses do: `_test_eta` (75) and
+        # `_test_selection` (53), 128 checks that ran, passed, and were never counted -- because
+        # of how their last line is phrased and nothing else.  A tally that measures its own
+        # wording is not a tally.
+        m = re.search(r"\b(\d+)\s+(?:ok\b|checks pass|passed\b)", tail[0])
         tally.append((cmd[-1], int(m.group(1)) if m else 0))
         worst = max(worst, r.returncode)
         if r.returncode:

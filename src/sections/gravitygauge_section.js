@@ -210,7 +210,7 @@ const GRAVITYGAUGE_SECTION = {
       Higgs_mass: unknown("Wilson kinetic scale calculated; no effective potential or Higgs mass"),
       collider_rate: unknown("requires matter profiles, full interactions and a physical scale"),
     };
-    return { card: makeCard(ggInput(GG_S.p, GG_S.eta, GG_S.t), values, { version: VERSION, build: BUILD,
+    return { card: makeCard(ggInput(GG_S.p, GG_S.eta, GG_S.t), values, { version: VERSION, build: BUILD, kernelHash: KERNEL_HASH,
       certificates: { reference: GG_REFERENCE, derivation: source, scope: "quadratic regular interval; no brane kinetic terms", sources: ["https://arxiv.org/abs/hep-th/0502022", "https://arxiv.org/abs/hep-th/0010048", "https://arxiv.org/abs/0705.1334"] } }),
       sources: [], caption: "H185 fixed-potential family at fixed four-dimensional gauge strength; dimensionless theoretical outputs." };
   },

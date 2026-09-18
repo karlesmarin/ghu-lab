@@ -418,7 +418,7 @@ const ORBIFOLD_SECTION = {
       return {
         card: makeCard({ group: "su3_hy", section: "orbifold", orbifold: ORB_S.orbifold,
                          family, rotation: C.A, refused: true },
-                       values, { version: VERSION, build: BUILD }),
+                       values, { version: VERSION, build: BUILD, kernelHash: KERNEL_HASH }),
         caption: `${C.label}: this page declines to classify this rotation, and the reason is the ` +
                  `result. An empty alphabet and degree zero would look like an answer.`,
       };
@@ -459,7 +459,7 @@ const ORBIFOLD_SECTION = {
     return {
       card: makeCard({ group: "su3_hy", section: "orbifold", orbifold: ORB_S.orbifold,
                        family, rotation: C.A, rank: C.rank },
-                     values, { version: VERSION, build: BUILD }),
+                     values, { version: VERSION, build: BUILD, kernelHash: KERNEL_HASH }),
       caption: `The boundary-condition alphabet of ${family}(N) on ${C.label}, derived from the ` +
                `rotation alone: signature $(${C.sig.join(",\\,")})$, alphabet ` +
                `${orbShape(C.letters)}, degree ${deg}. Nothing here is entered.`,

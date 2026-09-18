@@ -360,7 +360,7 @@ const BCC_SECTION = {
     return {
       card: makeCard({ group: "su3_hy", section: "bcclass", N: BCC_S.N,
                        orbifold: BCC_S.orbifold, bc: BCC_S.bc, matter: BCC_S.matter },
-                     values, { version: VERSION, build: BUILD }),
+                     values, { version: VERSION, build: BUILD, kernelHash: KERNEL_HASH }),
       mathKeys: ["apparent_unbroken"],
       caption: `The equivalence class of the boundary condition ` +
                `$[${BCC_S.bc.join(",\\,")}]$ of SU(${BCC_S.N}) on ${orb.label}: ` +

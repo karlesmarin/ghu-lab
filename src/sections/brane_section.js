@@ -260,7 +260,7 @@ const BRANE_SECTION = {
                        blocks: [b.nPP, b.nPM, b.nMP, b.nMM], bulk: content.bulk,
                        brane: branes.map((p) => ({ fp: p.fp, rep: p.rep, chirality: p.chirality,
                                                    copies: p.copies, q: p.q })) },
-                     values, { version: VERSION, build: BUILD }),
+                     values, { version: VERSION, build: BUILD, kernelHash: KERNEL_HASH }),
       mathKeys: ["unbroken"],
       caption: `Brane-localized fermions on the two fixed points of SU(${b.N}) on $S^1/Z_2$ with ` +
                `blocks $(n_{++}, n_{+-}, n_{-+}, n_{--}) = ${blocks}$, held to both jobs at once: ` +

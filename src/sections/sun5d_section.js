@@ -275,7 +275,7 @@ const SUN5D_SECTION = {
     return {
       card: makeCard({ group: "su3_hy", section: "sun5d", N: b.N,
                        blocks: [b.nPP, b.nPM, b.nMP, b.nMM], bulk: this._content() },
-                     values, { version: VERSION, build: BUILD }),
+                     values, { version: VERSION, build: BUILD, kernelHash: KERNEL_HASH }),
       terms, termNames: sun5dNames(b), half: true,
       mathKeys: ["unbroken"],
       caption: `SU(${b.N}) on $S^1/Z_2$ with blocks ` +

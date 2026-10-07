@@ -6,15 +6,20 @@ Follows the decisions in [`DESIGN.md`](DESIGN.md). One repository, GitHub Pages,
 ## Current implementation — 7 October 2026
 
 The site is generated from the source repository and published in `karlesmarin/ghu-explorer`.
-The app now has **29 sections**; the complete navigation and descriptions are in [README.md](README.md).
+The navigation has **29 menu sections**, containing **three Simulator modes**, **seven embedded
+experiment cards**, integrated diagnostics and links to **three archived batch studies**.
+The [complete laboratory map](docs/laboratory-inventory.md) explains these overlapping counts;
+[README.md](README.md) lists every section in actual menu order and describes the available tools.
 The map and sketches below are the original August design, retained as design history.
 
 | Public surface | Current October additions | Source |
 |---|---|---|
-| Home | Research-question links; integrated history, conditional bounds and the exploration report | `src/site/home.html` |
+| Home | Complete capability map, source-derived navigation/mode/card counts, research routes and exploration report | `src/site/home.html`, `build/build_site.py` |
 | `/app/index.html#s=predict` | Thermal SU(3) coexistence plus integrated nucleation/percolation/completion and conditional acoustics | `src/sections/research_extensions.js`, `src/modules/thermal_history.mjs` |
 | `/app/index.html#s=screen` | Seed-dependent interval bounds and separate full-potential witness checks | `src/sections/screen_section.js`, the candidate-bound modules and reference records |
 | `/app/index.html#s=collider` | Complete scalar scenarios compared with pinned HiggsTools experimental datasets | The Higgs experiment in `src/sections/research_extensions.js` |
+| Simulator → Neutrino ring | Ring spectrum, CMS HNL comparisons, three-copy flavour reconstruction and decay/lifetime/coherence diagnostics with optional Majoron channels | `docs/neutrino-ring.md`, `docs/research-extensions.md`, `docs/neutrino-decays.md`, `docs/neutrino-majoron.md` |
+| Hierarchy and Simulator → Higgs production | Dynamic robustness and the top-KK finite/resummed rate comparison | `docs/diagnostics.md` |
 | `/docs/index.html` | Updated routes, conventions, glossary and links to the batch studies | `src/site/docs.html`, `docs/research-extensions.md`, `docs/research-exploration-2026-10-07.md` |
 | `/changes/index.html` | New extension entry with what/why/so and reproduction steps | `changes/2026-10-07-transition-history-and-conditional-bounds.md` |
 | Source README and research archive | Study descriptions, figures, inputs, budgets and proposed next work | `README.md`, `research/2026-10-07/` |

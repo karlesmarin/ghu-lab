@@ -1,11 +1,11 @@
 # 🔧 GHU Lab — the source tree of the gauge–Higgs unification instrument
 
-This repository builds **[karlesmarin.github.io/ghu-explorer](https://karlesmarin.github.io/ghu-explorer/)**:
-one self-contained HTML page holding **29 interactive panels** — including tools for models nobody has
-written yet — over three original model families, extended with literature benchmarks:
-1️⃣ SU(7) on S¹/Z₂×S¹/Z₂ (Komori–Maru), 2️⃣ SU(4) on T²/Z₂ (AHMN), and 3️⃣ Haba–Yamashita's 5D SU(N) on
-S¹/Z₂ — with **every output carrying what is known about it**: `theorem`, `verified`, `measured`
-or `unknown`, as fields in the exported result card rather than as decoration.
+This repository builds **[the GHU research laboratory](https://karlesmarin.github.io/ghu-explorer/)**:
+a self-contained browser instrument for model building, Wilson-line potentials, spectra,
+anomalies, thermal transitions, neutrino physics and experimental comparisons. It includes the
+original SU(7), SU(4) and general 5D SU(N) tools, flat and warped SU(6) benchmarks, thermal SU(3),
+the 4D neutrino ring, Higgs-rate scenarios, integrated diagnostics and reproducible batch studies.
+Outputs retain their inputs, provenance and status: `theorem`, `verified`, `measured` or `unknown`.
 
 The 5D family goes from a boundary condition to numbers a detector measures: the Wilson-line
 potential of **any** SU(N) model, its vacuum, the four-dimensional spectrum there, the anomaly
@@ -17,33 +17,56 @@ of the data, the Kaluza–Klein towers in GeV against the CMS dijet bound, and t
 Wilson line gives the fermions. Every measured number carries its source and the date it was
 read; no event is ever simulated.
 
-## Research experiments added in October 2026
+## 🧭 What the laboratory contains
 
-**Nine research additions inside the existing 29 panels.** The section links below open the
+| Layer | Current inventory | Where to find it |
+|---|---|---|
+| 🗂️ Navigation | **29 menu sections**, covering model construction, spectra, anomalies, vacua, orbifolds, collider comparisons and research diagnostics | The complete section catalog below, in the actual menu order |
+| 🔮 Simulator models | **3 modes:** the 5D SU(N) builder, Higgs production from a top KK tower, and the 4D neutrino ring | [Simulator](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=predict) → model selector |
+| 🧪 Embedded experiments | **7 dedicated experiment cards:** Maru–Nago SU(6), warped SU(6) running, three active flavours, thermal potential, integrated transition history, RS anomaly flow and HiggsTools | Inside Paper models, Brane kinetic terms, Simulator, Anomalies & proton and Collider |
+| 📊 Integrated analyses | SU(7) robustness; CMS HNL comparisons; neutrino decays, lifetime, flight and coherence with optional computed Majoron channels; conditional rung certificates and full-potential witnesses | Hierarchy, Simulator → Neutrino ring, and Screen a table |
+| 🔬 Reproducible studies | **3 archived batch studies:** Higgs coupling/width assumptions, thermal assumptions and candidate vacuum screening | [Report, commands and figures](docs/research-exploration-2026-10-07.md) |
+| ⚙️ Scientific engines | **PhaseTracer** for bounce actions and **HiggsTools** for scalar-rate tests with pinned HiggsBounds/HiggsSignals datasets | Optional local engine; saved benchmark results remain available offline |
+| 🧾 Experimental references | CMS dijet and HNL limits, ATLAS/CMS Higgs datasets, NuFIT flavour inputs and named PDG inputs, with the hypothesis and provenance of each comparison | The relevant result cards, guides and JSON exports |
+
+**How the counts work:** 29 counts navigation entries. The three Simulator modes and seven
+experiment cards describe what is available inside those entries. The nine October additions
+below comprise those seven cards plus the Majoron and conditional-bound extensions. These
+overlapping inventories are not added into an artificial total of independent panels.
+
+[📋 Full laboratory map and first experiments](docs/laboratory-inventory.md)
+· [🔎 Inventory checked against the source](docs/laboratory-inventory.json)
+· [▶️ Open the laboratory](https://karlesmarin.github.io/ghu-explorer/app/index.html).
+
+<a id="research-experiments-added-in-october-2026"></a>
+
+## 🔬 Research experiments added in October 2026
+
+**Seven experiment cards and two extensions to existing analyses.** The section links below open the
 public app; the route names tell you which experiment to select inside that panel. These cover
 separate flat, warped, neutrino and scalar scenarios. Each calculation states its own action,
 inputs and limits; sharing the instrument does not make them a combined GHU fit.
 
 | Experiment · where to open it | What you change and what it computes | First comparison and scope |
 |---|---|---|
-| **Maru–Nago SU(6): Type 2 / Type 3 families** · [Paper models](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=papers) → **Maru–Nago SU(6)** | Vary the Type 3 generation count k₃, adjoint Dirac copies and Fourier cutoff. Read the Wilson potential, a magnified view of its minimum, the published reference and a convergence table. **Load into the SU(N) builder** transfers the supported bulk potential. | Start with k₃=3, N_ad=5 and compare 10 with 1000 Fourier terms. The comparison exposes truncation sensitivity; it does not certify the Higgs mass, the lifting of adjoint exotic zero modes or complete flavour consistency. |
-| **Warped SU(6): differential running and UV brane terms** · [Brane kinetic terms](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=blkt) → **Warped SU(6)** | Switch the C1/C2 matter assignment; vary IR/UV scales and the two boundary-coupling differences. Plot α₂⁻¹−α₁⁻¹ and α₃⁻¹−α₁⁻¹, read the required Δλ values and residuals, and inspect a separate UV localization/mass probe. | Compare C1 with C2, then set the chosen Δλ values to the required ones. This is one-loop differential running with approximate IR matching. The NDA reference is a scale estimate, and the localization probe is separate from the C1/C2 spectrum. |
-| **Three active flavours: a rank 2 or rank 3 ring extension** · [Simulator](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=predict) → **Neutrino ring** → **Three active flavours** | Choose normal/inverted ordering, the lightest mass, PMNS angles and phases, and active-deficit directions. Three sterile copies reconstruct Yukawa columns, the light mass matrix and 18 heavy-pair flavour weights. Read Σmν, mβ, mββ, J_CP, a flavour map and vacuum oscillation curves. | Compare the NuFIT 6.1 normal/inverted presets and vary δ. Masses and PMNS orientation are supplied inputs, not predictions. Separate NuFIT ranges do not define a joint likelihood; the oscillation plot uses the unitary vacuum limit. |
-| **Computed Majoron decay channels** · [Simulator](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=predict) → **Neutrino ring** → **Decays** | Enable the computed Majoron widths, choose a heavy pair and vary the scalar VEV ratios. The physical, canonically normalized Majoron direction gives light and heavy cascade widths that enter the scenario lifetime and SS/OS diagnostic; overlap warnings identify where isolated-pair treatment fails. | Compare channels disabled/enabled at the same fermion mass matrix. The reference leaves them disabled; that setting is not a claim that they are absent. The calculation is at leading Majorana order; the scalar vacuum and additional radial channels remain outside its scope. [Equations and independent checks](docs/neutrino-majoron.md). |
-| **RS anomaly flow and baryon current** · [Anomalies & proton](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=anomalies) → **RS anomaly flow** | Vary the Wilson angle, warp factor, selected Z mode and quark/lepton generation counts. Normalized gauge profiles give the UV/IR anomaly factors and their sum, the mode masses and a neutral baryon-current matrix. Compare normalization quadratures and the paper's fixed finite-KK reference table. | Remove one lepton generation, then restore it. Gauge-anomaly cancellation and baryon-current violation are distinct outputs. The published finite fermion-KK sums are reference data, and no proton lifetime or baryogenesis yield is inferred. |
-| **Finite-temperature GHU: Wilson potential and phase coexistence** · [Simulator](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=predict) → **SU(N) builder** → **Finite-temperature GHU** | Load either Hirose–Shibuya SU(3) case; vary matter content, temperature, coupling and compactification scale. Inspect the potential, its minima, phase flow, coexistence temperature and doubled-cutoff comparison. A matching **PhaseTracer** calculation supplies an actual O(3) bounce. | Compare cases 1 and 2 and distinguish coexistence from the S₃/T=140 nucleation proxy. This thermal SU(3) benchmark has its own inputs; it is not the thermal history of whichever SU(N) model is loaded in the builder. |
-| **Integrated nucleation, percolation and conditional gravitational waves** · [Simulator](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=predict) → **SU(N) builder** → the integrated-history experiment | Refined PhaseTracer actions feed the bubble-growth integral, false-vacuum fraction, separate nucleation/percolation/completion temperatures and mean bubble separation. Vary g*, wall speed, fluid efficiency and expansion background; inspect the conditional acoustic spectrum and convergence diagnostics. | Load case 1 and change efficiency or wall speed. Completion must reduce the physical false-vacuum volume. The acoustic fit is evaluated only in its supported completed, weak-transition, fast-wall regime; wall dynamics and detector significance are not calculated. |
-| **Higgs rates, total width and experimental tests** · [Collider](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=collider) → **Higgs rates** | Set κV, κF, κg, κγ, κZγ and an invisible width for a 125.2 GeV CP-even scalar. Compute all partial widths, branching fractions, signal strengths and production rates at 8, 13, 13.6 and 14 TeV. Matching **HiggsBounds/HiggsSignals** evaluations retain the selected limit, χ² and dataset provenance, including ATLAS/CMS results. | Save the SM reference, load the top-tower scenario, then add invisible width. A top-tower correction alone is not a complete GHU fit. The 159-observable reference is not 159 independent degrees of freedom, and χ² is not automatically a confidence level. |
-| **Conditional rung bounds and full-potential witness checks** · [Screen a table](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=screen) → **Conditional rung bounds** | Select the seed and read interval certificates for the listed even candidate or odd published rungs, with their coupling and mass-window conventions. Inspect independent full-Fourier witness checks, competing vacua, tail errors and the certificate JSON. | Compare a candidate stationary example with one marked **deeper minimum elsewhere**. The certificates bound the small-angle moment relaxation; they neither prove a universal full-potential ceiling nor guarantee an attainable model. |
+| **🧩 Maru–Nago SU(6): Type 2 / Type 3 families** · [Paper models](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=papers) → **Maru–Nago SU(6)** | Vary the Type 3 generation count k₃, adjoint Dirac copies and Fourier cutoff. Read the Wilson potential, a magnified view of its minimum, the published reference and a convergence table. **Load into the SU(N) builder** transfers the supported bulk potential. | Start with k₃=3, N_ad=5 and compare 10 with 1000 Fourier terms. The comparison exposes truncation sensitivity; it does not certify the Higgs mass, the lifting of adjoint exotic zero modes or complete flavour consistency. |
+| **🌌 Warped SU(6): differential running and UV brane terms** · [Brane kinetic terms](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=blkt) → **Warped SU(6)** | Switch the C1/C2 matter assignment; vary IR/UV scales and the two boundary-coupling differences. Plot α₂⁻¹−α₁⁻¹ and α₃⁻¹−α₁⁻¹, read the required Δλ values and residuals, and inspect a separate UV localization/mass probe. | Compare C1 with C2, then set the chosen Δλ values to the required ones. This is one-loop differential running with approximate IR matching. The NDA reference is a scale estimate, and the localization probe is separate from the C1/C2 spectrum. |
+| **🧬 Three active flavours: a rank 2 or rank 3 ring extension** · [Simulator](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=predict) → **Neutrino ring** → **Three active flavours** | Choose normal/inverted ordering, the lightest mass, PMNS angles and phases, and active-deficit directions. Three sterile copies reconstruct Yukawa columns, the light mass matrix and 18 heavy-pair flavour weights. Read Σmν, mβ, mββ, J_CP, a flavour map and vacuum oscillation curves. | Compare the NuFIT 6.1 normal/inverted presets and vary δ. Masses and PMNS orientation are supplied inputs, not predictions. Separate NuFIT ranges do not define a joint likelihood; the oscillation plot uses the unitary vacuum limit. |
+| **✨ Computed Majoron decay channels** · [Simulator](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=predict) → **Neutrino ring** → **Decays** | Enable the computed Majoron widths, choose a heavy pair and vary the scalar VEV ratios. The physical, canonically normalized Majoron direction gives light and heavy cascade widths that enter the scenario lifetime and SS/OS diagnostic; overlap warnings identify where isolated-pair treatment fails. | Compare channels disabled/enabled at the same fermion mass matrix. The reference leaves them disabled; that setting is not a claim that they are absent. The calculation is at leading Majorana order; the scalar vacuum and additional radial channels remain outside its scope. [Equations and independent checks](docs/neutrino-majoron.md). |
+| **⚖️ RS anomaly flow and baryon current** · [Anomalies & proton](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=anomalies) → **RS anomaly flow** | Vary the Wilson angle, warp factor, selected Z mode and quark/lepton generation counts. Normalized gauge profiles give the UV/IR anomaly factors and their sum, the mode masses and a neutral baryon-current matrix. Compare normalization quadratures and the paper's fixed finite-KK reference table. | Remove one lepton generation, then restore it. Gauge-anomaly cancellation and baryon-current violation are distinct outputs. The published finite fermion-KK sums are reference data, and no proton lifetime or baryogenesis yield is inferred. |
+| **🌡️ Finite-temperature GHU: Wilson potential and phase coexistence** · [Simulator](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=predict) → **SU(N) builder** → **Finite-temperature GHU** | Load either Hirose–Shibuya SU(3) case; vary matter content, temperature, coupling and compactification scale. Inspect the potential, its minima, phase flow, coexistence temperature and doubled-cutoff comparison. A matching **PhaseTracer** calculation supplies an actual O(3) bounce. | Compare cases 1 and 2 and distinguish coexistence from the S₃/T=140 nucleation proxy. This thermal SU(3) benchmark has its own inputs; it is not the thermal history of whichever SU(N) model is loaded in the builder. |
+| **🫧 Integrated nucleation, percolation and conditional gravitational waves** · [Simulator](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=predict) → **SU(N) builder** → the integrated-history experiment | Refined PhaseTracer actions feed the bubble-growth integral, false-vacuum fraction, separate nucleation/percolation/completion temperatures and mean bubble separation. Vary g*, wall speed, fluid efficiency and expansion background; inspect the conditional acoustic spectrum and convergence diagnostics. | Load case 1 and change efficiency or wall speed. Completion must reduce the physical false-vacuum volume. The acoustic fit is evaluated only in its supported completed, weak-transition, fast-wall regime; wall dynamics and detector significance are not calculated. |
+| **💥 Higgs rates, total width and experimental tests** · [Collider](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=collider) → **Higgs rates** | Set κV, κF, κg, κγ, κZγ and an invisible width for a 125.2 GeV CP-even scalar. Compute all partial widths, branching fractions, signal strengths and production rates at 8, 13, 13.6 and 14 TeV. Matching **HiggsBounds/HiggsSignals** evaluations retain the selected limit, χ² and dataset provenance, including ATLAS/CMS results. | Save the SM reference, load the top-tower scenario, then add invisible width. A top-tower correction alone is not a complete GHU fit. The 159-observable reference is not 159 independent degrees of freedom, and χ² is not automatically a confidence level. |
+| **🔎 Conditional rung bounds and full-potential witness checks** · [Screen a table](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=screen) → **Conditional rung bounds** | Select the seed and read interval certificates for the listed even candidate or odd published rungs, with their coupling and mass-window conventions. Inspect independent full-Fourier witness checks, competing vacua, tail errors and the certificate JSON. | Compare a candidate stationary example with one marked **deeper minimum elsewhere**. The certificates bound the small-angle moment relaxation; they neither prove a universal full-potential ceiling nor guarantee an attainable model. |
 
-**Working with the experiment cards.** Read **What this tests**, choose a reference and press
+**🎛️ Working with the experiment cards.** Read **What this tests**, choose a reference and press
 **Use this point as comparison**. Change one parameter, compare the indicators and curves, then
 save a research summary, the complete JSON or a selected SVG figure. Numerical tables, matrices
 and precision controls can be expanded when needed. Permalinks retain controls; saved comparisons
 and external calculation records travel in JSON. The Majoron controls stay in the existing decay
 card, and the rung-bound table has its own certificate export.
 
-**Offline references and new calculations.** Browser calculations and stored benchmark results
+**⚙️ Offline references and new calculations.** Browser calculations and stored benchmark results
 work offline. New HiggsTools/PhaseTracer points require the optional local scientific engine or
 an imported matching result. Changing inputs withdraws an unmatched external verdict. Integrated
 history additionally needs refined action samples; the ordinary bounce button does not prepare
@@ -55,23 +78,38 @@ python tools/backend.py setup
 python tools/backend.py serve
 ```
 
-**The existing tools also moved.** **Count a rung** now draws on entry and after extending its
+**🔧 The existing tools also moved.** **Count a rung** now draws on entry and after extending its
 range; candidate-seed curves use the half-integral A₄ grid. Published mass fibres and benchmarks
 are not transferred to that seed. **Screen 3** draws the candidate arithmetic comb and keeps its
 conditional certificates and physical-vacuum checks distinct from an arithmetic match.
 
 [Routes, equations, sources and scientific-engine setup](docs/research-extensions.md)
+· [🧬 Three-flavour inputs, oscillations and IceCube extension scope](docs/neutrino-flavour.md)
 · [Export formats and provenance](docs/result-card.md)
 · [Three reproducible batch studies: Higgs assumptions, thermal history and candidate vacua](docs/research-exploration-2026-10-07.md)
 · [JSON records and figures](research/2026-10-07/README.md).
 
+
+### 🧰 Model views and diagnostics available alongside the experiments
+
+| Tool | What you can do | Guide |
+|---|---|---|
+| 📐 **Hierarchy → Robustness of this content** | Vary g₄, propagate the recorded W-mass uncertainty and compare winding cutoffs in three separate response plots. Inspect actual m_h and 1/R₅ shifts and export each SVG with its sampled values. | [Robustness](docs/diagnostics.md) |
+| 🔮 **Simulator → Higgs production · top KK reference** | Vary MKK, top mass and cutoff; compare the leading rate, finite KK sum and resummed low-energy-theorem reference. Inspect the conditional interval, numerical tail and historical or user-supplied rate window. | [Higgs-production scope](docs/diagnostics.md#higgs-a-specific-ghu-reference) |
+| 🧬 **Simulator → Neutrino ring · 4D research model** | Change ring links and Majorana insertions; read the six heavy pairs, light mass, active deficit, pole residues, protected-pair response and normalization. Calibrate the light inputs or sweep μB while all results move together. | [Ring action and checks](docs/neutrino-ring.md) |
+| ⏱️ **Neutrino ring → Decays, lifetime and pair coherence** | Select a pair and combine W/Z/h widths, optional computed Majoron widths and a supplied extra width. Inspect branching contributions, lifetime, cτ, fixed-boost flight probability and ideal coherent-pair SS/OS; three linked figures expose the assumptions and overlap flags. | [Decay conventions](docs/neutrino-decays.md) · [Majoron channels](docs/neutrino-majoron.md) |
+| 💥 **Neutrino ring → Compare with published CMS HNL limits** | Choose electron/muon/tau and Dirac/Majorana hypotheses. Compare model reference weights with the observed and expected curves and bands from six official CMS HEPData tables; inspect each pair's ratio and out-of-range status. | [CMS reference and interpretation](docs/neutrino-ring.md#experimental-reference-inside-the-same-panel) |
+
+The top-KK rate window, the HiggsTools scalar scenario and the CMS HNL overlay are separate
+comparisons. Their hypotheses remain visible; none is silently combined into a joint GHU likelihood.
+
 ## 🔬 The instrument
 
-**Twenty-nine runnable panels**, listed in the same order as the app menu. Each name
+**Navigation catalog — one row per menu section.** Embedded experiments, Simulator modes and diagnostics are inventoried above. Each name
 opens its panel in the public app. This catalog also appears in the
 [publication repository](https://github.com/karlesmarin/ghu-explorer#-the-instrument).
 
-| # | Panel | What it does |
+| # | Menu section | What it does |
 |---|---|---|
 | 1 | **[📐 Hierarchy](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=hierarchy)** · Part VII | the compactification scale, the Higgs mass, and the distance to the ceiling under the selected seed and small-angle moment conventions |
 | 2 | **[🎯 Design a scale](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=inverse)** · Part VIII | the map run **backwards**: name a compactification scale and get a bulk content — or a *named* certificate that none exists (`floor`, `cone`, `congruence`, an exact rational Farkas `dual`, `exhaustion`), with `budget` reported separately because "we stopped looking" is not "there is none". Above it, the reachable set on a 1/R₅ axis: press once and each cluster resolves into the **finite set of points** it really is — rung one is 35 values, 31.5 GeV apart — and between two clusters sits a certified stretch of **2682 GeV** with nothing in it, 45× the widest gap inside either |
@@ -98,12 +136,12 @@ opens its panel in the public app. This catalog also appears in the
 | 23 | **[🔗 Boundary conditions](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=bcclass)** · Haba–Hosotani–Kawamura 2004 · Takeuchi–Inagaki 2024 | **which boundary conditions are the same theory.** Putting a gauge theory on an orbifold means choosing boundary conditions, and some are related by a gauge transformation — so they are one theory, and *the apparent unbroken symmetry is not an invariant*: SU(5)'s [2,0,0,3] looks like SU(3)×SU(2)×U(1) and [1,1,1,2] looks like SU(2)×U(1)³, and they are the same model. The page walks the orbits and the counts come out (N+1)² at every N, which is HHK's theorem as a measurement; then it asks which member of a class the vacuum energy prefers, and says plainly which comparison is legitimate and which is not. Press **T²/Z₃** and the answer changes |
 | 24 | **[🔷 Classify an orbifold](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=orbifold)** · Part IX-A | **the alphabet, derived.** An integer rotation matrix of rank up to eight goes in and everything comes out of it: the cone signature, the alphabet by Möbius inversion over the fixed points, the local data, the count and its degree, over SU(N), SO(N) and Sp(N) side by side. Nothing is entered. A matrix of infinite order, or one whose characteristic polynomial is not a power of the m-th cyclotomic, comes back **refused** rather than classified |
 | 25 | **[🕸️ Name the relations](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=relations)** · Part IX-B | which equivalence relation on boundary conditions the literature already owns, which move a proposed relation is, and whether a move set actually connects a class — the walk that decides it, plus the tripod result and the local/global distinction that gets misquoted |
-| 26 | **[🌡️ Brane kinetic terms](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=blkt)** · Haba–Yamashita · AHMN | the tower when the Kaluza–Klein masses stop being n/R: the transcendental mass equation solved in the browser, checked against mpmath at forty digits and against the closed-form limit as the coefficient goes to zero. The **Warped SU(6) experiment** adds C1/C2 differential running, IR/UV scales, required and chosen UV brane-coupling differences, residuals and a separate localization/mass probe. It exposes approximate matching and the NDA comparison without assigning a statistical exclusion |
-| 27 | **[🌌 Gravity–gauge · 3D](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=gravitygauge)** · gravity and gauge research | **equal paired masses, different responses.** Vary the positive gauge kinetic family through η and move the source through t: two interactive 3D plots and the table update in place. The tensor-NN/vector-DD massive tower stays fixed while source residues and the Wilson-line kinetic scale change at fixed g₄; the vector-NN tower is an unprotected control. Rotate the plots or select a point on the response surface, switch between spectral weight and Z, and save the current model with the card, LaTeX or permalink. Help explains the dimensionless reference masses and the open questions: this panel does not compute a Higgs mass, radion stability or a collider rate |
-| 28 | **[📚 The literature](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=litcensus)** · curation | the reading list behind the series, measured for what each paper publishes and curated for what a person has actually read — with the shortlist of what is worth reading next, and an explicit statement of what a keyword sweep cannot see |
-| 29 | **[Conjugate boundary conditions](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=cbclass)** | Compares ordinary similarity with conjugate congruence, including the parity-dependent class count. |
+| 26 | **[🔗 Conjugate boundary conditions](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=cbclass)** · research | **congruence, with the hypothesis attached to the count.** Compare ordinary and conjugate boundary conditions, inspect the compatible groups and vary N. Independent boundary transformations give four classes for even N and one for odd N; linked transformations retain continuous invariants. The panel shows both hypotheses and carries their scope into the exported card |
+| 27 | **[🌡️ Brane kinetic terms](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=blkt)** · Haba–Yamashita · AHMN | the tower when the Kaluza–Klein masses stop being n/R: the transcendental mass equation solved in the browser, checked against mpmath at forty digits and against the closed-form limit as the coefficient goes to zero. The **Warped SU(6) experiment** adds C1/C2 differential running, IR/UV scales, required and chosen UV brane-coupling differences, residuals and a separate localization/mass probe. It exposes approximate matching and the NDA comparison without assigning a statistical exclusion |
+| 28 | **[🌌 Gravity–gauge · 3D](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=gravitygauge)** · gravity and gauge research | **equal paired masses, different responses.** Vary the positive gauge kinetic family through η and move the source through t: two interactive 3D plots and the table update in place. The tensor-NN/vector-DD massive tower stays fixed while source residues and the Wilson-line kinetic scale change at fixed g₄; the vector-NN tower is an unprotected control. Rotate the plots or select a point on the response surface, switch between spectral weight and Z, and save the current model with the card, LaTeX or permalink. Help explains the dimensionless reference masses and the open questions: this panel does not compute a Higgs mass, radion stability or a collider rate |
+| 29 | **[📚 The literature](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=litcensus)** · curation | the reading list behind the series, measured for what each paper publishes and curated for what a person has actually read — with the shortlist of what is worth reading next, and an explicit statement of what a keyword sweep cannot see |
 
-The table includes all 29 runnable sections. New research experiments are integrated inside those sections.
+The table lists every menu entry. Use the inventory above to find the model modes, embedded experiments, diagnostics and batch studies available within the laboratory.
 
 ## 🔬 October 7 — transition history, vacuum checks and assumption studies
 
@@ -201,7 +239,7 @@ The table explains the main independent references and failure cases. The older 
 | 🎯 `_test_dossier.mjs` | the claim that is a **classification** rather than a number: which verdicts are the theory's and which the frame's, measured on every member of the equivalence class — with two decoy lines whose answers are settled before the tagger runs, and the requirement that the lines read at the vacuum come back invariant on all 86 multi-member classes of SU(4)…SU(7) |
 | 🧩 `_test_app.mjs` | the page that **ships**, not the sources it came from: the inliner, the module stripper and the data injection are the only code no other test covers |
 | 🌐 [`_test_site.py`](_test_site.py) | **30 checks**: 15 checks of the generated site and 15 deliberately broken cases that must be detected. Covers links and local assets, DOI and paper status, the app copy, palette, paper coverage, page metadata, unresolved placeholders, caveats, panel counts, change-entry consistency and HTML escaping |
-| 🖱️ `build/drive.mjs` | the panels answer a **real mouse** through the DevTools Input domain, not events dispatched from inside the page — including the buttons that write files, the permalinks that make a page sendable (**with the empty model, which is the case that was broken**), the class-mate click that must leave the vacuum's verdicts standing, the published-model label that must go the moment any dial moves, and the rule that no verdict box in any of the 28 sections may open holding a dash |
+| 🖱️ `build/drive.mjs` | the panels answer a **real mouse** through the DevTools Input domain, not events dispatched from inside the page — including the buttons that write files, the permalinks that make a page sendable (**with the empty model, which is the case that was broken**), the class-mate click that must leave the vacuum's verdicts standing, the published-model label that must go the moment any dial moves, and the rule that no verdict box in the sections visited by that gate may open holding a dash |
 | 📏 `build/layout.mjs` | **what a reader sees and no other gate can**: anything whose content is wider than the box that holds it, in every section, at several widths, and in every state — how-to open, each help bubble open, the demo running. It tells apart a box that scrolls, a box that **clips** (a column is simply gone) and a box that truncates with an ellipsis and can give the text back through its `title`. Written the day a reader reported a table running off the edge of a card; it found eleven such boxes across four sections, all from one CSS rule that was scoped to phones |
 | 🧪 `build/extremes.mjs` | **the states no gate visits**: every family cleared, a single multiplet, every slot at its ceiling, and boundary conditions at the corners of the block simplex — at a desktop width and at 380 px. It looks for the six ways a template literal says it was handed something it did not expect (`NaN`, `undefined`, `[object Object]`, `Infinity`, `null`, an unresolved `${…}`), for a section that rendered nothing, and for a verdict box that ran and decided nothing. 464 (section, state, width) renders |
 | 🚪 [`_test_lifecycle.py`](_test_lifecycle.py) · [`build/lifecycle.mjs`](build/lifecycle.mjs) | The source check scans every section for timers bypassing the shell's cancellation mechanism. The browser check starts work in **nine selected panels** and leaves mid-operation: exceptions must stay absent, pending timers must return to the idle baseline, and the three panels with busy flags must respond again on return. This is targeted lifecycle coverage, not a claim that every panel runs a long computation |
@@ -388,9 +426,12 @@ changed — it had always used the absolute value, which is what the paper says.
 🏠 src/shell/      the shell: one model per group, a rail grouped by family, the permalink
 🌐 src/site/       the source of the surrounding site (home, per-paper pages, docs, changes)
 🏗️ build/          the builders, the gates, the shooters, the mouse driver
-💾 data/           extracted, never typed — one JSON per group, plus the archived scans
-🛠️ tools/          the sweeps that are not part of the page: the 42 380-model scan of SU(5)–SU(7),
-                   its report and map, and the SageMath control of the vacuum module
+💾 data/           extracted model tables, experimental references, archived scans and
+                   explicit benchmark/scenario records, each with its provenance
+🛠️ tools/          batch scans, scientific-engine adapters, interval certificates,
+                   full-potential checks, independent SageMath controls and inventory generation
+📖 docs/           model and experiment guides, conventions, scope and the complete laboratory map
+🔬 research/       archived study inputs, results, comparisons and reproducible SVG figures
 ✅ tests/          the golden suite that travels with the deployed artifact
 📝 changes/        the change log, one file per entry, rendered onto the site
 ```
@@ -413,7 +454,9 @@ profile. Nothing of the engineering narrative is lost — `HANDOFF.md` carries t
 responsibility · ⚖️ Apache 2.0
 
 
-## Neutrino ring inside the Simulator
+<a id="neutrino-ring-inside-the-simulator"></a>
+
+## 🧬 Neutrino ring inside the Simulator
 
 The existing Simulator has a model selector: the SU(N) builder remains the default, and
 **Neutrino ring · 4D research model** opens live controls for the link and portal strengths,
@@ -435,13 +478,15 @@ travel with the results. This conditional overlay does not claim a model exclusi
 It adds active weights, their sum rule, induced Majorana entries, scale diagnostics and the
 actual mass matrix. `build/neutrino.mjs` exercises this view in the existing browser tier.
 
-Local validation on **6 October 2026**: **2,647 counted checks across 52 source harnesses**
+Historical ring checkpoint on **6 October 2026**: **2,647 counted checks across 52 source harnesses**
 and all six registered browser gates passed. The ring contributes 346 source checks and
-35 dedicated browser checks. This local validation does not update the published snapshot
-described above.
+35 dedicated browser checks. These counts describe that earlier checkpoint; the current
+October 7 release and its complete validation are described above.
 
 
-## Dynamic robustness and Higgs production
+<a id="dynamic-robustness-and-higgs-production"></a>
+
+## 📊 Dynamic robustness and Higgs production
 
 In **Hierarchy**, the robustness card follows the selected bulk content and gauge seed.
 Vary the central g4, its span and the winding cutoff to inspect the Higgs mass and
@@ -457,12 +502,12 @@ Both views use the existing engines, model cards and permalinks. There is no new
 entry. Five independent 70-digit spectral sums and a dedicated browser gate cover the
 new calculations and controls. See [scope and derivation](docs/diagnostics.md).
 
-Final diagnostic-extension validation (6 October 2026): **2,711 counted checks across 53 source harnesses**, including 64 new checks. All seven registered browser gates passed; the diagnostic gate adds 43 browser checks. That local checkpoint retained 29 live sections; these diagnostics are included in this October research release.
+Historical diagnostic-extension checkpoint (6 October 2026): **2,711 counted checks across 53 source harnesses**, including 64 new checks. All seven then-registered browser gates passed; the diagnostic gate added 43 browser checks. These diagnostics are included in the current October release.
 
 Additional SageMath verification: **39 checks** with SageMath 10.9 in the existing local Docker image, without network access. Exact symbolic algebra and rational series are supplemented by 256-bit Arb interval checks at the five reference points. These research checks are separate from the source-build tally.
 
 
-### Robustness figures
+### 📈 Robustness figures
 
 The Hierarchy robustness card includes three dynamic figures comparing both masses:
 model variation of g4, the measured W-mass response and winding convergence. Inspect
@@ -472,9 +517,9 @@ as a standalone SVG carrying its inputs and values. The plots use the existing s
 Usability preference: make results easier to understand with meaningful visual data,
 controls and concise explanations placed together, while reusing existing modules.
 
-Figure-extension validation (6 October 2026): the 58-check diagnostic browser gate passed, including 15 new figure checks. The full build and all seven browser gates passed. The physics engines are unchanged.
+Historical figure-extension checkpoint (6 October 2026): the 58-check diagnostic browser gate passed, including 15 new figure checks. The full build and all seven then-registered browser gates passed. The physics engines were unchanged by that figure update.
 
-### Neutrino decay diagnostics
+### ⏱️ Neutrino decay diagnostics
 
 Inside **Simulator → Neutrino ring**, the decay card combines W/Z/h partial widths,
 an explicit extra-width scenario, proper lifetime, boosted flight distance and the
@@ -482,11 +527,12 @@ ideal coherent-pair SS/OS ratio. Select any of the six pairs, inspect three dyna
 SVG figures, and export the same inputs and results. The CMS selector supplies the
 charged-lepton flavour; its Dirac/Majorana reference choice does not rescale lifetimes.
 
-The complete ring width remains unknown: Majoron and other new channels, heavy
-cascades, off-shell decays and scalar mixing require further work. The extra width
-is a user hypothesis. Neither the lifetime scenario nor the geometric probability
+The current decay card includes optional computed Majoron light and heavy cascade widths
+at leading Majorana order. The complete ring width remains unknown: off-shell weak decays,
+weak heavy cascades, additional scalar/gauge channels and scalar mixing remain open.
+The extra width is a separate user hypothesis. Neither the lifetime scenario nor the geometric probability
 establishes detector acceptance or a CMS exclusion. See [decay conventions and
 sources](docs/neutrino-decays.md). The new numerical harness contains 213 checks;
 20 independent SageMath checks audit spin traces, normalization and units.
 
-Final decay-extension validation (6 October 2026): **2924 checks across 54 harnesses**, all eight registered browser gates passed, including 41 decay-browser checks. The complete local build is offline and retains 29 live sections. That checkpoint was local; the decay extension is included in this October research release.
+Historical decay-extension checkpoint (6 October 2026): **2,924 checks across 54 harnesses**; all eight then-registered browser gates passed, including 41 decay-browser checks. That checkpoint was local; the decay extension is included in the current October release.

@@ -1,4 +1,4 @@
-# Neutrino ring: conditional decay diagnostics
+# ⏱️ Neutrino ring: conditional decay diagnostics
 
 The existing Simulator → Neutrino ring includes widths, lifetime, flight-distance
 probability and pair coherence. This is a conditional scenario built on the existing
@@ -6,10 +6,12 @@ conserving masses and active weights. The complete ring width is **unknown**.
 No experimental exclusion or detector efficiency is calculated.
 
 The on-shell reference has W plus a charged lepton, Z plus the light neutrino, and
-an unmixed Standard Model Higgs plus the light neutrino. The same additional width
-in eV can be assigned to each component of every heavy pair. Its value is an input,
-not a prediction for the Majoron or other new particles. Zero does not demonstrate
-that those channels are absent.
+an unmixed Standard Model Higgs plus the light neutrino. An optional control adds
+the [computed leading Majoron light and heavy cascade widths](neutrino-majoron.md).
+A separate additional width in eV can be assigned to each component of every heavy
+pair to explore uncomputed channels. That extra width is a user input. Setting it
+to zero, or disabling the computed Majoron contribution, does not establish that
+the corresponding physical channels are absent.
 
 ## Width normalization
 
@@ -42,7 +44,9 @@ factor z is the conserving ring's light residue, not a fit to three flavours.
 
 ## Lifetime and ideal coherence
 
-The chosen scenario sets Γ = ΓW + ΓZ + Γh + Γextra, converts eV to GeV, and uses
+The chosen scenario sets Γ = ΓW + ΓZ + Γh + ΓJ,included + Γextra, where ΓJ,included
+contains the computed Majoron light and heavy channels when enabled, and is zero
+when that contribution is disabled. It converts eV to GeV and uses
 τ = ℏ/Γ and cτ in mm. At a fixed input b = βγ, the mean straight-line flight
 distance is b cτ. Between Lmin and Lmax the probability is
 
@@ -63,9 +67,11 @@ ratio. Inter-pair interference and unequal-width effects remain unresolved.
 
 ## Scope, sources and validation
 
-Off-shell weak decays, heavy-to-heavy cascades, loops, the Majoron, collective phase,
-radial scalars and extra gauge channels are not included. The panel lists lower-pair
-Z/h thresholds without assigning rates. It flags near/below-W inputs, zero active
+The included Majoron widths are leading-order calculations with their own scope
+and approximation checks. Off-shell weak decays, weak heavy-to-heavy cascades,
+higher-order effects, additional collective-phase/radial-scalar channels, scalar
+mixing and extra gauge channels remain unresolved. The panel lists lower-pair
+Z/h thresholds without assigning weak cascade rates. It flags near/below-W inputs, zero active
 production, large insertion/gap diagnostics and broad scenarios. Such flags are
 diagnostics, not error bounds. No value of the extra-width control resolves this
 missing action-level calculation.

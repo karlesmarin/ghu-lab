@@ -338,6 +338,16 @@ def site_counts():
                    if re.search(r"^\s*ready:\s*false", p.read_text(encoding="utf-8"), re.M))
     panels = len(entries) - notready
 
+    # Embedded experiments and Simulator model choices are separate inventories
+    # inside the navigation entries, so never add them to the menu-section count.
+    experiments = (ROOT / "src" / "sections" / "research_extensions.js").read_text(encoding="utf-8")
+    experiment_count = len(re.findall(r"^rxAttach\(\w+,\w+\);", experiments, re.M))
+    simulator = (ROOT / "src" / "sections" / "predict_section.js").read_text(encoding="utf-8")
+    selector = re.search(r'<select[^>]*id="prModel"[^>]*>(.*?)</select>', simulator, re.S)
+    if not selector:
+        sys.exit("FATAL: cannot locate the Simulator model selector for the site inventory")
+    simulator_modes = len(re.findall(r'<option value="[^"]+">', selector.group(1)))
+
     parts = json.loads((ROOT / "data" / "series.json").read_text(encoding="utf-8"))["parts"]
     # IX went out as two records under one part number, so the records and the parts are different
     # counts and the page says both rather than picking whichever reads better.
@@ -349,6 +359,8 @@ def site_counts():
     split = sorted({s for s in stems if stems.count(s) > 1}, key=stems.index)
     out = {
         "__N_PANELS__": numword(panels),
+        "__N_EXPERIMENTS__": numword(experiment_count),
+        "__N_SIMULATOR_MODES__": numword(simulator_modes),
         "__N_MODELS__": numword(len(models)),
         "__N_FAMILIES__": numword(len(families)),
         "__N_RECORDS__": numword(len(numerals)),
@@ -580,9 +592,10 @@ def main(argv=None):
         home = home.replace(token, word)
     write("index.html", page(shell, css,
                              title="GHU Lab — an instrument for gauge-Higgs unification",
-                             desc=f"{counts['__N_PANELS__'].capitalize()} panels over "
-                                  f"{counts['__N_MODELS__']} published models, every output "
-                                  f"carrying what is known about it. Runs offline in the browser.",
+                             desc=f"Interactive GHU research laboratory: model builders, "
+                                  f"{counts['__N_SIMULATOR_MODES__']} Simulator modes, "
+                                  f"{counts['__N_EXPERIMENTS__']} embedded experiments, neutrino "
+                                  f"and thermal diagnostics, and experimental comparisons.",
                              body=home, depth=0, here="", build=build))
 
     # --- the instrument.  Rebuilt rather than copied, because the site's copy carries one thing

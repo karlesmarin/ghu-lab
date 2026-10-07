@@ -100,9 +100,12 @@ heavy splittings meet 10⁻⁴. The underlying study also verifies quadratic imp
 on halving the insertions for a nearly degenerate heavy pair. These checks do not
 establish a uniform approximation bound over the entire control domain.
 
-One SM Yukawa vector gives light flavour rank at most one. A three-flavour fit,
-electroweak loop masses, Majoron phenomenology, radial stability, dimension-five
-matching and minimization of the full phase potential with nonzero μ remain open.
+One SM Yukawa vector gives the base ring light flavour rank at most one. The separate
+[three-copy flavour card](neutrino-flavour.md) reconstructs chosen light masses and
+mixing inputs; it is not a joint experimental fit. The decay controls now include
+optional [leading Majoron light and heavy cascade widths](neutrino-majoron.md).
+Electroweak loop masses, radial stability, dimension-five matching and minimization
+of the full phase potential with nonzero μ remain open.
 The controls hold θ=π. The separate research calculation of the fermion phase
 potential uses the μA=μB=0 limit and finds local positive curvature there;
 that result is not substituted for the full vacuum calculation.

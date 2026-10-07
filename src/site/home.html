@@ -1,4 +1,4 @@
-<h1>An instrument for gauge&#8209;Higgs unification, and the papers it comes from</h1>
+<h1>🧪 A research laboratory for gauge&#8209;Higgs unification</h1>
 
 <p class="lead">Pick a model of extra&#8209;dimensional matter and this page computes what it predicts:
 which Wilson&#8209;line domain is legal, where the vacuum sits, the Higgs mass, the anomaly bill, and
@@ -9,8 +9,9 @@ engine &mdash; and every result states its assumptions.</p>
 <div class="doors">
   <a class="door" href="app/index.html">
     <b>I read the paper and want to try it &rarr;</b>
-    <span>The instrument. __N_PANELS_C__ panels over __N_MODELS__ published models, each paper's
-    own model preloaded.</span>
+    <span>The instrument. __N_PANELS_C__ menu sections, __N_SIMULATOR_MODES__ Simulator model
+    modes and __N_EXPERIMENTS__ embedded experiment cards, with integrated diagnostics and
+    experimental comparisons.</span>
   </a>
   <a class="door" href="papers/index.html">
     <b>I found the tool and want to know what it is &rarr;</b>
@@ -24,7 +25,19 @@ engine &mdash; and every result states its assumptions.</p>
   __ANCHOR_SENTENCE__
 </div>
 
-<h2>Choose a research question</h2>
+<h2>🧭 The laboratory at a glance</h2>
+<p>The menu count describes navigation. Model modes, experiment cards and diagnostic tools live
+inside those sections; the laboratory also supplies reproducible command-line studies.</p>
+<table><thead><tr><th>Area</th><th>Available work</th></tr></thead><tbody>
+<tr><td>🏗️ Models and structure</td><td>SU(7), SU(4), general 5D SU(N), spectra, anomalies, brane matter, inverse design, census and boundary-condition classification.</td></tr>
+<tr><td>🔮 Simulator</td><td>Builder predictions, top-KK Higgs production and the neutrino ring, including CMS HNL comparisons, lifetime, flight and coherence.</td></tr>
+<tr><td>🧪 Experiments</td><td>Flat and warped SU(6), three active flavours, RS anomaly flow, thermal SU(3), integrated transition history and HiggsTools.</td></tr>
+<tr><td>📊 Diagnostics</td><td>Robustness, computed Majoron channels, conditional rung bounds, full-potential witnesses and gravity–gauge 3D responses.</td></tr>
+<tr><td>🔬 Batch research</td><td>Higgs coupling/width scans, thermal assumptions and candidate vacuum screening, with archived JSON, commands and figures.</td></tr>
+</tbody></table>
+<p><a href="https://github.com/karlesmarin/ghu-lab/blob/main/docs/laboratory-inventory.md">📋 Complete inventory, first experiments and sources of the counts &rarr;</a></p>
+
+<h2>🔬 Choose a research question</h2>
 <p>Change a parameter, compare with a saved reference, read the key indicators and export the
 figures together with a research summary. New experiments sit inside the existing sections.</p>
 <ul>
@@ -41,7 +54,7 @@ benchmark, with a conditional acoustic spectrum and explicit wall assumptions. R
 studies compare Higgs coupling/width degeneracy, 160 thermal scenarios and 80 selected full-potential
 vacua. <a href="https://github.com/karlesmarin/ghu-lab/blob/main/docs/research-exploration-2026-10-07.md">Results, figures and limits of the searches &rarr;</a></p>
 
-<h2>Explore gravity and gauge fields in 3D</h2>
+<h2>🌌 Explore gravity and gauge fields in 3D</h2>
 <p><a href="app/index.html#s=gravitygauge"><strong>Open Gravity&ndash;gauge &middot; 3D &rarr;</strong></a>
 Change the kinetic deformation and the source position while two interactive plots and a table
 update together. The paired mass tower stays fixed; the source response and Wilson-line kinetic
@@ -50,7 +63,7 @@ scale change. Rotate either plot, or select a point on the response surface to c
 It does not predict a detected graviton, a Higgs mass or a collider rate.
 <a href="docs/index.html#gravitygauge">Controls, interpretation and limitations &rarr;</a></p>
 
-<h2>Every number carries what is known about it</h2>
+<h2>🧾 Every number carries what is known about it</h2>
 
 <p>Four words, and they are fields in the exported result card rather than decoration. This is the
 whole difference between an instrument and a demonstration.</p>
@@ -78,16 +91,16 @@ May 2026 and withdrawn in July on finding it was a corollary of Helset&ndash;Mar
 2020. The algebra was right; the claim about its standing was not. A tool that could not label its
 own output <em>unknown</em> would have no way to do that to itself.</p>
 
-<h2>The series</h2>
+<h2>📚 The series</h2>
 __SERIES_TABLE__
 
-<h2>What has moved</h2>
+<h2>📝 What has moved</h2>
 <p>The papers are frozen; this site is not. Every change is logged with what moved, why, and
 whether it affects the version of record.</p>
 __CHANGES_RECENT__
 <p><a href="changes/index.html">The whole log &rarr;</a></p>
 
-<h2>The code</h2>
+<h2>🔧 The code</h2>
 <p>The instrument is one self-contained HTML file with no automatic external requests, built from a
 Python and JavaScript source tree by <code>build/build_app.py</code>, which re-runs every harness
 and refuses to publish a red build. It is a living instrument and it is rewritten often; what

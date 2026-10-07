@@ -1,0 +1,241 @@
+{
+  "menuSections": [
+    {
+      "number": 1,
+      "id": "hierarchy",
+      "label": "Hierarchy",
+      "source": "src/sections/hierarchy_section.js"
+    },
+    {
+      "number": 2,
+      "id": "inverse",
+      "label": "Design a scale",
+      "source": "src/sections/inverse_section.js"
+    },
+    {
+      "number": 3,
+      "id": "census",
+      "label": "Count a rung",
+      "source": "src/sections/census_section.js"
+    },
+    {
+      "number": 4,
+      "id": "atlas7",
+      "label": "Atlas",
+      "source": "src/sections/atlas_section.js"
+    },
+    {
+      "number": 5,
+      "id": "samepot",
+      "label": "Same potential?",
+      "source": "src/sections/samepot_section.js"
+    },
+    {
+      "number": 6,
+      "id": "anomalies",
+      "label": "Anomalies & proton",
+      "source": "src/sections/anomalies_section.js"
+    },
+    {
+      "number": 7,
+      "id": "escape",
+      "label": "Escape from proton decay",
+      "source": "src/sections/escape_section.js"
+    },
+    {
+      "number": 8,
+      "id": "multiplets",
+      "label": "Multiplets & parities",
+      "source": "src/sections/multiplets_section.js"
+    },
+    {
+      "number": 9,
+      "id": "screen",
+      "label": "Screen a table",
+      "source": "src/sections/screen_section.js"
+    },
+    {
+      "number": 10,
+      "id": "collider",
+      "label": "Collider",
+      "source": "src/sections/collider_section.js"
+    },
+    {
+      "number": 11,
+      "id": "selection",
+      "label": "Selection rule",
+      "source": "src/sections/selection_section.js"
+    },
+    {
+      "number": 12,
+      "id": "calculator",
+      "label": "Model calculator",
+      "source": "src/sections/calculator_section.js"
+    },
+    {
+      "number": 13,
+      "id": "eta",
+      "label": "eta-meter",
+      "source": "src/sections/eta_section.js"
+    },
+    {
+      "number": 14,
+      "id": "fived",
+      "label": "Five dimensions",
+      "source": "src/sections/fived_section.js"
+    },
+    {
+      "number": 15,
+      "id": "sun5d",
+      "label": "SU(N) builder",
+      "source": "src/sections/sun5d_section.js"
+    },
+    {
+      "number": 16,
+      "id": "papers",
+      "label": "Paper models",
+      "source": "src/sections/papers_section.js"
+    },
+    {
+      "number": 17,
+      "id": "spectrum5d",
+      "label": "4D spectrum",
+      "source": "src/sections/spectrum5d_section.js"
+    },
+    {
+      "number": 18,
+      "id": "anomaly5d",
+      "label": "Anomalies",
+      "source": "src/sections/anomaly5d_section.js"
+    },
+    {
+      "number": 19,
+      "id": "brane",
+      "label": "Brane matter",
+      "source": "src/sections/brane_section.js"
+    },
+    {
+      "number": 20,
+      "id": "sweep5d",
+      "label": "Scan",
+      "source": "src/sections/sweep5d_section.js"
+    },
+    {
+      "number": 21,
+      "id": "dossier",
+      "label": "One model, every verdict",
+      "source": "src/sections/dossier_section.js"
+    },
+    {
+      "number": 22,
+      "id": "predict",
+      "label": "Simulator",
+      "source": "src/sections/predict_section.js"
+    },
+    {
+      "number": 23,
+      "id": "bcclass",
+      "label": "Boundary conditions",
+      "source": "src/sections/bcclass_section.js"
+    },
+    {
+      "number": 24,
+      "id": "orbifold",
+      "label": "Classify an orbifold",
+      "source": "src/sections/orbifold_section.js"
+    },
+    {
+      "number": 25,
+      "id": "relations",
+      "label": "Name the relations",
+      "source": "src/sections/relations_section.js"
+    },
+    {
+      "number": 26,
+      "id": "cbclass",
+      "label": "Conjugate boundary conditions",
+      "source": "src/sections/cbclass_section.js"
+    },
+    {
+      "number": 27,
+      "id": "blkt",
+      "label": "Brane kinetic terms",
+      "source": "src/sections/blkt_section.js"
+    },
+    {
+      "number": 28,
+      "id": "gravitygauge",
+      "label": "Gravity–gauge · 3D",
+      "source": "src/sections/gravitygauge_section.js"
+    },
+    {
+      "number": 29,
+      "id": "litcensus",
+      "label": "The literature",
+      "source": "src/sections/census_lit_section.js"
+    }
+  ],
+  "experimentCards": [
+    {
+      "id": "su6mn",
+      "title": "Maru–Nago SU(6): Type 2 / Type 3 families",
+      "host": "papers"
+    },
+    {
+      "id": "rsrunning",
+      "title": "Warped SU(6): differential running and UV brane terms",
+      "host": "blkt"
+    },
+    {
+      "id": "flavour",
+      "title": "Three active flavours: construct a rank 2 or rank 3 ring extension",
+      "host": "predict"
+    },
+    {
+      "id": "thermal",
+      "title": "Finite-temperature GHU: Wilson potential and phase coexistence",
+      "host": "predict"
+    },
+    {
+      "id": "thermalhistory",
+      "title": "Integrated nucleation, percolation and conditional gravitational waves",
+      "host": "predict"
+    },
+    {
+      "id": "rsanomaly",
+      "title": "RS anomaly flow and baryon current",
+      "host": "anomalies"
+    },
+    {
+      "id": "higgstools",
+      "title": "Higgs rates, total width and experimental tests",
+      "host": "collider"
+    }
+  ],
+  "simulatorModes": [
+    {
+      "id": "builder",
+      "label": "5D model from the SU(N) builder"
+    },
+    {
+      "id": "higgsrate",
+      "label": "Higgs production · top KK reference"
+    },
+    {
+      "id": "neutrino",
+      "label": "Neutrino ring · 4D research model"
+    }
+  ],
+  "integratedAnalyses": [
+    "Hierarchy robustness",
+    "CMS HNL comparison",
+    "Neutrino decays with computed Majoron channels",
+    "Conditional rung bounds and full-potential witnesses"
+  ],
+  "batchStudies": [
+    "Higgs coupling/width assumptions",
+    "Thermal wall/efficiency/background scenarios",
+    "Candidate enumeration and selected full-potential checks"
+  ],
+  "countingRule": "Menu sections, embedded cards, model modes and batch studies are overlapping levels of organization, not quantities to add into a panel total."
+}

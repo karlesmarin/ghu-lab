@@ -1,5 +1,10 @@
 # GHU experiments: from inputs to a checkable conclusion
 
+🧭 The [complete laboratory map](laboratory-inventory.md) covers the navigation,
+Simulator modes, embedded cards, diagnostics and batch studies. For the neutrino
+extension, see the [three-flavour guide](neutrino-flavour.md), including what its
+vacuum oscillation plots compute and the scope of a future IceCube comparison.
+
 Each new experiment stays in an existing section. Start with its **What this tests** box, choose a reference, then vary one physical parameter. The result area presents the key quantities and a short interpretation before the figures. **Use this point as comparison** saves a snapshot; subsequent changes show differences beside the indicators. The snapshot travels in the JSON export. Tables, matrices and numerical precision controls are expandable.
 
 | Question | Where | First useful comparison |
@@ -120,6 +125,7 @@ studies, with [JSON records, figures and an artifact inventory](../research/2026
 
 The batch scans are supplied as command-line tools, not extra interactive panels. Interactive
 profile scans, a resumable candidate queue and plasma/friction dynamics are proposed extensions.
-The report explains their prerequisites. The application still contains 29 sections; its current
+The report explains their prerequisites. The menu has 29 entries; the full contents are mapped
+in the [laboratory inventory](laboratory-inventory.md). The current
 release validation is 3,895 source checks across 64 harnesses, ten browser gates and 30 site checks.
 The twelve study-record checks are counted separately.

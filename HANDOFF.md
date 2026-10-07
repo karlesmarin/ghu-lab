@@ -3,6 +3,26 @@
 > State at 2026-10-07. The section below is the newest; the earlier handoffs follow it
 > unchanged and are still the map of the code.
 
+## 2026-10-07 — 🧭 complete laboratory inventory and current neutrino scope
+
+Both READMEs and the public home/docs now describe the complete laboratory before the
+navigation catalog: 29 menu entries, three Simulator modes, seven attached experiment
+cards, integrated diagnostics and three archived batch studies. These are overlapping
+levels, not an additive panel count. The nine October additions are the seven cards
+plus the Majoron and conditional-bound extensions. The catalog now follows registry
+order, including Conjugate boundary conditions before BLKT.
+
+`tools/laboratory_inventory.py` derives sections, cards and modes from their source
+registrations and emits `docs/laboratory-inventory.json`; the companion Markdown guide
+gives routes, experiments, datasets, engines, exports and first checks. Site counts are
+also derived from the registrations. Existing historical counts below remain historical.
+
+The neutrino guides, model explanation and exported unknown-width reason now acknowledge
+the implemented leading Majoron light/heavy channels and the separate three-copy flavour
+reconstruction. The full model width and a joint flavour/experimental fit remain unknown.
+No numerical model or result changes in this inventory update. The source and browser
+gates must be rerun because the corrected explanation is part of the compiled app.
+
 ## 2026-10-07 — integrated histories, conditional certificates and reproducible exploration
 
 **Current validation: 3,895 checks / 64 source harnesses; ten browser gates; 30 site checks.**

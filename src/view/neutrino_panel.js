@@ -84,8 +84,9 @@ function neutrinoPanelHTML() {
     <p>The displayed slice chooses M = 2f, MNS = 0.25f, vanishing reverse links and χ and Σ vacuum values f/√2 (their radial normalization scales are f).
     Both Majorana Yukawas are allowed. The link geometry therefore does not fix their ratio.</p>
     <p>The collective phase remains protected against a renormalizable scalar potential. A physical Majoron accompanies
-    the assumed spontaneous global-symmetry breaking. Its phenomenology, radial stability, electroweak loop masses,
-    three-flavour mixing and the allowed dimension-five phase operator are not calculated by these controls.</p>
+    the assumed spontaneous global-symmetry breaking. The Decays card computes leading Majoron light and heavy cascade widths;
+    the separate Three active flavours card reconstructs chosen flavour inputs with three ring copies.
+    Radial stability, electroweak loop masses and the full phase potential, including the allowed dimension-five operator, remain open.</p>
     <p>The formulas and six reference points are in <code>docs/neutrino-ring.md</code> and
     <code>data/neutrino_ring_reference.json</code>. The references use the complete 13-Weyl matrix at 65 digits.
     The calibration targets are chosen examples, not experimental determinations.</p>
@@ -201,9 +202,9 @@ function neutrinoPanelExport(state) {
     experimental_comparison:v(nrCompare(r,NR_CMP.flavour,NR_CMP.kind),'conditional single-HNL reference; not model exclusion'),
     decay_scenario:val(ndModel(r,ND_S,NR_CMP.flavour),{status:STATUS.VERIFIED,source:'Conditional on-shell decay scenario; docs/neutrino-decays.md; Atre 0901.3589; Anamiati 1607.05641 eq. (31)',units:'partial widths eV, time s, flight mm; not the full ring width'}),
     decay_summary:val(ndSummary(ndModel(r,ND_S,NR_CMP.flavour)),{status:STATUS.VERIFIED,source:'Interpretation of the explicit conditional decay inputs'}),
-    full_model_width:unknown('Majoron, other new channels, heavy cascades, off-shell channels and scalar mixing remain unresolved'),
+    full_model_width:unknown('Leading Majoron channels can be included; off-shell weak decays, weak heavy cascades, additional scalar/gauge channels, higher-order effects and scalar mixing remain unresolved'),
     model_exclusion:unknown('Conditional decay diagnostics do not match full branching fractions, flavours, acceptance and interference to CMS'),
-    three_flavour_fit:unknown('One active Yukawa vector; tree-level rank at most one'),
+    three_flavour_fit:unknown('The base ring has one active Yukawa vector and tree-level rank at most one; the separate three-copy card reconstructs chosen flavour inputs without a joint fit'),
     full_vacuum:unknown('Radial stability and phase re-minimization not calculated'),
     electroweak_loop_mass:unknown('The second Majorana entry may affect the light mass radiatively')};
   return {card:makeCard({...nrRecord(r),experimental_reference:{...NR_CMP},decay_scenario:{...ND_S}},values,{version:VERSION,build:BUILD,kernelHash:KERNEL_HASH,

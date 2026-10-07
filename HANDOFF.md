@@ -2031,3 +2031,7 @@ fermions only, no brane fields -- so "the bulk pays its own anomaly" means "need
 to be consistent", a much stronger demand than consistency, and failing it excludes nothing.
 
 **Build: 1 449 checks, 24 harnesses, 19 sections.**
+
+## Video manual · 7 October 2026
+
+Two Full HD versions cover all 29 menu entries, 3 Simulator modes and 8 experiment cards in 43 chapters. Source: `tools/video_guide/`; published assets: `media/video/`; site: `video/index.html`. Narration is synthetic (Zira English, Helena Spanish). The existing mathematical app is unchanged. See `docs/video-guide-production.md` for the capture and reproduction workflow.

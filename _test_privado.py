@@ -45,7 +45,7 @@ PATRONES = [
 ]
 
 # Binary and vendored things the rule cannot speak about.
-SALTA = re.compile(r"\.(png|jpg|jpeg|gif|pdf|ico|woff2?|zip)$", re.I)
+SALTA = re.compile(r"\.(png|jpg|jpeg|gif|pdf|ico|woff2?|zip|mp4)$", re.I)
 
 
 def tracked():

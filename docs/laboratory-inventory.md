@@ -99,3 +99,7 @@ The main card, LaTeX and permalink describe the selected model. Experiment JSON 
 experiment parameters, full result, provenance and optional comparison snapshot; the text summary
 and SVG are complementary exports. Permalinks preserve controls, while external results and saved
 comparisons belong in the JSON archive. See [the export guide](result-card.md).
+
+## 🎬 Video guide
+
+Watch this inventory in action: [English](https://karlesmarin.github.io/ghu-explorer/video/index.html?lang=en) · [Español](https://karlesmarin.github.io/ghu-explorer/video/index.html?lang=es). The tutorial covers every menu entry, Simulator mode and research card, with chapters, narration, subtitles and downloads.

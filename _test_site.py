@@ -82,7 +82,8 @@ def check_links(w):
             # itself, so there is no file to find on disk and its absence is not a broken link.
             if href.startswith(("http://", "https://", "mailto:", "#", "data:")):
                 continue
-            target = str((base / href.split("#")[0]).as_posix())
+            # A language choice is a query, not part of the on-disk filename.
+            target = str((base / href.split("#")[0].split("?")[0]).as_posix())
             while "/../" in "/" + target:
                 target = re.sub(r"[^/]+/\.\./", "", target, count=1)
             target = target.lstrip("./")

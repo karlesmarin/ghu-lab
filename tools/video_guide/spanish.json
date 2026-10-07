@@ -1,0 +1,209 @@
+{
+  "start": [
+    "Bienvenido a G H U Lab. Este recorrido muestra todas las secciones del menú, los tres modos del simulador y los experimentos de investigación. Utilizaremos los controles reales y examinaremos sus resultados. Puedes elegir un capítulo para volver directamente a un tema.",
+    "Empieza por un modelo o una referencia identificados. Cambia una sola hipótesis cada vez y lee el resultado junto con sus unidades y su alcance. Teorema, verificado, medido y desconocido indican evidencias diferentes. Un valor calculado para un escenario no es, por ello, una medición experimental."
+  ],
+  "hierarchy": [
+    "Abre Hierarchy, jerarquía. Para un contenido de materia del modelo S U siete, esta sección calcula la escala de compactificación y la masa del Higgs, y su distancia al techo condicionado por las convenciones del modelo.",
+    "Cambia el acoplamiento de diagnóstico a cero coma siete. Las gráficas separan el cambio de convención del modelo, la propagación de la masa medida del bosón W y la convergencia de la suma. Lee los ejes y los valores centrales conjuntamente.",
+    "Las escalas absolutas heredan la advertencia de normalización situada al principio. El ángulo calculado no reproduce el publicado, con un factor que depende de la fila. El cociente de masas y las leyes aritméticas no heredan esa ambigüedad."
+  ],
+  "inverse": [
+    "Abre Design a scale. Aquí recorremos el cálculo en sentido inverso: elegimos una escala de compactificación y una ventana de masa del Higgs, y buscamos un contenido que las alcance, o un certificado que descarte la solución bajo las condiciones indicadas.",
+    "Introduce una escala objetivo de dos teraelectronvoltios y ejecuta el diseño. Examina el contenido obtenido o el certificado identificado. Agotar el presupuesto de búsqueda es una condición de parada, no una prueba de que no exista solución.",
+    "La etiqueta budget significa que la búsqueda se detuvo. El panel de puntos alcanzables descompone cada agrupación en el conjunto finito de puntos que realmente contiene."
+  ],
+  "census": [
+    "Abre Count a rung. La pregunta es cuántos contenidos de materia pertenecen a un peldaño. El programa los cuenta sin tener que construirlos todos individualmente.",
+    "La gráfica se genera al abrir la sección. Pulsa en otra posición horizontal para mover la sonda y comparar los recuentos. Se cuentan contenidos matemáticos; el resultado no es una lista de modelos experimentalmente viables.",
+    "Los cuatro totales de la semilla publicada reproducen una enumeración independiente de sesenta y nueve millones veintidós mil cuatrocientos sesenta y cuatro contenidos. La semilla candidata utiliza otros peldaños y se cuenta por separado. No se traslada a ella la selección de masas de la semilla publicada."
+  ],
+  "atlas7": [
+    "Abre Atlas. Cada contenido de hasta cinco multipletes aparece como una tesela con su potencial: mil doscientos ochenta y seis contenidos en total.",
+    "Pulsa el botón para dibujar la retícula completa. Cada tesela corresponde a un potencial diferente. Examina su color y su forma. Un potencial plano también es un resultado. Al pulsar una tesela, su contenido se transfiere al modelo.",
+    "En esta configuración, una tesela entra en la ventana del Higgs: la fila dos publicada. Las teselas vacías corresponden a potenciales planos, y las comprobaciones predicen cuáles serán antes de dibujarlas."
+  ],
+  "samepot": [
+    "Abre Same potential. Esta sección compara dos contenidos y aplica el teorema tres de la séptima parte para decidir si producen el mismo potencial a un lazo.",
+    "Copia el primer contenido y construye su representante canónico. Compara las curvas y las cinco coordenadas. Listas diferentes de materia pueden producir exactamente el mismo potencial bajo las hipótesis del teorema.",
+    "La igualdad de las cinco coordenadas equivale a la identidad del potencial. Que la curva discontinua se superponga a la continua es la consecuencia que estamos comprobando."
+  ],
+  "anomalies": [
+    "Abre Anomalies and proton. Aquí se muestra la contribución de cada multiplete a las anomalías, en octavos, y las condiciones de la protección frente al decaimiento del protón.",
+    "Lee los signos de las contribuciones y la escalera de valores. Una suma no nula del sector del volumen no implica por sí sola inconsistencia: hay que considerar la posible materia de brana. La tarjeta de investigación situada más abajo estudia otro modelo, con geometría alabeada.",
+    "Los fermiones de brana pueden contribuir a los mismos canales con signo contrario. La restricción de la escalera excluye un peldaño; no excluye automáticamente un modelo completo."
+  ],
+  "escape": [
+    "Abre Escape from proton decay. Introduce un contenido de brana y observa cómo se recalculan los seis canales, las asignaciones de carga y la regla de selección.",
+    "Selecciona la carga del escalar asociada a la representación ochenta y cuatro. Los canales racionales y las cargas se actualizan juntos. Examina qué asignaciones cumplen la regla de protección indicada. El cálculo no proporciona una vida medida del protón.",
+    "En la enumeración implementada, cada asignación que protege al protón también permite cancelar los seis canales. Esa conclusión se refiere al conjunto enumerado y a las condiciones mostradas."
+  ],
+  "multiplets": [
+    "Abre Multiplets and parities. Esta es la capa situada bajo las tablas de términos: cada representación se descompone en multipletes con sus tres paridades.",
+    "Selecciona la representación ochenta y cuatro y cambia la asignación de paridad. La descomposición y el dibujo se actualizan desde los datos de la representación. Relaciona cada modo cero superviviente con el signo de su contribución al potencial.",
+    "Las tablas de términos se deducen aquí y se contrastan con las utilizadas por el resto del laboratorio. Una discrepancia entre ambas aparecería en este panel."
+  ],
+  "screen": [
+    "Abre Screen a table. Esta sección examina una fila publicada mediante restricciones aritméticas, certificados condicionados y comprobaciones numéricas del potencial completo.",
+    "Introduce una resonancia candidata de cuatro mil gigaelectronvoltios. El peine aritmético compara ese punto con las separaciones permitidas. Después examina las cotas y los testigos del vacío por separado. Una coincidencia aritmética no certifica un vacío físico completo.",
+    "Los certificados de intervalos acotan una aproximación de momentos para ángulos pequeños. No certifican el techo del potencial completo. Las comprobaciones del vacío comparan extremos numéricos con errores de truncamiento; un testigo superviviente no demuestra un óptimo exhaustivo."
+  ],
+  "collider": [
+    "Abre Collider. La sección identifica qué estado restringe una búsqueda de dos chorros e incorpora un escenario independiente de tasas del Higgs, contrastado con conjuntos experimentales fijados.",
+    "Mueve la sonda de masa de dos chorros a cinco coma dos. Lee el estado, la escala de masa y la comparación publicada bajo la hipótesis de color indicada. El experimento del Higgs situado más abajo utiliza otro escenario escalar explícito.",
+    "Los valores de delta chi cuadrado de dos chorros proceden del registro publicado. El experimento del Higgs calcula su propia comparación. Sus ciento cincuenta y nueve observables no son ciento cincuenta y nueve grados de libertad independientes. Las compensaciones entre acoplamientos y anchuras impiden interpretar esto como un ajuste completo de G H U."
+  ],
+  "selection": [
+    "Abre Selection rule. La representación determina qué dominio del ángulo puede explorar la búsqueda y si una representación de S U cuatro puede alojar una generación de quarks.",
+    "Selecciona las etiquetas de Dynkin uno, cero, uno. La carga del centro y la proyección quiral determinan el dominio permitido y el contenido capaz de alojar una generación. El dominio se calcula desde la representación.",
+    "El criterio de carga del centro es un resultado clásico y aparece atribuido a su fuente. La aportación identificada en el laboratorio es la proyección quiral que produce el recuento cerrado."
+  ],
+  "calculator": [
+    "Abre Model calculator. Introducimos contenido de materia y calculamos la respuesta del Higgs. El ejemplo reconstruye el modelo de referencia A H M N.",
+    "Carga el modelo A H M N. El navegador recalcula sus términos, el potencial y las magnitudes derivadas. Utiliza este ejemplo como referencia antes de cambiar multiplicidades o signos de contorno. Conserva la advertencia de normalización para las escalas absolutas.",
+    "El cociente de masas no depende de esa normalización. Las escalas absolutas sí dependen de ella."
+  ],
+  "eta": [
+    "Abre eta-meter. El panel muestra qué cambia el signo de contorno eta en la contribución de un multiplete, mediante una expresión cerrada.",
+    "Carga las nueve copias del multiplete insensible y cambia todos los signos eta. En este ejemplo el potencial permanece igual. La vista de diferencias permite ver la cancelación. Esto no significa que los signos de contorno nunca importen.",
+    "En el modo de diferencias, la contribución de cada multiplete insensible desaparece. Es una forma visual de comprobar el teorema de la quinta parte."
+  ],
+  "fived": [
+    "Abre Five dimensions. Esta sección reproduce el modelo de cinco dimensiones y S U tres de Haba y Yamashita e incorpora la búsqueda de su vacío.",
+    "Compara el sector gauge puro con el trío marginal del ejemplo. Lee conjuntamente el potencial y el vacío. Sus convenciones y su aritmética pertenecen a este modelo de cinco dimensiones y no deben trasladarse desde el modelo S U siete de seis dimensiones.",
+    "En el caso gauge puro la simetría no se rompe. En esta clase de cinco dimensiones, ocho veces D es par. El peldaño impar utilizado en la cota de S U siete requiere la sexta dimensión."
+  ],
+  "sun5d": [
+    "Abre S U N builder. Las condiciones de contorno y el contenido del volumen son entradas para construir el potencial de Wilson a un lazo de los modelos implementados en cinco dimensiones.",
+    "Carga el ejemplo de la sección cuatro punto tres del artículo. Los bloques de contorno y la materia definen el modelo. El potencial se reconstruye con esas entradas. Spectrum, Anomalies y Simulator permiten examinar el mismo modelo del constructor.",
+    "Las ecuaciones de los cuatro ejemplos desarrollados en la fuente se comprueban frente a esta implementación. Cuando hay una sola fase de Wilson, los términos tienen la estructura que permite aplicar la expresión cerrada utilizada en las secciones anteriores."
+  ],
+  "papers": [
+    "Abre Paper models. El panel toma cuatro modelos publicados y evalúa las partes que admite el motor del laboratorio.",
+    "Cambia a cinco el número de fermiones de Dirac tripletes del ejemplo compatible. Distingue los resultados calculados de las afirmaciones estructurales. Cuando aparece el botón de carga, puedes transferir el contenido compatible al constructor general.",
+    "Tres de los cuatro modelos son supersimétricos y el potencial del motor no lo es. Sus filas describen condiciones de contorno y modos cero. Una fila ámbar identifica la ecuación impresa con la que discrepa; no invalida por ello todo el artículo."
+  ],
+  "spectrum5d": [
+    "Abre Four D spectrum. Aquí vemos qué contiene el modelo del constructor: campos de cuatro dimensiones y sus torres de Kaluza Klein.",
+    "Carga el ejemplo S U seis y desplaza la sonda de Wilson. Compara las familias del potencial con los niveles bajos de la torre exacta. Esos niveles pueden requerir una lectura diferente de las familias utilizadas para construir el potencial.",
+    "Las familias son correctas para calcular el potencial. En un vacío roto no describen correctamente el nivel más bajo de algunas representaciones. Por eso la torre exacta aparece en una segunda tabla."
+  ],
+  "anomaly5d": [
+    "Abre Anomalies. El registro calcula cada canal de anomalía del grupo no roto con aritmética racional exacta.",
+    "Carga el ejemplo S U seis. Examina los canales y distingue una suma que se anula de un modelo sin fermiones sin masa que analizar. La cancelación mediante materia de brana es un cálculo separado.",
+    "Una fila no nula indica una contribución pendiente de compensar. No implica automáticamente inconsistencia. Si no existen fermiones sin masa, la etiqueta es no subject, sin objeto de análisis, en lugar de cancels, cancelación."
+  ],
+  "brane": [
+    "Abre Brane matter. El panel incorpora materia en los dos puntos fijos y la contrasta simultáneamente con las anomalías y con las condiciones para generar masas de contorno.",
+    "Carga el ejemplo S U cinco de brana y resuelve los canales lineales de carga admitidos. Compara el registro de anomalías con los campos que siguen sin masa. Cancelar una anomalía y dar masa a un campo son requisitos diferentes.",
+    "Lee los dos resultados antes y después: anomalías y campos sin masa. La carga que cancela una anomalía no tiene por qué permitir un término de masa. El recuento superviviente es una cota inferior bajo la hipótesis de acoplamientos genéricos."
+  ],
+  "sweep5d": [
+    "Abre Scan. El barrido recorre un espacio finito de condiciones de contorno y contenidos, aplicando sucesivamente los filtros seleccionados.",
+    "Ejecuta el barrido mostrado. Lee el total explorado, cada filtro, los supervivientes y los casos sin resolver. Se cuentan por separado condiciones de contorno y clases equivalentes. Dos filas supervivientes no representan necesariamente teorías distintas.",
+    "La transformación de bloques indicada en pantalla conecta descripciones de la misma teoría. Por eso el resultado principal contiene dos recuentos. Un vacío no decidido se contabiliza por separado de un resultado negativo."
+  ],
+  "dossier": [
+    "Abre One model, every verdict. Esta sección distingue qué respuestas pertenecen a la teoría y cuáles dependen del marco con el que la describimos.",
+    "Inicia la demostración y selecciona la condición de contorno equivalente que aparece. Compara las etiquetas de teoría y de marco. Cambiar las coordenadas de la descripción puede mover una magnitud mostrada sin cambiar la teoría física.",
+    "Las etiquetas se calculan en la evaluación actual. Las magnitudes en el mínimo pertenecen a la teoría; las del punto simétrico dependen en gran parte del marco. Esa distinción es la pregunta central del panel."
+  ],
+  "predict": [
+    "Abre Simulator. Elige entre las predicciones del constructor, la referencia de producción del Higgs con modos del top o el anillo de neutrinos. Cada cálculo muestra el alcance de su comparación experimental.",
+    "Carga la demostración del modelo publicado y cambia el acoplamiento gauge a uno. Compara la respuesta del Higgs y la escala de compactificación. El cálculo usa entradas medidas e hipótesis identificadas. No simula sucesos de colisionador.",
+    "La historia térmica pertenece a un ejemplo independiente de S U tres. Su espectro acústico se evalúa únicamente en el régimen compatible indicado. No es una predicción de detección ni la historia térmica del constructor S U siete. Un vacío simétrico no determina una escala de compactificación."
+  ],
+  "bcclass": [
+    "Abre Boundary conditions. Recorremos las órbitas para identificar qué condiciones de contorno describen la misma teoría.",
+    "Cambia del intervalo al ejemplo bidimensional Z tres. Cambian las órbitas y el número de clases porque cambia el problema de contorno. Una clase reúne las descripciones conectadas por las transformaciones permitidas.",
+    "En el intervalo, el recuento reproduce el cuadrado de N más uno, de acuerdo con el teorema citado. El resultado cambia al pasar al ejemplo bidimensional."
+  ],
+  "orbifold": [
+    "Abre Classify an orbifold. El alfabeto del orbifold se deduce directamente de su matriz de rotación.",
+    "Selecciona la rotación bidimensional Z cuatro y clasifícala. Puedes introducir otra matriz compatible. Si no cumple las hipótesis de orden finito, el programa debe rechazarla en lugar de asignarle una clasificación.",
+    "La única entrada es la matriz. Una matriz de orden infinito, o con un polinomio característico incompatible con la forma ciclotómica admitida, devuelve refused, rechazado."
+  ],
+  "relations": [
+    "Abre Name the relations. Identifica las relaciones de equivalencia atribuidas a la bibliografía y examina si un conjunto propuesto de movimientos conecta una clase.",
+    "Cambia al problema Z cuatro y evalúa el movimiento propuesto. Lee las condiciones locales y globales junto con la fuente. Un movimiento útil en un problema no define automáticamente una relación completa en otro.",
+    "La distinción entre resultados locales y globales permanece explícita para evitar extender una conclusión fuera de sus hipótesis."
+  ],
+  "cbclass": [
+    "Abre Conjugate boundary conditions. El número de condiciones conjugadas no equivalentes depende de una hipótesis no resuelta. El panel muestra los resultados de las dos alternativas.",
+    "Aumenta el rango del grupo y compara las dos columnas. Las transformaciones conjugadas actúan por congruencia. Permitir transformaciones independientes en las fronteras plantea un problema diferente de exigir una transformación vinculada.",
+    "Lo que se muestra es la dependencia respecto de esa elección: cuatro clases constantes en una hipótesis, o ausencia de un recuento finito en la otra. La exportación conserva la hipótesis junto al número."
+  ],
+  "blkt": [
+    "Abre Brane kinetic terms. Los términos cinéticos localizados en branas modifican la torre de masas, que deja de ser simplemente un múltiplo entero de uno sobre R.",
+    "Aumenta el coeficiente de brana a doce. Las raíces y el espectro responden. Compara las ecuaciones de las raíces y la normalización. Para estudiar la evolución de acoplamientos, utiliza la tarjeta independiente de unificación alabeada.",
+    "Las funciones especiales se contrastan con una referencia de cuarenta cifras. El límite de coeficiente nulo se calcula mediante una implementación independiente del solucionador. Esta comparación detectó defectos reales durante el desarrollo."
+  ],
+  "gravitygauge": [
+    "Abre Gravity gauge, tres dimensiones. Este ejemplo controlado muestra qué información física puede quedar indeterminada aunque conozcamos una torre completa de masas.",
+    "Selecciona eta igual a menos cero coma nueve y muestra la función cinética gauge. Las masas emparejadas y la respuesta a una fuente contienen información diferente. La magnitud de Wilson de este panel es una normalización cinética, no una masa del Higgs.",
+    "Las masas positivas emparejadas comparten un operador canónico. El control gauge con otras condiciones de contorno sí cambia. La posición de la fuente está en la dimensión adicional. La estabilidad y el corte del ejemplo con escalar siguen abiertos."
+  ],
+  "litcensus": [
+    "Abre The literature. Es la lista de lectura de la serie: registra qué publica cada artículo y cuáles se han leído.",
+    "Filtra por la terna completa. Examina las fuentes registradas y lo que proporciona realmente cada artículo. Las señales de palabras clave ayudan a navegar, pero no son pruebas. La lista no pretende cubrir exhaustivamente el campo.",
+    "Un barrido por palabras clave puede omitir un resultado expresado de otro modo. Ninguna afirmación se deduce solo de una señal, y el corpus representa la lista de lectura del proyecto."
+  ],
+  "higgs-production": [
+    "El segundo modo del simulador estudia la producción del Higgs en la referencia con modos de Kaluza Klein del top. La tasa dominante, la torre finita y la comparación resumada responden a una pregunta concreta del modelo.",
+    "Mueve la escala a mil quinientos gigaelectronvoltios. Examina la curva de tasas y la convergencia por separado. La ventana de comparación es condicionada; una ventana personalizada representa un escenario introducido por el usuario."
+  ],
+  "neutrino-ring": [
+    "Selecciona el anillo de neutrinos de cuatro dimensiones. La calibración puede mantener fijas la masa ligera y la pérdida de corriente activa reconstruyendo los acoplamientos necesarios. El modelo base contiene seis parejas pesadas.",
+    "Compara mu B igual a cero con cinco mil kiloelectronvoltios. La masa ligera dominante y las separaciones de las parejas pesadas contienen información diferente. Lee los indicadores de aproximación junto al espectro."
+  ],
+  "cms-hnl": [
+    "La comparación con C M S utiliza curvas publicadas observadas y esperadas, con sus bandas. La superposición mantiene visibles el sabor elegido y la hipótesis de Dirac o Majorana.",
+    "Elige el sabor muónico y la referencia Majorana. Examina la convención por componente, el intervalo de masas y los cocientes de referencia. La superposición del anillo no constituye una verosimilitud que incorpore todos sus sabores, aceptancias de decaimiento e interferencias entre estados."
+  ],
+  "decays": [
+    "La tarjeta de decaimientos parte de los canales débiles. Selecciona una pareja pesada y examina sus anchuras parciales, la vida media y la estimación de vuelo para un impulso relativista fijado.",
+    "Activa los canales calculados de Majoron. La anchura y la vida derivada cambian conjuntamente. Una anchura adicional es una hipótesis separada del usuario. Antes de interpretar el cociente entre signos iguales y opuestos, revisa si la pareja está aislada o solapada.",
+    "Cambia el factor de impulso a diez y examina la curva de vuelo. Representa el escenario cinemático indicado. No integra una aceptación de detector ni una distribución de producción."
+  ],
+  "flavour": [
+    "Tres copias estériles reconstruyen las masas ligeras y la orientación de mezcla elegidas. El orden de masas, las fases y los déficits activos son entradas. También se muestran los pesos de sabor de dieciocho parejas pesadas.",
+    "Cambia la fase de Dirac a noventa grados. Compara la aparición de neutrinos y antineutrinos en el límite unitario de vacío y examina las fracciones de sabor. Las fases de Majorana se cancelan en estas oscilaciones, pero pueden afectar a la magnitud de doble beta mostrada."
+  ],
+  "identifiability": [
+    "Este experimento mantiene fijas las masas ligeras y la orientación de mezcla mientras reconstruye una trayectoria de parámetros. La franja verde identifica las entradas fijas. Cinco figuras separan masas pesadas, separaciones, factores de corriente, diferencias pequeñas y datos de referencia.",
+    "Mueve la posición seleccionada de una décima a ocho décimas en la trayectoria de mu B. La masa permanece fija mientras cambia la separación de la pareja. El círculo abierto sigue el punto elegido. Las mismas entradas ligeras no determinan toda la respuesta del sector pesado.",
+    "Selecciona ahora el déficit activo común y su extremo superior. Se suprime el factor bruto de corriente, pero la normalización cercana indicada cancela el factor común. La figura de diferencias identifica la coincidencia numérica sin amplificar errores de redondeo.",
+    "Elige la tercera dirección de déficit. Los déficits diferentes pueden dejar una respuesta en la forma. La cuarta gráfica amplía una diferencia absoluta difícil de ver en curvas superpuestas. La escala es explícita y los datos exportados conservan la precisión original.",
+    "El mapa de DeepCore utiliza tablas archivadas de dos mil dieciocho para tres neutrinos estándar. La cruz permanece fija en la trayectoria del anillo porque las entradas ligeras siguen fijas. Este mapa no es una verosimilitud del anillo no unitario y no se suma a NuFIT.",
+    "Para mover la cruz, cambia seno cuadrado de theta veintitrés en la tarjeta de sabores. Aquí lo fijamos en cero coma seis. La referencia responde a la nueva entrada ligera. Fuera de la malla publicada, el laboratorio no asigna un valor extrapolado."
+  ],
+  "su6mn": [
+    "Este experimento reconstruye el potencial S U seis plano de Maru y Nago. El contenido de materia y el corte de la suma son controles explícitos. Un mínimo pequeño de Wilson debe leerse junto a su comprobación de convergencia.",
+    "Fija el corte de la suma en diez y examina el mínimo y la comparación. Un truncamiento finito puede cambiar el resultado aparente. El potencial compatible se puede transferir al constructor; eso no certifica un modelo completo de sabores."
+  ],
+  "rsrunning": [
+    "La tarjeta de unificación alabeada compara la evolución diferencial de los acoplamientos para la asignación de materia seleccionada. Los términos de contorno ultravioleta necesarios y sus residuos son resultados de esa aproximación.",
+    "Cambia la asignación de materia a C dos. Responden las diferencias de evolución y los términos de contorno necesarios. La referencia de análisis dimensional es una estimación de escala. La sonda de localización separada no calcula un espectro fermiónico completo."
+  ],
+  "thermal": [
+    "La tarjeta térmica utiliza su propio ejemplo S U tres. Incluye casos identificados del artículo y compara cortes del potencial. Para las entradas archivadas hay un resultado compatible de PhaseTracer disponible sin conexión.",
+    "Carga el caso dos y compara el potencial y la evolución de fases. La coexistencia y un indicador aproximado de nucleación son preguntas diferentes. Un punto nuevo necesita su cálculo compatible de la transición. Cambiar el constructor no convierte este ejemplo en la historia térmica del modelo construido."
+  ],
+  "thermalhistory": [
+    "La historia integrada utiliza tablas refinadas de la acción. Lee por separado nucleación, percolación y finalización. La fracción de falso vacío y la condición sobre el volumen físico hacen visibles esas diferencias.",
+    "Fija la velocidad supuesta de la pared en cero coma ocho y la eficiencia del fluido en cero coma uno. Compara la historia y el espectro acústico condicionado. Estos controles no calculan la fricción de la pared, la evolución del plasma ni una significación de detección."
+  ],
+  "rsanomaly": [
+    "El experimento alabeado separa los factores de anomalía ultravioleta e infrarroja, la cancelación gauge y la matriz de corriente bariónica. Sus fuentes y su aproximación son diferentes del registro base de S U siete.",
+    "Elimina las generaciones leptónicas en esta configuración de prueba. El desequilibrio revela una anomalía gauge que requiere completar el contenido. Una anomalía de corriente bariónica es una afirmación distinta; no calcula la vida del protón ni la producción de una asimetría bariónica."
+  ],
+  "higgstools": [
+    "Empieza con la referencia escalar archivada de tipo Modelo Estándar. Los acoplamientos locales determinan las tasas de producción, anchuras parciales y fracciones de desintegración. Las comparaciones compatibles de HiggsBounds y HiggsSignals utilizan conjuntos experimentales fijados.",
+    "Añade un megaelectronvoltio de anchura invisible. Las predicciones locales cambian y el resultado experimental anterior se retira porque sus entradas ya no coinciden. Ejecuta el motor opcional o importa un resultado compatible antes de asignar un nuevo veredicto experimental."
+  ],
+  "exports": [
+    "Guarda una instantánea de comparación antes de cambiar el punto. Exporta el archivo JSON para conservar entradas, resultados, hipótesis, procedencia y la referencia guardada. La tarjeta global y la exportación LaTeX ofrecen otra presentación del cálculo seleccionado.",
+    "Elige una figura y guarda su archivo vectorial SVG. Las nuevas figuras de neutrinos incluyen datos muestreados y procedencia en sus metadatos. El botón de enlace conserva controles en la dirección. Guarda también en JSON los resultados externos y las comparaciones.",
+    "Los cálculos del navegador y las referencias archivadas funcionan sin conexión. Los puntos nuevos de HiggsTools y PhaseTracer requieren el motor local opcional. El repositorio incluye instrucciones de reproducción, comprobaciones independientes y estudios archivados. Vuelve al capítulo que necesites, modifica una hipótesis y conserva el alcance junto a cada resultado."
+  ]
+}

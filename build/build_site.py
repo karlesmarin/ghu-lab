@@ -395,7 +395,7 @@ def page(shell, css, *, title, desc, body, depth, here, build):
            .replace("__BODY__", body)
            .replace("__BUILD__", build)
            .replace("__ROOT__", root))
-    for key in ("APP", "PAPERS", "CHANGES", "DOCS", "EDITIONS"):
+    for key in ("APP", "PAPERS", "CHANGES", "DOCS", "EDITIONS", "VIDEO"):
         out = out.replace(f"__NAV_{key}__", ' aria-current="page"' if key == here else "")
     left = re.search(r"__[A-Z_]+__", out)
     if left:
@@ -673,6 +673,16 @@ def main(argv=None):
                                   desc="Conventions, glossary, how to reproduce every number "
                                        "without the tool, and how to cite it.",
                                   body=docs, depth=1, here="DOCS", build=build))
+
+    # --- Requested video manual. Only this page uses adjacent, hash-pinned media.
+    import video_guide
+    video_body = video_guide.render(ROOT, OUT)
+    video_page = page(shell, css, title="Video guide — GHU Lab",
+                      desc="Watch every GHU Lab menu section and research experiment, with English and Spanish narration, subtitles and searchable chapters.",
+                      body=video_body, depth=1, here="VIDEO", build=build)
+    video_page = video_page.replace("and reaches nothing outside itself.",
+                                    "and uses only the video assets shipped alongside it.")
+    write("video/index.html", video_page)
 
     # --- editions: the frozen copies, and the pages the published records already point at
     frozen, carried = [], []

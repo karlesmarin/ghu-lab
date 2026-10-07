@@ -240,3 +240,7 @@ No blog. No news. No search box (five papers do not need one). No account. No co
 analytics. No cookie banner, because there is nothing to consent to.
 
 Every one of those is a maintenance obligation that outlives the enthusiasm that added it.
+
+## 🎬 Bilingual video manual
+
+The generated `video/index.html` page uses `src/site/video.html`, `build/video_guide.py` and the SHA-256 manifest in `media/video/manifest.json`. It serves only adjacent media. A declared edition-gate exception applies to this requested tutorial; the standalone scientific app remains self-contained. The builder checks every media digest. Chapter data, captions and posters are embedded in the page so language selection and captions also work when the complete site is opened from disk.

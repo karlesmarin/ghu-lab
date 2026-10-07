@@ -17,6 +17,28 @@ of the data, the Kaluza–Klein towers in GeV against the CMS dijet bound, and t
 Wilson line gives the fermions. Every measured number carries its source and the date it was
 read; no event is ever simulated.
 
+## 🎬 Learn by watching · Aprende con el vídeo
+
+**[English video guide](https://karlesmarin.github.io/ghu-explorer/video/index.html?lang=en) · [Guía en español](https://karlesmarin.github.io/ghu-explorer/video/index.html?lang=es)**
+
+Two narrated Full HD versions demonstrate the real interface in **43 chapters**: all **29 menu
+sections**, the **3 Simulator modes**, the **8 research cards**, integrated diagnostics and exports.
+Each chapter connects a question, a control change and the result, with the assumptions needed
+to interpret it. Use the searchable chapter list, subtitles, transcript and MP4 download. Changing
+language preserves your position within the chapter. Narration is synthetic; the interface keeps
+its English button labels. Recorded on **7 October 2026**.
+
+🇪🇸 **Cómo empezar:** abre la guía, elige Español y busca el módulo. Pulsa Reproducir y usa la
+pantalla completa para leer las gráficas. «Probar esta sección» abre el laboratorio. Cambia una
+entrada, compara la respuesta y exporta los resultados junto con sus hipótesis.
+
+🇬🇧 **Getting started:** open the guide, choose English and find your module. Press Play and use
+full screen for the figures. “Try this section” opens the laboratory. Change one input, compare
+the response, and export the results with their assumptions.
+
+The chapter count describes the tutorial; it does not add new navigation panels or scientific
+models. Representative controls are demonstrated, rather than every possible input combination.
+
 ## 🧭 What the laboratory contains
 
 | Layer | Current inventory | Where to find it |

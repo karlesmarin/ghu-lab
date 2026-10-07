@@ -1,0 +1,2142 @@
+{
+  "schema": "ghu-video-guide-v1",
+  "language": "en",
+  "voice": "Microsoft Zira Desktop",
+  "date": "2026-10-07",
+  "scope": "A real-interface walkthrough of all menu sections, three Simulator modes, eight research cards and integrated diagnostics. Representative controls are demonstrated; this is not an exhaustive tour of every numerical input combination.",
+  "recordingNotes": "Pointer highlights and chapter captions are tutorial annotations. Computation waits may be shortened; results come from the actual application. Built-in demonstrations may be held between steps for narration.",
+  "chapters": [
+    {
+      "id": "start",
+      "host": "hierarchy",
+      "title": "Start here: question, model, comparison",
+      "titleES": "Empieza aquí: pregunta, modelo y comparación",
+      "steps": [
+        {
+          "text": "Welcome to G H U Lab. This walkthrough covers every menu section, the three Simulator modes and the embedded research experiments. We will use real controls and inspect the results. Choose a chapter when you want to revisit one topic.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "01_start_01",
+          "textES": "Bienvenido a G H U Lab. Este recorrido muestra todas las secciones del menú, los tres modos del simulador y los experimentos de investigación. Utilizaremos los controles reales y examinaremos sus resultados. Puedes elegir un capítulo para volver directamente a un tema."
+        },
+        {
+          "text": "Start with a named model or reference. Change one assumption at a time, and read the result with its units and scope. Theorem, verified, measured and unknown describe different kinds of evidence. A computed scenario value is not automatically an experimental measurement.",
+          "actions": [],
+          "focus": {
+            "selector": "#top",
+            "index": 0
+          },
+          "title": null,
+          "id": "01_start_02",
+          "textES": "Empieza por un modelo o una referencia identificados. Cambia una sola hipótesis cada vez y lee el resultado junto con sus unidades y su alcance. Teorema, verificado, medido y desconocido indican evidencias diferentes. Un valor calculado para un escenario no es, por ello, una medición experimental."
+        }
+      ],
+      "number": 1
+    },
+    {
+      "id": "hierarchy",
+      "host": "hierarchy",
+      "title": "Hierarchy",
+      "titleES": "Jerarquía",
+      "steps": [
+        {
+          "text": "Open Hierarchy. Given a bulk content of the SU(7) model, where the compactification scale and the Higgs mass land — and how far that content sits below the ceiling no content can pass.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "02_hierarchy_01",
+          "textES": "Abre Hierarchy, jerarquía. Para un contenido de materia del modelo S U siete, esta sección calcula la escala de compactificación y la masa del Higgs, y su distancia al techo condicionado por las convenciones del modelo."
+        },
+        {
+          "text": "Change the diagnostic gauge coupling to zero point seven. The response plots separate a change of model convention from propagation of the measured W input and from winding convergence. Read the axes and the central values together.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#hrG4",
+              "value": 0.7
+            }
+          ],
+          "focus": {
+            "selector": "#hrPlot_g4",
+            "index": 0
+          },
+          "title": null,
+          "id": "02_hierarchy_02",
+          "textES": "Cambia el acoplamiento de diagnóstico a cero coma siete. Las gráficas separan el cambio de convención del modelo, la propagación de la masa medida del bosón W y la convergencia de la suma. Lee los ejes y los valores centrales conjuntamente."
+        },
+        {
+          "text": "Every absolute TeV and GeV inherits the anchor caveat at the top of the page: our α does not reproduce the published α, by a factor that varies from row to row. The mass ratio and the arithmetic laws do not.",
+          "actions": [],
+          "focus": {
+            "selector": "#hrPlot_g4",
+            "index": 0
+          },
+          "title": null,
+          "id": "02_hierarchy_03",
+          "textES": "Las escalas absolutas heredan la advertencia de normalización situada al principio. El ángulo calculado no reproduce el publicado, con un factor que depende de la fila. El cociente de masas y las leyes aritméticas no heredan esa ambigüedad."
+        }
+      ],
+      "number": 2
+    },
+    {
+      "id": "inverse",
+      "host": "inverse",
+      "title": "Design a scale",
+      "titleES": "Diseñar una escala",
+      "steps": [
+        {
+          "text": "Open Design a scale. The map run backwards: name a compactification scale and a Higgs-mass window, and get a bulk content that lands there — or a named certificate that none exists.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "03_inverse_01",
+          "textES": "Abre Design a scale. Aquí recorremos el cálculo en sentido inverso: elegimos una escala de compactificación y una ventana de masa del Higgs, y buscamos un contenido que las alcance, o un certificado que descarte la solución bajo las condiciones indicadas."
+        },
+        {
+          "text": "Enter a target compactification scale of two teraelectronvolts and run the design. Inspect the returned content or the named certificate. A search budget is a stopping condition, not evidence that no solution exists.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#ivTarget",
+              "value": 2
+            },
+            {
+              "kind": "click",
+              "selector": "#ivGo"
+            }
+          ],
+          "focus": {
+            "selector": "#ivGo",
+            "index": 0
+          },
+          "title": null,
+          "id": "03_inverse_02",
+          "textES": "Introduce una escala objetivo de dos teraelectronvoltios y ejecuta el diseño. Examina el contenido obtenido o el certificado identificado. Agotar el presupuesto de búsqueda es una condición de parada, no una prueba de que no exista solución."
+        },
+        {
+          "text": "`budget` means the search stopped, not that the rung is empty; the page keeps the two apart on purpose. The reachable-set panel resolves each cluster into the finite set of points it really is.",
+          "actions": [],
+          "focus": {
+            "selector": "#ivGo",
+            "index": 0
+          },
+          "title": null,
+          "id": "03_inverse_03",
+          "textES": "La etiqueta budget significa que la búsqueda se detuvo. El panel de puntos alcanzables descompone cada agrupación en el conjunto finito de puntos que realmente contiene."
+        }
+      ],
+      "number": 3
+    },
+    {
+      "id": "census",
+      "host": "census",
+      "title": "Count a rung",
+      "titleES": "Contar un peldaño",
+      "steps": [
+        {
+          "text": "Open Count a rung. How many bulk contents sit on a rung — counted, not built.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "04_census_01",
+          "textES": "Abre Count a rung. La pregunta es cuántos contenidos de materia pertenecen a un peldaño. El programa los cuenta sin tener que construirlos todos individualmente."
+        },
+        {
+          "text": "The counting graph is generated when the section opens. Click a different horizontal position to move the moment probe and compare counts across the rungs. These are counts of contents, not a list of experimentally viable models.",
+          "actions": [
+            {
+              "kind": "canvasClick",
+              "selector": "#cnCurve",
+              "x": 0.65,
+              "y": 0.45
+            }
+          ],
+          "focus": {
+            "selector": "#cnCurve",
+            "index": 0
+          },
+          "title": null,
+          "id": "04_census_02",
+          "textES": "La gráfica se genera al abrir la sección. Pulsa en otra posición horizontal para mover la sonda y comparar los recuentos. Se cuentan contenidos matemáticos; el resultado no es una lista de modelos experimentalmente viables."
+        },
+        {
+          "text": "The four published-seed totals reproduce an independent enumeration of 69 022 464 contents. The candidate uses even rungs and half-integral A₄; its counts are computed separately, without transferring the published measured-mass fibre.",
+          "actions": [],
+          "focus": {
+            "selector": "#cnCurve",
+            "index": 0
+          },
+          "title": null,
+          "id": "04_census_03",
+          "textES": "Los cuatro totales de la semilla publicada reproducen una enumeración independiente de sesenta y nueve millones veintidós mil cuatrocientos sesenta y cuatro contenidos. La semilla candidata utiliza otros peldaños y se cuenta por separado. No se traslada a ella la selección de masas de la semilla publicada."
+        }
+      ],
+      "number": 4
+    },
+    {
+      "id": "atlas7",
+      "host": "atlas7",
+      "title": "Atlas",
+      "titleES": "Atlas de potenciales",
+      "steps": [
+        {
+          "text": "Open Atlas. Every bulk content of at most five multiplets — 1 286 of them — with its potential drawn as one tile.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "05_atlas7_01",
+          "textES": "Abre Atlas. Cada contenido de hasta cinco multipletes aparece como una tesela con su potencial: mil doscientos ochenta y seis contenidos en total."
+        },
+        {
+          "text": "Draw the lattice of one thousand two hundred and eighty-six contents. Each tile is a different potential. Inspect its colour and shape; a flat or blank potential is itself a result. Clicking a tile transfers that content to the model.",
+          "actions": [
+            {
+              "kind": "click",
+              "selector": "#a7Go"
+            }
+          ],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "05_atlas7_02",
+          "textES": "Pulsa el botón para dibujar la retícula completa. Cada tesela corresponde a un potencial diferente. Examina su color y su forma. Un potencial plano también es un resultado. Al pulsar una tesela, su contenido se transfiere al modelo."
+        },
+        {
+          "text": "One tile is green in the Higgs window, and it is the published row (2). A blank tile is a content whose potential is flat, and the harness predicts which tiles blank before they are drawn.",
+          "actions": [],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "05_atlas7_03",
+          "textES": "En esta configuración, una tesela entra en la ventana del Higgs: la fila dos publicada. Las teselas vacías corresponden a potenciales planos, y las comprobaciones predicen cuáles serán antes de dibujarlas."
+        }
+      ],
+      "number": 5
+    },
+    {
+      "id": "samepot",
+      "host": "samepot",
+      "title": "Same potential?",
+      "titleES": "¿El mismo potencial?",
+      "steps": [
+        {
+          "text": "Open Same potential?. Whether two bulk contents are the same one-loop potential, by Part VII's Theorem 3.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "06_samepot_01",
+          "textES": "Abre Same potential. Esta sección compara dos contenidos y aplica el teorema tres de la séptima parte para decidir si producen el mismo potencial a un lazo."
+        },
+        {
+          "text": "Copy the first content and construct its canonical representative. Compare the potential curves and the five coordinates. Different lists of matter can produce exactly the same one-loop potential under the stated theorem.",
+          "actions": [
+            {
+              "kind": "click",
+              "selector": "#spCopy"
+            },
+            {
+              "kind": "click",
+              "selector": "#spCanon"
+            }
+          ],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "06_samepot_02",
+          "textES": "Copia el primer contenido y construye su representante canónico. Compara las curvas y las cinco coordenadas. Listas diferentes de materia pueden producir exactamente el mismo potencial bajo las hipótesis del teorema."
+        },
+        {
+          "text": "Same five coordinates ⟺ identically the same potential. The dashed curve riding exactly on the solid one is the theorem, not a coincidence.",
+          "actions": [],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "06_samepot_03",
+          "textES": "La igualdad de las cinco coordenadas equivale a la identidad del potencial. Que la curva discontinua se superponga a la continua es la consecuencia que estamos comprobando."
+        }
+      ],
+      "number": 6
+    },
+    {
+      "id": "anomalies",
+      "host": "anomalies",
+      "title": "Anomalies & proton",
+      "titleES": "Anomalías y protón",
+      "steps": [
+        {
+          "text": "Open Anomalies & proton. What each multiplet contributes to the anomaly bill, in eighths, and what the proton-decay escape costs.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "07_anomalies_01",
+          "textES": "Abre Anomalies and proton. Aquí se muestra la contribución de cada multiplete a las anomalías, en octavos, y las condiciones de la protección frente al decaimiento del protón."
+        },
+        {
+          "text": "Read the signed contributions to the anomaly bill and the rung ladder. A nonzero bulk bill does not, by itself, make the theory inconsistent: possible brane matter must be considered separately. The research card later in this section studies a different warped model.",
+          "actions": [
+            {
+              "kind": "scroll",
+              "selector": "#section canvas"
+            }
+          ],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "07_anomalies_02",
+          "textES": "Lee los signos de las contribuciones y la escalera de valores. Una suma no nula del sector del volumen no implica por sí sola inconsistencia: hay que considerar la posible materia de brana. La tarjeta de investigación situada más abajo estudia otro modelo, con geometría alabeada."
+        },
+        {
+          "text": "A non-zero bill is not an inconsistency: brane fermions pay into the same channels with the opposite sign. What the ladder forbids is a rung, not a model.",
+          "actions": [],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "07_anomalies_03",
+          "textES": "Los fermiones de brana pueden contribuir a los mismos canales con signo contrario. La restricción de la escalera excluye un peldaño; no excluye automáticamente un modelo completo."
+        }
+      ],
+      "number": 7
+    },
+    {
+      "id": "escape",
+      "host": "escape",
+      "title": "Escape from proton decay",
+      "titleES": "Protección del protón",
+      "steps": [
+        {
+          "text": "Open Escape from proton decay. The escape from proton decay, constructed: type a brane content and watch the six channels, the assignments and the selection rule recompute.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "08_escape_01",
+          "textES": "Abre Escape from proton decay. Introduce un contenido de brana y observa cómo se recalculan los seis canales, las asignaciones de carga y la regla de selección."
+        },
+        {
+          "text": "Choose the scalar charge associated with the eighty-four representation. The rational anomaly channels and charge assignments update together. Inspect which assignments meet the displayed proton-protection rule; the calculation does not supply a measured proton lifetime.",
+          "actions": [
+            {
+              "kind": "button",
+              "text": "3/2 · 84"
+            }
+          ],
+          "focus": {
+            "selector": "#egQIn",
+            "index": 0
+          },
+          "title": null,
+          "id": "08_escape_02",
+          "textES": "Selecciona la carga del escalar asociada a la representación ochenta y cuatro. Los canales racionales y las cargas se actualizan juntos. Examina qué asignaciones cumplen la regla de protección indicada. El cálculo no proporciona una vida medida del protón."
+        },
+        {
+          "text": "Every assignment that protects the proton can also cancel all six channels — protection never costs an anomaly. That is an enumeration, not an argument.",
+          "actions": [],
+          "focus": {
+            "selector": "#egQIn",
+            "index": 0
+          },
+          "title": null,
+          "id": "08_escape_03",
+          "textES": "En la enumeración implementada, cada asignación que protege al protón también permite cancelar los seis canales. Esa conclusión se refiere al conjunto enumerado y a las condiciones mostradas."
+        }
+      ],
+      "number": 8
+    },
+    {
+      "id": "multiplets",
+      "host": "multiplets",
+      "title": "Multiplets & parities",
+      "titleES": "Multipletes y paridades",
+      "steps": [
+        {
+          "text": "Open Multiplets & parities. The layer under the term tables: every representation broken into multiplets with their three Z₂ parities.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "09_multiplets_01",
+          "textES": "Abre Multiplets and parities. Esta es la capa situada bajo las tablas de términos: cada representación se descompone en multipletes con sus tres paridades."
+        },
+        {
+          "text": "Select the eighty-four representation and change its parity assignment. The decomposition and parity picture update from the representation data. Use the table to connect a surviving zero mode with the sign of its potential contribution.",
+          "actions": [
+            {
+              "kind": "button",
+              "text": "84"
+            },
+            {
+              "kind": "button",
+              "text": "(+,−)"
+            }
+          ],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "09_multiplets_02",
+          "textES": "Selecciona la representación ochenta y cuatro y cambia la asignación de paridad. La descomposición y el dibujo se actualizan desde los datos de la representación. Relaciona cada modo cero superviviente con el signo de su contribución al potencial."
+        },
+        {
+          "text": "The term tables here are DERIVED and then checked against the ones the rest of the page computes with. If the two ever disagreed, this panel is where it would show.",
+          "actions": [],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "09_multiplets_03",
+          "textES": "Las tablas de términos se deducen aquí y se contrastan con las utilizadas por el resto del laboratorio. Una discrepancia entre ambas aparecería en este panel."
+        }
+      ],
+      "number": 9
+    },
+    {
+      "id": "screen",
+      "host": "screen",
+      "title": "Screen a table",
+      "titleES": "Examinar una tabla",
+      "steps": [
+        {
+          "text": "Open Screen a table. Arithmetic screens for a published row, with conditional rung certificates and independent full-potential witness checks.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "10_screen_01",
+          "textES": "Abre Screen a table. Esta sección examina una fila publicada mediante restricciones aritméticas, certificados condicionados y comprobaciones numéricas del potencial completo."
+        },
+        {
+          "text": "Enter a candidate resonance at four thousand gigaelectronvolts. The arithmetic comb compares the supplied point with its allowed spacings. Then inspect the separate conditional bounds and vacuum witnesses. An arithmetic match is not a full physical-vacuum certificate.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#sci_MKK",
+              "value": 4000
+            }
+          ],
+          "focus": {
+            "selector": "#scComb",
+            "index": 0
+          },
+          "title": null,
+          "id": "10_screen_02",
+          "textES": "Introduce una resonancia candidata de cuatro mil gigaelectronvoltios. El peine aritmético compara ese punto con las separaciones permitidas. Después examina las cotas y los testigos del vacío por separado. Una coincidencia aritmética no certifica un vacío físico completo."
+        },
+        {
+          "text": "The interval certificates bound a small-angle moment relaxation under the stated conventions. They do not certify a ceiling for the full potential. The separate vacuum checks compare numerically located extrema with Fourier-tail errors; an observed surviving witness is not an exhaustive optimum.",
+          "actions": [],
+          "focus": {
+            "selector": "#scComb",
+            "index": 0
+          },
+          "title": null,
+          "id": "10_screen_03",
+          "textES": "Los certificados de intervalos acotan una aproximación de momentos para ángulos pequeños. No certifican el techo del potencial completo. Las comprobaciones del vacío comparan extremos numéricos con errores de truncamiento; un testigo superviviente no demuestra un óptimo exhaustivo."
+        }
+      ],
+      "number": 10
+    },
+    {
+      "id": "collider",
+      "host": "collider",
+      "title": "Collider",
+      "titleES": "Comparaciones de colisionadores",
+      "steps": [
+        {
+          "text": "Open Collider. Which state a dijet search bounds, plus a separate Higgs-rate scenario checked against pinned experimental datasets.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "11_collider_01",
+          "textES": "Abre Collider. La sección identifica qué estado restringe una búsqueda de dos chorros e incorpora un escenario independiente de tasas del Higgs, contrastado con conjuntos experimentales fijados."
+        },
+        {
+          "text": "Move the dijet mass probe to five point two. Read the selected state, mass scale and published comparison under its colour hypothesis. The separate Higgs experiment below uses another explicitly supplied scalar scenario.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#clMjj",
+              "value": 5.2
+            }
+          ],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "11_collider_02",
+          "textES": "Mueve la sonda de masa de dos chorros a cinco coma dos. Lee el estado, la escala de masa y la comparación publicada bajo la hipótesis de color indicada. El experimento del Higgs situado más abajo utiliza otro escenario escalar explícito."
+        },
+        {
+          "text": "The dijet Δχ² values are quoted from the published record; the Higgs experiment computes its own comparison. Its 159 HiggsSignals observables are not 159 independent degrees of freedom. Coupling and width assumptions can compensate in visible rates, so this scalar comparison is not a complete GHU fit.",
+          "actions": [],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "11_collider_03",
+          "textES": "Los valores de delta chi cuadrado de dos chorros proceden del registro publicado. El experimento del Higgs calcula su propia comparación. Sus ciento cincuenta y nueve observables no son ciento cincuenta y nueve grados de libertad independientes. Las compensaciones entre acoplamientos y anchuras impiden interpretar esto como un ajuste completo de G H U."
+        }
+      ],
+      "number": 11
+    },
+    {
+      "id": "selection",
+      "host": "selection",
+      "title": "Selection rule",
+      "titleES": "Regla de selección",
+      "steps": [
+        {
+          "text": "Open Selection rule. Which α-domain a search may legally use, and which SU(4) representations can hold a quark generation.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "12_selection_01",
+          "textES": "Abre Selection rule. La representación determina qué dominio del ángulo puede explorar la búsqueda y si una representación de S U cuatro puede alojar una generación de quarks."
+        },
+        {
+          "text": "Select the representation with Dynkin labels one, zero, one. The centre-charge and chiral-projection results determine which search domain is permitted and which content can host a generation. The domain is computed from the representation, not chosen for convenience.",
+          "actions": [
+            {
+              "kind": "button",
+              "text": "(1,0,1)"
+            }
+          ],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "12_selection_02",
+          "textES": "Selecciona las etiquetas de Dynkin uno, cero, uno. La carga del centro y la proyección quiral determinan el dominio permitido y el contenido capaz de alojar una generación. El dominio se calcula desde la representación."
+        },
+        {
+          "text": "The centre-charge gate is classical and is credited as such. What is ours is the chiral projection that gives the closed count.",
+          "actions": [],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "12_selection_03",
+          "textES": "El criterio de carga del centro es un resultado clásico y aparece atribuido a su fuente. La aportación identificada en el laboratorio es la proyección quiral que produce el recuento cerrado."
+        }
+      ],
+      "number": 12
+    },
+    {
+      "id": "calculator",
+      "host": "calculator",
+      "title": "Model calculator",
+      "titleES": "Calculadora de modelos",
+      "steps": [
+        {
+          "text": "Open Model calculator. A matter content in, the Higgs out — the AHMN model recomputed in front of you.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "13_calculator_01",
+          "textES": "Abre Model calculator. Introducimos contenido de materia y calculamos la respuesta del Higgs. El ejemplo reconstruye el modelo de referencia A H M N."
+        },
+        {
+          "text": "Load the named A H M N reference model. Its terms, potential and derived quantities are recalculated by the browser. Start with this anchored content before changing multiplicities or boundary signs, and retain the stated normalization caveat for absolute scales.",
+          "actions": [
+            {
+              "kind": "click",
+              "selector": "#cAhmn"
+            }
+          ],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "13_calculator_02",
+          "textES": "Carga el modelo A H M N. El navegador recalcula sus términos, el potencial y las magnitudes derivadas. Utiliza este ejemplo como referencia antes de cambiar multiplicidades o signos de contorno. Conserva la advertencia de normalización para las escalas absolutas."
+        },
+        {
+          "text": "The mass ratio carries no normalisation and no caveat. Absolute scales do.",
+          "actions": [],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "13_calculator_03",
+          "textES": "El cociente de masas no depende de esa normalización. Las escalas absolutas sí dependen de ella."
+        }
+      ],
+      "number": 13
+    },
+    {
+      "id": "eta",
+      "host": "eta",
+      "title": "eta-meter",
+      "titleES": "Medidor de eta",
+      "steps": [
+        {
+          "text": "Open eta-meter. What the boundary sign η does to a multiplet's contribution — in closed form, from one integer.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "14_eta_01",
+          "textES": "Abre eta-meter. El panel muestra qué cambia el signo de contorno eta en la contribución de un multiplete, mediante una expresión cerrada."
+        },
+        {
+          "text": "Load the supplied example made from a blind multiplet, then flip every eta sign. In this example the potential is insensitive to that change. The eta-difference view exposes the cancellation; it is not evidence that boundary signs never matter.",
+          "actions": [
+            {
+              "kind": "click",
+              "selector": "#eBlindLoad"
+            },
+            {
+              "kind": "click",
+              "selector": "#eFlip"
+            }
+          ],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "14_eta_02",
+          "textES": "Carga las nueve copias del multiplete insensible y cambia todos los signos eta. En este ejemplo el potencial permanece igual. La vista de diferencias permite ver la cancelación. Esto no significa que los signos de contorno nunca importen."
+        },
+        {
+          "text": "In difference mode every blind multiplet goes blank. That is Part V's theorem seen without reading a number.",
+          "actions": [],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "14_eta_03",
+          "textES": "En el modo de diferencias, la contribución de cada multiplete insensible desaparece. Es una forma visual de comprobar el teorema de la quinta parte."
+        }
+      ],
+      "number": 14
+    },
+    {
+      "id": "fived",
+      "host": "fived",
+      "title": "Five dimensions",
+      "titleES": "Cinco dimensiones",
+      "steps": [
+        {
+          "text": "Open Five dimensions. Haba–Yamashita's own 5D SU(3) model, with the vacuum their paper leaves undone.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "15_fived_01",
+          "textES": "Abre Five dimensions. Esta sección reproduce el modelo de cinco dimensiones y S U tres de Haba y Yamashita e incorpora la búsqueda de su vacío."
+        },
+        {
+          "text": "Compare the pure-gauge case with the supplied marginal trio. Read the potential and vacuum together. This panel uses the five-dimensional S U three reference, so its arithmetic and assumptions must not be borrowed from the six-dimensional S U seven benchmark.",
+          "actions": [
+            {
+              "kind": "click",
+              "selector": "#fvClear"
+            },
+            {
+              "kind": "click",
+              "selector": "#fvMarginal"
+            }
+          ],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "15_fived_02",
+          "textES": "Compara el sector gauge puro con el trío marginal del ejemplo. Lee conjuntamente el potencial y el vacío. Sus convenciones y su aritmética pertenecen a este modelo de cinco dimensiones y no deben trasladarse desde el modelo S U siete de seis dimensiones."
+        },
+        {
+          "text": "Pure gauge never breaks the symmetry (D = −9). In this whole 5D class 8D is even: the odd rung the SU(7) ceiling stands on needs the sixth dimension.",
+          "actions": [],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "15_fived_03",
+          "textES": "En el caso gauge puro la simetría no se rompe. En esta clase de cinco dimensiones, ocho veces D es par. El peldaño impar utilizado en la cota de S U siete requiere la sexta dimensión."
+        }
+      ],
+      "number": 15
+    },
+    {
+      "id": "sun5d",
+      "host": "sun5d",
+      "title": "SU(N) builder",
+      "titleES": "Constructor SU(N)",
+      "steps": [
+        {
+          "text": "Open SU(N) builder. The one-loop Wilson-line potential of ANY 5D SU(N) model on S¹/Z₂ — the model is the input.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "16_sun5d_01",
+          "textES": "Abre S U N builder. Las condiciones de contorno y el contenido del volumen son entradas para construir el potencial de Wilson a un lazo de los modelos implementados en cinco dimensiones."
+        },
+        {
+          "text": "Load the source paper section four point three benchmark. The boundary blocks and bulk content become the model. The potential is reconstructed from these inputs; the Spectrum, Anomalies and Simulator sections can inspect the same builder model.",
+          "actions": [
+            {
+              "kind": "button",
+              "text": "§4.3 · SU(6), P ≠ P′"
+            }
+          ],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "16_sun5d_02",
+          "textES": "Carga el ejemplo de la sección cuatro punto tres del artículo. Los bloques de contorno y la materia definen el modelo. El potencial se reconstruye con esas entradas. Spectrum, Anomalies y Simulator permiten examinar el mismo modelo del constructor."
+        },
+        {
+          "text": "Every equation of all four worked examples in the source paper is checked against this. With one Wilson-line phase the terms are the same (m, s, c) triples the SU(7) sections run on, so Part VII's closed form applies to somebody else's model.",
+          "actions": [],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "16_sun5d_03",
+          "textES": "Las ecuaciones de los cuatro ejemplos desarrollados en la fuente se comprueban frente a esta implementación. Cuando hay una sola fase de Wilson, los términos tienen la estructura que permite aplicar la expresión cerrada utilizada en las secciones anteriores."
+        }
+      ],
+      "number": 16
+    },
+    {
+      "id": "papers",
+      "host": "papers",
+      "title": "Paper models",
+      "titleES": "Modelos publicados",
+      "steps": [
+        {
+          "text": "Open Paper models. Four models somebody else published, taken off their pages and run through this instrument's engine.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "17_papers_01",
+          "textES": "Abre Paper models. El panel toma cuatro modelos publicados y evalúa las partes que admite el motor del laboratorio."
+        },
+        {
+          "text": "Change the triplet Dirac-fermion count to five in the supported reference. Inspect which outputs are actually computed and which remain structural statements. Where offered, the load button transfers the supported content into the general builder.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#papNf",
+              "value": 5
+            }
+          ],
+          "focus": {
+            "selector": "#papLoad",
+            "index": 0
+          },
+          "title": null,
+          "id": "17_papers_02",
+          "textES": "Cambia a cinco el número de fermiones de Dirac tripletes del ejemplo compatible. Distingue los resultados calculados de las afirmaciones estructurales. Cuando aparece el botón de carga, puedes transferir el contenido compatible al constructor general."
+        },
+        {
+          "text": "Three of the four are supersymmetric and this engine's potential is not, so their rows are boundary-condition and zero-mode statements only. An amber row disagrees with one printed equation, not with a paper, and names which of that paper's own equations agrees with which.",
+          "actions": [],
+          "focus": {
+            "selector": "#papLoad",
+            "index": 0
+          },
+          "title": null,
+          "id": "17_papers_03",
+          "textES": "Tres de los cuatro modelos son supersimétricos y el potencial del motor no lo es. Sus filas describen condiciones de contorno y modos cero. Una fila ámbar identifica la ecuación impresa con la que discrepa; no invalida por ello todo el artículo."
+        }
+      ],
+      "number": 17
+    },
+    {
+      "id": "spectrum5d",
+      "host": "spectrum5d",
+      "title": "4D spectrum",
+      "titleES": "Espectro 4D",
+      "steps": [
+        {
+          "text": "Open 4D spectrum. What the model on the builder CONTAINS: the four-dimensional fields and their Kaluza–Klein towers.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "18_spectrum5d_01",
+          "textES": "Abre Four D spectrum. Aquí vemos qué contiene el modelo del constructor: campos de cuatro dimensiones y sus torres de Kaluza Klein."
+        },
+        {
+          "text": "Load the S U six example and move the Wilson-line probe. Compare the potential families with the exact low-lying tower. The lowest levels can require a different reading from the families used to construct the potential.",
+          "actions": [
+            {
+              "kind": "click",
+              "selector": "#spExample"
+            },
+            {
+              "kind": "set",
+              "selector": "#spTheta",
+              "value": 0.1
+            }
+          ],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "18_spectrum5d_02",
+          "textES": "Carga el ejemplo S U seis y desplaza la sonda de Wilson. Compara las familias del potencial con los niveles bajos de la torre exacta. Esos niveles pueden requerir una lectura diferente de las familias utilizadas para construir el potencial."
+        },
+        {
+          "text": "The families are the potential's multiset and are right for it; at a broken vacuum they are wrong at the LOWEST level of the adjoint and the symmetric tensor, which is why the exact tower is a second table and not a repetition.",
+          "actions": [],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "18_spectrum5d_03",
+          "textES": "Las familias son correctas para calcular el potencial. En un vacío roto no describen correctamente el nivel más bajo de algunas representaciones. Por eso la torre exacta aparece en una segunda tabla."
+        }
+      ],
+      "number": 18
+    },
+    {
+      "id": "anomaly5d",
+      "host": "anomaly5d",
+      "title": "Anomalies",
+      "titleES": "Anomalías del modelo",
+      "steps": [
+        {
+          "text": "Open Anomalies. What that content owes: every anomaly channel of the unbroken group, in exact rationals.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "19_anomaly5d_01",
+          "textES": "Abre Anomalies. El registro calcula cada canal de anomalía del grupo no roto con aritmética racional exacta."
+        },
+        {
+          "text": "Load the S U six example. The ledger evaluates each anomaly channel of the unbroken group in exact rational arithmetic. Distinguish a vanishing bill from a case with no massless fermions to test. Brane cancellation is a separate calculation.",
+          "actions": [
+            {
+              "kind": "click",
+              "selector": "#anExample"
+            }
+          ],
+          "focus": {
+            "selector": "#anExample",
+            "index": 0
+          },
+          "title": null,
+          "id": "19_anomaly5d_02",
+          "textES": "Carga el ejemplo S U seis. Examina los canales y distingue una suma que se anula de un modelo sin fermiones sin masa que analizar. La cancelación mediante materia de brana es un cálculo separado."
+        },
+        {
+          "text": "A non-zero row is a BILL, not an inconsistency: the brane fermions such a model needs pay into the same channels with the opposite sign. And a model with no massless fermion has nothing to cancel — that is `no subject`, not `cancels`.",
+          "actions": [],
+          "focus": {
+            "selector": "#anExample",
+            "index": 0
+          },
+          "title": null,
+          "id": "19_anomaly5d_03",
+          "textES": "Una fila no nula indica una contribución pendiente de compensar. No implica automáticamente inconsistencia. Si no existen fermiones sin masa, la etiqueta es no subject, sin objeto de análisis, en lugar de cancels, cancelación."
+        }
+      ],
+      "number": 19
+    },
+    {
+      "id": "brane",
+      "host": "brane",
+      "title": "Brane matter",
+      "titleES": "Materia de brana",
+      "steps": [
+        {
+          "text": "Open Brane matter. Who pays that bill, and what it costs: matter on the two fixed points, held at once to the anomaly ledger and to Part I's boundary-mass gate.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "20_brane_01",
+          "textES": "Abre Brane matter. El panel incorpora materia en los dos puntos fijos y la contrasta simultáneamente con las anomalías y con las condiciones para generar masas de contorno."
+        },
+        {
+          "text": "Load the supplied S U five brane example and solve its supported linear charge channels. Compare the anomaly ledger with the surviving massless fields. Paying an anomaly bill and giving a field a mass are different requirements.",
+          "actions": [
+            {
+              "kind": "click",
+              "selector": "#brExample"
+            },
+            {
+              "kind": "click",
+              "selector": "#brSolve"
+            }
+          ],
+          "focus": {
+            "selector": "#brSolve",
+            "index": 0
+          },
+          "title": null,
+          "id": "20_brane_02",
+          "textES": "Carga el ejemplo S U cinco de brana y resuelve los canales lineales de carga admitidos. Compara el registro de anomalías con los campos que siguen sin masa. Cancelar una anomalía y dar masa a un campo son requisitos diferentes."
+        },
+        {
+          "text": "Two verdicts, kept apart on purpose: the bill before and after, and the massless count before and after. The same field can pay one and not the other, because the charge that cancels an anomaly is not in general the charge a mass term needs. The surviving count is a lower bound — the rank test assumes generic couplings.",
+          "actions": [],
+          "focus": {
+            "selector": "#brSolve",
+            "index": 0
+          },
+          "title": null,
+          "id": "20_brane_03",
+          "textES": "Lee los dos resultados antes y después: anomalías y campos sin masa. La carga que cancela una anomalía no tiene por qué permitir un término de masa. El recuento superviviente es una cota inferior bajo la hipótesis de acoplamientos genéricos."
+        }
+      ],
+      "number": 20
+    },
+    {
+      "id": "sweep5d",
+      "host": "sweep5d",
+      "title": "Scan",
+      "titleES": "Barrido de modelos",
+      "steps": [
+        {
+          "text": "Open Scan. The model-building loop closed: walk the whole space of boundary conditions and contents through filters.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "21_sweep5d_01",
+          "textES": "Abre Scan. El barrido recorre un espacio finito de condiciones de contorno y contenidos, aplicando sucesivamente los filtros seleccionados."
+        },
+        {
+          "text": "Run the displayed finite sweep. Read the denominator, each filter in the funnel, the survivors and the unresolved cases. The interface counts boundary conditions and equivalence classes separately, so surviving rows are not automatically distinct theories.",
+          "actions": [
+            {
+              "kind": "click",
+              "selector": "#swRun"
+            }
+          ],
+          "focus": {
+            "selector": "#swRows",
+            "index": 0
+          },
+          "title": null,
+          "id": "21_sweep5d_02",
+          "textES": "Ejecuta el barrido mostrado. Lee el total explorado, cada filtro, los supervivientes y los casos sin resolver. Se cuentan por separado condiciones de contorno y clases equivalentes. Dos filas supervivientes no representan necesariamente teorías distintas."
+        },
+        {
+          "text": "Surviving boundary conditions are not surviving theories: [p,q,r,s] ~ [p−1,q+1,r+1,s−1] is the same theory, so the headline is a pair of numbers. An undecided vacuum is counted apart from a no.",
+          "actions": [],
+          "focus": {
+            "selector": "#swRows",
+            "index": 0
+          },
+          "title": null,
+          "id": "21_sweep5d_03",
+          "textES": "La transformación de bloques indicada en pantalla conecta descripciones de la misma teoría. Por eso el resultado principal contiene dos recuentos. Un vacío no decidido se contabiliza por separado de un resultado negativo."
+        }
+      ],
+      "number": 21
+    },
+    {
+      "id": "dossier",
+      "host": "dossier",
+      "title": "One model, every verdict",
+      "titleES": "Un modelo, todos sus veredictos",
+      "steps": [
+        {
+          "text": "Open One model, every verdict. Which of the instrument's answers about this model are about the THEORY, and which only about the frame you are standing in.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "22_dossier_01",
+          "textES": "Abre One model, every verdict. Esta sección distingue qué respuestas pertenecen a la teoría y cuáles dependen del marco con el que la describimos."
+        },
+        {
+          "text": "Start the built-in example, then choose its displayed equivalent boundary condition. Compare the tags identifying properties of the theory and properties of the chosen frame. A changed coordinate description can move a displayed quantity without changing the physical theory.",
+          "actions": [
+            {
+              "kind": "demoStart"
+            },
+            {
+              "kind": "click",
+              "selector": "#section [data-bc=\"0,1,5,0\"]"
+            }
+          ],
+          "focus": {
+            "selector": "#section .card",
+            "index": 0
+          },
+          "title": null,
+          "id": "22_dossier_02",
+          "textES": "Inicia la demostración y selecciona la condición de contorno equivalente que aparece. Compara las etiquetas de teoría y de marco. Cambiar las coordenadas de la descripción puede mover una magnitud mostrada sin cambiar la teoría física."
+        },
+        {
+          "text": "The tag is measured on that render, never read off a list. The lines at the minimum are the theory's; the ones at the symmetric point are mostly the frame's — which is the whole point of the section.",
+          "actions": [],
+          "focus": {
+            "selector": "#section .card",
+            "index": 0
+          },
+          "title": null,
+          "id": "22_dossier_03",
+          "textES": "Las etiquetas se calculan en la evaluación actual. Las magnitudes en el mínimo pertenecen a la teoría; las del punto simétrico dependen en gran parte del marco. Esa distinción es la pregunta central del panel."
+        }
+      ],
+      "number": 22
+    },
+    {
+      "id": "predict",
+      "host": "predict",
+      "title": "Simulator",
+      "titleES": "Simulator: constructor",
+      "steps": [
+        {
+          "text": "Open Simulator. Choose builder predictions, a top-KK Higgs-rate reference or the neutrino ring; compare calculated responses with their explicitly scoped experimental references.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "23_predict_01",
+          "textES": "Abre Simulator. Elige entre las predicciones del constructor, la referencia de producción del Higgs con modos del top o el anillo de neutrinos. Cada cálculo muestra el alcance de su comparación experimental."
+        },
+        {
+          "text": "Load the built-in published builder example, then change the gauge coupling to one. Compare the resulting Higgs quantity and compactification reference. This is a model calculation with named measured inputs and comparison hypotheses; no collider events are simulated.",
+          "actions": [
+            {
+              "kind": "demoStart"
+            },
+            {
+              "kind": "set",
+              "selector": "#prG4",
+              "value": 1
+            }
+          ],
+          "focus": {
+            "selector": "#prG4",
+            "index": 0
+          },
+          "title": null,
+          "id": "23_predict_02",
+          "textES": "Carga la demostración del modelo publicado y cambia el acoplamiento gauge a uno. Compara la respuesta del Higgs y la escala de compactificación. El cálculo usa entradas medidas e hipótesis identificadas. No simula sucesos de colisionador."
+        },
+        {
+          "text": "No collider event is simulated. The thermal history is a separate SU(3) benchmark with supplied wall and efficiency parameters; its acoustic spectrum is evaluated only in the supported completed, weak-transition, fast-wall regime. It is not a detector forecast or the thermal history of the SU(7) builder. A symmetric vacuum sets no compactification scale.",
+          "actions": [],
+          "focus": {
+            "selector": "#prG4",
+            "index": 0
+          },
+          "title": null,
+          "id": "23_predict_03",
+          "textES": "La historia térmica pertenece a un ejemplo independiente de S U tres. Su espectro acústico se evalúa únicamente en el régimen compatible indicado. No es una predicción de detección ni la historia térmica del constructor S U siete. Un vacío simétrico no determina una escala de compactificación."
+        }
+      ],
+      "number": 23
+    },
+    {
+      "id": "bcclass",
+      "host": "bcclass",
+      "title": "Boundary conditions",
+      "titleES": "Condiciones de contorno",
+      "steps": [
+        {
+          "text": "Open Boundary conditions. Which boundary conditions are the same theory, walked as orbits rather than quoted as a theorem.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "24_bcclass_01",
+          "textES": "Abre Boundary conditions. Recorremos las órbitas para identificar qué condiciones de contorno describen la misma teoría."
+        },
+        {
+          "text": "Switch from the interval orbifold to the two-dimensional Z three example. The orbit structure and class count change with the specified boundary problem. Equivalence classes identify descriptions connected by the allowed transformations.",
+          "actions": [
+            {
+              "kind": "button",
+              "text": "T²/Z₃"
+            }
+          ],
+          "focus": {
+            "selector": "#section .card",
+            "index": 1
+          },
+          "title": null,
+          "id": "24_bcclass_02",
+          "textES": "Cambia del intervalo al ejemplo bidimensional Z tres. Cambian las órbitas y el número de clases porque cambia el problema de contorno. Una clase reúne las descripciones conectadas por las transformaciones permitidas."
+        },
+        {
+          "text": "The counts come out (N+1)² at every N on S¹/Z₂, which is Haba–Hosotani–Kawamura's theorem as a measurement. Press T²/Z₃ and the answer changes.",
+          "actions": [],
+          "focus": {
+            "selector": "#section .card",
+            "index": 1
+          },
+          "title": null,
+          "id": "24_bcclass_03",
+          "textES": "En el intervalo, el recuento reproduce el cuadrado de N más uno, de acuerdo con el teorema citado. El resultado cambia al pasar al ejemplo bidimensional."
+        }
+      ],
+      "number": 24
+    },
+    {
+      "id": "orbifold",
+      "host": "orbifold",
+      "title": "Classify an orbifold",
+      "titleES": "Clasificar un orbifold",
+      "steps": [
+        {
+          "text": "Open Classify an orbifold. The alphabet of an orbifold, derived from its rotation matrix and nothing else.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "25_orbifold_01",
+          "textES": "Abre Classify an orbifold. El alfabeto del orbifold se deduce directamente de su matriz de rotación."
+        },
+        {
+          "text": "Select the two-dimensional Z four rotation and classify it. The group-theoretic alphabet is derived from the matrix. You can enter another supported matrix, but an invalid finite-order hypothesis must be refused rather than silently classified.",
+          "actions": [
+            {
+              "kind": "button",
+              "text": "T²/Z₄"
+            },
+            {
+              "kind": "click",
+              "selector": "#orbGo"
+            }
+          ],
+          "focus": {
+            "selector": "#orbGo",
+            "index": 0
+          },
+          "title": null,
+          "id": "25_orbifold_02",
+          "textES": "Selecciona la rotación bidimensional Z cuatro y clasifícala. Puedes introducir otra matriz compatible. Si no cumple las hipótesis de orden finito, el programa debe rechazarla en lugar de asignarle una clasificación."
+        },
+        {
+          "text": "Nothing is entered but the matrix. A matrix of infinite order, or one whose characteristic polynomial is not a power of the m-th cyclotomic, comes back REFUSED rather than classified.",
+          "actions": [],
+          "focus": {
+            "selector": "#orbGo",
+            "index": 0
+          },
+          "title": null,
+          "id": "25_orbifold_03",
+          "textES": "La única entrada es la matriz. Una matriz de orden infinito, o con un polinomio característico incompatible con la forma ciclotómica admitida, devuelve refused, rechazado."
+        }
+      ],
+      "number": 25
+    },
+    {
+      "id": "relations",
+      "host": "relations",
+      "title": "Name the relations",
+      "titleES": "Identificar relaciones",
+      "steps": [
+        {
+          "text": "Open Name the relations. Which equivalence relation on boundary conditions the literature already owns, and whether a proposed move set connects a class.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "26_relations_01",
+          "textES": "Abre Name the relations. Identifica las relaciones de equivalencia atribuidas a la bibliografía y examina si un conjunto propuesto de movimientos conecta una clase."
+        },
+        {
+          "text": "Switch to the Z four boundary problem and judge the displayed proposed move. Read the local and global qualifications and the source attribution. A useful move in one boundary problem is not automatically a complete equivalence relation in another.",
+          "actions": [
+            {
+              "kind": "button",
+              "text": "T²/Z₄"
+            },
+            {
+              "kind": "click",
+              "selector": "#relJudge"
+            }
+          ],
+          "focus": {
+            "selector": "#relJudge",
+            "index": 0
+          },
+          "title": null,
+          "id": "26_relations_02",
+          "textES": "Cambia al problema Z cuatro y evalúa el movimiento propuesto. Lee las condiciones locales y globales junto con la fuente. Un movimiento útil en un problema no define automáticamente una relación completa en otro."
+        },
+        {
+          "text": "The local/global distinction is the one that gets misquoted, and the page carries it explicitly.",
+          "actions": [],
+          "focus": {
+            "selector": "#relJudge",
+            "index": 0
+          },
+          "title": null,
+          "id": "26_relations_03",
+          "textES": "La distinción entre resultados locales y globales permanece explícita para evitar extender una conclusión fuera de sus hipótesis."
+        }
+      ],
+      "number": 26
+    },
+    {
+      "id": "cbclass",
+      "host": "cbclass",
+      "title": "Conjugate boundary conditions",
+      "titleES": "Condiciones conjugadas",
+      "steps": [
+        {
+          "text": "Open Conjugate boundary conditions. How many inequivalent CONJUGATE boundary conditions there are on S¹/Z₂ — and, because that count rests on a hypothesis nobody has settled, what each of the two answers would be.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "27_cbclass_01",
+          "textES": "Abre Conjugate boundary conditions. El número de condiciones conjugadas no equivalentes depende de una hipótesis no resuelta. El panel muestra los resultados de las dos alternativas."
+        },
+        {
+          "text": "Increase the group rank and compare the two hypotheses printed in the table. Conjugate twists transform by congruence. Independent boundary transformations and one linked transformation lead to different classification questions, so the hypothesis travels with the count.",
+          "actions": [
+            {
+              "kind": "button",
+              "text": "+"
+            }
+          ],
+          "focus": {
+            "selector": "#section .card",
+            "index": 2
+          },
+          "title": null,
+          "id": "27_cbclass_02",
+          "textES": "Aumenta el rango del grupo y compara las dos columnas. Las transformaciones conjugadas actúan por congruencia. Permitir transformaciones independientes en las fronteras plantea un problema diferente de exigir una transformación vinculada."
+        },
+        {
+          "text": "What the panel puts on screen is the disagreement, not a number, and that is the point: the twists move by congruence rather than similarity, and independence decides between four classes flat in N and no finite count at all. What the label leaves unbroken is not a property of the label — the same verdict the ordinary panel reaches by another route. The exported card carries the hypothesis beside the count, so a number never travels without the condition it rests on.",
+          "actions": [],
+          "focus": {
+            "selector": "#section .card",
+            "index": 2
+          },
+          "title": null,
+          "id": "27_cbclass_03",
+          "textES": "Lo que se muestra es la dependencia respecto de esa elección: cuatro clases constantes en una hipótesis, o ausencia de un recuento finito en la otra. La exportación conserva la hipótesis junto al número."
+        }
+      ],
+      "number": 27
+    },
+    {
+      "id": "blkt",
+      "host": "blkt",
+      "title": "Brane kinetic terms",
+      "titleES": "Términos cinéticos de brana",
+      "steps": [
+        {
+          "text": "Open Brane kinetic terms. What happens to the tower when brane-localised kinetic terms make the masses stop being n/R.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "28_blkt_01",
+          "textES": "Abre Brane kinetic terms. Los términos cinéticos localizados en branas modifican la torre de masas, que deja de ser simplemente un múltiplo entero de uno sobre R."
+        },
+        {
+          "text": "Increase the brane kinetic coefficient to twelve. The spectrum responds because the roots are no longer a simple integer tower. Compare the root conditions and normalization, then use the separate warped-unification card for coupling-running questions.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#bkC",
+              "value": 12
+            }
+          ],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "28_blkt_02",
+          "textES": "Aumenta el coeficiente de brana a doce. Las raíces y el espectro responden. Compara las ecuaciones de las raíces y la normalización. Para estudiar la evolución de acoplamientos, utiliza la tarjeta independiente de unificación alabeada."
+        },
+        {
+          "text": "The special functions are checked against mpmath at forty digits, and the c → 0 limit is computed in closed form by code that shares nothing with the solver. That limit found three real defects.",
+          "actions": [],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "28_blkt_03",
+          "textES": "Las funciones especiales se contrastan con una referencia de cuarenta cifras. El límite de coeficiente nulo se calcula mediante una implementación independiente del solucionador. Esta comparación detectó defectos reales durante el desarrollo."
+        }
+      ],
+      "number": 28
+    },
+    {
+      "id": "gravitygauge",
+      "host": "gravitygauge",
+      "title": "Gravity–gauge · 3D",
+      "titleES": "Gravedad y gauge en 3D",
+      "steps": [
+        {
+          "text": "Open Gravity–gauge · 3D. Which physical information a complete tower of masses leaves undetermined in a controlled gravity-gauge example.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "29_gravitygauge_01",
+          "textES": "Abre Gravity gauge, tres dimensiones. Este ejemplo controlado muestra qué información física puede quedar indeterminada aunque conozcamos una torre completa de masas."
+        },
+        {
+          "text": "Select eta equal to minus zero point nine, then display the gauge kinetic function. The paired masses and the source response carry different information. The Wilson quantity here is a kinetic normalization, not a Higgs-mass prediction.",
+          "actions": [
+            {
+              "kind": "click",
+              "selector": "#ggMinus"
+            },
+            {
+              "kind": "set",
+              "selector": "#ggQuantity",
+              "value": "kinetic"
+            }
+          ],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "29_gravitygauge_02",
+          "textES": "Selecciona eta igual a menos cero coma nueve y muestra la función cinética gauge. Las masas emparejadas y la respuesta a una fuente contienen información diferente. La magnitud de Wilson de este panel es una normalización cinética, no una masa del Higgs."
+        },
+        {
+          "text": "The positive paired tensor NN and vector DD masses are protected by their common canonical operator. The gauge NN control has different boundaries and moves. The source position is in the extra dimension, not a laboratory location; the Wilson kinetic scale is not a Higgs mass. For p=1.1 a canonical bulk scalar realizes the family, with stability and cutoff still open.",
+          "actions": [],
+          "focus": {
+            "selector": "#section canvas",
+            "index": 0
+          },
+          "title": null,
+          "id": "29_gravitygauge_03",
+          "textES": "Las masas positivas emparejadas comparten un operador canónico. El control gauge con otras condiciones de contorno sí cambia. La posición de la fuente está en la dimensión adicional. La estabilidad y el corte del ejemplo con escalar siguen abiertos."
+        }
+      ],
+      "number": 29
+    },
+    {
+      "id": "litcensus",
+      "host": "litcensus",
+      "title": "The literature",
+      "titleES": "La bibliografía",
+      "steps": [
+        {
+          "text": "Open The literature. The reading list behind the series: what each paper publishes, and which ones a person has actually read.",
+          "actions": [],
+          "focus": {
+            "selector": "#section",
+            "index": 0
+          },
+          "title": null,
+          "id": "30_litcensus_01",
+          "textES": "Abre The literature. Es la lista de lectura de la serie: registra qué publica cada artículo y cuáles se han leído."
+        },
+        {
+          "text": "Filter the reading list to the complete-triple selection. Inspect the recorded sources and what each paper actually supplies. Keyword signals help navigate this corpus; they are not proofs, and this reading list is not an exhaustive map of the field.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#ltOnly",
+              "value": "triple"
+            }
+          ],
+          "focus": {
+            "selector": "#ltOnly",
+            "index": 0
+          },
+          "title": null,
+          "id": "30_litcensus_02",
+          "textES": "Filtra por la terna completa. Examina las fuentes registradas y lo que proporciona realmente cada artículo. Las señales de palabras clave ayudan a navegar, pero no son pruebas. La lista no pretende cubrir exhaustivamente el campo."
+        },
+        {
+          "text": "A signal is a keyword, and a keyword sweep misses whatever is phrased differently. Nothing is asserted from a signal alone, and the corpus is our reading list rather than the field.",
+          "actions": [],
+          "focus": {
+            "selector": "#ltOnly",
+            "index": 0
+          },
+          "title": null,
+          "id": "30_litcensus_03",
+          "textES": "Un barrido por palabras clave puede omitir un resultado expresado de otro modo. Ninguna afirmación se deduce solo de una señal, y el corpus representa la lista de lectura del proyecto."
+        }
+      ],
+      "number": 30
+    },
+    {
+      "id": "higgs-production",
+      "title": "Simulator: top-KK Higgs production",
+      "titleES": "Simulator: producción de Higgs",
+      "host": "predict",
+      "setup": [
+        {
+          "kind": "set",
+          "selector": "#prModel",
+          "value": "higgsrate"
+        }
+      ],
+      "steps": [
+        {
+          "text": "The second Simulator mode is the top Kaluza Klein Higgs-production reference. Its leading rate, finite tower and resummed comparison answer one specified model question.",
+          "actions": [],
+          "focus": {
+            "selector": "#hdScale",
+            "index": 0
+          },
+          "title": null,
+          "id": "31_higgs-production_01",
+          "textES": "El segundo modo del simulador estudia la producción del Higgs en la referencia con modos de Kaluza Klein del top. La tasa dominante, la torre finita y la comparación resumada responden a una pregunta concreta del modelo."
+        },
+        {
+          "text": "Move the Kaluza Klein scale to fifteen hundred gigaelectronvolts. Inspect the rate curve and the separate convergence display. The chosen comparison window is conditional, and a custom window is a user-supplied scenario.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#hdScale",
+              "value": 1500
+            }
+          ],
+          "focus": {
+            "selector": "#hdCurve",
+            "index": 0
+          },
+          "title": null,
+          "id": "31_higgs-production_02",
+          "textES": "Mueve la escala a mil quinientos gigaelectronvoltios. Examina la curva de tasas y la convergencia por separado. La ventana de comparación es condicionada; una ventana personalizada representa un escenario introducido por el usuario."
+        }
+      ],
+      "number": 31
+    },
+    {
+      "id": "neutrino-ring",
+      "title": "Simulator: the neutrino ring",
+      "titleES": "Simulator: anillo de neutrinos",
+      "host": "predict",
+      "setup": [
+        {
+          "kind": "set",
+          "selector": "#prModel",
+          "value": "neutrino"
+        }
+      ],
+      "steps": [
+        {
+          "text": "Select the four-dimensional neutrino ring. Calibration can hold the light mass and active-current deficit fixed while the required couplings are reconstructed. Six heavy pairs belong to this base model.",
+          "actions": [],
+          "focus": {
+            "selector": "#nrCalibrate",
+            "index": 0
+          },
+          "title": null,
+          "id": "32_neutrino-ring_01",
+          "textES": "Selecciona el anillo de neutrinos de cuatro dimensiones. La calibración puede mantener fijas la masa ligera y la pérdida de corriente activa reconstruyendo los acoplamientos necesarios. El modelo base contiene seis parejas pesadas."
+        },
+        {
+          "text": "Compare mu B equal to zero with five thousand kilo electron volts. The leading light mass and the heavy pair splittings carry different information. Read the approximation indicators alongside the spectrum.",
+          "actions": [
+            {
+              "kind": "click",
+              "selector": "#nrNoB"
+            },
+            {
+              "kind": "click",
+              "selector": "#nrHighB"
+            }
+          ],
+          "focus": {
+            "selector": "#nrSweep",
+            "index": 0
+          },
+          "title": null,
+          "id": "32_neutrino-ring_02",
+          "textES": "Compara mu B igual a cero con cinco mil kiloelectronvoltios. La masa ligera dominante y las separaciones de las parejas pesadas contienen información diferente. Lee los indicadores de aproximación junto al espectro."
+        }
+      ],
+      "number": 32
+    },
+    {
+      "id": "cms-hnl",
+      "title": "CMS heavy-neutral-lepton references",
+      "titleES": "Referencias CMS de neutrinos pesados",
+      "host": "predict",
+      "setup": [
+        {
+          "kind": "set",
+          "selector": "#prModel",
+          "value": "neutrino"
+        }
+      ],
+      "steps": [
+        {
+          "text": "The CMS comparison uses published observed and expected curves with their bands. The overlay keeps the selected flavour and Dirac or Majorana hypothesis visible.",
+          "actions": [],
+          "focus": {
+            "selector": "#nrLimitsPlot",
+            "index": 0
+          },
+          "title": null,
+          "id": "33_cms-hnl_01",
+          "textES": "La comparación con C M S utiliza curvas publicadas observadas y esperadas, con sus bandas. La superposición mantiene visibles el sabor elegido y la hipótesis de Dirac o Majorana."
+        },
+        {
+          "text": "Choose muon flavour and the Majorana reference. Inspect the per-component convention, mass domain and reference ratios. The ring overlay is not a likelihood that includes its complete flavour structure, decay acceptance and multi-state interference.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#nrFlavour",
+              "value": "muon"
+            },
+            {
+              "kind": "set",
+              "selector": "#nrKind",
+              "value": "majorana"
+            }
+          ],
+          "focus": {
+            "selector": "#nrLimitsPlot",
+            "index": 0
+          },
+          "title": null,
+          "id": "33_cms-hnl_02",
+          "textES": "Elige el sabor muónico y la referencia Majorana. Examina la convención por componente, el intervalo de masas y los cocientes de referencia. La superposición del anillo no constituye una verosimilitud que incorpore todos sus sabores, aceptancias de decaimiento e interferencias entre estados."
+        }
+      ],
+      "number": 33
+    },
+    {
+      "id": "decays",
+      "title": "Decays, Majoron channels, flight and coherence",
+      "titleES": "Decaimientos, Majoron, vuelo y coherencia",
+      "host": "predict",
+      "setup": [
+        {
+          "kind": "set",
+          "selector": "#prModel",
+          "value": "neutrino"
+        }
+      ],
+      "steps": [
+        {
+          "text": "The decay card starts from the weak-channel scenario. Select a heavy pair and inspect where its width goes, its lifetime and the fixed-boost flight estimate.",
+          "actions": [],
+          "focus": {
+            "selector": "#ndCard",
+            "index": 0
+          },
+          "title": null,
+          "id": "34_decays_01",
+          "textES": "La tarjeta de decaimientos parte de los canales débiles. Selecciona una pareja pesada y examina sus anchuras parciales, la vida media y la estimación de vuelo para un impulso relativista fijado."
+        },
+        {
+          "text": "Include the calculated Majoron channels. The width and the derived lifetime respond together. An extra width is a separate user hypothesis. Read the isolated-pair and overlap diagnostics before interpreting the same-sign over opposite-sign ratio.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#ndMajoron",
+              "value": true
+            }
+          ],
+          "focus": {
+            "selector": "#ndFractionsPlot",
+            "index": 0
+          },
+          "title": null,
+          "id": "34_decays_02",
+          "textES": "Activa los canales calculados de Majoron. La anchura y la vida derivada cambian conjuntamente. Una anchura adicional es una hipótesis separada del usuario. Antes de interpretar el cociente entre signos iguales y opuestos, revisa si la pareja está aislada o solapada."
+        },
+        {
+          "text": "Change the fixed boost to ten and inspect the flight curve. This illustrates the supplied kinematic scenario; it does not integrate a detector acceptance or a production spectrum.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#ndBoost",
+              "value": 10
+            }
+          ],
+          "focus": {
+            "selector": "#ndFlightPlot",
+            "index": 0
+          },
+          "title": null,
+          "id": "34_decays_03",
+          "textES": "Cambia el factor de impulso a diez y examina la curva de vuelo. Representa el escenario cinemático indicado. No integra una aceptación de detector ni una distribución de producción."
+        }
+      ],
+      "number": 34
+    },
+    {
+      "id": "flavour",
+      "title": "Three active flavours and vacuum oscillations",
+      "titleES": "Tres sabores y oscilaciones en vacío",
+      "host": "predict",
+      "setup": [
+        {
+          "kind": "set",
+          "selector": "#prModel",
+          "value": "neutrino"
+        }
+      ],
+      "steps": [
+        {
+          "text": "Three sterile copies reconstruct the chosen light masses and mixing orientation. The mass ordering, phases and active deficits are inputs. The card also displays eighteen heavy-pair flavour weights.",
+          "actions": [],
+          "focus": {
+            "selector": "#rx_flavour_controls",
+            "index": 0
+          },
+          "title": null,
+          "id": "35_flavour_01",
+          "textES": "Tres copias estériles reconstruyen las masas ligeras y la orientación de mezcla elegidas. El orden de masas, las fases y los déficits activos son entradas. También se muestran los pesos de sabor de dieciocho parejas pesadas."
+        },
+        {
+          "text": "Change the Dirac phase to ninety degrees. Compare neutrino and antineutrino appearance in the unitary vacuum limit, then inspect the flavour fractions. Majorana phases cancel from these oscillation curves but can affect the displayed light-sector double-beta quantity.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#rx_flavour_controls [data-rx=\"delta\"]",
+              "value": 90
+            }
+          ],
+          "focus": {
+            "selector": "#rx_flavour_result svg",
+            "index": 0
+          },
+          "title": null,
+          "id": "35_flavour_02",
+          "textES": "Cambia la fase de Dirac a noventa grados. Compara la aparición de neutrinos y antineutrinos en el límite unitario de vacío y examina las fracciones de sabor. Las fases de Majorana se cancelan en estas oscilaciones, pero pueden afectar a la magnitud de doble beta mostrada."
+        }
+      ],
+      "number": 35
+    },
+    {
+      "id": "identifiability",
+      "title": "Fixed light inputs: what can distinguish the ring?",
+      "titleES": "Entradas ligeras fijas: qué distingue el anillo",
+      "host": "predict",
+      "setup": [
+        {
+          "kind": "set",
+          "selector": "#prModel",
+          "value": "neutrino"
+        }
+      ],
+      "steps": [
+        {
+          "text": "This experiment holds the chosen light masses and mixing orientation fixed while reconstructing a parameter path. The green strip tells you what is fixed. The five figures separate heavy masses, splitting, current factors, small differences and reference data.",
+          "actions": [],
+          "focus": {
+            "selector": "#rx_identifiability_result .ni-fixed",
+            "index": 0
+          },
+          "title": null,
+          "id": "36_identifiability_01",
+          "textES": "Este experimento mantiene fijas las masas ligeras y la orientación de mezcla mientras reconstruye una trayectoria de parámetros. La franja verde identifica las entradas fijas. Cinco figuras separan masas pesadas, separaciones, factores de corriente, diferencias pequeñas y datos de referencia."
+        },
+        {
+          "text": "Move the selected position from one tenth to eight tenths along the mu B path. The mass stays fixed while the pair splitting changes. The open circle tracks the selected point. Equal light inputs therefore do not determine every heavy-sector response.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#rx_identifiability_controls [data-rx=\"position\"]",
+              "value": 0.8
+            }
+          ],
+          "focus": {
+            "selector": "#rx_identifiability_result .ni-grid",
+            "index": 0
+          },
+          "title": null,
+          "id": "36_identifiability_02",
+          "textES": "Mueve la posición seleccionada de una décima a ocho décimas en la trayectoria de mu B. La masa permanece fija mientras cambia la separación de la pareja. El círculo abierto sigue el punto elegido. Las mismas entradas ligeras no determinan toda la respuesta del sector pesado."
+        },
+        {
+          "text": "Now choose the common active deficit and its upper endpoint. The raw vacuum current factor is suppressed, but the specified near normalization cancels the common factor. The difference figure labels numerical coincidence rather than amplifying roundoff.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#rx_identifiability_controls [data-rx=\"axis\"]",
+              "value": 5
+            },
+            {
+              "kind": "set",
+              "selector": "#rx_identifiability_controls [data-rx=\"position\"]",
+              "value": 1
+            }
+          ],
+          "focus": {
+            "selector": "#rx_identifiability_result .ni-grid",
+            "index": 1
+          },
+          "title": null,
+          "id": "36_identifiability_03",
+          "textES": "Selecciona ahora el déficit activo común y su extremo superior. Se suprime el factor bruto de corriente, pero la normalización cercana indicada cancela el factor común. La figura de diferencias identifica la coincidencia numérica sin amplificar errores de redondeo."
+        },
+        {
+          "text": "Choose deficit direction three. Unequal deficits can leave a shape response. The fourth graph magnifies an absolute difference that is difficult to see in the overlapping curves. Its scale is explicit, and the exported samples retain their original precision.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#rx_identifiability_controls [data-rx=\"axis\"]",
+              "value": 8
+            }
+          ],
+          "focus": {
+            "selector": "#rx_identifiability_result .ni-figure",
+            "index": 3
+          },
+          "title": null,
+          "id": "36_identifiability_04",
+          "textES": "Elige la tercera dirección de déficit. Los déficits diferentes pueden dejar una respuesta en la forma. La cuarta gráfica amplía una diferencia absoluta difícil de ver en curvas superpuestas. La escala es explícita y los datos exportados conservan la precisión original."
+        },
+        {
+          "text": "The DeepCore map uses the archived twenty-eighteen standard-three-neutrino tables. The cross stays fixed along the ring path because these light inputs stay fixed. The map is not a nonunitary ring likelihood and is not added to NuFIT.",
+          "actions": [],
+          "focus": {
+            "selector": "#rx_identifiability_result .ni-figure",
+            "index": 4
+          },
+          "title": null,
+          "id": "36_identifiability_05",
+          "textES": "El mapa de DeepCore utiliza tablas archivadas de dos mil dieciocho para tres neutrinos estándar. La cruz permanece fija en la trayectoria del anillo porque las entradas ligeras siguen fijas. Este mapa no es una verosimilitud del anillo no unitario y no se suma a NuFIT."
+        },
+        {
+          "text": "To move the cross, change sine squared theta twenty-three in the flavour card. Here it is set to zero point six. The reference updates for the new light input. Outside its published grid the laboratory withholds a value instead of extrapolating.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#rx_flavour_controls [data-rx=\"s23\"]",
+              "value": 0.6
+            }
+          ],
+          "focus": {
+            "selector": "#rx_identifiability_result .ni-figure",
+            "index": 4
+          },
+          "title": null,
+          "id": "36_identifiability_06",
+          "textES": "Para mover la cruz, cambia seno cuadrado de theta veintitrés en la tarjeta de sabores. Aquí lo fijamos en cero coma seis. La referencia responde a la nueva entrada ligera. Fuera de la malla publicada, el laboratorio no asigna un valor extrapolado."
+        }
+      ],
+      "number": 36
+    },
+    {
+      "id": "su6mn",
+      "title": "Maru–Nago SU(6): content and convergence",
+      "titleES": "SU(6) de Maru–Nago: contenido y convergencia",
+      "host": "papers",
+      "setup": [],
+      "steps": [
+        {
+          "text": "This paper-model experiment reconstructs the stated flat S U six potential. Matter content and the winding cutoff are explicit controls. A small Wilson minimum must be read with its convergence check.",
+          "actions": [],
+          "focus": {
+            "selector": "#rx_su6mn",
+            "index": 0
+          },
+          "title": null,
+          "id": "37_su6mn_01",
+          "textES": "Este experimento reconstruye el potencial S U seis plano de Maru y Nago. El contenido de materia y el corte de la suma son controles explícitos. Un mínimo pequeño de Wilson debe leerse junto a su comprobación de convergencia."
+        },
+        {
+          "text": "Set the winding cutoff to ten and inspect the shifted minimum and comparison. A finite truncation can change the apparent result. The supported potential can be transferred to the builder; this does not certify a complete flavour model.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#rx_su6mn_controls [data-rx=\"windings\"]",
+              "value": 10
+            }
+          ],
+          "focus": {
+            "selector": "#rx_su6mn_result svg",
+            "index": 0
+          },
+          "title": null,
+          "id": "37_su6mn_02",
+          "textES": "Fija el corte de la suma en diez y examina el mínimo y la comparación. Un truncamiento finito puede cambiar el resultado aparente. El potencial compatible se puede transferir al constructor; eso no certifica un modelo completo de sabores."
+        }
+      ],
+      "number": 37
+    },
+    {
+      "id": "rsrunning",
+      "title": "Warped SU(6): differential gauge running",
+      "titleES": "SU(6) alabeado: evolución de acoplamientos",
+      "host": "blkt",
+      "setup": [],
+      "steps": [
+        {
+          "text": "The warped-unification card compares differential gauge running under the selected matter assignment. Required ultraviolet boundary terms and their residuals are outputs of that stated approximation.",
+          "actions": [],
+          "focus": {
+            "selector": "#rx_rsrunning",
+            "index": 0
+          },
+          "title": null,
+          "id": "38_rsrunning_01",
+          "textES": "La tarjeta de unificación alabeada compara la evolución diferencial de los acoplamientos para la asignación de materia seleccionada. Los términos de contorno ultravioleta necesarios y sus residuos son resultados de esa aproximación."
+        },
+        {
+          "text": "Switch the matter assignment to C two. The running differences and required boundary terms respond. The naive-dimensional-analysis reference is a scale estimate. The separate localization probe is not a complete fermion-spectrum calculation.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#rx_rsrunning_controls [data-rx=\"content\"]",
+              "value": 2
+            }
+          ],
+          "focus": {
+            "selector": "#rx_rsrunning_result svg",
+            "index": 0
+          },
+          "title": null,
+          "id": "38_rsrunning_02",
+          "textES": "Cambia la asignación de materia a C dos. Responden las diferencias de evolución y los términos de contorno necesarios. La referencia de análisis dimensional es una estimación de escala. La sonda de localización separada no calcula un espectro fermiónico completo."
+        }
+      ],
+      "number": 38
+    },
+    {
+      "id": "thermal",
+      "title": "Thermal potential and phase coexistence",
+      "titleES": "Potencial térmico y coexistencia de fases",
+      "host": "predict",
+      "setup": [
+        {
+          "kind": "set",
+          "selector": "#prModel",
+          "value": "builder"
+        }
+      ],
+      "steps": [
+        {
+          "text": "The thermal card is its own S U three benchmark. It uses named paper cases and compares potential cutoffs. A stored matching PhaseTracer result is available offline for the recorded inputs.",
+          "actions": [],
+          "focus": {
+            "selector": "#rx_thermal",
+            "index": 0
+          },
+          "title": null,
+          "id": "39_thermal_01",
+          "textES": "La tarjeta térmica utiliza su propio ejemplo S U tres. Incluye casos identificados del artículo y compara cortes del potencial. Para las entradas archivadas hay un resultado compatible de PhaseTracer disponible sin conexión."
+        },
+        {
+          "text": "Load paper case two and compare the potential and phase flow. Coexistence and a nucleation proxy are different questions. A new point needs a matching bounce calculation; changing the builder model does not turn this benchmark into its thermal history.",
+          "actions": [
+            {
+              "kind": "button",
+              "text": "Thermal paper · case 2"
+            }
+          ],
+          "focus": {
+            "selector": "#rx_thermal_result svg",
+            "index": 0
+          },
+          "title": null,
+          "id": "39_thermal_02",
+          "textES": "Carga el caso dos y compara el potencial y la evolución de fases. La coexistencia y un indicador aproximado de nucleación son preguntas diferentes. Un punto nuevo necesita su cálculo compatible de la transición. Cambiar el constructor no convierte este ejemplo en la historia térmica del modelo construido."
+        }
+      ],
+      "number": 39
+    },
+    {
+      "id": "thermalhistory",
+      "title": "Nucleation, percolation and conditional waves",
+      "titleES": "Nucleación, percolación y ondas condicionadas",
+      "host": "predict",
+      "setup": [
+        {
+          "kind": "set",
+          "selector": "#prModel",
+          "value": "builder"
+        }
+      ],
+      "steps": [
+        {
+          "text": "Integrated transition history uses refined action tables. Read nucleation, percolation and completion separately. The false-vacuum fraction and physical-volume condition make those distinctions visible.",
+          "actions": [],
+          "focus": {
+            "selector": "#rx_thermalhistory",
+            "index": 0
+          },
+          "title": null,
+          "id": "40_thermalhistory_01",
+          "textES": "La historia integrada utiliza tablas refinadas de la acción. Lee por separado nucleación, percolación y finalización. La fracción de falso vacío y la condición sobre el volumen físico hacen visibles esas diferencias."
+        },
+        {
+          "text": "Set the assumed wall speed to zero point eight and the fluid efficiency to zero point one. Compare the history and conditional acoustic spectrum. Wall friction, plasma evolution and detector significance are not calculated by these controls.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#rx_thermalhistory_controls [data-rx=\"wallSpeed\"]",
+              "value": 0.8
+            },
+            {
+              "kind": "set",
+              "selector": "#rx_thermalhistory_controls [data-rx=\"efficiency\"]",
+              "value": 0.1
+            }
+          ],
+          "focus": {
+            "selector": "#rx_thermalhistory_result svg",
+            "index": 0
+          },
+          "title": null,
+          "id": "40_thermalhistory_02",
+          "textES": "Fija la velocidad supuesta de la pared en cero coma ocho y la eficiencia del fluido en cero coma uno. Compara la historia y el espectro acústico condicionado. Estos controles no calculan la fricción de la pared, la evolución del plasma ni una significación de detección."
+        }
+      ],
+      "number": 40
+    },
+    {
+      "id": "rsanomaly",
+      "title": "RS anomaly flow and baryon current",
+      "titleES": "Flujo de anomalías RS y corriente bariónica",
+      "host": "anomalies",
+      "setup": [],
+      "steps": [
+        {
+          "text": "This warped-model experiment separates ultraviolet and infrared anomaly factors, gauge cancellation and the baryon-current matrix. Its sources and approximation are distinct from the base S U seven ledger.",
+          "actions": [],
+          "focus": {
+            "selector": "#rx_rsanomaly",
+            "index": 0
+          },
+          "title": null,
+          "id": "41_rsanomaly_01",
+          "textES": "El experimento alabeado separa los factores de anomalía ultravioleta e infrarroja, la cancelación gauge y la matriz de corriente bariónica. Sus fuentes y su aproximación son diferentes del registro base de S U siete."
+        },
+        {
+          "text": "Remove the lepton generations in this test configuration. The imbalance exposes a gauge anomaly that needs completion. A nonzero baryon-current anomaly is a separate statement; it is not a computed proton lifetime or baryogenesis yield.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#rx_rsanomaly_controls [data-rx=\"leptonGen\"]",
+              "value": 0
+            }
+          ],
+          "focus": {
+            "selector": "#rx_rsanomaly_result svg",
+            "index": 0
+          },
+          "title": null,
+          "id": "41_rsanomaly_02",
+          "textES": "Elimina las generaciones leptónicas en esta configuración de prueba. El desequilibrio revela una anomalía gauge que requiere completar el contenido. Una anomalía de corriente bariónica es una afirmación distinta; no calcula la vida del protón ni la producción de una asimetría bariónica."
+        }
+      ],
+      "number": 41
+    },
+    {
+      "id": "higgstools",
+      "title": "Higgs rates and matching experimental tests",
+      "titleES": "Tasas de Higgs y contrastes experimentales",
+      "host": "collider",
+      "setup": [],
+      "steps": [
+        {
+          "text": "Begin with the stored Standard Model-like scalar reference. Local couplings determine production rates, partial widths and branching fractions. Matching HiggsBounds and HiggsSignals calculations use pinned experimental datasets.",
+          "actions": [],
+          "focus": {
+            "selector": "#rx_higgstools",
+            "index": 0
+          },
+          "title": null,
+          "id": "42_higgstools_01",
+          "textES": "Empieza con la referencia escalar archivada de tipo Modelo Estándar. Los acoplamientos locales determinan las tasas de producción, anchuras parciales y fracciones de desintegración. Las comparaciones compatibles de HiggsBounds y HiggsSignals utilizan conjuntos experimentales fijados."
+        },
+        {
+          "text": "Add one mega electron volt of invisible width. The local predictions update, and the old experimental result is withdrawn because its inputs no longer match. Run the optional engine or import a matching result before assigning a new experimental verdict.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#rx_higgstools_controls [data-rx=\"invWidthMeV\"]",
+              "value": 1
+            }
+          ],
+          "focus": {
+            "selector": "#rx_higgstools_result",
+            "index": 0
+          },
+          "title": null,
+          "id": "42_higgstools_02",
+          "textES": "Añade un megaelectronvoltio de anchura invisible. Las predicciones locales cambian y el resultado experimental anterior se retira porque sus entradas ya no coinciden. Ejecuta el motor opcional o importa un resultado compatible antes de asignar un nuevo veredicto experimental."
+        }
+      ],
+      "number": 42
+    },
+    {
+      "id": "exports",
+      "title": "Keep the inputs, figures and scope",
+      "titleES": "Guardar entradas, figuras y alcance",
+      "host": "predict",
+      "setup": [
+        {
+          "kind": "set",
+          "selector": "#prModel",
+          "value": "neutrino"
+        }
+      ],
+      "steps": [
+        {
+          "text": "Use a comparison snapshot before changing a point. Save the experiment JSON to retain the inputs, calculated arrays, assumptions, provenance and optional saved reference. The global result card and LaTeX exports provide another view of the selected calculation.",
+          "actions": [
+            {
+              "kind": "click",
+              "selector": "#rx_identifiability [data-pin]"
+            },
+            {
+              "kind": "click",
+              "selector": "#rx_identifiability_json"
+            }
+          ],
+          "focus": {
+            "selector": "#rx_identifiability_json",
+            "index": 0
+          },
+          "title": null,
+          "id": "43_exports_01",
+          "textES": "Guarda una instantánea de comparación antes de cambiar el punto. Exporta el archivo JSON para conservar entradas, resultados, hipótesis, procedencia y la referencia guardada. La tarjeta global y la exportación LaTeX ofrecen otra presentación del cálculo seleccionado."
+        },
+        {
+          "text": "Choose a figure and save its vector SVG. The new neutrino figures carry sampled data and provenance in their metadata. The link button preserves controls in the address; archive external results and comparisons in JSON as well.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#rx_identifiability select[aria-label=\"Figure to save\"]",
+              "value": 3
+            },
+            {
+              "kind": "click",
+              "selector": "#rx_identifiability_svg"
+            },
+            {
+              "kind": "click",
+              "selector": "#btnLink"
+            }
+          ],
+          "focus": {
+            "selector": "#rx_identifiability_svg",
+            "index": 0
+          },
+          "title": null,
+          "id": "43_exports_02",
+          "textES": "Elige una figura y guarda su archivo vectorial SVG. Las nuevas figuras de neutrinos incluyen datos muestreados y procedencia en sus metadatos. El botón de enlace conserva controles en la dirección. Guarda también en JSON los resultados externos y las comparaciones."
+        },
+        {
+          "text": "The browser calculations and stored references run offline. New HiggsTools and PhaseTracer points use the optional local engine. The source repository contains the reproduction commands, independent checks and archived studies. Return to a chapter, vary one assumption, and keep the scope beside every result.",
+          "actions": [],
+          "focus": {
+            "selector": "#rx_identifiability_result .ni-grid",
+            "index": 0
+          },
+          "title": null,
+          "id": "43_exports_03",
+          "textES": "Los cálculos del navegador y las referencias archivadas funcionan sin conexión. Los puntos nuevos de HiggsTools y PhaseTracer requieren el motor local opcional. El repositorio incluye instrucciones de reproducción, comprobaciones independientes y estudios archivados. Vuelve al capítulo que necesites, modifica una hipótesis y conserva el alcance junto a cada resultado."
+        }
+      ],
+      "number": 43
+    }
+  ],
+  "languages": [
+    "en",
+    "es"
+  ],
+  "voices": {
+    "en": "Microsoft Zira Desktop",
+    "es": "Microsoft Helena Desktop"
+  }
+}

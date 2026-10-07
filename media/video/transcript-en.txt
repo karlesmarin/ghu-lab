@@ -1,0 +1,327 @@
+00:00:00.000  01. Start here: question, model, comparison
+
+Welcome to G H U Lab. This walkthrough covers every menu section, the three Simulator modes and the embedded research experiments. We will use real controls and inspect the results. Choose a chapter when you want to revisit one topic.
+
+Start with a named model or reference. Change one assumption at a time, and read the result with its units and scope. Theorem, verified, measured and unknown describe different kinds of evidence. A computed scenario value is not automatically an experimental measurement.
+
+00:00:34.467  02. Hierarchy
+
+Open Hierarchy. Given a bulk content of the SU(7) model, where the compactification scale and the Higgs mass land — and how far that content sits below the ceiling no content can pass.
+
+Change the diagnostic gauge coupling to zero point seven. The response plots separate a change of model convention from propagation of the measured W input and from winding convergence. Read the axes and the central values together.
+
+Every absolute TeV and GeV inherits the anchor caveat at the top of the page: our α does not reproduce the published α, by a factor that varies from row to row. The mass ratio and the arithmetic laws do not.
+
+00:01:17.400  03. Design a scale
+
+Open Design a scale. The map run backwards: name a compactification scale and a Higgs-mass window, and get a bulk content that lands there — or a named certificate that none exists.
+
+Enter a target compactification scale of two teraelectronvolts and run the design. Inspect the returned content or the named certificate. A search budget is a stopping condition, not evidence that no solution exists.
+
+`budget` means the search stopped, not that the rung is empty; the page keeps the two apart on purpose. The reachable-set panel resolves each cluster into the finite set of points it really is.
+
+00:01:56.400  04. Count a rung
+
+Open Count a rung. How many bulk contents sit on a rung — counted, not built.
+
+The counting graph is generated when the section opens. Click a different horizontal position to move the moment probe and compare counts across the rungs. These are counts of contents, not a list of experimentally viable models.
+
+The four published-seed totals reproduce an independent enumeration of 69 022 464 contents. The candidate uses even rungs and half-integral A₄; its counts are computed separately, without transferring the published measured-mass fibre.
+
+00:02:34.667  05. Atlas
+
+Open Atlas. Every bulk content of at most five multiplets — 1 286 of them — with its potential drawn as one tile.
+
+Draw the lattice of one thousand two hundred and eighty-six contents. Each tile is a different potential. Inspect its colour and shape; a flat or blank potential is itself a result. Clicking a tile transfers that content to the model.
+
+One tile is green in the Higgs window, and it is the published row (2). A blank tile is a content whose potential is flat, and the harness predicts which tiles blank before they are drawn.
+
+00:03:12.267  06. Same potential?
+
+Open Same potential?. Whether two bulk contents are the same one-loop potential, by Part VII's Theorem 3.
+
+Copy the first content and construct its canonical representative. Compare the potential curves and the five coordinates. Different lists of matter can produce exactly the same one-loop potential under the stated theorem.
+
+Same five coordinates ⟺ identically the same potential. The dashed curve riding exactly on the solid one is the theorem, not a coincidence.
+
+00:03:44.933  07. Anomalies & proton
+
+Open Anomalies & proton. What each multiplet contributes to the anomaly bill, in eighths, and what the proton-decay escape costs.
+
+Read the signed contributions to the anomaly bill and the rung ladder. A nonzero bulk bill does not, by itself, make the theory inconsistent: possible brane matter must be considered separately. The research card later in this section studies a different warped model.
+
+A non-zero bill is not an inconsistency: brane fermions pay into the same channels with the opposite sign. What the ladder forbids is a rung, not a model.
+
+00:04:22.267  08. Escape from proton decay
+
+Open Escape from proton decay. The escape from proton decay, constructed: type a brane content and watch the six channels, the assignments and the selection rule recompute.
+
+Choose the scalar charge associated with the eighty-four representation. The rational anomaly channels and charge assignments update together. Inspect which assignments meet the displayed proton-protection rule; the calculation does not supply a measured proton lifetime.
+
+Every assignment that protects the proton can also cancel all six channels — protection never costs an anomaly. That is an enumeration, not an argument.
+
+00:05:01.467  09. Multiplets & parities
+
+Open Multiplets & parities. The layer under the term tables: every representation broken into multiplets with their three Z₂ parities.
+
+Select the eighty-four representation and change its parity assignment. The decomposition and parity picture update from the representation data. Use the table to connect a surviving zero mode with the sign of its potential contribution.
+
+The term tables here are DERIVED and then checked against the ones the rest of the page computes with. If the two ever disagreed, this panel is where it would show.
+
+00:05:36.667  10. Screen a table
+
+Open Screen a table. Arithmetic screens for a published row, with conditional rung certificates and independent full-potential witness checks.
+
+Enter a candidate resonance at four thousand gigaelectronvolts. The arithmetic comb compares the supplied point with its allowed spacings. Then inspect the separate conditional bounds and vacuum witnesses. An arithmetic match is not a full physical-vacuum certificate.
+
+The interval certificates bound a small-angle moment relaxation under the stated conventions. They do not certify a ceiling for the full potential. The separate vacuum checks compare numerically located extrema with Fourier-tail errors; an observed surviving witness is not an exhaustive optimum.
+
+00:06:21.267  11. Collider
+
+Open Collider. Which state a dijet search bounds, plus a separate Higgs-rate scenario checked against pinned experimental datasets.
+
+Move the dijet mass probe to five point two. Read the selected state, mass scale and published comparison under its colour hypothesis. The separate Higgs experiment below uses another explicitly supplied scalar scenario.
+
+The dijet Δχ² values are quoted from the published record; the Higgs experiment computes its own comparison. Its 159 HiggsSignals observables are not 159 independent degrees of freedom. Coupling and width assumptions can compensate in visible rates, so this scalar comparison is not a complete GHU fit.
+
+00:07:06.600  12. Selection rule
+
+Open Selection rule. Which α-domain a search may legally use, and which SU(4) representations can hold a quark generation.
+
+Select the representation with Dynkin labels one, zero, one. The centre-charge and chiral-projection results determine which search domain is permitted and which content can host a generation. The domain is computed from the representation, not chosen for convenience.
+
+The centre-charge gate is classical and is credited as such. What is ours is the chiral projection that gives the closed count.
+
+00:07:42.000  13. Model calculator
+
+Open Model calculator. A matter content in, the Higgs out — the AHMN model recomputed in front of you.
+
+Load the named A H M N reference model. Its terms, potential and derived quantities are recalculated by the browser. Start with this anchored content before changing multiplicities or boundary signs, and retain the stated normalization caveat for absolute scales.
+
+The mass ratio carries no normalisation and no caveat. Absolute scales do.
+
+00:08:15.533  14. eta-meter
+
+Open eta-meter. What the boundary sign η does to a multiplet's contribution — in closed form, from one integer.
+
+Load the supplied example made from a blind multiplet, then flip every eta sign. In this example the potential is insensitive to that change. The eta-difference view exposes the cancellation; it is not evidence that boundary signs never matter.
+
+In difference mode every blind multiplet goes blank. That is Part V's theorem seen without reading a number.
+
+00:08:48.333  15. Five dimensions
+
+Open Five dimensions. Haba–Yamashita's own 5D SU(3) model, with the vacuum their paper leaves undone.
+
+Compare the pure-gauge case with the supplied marginal trio. Read the potential and vacuum together. This panel uses the five-dimensional S U three reference, so its arithmetic and assumptions must not be borrowed from the six-dimensional S U seven benchmark.
+
+Pure gauge never breaks the symmetry (D = −9). In this whole 5D class 8D is even: the odd rung the SU(7) ceiling stands on needs the sixth dimension.
+
+00:09:25.200  16. SU(N) builder
+
+Open SU(N) builder. The one-loop Wilson-line potential of ANY 5D SU(N) model on S¹/Z₂ — the model is the input.
+
+Load the source paper section four point three benchmark. The boundary blocks and bulk content become the model. The potential is reconstructed from these inputs; the Spectrum, Anomalies and Simulator sections can inspect the same builder model.
+
+Every equation of all four worked examples in the source paper is checked against this. With one Wilson-line phase the terms are the same (m, s, c) triples the SU(7) sections run on, so Part VII's closed form applies to somebody else's model.
+
+00:10:09.933  17. Paper models
+
+Open Paper models. Four models somebody else published, taken off their pages and run through this instrument's engine.
+
+Change the triplet Dirac-fermion count to five in the supported reference. Inspect which outputs are actually computed and which remain structural statements. Where offered, the load button transfers the supported content into the general builder.
+
+Three of the four are supersymmetric and this engine's potential is not, so their rows are boundary-condition and zero-mode statements only. An amber row disagrees with one printed equation, not with a paper, and names which of that paper's own equations agrees with which.
+
+00:10:50.133  18. 4D spectrum
+
+Open 4D spectrum. What the model on the builder CONTAINS: the four-dimensional fields and their Kaluza–Klein towers.
+
+Load the S U six example and move the Wilson-line probe. Compare the potential families with the exact low-lying tower. The lowest levels can require a different reading from the families used to construct the potential.
+
+The families are the potential's multiset and are right for it; at a broken vacuum they are wrong at the LOWEST level of the adjoint and the symmetric tensor, which is why the exact tower is a second table and not a repetition.
+
+00:11:25.133  19. Anomalies
+
+Open Anomalies. What that content owes: every anomaly channel of the unbroken group, in exact rationals.
+
+Load the S U six example. The ledger evaluates each anomaly channel of the unbroken group in exact rational arithmetic. Distinguish a vanishing bill from a case with no massless fermions to test. Brane cancellation is a separate calculation.
+
+A non-zero row is a BILL, not an inconsistency: the brane fermions such a model needs pay into the same channels with the opposite sign. And a model with no massless fermion has nothing to cancel — that is `no subject`, not `cancels`.
+
+00:12:05.133  20. Brane matter
+
+Open Brane matter. Who pays that bill, and what it costs: matter on the two fixed points, held at once to the anomaly ledger and to Part I's boundary-mass gate.
+
+Load the supplied S U five brane example and solve its supported linear charge channels. Compare the anomaly ledger with the surviving massless fields. Paying an anomaly bill and giving a field a mass are different requirements.
+
+Two verdicts, kept apart on purpose: the bill before and after, and the massless count before and after. The same field can pay one and not the other, because the charge that cancels an anomaly is not in general the charge a mass term needs. The surviving count is a lower bound — the rank test assumes generic couplings.
+
+00:12:50.400  21. Scan
+
+Open Scan. The model-building loop closed: walk the whole space of boundary conditions and contents through filters.
+
+Run the displayed finite sweep. Read the denominator, each filter in the funnel, the survivors and the unresolved cases. The interface counts boundary conditions and equivalence classes separately, so surviving rows are not automatically distinct theories.
+
+Surviving boundary conditions are not surviving theories: [p,q,r,s] ~ [p−1,q+1,r+1,s−1] is the same theory, so the headline is a pair of numbers. An undecided vacuum is counted apart from a no.
+
+00:13:30.267  22. One model, every verdict
+
+Open One model, every verdict. Which of the instrument's answers about this model are about the THEORY, and which only about the frame you are standing in.
+
+Start the built-in example, then choose its displayed equivalent boundary condition. Compare the tags identifying properties of the theory and properties of the chosen frame. A changed coordinate description can move a displayed quantity without changing the physical theory.
+
+The tag is measured on that render, never read off a list. The lines at the minimum are the theory's; the ones at the symmetric point are mostly the frame's — which is the whole point of the section.
+
+00:14:08.867  23. Simulator
+
+Open Simulator. Choose builder predictions, a top-KK Higgs-rate reference or the neutrino ring; compare calculated responses with their explicitly scoped experimental references.
+
+Load the built-in published builder example, then change the gauge coupling to one. Compare the resulting Higgs quantity and compactification reference. This is a model calculation with named measured inputs and comparison hypotheses; no collider events are simulated.
+
+No collider event is simulated. The thermal history is a separate SU(3) benchmark with supplied wall and efficiency parameters; its acoustic spectrum is evaluated only in the supported completed, weak-transition, fast-wall regime. It is not a detector forecast or the thermal history of the SU(7) builder. A symmetric vacuum sets no compactification scale.
+
+00:15:01.800  24. Boundary conditions
+
+Open Boundary conditions. Which boundary conditions are the same theory, walked as orbits rather than quoted as a theorem.
+
+Switch from the interval orbifold to the two-dimensional Z three example. The orbit structure and class count change with the specified boundary problem. Equivalence classes identify descriptions connected by the allowed transformations.
+
+The counts come out (N+1)² at every N on S¹/Z₂, which is Haba–Hosotani–Kawamura's theorem as a measurement. Press T²/Z₃ and the answer changes.
+
+00:15:39.400  25. Classify an orbifold
+
+Open Classify an orbifold. The alphabet of an orbifold, derived from its rotation matrix and nothing else.
+
+Select the two-dimensional Z four rotation and classify it. The group-theoretic alphabet is derived from the matrix. You can enter another supported matrix, but an invalid finite-order hypothesis must be refused rather than silently classified.
+
+Nothing is entered but the matrix. A matrix of infinite order, or one whose characteristic polynomial is not a power of the m-th cyclotomic, comes back REFUSED rather than classified.
+
+00:16:17.133  26. Name the relations
+
+Open Name the relations. Which equivalence relation on boundary conditions the literature already owns, and whether a proposed move set connects a class.
+
+Switch to the Z four boundary problem and judge the displayed proposed move. Read the local and global qualifications and the source attribution. A useful move in one boundary problem is not automatically a complete equivalence relation in another.
+
+The local/global distinction is the one that gets misquoted, and the page carries it explicitly.
+
+00:16:50.067  27. Conjugate boundary conditions
+
+Open Conjugate boundary conditions. How many inequivalent CONJUGATE boundary conditions there are on S¹/Z₂ — and, because that count rests on a hypothesis nobody has settled, what each of the two answers would be.
+
+Increase the group rank and compare the two hypotheses printed in the table. Conjugate twists transform by congruence. Independent boundary transformations and one linked transformation lead to different classification questions, so the hypothesis travels with the count.
+
+What the panel puts on screen is the disagreement, not a number, and that is the point: the twists move by congruence rather than similarity, and independence decides between four classes flat in N and no finite count at all. What the label leaves unbroken is not a property of the label — the same verdict the ordinary panel reaches by another route. The exported card carries the hypothesis beside the count, so a number never travels without the condition it rests on.
+
+00:17:48.067  28. Brane kinetic terms
+
+Open Brane kinetic terms. What happens to the tower when brane-localised kinetic terms make the masses stop being n/R.
+
+Increase the brane kinetic coefficient to twelve. The spectrum responds because the roots are no longer a simple integer tower. Compare the root conditions and normalization, then use the separate warped-unification card for coupling-running questions.
+
+The special functions are checked against mpmath at forty digits, and the c → 0 limit is computed in closed form by code that shares nothing with the solver. That limit found three real defects.
+
+00:18:25.267  29. Gravity–gauge · 3D
+
+Open Gravity–gauge · 3D. Which physical information a complete tower of masses leaves undetermined in a controlled gravity-gauge example.
+
+Select eta equal to minus zero point nine, then display the gauge kinetic function. The paired masses and the source response carry different information. The Wilson quantity here is a kinetic normalization, not a Higgs-mass prediction.
+
+The positive paired tensor NN and vector DD masses are protected by their common canonical operator. The gauge NN control has different boundaries and moves. The source position is in the extra dimension, not a laboratory location; the Wilson kinetic scale is not a Higgs mass. For p=1.1 a canonical bulk scalar realizes the family, with stability and cutoff still open.
+
+00:19:14.533  30. The literature
+
+Open The literature. The reading list behind the series: what each paper publishes, and which ones a person has actually read.
+
+Filter the reading list to the complete-triple selection. Inspect the recorded sources and what each paper actually supplies. Keyword signals help navigate this corpus; they are not proofs, and this reading list is not an exhaustive map of the field.
+
+A signal is a keyword, and a keyword sweep misses whatever is phrased differently. Nothing is asserted from a signal alone, and the corpus is our reading list rather than the field.
+
+00:19:52.267  31. Simulator: top-KK Higgs production
+
+The second Simulator mode is the top Kaluza Klein Higgs-production reference. Its leading rate, finite tower and resummed comparison answer one specified model question.
+
+Move the Kaluza Klein scale to fifteen hundred gigaelectronvolts. Inspect the rate curve and the separate convergence display. The chosen comparison window is conditional, and a custom window is a user-supplied scenario.
+
+00:20:18.933  32. Simulator: the neutrino ring
+
+Select the four-dimensional neutrino ring. Calibration can hold the light mass and active-current deficit fixed while the required couplings are reconstructed. Six heavy pairs belong to this base model.
+
+Compare mu B equal to zero with five thousand kilo electron volts. The leading light mass and the heavy pair splittings carry different information. Read the approximation indicators alongside the spectrum.
+
+00:20:46.067  33. CMS heavy-neutral-lepton references
+
+The CMS comparison uses published observed and expected curves with their bands. The overlay keeps the selected flavour and Dirac or Majorana hypothesis visible.
+
+Choose muon flavour and the Majorana reference. Inspect the per-component convention, mass domain and reference ratios. The ring overlay is not a likelihood that includes its complete flavour structure, decay acceptance and multi-state interference.
+
+00:21:13.800  34. Decays, Majoron channels, flight and coherence
+
+The decay card starts from the weak-channel scenario. Select a heavy pair and inspect where its width goes, its lifetime and the fixed-boost flight estimate.
+
+Include the calculated Majoron channels. The width and the derived lifetime respond together. An extra width is a separate user hypothesis. Read the isolated-pair and overlap diagnostics before interpreting the same-sign over opposite-sign ratio.
+
+Change the fixed boost to ten and inspect the flight curve. This illustrates the supplied kinematic scenario; it does not integrate a detector acceptance or a production spectrum.
+
+00:21:52.067  35. Three active flavours and vacuum oscillations
+
+Three sterile copies reconstruct the chosen light masses and mixing orientation. The mass ordering, phases and active deficits are inputs. The card also displays eighteen heavy-pair flavour weights.
+
+Change the Dirac phase to ninety degrees. Compare neutrino and antineutrino appearance in the unitary vacuum limit, then inspect the flavour fractions. Majorana phases cancel from these oscillation curves but can affect the displayed light-sector double-beta quantity.
+
+00:22:22.933  36. Fixed light inputs: what can distinguish the ring?
+
+This experiment holds the chosen light masses and mixing orientation fixed while reconstructing a parameter path. The green strip tells you what is fixed. The five figures separate heavy masses, splitting, current factors, small differences and reference data.
+
+Move the selected position from one tenth to eight tenths along the mu B path. The mass stays fixed while the pair splitting changes. The open circle tracks the selected point. Equal light inputs therefore do not determine every heavy-sector response.
+
+Now choose the common active deficit and its upper endpoint. The raw vacuum current factor is suppressed, but the specified near normalization cancels the common factor. The difference figure labels numerical coincidence rather than amplifying roundoff.
+
+Choose deficit direction three. Unequal deficits can leave a shape response. The fourth graph magnifies an absolute difference that is difficult to see in the overlapping curves. Its scale is explicit, and the exported samples retain their original precision.
+
+The DeepCore map uses the archived twenty-eighteen standard-three-neutrino tables. The cross stays fixed along the ring path because these light inputs stay fixed. The map is not a nonunitary ring likelihood and is not added to NuFIT.
+
+To move the cross, change sine squared theta twenty-three in the flavour card. Here it is set to zero point six. The reference updates for the new light input. Outside its published grid the laboratory withholds a value instead of extrapolating.
+
+00:23:58.333  37. Maru–Nago SU(6): content and convergence
+
+This paper-model experiment reconstructs the stated flat S U six potential. Matter content and the winding cutoff are explicit controls. A small Wilson minimum must be read with its convergence check.
+
+Set the winding cutoff to ten and inspect the shifted minimum and comparison. A finite truncation can change the apparent result. The supported potential can be transferred to the builder; this does not certify a complete flavour model.
+
+00:24:27.133  38. Warped SU(6): differential gauge running
+
+The warped-unification card compares differential gauge running under the selected matter assignment. Required ultraviolet boundary terms and their residuals are outputs of that stated approximation.
+
+Switch the matter assignment to C two. The running differences and required boundary terms respond. The naive-dimensional-analysis reference is a scale estimate. The separate localization probe is not a complete fermion-spectrum calculation.
+
+00:24:55.533  39. Thermal potential and phase coexistence
+
+The thermal card is its own S U three benchmark. It uses named paper cases and compares potential cutoffs. A stored matching PhaseTracer result is available offline for the recorded inputs.
+
+Load paper case two and compare the potential and phase flow. Coexistence and a nucleation proxy are different questions. A new point needs a matching bounce calculation; changing the builder model does not turn this benchmark into its thermal history.
+
+00:25:25.000  40. Nucleation, percolation and conditional waves
+
+Integrated transition history uses refined action tables. Read nucleation, percolation and completion separately. The false-vacuum fraction and physical-volume condition make those distinctions visible.
+
+Set the assumed wall speed to zero point eight and the fluid efficiency to zero point one. Compare the history and conditional acoustic spectrum. Wall friction, plasma evolution and detector significance are not calculated by these controls.
+
+00:25:54.600  41. RS anomaly flow and baryon current
+
+This warped-model experiment separates ultraviolet and infrared anomaly factors, gauge cancellation and the baryon-current matrix. Its sources and approximation are distinct from the base S U seven ledger.
+
+Remove the lepton generations in this test configuration. The imbalance exposes a gauge anomaly that needs completion. A nonzero baryon-current anomaly is a separate statement; it is not a computed proton lifetime or baryogenesis yield.
+
+00:26:23.933  42. Higgs rates and matching experimental tests
+
+Begin with the stored Standard Model-like scalar reference. Local couplings determine production rates, partial widths and branching fractions. Matching HiggsBounds and HiggsSignals calculations use pinned experimental datasets.
+
+Add one mega electron volt of invisible width. The local predictions update, and the old experimental result is withdrawn because its inputs no longer match. Run the optional engine or import a matching result before assigning a new experimental verdict.
+
+00:26:55.533  43. Keep the inputs, figures and scope
+
+Use a comparison snapshot before changing a point. Save the experiment JSON to retain the inputs, calculated arrays, assumptions, provenance and optional saved reference. The global result card and LaTeX exports provide another view of the selected calculation.
+
+Choose a figure and save its vector SVG. The new neutrino figures carry sampled data and provenance in their metadata. The link button preserves controls in the address; archive external results and comparisons in JSON as well.
+
+The browser calculations and stored references run offline. New HiggsTools and PhaseTracer points use the optional local engine. The source repository contains the reproduction commands, independent checks and archived studies. Return to a chapter, vary one assumption, and keep the scope beside every result.

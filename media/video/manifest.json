@@ -1,0 +1,40 @@
+{
+  "schema": "ghu-video-media-v1",
+  "date": "2026-10-07",
+  "versions": {
+    "en": {
+      "seconds": 1669.066666666666,
+      "voice": "Microsoft Zira Desktop",
+      "syntheticNarration": true,
+      "chapters": 43,
+      "bytes": 50688666,
+      "sha256": "c796650b02ed232b97bcf642e22df8c0ef1d6555dc269596dac634df01aad575",
+      "width": 1920,
+      "height": 1080,
+      "fps": 15
+    },
+    "es": {
+      "seconds": 1704.1999999999996,
+      "voice": "Microsoft Helena Desktop",
+      "syntheticNarration": true,
+      "chapters": 43,
+      "bytes": 51559031,
+      "sha256": "2de24512b12cdcccc5da98ea8a1cf409d3395eb518b39e15a8101491b178e6ab",
+      "width": 1920,
+      "height": 1080,
+      "fps": 15
+    }
+  },
+  "files": {
+    "ghu-lab-en.mp4": "c796650b02ed232b97bcf642e22df8c0ef1d6555dc269596dac634df01aad575",
+    "ghu-lab-en.vtt": "deea7e166499d3791db1f33161f34d926083682389327f25551e0875a3fe2ff1",
+    "chapters-en.json": "62aafb63ae7abcd719dd19ee2acea98cb4ea0158f16ec8a269f498a3c6214cee",
+    "transcript-en.txt": "4ba5bb5e3b1267db0d575c63593f1606477e68dcb382f97b0363cf5d492b2de8",
+    "poster-en.png": "0488ce9a6308aaf78b48eeb13977cb5fec0ffa621ba834bed7ce1f4d9b3fc8d9",
+    "ghu-lab-es.mp4": "2de24512b12cdcccc5da98ea8a1cf409d3395eb518b39e15a8101491b178e6ab",
+    "ghu-lab-es.vtt": "ba2d4d1f56a45a984df600321844d855a53a33cf3c8fb9d04b1ae5514887d344",
+    "chapters-es.json": "81a5a29136fe2b74f5592cacf57c709fd4aeb152b520a68216be4ac59822b7cf",
+    "transcript-es.txt": "467e010b8f72a339e173f7bcb5d8ef808856be6955fa584a4da0725075d6ec51",
+    "poster-es.png": "8977df88ec51f94eab4b96348991fc15c638a15337da0118c51b1103f7291034"
+  }
+}

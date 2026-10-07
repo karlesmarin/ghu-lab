@@ -1,7 +1,37 @@
 # HANDOFF — GHU Lab
 
-> State at 2026-09-15. The section below is the newest; the earlier handoffs follow it
+> State at 2026-10-07. The section below is the newest; the earlier handoffs follow it
 > unchanged and are still the map of the code.
+
+## 2026-10-07 — integrated histories, conditional certificates and reproducible exploration
+
+**Current validation: 3,895 checks / 64 source harnesses; ten browser gates; 30 site checks.**
+The closure browser gate contributes 21 checks, and the archived batch studies have twelve separate
+record checks. Earlier counts below are historical. The menu still has 29 sections.
+
+- `src/modules/thermal_history.mjs` and the attached `thermalhistory` experiment in
+  `src/sections/research_extensions.js` integrate refined PhaseTracer actions in the Simulator's
+  builder view. `tools/thermal_history_run.py` prepares matching action tables. Nucleation,
+  percolation, completion and a gated acoustic spectrum retain explicit cosmological assumptions.
+- `tools/candidate_bounds.py`, `tools/check_candidate_vacua.py` and
+  `tools/build_closure_references.py` prepare the conditional certificates and independent witnesses
+  used by Screen a table. Convention changes withdraw unmatched bounds. The small-angle result
+  is not promoted to a full-potential theorem.
+- `tools/explore_higgs_degeneracy.py`, `tools/explore_thermal_assumptions.mjs`,
+  `tools/explore_candidate_rungs.mjs`, `tools/check_exploration_vacua.py` and
+  `tools/plot_exploration.py` reproduce the three studies under `research/2026-10-07/`.
+  The exact command list and artifact descriptions are
+  in [the report](docs/research-exploration-2026-10-07.md) and its linked inventory.
+- Both repository READMEs, panel help, public home/docs, result-card guidance and the change log
+  describe the same routes and scope. Application tests and the site builder remain the release
+  gates. Preserve the July tools and all archived editions when deploying.
+
+The Higgs compensation is a known degeneracy reproduced with actual pinned datasets. The thermal
+amplitude envelopes vary supplied assumptions. The candidate scan tests 80 selected potential
+classes after an approximate mass prefilter, with k=4 budget-limited. Do not infer a common GHU
+likelihood, an exhaustive full-potential ceiling or predicted plasma parameters from these studies.
+Interactive profile scans, a resumable candidate queue and wall/reheating dynamics are proposals,
+not implemented panels. The earlier frozen October deliveries remain separate evidence.
 
 ## 2026-09-16 — publish the compiled panel and update the public information
 

@@ -90,6 +90,9 @@ const SCREEN_SECTION = {
         </div>
         <div class="verdict stable" id="scHits" style="margin-top:11px"><b>—</b><span>—</span></div>
         <div class="note" style="margin-top:9px" id="scCombNote">—</div>
+        <details style="margin-top:16px" id="scBoundDetails"><summary>Conditional rung bounds and full-potential witness checks</summary>
+          <div id="scConditionalBounds"></div><button class="ghost" id="scBoundsJSON">Save bound certificates and witness checks (JSON)</button>
+        </details>
       </div>
 
       <div class="card" style="margin-top:18px">
@@ -209,6 +212,9 @@ const SCREEN_SECTION = {
     this._comb(ctx, v, { mh: mh ?? 125.2, mW, g4, seed,
                          MKK: this._num(SCREEN_ROW.MKK), tol: this._num(SCREEN_ROW.tol) ?? 50 });
     this._spacing(ctx, mW, seed);
+    const bounds=cbBoundStatus({mh,mW,g4,seed:seed.parity_of_8D==='odd'?'published':'candidate'});
+    $('scConditionalBounds').innerHTML=cbEvidenceHTML(bounds);
+    $('scBoundsJSON').onclick=()=>rxDownload('ghu-rung-certificates.json',JSON.stringify({bounds,witnessChecks:bounds.seed==='candidate'?CANDIDATE_VACUA:null},null,2));
 
     const chip = (okv) => okv ? `<span class="chip thm">passes</span>`
                               : `<span class="chip bad">fails</span>`;

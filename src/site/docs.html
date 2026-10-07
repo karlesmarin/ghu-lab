@@ -16,8 +16,23 @@ interpretation before the detailed numerical tables.</p>
 results work offline and are used only for identical inputs. A changed input clears an unmatched
 experimental verdict. <a href="https://github.com/karlesmarin/ghu-lab/blob/main/docs/research-extensions.md">Setup, equations, versions and limitations</a>.</p>
 <p><strong>Screen 3 and the candidate seed:</strong> the even-rung arithmetic comb is displayed,
-but per-rung ceiling certificates and physical reachability have not been evaluated for that seed.
-A matching tooth is not a certificate that a viable model exists.</p>
+with a separate table of interval certificates for the small-angle moment relaxation. They apply
+only to the displayed seed, coupling and mass window. Independent full-Fourier witness checks can
+reject a stationary candidate when a deeper vacuum exists. A matching tooth is not a certificate
+that a viable model exists, and the moment bound is not a universal full-potential ceiling.</p>
+
+<h2 id="transition-history">Integrated transition history and reproducible studies</h2>
+<p>In <a href="../app/index.html#s=predict">Simulator &rarr; SU(N) builder</a>, load a thermal
+paper case and open <strong>Integrated nucleation, percolation and conditional gravitational
+waves</strong>. Read nucleation, percolation and completion separately. Vary wall speed,
+fluid efficiency and the expansion background; inspect convergence, then export JSON or SVG.
+The acoustic estimate is available only for a completing transition in the supported weak,
+fast-wall regime. Wall friction, plasma evolution and detector significance are not computed.</p>
+<p>The <a href="https://github.com/karlesmarin/ghu-lab/blob/main/docs/research-exploration-2026-10-07.md">October 7 exploration report</a>
+archives three separate studies: actual HiggsBounds/HiggsSignals evaluations with coupling and
+invisible-width assumptions, 160 thermal scenarios, and 80 selected full-potential vacuum checks.
+It includes commands, machine-readable records, figures and search budgets. These calculations
+do not form a common-action GHU likelihood. The report also identifies useful next extensions.</p>
 
 <h2 id="gravitygauge">Gravity&ndash;gauge &middot; 3D: a quick start</h2>
 <p><a href="../app/index.html#s=gravitygauge">Open the panel</a>, or choose
@@ -125,17 +140,18 @@ units where a period is 1. It <em>is</em> the electroweak hierarchy, because
 <code>1/R&#8325; = 2m_W/&alpha;</code>.</dd>
 
 <dt>&alpha;_min</dt>
-<dd>Where the one-loop potential is minimised. In this class of models it is an algebraic function
-of two moments of the bulk content, so it is computed rather than searched for.</dd>
+<dd>Where the one-loop potential is minimised. The small-angle approximation gives a closed map
+from moments of the bulk content. Full-Fourier checks instead locate stationary points numerically
+and compare their potential values; the two procedures have different scopes.</dd>
 
 <dt>bulk content</dt>
 <dd>The list of representations living in the extra dimensions, each with its orbifold parities and
 a multiplicity. It is the input to everything on this site.</dd>
 
 <dt>D, A&#8324;</dt>
-<dd>The second and fourth moments of the content, weighted by Wilson-line charge. <code>8D</code> is
-always an <em>odd</em> integer, so the curvature at the symmetric point can never vanish and the
-electroweak verdict is always well defined.</dd>
+<dd>The second and fourth moments of the content, weighted by Wilson-line charge. On the published
+SU(7) seed, <code>8D</code> is an <em>odd</em> integer. The candidate seed has an even lattice
+and admits zero. Read the selected seed before transferring a curvature or rung statement.</dd>
 
 <dt>parities</dt>
 <dd>The signs a multiplet picks up at the orbifold fixed points, written <code>(+,+)</code>,
@@ -155,9 +171,10 @@ declares whether it currently reproduces an outside number before it shows you a
 <code>D</code>. It is a ratio of integers, so no normalisation enters it.</dd>
 
 <dt>the ceiling</dt>
-<dd>An upper bound on <code>1/R&#8325;</code> that holds for <em>arbitrary</em> bulk content,
-obtained as an integer program whose relaxation has a two-variable dual, enumerated exactly in
-rationals.</dd>
+<dd>An upper bound on <code>1/R&#8325;</code> under named conventions and the small-angle moment
+map, obtained from an integer program and a certified relaxation. The new interval certificates
+exclude the infinite moment tail for each listed rung. They do not prove attainability or a
+universal ceiling for the full Fourier potential.</dd>
 </dl>
 
 <h2 id="reproduce">How to reproduce any of it without this tool</h2>

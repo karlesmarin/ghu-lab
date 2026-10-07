@@ -3,6 +3,34 @@
 Carles Marín + Claude (AI assistant). 2026-08-08.
 Follows the decisions in [`DESIGN.md`](DESIGN.md). One repository, GitHub Pages, no server, no cost.
 
+## Current implementation — 7 October 2026
+
+The site is generated from the source repository and published in `karlesmarin/ghu-explorer`.
+The app now has **29 sections**; the complete navigation and descriptions are in [README.md](README.md).
+The map and sketches below are the original August design, retained as design history.
+
+| Public surface | Current October additions | Source |
+|---|---|---|
+| Home | Research-question links; integrated history, conditional bounds and the exploration report | `src/site/home.html` |
+| `/app/index.html#s=predict` | Thermal SU(3) coexistence plus integrated nucleation/percolation/completion and conditional acoustics | `src/sections/research_extensions.js`, `src/modules/thermal_history.mjs` |
+| `/app/index.html#s=screen` | Seed-dependent interval bounds and separate full-potential witness checks | `src/sections/screen_section.js`, the candidate-bound modules and reference records |
+| `/app/index.html#s=collider` | Complete scalar scenarios compared with pinned HiggsTools experimental datasets | The Higgs experiment in `src/sections/research_extensions.js` |
+| `/docs/index.html` | Updated routes, conventions, glossary and links to the batch studies | `src/site/docs.html`, `docs/research-extensions.md`, `docs/research-exploration-2026-10-07.md` |
+| `/changes/index.html` | New extension entry with what/why/so and reproduction steps | `changes/2026-10-07-transition-history-and-conditional-bounds.md` |
+| Source README and research archive | Study descriptions, figures, inputs, budgets and proposed next work | `README.md`, `research/2026-10-07/` |
+
+The static app and saved references run offline. New PhaseTracer/HiggsTools calculations use an
+optional local engine, contacted only by an explicit button. The Edition build removes that
+bridge. The integrated history requires matching refined actions; it does not rerun a bounce
+automatically when the thermal inputs change. Batch studies live in the source archive and are
+linked from the public site.
+
+Build with `python build/build_app.py --browser`, then
+`python build/build_site.py --legacy <path-to-existing-tools-2026-07>`.
+The current gates are 64 source harnesses, ten browser gates and 30 site checks. Copy the reviewed
+generated site and updated public README into the publishing repository; preserve legacy tools
+and existing editions. The full release procedure and validation counts are in the README.
+
 ---
 
 ## The map

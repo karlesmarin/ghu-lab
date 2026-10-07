@@ -1,0 +1,672 @@
+/* Independent full-Fourier witness checks, not exhaustive. */
+export const CANDIDATE_VACUA={
+  "schema": "ghu-candidate-vacuum-check-v1",
+  "conventions": {
+    "mWGeV": 80.4,
+    "g4": 0.63
+  },
+  "cases": [
+    {
+      "name": "measured-mass archived witness",
+      "bulk": [
+        {
+          "rep": "7",
+          "parities": [
+            1,
+            1
+          ],
+          "multiplicity": 16
+        },
+        {
+          "rep": "28",
+          "parities": [
+            1,
+            -1
+          ],
+          "multiplicity": 2
+        },
+        {
+          "rep": "48",
+          "parities": [
+            1,
+            1
+          ],
+          "multiplicity": 4
+        },
+        {
+          "rep": "48",
+          "parities": [
+            1,
+            -1
+          ],
+          "multiplicity": 4
+        }
+      ],
+      "coarse": {
+        "windings": 1024,
+        "A4": 98.5,
+        "k8D": 2.0,
+        "globalMinimum": {
+          "alpha": 0.025092706256718618,
+          "deltaF": -0.00042727229014838386,
+          "curvature": 4.925866156647999
+        },
+        "localSmallAngle": {
+          "alpha": 0.025092706256718618,
+          "deltaF": -0.00042727229014838386,
+          "curvature": 4.925866156647999
+        },
+        "globalSmallAngle": true,
+        "higgsMassGeV": 125.1328720990101,
+        "compactificationGeV": 6408.236654703018,
+        "allLocatedMinima": [
+          {
+            "alpha": 0.0,
+            "deltaF": 0.0,
+            "curvature": -2.9656771427619333
+          },
+          {
+            "alpha": 0.025092706256718618,
+            "deltaF": -0.00042727229014838386,
+            "curvature": 4.925866156647999
+          },
+          {
+            "alpha": 1.0,
+            "deltaF": 17.076903967515435,
+            "curvature": -179.44005040418375
+          }
+        ],
+        "potentialTailBound": 2.518163455533795e-11,
+        "deltaPotentialTailBound": 5.03632691106759e-11,
+        "curvatureTailBound": 0.0006518078849558239
+      },
+      "fine": {
+        "windings": 2048,
+        "A4": 98.5,
+        "k8D": 2.0,
+        "globalMinimum": {
+          "alpha": 0.02509270646640408,
+          "deltaF": -0.0004272723002844425,
+          "curvature": 4.925861849196735
+        },
+        "localSmallAngle": {
+          "alpha": 0.02509270646640408,
+          "deltaF": -0.0004272723002844425,
+          "curvature": 4.925861849196735
+        },
+        "globalSmallAngle": true,
+        "higgsMassGeV": 125.13281634176381,
+        "compactificationGeV": 6408.236601153032,
+        "allLocatedMinima": [
+          {
+            "alpha": 0.0,
+            "deltaF": 0.0,
+            "curvature": -2.965886600333306
+          },
+          {
+            "alpha": 0.02509270646640408,
+            "deltaF": -0.0004272723002844425,
+            "curvature": 4.925861849196735
+          },
+          {
+            "alpha": 1.0,
+            "deltaF": 17.076903967517254,
+            "curvature": -179.44028986370688
+          }
+        ],
+        "potentialTailBound": 1.573852159708622e-12,
+        "deltaPotentialTailBound": 3.147704319417244e-12,
+        "curvatureTailBound": 0.00016295197123895598
+      },
+      "higgsMassShiftGeV": -5.5757246286702866e-05
+    },
+    {
+      "name": "rung 2 archived upper small-angle witness",
+      "bulk": [
+        {
+          "rep": "7",
+          "parities": [
+            1,
+            1
+          ],
+          "multiplicity": 27
+        },
+        {
+          "rep": "7",
+          "parities": [
+            1,
+            -1
+          ],
+          "multiplicity": 4
+        },
+        {
+          "rep": "48",
+          "parities": [
+            1,
+            1
+          ],
+          "multiplicity": 1
+        },
+        {
+          "rep": "48",
+          "parities": [
+            1,
+            -1
+          ],
+          "multiplicity": 5
+        },
+        {
+          "rep": "84",
+          "parities": [
+            1,
+            1
+          ],
+          "multiplicity": 1
+        }
+      ],
+      "coarse": {
+        "windings": 1024,
+        "A4": 116.5,
+        "k8D": 2.0,
+        "globalMinimum": {
+          "alpha": 0.02445951665638779,
+          "deltaF": -0.0004013444661300214,
+          "curvature": 4.802201978051869
+        },
+        "localSmallAngle": {
+          "alpha": 0.02445951665638779,
+          "deltaF": -0.0004013444661300214,
+          "curvature": 4.802201978051869
+        },
+        "globalSmallAngle": true,
+        "higgsMassGeV": 126.75057911055092,
+        "compactificationGeV": 6574.128273217773,
+        "allLocatedMinima": [
+          {
+            "alpha": 0.0,
+            "deltaF": 0.0,
+            "curvature": -2.9656489698724045
+          },
+          {
+            "alpha": 0.02445951665638779,
+            "deltaF": -0.0004013444661300214,
+            "curvature": 4.802201978051869
+          },
+          {
+            "alpha": 1.0,
+            "deltaF": 13.058808916335323,
+            "curvature": -304.010168062886
+          }
+        ],
+        "potentialTailBound": 2.5863755581667647e-11,
+        "deltaPotentialTailBound": 5.1727511163335294e-11,
+        "curvatureTailBound": 0.000717694602568687
+      },
+      "fine": {
+        "windings": 2048,
+        "A4": 116.5,
+        "k8D": 2.0,
+        "globalMinimum": {
+          "alpha": 0.02445951629514386,
+          "deltaF": -0.0004013444772380803,
+          "curvature": 4.802200783012552
+        },
+        "localSmallAngle": {
+          "alpha": 0.02445951629514386,
+          "deltaF": -0.0004013444772380803,
+          "curvature": 4.802200783012552
+        },
+        "globalSmallAngle": true,
+        "higgsMassGeV": 126.75056521144523,
+        "compactificationGeV": 6574.128370311431,
+        "allLocatedMinima": [
+          {
+            "alpha": 0.0,
+            "deltaF": 0.0,
+            "curvature": -2.9658795490806256
+          },
+          {
+            "alpha": 0.02445951629514386,
+            "deltaF": -0.0004013444772380803,
+            "curvature": 4.802200783012552
+          },
+          {
+            "alpha": 1.0,
+            "deltaF": 13.058808916336748,
+            "curvature": -304.0104498218943
+          }
+        ],
+        "potentialTailBound": 1.616484723854228e-12,
+        "deltaPotentialTailBound": 3.232969447708456e-12,
+        "curvatureTailBound": 0.00017942365064217174
+      },
+      "higgsMassShiftGeV": -1.3899105681502988e-05
+    },
+    {
+      "name": "rung 4 archived upper small-angle witness",
+      "bulk": [
+        {
+          "rep": "7",
+          "parities": [
+            1,
+            1
+          ],
+          "multiplicity": 11
+        },
+        {
+          "rep": "7",
+          "parities": [
+            1,
+            -1
+          ],
+          "multiplicity": 1
+        },
+        {
+          "rep": "28",
+          "parities": [
+            1,
+            -1
+          ],
+          "multiplicity": 2
+        },
+        {
+          "rep": "48",
+          "parities": [
+            1,
+            -1
+          ],
+          "multiplicity": 2
+        },
+        {
+          "rep": "84",
+          "parities": [
+            1,
+            1
+          ],
+          "multiplicity": 2
+        }
+      ],
+      "coarse": {
+        "windings": 1024,
+        "A4": 147.5,
+        "k8D": 4.0,
+        "globalMinimum": {
+          "alpha": 0.03407272374726728,
+          "deltaF": -0.0015204798618819737,
+          "curvature": 9.09483127477938
+        },
+        "localSmallAngle": {
+          "alpha": 0.03407272374726728,
+          "deltaF": -0.0015204798618819737,
+          "curvature": 9.09483127477938
+        },
+        "globalSmallAngle": true,
+        "higgsMassGeV": 125.21838061133236,
+        "compactificationGeV": 4719.317457351691,
+        "allLocatedMinima": [
+          {
+            "alpha": 0.0,
+            "deltaF": 0.0,
+            "curvature": -5.931628971196517
+          },
+          {
+            "alpha": 0.03407272374726728,
+            "deltaF": -0.0015204798618819737,
+            "curvature": 9.09483127477938
+          },
+          {
+            "alpha": 0.4710158038940459,
+            "deltaF": 1.5179380061268297,
+            "curvature": 37.86002492323314
+          },
+          {
+            "alpha": 1.0,
+            "deltaF": 17.076903967515438,
+            "curvature": -514.59305778353
+          }
+        ],
+        "potentialTailBound": 1.9269918993813917e-11,
+        "deltaPotentialTailBound": 3.8539837987627834e-11,
+        "curvatureTailBound": 0.000661220273186233
+      },
+      "fine": {
+        "windings": 2048,
+        "A4": 147.5,
+        "k8D": 4.0,
+        "globalMinimum": {
+          "alpha": 0.03407272367073557,
+          "deltaF": -0.0015204798701652922,
+          "curvature": 9.094831578414812
+        },
+        "localSmallAngle": {
+          "alpha": 0.03407272367073557,
+          "deltaF": -0.0015204798701652922,
+          "curvature": 9.094831578414812
+        },
+        "globalSmallAngle": true,
+        "higgsMassGeV": 125.21838298282763,
+        "compactificationGeV": 4719.317467951884,
+        "allLocatedMinima": [
+          {
+            "alpha": 0.0,
+            "deltaF": 0.0,
+            "curvature": -5.93184195037901
+          },
+          {
+            "alpha": 0.03407272367073557,
+            "deltaF": -0.0015204798701652922,
+            "curvature": 9.094831578414812
+          },
+          {
+            "alpha": 0.4710158038926853,
+            "deltaF": 1.5179380061186336,
+            "curvature": 37.860023760374474
+          },
+          {
+            "alpha": 1.0,
+            "deltaF": 17.07690396751724,
+            "curvature": -514.5933572389265
+          }
+        ],
+        "potentialTailBound": 1.2043699371133698e-12,
+        "deltaPotentialTailBound": 2.4087398742267396e-12,
+        "curvatureTailBound": 0.00016530506829655825
+      },
+      "higgsMassShiftGeV": 2.371495270381274e-06
+    },
+    {
+      "name": "rung 2 stationary upper witness",
+      "bulk": [
+        {
+          "rep": "7",
+          "parities": [
+            1,
+            1
+          ],
+          "multiplicity": 25
+        },
+        {
+          "rep": "7",
+          "parities": [
+            1,
+            -1
+          ],
+          "multiplicity": 1
+        },
+        {
+          "rep": "28",
+          "parities": [
+            1,
+            -1
+          ],
+          "multiplicity": 67
+        },
+        {
+          "rep": "48",
+          "parities": [
+            1,
+            -1
+          ],
+          "multiplicity": 1
+        }
+      ],
+      "coarse": {
+        "windings": 1024,
+        "A4": 263.5,
+        "k8D": 2.0,
+        "globalMinimum": {
+          "alpha": 1.0,
+          "deltaF": -370.6692684713644,
+          "curvature": 3827.567307316268
+        },
+        "localSmallAngle": {
+          "alpha": 0.021952903796330792,
+          "deltaF": -0.00029533235459067164,
+          "curvature": 3.8744438087046547
+        },
+        "globalSmallAngle": false,
+        "higgsMassGeV": 126.84995600944771,
+        "compactificationGeV": 7324.771314621081,
+        "allLocatedMinima": [
+          {
+            "alpha": 0.0,
+            "deltaF": 0.0,
+            "curvature": -2.9646770051845124
+          },
+          {
+            "alpha": 0.021952903796330792,
+            "deltaF": -0.00029533235459067164,
+            "curvature": 3.8744438087046547
+          },
+          {
+            "alpha": 1.0,
+            "deltaF": -370.6692684713644,
+            "curvature": 3827.567307316268
+          }
+        ],
+        "potentialTailBound": 9.896439223666675e-11,
+        "deltaPotentialTailBound": 1.979287844733335e-10,
+        "curvatureTailBound": 0.00301902352490369
+      },
+      "fine": {
+        "windings": 2048,
+        "A4": 263.5,
+        "k8D": 2.0,
+        "globalMinimum": {
+          "alpha": 1.0,
+          "deltaF": -370.6692684714037,
+          "curvature": 3827.5669992594185
+        },
+        "localSmallAngle": {
+          "alpha": 0.021952904200985175,
+          "deltaF": -0.0002953324164378657,
+          "curvature": 3.8744785904923447
+        },
+        "globalSmallAngle": false,
+        "higgsMassGeV": 126.85052305080697,
+        "compactificationGeV": 7324.771179604739,
+        "allLocatedMinima": [
+          {
+            "alpha": 0.0,
+            "deltaF": 0.0,
+            "curvature": -2.9656362808673293
+          },
+          {
+            "alpha": 0.021952904200985175,
+            "deltaF": -0.0002953324164378657,
+            "curvature": 3.8744785904923447
+          },
+          {
+            "alpha": 1.0,
+            "deltaF": -370.6692684714037,
+            "curvature": 3827.5669992594185
+          }
+        ],
+        "potentialTailBound": 6.185274514791672e-12,
+        "deltaPotentialTailBound": 1.2370549029583344e-11,
+        "curvatureTailBound": 0.0007547558812259225
+      },
+      "higgsMassShiftGeV": 0.0005670413592611112
+    },
+    {
+      "name": "rung 4 stationary upper witness",
+      "bulk": [
+        {
+          "rep": "7",
+          "parities": [
+            1,
+            1
+          ],
+          "multiplicity": 30
+        },
+        {
+          "rep": "7",
+          "parities": [
+            1,
+            -1
+          ],
+          "multiplicity": 1
+        },
+        {
+          "rep": "28",
+          "parities": [
+            1,
+            -1
+          ],
+          "multiplicity": 97
+        }
+      ],
+      "coarse": {
+        "windings": 1024,
+        "A4": 375.5,
+        "k8D": 4.0,
+        "globalMinimum": {
+          "alpha": 1.0,
+          "deltaF": -529.3840229929788,
+          "curvature": 5464.775463468915
+        },
+        "localSmallAngle": {
+          "alpha": 0.028951855966545807,
+          "deltaF": -0.0009759838049032687,
+          "curvature": 6.772130751694931
+        },
+        "globalSmallAngle": false,
+        "higgsMassGeV": 127.16390899643832,
+        "compactificationGeV": 5554.048078499914,
+        "allLocatedMinima": [
+          {
+            "alpha": 0.0,
+            "deltaF": 0.0,
+            "curvature": -5.9301076351621305
+          },
+          {
+            "alpha": 0.028951855966545807,
+            "deltaF": -0.0009759838049032687,
+            "curvature": 6.772130751694931
+          },
+          {
+            "alpha": 1.0,
+            "deltaF": -529.3840229929788,
+            "curvature": 5464.775463468915
+          }
+        ],
+        "potentialTailBound": 1.3852741176378913e-10,
+        "deltaPotentialTailBound": 2.7705482352757826e-10,
+        "curvatureTailBound": 0.004247340188972066
+      },
+      "fine": {
+        "windings": 2048,
+        "A4": 375.5,
+        "k8D": 4.0,
+        "globalMinimum": {
+          "alpha": 1.0,
+          "deltaF": -529.3840229930349,
+          "curvature": 5464.77503998184
+        },
+        "localSmallAngle": {
+          "alpha": 0.02895185689402567,
+          "deltaF": -0.0009759838837981594,
+          "curvature": 6.772099884748059
+        },
+        "globalSmallAngle": false,
+        "higgsMassGeV": 127.16361511983276,
+        "compactificationGeV": 5554.0479005746165,
+        "allLocatedMinima": [
+          {
+            "alpha": 0.0,
+            "deltaF": 0.0,
+            "curvature": -5.93146118274035
+          },
+          {
+            "alpha": 0.02895185689402567,
+            "deltaF": -0.0009759838837981594,
+            "curvature": 6.772099884748059
+          },
+          {
+            "alpha": 1.0,
+            "deltaF": -529.3840229930349,
+            "curvature": 5464.77503998184
+          }
+        ],
+        "potentialTailBound": 8.65796323523682e-12,
+        "deltaPotentialTailBound": 1.731592647047364e-11,
+        "curvatureTailBound": 0.0010618350472430165
+      },
+      "higgsMassShiftGeV": -0.00029387660556778883
+    },
+    {
+      "name": "zero rung: nine 28(+,-)",
+      "bulk": [
+        {
+          "rep": "28",
+          "parities": [
+            1,
+            -1
+          ],
+          "multiplicity": 9
+        }
+      ],
+      "coarse": {
+        "windings": 1024,
+        "A4": 22.5,
+        "k8D": 0.0,
+        "globalMinimum": {
+          "alpha": 1.0,
+          "deltaF": -57.25785447931649,
+          "curvature": 591.7083406077315
+        },
+        "localSmallAngle": null,
+        "globalSmallAngle": false,
+        "higgsMassGeV": null,
+        "compactificationGeV": null,
+        "allLocatedMinima": [
+          {
+            "alpha": 0.0,
+            "deltaF": 0.0,
+            "curvature": 0.00014790766988426185
+          },
+          {
+            "alpha": 1.0,
+            "deltaF": -57.25785447931649,
+            "curvature": 591.7083406077315
+          }
+        ],
+        "potentialTailBound": 1.1425527191022411e-11,
+        "deltaPotentialTailBound": 2.2851054382044822e-11,
+        "curvatureTailBound": 0.00037414243215875816
+      },
+      "fine": {
+        "windings": 2048,
+        "A4": 22.5,
+        "k8D": 0.0,
+        "globalMinimum": {
+          "alpha": 1.0,
+          "deltaF": -57.25785447932256,
+          "curvature": 591.7083303139168
+        },
+        "localSmallAngle": null,
+        "globalSmallAngle": false,
+        "higgsMassGeV": null,
+        "compactificationGeV": null,
+        "allLocatedMinima": [
+          {
+            "alpha": 0.0,
+            "deltaF": 0.0,
+            "curvature": 3.701907593267606e-05
+          },
+          {
+            "alpha": 1.0,
+            "deltaF": -57.25785447932256,
+            "curvature": 591.7083303139168
+          }
+        ],
+        "potentialTailBound": 7.140954494389007e-13,
+        "deltaPotentialTailBound": 1.4281908988778014e-12,
+        "curvatureTailBound": 9.353560803968954e-05
+      },
+      "higgsMassShiftGeV": null
+    }
+  ],
+  "status": "Independent numerical checks of specified contents; no exhaustive full-potential ceiling",
+  "scope": "Grid-isolated stationary points at 1024/2048 Fourier terms, followed by Brent refinement. Analytic tail bounds are included. Anomaly completion, flavour, Higgs rates and likelihood matching remain unspecified; no global GHU fit is defined."
+};

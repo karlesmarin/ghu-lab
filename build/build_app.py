@@ -53,7 +53,8 @@ MODULES = ["selection.mjs", "calculator.mjs", "hierarchy.mjs", "anomalies.mjs", 
            "spectrum5d.mjs", "anomaly5d.mjs", "vacuum5d.mjs", "smcell.mjs", "brane.mjs",
            "yukawa.mjs",
            "predict.mjs", "reading.mjs", "sweep5d.mjs", "dossier.mjs", "papers.mjs", "particles.mjs",
-            "robustness.mjs", "gravitygauge.mjs", "neutrino_ring.mjs", "neutrino_limits.mjs", "neutrino_majoron.mjs", "neutrino_decay.mjs", "higgs_diagnostics.mjs", "su6_maru_nago.mjs", "rs_unification.mjs", "neutrino_flavour.mjs", "thermal_ghu.mjs", "rs_anomaly.mjs", "higgstools_reference.mjs", "higgstools_adapter.mjs", "external_reference.mjs"]
+            "robustness.mjs", "gravitygauge.mjs", "neutrino_ring.mjs", "neutrino_limits.mjs", "neutrino_majoron.mjs", "neutrino_decay.mjs", "higgs_diagnostics.mjs", "su6_maru_nago.mjs", "rs_unification.mjs", "neutrino_flavour.mjs", "thermal_ghu.mjs", "rs_anomaly.mjs", "higgstools_reference.mjs", "higgstools_adapter.mjs", "external_reference.mjs",
+            "thermal_history.mjs", "thermal_history_reference.mjs", "candidate_bounds_reference.mjs", "candidate_bounds.mjs", "candidate_vacua_reference.mjs"]
 SECTIONS = ["torus_panels.js", "hierarchy_section.js", "inverse_section.js", "census_section.js",
             "atlas_section.js", "samepot_section.js",
             "anomalies_section.js", "escape_section.js", "screen_section.js",
@@ -270,7 +271,7 @@ def build(edition=False, home=None, out_path=None):
 # week: the header above this list says the failure mode was never "too slow to run", it was
 # "I forgot".  It costs about two minutes.
 BROWSER_GATES = [("leaks.mjs", []), ("layout.mjs", ["--quiet"]), ("extremes.mjs", []),
-                 ("lifecycle.mjs", []), ("drive.mjs", []), ("neutrino.mjs", []), ("diagnostics.mjs", []), ("neutrino_decay.mjs", []), ("extensions.mjs", [])]
+                 ("lifecycle.mjs", []), ("drive.mjs", []), ("neutrino.mjs", []), ("diagnostics.mjs", []), ("neutrino_decay.mjs", []), ("extensions.mjs", []), ("closure.mjs", [])]
 STAMP = HERE / ".browser_gate.json"
 
 
@@ -290,6 +291,7 @@ def source_fingerprint():
         p = ROOT / rel
         if p.exists():
             out[rel] = hashlib.sha256(p.read_bytes()).hexdigest()[:16]
+    out['build/closure.mjs'] = hashlib.sha256((ROOT/'build/closure.mjs').read_bytes()).hexdigest()[:16]
     return out
 
 
@@ -378,6 +380,7 @@ def main(argv=None):
                 ["node", "_test_reading.mjs"],
                 ["node", "_test_neutrino_majoron.mjs"], ["node", "_test_su6_maru_nago.mjs"], ["node", "_test_rs_unification.mjs"],
                 ["node", "_test_neutrino_flavour.mjs"], ["node", "_test_thermal_ghu.mjs"], ["node", "_test_rs_anomaly.mjs"], ["node", "_test_higgstools.mjs"],
+                ["node", "_test_thermal_history.mjs"], ["node", "_test_candidate_bounds.mjs"],
                 ["node", "_test_sweep5d.mjs"], ["node", "_test_papers.mjs"],
                 ["node", "_test_latex.mjs"], ["node", "_test_blkt.mjs"], ["node", "_test_gravitygauge.mjs"], ["node", "_test_census_lit.mjs"],
                 ["node", "_test_dossier.mjs"], ["node", "_test_rank.mjs"], ["node", "_test_observables.mjs"], ["node", "_test_particles.mjs"], ["node", "_test_sensitivity.mjs"], ["node", "_test_higgsrate.mjs"], ["node", "_test_bundle.mjs"], ["node", "_test_robustness.mjs"], ["node", "_test_diagnostics.mjs"],

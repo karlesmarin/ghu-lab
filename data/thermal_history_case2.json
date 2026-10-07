@@ -1,0 +1,1350 @@
+{
+  "schema": "ghu-external-result-v1",
+  "experiment": "thermal",
+  "parameters": {
+    "nfPlus": 0,
+    "nfMinus": 8,
+    "adjPlus": 2,
+    "adjMinus": 0,
+    "scalarPlus": 4,
+    "scalarMinus": 2,
+    "invRGeV": 1000,
+    "g4": 1,
+    "RT": 0.0246,
+    "windings": 100,
+    "thermalTerms": 120
+  },
+  "backend": {
+    "PhaseTracer": {
+      "commit": "dc5aed31f922622e262d232a68ab3e229d705d82",
+      "remote": "https://github.com/PhaseTracer/PhaseTracer.git"
+    },
+    "HiggsTools": {
+      "commit": "860e49001ac6c8893bce208bcf85f7a3ac8ebdc0",
+      "remote": "https://gitlab.com/higgsbounds/higgstools.git"
+    }
+  },
+  "samples": [
+    {
+      "RT": 0.024166666666666666,
+      "S3overT": 2.7641266462847263,
+      "alpha": 0.03946710170011924
+    },
+    {
+      "RT": 0.024333333333333332,
+      "S3overT": 6.446890687295623,
+      "alpha": 0.03862810854956007
+    },
+    {
+      "RT": 0.024494897427831775,
+      "S3overT": 11.176288633550062,
+      "alpha": 0.03774664205804402
+    },
+    {
+      "RT": 0.0245,
+      "S3overT": 11.354243562004976,
+      "alpha": 0.037717567173078975
+    },
+    {
+      "RT": 0.024666666666666667,
+      "S3overT": 18.685754786427918,
+      "alpha": 0.036720231527561036
+    },
+    {
+      "RT": 0.024833333333333332,
+      "S3overT": 30.699899694621337,
+      "alpha": 0.035614958074131994
+    },
+    {
+      "RT": 0.025,
+      "S3overT": 55.2359996788875,
+      "alpha": 0.03437038777620698
+    },
+    {
+      "RT": 0.025156628490827015,
+      "S3overT": 118.6083513357106,
+      "alpha": 0.033028062300618055
+    },
+    {
+      "RT": 0.025166666666666667,
+      "S3overT": 127.03334088214669,
+      "alpha": 0.03293473477831274
+    },
+    {
+      "RT": 0.025170039142329077,
+      "S3overT": 129.77586421912503,
+      "alpha": 0.032903151947161945
+    },
+    {
+      "RT": 0.02518176030112813,
+      "S3overT": 139.9624303200925,
+      "alpha": 0.032792470804374745
+    },
+    {
+      "RT": 0.025181810301128142,
+      "S3overT": 140.00890121399286,
+      "alpha": 0.03279199557638978
+    },
+    {
+      "RT": 0.025181810301128142,
+      "S3overT": 140.00890121399286,
+      "alpha": 0.03279199557638978
+    },
+    {
+      "RT": 0.025182410283538136,
+      "S3overT": 140.5669668442367,
+      "alpha": 0.03278629093836614
+    },
+    {
+      "RT": 0.02520699211142927,
+      "S3overT": 167.5410226761706,
+      "alpha": 0.0325491972025481
+    },
+    {
+      "RT": 0.025333333333333333,
+      "S3overT": 767.8414798596699,
+      "alpha": 0.031207225600940042
+    }
+  ],
+  "failures": [
+    {
+      "RT": 0.001,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0011051178997261066,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0012212855722950411,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.001349664546620492,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0014915384490960261,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0016483258382257347,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0018215943884042983,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.00201307656466622,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.002224686945131779,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0024585413643521195,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.002716978068962571,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0030025810971738096,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0033182061158660296,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0036670089736241885,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.004052477255208349,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.004478465152963669,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.004949232003839766,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.005469484877340633,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.006044425640230382,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.006679802968582027,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0073819698272235825,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.008157946991302815,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.009015493245105479,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.009963182960025867,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.011010491827370716,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.012167891603215387,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.013446954812640318,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.01486047046025693,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.016422571903980988,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.018,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.01814887817062844,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.018166666666666664,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.018333333333333333,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0185,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.018666666666666665,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.018833333333333334,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.019,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.019166666666666665,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.01933333333333333,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0195,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.019666666666666666,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.01983333333333333,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.019999999999999997,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.02005665012630988,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.020166666666666666,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.02033333333333333,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.020499999999999997,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.020666666666666667,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.020833333333333332,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.020999999999999998,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.021166666666666667,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.021333333333333333,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0215,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.021666666666666667,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.021833333333333333,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.022,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.02216496306312893,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.022166666666666668,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.022333333333333334,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0225,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.022666666666666665,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.02283333333333333,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.023,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.023166666666666665,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.02333333333333333,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0235,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.023666666666666666,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.02383333333333333,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.024,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0255,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.025666666666666667,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.025833333333333333,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.026,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.026166666666666664,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.026333333333333334,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0265,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.026666666666666665,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.026833333333333334,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.027,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.027069749599451864,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.027166666666666665,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.027333333333333334,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0275,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.027666666666666666,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.027833333333333335,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.028,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.029915264823457858,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.03305989463145003,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.03653508132027444,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.040375572334984206,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.04461976769907724,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.049310103965871016,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.05449347853003934,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.06022171854188676,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.06655209911290663,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.07354791599401905,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.08127911845254247,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.08982300867586317,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.09926501469494976,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.10969954455596394,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.12123093028059732,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.13397447105353577,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.14805758606759953,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.16362108855354288,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.1808205937331906,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.1998280747736512,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.2208335823001688,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.24404714466055488,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.2697008679414257,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.29805125673373645,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.3293817788523134,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.3640056996533175,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.40226921428920626,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.44455490921975876,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.4912855875898698,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.5429284967230231,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.6,
+      "reason": "No metastable origin / lower broken minimum"
+    }
+  ],
+  "nucleation": {
+    "RT": 0.025181810301128142,
+    "temperatureGeV": 25.18181030112814,
+    "S3overT": 140.00890121399286,
+    "alpha": 0.03279199557638978,
+    "betaOverH": 24466.33567023,
+    "traceAnomalyStrength": 0.010684106812485761,
+    "gStar": 106.75,
+    "doubledCutoffTighterToleranceS3overT": 148.48163103779987,
+    "relativeActionShift": 0.060515651150330065,
+    "criterion": "O(3) S3/T=140 proxy; radiation domination, not an integrated nucleation/percolation condition"
+  },
+  "gravitationalWaves": null,
+  "scope": "One-loop flat SU(3), canonical phi=alpha/(g4 R), no daisy resummation, no percolation or wall-speed prediction; GW not evaluated.",
+  "historySamples": [
+    {
+      "RT": 0.025,
+      "S3overT": 55.17941836176873,
+      "alpha": 0.03437038777620698,
+      "fineS3overT": 58.748630121582636,
+      "fineAlpha": 0.03438206885226991,
+      "fourfoldS3overT": 59.35606886141536,
+      "eightfoldS3overT": 59.473236687789985
+    },
+    {
+      "RT": 0.025004166666666668,
+      "S3overT": 56.120971245592465,
+      "alpha": 0.034337106834103376,
+      "fineS3overT": 59.72095537915165,
+      "fineAlpha": 0.034349049197544945,
+      "fourfoldS3overT": 60.35572151278591,
+      "eightfoldS3overT": 60.46946588510741
+    },
+    {
+      "RT": 0.025008333333333334,
+      "S3overT": 57.10195825402889,
+      "alpha": 0.034303707634957395,
+      "fineS3overT": 60.79989525800717,
+      "fineAlpha": 0.03431591171488573,
+      "fourfoldS3overT": 61.405039279545505,
+      "eightfoldS3overT": 61.441402173434284
+    },
+    {
+      "RT": 0.0250125,
+      "S3overT": 58.01757377635449,
+      "alpha": 0.034270189131891574,
+      "fineS3overT": 61.776631949354034,
+      "fineAlpha": 0.03428265535813575,
+      "fourfoldS3overT": 62.42772044788953,
+      "eightfoldS3overT": 62.47531035225503
+    },
+    {
+      "RT": 0.025016666666666666,
+      "S3overT": 59.029358636486855,
+      "alpha": 0.034236550261331114,
+      "fineS3overT": 62.84891011438549,
+      "fineAlpha": 0.034249279066575634,
+      "fourfoldS3overT": 63.47397509857516,
+      "eightfoldS3overT": 63.54446330865026
+    },
+    {
+      "RT": 0.025020833333333336,
+      "S3overT": 60.05873618431581,
+      "alpha": 0.03420278994262021,
+      "fineS3overT": 63.865274484027935,
+      "fineAlpha": 0.034215781764590544,
+      "fourfoldS3overT": 64.5541454025994,
+      "eightfoldS3overT": 64.64586633795666
+    },
+    {
+      "RT": 0.025025000000000002,
+      "S3overT": 61.10773450761262,
+      "alpha": 0.034168907077622206,
+      "fineS3overT": 64.92358477777616,
+      "fineAlpha": 0.03418216236134262,
+      "fourfoldS3overT": 65.66599638221538,
+      "eightfoldS3overT": 65.77578878596097
+    },
+    {
+      "RT": 0.02502916666666667,
+      "S3overT": 62.183118620211204,
+      "alpha": 0.034134900550310716,
+      "fineS3overT": 66.04398716553767,
+      "fineAlpha": 0.034148419750407985,
+      "fourfoldS3overT": 66.8076966100573,
+      "eightfoldS3overT": 66.93817965112495
+    },
+    {
+      "RT": 0.025033333333333335,
+      "S3overT": 63.28542941970234,
+      "alpha": 0.03410076922634613,
+      "fineS3overT": 67.22871976977484,
+      "fineAlpha": 0.034114552809414105,
+      "fourfoldS3overT": 67.98334580619044,
+      "eightfoldS3overT": 68.12262521525133
+    },
+    {
+      "RT": 0.0250375,
+      "S3overT": 64.41599012766726,
+      "alpha": 0.03406651195264907,
+      "fineS3overT": 68.4894747913765,
+      "fineAlpha": 0.034080560399651294,
+      "fourfoldS3overT": 69.19524758388349,
+      "eightfoldS3overT": 69.33624028666353
+    },
+    {
+      "RT": 0.025041666666666667,
+      "S3overT": 65.57607576481637,
+      "alpha": 0.03403212755694299,
+      "fineS3overT": 69.70041835874432,
+      "fineAlpha": 0.03404644136568419,
+      "fourfoldS3overT": 70.4444491218974,
+      "eightfoldS3overT": 70.58145522084939
+    },
+    {
+      "RT": 0.025045833333333333,
+      "S3overT": 66.76452046023641,
+      "alpha": 0.03399761484730203,
+      "fineS3overT": 70.95017775770398,
+      "fineAlpha": 0.03401219453494638,
+      "fourfoldS3overT": 71.73256877422266,
+      "eightfoldS3overT": 71.86232002838355
+    },
+    {
+      "RT": 0.025050000000000003,
+      "S3overT": 67.98915230875264,
+      "alpha": 0.033962972611699366,
+      "fineS3overT": 72.2358208327771,
+      "fineAlpha": 0.033977818717201756,
+      "fourfoldS3overT": 73.06271590780811,
+      "eightfoldS3overT": 73.17934225211701
+    },
+    {
+      "RT": 0.02505416666666667,
+      "S3overT": 69.20452665152736,
+      "alpha": 0.033928199617404696,
+      "fineS3overT": 73.63883870980972,
+      "fineAlpha": 0.03394331270431429,
+      "fourfoldS3overT": 74.41297930619213,
+      "eightfoldS3overT": 74.53582511517303
+    },
+    {
+      "RT": 0.025058333333333335,
+      "S3overT": 70.52804636789536,
+      "alpha": 0.03389329461070873,
+      "fineS3overT": 75.051505719395,
+      "fineAlpha": 0.03390867526956431,
+      "fourfoldS3overT": 75.81945814974961,
+      "eightfoldS3overT": 75.93336805066062
+    },
+    {
+      "RT": 0.0250625,
+      "S3overT": 71.88103959590443,
+      "alpha": 0.03385825631617958,
+      "fineS3overT": 76.48243270163276,
+      "fineAlpha": 0.033873905167255615,
+      "fourfoldS3overT": 77.25074353884504,
+      "eightfoldS3overT": 77.37269972238015
+    },
+    {
+      "RT": 0.025066666666666668,
+      "S3overT": 73.27034353490632,
+      "alpha": 0.03382308343624386,
+      "fineS3overT": 77.96323192256534,
+      "fineAlpha": 0.033839001132187546,
+      "fourfoldS3overT": 78.73808251200708,
+      "eightfoldS3overT": 78.85502603701528
+    },
+    {
+      "RT": 0.025070833333333334,
+      "S3overT": 74.69263609501752,
+      "alpha": 0.033787774650610246,
+      "fineS3overT": 79.47375389266486,
+      "fineAlpha": 0.03380396187912823,
+      "fourfoldS3overT": 80.27087490203851,
+      "eightfoldS3overT": 80.3820345626983
+    },
+    {
+      "RT": 0.025075,
+      "S3overT": 76.1625711328183,
+      "alpha": 0.0337523286157099,
+      "fineS3overT": 81.0461814945558,
+      "fineAlpha": 0.03376878610225082,
+      "fourfoldS3overT": 81.85020151462957,
+      "eightfoldS3overT": 81.95714300327744
+    },
+    {
+      "RT": 0.025079166666666666,
+      "S3overT": 77.75979331513498,
+      "alpha": 0.033716743964104484,
+      "fineS3overT": 82.66543235477926,
+      "fineAlpha": 0.03373347247456357,
+      "fourfoldS3overT": 83.47819874338323,
+      "eightfoldS3overT": 83.58391200680691
+    },
+    {
+      "RT": 0.025083333333333332,
+      "S3overT": 79.34747053490211,
+      "alpha": 0.03368101930389079,
+      "fineS3overT": 84.33023660320852,
+      "fineAlpha": 0.03369801964729936,
+      "fourfoldS3overT": 85.15699972366255,
+      "eightfoldS3overT": 85.1866164519378
+    },
+    {
+      "RT": 0.025087500000000002,
+      "S3overT": 80.98501560873463,
+      "alpha": 0.03364515321807412,
+      "fineS3overT": 86.04112419305949,
+      "fineAlpha": 0.03366242624929416,
+      "fourfoldS3overT": 86.88844815185712,
+      "eightfoldS3overT": 86.94841568070437
+    },
+    {
+      "RT": 0.02509166666666667,
+      "S3overT": 82.67508509496592,
+      "alpha": 0.03360914426393298,
+      "fineS3overT": 87.75499906371824,
+      "fineAlpha": 0.03362669088632585,
+      "fourfoldS3overT": 88.62492602775235,
+      "eightfoldS3overT": 88.7660612828244
+    },
+    {
+      "RT": 0.025095833333333335,
+      "S3overT": 84.42016759856502,
+      "alpha": 0.033572990972402315,
+      "fineS3overT": 89.60614966862283,
+      "fineAlpha": 0.03359081214044024,
+      "fourfoldS3overT": 90.505951973175,
+      "eightfoldS3overT": 90.64304060973298
+    },
+    {
+      "RT": 0.0251,
+      "S3overT": 86.2233530313999,
+      "alpha": 0.03353669184719529,
+      "fineS3overT": 91.52312471110112,
+      "fineAlpha": 0.033554788569275774,
+      "fourfoldS3overT": 92.43068107629703,
+      "eightfoldS3overT": 92.57638458036861
+    },
+    {
+      "RT": 0.025104166666666667,
+      "S3overT": 88.08731014366423,
+      "alpha": 0.033500245364406885,
+      "fineS3overT": 93.51314773487476,
+      "fineAlpha": 0.03351861870514051,
+      "fourfoldS3overT": 94.43302851544259,
+      "eightfoldS3overT": 94.58536674542567
+    },
+    {
+      "RT": 0.025108333333333333,
+      "S3overT": 90.01554208991672,
+      "alpha": 0.03346364997157673,
+      "fineS3overT": 95.57518992484697,
+      "fineAlpha": 0.0334823010545443,
+      "fourfoldS3overT": 96.50478979802934,
+      "eightfoldS3overT": 96.65826627498691
+    },
+    {
+      "RT": 0.0251125,
+      "S3overT": 92.01110996227123,
+      "alpha": 0.03342690408697478,
+      "fineS3overT": 97.71066322594181,
+      "fineAlpha": 0.033445834097146826,
+      "fourfoldS3overT": 98.65021647144468,
+      "eightfoldS3overT": 98.8048930129838
+    },
+    {
+      "RT": 0.02511666666666667,
+      "S3overT": 94.07789081601206,
+      "alpha": 0.03339000609885172,
+      "fineS3overT": 99.9227458908925,
+      "fineAlpha": 0.03340921628501637,
+      "fourfoldS3overT": 100.87444323658993,
+      "eightfoldS3overT": 101.02859593645728
+    },
+    {
+      "RT": 0.025120833333333335,
+      "S3overT": 96.2203872438043,
+      "alpha": 0.03335295436462795,
+      "fineS3overT": 102.21552488838503,
+      "fineAlpha": 0.03337244604174321,
+      "fourfoldS3overT": 103.18148879402288,
+      "eightfoldS3overT": 103.33363510188948
+    },
+    {
+      "RT": 0.025125,
+      "S3overT": 98.44248692963508,
+      "alpha": 0.033315747210067366,
+      "fineS3overT": 104.69570402024696,
+      "fineAlpha": 0.03333552176152443,
+      "fourfoldS3overT": 105.61790208097452,
+      "eightfoldS3overT": 105.76455552087617
+    },
+    {
+      "RT": 0.025129166666666668,
+      "S3overT": 100.74765868047504,
+      "alpha": 0.03327838292842474,
+      "fineS3overT": 107.10664699543281,
+      "fineAlpha": 0.03329844180822138,
+      "fourfoldS3overT": 108.10577137850115,
+      "eightfoldS3overT": 108.25822832843318
+    },
+    {
+      "RT": 0.025133333333333334,
+      "S3overT": 103.06359310926676,
+      "alpha": 0.03324085977955554,
+      "fineS3overT": 109.63951203750285,
+      "fineAlpha": 0.03326120451436684,
+      "fourfoldS3overT": 110.74746139027961,
+      "eightfoldS3overT": 110.84380735795602
+    },
+    {
+      "RT": 0.0251375,
+      "S3overT": 105.61062990957362,
+      "alpha": 0.033203175989013956,
+      "fineS3overT": 112.3248478490856,
+      "fineAlpha": 0.03322380818014183,
+      "fourfoldS3overT": 113.40067117388575,
+      "eightfoldS3overT": 113.54133847375803
+    },
+    {
+      "RT": 0.025141666666666666,
+      "S3overT": 108.25394333016462,
+      "alpha": 0.03316532974709692,
+      "fineS3overT": 115.00913749331762,
+      "fineAlpha": 0.033186251072299326,
+      "fourfoldS3overT": 116.18566325046056,
+      "eightfoldS3overT": 116.34855989272194
+    },
+    {
+      "RT": 0.025145833333333333,
+      "S3overT": 110.98122534203718,
+      "alpha": 0.03312731920787365,
+      "fineS3overT": 117.9768635484837,
+      "fineAlpha": 0.03314853142305219,
+      "fourfoldS3overT": 119.06542819153601,
+      "eightfoldS3overT": 119.2145894314923
+    },
+    {
+      "RT": 0.02515,
+      "S3overT": 113.76173518468798,
+      "alpha": 0.03308914248817626,
+      "fineS3overT": 120.95121960568655,
+      "fineAlpha": 0.03311064742890911,
+      "fourfoldS3overT": 122.07637865054717,
+      "eightfoldS3overT": 122.238980397641
+    },
+    {
+      "RT": 0.02515416666666667,
+      "S3overT": 116.66749131572455,
+      "alpha": 0.03305079766655219,
+      "fineS3overT": 123.87407709219444,
+      "fineAlpha": 0.03307259724946975,
+      "fourfoldS3overT": 125.06678306077922,
+      "eightfoldS3overT": 125.24943345282088
+    },
+    {
+      "RT": 0.025158333333333335,
+      "S3overT": 119.70199980267924,
+      "alpha": 0.033012282782179075,
+      "fineS3overT": 127.20598299278211,
+      "fineAlpha": 0.03303437900615922,
+      "fourfoldS3overT": 128.44574322062383,
+      "eightfoldS3overT": 128.6154624299877
+    },
+    {
+      "RT": 0.0251625,
+      "S3overT": 122.81649070050784,
+      "alpha": 0.0329735958337504,
+      "fineS3overT": 130.56912148817523,
+      "fineAlpha": 0.03299599078092496,
+      "fourfoldS3overT": 131.90524951709193,
+      "eightfoldS3overT": 132.09674899545635
+    },
+    {
+      "RT": 0.025166666666666667,
+      "S3overT": 126.0943097371341,
+      "alpha": 0.03293473477831274,
+      "fineS3overT": 134.1155408114404,
+      "fineAlpha": 0.03295743061487075,
+      "fourfoldS3overT": 135.4790446794492,
+      "eightfoldS3overT": 135.67557234492426
+    },
+    {
+      "RT": 0.025170833333333333,
+      "S3overT": 129.45367526604107,
+      "alpha": 0.03289569753006178,
+      "fineS3overT": 137.91828745283945,
+      "fineAlpha": 0.03291869650683477,
+      "fourfoldS3overT": 139.2348271141329,
+      "eightfoldS3overT": 139.42045546371995
+    },
+    {
+      "RT": 0.025175,
+      "S3overT": 133.26664151411686,
+      "alpha": 0.03285648195910326,
+      "fineS3overT": 141.81772122729114,
+      "fineAlpha": 0.03287978641191998,
+      "fourfoldS3overT": 143.15524573861032,
+      "eightfoldS3overT": 143.3807828208005
+    },
+    {
+      "RT": 0.025179166666666666,
+      "S3overT": 137.02205806868443,
+      "alpha": 0.03281708589015643,
+      "fineS3overT": 145.7803824781559,
+      "fineAlpha": 0.03284069823994835,
+      "fourfoldS3overT": 147.2408686238575,
+      "eightfoldS3overT": 147.44887582080773
+    },
+    {
+      "RT": 0.025181810301128142,
+      "S3overT": 139.543716252289,
+      "alpha": 0.03279199557638978,
+      "fineS3overT": 148.48163103779987,
+      "fineAlpha": 0.03281580457225258,
+      "fourfoldS3overT": 149.95390199579828,
+      "eightfoldS3overT": 150.13073235041637
+    },
+    {
+      "RT": 0.025183333333333335,
+      "S3overT": 141.02324891241767,
+      "alpha": 0.03277750710122547,
+      "fineS3overT": 150.06718571809878,
+      "fineAlpha": 0.03280142985386886,
+      "fourfoldS3overT": 151.56108705972295,
+      "eightfoldS3overT": 151.71356628115296
+    },
+    {
+      "RT": 0.0251875,
+      "S3overT": 145.23826028401038,
+      "alpha": 0.03273774332219855,
+      "fineS3overT": 154.61807215508992,
+      "fineAlpha": 0.03276197906810032,
+      "fourfoldS3overT": 156.03266365668276,
+      "eightfoldS3overT": 156.2553541256659
+    },
+    {
+      "RT": 0.025191666666666668,
+      "S3overT": 149.52632828301384,
+      "alpha": 0.03269779223342859,
+      "fineS3overT": 159.1957581725366,
+      "fineAlpha": 0.03272234364678556,
+      "fourfoldS3overT": 160.77249746153302,
+      "eightfoldS3overT": 160.92338321859566
+    },
+    {
+      "RT": 0.025195833333333334,
+      "S3overT": 154.0233306007039,
+      "alpha": 0.03265765146422514,
+      "fineS3overT": 164.1644874926085,
+      "fineAlpha": 0.03268252130200733,
+      "fourfoldS3overT": 165.69841096781497,
+      "eightfoldS3overT": 165.8910289497949
+    },
+    {
+      "RT": 0.0252,
+      "S3overT": 158.93531366808998,
+      "alpha": 0.032617318591315274,
+      "fineS3overT": 169.32025358794309,
+      "fineAlpha": 0.03264250969191046,
+      "fourfoldS3overT": 170.9119826620297,
+      "eightfoldS3overT": 171.11831483574042
+    },
+    {
+      "RT": 0.025204166666666666,
+      "S3overT": 163.8690770642148,
+      "alpha": 0.032576791137235966,
+      "fineS3overT": 174.75424509200766,
+      "fineAlpha": 0.03260230641875615,
+      "fourfoldS3overT": 176.40567889492712,
+      "eightfoldS3overT": 176.62478521401636
+    },
+    {
+      "RT": 0.025208333333333333,
+      "S3overT": 169.1954961436948,
+      "alpha": 0.03253606656866028,
+      "fineS3overT": 180.48637459995606,
+      "fineAlpha": 0.032561909026900676,
+      "fourfoldS3overT": 182.20063641278068,
+      "eightfoldS3overT": 182.43136814933663
+    },
+    {
+      "RT": 0.0252125,
+      "S3overT": 174.81447307286496,
+      "alpha": 0.03249514229467608,
+      "fineS3overT": 186.53870947255587,
+      "fineAlpha": 0.032521315000686,
+      "fourfoldS3overT": 188.3193232122333,
+      "eightfoldS3overT": 188.56140283506647
+    },
+    {
+      "RT": 0.025216666666666665,
+      "S3overT": 180.7489185516046,
+      "alpha": 0.03245401566496708,
+      "fineS3overT": 192.9361927814777,
+      "fineAlpha": 0.03248052176226699,
+      "fourfoldS3overT": 194.78695773767325,
+      "eightfoldS3overT": 195.04063574312033
+    },
+    {
+      "RT": 0.025220833333333335,
+      "S3overT": 187.02330662355527,
+      "alpha": 0.03241268396789861,
+      "fineS3overT": 199.70607263606124,
+      "fineAlpha": 0.0324395266692993,
+      "fourfoldS3overT": 201.63166571164237,
+      "eightfoldS3overT": 201.8970984679904
+    },
+    {
+      "RT": 0.025225,
+      "S3overT": 193.66569436375852,
+      "alpha": 0.03237114442877964,
+      "fineS3overT": 206.8779788423138,
+      "fineAlpha": 0.032398327012556946,
+      "fourfoldS3overT": 208.8827992682617,
+      "eightfoldS3overT": 209.1603243421516
+    },
+    {
+      "RT": 0.025229166666666667,
+      "S3overT": 200.7062972470873,
+      "alpha": 0.03232939420753517,
+      "fineS3overT": 214.48217143522504,
+      "fineAlpha": 0.03235692001366027,
+      "fourfoldS3overT": 216.57275818876843,
+      "eightfoldS3overT": 216.86533671483363
+    },
+    {
+      "RT": 0.025233333333333333,
+      "S3overT": 208.17760194276318,
+      "alpha": 0.03228743039679924,
+      "fineS3overT": 222.5604841369129,
+      "fineAlpha": 0.032315302822218506,
+      "fourfoldS3overT": 224.74329290589495,
+      "eightfoldS3overT": 225.05118701294464
+    },
+    {
+      "RT": 0.0252375,
+      "S3overT": 216.11772001119758,
+      "alpha": 0.03224525001967629,
+      "fineS3overT": 231.15473513696054,
+      "fineAlpha": 0.03227347251336761,
+      "fourfoldS3overT": 233.43635588675474,
+      "eightfoldS3overT": 233.76112785955738
+    },
+    {
+      "RT": 0.025241666666666666,
+      "S3overT": 224.5689888675307,
+      "alpha": 0.03220285002746142,
+      "fineS3overT": 240.3116188185564,
+      "fineAlpha": 0.03223142608495627,
+      "fourfoldS3overT": 242.69984289866267,
+      "eightfoldS3overT": 243.0367650301676
+    },
+    {
+      "RT": 0.025245833333333332,
+      "S3overT": 233.57844097292255,
+      "alpha": 0.032160227297260244,
+      "fineS3overT": 250.08362801243598,
+      "fineAlpha": 0.03218916045466037,
+      "fourfoldS3overT": 252.58653186109782,
+      "eightfoldS3overT": 252.9449888038671
+    },
+    {
+      "RT": 0.02525,
+      "S3overT": 243.19834903408758,
+      "alpha": 0.032117378629519806,
+      "fineS3overT": 260.52928544948645,
+      "fineAlpha": 0.03214667245699952,
+      "fourfoldS3overT": 263.1559915142654,
+      "eightfoldS3overT": 263.5369868679014
+    },
+    {
+      "RT": 0.025254166666666668,
+      "S3overT": 253.48717266292957,
+      "alpha": 0.03207430074545067,
+      "fineS3overT": 271.7143616408009,
+      "fineAlpha": 0.032103958840222456,
+      "fourfoldS3overT": 274.47497657551645,
+      "eightfoldS3overT": 274.87985824291513
+    },
+    {
+      "RT": 0.025258333333333334,
+      "S3overT": 264.5113010472838,
+      "alpha": 0.03203099028433435,
+      "fineS3overT": 283.7132603268765,
+      "fineAlpha": 0.03206101626306259,
+      "fourfoldS3overT": 286.61925110207903,
+      "eightfoldS3overT": 287.04931284924317
+    },
+    {
+      "RT": 0.0252625,
+      "S3overT": 276.34516022781366,
+      "alpha": 0.03198744380072139,
+      "fineS3overT": 296.6098675583042,
+      "fineAlpha": 0.03201784129138362,
+      "fourfoldS3overT": 299.67417592485447,
+      "eightfoldS3overT": 300.13096264283547
+    },
+    {
+      "RT": 0.025266666666666666,
+      "S3overT": 289.0733779736197,
+      "alpha": 0.031943657761506795,
+      "fineS3overT": 310.4997269111029,
+      "fineAlpha": 0.0319744303946771,
+      "fourfoldS3overT": 313.736444595124,
+      "eightfoldS3overT": 314.2220798261269
+    },
+    {
+      "RT": 0.025270833333333333,
+      "S3overT": 302.7919116129546,
+      "alpha": 0.03189962854287843,
+      "fineS3overT": 325.4913657480277,
+      "fineAlpha": 0.03193077994236068,
+      "fourfoldS3overT": 328.91664283069616,
+      "eightfoldS3overT": 329.4332325912003
+    },
+    {
+      "RT": 0.025275,
+      "S3overT": 317.610106382278,
+      "alpha": 0.03185535242712565,
+      "fineS3overT": 341.70897835401684,
+      "fineAlpha": 0.031886886200109855,
+      "fourfoldS3overT": 345.34099451935566,
+      "eightfoldS3overT": 345.8911589350073
+    },
+    {
+      "RT": 0.025279166666666665,
+      "S3overT": 333.65318342547675,
+      "alpha": 0.031810825599311345,
+      "fineS3overT": 359.29492438748923,
+      "fineAlpha": 0.03184274532578277,
+      "fourfoldS3overT": 363.15434812128586,
+      "eightfoldS3overT": 363.741062378717
+    },
+    {
+      "RT": 0.02528333333333333,
+      "S3overT": 351.0653296616047,
+      "alpha": 0.03176604414378641,
+      "fineS3overT": 378.4131814249658,
+      "fineAlpha": 0.03179835336537418,
+      "fourfoldS3overT": 382.5235102842216,
+      "eightfoldS3overT": 383.15025425005297
+    },
+    {
+      "RT": 0.0252875,
+      "S3overT": 370.0122010759396,
+      "alpha": 0.0317210040405563,
+      "fineS3overT": 399.2536253271876,
+      "fineAlpha": 0.03175370624872519,
+      "fourfoldS3overT": 403.64200750077777,
+      "eightfoldS3overT": 404.31230776177256
+    },
+    {
+      "RT": 0.025291666666666667,
+      "S3overT": 390.6862217563054,
+      "alpha": 0.031675701161471365,
+      "fineS3overT": 422.0366297528177,
+      "fineAlpha": 0.031708799785066744,
+      "fourfoldS3overT": 426.73392540544637,
+      "eightfoldS3overT": 427.4524771997806
+    },
+    {
+      "RT": 0.025295833333333333,
+      "S3overT": 413.31128688737397,
+      "alpha": 0.031630131266293264,
+      "fineS3overT": 447.0196554710852,
+      "fineAlpha": 0.03166362965842687,
+      "fourfoldS3overT": 452.0617009159197,
+      "eightfoldS3overT": 452.8337673366069
+    },
+    {
+      "RT": 0.0253,
+      "S3overT": 438.1494045478855,
+      "alpha": 0.031584289998364545,
+      "fineS3overT": 474.5049502424556,
+      "fineAlpha": 0.03161819142260727,
+      "fourfoldS3overT": 479.9333834644152,
+      "eightfoldS3overT": 480.76485418651566
+    },
+    {
+      "RT": 0.025304166666666666,
+      "S3overT": 465.50839102864677,
+      "alpha": 0.031538172880445234,
+      "fineS3overT": 504.8491277119249,
+      "fineAlpha": 0.03157248049644296,
+      "fourfoldS3overT": 510.71240240993416,
+      "eightfoldS3overT": 511.6105877120425
+    },
+    {
+      "RT": 0.025308333333333332,
+      "S3overT": 495.75254600884455,
+      "alpha": 0.031491775310014986,
+      "fineS3overT": 538.4758473200575,
+      "fineAlpha": 0.031526492158303325,
+      "fourfoldS3overT": 544.8311104143856,
+      "eightfoldS3overT": 545.8038157237198
+    },
+    {
+      "RT": 0.025312499999999998,
+      "S3overT": 529.3151812152041,
+      "alpha": 0.03144509255449775,
+      "fineS3overT": 575.8907057279322,
+      "fineAlpha": 0.03148022154071771,
+      "fourfoldS3overT": 582.8052462950128,
+      "eightfoldS3overT": 583.8626202867379
+    },
+    {
+      "RT": 0.025316666666666668,
+      "S3overT": 566.7153106073239,
+      "alpha": 0.031398119746235215,
+      "fineS3overT": 617.7021906069994,
+      "fineAlpha": 0.03143366362463364,
+      "fourfoldS3overT": 625.2566872242735,
+      "eightfoldS3overT": 626.4102030908027
+    },
+    {
+      "RT": 0.025320833333333334,
+      "S3overT": 608.5789869944739,
+      "alpha": 0.03135085187719122,
+      "fineS3overT": 664.6480123516886,
+      "fineAlpha": 0.031386813233462596,
+      "fourfoldS3overT": 672.9386002774587,
+      "eightfoldS3overT": 674.2020608905524
+    },
+    {
+      "RT": 0.025325,
+      "S3overT": 655.6663857177326,
+      "alpha": 0.03130328379341277,
+      "fineS3overT": 717.6287019535094,
+      "fineAlpha": 0.03133966502684604,
+      "fourfoldS3overT": 726.7942915277147,
+      "eightfoldS3overT": 728.1620590082665
+    },
+    {
+      "RT": 0.025329166666666666,
+      "S3overT": 708.909604334575,
+      "alpha": 0.03125541018919036,
+      "fineS3overT": 777.7537219604857,
+      "fineAlpha": 0.03129221349415323,
+      "fourfoldS3overT": 787.9168199777138,
+      "eightfoldS3overT": 789.428895017772
+    },
+    {
+      "RT": 0.025333333333333333,
+      "S3overT": 769.4599389116756,
+      "alpha": 0.031207225600940042,
+      "fineS3overT": 846.4030014697206,
+      "fineAlpha": 0.03124445294768513,
+      "fourfoldS3overT": 857.7386814933918,
+      "eightfoldS3overT": 859.4200384634812
+    }
+  ],
+  "historyPrecision": {
+    "spatialCutoffs": [
+      100,
+      200,
+      400,
+      800
+    ],
+    "thermalCutoffs": [
+      120,
+      240,
+      480,
+      960
+    ],
+    "shootingTolerance": 2e-05,
+    "sampling": "81 equally spaced temperatures plus the proxy crossing; no action extrapolation",
+    "scope": "Cutoff comparison is a convergence diagnostic, not a rigorous error enclosure."
+  }
+}

@@ -10,6 +10,8 @@ Each new experiment stays in an existing section. Start with its **What this tes
 | How do Majoron channels alter lifetimes? | Simulator → Neutrino ring → Decays | Include computed Majoron widths, select a heavy pair and vary the scalar VEV ratios |
 | Does RS matter cancel gauge anomalies? | Anomalies & proton → RS anomaly flow | Remove one lepton generation, then restore it; compare UV and IR contributions |
 | Does thermal GHU nucleate bubbles? | Simulator → SU(N) builder → Finite-temperature GHU | Load cases 1 and 2; compare coexistence with the matching PhaseTracer bounce |
+| Do the bubbles percolate and complete the transition? | Simulator → SU(N) builder → Integrated nucleation, percolation and conditional gravitational waves | Load case 1, save a comparison, then change wall speed and fluid efficiency; inspect convergence and the acoustic-domain gate |
+| Does a conditional rung bound survive a full-potential check? | Screen a table → Conditional rung bounds and full-potential witness checks | Read the selected seed and conventions; compare the interval bound with the archived competing-vacuum examples |
 | What Higgs rates do the assumptions imply? | Collider → Higgs rates | Save the SM reference, load the top-tower scenario, add invisible width and run HiggsTools |
 
 Each experiment provides a shortcut near the top of its section. **Save research summary** exports a readable text note. JSON retains full matrices, rates, assumptions and provenance. The figure selector lets you export any plot as SVG. The main permalink retains the controls; external calculations and comparison snapshots are saved in JSON, not encoded into the URL.
@@ -23,7 +25,7 @@ The panels implement distinct actions. They do not silently combine flat SU(6), 
 - **Neutrinos:** three copy-diagonal sterile rings provide three active mass directions and 18 quasi-Dirac pairs. Masses and PMNS orientation reconstruct Yukawa columns; they are inputs. The light matrix, active deficit and flavour residues are exported. Plotted oscillations use the unitary vacuum limit. [NuFIT 6.1](https://www.nu-fit.org/sites/default/files/v61.tbl-parameters.pdf) provides separate one-parameter ranges, not a combined nonunitarity fit. A [Hosotani reference button](https://arxiv.org/abs/2507.08321) transfers historical PMNS inputs, not the paper's RS action. Copy-changing interactions, radiative flavour stability and vacuum re-minimization remain open.
 - **Majoron:** the existing physical quotient normalization and conserving eigenvectors produce light and heavy cascade widths at leading Majorana order. See [the Majoron equations and checks](neutrino-majoron.md). Scalar VEV changes keep the fermion mass matrix fixed by retuning its couplings. Multi-state overlap and unknown radial channels are reported.
 - **RS anomalies:** Bessel eigenmodes and normalized gauge profiles reproduce the [June anomaly-flow paper](https://arxiv.org/abs/2606.01829) and the neutral matrix in the [September baryon-current paper](https://arxiv.org/abs/2609.29135). Published finite fermion-KK sums are a fixed comparison table; they are not recalculated when controls change. Gauge cancellation and baryon-current violation are separate outputs. No proton lifetime or baryogenesis yield is inferred.
-- **Thermal GHU:** the one-loop four-dimensional potential of [Hirose–Shibuya](https://arxiv.org/abs/2303.14192), C4=3/(64π⁶R⁴) and canonical α=g4 R φ. The browser scans broken/origin coexistence and compares cutoffs. PhaseTracer solves an actual O(3) bounce. S3/T=140 is a radiation-era proxy, not integrated nucleation or percolation. No daisy resummation, wall velocity or gravitational-wave prediction is supplied. Case 1 gives RTn≈0.092887 at g4=3, with about 0.48% action variation in the combined cutoff/tolerance check. Case 2 is more sensitive (about 6.1%); its displayed result explicitly asks for refinement.
+- **Thermal GHU:** the one-loop four-dimensional potential of [Hirose–Shibuya](https://arxiv.org/abs/2303.14192), C4=3/(64π⁶R⁴) and canonical α=g4 R φ. The browser scans broken/origin coexistence and compares cutoffs. PhaseTracer solves an actual O(3) bounce. The original S3/T=140 result remains labelled a proxy. The integrated-history panel adds nucleation, percolation, completion and a conditional acoustic spectrum using refined action tables; assumptions and reproduction are below. No daisy resummation or predicted wall velocity is supplied.
 - **Higgs:** a single CP-even 125.2 GeV scalar with explicit real κV, universal κF, effective κg/κγ/κZγ, and invisible width. Every SM partial width is included. Cross sections at 8, 13, 13.6 and 14 TeV retain the HiggsPredictions coupling interference. [HiggsTools for Run 3](https://arxiv.org/abs/2608.05401) and the official HB/HS datasets evaluate that complete scalar scenario. A top-tower ggH modification alone is not a complete GHU fit. HiggsBounds uses its selected most sensitive expected limit; all applied limits remain in the JSON. HiggsSignals χ² and Δχ² relative to the same SM point are not converted into a confidence level. Di-Higgs production is not evaluated by this adapter.
 
 ## Run the scientific engine locally
@@ -49,3 +51,75 @@ python thermal_run.py inputs.json result.json
 Mount a directory containing an exported input JSON when using these commands through Docker. Import `result.json` with **Import computed result**. The importer checks the experiment, all parameter values, required result fields and (for HiggsTools) numerical agreement of every width, branching fraction and cross section with the browser calculation. Imports document external calculations; they are not cryptographic attestations.
 
 The SU(6), RS, flavour, thermal and Higgs harnesses run with the normal application build. The extensions browser gate checks controls, invalid inputs, comparison snapshots, permalinks, exports, stale-result rejection and mobile layouts. Separate reference records hold independent SciPy calculations and real PhaseTracer/HiggsTools runs. The PhaseTracer-linked C++ adapter is GPL-3.0-or-later; upstream tools retain their own licenses.
+
+## Integrated transition history
+
+In **Simulator → SU(N) builder**, select a thermal paper benchmark, then use **Integrated nucleation, percolation and conditional gravitational waves**. It shares the thermal panel's inputs. The wall speed, fluid efficiency, relativistic degrees of freedom and expansion background can be varied separately. Exported results retain the action samples, pinned backend and precision record. Changing a thermal input withdraws the result unless a matching action table exists.
+
+The integration assumes adiabatic cooling, constant g*=g*s, Γ=T⁴(S3/(2πT))^(3/2)exp(−S3/T), and constant wall speed. It evaluates the unweighted integral of Γ/H⁴ for nucleation and the expanding-bubble volume integral I for P=false fraction=exp(−I). Percolation uses I=0.34 (about 28.8% converted); completion uses P=0.01. Both additionally require decreasing a³P. The default H includes radiation and a constant false-vacuum energy obtained by assigning zero energy to the T=0 true vacuum. Radiation-only expansion is an explicit alternative.
+
+For 1/R=1000 GeV, g*=106.75, wall speed 0.95, efficiency 0.5, and the default background:
+
+| Thermal benchmark | Integrated Tn [GeV] | Tp [GeV] | Completion T [GeV] | Acoustic peak [Hz] | Peak ΩGW h² |
+|---|---:|---:|---:|---:|---:|
+| Case 1, g4=3 | 94.8871 | 90.3414 | 89.2832 | 0.00133823 | 1.69262e−11 |
+| Case 2, g4=1 | 25.1778 | 25.1480 | 25.1444 | 0.0291382 | 3.53341e−17 |
+
+These are model calculations, not measurements by CMS or ATLAS. The action samples use spatial cutoffs 100/200/400/800, thermal cutoffs 120/240/480/960 and shooting tolerance 2e−5. The primary calculation uses 800/960 and 1200 integration steps. Doubling 400/480 changes Tp by about 2.43e−6 relative for case 1 and 9.22e−6 for case 2. The panel also compares 600 steps and every second action knot. These comparisons diagnose convergence; they are not rigorous error bars.
+
+The acoustic estimate uses [eqs. (28–30) of the transition-robustness study](https://arxiv.org/abs/2309.05474), the mean separation inferred from the false-volume-weighted bubble density, a finite sound lifetime, supplied κ, and instantaneous bag-model reheating. The fit is gated to completing transitions with α≤1 and wall speed above the bag Jouguet speed. Slower walls require hydrodynamics not implemented here. Thermal reheating during growth, O(4) tunnelling, collisions, turbulence and detector significance are not evaluated. The two SU(3) examples are separate from the SU(7) action and do not establish an electroweak or collider fit. See also the [transition review](https://arxiv.org/abs/2305.02357).
+
+To refine a saved result, mount this repository in the pinned image built by `tools/backend.py setup`. From its root (PowerShell), for example:
+
+```powershell
+docker run --rm --mount "type=bind,source=$($PWD.Path),target=/work" ghu-lab-scientific:20261006 python /work/tools/thermal_history_run.py /work/data/thermal_case1_phasetracer.json /work/data/thermal_history_case1.json
+```
+
+For a new point, first obtain the ordinary thermal result through the engine and save its raw external JSON. Refine that file, then import the resulting JSON into the thermal panel with exactly matching inputs. The refinement requires a sampled metastable branch bracketing the crossing; it fails if that branch is absent. The ordinary engine button does not perform this extra refinement automatically.
+
+## Conditional SU(7) bounds and vacuum checks
+
+**Screen a table → Conditional rung bounds and full-potential witness checks** reads the selected seed and conventions. The interval calculation covers the listed even candidate rungs k=2…20 and odd published rungs k=1…21, with mh in [123,127] GeV, mW=80.4 GeV and g4=0.63. Bounds outside those conventions are withdrawn. Candidate upper bounds start at 7.37630 TeV for k=2 and 5.55422 TeV for k=4.
+
+The certificates prove a bound on the small-angle moment relaxation. A rational dual is checked against every generator with interval arithmetic. At the first excluded A4 lattice point, a negative gap with negative derivative and strictly negative second derivative excludes the entire larger-A4 tail. The mh=127 endpoint bounds the full mass interval because the required G increases with μ. No finite scan is used as a proof of the tail, no monotonicity between unlisted rungs is assumed, and no attainment claim follows.
+
+Independent NumPy/SciPy full-Fourier checks distinguish selected physical-vacuum candidates from stationary examples. The archived measured-mass content gives mh≈125.1328 GeV and 1/R5≈6.40824 TeV; its small-angle minimum is lowest among the numerically located extrema. Two stationary upper examples have a deeper minimum at α=1. A k=0 example also has an endpoint vacuum, illustrating why the small-angle exclusion is not a universal full-potential statement. These searches are numerical, not interval isolation of every root. Both the potential tail and the doubled bound for F(α)−F(0) are recorded.
+
+Reproduce the bounds, witness checks and browser references with Python plus mpmath, NumPy and SciPy:
+
+```text
+python tools/build_closure_references.py
+node _test_candidate_bounds.mjs
+node _test_thermal_history.mjs
+```
+
+The full-potential remainder enclosure, an exhaustive global-vacuum ceiling, anomaly/flavour completion and common observable matching remain open. A complete SU(7) joint likelihood requires specifying the same bulk/brane action, Yukawa sector, spectrum and uncertainties across Higgs, electroweak and collider observables. No combined χ² is constructed by adding unrelated panels.
+
+## Experimental numbers already included
+
+The HNL panel includes the published [CMS EXO-22-011 search](https://cms-results.web.cern.ch/cms-results/public-results/publications/EXO-22-011/), at 13 TeV with 138 fb⁻¹. Observed and expected 95% CL curves, bands, HEPData DOIs and source hashes are stored in `data/neutrino_hnl_limits.json`. For a Dirac HNL of 10 GeV coupled exclusively to electrons, the stored observed upper limit is |VeN|²=5.7415e−5. The single-flavour hypothesis matters when comparing a multi-flavour theory. These are published limits, not a new analysis of raw detector events.
+
+HiggsBounds and HiggsSignals use pinned official experimental datasets that include CMS and ATLAS results. The saved SM reference has χ²=151.642065 over 159 observables; this is a reference calculation, not a joint GHU fit or 159 independent degrees of freedom. Dataset commits and hashes are retained. The historical Higgs-rate window elsewhere in the laboratory is a paper-era reference and is not advertised as the latest combination.
+
+## Reproducible exploration beyond one point
+
+The [October 7 report](research-exploration-2026-10-07.md) applies these tools to three separate
+studies, with [JSON records, figures and an artifact inventory](../research/2026-10-07/README.md):
+
+- **Higgs coupling/width assumptions:** 2,646 actual HiggsTools evaluations reproduce the common-κ
+  compensation in visible rates. The selected HiggsBounds limit changes the verdict between
+  κ=1.05 and 1.06 along that line; the reference is stored per point. This known degeneracy
+  illustrates why a fixed-coupling width constraint cannot be transferred to a profiled fit.
+- **Thermal assumptions:** 160 wall/efficiency/background scenarios produce supported acoustic
+  amplitudes spanning factors of 124 and 151 for the two cases. The quoted ranges are scenario
+  envelopes; unsupported acoustic regimes remain unevaluated.
+- **Candidate vacuum screening:** k=2 enumerates 1,227,070 contents inside the conditional moment
+  region; k=4 reaches a 5,000,000-content cap. Full-potential checks of 80 selected representatives
+  leave 37 with a preferred vacuum among the numerically located extrema and a full mass inside
+  [123,127] GeV. The approximate prefilter, selection and cap preclude an exhaustive optimum claim.
+
+The batch scans are supplied as command-line tools, not extra interactive panels. Interactive
+profile scans, a resumable candidate queue and plasma/friction dynamics are proposed extensions.
+The report explains their prerequisites. The application still contains 29 sections; its current
+release validation is 3,895 source checks across 64 harnesses, ten browser gates and 30 site checks.
+The twelve study-record checks are counted separately.

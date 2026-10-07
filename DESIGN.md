@@ -69,6 +69,17 @@ Edition build physically removes that statement and disables the button; a dedic
 requires zero network violations and zero waivers in the resulting offline file. Parameter
 matching is required before an external result is displayed for a scenario.
 
+**Implementation note, 2026-10-07 — separate actions and explicit assumptions.** Research
+experiments reuse the existing 29-section navigation. A thermal SU(3) benchmark, a scalar
+coupling scenario and the SU(7) builder keep distinct parameter records; sharing a panel does not
+combine their actions or likelihoods. Integrated history uses matching refined bounce samples
+and exports its wall, efficiency, expansion and convergence assumptions. Conditional rung
+certificates state the small-angle approximation and withdraw outside their conventions;
+full-potential witness checks have a separate numerical status. Batch exploration records belong
+under `research/<date>/` with commands, figures, budgets and scope. A proposed interactive scan
+is documented as future work until its controls and validation exist. See
+[the experiment guide](docs/research-extensions.md) and [the exploration report](docs/research-exploration-2026-10-07.md).
+
 ## D2 — The model record is the interchange format. It is our SLHA.
 
 One canonical JSON document is the only thing the five sections share:

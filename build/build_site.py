@@ -246,6 +246,8 @@ def load_groups():
         "neutrino_decay_reference.json", "neutrino_hnl_limits.json",
         "neutrino_majoron_reference.json", "neutrino_ring_reference.json",
         "thermal_case1_phasetracer.json", "thermal_case2_phasetracer.json",
+        "thermal_history_case1.json", "thermal_history_case2.json",
+        "candidate_bounds.json", "candidate_vacua.json",
     }
     for p in sorted((ROOT / "data").glob("*.json")):
         if p.name in NOT_A_GROUP:

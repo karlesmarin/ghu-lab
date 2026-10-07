@@ -1,0 +1,129 @@
+{
+  "checks": [
+    {
+      "name": "pinned Higgs reference reproduced",
+      "passed": true
+    },
+    {
+      "name": "all compensated visible rates are unity",
+      "passed": true
+    },
+    {
+      "name": "HiggsSignals flat direction independently observed",
+      "passed": true
+    },
+    {
+      "name": "HiggsBounds resolves part of flat direction",
+      "passed": true
+    },
+    {
+      "name": "profiling does not worsen a fixed point",
+      "passed": true
+    },
+    {
+      "name": "unsupported acoustics remain null",
+      "passed": true
+    },
+    {
+      "name": "160 distinct thermal scenarios",
+      "passed": true
+    },
+    {
+      "name": "full-potential checks cover selection",
+      "passed": true
+    },
+    {
+      "name": "rung 2 finite approximate enumeration complete",
+      "passed": true
+    },
+    {
+      "name": "rung 4 budget is reported",
+      "passed": true
+    },
+    {
+      "name": "representative multiplicities partition approximate hits",
+      "passed": true
+    },
+    {
+      "name": "full Fourier mass is independently resolved at both cutoffs",
+      "passed": true
+    }
+  ],
+  "thermal": [
+    {
+      "case": 1,
+      "evaluatedAcousticPoints": 40,
+      "amplitudeMin": 3.616206538132047e-13,
+      "amplitudeMax": 4.4881056936052826e-11,
+      "amplitudeRatio": 124.11087824434983,
+      "TpMin": 90.20953295861503,
+      "TpMax": 90.558035955057
+    },
+    {
+      "case": 2,
+      "evaluatedAcousticPoints": 50,
+      "amplitudeMin": 6.125522978500415e-19,
+      "amplitudeMax": 9.243705959128342e-17,
+      "amplitudeRatio": 150.90476342301284,
+      "TpMin": 25.146763962038712,
+      "TpMax": 25.14825791570419
+    }
+  ],
+  "vacuum": [
+    {
+      "k": 2,
+      "enumerated": 1227070,
+      "capped": false,
+      "approximateHits": 5183,
+      "potentialClasses": 139,
+      "tested": 40,
+      "globalInMassWindow": 19,
+      "deeperVacuum": 20,
+      "bestTestedGlobalScaleGeV": 6574.128368458542
+    },
+    {
+      "k": 4,
+      "enumerated": 5000000,
+      "capped": true,
+      "approximateHits": 8880,
+      "potentialClasses": 217,
+      "tested": 40,
+      "globalInMassWindow": 18,
+      "deeperVacuum": 22,
+      "bestTestedGlobalScaleGeV": 4719.317467951884
+    }
+  ],
+  "higgs": {
+    "flatDirectionMaximumDeltaChi": 2.842170943040401e-14,
+    "fixedKappaDeltaChi4WidthMeV": 0.3324315224416068,
+    "HBtransitionKappaBrackets": [
+      [
+        1.05,
+        1.06
+      ]
+    ],
+    "bestFit": {
+      "kappa": 0.9958591912323846,
+      "invisibleWidthMeV": 0.0,
+      "invisibleBR": 0.0,
+      "visibleMu": 0.9917355287620193,
+      "chisq": 151.58779674723866,
+      "deltaChisqSM": -0.054268464904367875,
+      "HBallowed": true,
+      "selectedLimits": {
+        "h": {
+          "id": 14096212,
+          "reference": "1409.6212",
+          "experiment": "Experiment.ATLAS",
+          "collider": "Collider.LHC8",
+          "description": "LHC8 [HW,HZ]>[bb]",
+          "obsRatio": 0.805948313594792,
+          "expRatio": 1.2942883676715693,
+          "particles": [
+            "h"
+          ]
+        }
+      }
+    }
+  }
+}

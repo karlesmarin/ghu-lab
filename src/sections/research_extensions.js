@@ -92,6 +92,37 @@ const TH_PANEL={
 };
 rxAttach(PRED_SECTION,TH_PANEL);
 
+const TH_HISTORY_PANEL={
+  id:'thermalhistory',title:'Integrated nucleation, percolation and conditional gravitational waves',
+  intro:'Follow bubble growth for the same SU(3) inputs as the thermal panel above. The two paper benchmarks include refined PhaseTracer actions. Wall speed and fluid efficiency remain explicit assumptions; these thermal benchmarks are not a joint fit of the SU(7) candidate.',
+  defaults:thHistoryDefaults(),validate:thHistoryValidate,visible:()=>PRED_S.variant==='builder',
+  compute:p=>thHistoryModel(rxExternal(TH_PANEL,RX_STATE.thermal),RX_STATE.thermal,p),
+  fields:[{key:'gStar',label:'Relativistic degrees of freedom g*',min:10,max:500},
+    {key:'wallSpeed',label:'Assumed wall speed / c',min:.05,max:1},
+    {key:'efficiency',label:'Assumed fluid efficiency κ',min:0,max:1},
+    {key:'vacuumBackground',label:'Expansion background',options:[[1,'Radiation + false-vacuum energy'],[0,'Radiation only']]}],
+  source:'Sources: <a href="https://arxiv.org/abs/2305.02357" target="_blank" rel="noopener">Cosmological transition review</a>; <a href="https://arxiv.org/abs/2309.05474" target="_blank" rel="noopener">Acoustic spectrum, eqs. (28–30)</a>. Published CMS/ATLAS collider data do not measure these thermal or gravitational-wave quantities.',
+  present(r){
+    if(!r.history)return `<p><b>Refined action table pending.</b> ${rxEscape(r.scope)} Select a paper benchmark above, or import a matching refined result. The reproduction commands are in the repository's research-extensions documentation.</p>`;
+    const h=r.history,s=r.spectrum,c=r.convergence,t=r.thermodynamics;
+    return `<p><b>${r.status==='conditional-completion'?'Transition completion found under the displayed cosmological assumptions.':'Completion not established over the available action range.'}</b> Percolation means I = 0.34 (false fraction ≈ 0.712); completion means false fraction = 0.01. Both must reduce the physical false-vacuum volume.</p>`+
+      rxPlot('False-vacuum fraction during cooling',rxCompared('thermalhistory',[{name:'False fraction',points:h.rows.map(x=>[x.T,x.falseFraction])}],b=>(b.history?.rows||[]).map(x=>[x.T,x.falseFraction])),'Temperature [GeV] · cooling to the left','False-vacuum fraction',r.parameters)+
+      rxTable(['Event','Temperature [GeV]','S₃/T','d ln(a³P) / d ln a'],[['Integrated nucleation',h.nucleation],['Percolation',h.percolation],['Completion',h.completion]].map(([n,x])=>[n,x?.temperatureGeV,x?.S3overT,x?.physicalFalseVolumeSlope]))+
+      `<p>Mean bubble separation at percolation: ${rxNumber(h.percolation?.separationGeVInverse)} GeV⁻¹. Trace-anomaly strength α = ${rxNumber(t?.traceStrength)}. Upper action-boundary Γ/H⁴ = ${rxNumber(h.upperBoundaryGammaOverH4)}.</p>`+
+      (s?`<p><b>Conditional acoustic peak:</b> ${rxNumber(s.fPeakHz)} Hz; Ω<sub>GW</sub>h² = ${rxNumber(s.peakOmegaH2)}. Finite sound-lifetime factor = ${rxNumber(s.lifetimeSuppression)}.</p>`+
+        (s.peakOmegaH2>0?rxPlot('Conditional acoustic gravitational-wave spectrum',[{name:'Acoustic contribution',points:s.points.map(x=>[Math.log10(x.frequencyHz),Math.log10(x.omegaH2)])}],'log₁₀ frequency [Hz]','log₁₀ ΩGW h²',r.parameters):'<p>Zero fluid efficiency gives zero acoustic signal.</p>')+`<p class="note">${rxEscape(s.scope)}</p>`:
+        `<p><b>Acoustic spectrum not evaluated.</b> ${rxEscape(r.acousticDomain.reason)}</p>`)+
+      `<details><summary>Numerical convergence and assumptions</summary>`+
+      rxTable(['Comparison against primary result','Relative Tp shift','Relative separation shift'],[[`${c.primaryMultiplier/2}× potential cutoffs`,c.percolationCutoffRelativeShift,c.separationCutoffRelativeShift],['600 integration steps',c.percolationQuadratureRelativeShift,c.separationQuadratureRelativeShift],['Every second action knot',c.percolationSamplingRelativeShift,c.separationSamplingRelativeShift]])+
+      `<p>Primary spatial / thermal cutoffs: ${c.primarySpatialCutoff} / ${c.primaryThermalCutoff}. Largest action change on doubling cutoffs: ${rxNumber(c.actionRelativeShift)}. ${rxEscape(c.note)}</p><p>${rxEscape(r.scope)}</p></details>`;
+  },
+  tex:r=>`Integrated thermal history: ${r.status}; percolation T=${r.history?.percolation?.temperatureGeV??'pending'} GeV. Wall speed and efficiency are supplied. No GHU joint fit or detector significance is assigned.`
+};
+RX_RESEARCH_GUIDE.thermalhistory={question:'Do nucleated bubbles percolate and complete the transition, under a specified expansion and wall speed?',
+  metrics:r=>[['Integrated Tn',r.history?.nucleation?.temperatureGeV,'GeV'],['Percolation Tp',r.history?.percolation?.temperatureGeV,'GeV'],['Acoustic peak',r.spectrum?.fPeakHz,'Hz']],
+  takeaway:r=>r.status==='conditional-completion'?'The integrated history meets both false-fraction thresholds with decreasing physical false-vacuum volume. The acoustic signal remains conditional on wall and fluid assumptions.':r.scope};
+rxAttach(PRED_SECTION,TH_HISTORY_PANEL);
+
 const RA_PANEL={id:'rsanomaly',title:'RS anomaly flow and baryon current',
  intro:'Normalized Z-tower wavefunctions determine the UV and IR anomaly factors. Change the Wilson angle, warp factor and complete quark/lepton generations to inspect gauge cancellation and the surviving baryon anomaly.',
  defaults:raValidate(),validate:raValidate,compute:raModel,

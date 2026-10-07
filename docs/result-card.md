@@ -174,6 +174,33 @@ and it is why the tool now refuses to build a card that cannot name its kernel.
 
 ---
 
+## October 2026 research experiments: save the full calculation
+
+Research experiments inside a panel have their own **JSON**, **SVG** and **Save research summary**
+buttons. Use the experiment JSON when archiving a complete calculation. The short text summary
+and LaTeX paragraph are reading aids; they do not contain every action sample or matrix.
+
+| Export | What is preserved | What it does not imply |
+|---|---|---|
+| `ghu-<experiment>.json`, schema `ghu-lab-experiment-v1` | Experiment id, current parameters, full result and optional comparison snapshot | A saved comparison is not a joint fit with the current model |
+| `ghu-thermalhistory.json` | Thermal inputs, wall/efficiency/background assumptions, event temperatures, false-vacuum fraction history, thermodynamics, acoustic-domain verdict, convergence and `actionProvenance` | An acoustic spectrum is conditional on supplied plasma assumptions; absent spectrum fields do not mean a measured zero |
+| `ghu-rung-certificates.json` | Selected bounds with their conventions, and candidate witness checks when that seed is selected | A moment certificate is not a full-potential ceiling or an attainment proof |
+| Figure SVG | The selected plot with its displayed axes and labels | The figure does not replace the numerical record or the model assumptions |
+
+The parent panel's structured card can also carry
+`researchExtensions.<experiment> = {parameters, result, comparison}`. For a visible experiment
+whose calculation fails, that block carries its parameters and an error instead. A permalink
+retains controls; external calculations and comparison snapshots belong in the JSON archive.
+
+For integrated history, `actionProvenance` retains the backend, precision settings and refined
+action samples. `history` distinguishes nucleation, percolation and completion; `acousticDomain`
+states whether the spectrum can be evaluated. `status: pending` means that matching refined
+actions are unavailable. Changing a thermal input withdraws an unmatched result.
+
+The separate [October 7 batch-study records](../research/2026-10-07/README.md) have their own
+documented schemas and search budgets. They are research artifacts, not imported result cards.
+The [experiment guide](research-extensions.md) explains the equations and the local engine.
+
 ## For developers
 
 `makeCard(model, values, { version, build, kernelHash, certificates })` in

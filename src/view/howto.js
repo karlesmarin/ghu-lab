@@ -73,16 +73,16 @@ const HOWTO = {
     read: "The term tables here are DERIVED and then checked against the ones the rest of the page computes with. If the two ever disagreed, this panel is where it would show.",
   },
   screen: {
-    what: "Three tests on somebody else's published row, none of which recompute their model.",
-    steps: ["Type the row's two observables.", "Read the mod-6 law, the K invariant and the arithmetic comb.", "Compare with what the row claims."],
-    read: "A screen that cannot fail screens nothing: the comb is cut at each rung's own certified ceiling, so a mass can land nowhere. On the five published rows, three are consistent near g₄ ≈ 0.6 and one would need g₄ = 1.87.",
+    what: "Arithmetic screens for a published row, with conditional rung certificates and independent full-potential witness checks.",
+    steps: ["Type the row's two observables.", "Read the mod-6 law, the K invariant and the arithmetic comb.", "Open Conditional rung bounds and check the seed, coupling and Higgs-mass window before using a ceiling.", "Compare the archived full-Fourier witnesses: a stationary point may have a deeper competing vacuum."],
+    read: "The interval certificates bound a small-angle moment relaxation under the stated conventions. They do not certify a ceiling for the full potential. The separate vacuum checks compare numerically located extrema with Fourier-tail errors; an observed surviving witness is not an exhaustive optimum.",
   },
   collider: {
-    what: "Which state a dijet search actually bounds, with no free parameter.",
-    steps: ["Use the Higgs-rates shortcut to compare a saved scalar scenario, its widths and rates, and matching HiggsBounds/HiggsSignals calculations.", "Read the coloron's mass and width — both fixed by the localisation, not chosen.",
+    what: "Which state a dijet search bounds, plus a separate Higgs-rate scenario checked against pinned experimental datasets.",
+    steps: ["Use the Higgs-rates shortcut to compare a saved scalar scenario, its widths and rates, and matching HiggsBounds/HiggsSignals calculations.", "Read the coupling and invisible-width assumptions alongside the HiggsSignals chi-square and the analysis selected by HiggsBounds.", "Read the coloron's mass and width — both fixed by the localisation, not chosen.",
             "Drag the relief over (M_jj, χ), the plane CMS bins its angular measurement in.",
             "Type any 1/R₅ to see the ratio table move."],
-    read: "The Δχ² numbers are quoted from the published record. The margin behind the conclusion is the integrality of 8D: halve the quantum and the sign changes.",
+    read: "The dijet Δχ² values are quoted from the published record; the Higgs experiment computes its own comparison. Its 159 HiggsSignals observables are not 159 independent degrees of freedom. Coupling and width assumptions can compensate in visible rates, so this scalar comparison is not a complete GHU fit.",
   },
   selection: {
     what: "Which α-domain a search may legally use, and which SU(4) representations can hold a quark generation.",
@@ -181,10 +181,10 @@ const HOWTO = {
   },
   predict: {
     what: "The model on the builder, turned into the numbers a detector measures, each beside its measured partner.",
-    steps: ["For neutrinos, expand the three-flavour experiment and include the computed Majoron channels in Decays. For the builder, use the thermal SU(3) experiment and its matching PhaseTracer results. Each experiment has a reading box, figures, comparison snapshots and summary export.", "Choose the builder, the Higgs-production top KK reference, or the neutrino-ring research model in the Simulator selector.", "For Higgs production, vary MKK, top mass and KK cutoff; inspect the joint rate, conditional interval, convergence and summary. A custom window is a scenario.", "For the ring, move the links and Majorana terms; calibration can hold the two light inputs fixed. Read the joint results and live summary.", "For the builder, choose at the minimum or move the probe by hand.",
+    steps: ["For neutrinos, expand the three-flavour experiment and include the computed Majoron channels in Decays. For the builder, use the thermal SU(3) experiment and its matching PhaseTracer results. Each experiment has a reading box, figures, comparison snapshots and summary export.", "Open the integrated transition history to compare nucleation, percolation and completion. Vary wall speed, acoustic efficiency and the expansion background, then inspect convergence and export the assumptions with the result.", "Choose the builder, the Higgs-production top KK reference, or the neutrino-ring research model in the Simulator selector.", "For Higgs production, vary MKK, top mass and KK cutoff; inspect the joint rate, conditional interval, convergence and summary. A custom window is a scenario.", "For the ring, move the links and Majorana terms; calibration can hold the two light inputs fixed. Read the joint results and live summary.", "For the builder, choose at the minimum or move the probe by hand.",
             "g₄ scales the Higgs mass ONLY — everything else is fixed by the measured m_W.",
             "Read the table, then the fermion masses; drag the landscape to turn it."],
-    read: "No event is simulated: every mark is a predicted mass or a published bound. A vacuum at a symmetric point sets no scale and the page says so instead of inventing one.",
+    read: "No collider event is simulated. The thermal history is a separate SU(3) benchmark with supplied wall and efficiency parameters; its acoustic spectrum is evaluated only in the supported completed, weak-transition, fast-wall regime. It is not a detector forecast or the thermal history of the SU(7) builder. A symmetric vacuum sets no compactification scale.",
   },
   papers: {
     what: "Four models somebody else published, taken off their pages and run through this instrument's engine.",

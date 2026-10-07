@@ -20,7 +20,7 @@ const RX_RESEARCH_GUIDE={
    takeaway:r=>`The inverse construction realizes rank ${r.rank}. ${r.comparison.filter(c=>!c.inside).length} of the displayed inputs lie outside their separate NuFIT 3σ ranges; this is not a combined fit.`},
  thermal:{question:'Does the thermal Wilson vacuum change, and does an actual bubble calculation support nucleation?',
    metrics:r=>[['Preferred α',r.minima[0]?.a??null,''],['Coexistence Tc',r.critical?.temperatureGeV??null,'GeV'],['Nucleation proxy Tn',r.externalResult?.nucleation?.temperatureGeV??null,'GeV']],
-   takeaway:r=>r.externalResult?.nucleation?(Math.abs(r.externalResult.nucleation.relativeActionShift)>.02?'A bounce crossing exists but is precision-sensitive. Refine before physical interpretation.':'The matching PhaseTracer run finds an S₃/T = 140 crossing. This is a nucleation proxy; percolation remains unevaluated.'):'Inspect the coexistence candidate first, then calculate the bounce for these same inputs.'},
+   takeaway:r=>r.externalResult?.nucleation?(Math.abs(r.externalResult.nucleation.relativeActionShift)>.02?'The original proxy is precision-sensitive. The history panel below uses a refined action table when available.':'The matching PhaseTracer run finds an S₃/T = 140 crossing. For integrated nucleation and percolation, see the history panel below.'):'Inspect the coexistence candidate first, then calculate the bounce for these same inputs.'},
  rsanomaly:{question:'Does the chosen RS matter content cancel gauge anomalies while retaining the baryon-current anomaly?',
    metrics:r=>[['Selected F¹Z',r.selected.F1,''],['γγZ gauge factor',r.gaugeGammaGammaZ,''],['Baryon boundary factor',r.baryon.normalizedBoundaryCoefficient,'']],
    takeaway:r=>r.groups.Q2T3===0?'The displayed gauge factors cancel for the chosen complete matter generations. The baryon current is a separate calculation.':'The chosen quark/lepton imbalance leaves a gauge anomaly: this matter choice needs completion.'},
@@ -35,7 +35,7 @@ function rxOverview(def,r){
  metrics.map(([label,value,unit],i)=>`<div><span style="font-size:13px">${rxEscape(label)}</span><br><strong style="font-size:21px">${rxEscape(rxNumber(value))}</strong> ${rxEscape(unit)}${previous?`<br><small>Reference: ${rxEscape(rxNumber(previous[i][1]))}${typeof value==='number'&&typeof previous[i][1]==='number'?`; Δ ${rxEscape(rxNumber(value-previous[i][1]))}`:''}</small>`:''}</div>`).join('')+
  `</div><p style="margin:12px 0 0"><b>Reading:</b> ${rxEscape(guide.takeaway(r))}</p>${baseline?'<p style="margin:8px 0 0;font-size:13px">Saved reference is a calculation snapshot. Its inputs and results are included in the JSON export.</p>':''}</div>`;
 }
-function rxExternal(def,p){return [RX_EXTERNAL[def.id],...(RX_EXTERNAL_REFERENCE[def.id]||[])].find(d=>rxMatchExternal(def.id,p,d))||null;}
+function rxExternal(def,p){return [RX_EXTERNAL[def.id],...(def.id==='thermal'?Object.values(TH_HISTORY_REFERENCE):[]),...(RX_EXTERNAL_REFERENCE[def.id]||[])].find(d=>rxMatchExternal(def.id,p,d))||null;}
 function rxResult(def,p){const r=def.compute(p);return def.external?{...r,externalResult:rxExternal(def,p)}:r;}
 function rxExternalHTML(def,r){
  if(!def.external)return '';
@@ -72,6 +72,15 @@ function rxPlot(title,series,xlabel,ylabel,metadata={}) {
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 305" role="img" aria-label="${rxEscape(title)}" style="width:100%;height:auto;display:block"><title>${rxEscape(title)}</title><metadata>${rxEscape(JSON.stringify(metadata))}</metadata><rect width="640" height="305" fill="white"/><g font-family="Arial,sans-serif" font-size="15" fill="#334750">${body}</g></svg>`;
 }
 function rxTable(headers,rows){return `<div style="overflow-x:auto"><table><thead><tr>${headers.map(h=>`<th>${rxEscape(h)}</th>`).join('')}</tr></thead><tbody>${rows.map(row=>`<tr>${row.map(v=>`<td>${rxEscape(rxNumber(v))}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;}
+function cbEvidenceHTML(r){
+  return `<p><b>${rxEscape(r.seed)} seed · bounds within the small-angle moment approximation.</b> ${rxEscape(r.reason)} These upper bounds do not establish attainable masses or a global minimum of the full potential.</p>`+
+    (r.applicable?rxPlot('Conditional compactification upper bounds',[{name:'Small-angle upper bound',points:r.rows.map(x=>[x.k8D,x.upperGeV/1000])}],'Rung k = 8D','Upper bound on 1/R₅ [TeV]',r.conventions)+
+      rxTable(['Rung k','A₄ cap','Upper bound [TeV]'],r.rows.map(x=>[x.k8D,x.A4cap,x.upperGeV/1000])):'')+
+    `<p class="note">${rxEscape(r.missing)}</p>`+
+    (r.seed==='candidate'?`<h3>Independent full-Fourier witness checks</h3><p>Fixed mW = 80.4 GeV and g₄ = 0.63. Numerical stationary-point search at 1024 and 2048 Fourier terms, with analytic tail estimates; global here means lowest among the numerically located extrema.</p>`+
+      rxTable(['Content','k','Local mₕ [GeV]','Local 1/R₅ [TeV]','Small-angle minimum globally preferred?'],CANDIDATE_VACUA.cases.map(x=>[x.name,x.fine.k8D,x.fine.higgsMassGeV,x.fine.compactificationGeV===null?null:x.fine.compactificationGeV/1000,x.fine.localSmallAngle?(x.fine.globalSmallAngle?'yes, numerically':'no — deeper minimum elsewhere'):'no small-angle minimum']))+
+      `<p>These examples test specified contents. A universal full-potential ceiling and a common action linking flavour, Higgs rates and collider likelihoods remain unresolved.</p>`:'');
+}
 function rxMatrix(title,values,rows,columns,metadata={}){
  const max=Math.max(...values.flat().map(Math.abs),1e-30);let cells='';
  rows.forEach((label,i)=>{cells+=`<text x="65" y="${99+i*67}" text-anchor="end">${rxEscape(label)}</text>`;});

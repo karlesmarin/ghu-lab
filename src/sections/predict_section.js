@@ -24,21 +24,69 @@
  *
  * Edited BY HAND.
  */
-const PRED_S = { g4: null, probe: false, theta: null, az: 0.75, el: 0.55 };
+const PRED_S = { variant: "builder", g4: null, probe: false, theta: null, az: 0.75, el: 0.55 };
 
 const PRED_SECTION = {
   id: "predict",
   label: "Simulator",
-  paper: "HHKY 2004 eq. (22) · CCP 2005 · PDG 2024/2025 · CMS JHEP 05 (2020) 033",
+  paper: "5D: HHKY 2004 · CCP 2005 · PDG · CMS | 4D: neutrino-ring research",
   ready: true,
   modules: [],
 
   holds() {
+    if (PRED_S.variant === "higgsrate") return "GHU top KK reference · Carson–Okada · leading Higgs production rate";
+    if (PRED_S.variant === "neutrino") return "4D U(1)⁵ neutrino ring · θ = π · leading tree-level response · research";
     const b = sun5dBlocks(SUN5D_S.blocks);
     return `SU(${b.N}) · S¹/Z₂ · [${[b.nPP, b.nPM, b.nMP, b.nMM]}] · the model on the builder, predicted`;
   },
 
+  encodeState() {
+    return [...Object.keys(ND_LIMITS).map(k=>"nd_"+k+":"+ND_S[k]),...Object.keys(HD_LIMITS).map(k=>"hd_"+k+":"+HD_S[k]),"hc:"+(HD_S.custom?1:0),"v:"+(PRED_S.variant==="neutrino"?1:PRED_S.variant==="higgsrate"?2:0),"cf:"+['electron','muon','tau'].indexOf(NR_CMP.flavour),"ct:"+(NR_CMP.kind==='majorana'?1:0),"g:"+(PRED_S.g4??""),
+      "probe:"+(PRED_S.probe?1:0),"theta:"+(PRED_S.theta??""),"az:"+PRED_S.az,"el:"+PRED_S.el,
+      ...Object.keys(nrDefaults()).map(k=>k+":"+(typeof NR_S[k]==="boolean"?+NR_S[k]:NR_S[k]))].join(",");
+  },
+  decodeState(text) {
+    Object.assign(PRED_S,{variant:"builder",g4:null,probe:false,theta:null,az:.75,el:.55});
+    Object.assign(NR_S,nrDefaults());
+    Object.assign(ND_S,ndDefaults());
+    Object.assign(HD_S,hdDefaults());
+    Object.assign(NR_CMP,{flavour:'electron',kind:'dirac'});
+    if(!text)return;
+    for(const token of String(text).split(",")) {
+      const [key,raw]=token.split(":");if(raw===undefined||raw==="")continue;
+      const x=Number(raw);if(!Number.isFinite(x))continue;
+      if(key==="v")PRED_S.variant=x===1?"neutrino":x===2?"higgsrate":"builder";
+      else if(key==="hc")HD_S.custom=x===1;
+      else if(key.startsWith("nd_")&&Object.hasOwn(ND_LIMITS,key.slice(3))) {
+        const k=key.slice(3),[lo,hi]=ND_LIMITS[k];
+        if(x>=lo&&x<=hi&&(!['pair','majoron'].includes(k)||Number.isInteger(x)))ND_S[k]=x;
+      }
+      else if(key.startsWith("hd_")&&Object.hasOwn(HD_LIMITS,key.slice(3))) {
+        const k=key.slice(3),[lo,hi]=HD_LIMITS[k];
+        if(x>=lo&&x<=hi&&(k!=="modes"||Number.isInteger(x)))HD_S[k]=x;
+      }
+      else if(key==="cf"&&Number.isInteger(x)&&x>=0&&x<=2)NR_CMP.flavour=['electron','muon','tau'][x];
+      else if(key==="ct")NR_CMP.kind=x===1?'majorana':'dirac';
+      else if(key==="g"&&x>=.4&&x<=1.2)PRED_S.g4=x;
+      else if(key==="probe")PRED_S.probe=x===1;
+      else if(key==="theta"&&x>=.005&&x<=.995)PRED_S.theta=x;
+      else if(key==="az"&&x>=0&&x<=6.28)PRED_S.az=x;
+      else if(key==="el"&&x>=.15&&x<=1.4)PRED_S.el=x;
+      else if(key==="calibrate")NR_S.calibrate=x===1;
+      else if(Object.hasOwn(NR_LIMITS,key)){const [lo,hi]=NR_LIMITS[key];if(x>=lo&&x<=hi)NR_S[key]=x;}
+    }
+    try {hdModel(HD_S);} catch {Object.assign(HD_S,hdDefaults());}
+    try {ndValidate(ND_S);} catch {Object.assign(ND_S,ndDefaults());}
+  },
+
   html: `
+  <div class="card" style="margin-bottom:18px"><label for="prModel"><b>Model to calculate</b></label>
+    <select id="prModel" style="margin:6px 0 6px 10px;max-width:100%">
+      <option value="builder">5D model from the SU(N) builder</option>
+      <option value="higgsrate">Higgs production · top KK reference</option>
+      <option value="neutrino">Neutrino ring · 4D research model</option>
+    </select><div class="note">The selected model supplies the results, summary, permalink and exports.</div></div>
+  <div id="prBuilderView">
   <div class="card" style="margin-bottom:18px">
     <p class="lead">The model on the <b>SU(N) builder</b>, taken to its vacuum and turned into the
     numbers a detector measures: the compactification scale from the measured W mass, the Higgs
@@ -117,7 +165,7 @@ const PRED_SECTION = {
           <div id="prReachNote" style="margin-top:6px">—</div></details>
       </div>
     </div>
-  </div>`,
+  </div></div><div id="prNeutrinoView" hidden>${neutrinoPanelHTML()}</div><div id="prHiggsView" hidden>${higgsDiagnosticsHTML()}</div>`,
 
   _content() {
     return { gauge: true,
@@ -129,6 +177,9 @@ const PRED_SECTION = {
 
   init(ctx) {
     const $ = (id) => document.getElementById(id);
+    $("prModel").onchange = e => { PRED_S.variant=["neutrino","higgsrate"].includes(e.target.value)?e.target.value:"builder";ctx.refresh(); };
+    this._neutrinoView = neutrinoPanelMount(ctx,NR_S);
+    this._higgsView = higgsDiagnosticsMount(ctx);
     $("prG4").oninput = (e) => { PRED_S.g4 = +e.target.value; ctx.refresh(); };
     $("prG4Reset").onclick = () => { PRED_S.g4 = null; ctx.refresh(); };
     $("prAtMin").onclick = () => { PRED_S.probe = false; ctx.refresh(); };
@@ -146,6 +197,11 @@ const PRED_SECTION = {
 
   render(ctx) {
     const $ = (id) => document.getElementById(id);
+    const nr=PRED_S.variant==="neutrino";
+    $("prModel").value=PRED_S.variant;$("prBuilderView").hidden=PRED_S.variant!=="builder";$("prNeutrinoView").hidden=!nr;
+    $("prHiggsView").hidden=PRED_S.variant!=="higgsrate";
+    if(PRED_S.variant==="higgsrate"){this._higgsView.render();return;}
+    if(nr){this._neutrinoView.render();return;}
     const b = sun5dBlocks(SUN5D_S.blocks), content = this._content();
     const terms = sun5dTerms(b, content);
     let min = null;
@@ -301,6 +357,8 @@ const PRED_SECTION = {
   },
 
   texExport() {
+    if(PRED_S.variant==="higgsrate")return higgsDiagnosticsExport();
+    if(PRED_S.variant==="neutrino")return neutrinoPanelExport(NR_S);
     const P = this._P;
     const values = {};
     if (P && P.located) {

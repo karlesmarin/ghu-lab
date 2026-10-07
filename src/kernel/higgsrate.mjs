@@ -9,12 +9,12 @@
  * kind: Carson-Okada (arXiv:1510.03092), Table 1, last row.
  *
  * THEIR CHAIN, AND EVERY STEP IS THEIRS.  For a tower of Kaluza-Klein top modes at m_n = n M_KK,
- * the Higgs low-energy theorem gives their eq. (30),
+ * the Higgs low-energy theorem gives their eq. (35),
  *
  *     C^KKtop_gg = -(alpha_s/(6 pi v)) sum_{n>=1} (M_t/m_n)^2
  *                = -(alpha_s/(12 pi v)) (pi^2/3) (M_t/M_KK)^2
  *
- * against the Standard Model's C^SMtop_gg = alpha_s/(12 pi v), so their eq. (36) is
+ * against the Standard Model's C^SMtop_gg = alpha_s/(12 pi v), so their eq. (41) is
  *
  *     R_gg = (1 + C^KK/C^SM)^2 = (1 - (pi^2/3) (M_t/M_KK)^2)^2
  *
@@ -46,7 +46,7 @@
  * Pure functions.  No I/O, no globals, no DOM.
  */
 
-/* Their eq. (36) restricted to the top tower: R_gg as a function of the compactification scale. */
+/* Their eq. (41) restricted to the top tower: R_gg as a function of the compactification scale. */
 export function rggFromTopTower(mKK, mTop) {
   if (!(mKK > 0)) return null;
   const shift = (Math.PI ** 2 / 3) * (mTop / mKK) ** 2;
@@ -54,7 +54,7 @@ export function rggFromTopTower(mKK, mTop) {
 }
 
 /* The bound the measured window puts on M_KK.  Only the LOWER edge binds, because the tower is
- * destructive: raising M_KK sends R_gg to 1 from below, so R_gg can never exceed 1 here and the
+ * destructive: raising M_KK sends R_gg to 1 from below, so R_gg stays below 1 in the heavy-mass domain used here and the
  * upper edge of the window is never the constraint.  A caller that passes the upper edge instead
  * gets null and the reason, rather than a number from the wrong side. */
 export function mkkLowerBound(rggMin, mTop) {
@@ -66,14 +66,14 @@ export function mkkLowerBound(rggMin, mTop) {
   const x2 = (1 - Math.sqrt(rggMin)) * 3 / Math.PI ** 2;   /* (M_t/M_KK)^2 at the edge */
   return { bound: mTop / Math.sqrt(x2),
            why: "R_gg >= " + rggMin + " with the top KK tower alone, by the Higgs low-energy"
-             + " theorem: Carson-Okada arXiv:1510.03092 eqs. (30) and (36), their Table 1" };
+             + " theorem: Carson-Okada arXiv:1510.03092 eqs. (33), (35) and (41), their Table 1" };
 }
 
 /* The published row this reproduces, kept beside the arithmetic so a reader can check the claim
  * without leaving the file.  `theirs` is what their Table 1 prints. */
 export const CARSON_OKADA_TOP_ROW = {
   paper: "Carson, Okada, arXiv:1510.03092 (PTEP 2018 033B03)",
-  where: "Table 1, last row; eqs. (30) and (36); the window from their ref. [4]",
+  where: "Table 1, last row; eqs. (33), (35) and (41); the window from their ref. [4]",
   hypotheses: "SU(3)xU(1)' on flat S^1/Z_2, P = diag(-,-,+); only the top KK modes counted, no"
     + " bulk 6-plet or 10-plet; m_n = n M_KK; M_t^2 << m_n^2",
   rggWindow: [0.89, 1.19],

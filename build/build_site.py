@@ -238,7 +238,15 @@ def load_groups():
     # rather than skipped by a shape test, so a new group file that is merely malformed still
     # fails loudly instead of being quietly taken for one of these.
     # H185 stores independently checked spectral roots, not a fourth published group.
-    NOT_A_GROUP = {"series.json", "census.json", "h185_reference.json"}
+    NOT_A_GROUP = {
+        "series.json", "census.json", "h185_reference.json",
+        # Experimental references and independent numerical checks have no orbifold record.
+        "extensions_independent_reference.json", "higgs_diagnostics_reference.json",
+        "higgstools_sm_reference.json", "higgstools_validation.json",
+        "neutrino_decay_reference.json", "neutrino_hnl_limits.json",
+        "neutrino_majoron_reference.json", "neutrino_ring_reference.json",
+        "thermal_case1_phasetracer.json", "thermal_case2_phasetracer.json",
+    }
     for p in sorted((ROOT / "data").glob("*.json")):
         if p.name in NOT_A_GROUP:
             continue

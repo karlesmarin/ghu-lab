@@ -80,7 +80,7 @@ const SCREEN_SECTION = {
     <div>
       <div class="card">
         <h2>Screen 3 — the comb the KK scale must sit on${helpMark("comb")}</h2>
-        <canvas id="scComb" width="720" height="360"></canvas>
+        <canvas id="scComb" width="720" height="360" role="img" aria-label="KK mass comb; interpretation and certification below"></canvas>
         <div class="legend">
           <span><i style="background:var(--blue)"></i>a tooth — an admissible (k, A₄)</span>
           <span><i style="background:#c9d4dc"></i>a tooth past its rung's ceiling — no content reaches it</span>
@@ -208,7 +208,7 @@ const SCREEN_SECTION = {
     this._five(v);
     this._comb(ctx, v, { mh: mh ?? 125.2, mW, g4, seed,
                          MKK: this._num(SCREEN_ROW.MKK), tol: this._num(SCREEN_ROW.tol) ?? 50 });
-    this._spacing(ctx, mW);
+    this._spacing(ctx, mW, seed);
 
     const chip = (okv) => okv ? `<span class="chip thm">passes</span>`
                               : `<span class="chip bad">fails</span>`;
@@ -217,6 +217,7 @@ const SCREEN_SECTION = {
         ? `<span class="chip live">needs α, m_h</span>`
         : chip(dev < 0.15)} · comb ${this._num(SCREEN_ROW.MKK) === null
         ? `<span class="chip live">no candidate typed</span>`
+        : !this._lastCombCertified ? `<span class="chip live">arithmetic only; reachability not evaluated</span>`
         : (this._lastHits && this._lastHits.length ? chip(true) : chip(false))} — ` +
       `three screens, none of which recomputes the foreign model. On their own five rows the K ` +
       `screen already speaks: three are consistent near g₄ ≈ 0.6, one implies 1.87, and one is ` +
@@ -274,13 +275,21 @@ const SCREEN_SECTION = {
     g.fillStyle = "#fff"; g.fillRect(0, 0, W, H);
     const per = (ctx.DATA.ceilings && ctx.DATA.ceilings.per_rung) || [];
     const parityOdd = seed.parity_of_8D === "odd";
-    const RUNGS = per.filter((p) => p["8D"] <= 21 && (p["8D"] % 2 === 1) === parityOdd);
+    const certificates = per.filter((p) => p["8D"] <= 21 && (p["8D"] % 2 === 1) === parityOdd);
+    const hasCertificates = certificates.length > 0;
+    const RUNGS = hasCertificates ? certificates : Array.from({length:parityOdd?11:10},(_,i)=>({"8D":2*i+(parityOdd?1:2),GeV:null}));
     const $ = (id) => document.getElementById(id);
-    if (!RUNGS.length) { $("scHits").innerHTML = `<b>No per-rung ceilings for this seed</b><span></span>`; return; }
+    this._lastCombCertified=hasCertificates;this._lastHits=[];
+    if (!(mh>0&&mW>0&&g4>0&&tol>=0) || (MKK!==null&&MKK<=0)) {
+      g.fillStyle=this._css('--rust');g.font='14px sans-serif';g.textAlign='center';
+      g.fillText('Enter positive masses and a nonnegative tolerance.',W/2,H/2,W-24);
+      $('scHits').innerHTML='<b>Input needs correction</b><span>The comb needs positive masses and couplings, and tolerance ≥ 0.</span>';
+      $('scCombNote').textContent='No mass screen has been evaluated for these inputs.';return;
+    }
 
-    const centre = MKK !== null ? MKK : 9600;
+    const centre = MKK !== null ? MKK : hasCertificates ? 9600 : 6500;
     const half = Math.max(800, tol * 8);
-    const lo = Math.max(2600, centre - half), hi = centre + half;
+    const lo = Math.max(0, centre - half), hi = centre + half;
     const L = 148, Rp = 14, T = 12, B = 34, iw = W - L - Rp, ih = H - T - B;
     const X = (M) => L + (M - lo) / (hi - lo) * iw;
     const mu = combMu(mh, mW, g4);
@@ -300,7 +309,7 @@ const SCREEN_SECTION = {
      * high rungs' teeth are denser than any honest tolerance: a test that cannot fail. */
     const ceilBound = (kk) => {
       let best = null;
-      for (const p of per) if (p["8D"] <= kk) best = best === null ? p.GeV : Math.min(best, p.GeV);
+      for (const p of certificates) if (p["8D"] <= kk) best = best === null ? p.GeV : Math.min(best, p.GeV);
       return best;
     };
     const hits = (MKK !== null
@@ -323,14 +332,13 @@ const SCREEN_SECTION = {
     RUNGS.forEach((p, i) => {
       const kk = p["8D"], ceil = p.GeV;
       const y = T + ih * (i + 0.5) / rows;
-      const reaches = ceil >= lo;
+      const reaches = ceil === null || ceil >= lo;
       g.strokeStyle = "#eef3f6"; g.lineWidth = 1;
       g.beginPath(); g.moveTo(L, y + .5); g.lineTo(L + iw, y + .5); g.stroke();
       g.fillStyle = reaches ? this._css("--ink2") : this._css("--rust");
       g.font = (reaches ? "" : "600 ") + "10px " + this._css("--mono");
       g.textAlign = "right"; g.textBaseline = "middle";
-      g.fillText(reaches ? `k = ${kk} · ceiling ${(ceil / 1000).toFixed(2)}`
-                         : `k = ${kk} — ceiling ${(ceil / 1000).toFixed(2)}, cannot reach`, L - 7, y);
+      g.fillText(ceil === null ? `k ${kk} · no ceiling` : `k ${kk} · max ${(ceil / 1000).toFixed(2)} TeV${reaches?'':' ×'}`, L - 7, y);
       if (!reaches) return;
       /* the teeth inside the window: A4 = (k-3)/2 + 3j, M^2 from identity (II) */
       const M2lo = lo * lo, M2hi = hi * hi;
@@ -341,12 +349,12 @@ const SCREEN_SECTION = {
         const A4 = combA4(kk, j);
         if (A4 <= 0) continue;
         const M = Math.sqrt(combM2(A4, kk, mu, mW));
-        const past = M > ceil;
+        const past = ceil !== null && M > ceil;
         g.strokeStyle = past ? "#c9d4dc" : this._css("--blue");
         g.lineWidth = past ? 1 : 1.4;
         g.beginPath(); g.moveTo(X(M), y - (past ? 5 : 8)); g.lineTo(X(M), y + (past ? 5 : 8)); g.stroke();
       }
-      if (ceil <= hi) {
+      if (ceil !== null && ceil <= hi) {
         g.strokeStyle = this._css("--rust"); g.lineWidth = 2;
         g.beginPath(); g.moveTo(X(ceil), y - 12); g.lineTo(X(ceil), y + 12); g.stroke();
       }
@@ -381,8 +389,9 @@ const SCREEN_SECTION = {
       : ``;
     $("scHits").className = "verdict " + (MKK === null ? "" : real.length ? "breaks" : "stable");
     $("scHits").innerHTML = MKK === null
-      ? `<b>Type a candidate M_KK to run the comb</b><span>The window is parked at the top of ` +
-        `the comb, where the ceilings bite and the teeth are sparse.</span>`
+      ? `<b>${hasCertificates?'Type a candidate M_KK to run the comb':'Arithmetic comb for this seed'}</b><span>${hasCertificates?'The window is parked at the top of the comb, where the ceilings bite and the teeth are sparse.':'Even-rung teeth follow the integer law. No per-rung ceiling certificates are available for this seed; reachability has not been evaluated. Type a candidate mass to inspect arithmetic matches.'}</span>`
+      : !hasCertificates
+        ? `<b>${MKK} ± ${tol} GeV: ${hits.length} arithmetic ${hits.length===1?'match':'matches'}</b><span>These teeth satisfy the integer law for k ≤ 21. Their physical reachability is not evaluated: this seed has no per-rung ceiling certificates. No viability or exclusion verdict is assigned from this view.</span>`
       : real.length
         ? `<b>${MKK} ± ${tol} GeV lands on ${real.length} reachable ${real.length > 1 ? "teeth" : "tooth"}</b>` +
           `<span>${real.map((h2) => `(k = ${h2.k}, A₄ = ${h2.A4}, M = ${Math.round(h2.M)} GeV)`).join(" · ")} ` +
@@ -399,22 +408,27 @@ const SCREEN_SECTION = {
     $("scCombNote").innerHTML =
       `Teeth from identity (II) at m_h = ${mh} GeV, admissible A₄ only ` +
       `(${parityOdd ? "k odd, A₄ ≡ −k (mod 3)" : "k even, A₄ half-integral"}), each rung cut at ` +
-      `its own certified ceiling; a rung with no certificate of its own is bounded by the rung ` +
+        `its own certified ceiling; a rung with no certificate of its own is bounded by the rung ` +
       `below it, which the monotonicity of the ceiling licenses.${mineNote} <b>The spacing is ` +
       `arithmetic; the position carries the anchor residual and the choice of g₄</b> — which is ` +
       `why a miss excludes more honestly than a hit confirms. ` +
       `<span class="chip mea">measured</span> the positions; ` +
-      `<span class="chip thm">theorem</span> the spacing and the admissibility.`;
+       `<span class="chip thm">theorem</span> the spacing and the admissibility.`;
+    if (!hasCertificates) $('scCombNote').innerHTML=
+      `The candidate split has even k and half-integral A₄. The teeth and their exact M² spacing are computed from the same arithmetic identity; the odd-seed ceilings are not transferred. ${mineNote} `+
+      `<b>Missing information: certified per-rung ceilings and the true-vacuum screen for this seed.</b> Positions still depend on m_h = ${mh} GeV, g₄ and the open anchor normalization.`;
   },
 
-  _spacing(ctx, mW) {
+  _spacing(ctx, mW, seed) {
     const per = (ctx.DATA.ceilings && ctx.DATA.ceilings.per_rung) || [];
-    document.getElementById("scSpacing").innerHTML = per.filter((p) => p["8D"] <= 21).map((p) => {
+    const odd=seed.parity_of_8D==='odd',cert=per.filter(p=>p['8D']<=21&&(p['8D']%2===1)===odd);
+    const rows=cert.length?cert:Array.from({length:odd?11:10},(_,i)=>({'8D':2*i+(odd?1:2),GeV:null}));
+    document.getElementById("scSpacing").innerHTML = rows.map((p) => {
       const k = p["8D"], d2 = combSpacingM2(k, mW);
       return `<tr><td class="num">${k}</td>` +
         `<td class="num">${(d2 / 1e6).toFixed(3)} TeV²</td>` +
-        `<td class="num">${(p.GeV / 1000).toFixed(2)} TeV</td>` +
-        `<td class="num">${(d2 / (2 * p.GeV)).toFixed(1)} GeV</td></tr>`;
+        `<td class="num">${p.GeV===null?'not evaluated':(p.GeV / 1000).toFixed(2)+' TeV'}</td>` +
+        `<td class="num">${p.GeV===null?'not evaluated':(d2 / (2 * p.GeV)).toFixed(1)+' GeV'}</td></tr>`;
     }).join("");
   },
 };

@@ -2,8 +2,9 @@
 
 <p class="lead">Pick a model of extra&#8209;dimensional matter and this page computes what it predicts:
 which Wilson&#8209;line domain is legal, where the vacuum sits, the Higgs mass, the anomaly bill, and
-how high the compactification scale can go. It runs entirely in your browser, offline, with nothing
-to install &mdash; and every number it prints says what is known about it.</p>
+how high the compactification scale can go. Its interactive calculations and reference examples run
+offline in your browser. Optional PhaseTracer and HiggsTools calculations use a local scientific
+engine &mdash; and every result states its assumptions.</p>
 
 <div class="doors">
   <a class="door" href="app/index.html">
@@ -22,6 +23,18 @@ to install &mdash; and every number it prints says what is known about it.</p>
   <b>Read this before quoting a number from here.</b>
   __ANCHOR_SENTENCE__
 </div>
+
+<h2>Choose a research question</h2>
+<p>Change a parameter, compare with a saved reference, read the key indicators and export the
+figures together with a research summary. New experiments sit inside the existing sections.</p>
+<ul>
+<li><a href="app/index.html#s=papers">SU(6) matter content and Wilson-potential convergence</a></li>
+<li><a href="app/index.html#s=predict">Neutrino flavour, Majoron decays and thermal GHU</a></li>
+<li><a href="app/index.html#s=blkt">Warped gauge running and UV brane terms</a></li>
+<li><a href="app/index.html#s=anomalies">RS gauge cancellation and the baryon current</a></li>
+<li><a href="app/index.html#s=collider">Higgs widths, rates and versioned experimental tests</a></li>
+</ul>
+<p><a href="https://github.com/karlesmarin/ghu-lab/blob/main/docs/research-extensions.md">Quick start, interpretation and local scientific engine &rarr;</a></p>
 
 <h2>Explore gravity and gauge fields in 3D</h2>
 <p><a href="app/index.html#s=gravitygauge"><strong>Open Gravity&ndash;gauge &middot; 3D &rarr;</strong></a>
@@ -70,7 +83,7 @@ __CHANGES_RECENT__
 <p><a href="changes/index.html">The whole log &rarr;</a></p>
 
 <h2>The code</h2>
-<p>The instrument is one self-contained HTML file with no external request in it, built from a
+<p>The instrument is one self-contained HTML file with no automatic external requests, built from a
 Python and JavaScript source tree by <code>build/build_app.py</code>, which re-runs every harness
 and refuses to publish a red build. It is a living instrument and it is rewritten often; what
 travels with a paper is not this tool but its evidence &mdash; the gate scripts and their archived

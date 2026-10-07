@@ -59,8 +59,8 @@ const SECTIONS = [
    * last in this family because it is what you read after the other four have spoken. */
   { ...DOSS_SECTION, group: "su3_hy", family: "5D on S¹/Z₂ · Haba–Yamashita" },
   /* and the same model turned into the numbers a detector measures, beside the measured ones.
-   * It reads the builder's model and nothing else; it draws predicted masses and published
-   * bounds and never a simulated event. */
+   * Its default view reads the builder; the internal research selector also hosts the
+   * 4D neutrino ring, with its own model record and exports. Neither view simulates events. */
   { ...PRED_SECTION, group: "su3_hy", family: "5D on S¹/Z₂ · Haba–Yamashita" },
   /* A family of its own, because it is about neither a model nor a dimension: it is about which
    * BOUNDARY CONDITIONS are the same theory, on S¹/Z₂ and on T²/Z₃.  Like the builder it holds

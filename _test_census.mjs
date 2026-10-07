@@ -254,5 +254,26 @@ H("what is NOT claimed, measured before not claiming it");
      quasiPolynomialProbe(cube, [1])[0].degree === 3);
 }
 
+H("candidate seed — half-integral A4 is its own lattice, never rounded to the published grid");
+{
+  const candidateL = inverseLattice(DATA, DATA.gauge_seeds.candidate.gauge);
+  const candidateC = buildCensus(candidateL, {tMax: 160});
+  const curve = censusCurve(candidateC, 2, 100.5);
+  ok("candidate base is half-integral", candidateC.baseA4 % 1 !== 0);
+  ok("candidate counting curve is populated", curve.A4.length > 20 && curve.N.some(n=>n>0));
+  ok("every plotted candidate point belongs to its even-rung lattice", curve.A4.every(a=>a%1!==0 && censusLegal(candidateC,a,2)));
+  ok("candidate counts remain finite nonnegative integers", curve.N.every(n=>Number.isSafeInteger(n)&&n>=0));
+  let checked=0, mismatches=0;
+  for(const k of [2,4])for(const a of censusCurve(candidateC,k,55.5).A4.filter(a=>a>=0)){
+    let built=0;contentsAt(candidateL,2*a,k,()=>{built++;return false;});
+    checked++;if(censusAt(candidateC,a,k)!==built)mismatches++;
+  }
+  ok("candidate DP agrees with direct enumeration at more than 20 half-integral points", checked>20&&mismatches===0);
+  ok("off-grid integral candidate inputs are not rounded onto a different point", censusAt(candidateC,55,2)===0 && censusCell(candidateC,55,2)===0);
+  const recurrence=recurrenceCheck(candidateC,{tSpan:140,kMax:60});
+  ok("candidate recurrence checks its half-integral grid nonvacuously", recurrence.tested>1000&&recurrence.failures===0);
+  ok("published grid likewise rejects off-grid half-integral inputs", censusAt(C,104.5,1)===0&&censusCell(C,104.5,1)===0);
+}
+
 console.log(`\n${fail === 0 ? "PASSED" : "*** FAILED ***"}   ${pass} ok, ${fail} failed`);
 process.exit(fail === 0 ? 0 : 1);

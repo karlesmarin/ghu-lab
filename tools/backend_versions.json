@@ -1,0 +1,6 @@
+{
+  "PhaseTracer":{"repository":"https://github.com/PhaseTracer/PhaseTracer.git","commit":"dc5aed31f922622e262d232a68ab3e229d705d82","version":"2.1.0"},
+  "HiggsTools":{"repository":"https://gitlab.com/higgsbounds/higgstools.git","commit":"860e49001ac6c8893bce208bcf85f7a3ac8ebdc0"},
+  "hbdataset":{"repository":"https://gitlab.com/higgsbounds/hbdataset.git","commit":"3539f9adf3724f8752701208bf059d1658824cd2"},
+  "hsdataset":{"repository":"https://gitlab.com/higgsbounds/hsdataset.git","commit":"3c6c2538d9ba0549ea0559cf9b38c18eb80c3af1"}
+}

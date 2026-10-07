@@ -62,6 +62,13 @@ kept: a URL a published record points at does not break (`tools-2026-07/`).
 
 ---
 
+**Implementation note, 2026-10-06.** The living App may contact the optional local scientific
+engine after an explicit calculation-button click. It sends only the chosen numerical scenario
+to a fixed loopback endpoint. Its one network statement carries a visible build waiver. The
+Edition build physically removes that statement and disables the button; a dedicated harness
+requires zero network violations and zero waivers in the resulting offline file. Parameter
+matching is required before an external result is displayed for a scenario.
+
 ## D2 — The model record is the interchange format. It is our SLHA.
 
 One canonical JSON document is the only thing the five sections share:

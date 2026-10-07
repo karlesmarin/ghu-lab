@@ -1,0 +1,544 @@
+{
+  "schema": "ghu-external-result-v1",
+  "experiment": "higgstools",
+  "parameters": {
+    "kV": 0.8,
+    "kF": 1.2,
+    "kg": 0.95,
+    "kGamma": 1.1,
+    "kZGamma": 0.7,
+    "invWidthMeV": 0.4
+  },
+  "backend": {
+    "PhaseTracer": {
+      "commit": "dc5aed31f922622e262d232a68ab3e229d705d82",
+      "remote": "https://github.com/PhaseTracer/PhaseTracer.git"
+    },
+    "HiggsTools": {
+      "commit": "860e49001ac6c8893bce208bcf85f7a3ac8ebdc0",
+      "remote": "https://gitlab.com/higgsbounds/higgstools.git"
+    }
+  },
+  "datasets": {
+    "HiggsBounds": {
+      "commit": "3539f9adf3724f8752701208bf059d1658824cd2",
+      "treeSha256": "9c4fbc50a51a6931afe4b763d830261306a2e3ae39034a7bf4d1043e507ff847",
+      "files": 415
+    },
+    "HiggsSignals": {
+      "commit": "3c6c2538d9ba0549ea0559cf9b38c18eb80c3af1",
+      "treeSha256": "63ee8bd145363b9c8471e9fe29225261df7205f6607cb9828365abd485a92c57",
+      "files": 35
+    }
+  },
+  "predictions": {
+    "massGeV": 125.2,
+    "widthGeV": 0.005335537988201333,
+    "branching": {
+      "uu": 0.0,
+      "dd": 0.0,
+      "ss": 0.00023877256753811858,
+      "cc": 0.03194738074665545,
+      "bb": 0.6433908841550199,
+      "tt": 0.0,
+      "ee": 0.0,
+      "mumu": 0.00024049435157944948,
+      "tautau": 0.06931559304418478,
+      "WW": 0.10713307619089878,
+      "ZZ": 0.013166999716396934,
+      "Zgam": 0.0005858848473973307,
+      "gamgam": 0.0021188280583887414,
+      "gg": 0.05689307647053744,
+      "directInv": 0.07496900985140288
+    },
+    "partialWidthsGeV": {
+      "uu": 0.0,
+      "dd": 0.0,
+      "ss": 1.2739801046400001e-06,
+      "cc": 0.00017045646359731202,
+      "bb": 0.0034328365036715514,
+      "tt": 0.0,
+      "ee": 0.0,
+      "mumu": 1.2831667487999999e-06,
+      "tautau": 0.00036983597986195194,
+      "WW": 0.0005716125978094082,
+      "ZZ": 7.025302717747202e-05,
+      "Zgam": 3.126010859999999e-06,
+      "gamgam": 1.1305087596000002e-05,
+      "gg": 0.00030355517077419595,
+      "directInv": 0.0004
+    },
+    "crossSectionsPb": {
+      "LHC8": {
+        "ggH": 19.2774,
+        "bbH": 0.289152,
+        "vbfH": 1.0227200000000003,
+        "HW": 0.44970402208055005,
+        "qqHZ": 0.24509469937920003,
+        "ggHZ": 0.013068323277523223,
+        "bbHZ": 0.00016543203436799998,
+        "Htt": 0.190656,
+        "tchanHt": 0.023995900391422093,
+        "schanHt": 0.00174096,
+        "HtW": 0.005850750138629767
+      },
+      "LHC13": {
+        "ggH": 43.717099999999995,
+        "bbH": 0.6983999999999999,
+        "vbfH": 2.41664,
+        "HW": 0.8791722688585745,
+        "qqHZ": 0.5148197709766401,
+        "ggHZ": 0.041873138107740814,
+        "bbHZ": 0.0006182109457920001,
+        "Htt": 0.7274879999999999,
+        "tchanHt": 0.09557209630710022,
+        "schanHt": 0.00413424,
+        "HtW": 0.025286575385473947
+      },
+      "LHC13p6": {
+        "ggH": 47.011225,
+        "bbH": 0.7540716384,
+        "vbfH": 2.6057794624000006,
+        "HW": 0.9331371261342379,
+        "qqHZ": 0.5473751758656001,
+        "ggHZ": 0.046196305009222435,
+        "bbHZ": 0.0006883896369599999,
+        "Htt": 0.816969744,
+        "tchanHt": 0.10835701018857466,
+        "schanHt": 0.0044056367999999995,
+        "HtW": 0.028480544544563176
+      },
+      "LHC14": {
+        "ggH": 49.2043,
+        "bbH": 0.7921440000000001,
+        "vbfH": 2.7340800000000005,
+        "HW": 0.9700393978330404,
+        "qqHZ": 0.5691033242560001,
+        "ggHZ": 0.049187177071328046,
+        "bbHZ": 0.00073711401984,
+        "Htt": 0.881424,
+        "tchanHt": 0.11326963360462469,
+        "schanHt": 0.00465696,
+        "HtW": 0.030803921948999686
+      }
+    }
+  },
+  "SM": {
+    "massGeV": 125.2,
+    "widthGeV": 0.0041158800411588,
+    "branching": {
+      "uu": 0.0,
+      "dd": 0.0,
+      "ss": 0.00021494999785050001,
+      "cc": 0.028759959712400404,
+      "bb": 0.5791991542080085,
+      "tt": 0.0,
+      "ee": 0.0,
+      "mumu": 0.00021649999783500005,
+      "tautau": 0.0623999093760009,
+      "WW": 0.21699968783000312,
+      "ZZ": 0.0266699597333004,
+      "Zgam": 0.0015499999844999998,
+      "gamgam": 0.0022699999773,
+      "gg": 0.08171987918280119,
+      "directInv": 0.0
+    },
+    "partialWidthsGeV": {
+      "uu": 0.0,
+      "dd": 0.0,
+      "ss": 8.84708406e-07,
+      "cc": 0.00011837254416480001,
+      "bb": 0.0023839142386608003,
+      "tt": 0.0,
+      "ee": 0.0,
+      "mumu": 8.910880200000001e-07,
+      "tautau": 0.00025683054157079997,
+      "WW": 0.0008931446840772,
+      "ZZ": 0.00010977035496479999,
+      "Zgam": 6.379613999999998e-06,
+      "gamgam": 9.3430476e-06,
+      "gg": 0.00033634921969439993,
+      "directInv": 0.0
+    },
+    "crossSectionsPb": {
+      "LHC8": {
+        "ggH": 21.36,
+        "bbH": 0.2008,
+        "vbfH": 1.598,
+        "HW": 0.6988529,
+        "qqHZ": 0.38095998192,
+        "ggHZ": 0.032562802457480014,
+        "bbHZ": 0.0001148833572,
+        "Htt": 0.1324,
+        "tchanHt": 0.01866,
+        "schanHt": 0.001209,
+        "HtW": 0.003510000025974002
+      },
+      "LHC13": {
+        "ggH": 48.44,
+        "bbH": 0.485,
+        "vbfH": 3.776,
+        "HW": 1.36527387,
+        "qqHZ": 0.7997410316339999,
+        "ggHZ": 0.10627867346682002,
+        "bbHZ": 0.00042931315680000003,
+        "Htt": 0.5052,
+        "tchanHt": 0.07432,
+        "schanHt": 0.002871,
+        "HtW": 0.015170000112258008
+      },
+      "LHC13p6": {
+        "ggH": 52.09,
+        "bbH": 0.52366086,
+        "vbfH": 4.07153041,
+        "HW": 1.44898161,
+        "qqHZ": 0.8502180404599999,
+        "ggHZ": 0.11744489074796005,
+        "bbHZ": 0.000478048359,
+        "Htt": 0.5673401,
+        "tchanHt": 0.08338763938293149,
+        "schanHt": 0.00305947,
+        "HtW": 0.0172
+      },
+      "LHC14": {
+        "ggH": 54.52,
+        "bbH": 0.5501,
+        "vbfH": 4.272,
+        "HW": 1.50615009,
+        "qqHZ": 0.8839474105,
+        "ggHZ": 0.12514053797619998,
+        "bbHZ": 0.000511884736,
+        "Htt": 0.6121,
+        "tchanHt": 0.08997999999999992,
+        "schanHt": 0.003234,
+        "HtW": 0.018559999999999983
+      }
+    }
+  },
+  "bounds": {
+    "allowed": true,
+    "selected": {
+      "h": {
+        "id": 14096212,
+        "reference": "1409.6212",
+        "experiment": "Experiment.ATLAS",
+        "collider": "Collider.LHC8",
+        "description": "LHC8 [HW,HZ]>[bb]",
+        "obsRatio": 0.5745332193067971,
+        "expRatio": 0.9226542819761432,
+        "particles": [
+          "h"
+        ]
+      }
+    },
+    "applied": [
+      {
+        "id": 14096212,
+        "reference": "1409.6212",
+        "experiment": "Experiment.ATLAS",
+        "collider": "Collider.LHC8",
+        "description": "LHC8 [HW,HZ]>[bb]",
+        "obsRatio": 0.5745332193067971,
+        "expRatio": 0.9226542819761432,
+        "particles": [
+          "h"
+        ]
+      },
+      {
+        "id": 230110731,
+        "reference": "2301.10731",
+        "experiment": "Experiment.ATLAS",
+        "collider": "Collider.LHC13",
+        "description": "LHC13 [HW,Htt,H,HZ]>[inv]",
+        "obsRatio": 0.6362426152838551,
+        "expRatio": 0.884129348511331,
+        "particles": [
+          "h"
+        ]
+      },
+      {
+        "id": 13103687,
+        "reference": "1310.3687",
+        "experiment": "Experiment.CMS",
+        "collider": "Collider.LHC8",
+        "description": "LHC8 [HW,HZ]>[bb]",
+        "obsRatio": 0.3704699641203443,
+        "expRatio": 0.7349516897992915,
+        "particles": [
+          "h"
+        ]
+      },
+      {
+        "id": 14029,
+        "reference": "CMS-PAS-HIG-14-029",
+        "experiment": "Experiment.CMS",
+        "collider": "Collider.LHC8",
+        "description": "2d likelihood {LHC8 [ggH>tautau], LHC8 [bbH>tautau]}",
+        "obsRatio": 0.577589566789379,
+        "expRatio": 0.4901173887573869,
+        "particles": [
+          "h"
+        ]
+      },
+      {
+        "id": 180306553,
+        "reference": "1803.06553",
+        "experiment": "Experiment.CMS",
+        "collider": "Collider.LHC13",
+        "description": "2d likelihood {LHC13 [ggH>tautau], LHC13 [bbH>tautau]}",
+        "obsRatio": 0.3933963706671554,
+        "expRatio": 0.44031272771968843,
+        "particles": [
+          "h"
+        ]
+      },
+      {
+        "id": 13022,
+        "reference": "CMS-PAS-HIG-13-022",
+        "experiment": "Experiment.CMS",
+        "collider": "Collider.LHC8",
+        "description": "LHC8 [vbfH>WW]",
+        "obsRatio": 0.3528707863823226,
+        "expRatio": 0.2872288520858906,
+        "particles": [
+          "h"
+        ]
+      },
+      {
+        "id": 140960641,
+        "reference": "1409.6064",
+        "experiment": "Experiment.ATLAS",
+        "collider": "Collider.LHC8",
+        "description": "LHC8 [ggH>tautau]",
+        "obsRatio": 0.29906544613920494,
+        "expRatio": 0.2828586819115088,
+        "particles": [
+          "h"
+        ]
+      },
+      {
+        "id": 150601010,
+        "reference": "1506.01010",
+        "experiment": "Experiment.CMS",
+        "collider": "Collider.LHC8",
+        "description": "LHC8 [vbfH>bb]",
+        "obsRatio": 0.12897862569078566,
+        "expRatio": 0.2744904188446372,
+        "particles": [
+          "h"
+        ]
+      },
+      {
+        "id": 12051,
+        "reference": "CMS-PAS-HIG-12-051",
+        "experiment": "Experiment.CMS",
+        "collider": "Collider.LHC8",
+        "description": "LHC8 [HW,HZ]>[tautau]",
+        "obsRatio": 0.15059956906556748,
+        "expRatio": 0.19103291640223735,
+        "particles": [
+          "h"
+        ]
+      },
+      {
+        "id": 180906682,
+        "reference": "1809.06682",
+        "experiment": "Experiment.ATLAS",
+        "collider": "Collider.LHC13",
+        "description": "LHC13 [vbfH>inv]",
+        "obsRatio": 0.11337999439506441,
+        "expRatio": 0.14840722318529936,
+        "particles": [
+          "h"
+        ]
+      },
+      {
+        "id": 1810118221,
+        "reference": "1810.11822",
+        "experiment": "Experiment.CMS",
+        "collider": "Collider.LHC13",
+        "description": "LHC13 [ggH>bb]",
+        "obsRatio": 0.12556151890921408,
+        "expRatio": 0.13632758444995682,
+        "particles": [
+          "h"
+        ]
+      },
+      {
+        "id": 140413443,
+        "reference": "1404.1344",
+        "experiment": "Experiment.CMS",
+        "collider": "Collider.LHC8",
+        "description": "LHC8 [vbfH,HZ]>[inv]",
+        "obsRatio": 0.08274882262163537,
+        "expRatio": 0.10916681640138542,
+        "particles": [
+          "h"
+        ]
+      },
+      {
+        "id": 170809624,
+        "reference": "1708.09624",
+        "experiment": "Experiment.ATLAS",
+        "collider": "Collider.LHC13",
+        "description": "LHC13 [qqHZ>inv]",
+        "obsRatio": 0.05897034318977158,
+        "expRatio": 0.10164052221222138,
+        "particles": [
+          "h"
+        ]
+      },
+      {
+        "id": 140413441,
+        "reference": "1404.1344",
+        "experiment": "Experiment.CMS",
+        "collider": "Collider.LHC8",
+        "description": "LHC8 [vbfH>inv]",
+        "obsRatio": 0.07428850168763472,
+        "expRatio": 0.09856638412410776,
+        "particles": [
+          "h"
+        ]
+      },
+      {
+        "id": 14023244,
+        "reference": "1402.3244",
+        "experiment": "Experiment.ATLAS",
+        "collider": "Collider.LHC8",
+        "description": "LHC8 [HZ>inv]",
+        "obsRatio": 0.06602127587075253,
+        "expRatio": 0.07953786660774999,
+        "particles": [
+          "h"
+        ]
+      },
+      {
+        "id": 1508014372,
+        "reference": "1508.01437",
+        "experiment": "Experiment.CMS",
+        "collider": "Collider.LHC8",
+        "description": "LHC8 [ggH>mumu]",
+        "obsRatio": 0.04824352029321818,
+        "expRatio": 0.05826888810438993,
+        "particles": [
+          "h"
+        ]
+      },
+      {
+        "id": 140413442,
+        "reference": "1404.1344",
+        "experiment": "Experiment.CMS",
+        "collider": "Collider.LHC8",
+        "description": "LHC8 [HZ>inv]",
+        "obsRatio": 0.05793708459170396,
+        "expRatio": 0.056737905464174114,
+        "particles": [
+          "h"
+        ]
+      },
+      {
+        "id": 150404324,
+        "reference": "1504.04324",
+        "experiment": "Experiment.ATLAS",
+        "collider": "Collider.LHC8",
+        "description": "LHC8 [HW,HZ]>[inv]",
+        "obsRatio": 0.047983303647253533,
+        "expRatio": 0.04702093619197788,
+        "particles": [
+          "h"
+        ]
+      },
+      {
+        "id": 150201518,
+        "reference": "1502.01518",
+        "experiment": "Experiment.ATLAS",
+        "collider": "Collider.LHC8",
+        "description": "LHC8 [HW,H,HZ]>[inv]",
+        "obsRatio": 0.042586848491793845,
+        "expRatio": 0.03544878819008171,
+        "particles": [
+          "h"
+        ]
+      },
+      {
+        "id": 140960642,
+        "reference": "1409.6064",
+        "experiment": "Experiment.ATLAS",
+        "collider": "Collider.LHC8",
+        "description": "LHC8 [bbH>tautau]",
+        "obsRatio": 0.008042834012805825,
+        "expRatio": 0.008379072892939848,
+        "particles": [
+          "h"
+        ]
+      },
+      {
+        "id": 180204329,
+        "reference": "1802.04329",
+        "experiment": "Experiment.ATLAS",
+        "collider": "Collider.LHC13",
+        "description": "LHC13 [HZ>cc]",
+        "obsRatio": 0.006594307609610714,
+        "expRatio": 0.004565289883576649,
+        "particles": [
+          "h"
+        ]
+      },
+      {
+        "id": 510022,
+        "reference": "unpublished",
+        "experiment": "Experiment.LEPComb",
+        "collider": "Collider.LEP",
+        "description": "LEP [eeHZ]>[uu,dd,cc,ss,bb,gg]",
+        "obsRatio": 0.002625049973020131,
+        "expRatio": 0.002903552853206659,
+        "particles": [
+          "h"
+        ]
+      },
+      {
+        "id": 1508014371,
+        "reference": "1508.01437",
+        "experiment": "Experiment.CMS",
+        "collider": "Collider.LHC8",
+        "description": "LHC8 [bbH>mumu]",
+        "obsRatio": 0.0013746772377318027,
+        "expRatio": 0.00143486758723797,
+        "particles": [
+          "h"
+        ]
+      },
+      {
+        "id": 150608329,
+        "reference": "1506.08329",
+        "experiment": "Experiment.CMS",
+        "collider": "Collider.LHC8",
+        "description": "LHC8 [bbH>bb]",
+        "obsRatio": 0.0009668920259822478,
+        "expRatio": 0.0010093030220601463,
+        "particles": [
+          "h"
+        ]
+      },
+      {
+        "id": 13003,
+        "reference": "CMS-PAS-HIG-13-003",
+        "experiment": "Experiment.CMS",
+        "collider": "Collider.LHC8",
+        "description": "LHC8 [H>WW]",
+        "obsRatio": 0.39467671956088274,
+        "expRatio": 1.1195327637319192,
+        "particles": [
+          "h"
+        ]
+      }
+    ]
+  },
+  "signals": {
+    "chisq": 326.2928849777038,
+    "SMchisq": 151.64206521214305,
+    "deltaChisq": 174.65081976556075,
+    "observableCount": 159
+  },
+  "scope": "One CP-even 125.2 GeV scalar; universal real fermion kappa, common W/Z kappa, independent effective gg/gamma/Zgamma amplitudes, optional invisible width. No extra Higgs states, no di-Higgs prediction. Couplings are explicit scenario assumptions, not a complete GHU fit. Delta chi-square is relative to the same SM reference, not a confidence level."
+}

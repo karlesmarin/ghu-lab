@@ -1,0 +1,593 @@
+{
+  "schema": "ghu-external-result-v1",
+  "experiment": "thermal",
+  "parameters": {
+    "nfPlus": 0,
+    "nfMinus": 8,
+    "adjPlus": 2,
+    "adjMinus": 0,
+    "scalarPlus": 4,
+    "scalarMinus": 2,
+    "invRGeV": 1000,
+    "g4": 1,
+    "RT": 0.0246,
+    "windings": 100,
+    "thermalTerms": 120
+  },
+  "backend": {
+    "PhaseTracer": {
+      "commit": "dc5aed31f922622e262d232a68ab3e229d705d82",
+      "remote": "https://github.com/PhaseTracer/PhaseTracer.git"
+    },
+    "HiggsTools": {
+      "commit": "860e49001ac6c8893bce208bcf85f7a3ac8ebdc0",
+      "remote": "https://gitlab.com/higgsbounds/higgstools.git"
+    }
+  },
+  "samples": [
+    {
+      "RT": 0.024166666666666666,
+      "S3overT": 2.7641266462847263,
+      "alpha": 0.03946710170011924
+    },
+    {
+      "RT": 0.024333333333333332,
+      "S3overT": 6.446890687295623,
+      "alpha": 0.03862810854956007
+    },
+    {
+      "RT": 0.024494897427831775,
+      "S3overT": 11.176288633550062,
+      "alpha": 0.03774664205804402
+    },
+    {
+      "RT": 0.0245,
+      "S3overT": 11.354243562004976,
+      "alpha": 0.037717567173078975
+    },
+    {
+      "RT": 0.024666666666666667,
+      "S3overT": 18.685754786427918,
+      "alpha": 0.036720231527561036
+    },
+    {
+      "RT": 0.024833333333333332,
+      "S3overT": 30.699899694621337,
+      "alpha": 0.035614958074131994
+    },
+    {
+      "RT": 0.025,
+      "S3overT": 55.2359996788875,
+      "alpha": 0.03437038777620698
+    },
+    {
+      "RT": 0.025156628490827015,
+      "S3overT": 118.6083513357106,
+      "alpha": 0.033028062300618055
+    },
+    {
+      "RT": 0.025166666666666667,
+      "S3overT": 127.03334088214669,
+      "alpha": 0.03293473477831274
+    },
+    {
+      "RT": 0.025170039142329077,
+      "S3overT": 129.77586421912503,
+      "alpha": 0.032903151947161945
+    },
+    {
+      "RT": 0.02518176030112813,
+      "S3overT": 139.9624303200925,
+      "alpha": 0.032792470804374745
+    },
+    {
+      "RT": 0.025181810301128142,
+      "S3overT": 140.00890121399286,
+      "alpha": 0.03279199557638978
+    },
+    {
+      "RT": 0.025181810301128142,
+      "S3overT": 140.00890121399286,
+      "alpha": 0.03279199557638978
+    },
+    {
+      "RT": 0.025182410283538136,
+      "S3overT": 140.5669668442367,
+      "alpha": 0.03278629093836614
+    },
+    {
+      "RT": 0.02520699211142927,
+      "S3overT": 167.5410226761706,
+      "alpha": 0.0325491972025481
+    },
+    {
+      "RT": 0.025333333333333333,
+      "S3overT": 767.8414798596699,
+      "alpha": 0.031207225600940042
+    }
+  ],
+  "failures": [
+    {
+      "RT": 0.001,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0011051178997261066,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0012212855722950411,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.001349664546620492,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0014915384490960261,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0016483258382257347,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0018215943884042983,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.00201307656466622,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.002224686945131779,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0024585413643521195,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.002716978068962571,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0030025810971738096,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0033182061158660296,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0036670089736241885,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.004052477255208349,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.004478465152963669,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.004949232003839766,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.005469484877340633,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.006044425640230382,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.006679802968582027,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0073819698272235825,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.008157946991302815,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.009015493245105479,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.009963182960025867,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.011010491827370716,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.012167891603215387,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.013446954812640318,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.01486047046025693,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.016422571903980988,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.018,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.01814887817062844,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.018166666666666664,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.018333333333333333,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0185,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.018666666666666665,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.018833333333333334,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.019,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.019166666666666665,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.01933333333333333,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0195,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.019666666666666666,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.01983333333333333,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.019999999999999997,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.02005665012630988,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.020166666666666666,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.02033333333333333,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.020499999999999997,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.020666666666666667,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.020833333333333332,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.020999999999999998,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.021166666666666667,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.021333333333333333,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0215,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.021666666666666667,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.021833333333333333,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.022,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.02216496306312893,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.022166666666666668,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.022333333333333334,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0225,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.022666666666666665,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.02283333333333333,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.023,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.023166666666666665,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.02333333333333333,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0235,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.023666666666666666,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.02383333333333333,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.024,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0255,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.025666666666666667,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.025833333333333333,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.026,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.026166666666666664,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.026333333333333334,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0265,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.026666666666666665,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.026833333333333334,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.027,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.027069749599451864,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.027166666666666665,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.027333333333333334,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.0275,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.027666666666666666,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.027833333333333335,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.028,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.029915264823457858,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.03305989463145003,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.03653508132027444,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.040375572334984206,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.04461976769907724,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.049310103965871016,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.05449347853003934,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.06022171854188676,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.06655209911290663,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.07354791599401905,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.08127911845254247,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.08982300867586317,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.09926501469494976,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.10969954455596394,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.12123093028059732,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.13397447105353577,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.14805758606759953,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.16362108855354288,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.1808205937331906,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.1998280747736512,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.2208335823001688,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.24404714466055488,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.2697008679414257,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.29805125673373645,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.3293817788523134,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.3640056996533175,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.40226921428920626,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.44455490921975876,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.4912855875898698,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.5429284967230231,
+      "reason": "No metastable origin / lower broken minimum"
+    },
+    {
+      "RT": 0.6,
+      "reason": "No metastable origin / lower broken minimum"
+    }
+  ],
+  "nucleation": {
+    "RT": 0.025181810301128142,
+    "temperatureGeV": 25.18181030112814,
+    "S3overT": 140.00890121399286,
+    "alpha": 0.03279199557638978,
+    "betaOverH": 24466.33567023,
+    "traceAnomalyStrength": 0.010684106812485761,
+    "gStar": 106.75,
+    "doubledCutoffTighterToleranceS3overT": 148.48163103779987,
+    "relativeActionShift": 0.060515651150330065,
+    "criterion": "O(3) S3/T=140 proxy; radiation domination, not an integrated nucleation/percolation condition"
+  },
+  "gravitationalWaves": null,
+  "scope": "One-loop flat SU(3), canonical phi=alpha/(g4 R), no daisy resummation, no percolation or wall-speed prediction; GW not evaluated."
+}

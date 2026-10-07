@@ -65,6 +65,18 @@
 const CBC_S = {
   N: 4,
   eps: [+1, -1],      /* the dial: the pair (eps_0, eps_1) */
+  /* WHERE N CAME FROM, and it is here for a reason that is not bookkeeping.
+   *
+   * The count this panel computes is FLAT IN N -- 4 for N even, 1 for N odd, forever -- and that
+   * flatness IS the result, against the ordinary (N+1)^2. But a panel that answers a keypress by
+   * redrawing the same number reads as a dead button: an invariance shown as a NON-RESPONSE is
+   * indistinguishable from a control that does not work. (Reported exactly that way on
+   * 2026-09-18: "no hace nada, solo muestra".)
+   *
+   * So the panel remembers the previous N and says, in words, what just failed to happen --
+   * beside what did. One number stands still while the other climbs, and the reader sees the
+   * theorem instead of inferring a bug. */
+  prevN: null,
 };
 
 const CBC_MAX_N = 12;
@@ -186,6 +198,7 @@ const CBC_SECTION = {
       b.onclick = () => {
         const n = CBC_S.N + +b.dataset.n;
         if (n < 2 || n > CBC_MAX_N) return;
+        CBC_S.prevN = CBC_S.N;
         CBC_S.N = n;
         if (n % 2) CBC_S.eps = [+1, +1];
         ctx.refresh();
@@ -262,6 +275,24 @@ const CBC_SECTION = {
 
   _count(ctx) {
     const c = cbcCount(CBC_S.N);
+    /* WHAT JUST FAILED TO HAPPEN, said out loud.  Only after a real move of N: on first render
+     * there is nothing to compare against, and inventing a starting point would be a claim. */
+    let movimiento = "";
+    if (CBC_S.prevN !== null && CBC_S.prevN !== CBC_S.N) {
+      const antes = cbcCount(CBC_S.prevN);
+      const quieto = antes.independent.classes === c.independent.classes;
+      const dOrd = c.ordinary_for_contrast - antes.ordinary_for_contrast;
+      movimiento =
+        `<p style="margin:11px 0 0;padding:8px 10px;border-left:3px solid var(--rust);
+          background:#fbf6f1">
+         <b>N ${CBC_S.prevN} \u2192 ${CBC_S.N}.</b>
+         Conjugate: <b>${antes.independent.classes} \u2192 ${c.independent.classes}</b>` +
+        (quieto ? ` \u2014 <b>unchanged</b>, and that is the result, not a stuck button.`
+                : ` \u2014 it moved, which only the parity of N can do.`) +
+        ` &nbsp;Ordinary: <b>${antes.ordinary_for_contrast} \u2192 ${c.ordinary_for_contrast}</b>` +
+        (dOrd ? ` (${dOrd > 0 ? "+" : ""}${dOrd}).` : `.`) +
+        `</p>`;
+    }
     document.getElementById("cbcCount").innerHTML =
       `<table style="width:100%;border-collapse:collapse">
        <tr><th style="text-align:left;padding:4px 8px 4px 0">hypothesis</th>
@@ -276,16 +307,18 @@ const CBC_SECTION = {
            <span class="note">H = P₁P₀* moves by unitary similarity</span></td>
            <td style="padding:6px 8px">(ε₀, ε₁) <b>and the spectrum of H</b></td>
            <td style="padding:6px 0 6px 8px;text-align:right;font-weight:650">∞</td></tr>
-       <tr><td style="padding:6px 8px 6px 0;border-top:1px solid var(--rule)">
-           <span class="note">the <b>ordinary</b> case at the same N, for contrast</span></td>
-           <td style="padding:6px 8px;border-top:1px solid var(--rule)"><span class="note">
+       <tr><td style="padding:6px 8px 6px 0;border-top:1px solid var(--line)">
+           <b>the ordinary case</b> at the same N<br>
+           <span class="note">chiral orbifolding, for contrast</span></td>
+           <td style="padding:6px 8px;border-top:1px solid var(--line)"><span class="note">
            pair of eigenvalue multiplicities</span></td>
-           <td style="padding:6px 0 6px 8px;border-top:1px solid var(--rule);text-align:right">
-           ${c.ordinary_for_contrast}</td></tr>
-       </table>
+           <td style="padding:6px 0 6px 8px;border-top:1px solid var(--line);text-align:right;
+           font-weight:650">${c.ordinary_for_contrast}</td></tr>
+       </table>${movimiento}
        <p class="note" style="margin:11px 0 0">The conjugate count is <b>flat in N</b> — 4 for N
-       even and 1 for N odd, forever — while the ordinary one grows as (N+1)². At N = 8 that is
-       <b>4 against 81</b>. That is what replacing a similarity by a <b>congruence</b> costs.</p>`;
+       even and 1 for N odd, forever — while the ordinary one grows as (N+1)². At the N on
+       screen that is <b>${c.independent.classes} against ${c.ordinary_for_contrast}</b>. That is
+       what replacing a similarity by a <b>congruence</b> costs.</p>`;
   },
 
   /* ---------------------------------------------------------------- the measurement that moves it */

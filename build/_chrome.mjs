@@ -46,8 +46,8 @@ function playwrightChromiums() {
 }
 
 const SISTEMA = [
-  "C:/Program Files/Google/Chrome/Application/chrome.exe",
-  "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe",
+  ...[process.env.ProgramFiles, process.env["ProgramFiles(x86)"]].filter(Boolean)
+    .map(root => join(root, "Google", "Chrome", "Application", "chrome.exe")),
   "/usr/bin/chromium", "/usr/bin/chromium-browser", "/usr/bin/google-chrome",
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
   "/Applications/Chromium.app/Contents/MacOS/Chromium",

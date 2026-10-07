@@ -1,0 +1,105 @@
+/* Exercise the integrated model through real controls and downloads, offline. */
+import {spawn} from 'node:child_process';
+import {existsSync,mkdirSync,readFileSync,writeFileSync} from 'node:fs';
+import {resolve} from 'node:path';
+import {pathToFileURL,fileURLToPath} from 'node:url';
+import {findChrome} from './_chrome.mjs';
+import {createHash} from 'node:crypto';
+const root=resolve(fileURLToPath(new URL('..',import.meta.url))),out=process.env.ND_TEST_OUTPUT?resolve(process.env.ND_TEST_OUTPUT):resolve(root,'.tmp/neutrino-decay-browser');
+mkdirSync(out,{recursive:true});
+const app=resolve(root,'app/index.html'),url=pathToFileURL(app).href;
+const executable=findChrome();
+const port=9492,profile=resolve(root,'.tmp',`neutrino-decay-${Date.now()}`);
+mkdirSync(profile,{recursive:true});
+const child=spawn(executable,['--headless=new',`--remote-debugging-port=${port}`,`--user-data-dir=${profile}`,'--no-first-run','--no-default-browser-check','--disable-gpu','about:blank'],{stdio:'ignore',windowsHide:true});
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const checks=[],events=[];let ws;
+function check(name,passed){checks.push({name,passed:!!passed});if(!passed)throw Error(name);}
+try {
+  let target;
+  for(let i=0;i<100;i++){try{target=(await(await fetch(`http://127.0.0.1:${port}/json/list`)).json()).find(t=>t.type==='page');if(target)break;}catch{}await sleep(100);}
+  if(!target)throw Error('No isolated browser');
+  ws=new WebSocket(target.webSocketDebuggerUrl);await new Promise((r,j)=>{ws.onopen=r;ws.onerror=j;});
+  let seq=0;const pending=new Map();
+  ws.onmessage=e=>{const m=JSON.parse(e.data);if(m.id){pending.get(m.id)?.(m);pending.delete(m.id);}else events.push(m);};
+  const send=(method,params={})=>new Promise((r,j)=>{const id=++seq,timer=setTimeout(()=>{pending.delete(id);j(Error(`Timeout ${method}`));},20000);
+    pending.set(id,m=>{clearTimeout(timer);m.error?j(Error(JSON.stringify(m.error))):r(m.result);});ws.send(JSON.stringify({id,method,params}));});
+  const ev=async expression=>{const r=await send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw Error(r.exceptionDetails.exception?.description||JSON.stringify(r.exceptionDetails));return r.result?.value;};
+  const ready=async()=>{for(let i=0;i<100;i++){if(await ev('!!document.getElementById("prModel")'))return true;await sleep(100);}return false;};
+  const state=()=>ev(`(()=>{const r=nrModel(NR_S);return {input:{...NR_S},r,summary:document.getElementById('nrSummary').textContent,light:document.getElementById('nrLight').textContent,split:document.getElementById('nrSplit').textContent,hash:location.hash};})()`);
+  const choose=()=>ev(`(()=>{const el=document.getElementById('prModel');el.value='neutrino';el.dispatchEvent(new Event('change',{bubbles:true}));})()`);
+  await send('Runtime.enable');await send('Page.enable');
+  await send('Emulation.setDeviceMetricsOverride',{width:1380,height:1000,deviceScaleFactor:1,mobile:false});
+
+  await send('Page.navigate',{url:url+'#s=predict'});check('offline_app_loaded',await ready());await choose();
+  const snapshot=()=>ev(`(()=>{const ring=nrModel(NR_S),decay=ndModel(ring,ND_S,NR_CMP.flavour);return {ring,decay,summary:document.getElementById('ndSummary').textContent};})()`);
+  const change=(id,value)=>ev(`(()=>{const e=document.getElementById(${JSON.stringify(id)});e.value=${JSON.stringify(value)};e.dispatchEvent(new Event('change',{bubbles:true}));})()`);
+  const original=await snapshot();
+  check('same_29_sections_and_three_model_options',await ev(`SECTIONS.filter(s=>s.ready!==false).length===29&&document.querySelectorAll('#prModel option').length===3`));
+  check('six_rows_and_three_svg_figures',await ev(`document.querySelectorAll('#ndRows tr').length===6&&document.querySelectorAll('#ndCard svg').length===3`));
+  check('default_unknown_full_model_is_visible',await ev(`document.getElementById('ndValidity').textContent.includes('remain uncomputed')&&document.getElementById('ndMissing').textContent.includes('Majoron')`));
+  const ref=JSON.parse(readFileSync(resolve(root,'data/neutrino_decay_reference.json'))).models[0].rows[0];
+  check('built_width_matches_independent_reference',Math.abs(original.decay.selected.widthEV/Number(ref.sumEV)-1)<2e-11);
+  await ev(`document.getElementById('ndEqualExtra').click()`);const extra=await snapshot();
+  check('extra_control_doubles_width_and_halves_lifetime',Math.abs(extra.decay.selected.widthEV/original.decay.selected.widthEV-2)<1e-12&&Math.abs(extra.decay.selected.flight.ctauMM/original.decay.selected.flight.ctauMM-.5)<1e-12);
+  check('summary_updates_without_moving_ring_poles',extra.summary!==original.summary&&extra.ring.pairs[0].splitEV===original.ring.pairs[0].splitEV);
+  check('extra_suppresses_SS_ratio',extra.decay.selected.coherence.ssOverOS<original.decay.selected.coherence.ssOverOS);
+  await ev(`(()=>{const e=document.getElementById('ndExtraLog');e.value=3;e.dispatchEvent(new Event('input',{bubbles:true}));})()`);
+  check('logarithmic_control_has_physical_units',(await snapshot()).decay.settings.extraEV===1000);
+  await change('ndExtra','');check('invalid_extra_retains_last_valid',await ev(`ND_S.extraEV===1000&&document.getElementById('ndError').textContent.includes('Last valid')`));
+  await change('ndExtra',1000);
+  await change('ndLmin',2);check('invalid_flight_window_retains_previous',await ev('ND_S.lminMM===0&&ND_S.lmaxMM===1'));
+  await change('ndBoost',10);const boosted=await snapshot();
+  check('boost_changes_flight_not_proper_lifetime',Math.abs(boosted.decay.selected.flight.meanFlightMM/boosted.decay.selected.flight.ctauMM-10)<1e-12);
+  await change('ndLmax',boosted.decay.selected.flight.meanFlightMM);
+  check('one_mean_length_probability',(await snapshot()).decay.selected.flight.windowProbability>0.6321&&(await snapshot()).decay.selected.flight.windowProbability<0.6322);
+  await ev(`document.querySelector('#ndFractionsPlot [data-nd-pair="3"]').dispatchEvent(new MouseEvent('click',{bubbles:true}))`);
+  check('channel_bar_selects_pair',await ev(`ND_S.pair===3&&document.getElementById('ndSummary').textContent.startsWith('Pair 3:')`));
+  await ev(`document.getElementById('ndFractionsPlot').dispatchEvent(new KeyboardEvent('keydown',{key:'ArrowRight',bubbles:true}))`);
+  check('channel_keyboard_selects_pair',await ev('ND_S.pair===4'));
+  await ev(`document.getElementById('ndCoherencePlot').dispatchEvent(new KeyboardEvent('keydown',{key:'End',bubbles:true}))`);
+  check('coherence_keyboard_moves_shared_muB',await ev(`NR_S.muBkeV===5000&&Number(document.getElementById('nrn_muBkeV').value)===5000`));
+  await ev(`(()=>{const e=document.getElementById('ndCoherencePlot'),b=e.getBoundingClientRect();e.dispatchEvent(new MouseEvent('click',{clientX:b.left+b.width*(62+514*.4)/600,clientY:b.top+100,bubbles:true}));})()`);
+  check('coherence_click_moves_shared_muB',Math.abs((await snapshot()).ring.input.muBkeV-2000)<15);
+  await change('ndPair',2);await change('nrFlavour','tau');
+  const tau=await snapshot();await change('nrKind','majorana');const majorana=await snapshot();
+  check('flavour_reused_from_CMS_selector',tau.decay.flavour==='tau');
+  check('CMS_reference_choice_does_not_double_width',tau.decay.selected.widthEV===majorana.decay.selected.widthEV);
+  const saved=await snapshot();await ev(`document.getElementById('btnLink').click()`);const permalink=await ev('location.href');
+  await send('Page.navigate',{url:permalink});check('permalink_reloads',await ready());const restored=await snapshot();
+  check('all_decay_inputs_round_trip',JSON.stringify(restored.decay.settings)===JSON.stringify(saved.decay.settings));
+  check('permalink_restores_results_and_flavour',restored.summary===saved.summary&&restored.decay.flavour==='tau');
+  await ev(`(()=>{window.__ndDownloads=[];const real=URL.createObjectURL;URL.createObjectURL=function(b){b.text().then(text=>window.__ndDownloads.push({type:b.type,text}));return real.call(this,b);};const realClick=HTMLAnchorElement.prototype.click;HTMLAnchorElement.prototype.click=function(){if(!this.download)realClick.call(this);};for(const id of ['btnCard','btnTex','ndExportFractions','ndExportCoherence','ndExportFlight'])document.getElementById(id).click();})()`);
+  await sleep(500);const downloads=await ev('window.__ndDownloads');
+  const card=JSON.parse(downloads.find(d=>d.type==='application/json').text),tex=downloads.find(d=>d.type==='text/x-tex');
+  check('JSON_carries_scenario_and_unknown_total',card.input.model.decay_scenario.pair===2&&card.results.decay_scenario.value.settings.extraEV===1000&&card.results.full_model_width.status==='unknown'&&card.results.model_exclusion.status==='unknown');
+  check('LaTeX_preserves_decay_data',tex.text.includes('decay')&&!tex.text.includes('[object Object]'));
+  const svgs=downloads.filter(d=>d.type==='image/svg+xml');check('three_actual_SVG_downloads',svgs.length===3);
+  for(let i=0;i<svgs.length;i++){writeFileSync(resolve(out,`figure_${i}.svg`),svgs[i].text);}
+  check('SVG_metadata_has_inputs_and_units',svgs.every(d=>d.text.includes('<metadata>')&&d.text.includes('extraEV')&&d.text.includes('flight')&&!d.text.includes('NaN')));
+  writeFileSync(resolve(out,'exports_checked.json'),JSON.stringify(downloads,null,2)+'\n');
+  for(const [name,width,height,mobile] of [['desktop',1380,1000,false],['mobile',390,844,true]]){
+    await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile});await sleep(150);
+    check(name+'_no_horizontal_page_overflow',await ev('document.documentElement.scrollWidth<=window.innerWidth+2'));
+    check(name+'_three_finite_figures',await ev(`Array.from(document.querySelectorAll('#ndCard svg')).every(e=>e.getBoundingClientRect().width>200&&!/NaN|Infinity/.test(e.outerHTML))`));
+    await ev(`document.getElementById('ndCard').scrollIntoView()`);
+    const rect=await ev(`(()=>{const b=document.getElementById('ndCard').getBoundingClientRect();return {x:b.left+scrollX,y:b.top+scrollY,width:b.width,height:b.height,scale:1};})()`);
+    const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:true,clip:rect});writeFileSync(resolve(out,`decays_${name}.png`),Buffer.from(shot.data,'base64'));
+  }
+  await ev(`document.getElementById('ndReset').click()`);check('reset_decay_keeps_ring_inputs',(await snapshot()).ring.input.muBkeV===restored.ring.input.muBkeV);
+  await ev(`document.getElementById('nrCalibrate').click()`);await change('nrn_mDGeV',0);
+  check('zero_weak_width_is_undefined_not_stable',await ev(`document.getElementById('ndLifetime').textContent==='undefined'&&document.getElementById('ndSummary').textContent.includes('does not establish')`));
+  check('zero_width_figures_have_no_nonfinite_coordinates',await ev(`!Array.from(document.querySelectorAll('#ndCard svg')).some(e=>/NaN|Infinity/.test(e.outerHTML))`));
+  await change('ndExtra',1);check('chosen_extra_can_survive_zero_weak_mixing',(await snapshot()).decay.selected.widthEV===1);
+  await change('ndExtra','1e-320');check('extreme_positive_width_has_no_nonfinite_plot',await ev(`document.getElementById('ndSummary').textContent.includes('outside numerical range')&&!Array.from(document.querySelectorAll('#ndCard svg')).some(e=>/NaN|Infinity/.test(e.outerHTML))`));
+  await ev(`document.getElementById('nrReset').click()`);await ev(`document.getElementById('ndReset').click()`);
+  await change('nrn_fGeV',500);await change('nrn_t',1.2);await change('nrn_q',.4);await change('nrn_r',.5);
+  check('below_W_threshold_scope_visible',await ev(`document.getElementById('ndValidity').textContent.includes('off-shell')`));
+  await change('prModel','higgsrate');check('other_model_retained',await ev(`PRED_SECTION.texExport().card.input.model.group==='ghu-top-kk-reference'`));
+  await change('prModel','neutrino');check('return_preserves_decay_selection',await ev('ND_S.extraEV===0'));
+  await send('Page.navigate',{url:url+'#s=predict&predict.s=v:1,nd_pair:1.5,nd_extraEV:-1,nd_boost:0,nd_lminMM:2,nd_lmaxMM:1'});check('malformed_link_loads',await ready());
+  check('invalid_decay_link_resets_safely',await ev('JSON.stringify(ND_S)===JSON.stringify(ndDefaults())'));
+  check('no_browser_exceptions',events.every(e=>e.method!=='Runtime.exceptionThrown'));
+  writeFileSync(resolve(out,'browser_checks.json'),JSON.stringify({date:new Date().toISOString(),app_sha256:createHash('sha256').update(readFileSync(app)).digest('hex'),checks,original,extra,card},null,2)+'\n');
+  console.log(JSON.stringify({checks:checks.length,passed:true},null,2));
+} finally {ws?.close();child.kill();}

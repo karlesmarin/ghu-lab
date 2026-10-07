@@ -48,7 +48,7 @@ const CENSUS_SECTION = {
     why it is the strongest falsification the enumerator has: two algorithms that share nothing,
     agreeing on <b>69 022 464</b> contents.</div>
     <div style="display:flex;gap:8px;margin-top:12px;align-items:center;flex-wrap:wrap">
-      <button id="cnGo">▶ build the table</button>
+      <button id="cnGo">↻ rebuild the table and graph</button>
       <label class="note"><input type="checkbox" id="cnWide"> reach A₄ = 880, where the
         enumerator cannot go (costs memory, not time)</label>
       <span class="note" id="cnBusy"></span>
@@ -58,7 +58,7 @@ const CENSUS_SECTION = {
   <div class="grid two">
     <div>
       <div class="card">
-        <h2>The four rungs the paper enumerates${helpMark("rung")}</h2>
+        <h2>Rung counts and archived comparisons${helpMark("rung")}</h2>
         <div style="overflow-x:auto"><table><thead><tr><th>8D</th><th class="num">legal A₄</th>
           <th class="num">A₄ ceiling</th><th class="num">counted here</th>
           <th class="num">built by the enumerator</th><th></th></tr></thead>
@@ -68,13 +68,13 @@ const CENSUS_SECTION = {
 
       <div class="card" style="margin-top:18px">
         <h2>The counting function along a rung${helpMark("vector-partition-function")}</h2>
-        <canvas id="cnCurve" width="720" height="300"></canvas>
+        <canvas id="cnCurve" width="720" height="300" role="img" aria-label="Number of contents along each rung; logarithmic count versus A4"></canvas>
         <div class="legend" id="cnLegend"></div>
         <div class="note" style="margin-top:9px" id="cnCurveNote">—</div>
       </div>
 
       <div class="card" style="margin-top:18px">
-        <h2>Why the four curves lie on top of one another</h2>
+        <h2>How the counts on different rungs are related</h2>
         <div class="verdict stable" id="cnRec"><b>—</b><span>—</span></div>
         <div class="note" style="margin-top:10px" id="cnRecNote">—</div>
       </div>
@@ -130,7 +130,10 @@ const CENSUS_SECTION = {
   },
 
   _build(ctx) {
+    if (this._building) return;
+    this._building = true;
     const $ = (id) => document.getElementById(id);
+    $("cnGo").disabled = true;
     $("cnBusy").textContent = "summing the table…";
     ctx.later(() => {
       CEN_L = inverseLattice(ctx.DATA, gaugeSeed(ctx.model(), ctx.DATA).gauge);
@@ -139,16 +142,20 @@ const CENSUS_SECTION = {
       CEN_S.fibre = null;
       const busy = $("cnBusy");
       if (busy) busy.textContent = "";
+      this._building = false;
+      $("cnGo").disabled = false;
       ctx.refresh();
     }, 20);
   },
+
+  dispose() { this._building = false; },
 
   render(ctx, r) {
     const $ = (id) => document.getElementById(id);
     const seed = ctx.seed === "candidate" ? "candidate" : "published";
     if (CEN_SEED !== seed) { CEN_SEED = seed; CEN_C = null; CEN_S.fibre = null; }
     $("cnWide").checked = CEN_S.wide;
-    if (!CEN_C) { this._empty(ctx, seed); return; }
+    if (!CEN_C) { this._empty(ctx, seed); this._build(ctx); return; }
     this._totals(ctx, seed);
     this._curve(ctx);
     this._recurrence(ctx);
@@ -162,11 +169,18 @@ const CENSUS_SECTION = {
   _COL: { 1: "--blue", 3: "--rust", 5: "--green", 7: "--amber", 2: "--blue", 4: "--rust" },
 
   _empty(ctx, seed) {
+    this._lay = null;
+    const canvas = document.getElementById("cnCurve"), g = canvas.getContext("2d");
+    g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, canvas.width, canvas.height);
+    g.fillStyle = "#334750"; g.font = "18px sans-serif"; g.textAlign = "center";
+    g.fillText("Calculating rung counts…", canvas.width / 2, canvas.height / 2);
+    document.getElementById("cnLegend").textContent = "";
+    document.getElementById("cnCurveNote").textContent = "The table and graph are calculated automatically. Changing the seed or extending the range rebuilds them.";
     const T = ctx.DATA.census.totals;
     document.getElementById("cnTotals").innerHTML =
-      `<tr><td colspan="6" class="note">Not built yet. The archived run says what to expect: ` +
+      `<tr><td colspan="6" class="note">Calculating. The published-seed archived run gives: ` +
       Object.entries(T).map(([k, v]) => `<b>${v.enumerated.toLocaleString("en")}</b> at 8D = ${k}`)
-        .join(", ") + `. The button above recomputes all of it here.</td></tr>`;
+        .join(", ") + `. Counts for the selected seed are being computed here.</td></tr>`;
     /* AND THE TWO VERDICT BOXES BELOW, which this branch used to leave holding the dashes they
      * were built with.  `render` returns here whenever the lattice has not been built — which is
      * every arrival, before the button is pressed — so the fix inside `_recurrence` was correct
@@ -175,7 +189,7 @@ const CENSUS_SECTION = {
     document.getElementById("cnRec").className = "verdict";
     document.getElementById("cnRec").innerHTML =
       `<b>Not checked yet</b><span>The recurrence is verified on the whole grid rather than ` +
-      `asserted, and that is a sweep. Press the button above and this box will say how many grid ` +
+      `asserted, and that is a sweep. Once the calculation finishes this box will say how many grid ` +
       `points were tested and how many failed. <span class="chip bad">not run</span></span>`;
     document.getElementById("cnFibre").className = "verdict";
     document.getElementById("cnFibre").innerHTML =
@@ -273,7 +287,7 @@ const CENSUS_SECTION = {
     });
 
     /* the probe */
-    const p = Math.max(loA, Math.min(hiA, CEN_S.probe));
+    const p = Math.max(C.baseA4, Math.min(hiA, C.baseA4 + Math.round(CEN_S.probe - C.baseA4)));
     g.strokeStyle = this._css("--ink"); g.lineWidth = 1;
     g.setLineDash([3, 3]);
     g.beginPath(); g.moveTo(X(p), y0); g.lineTo(X(p), y1); g.stroke();
@@ -287,9 +301,8 @@ const CENSUS_SECTION = {
     }).join(" · ");
     document.getElementById("cnCurveNote").innerHTML =
       `Click the plot to move the probe. At <b>A₄ = ${p}</b> — ${at}. ` +
-      `The curves are indistinguishable, and the next panel says why that is a theorem rather than ` +
-      `an accident of the drawing. Log scale, because a single rung runs from one content to a ` +
-      `hundred thousand.`;
+      `The next panel checks the exact recurrence between rungs. The vertical axis uses a logarithmic scale. ` +
+      (seed === "candidate" ? `This seed uses half-integral A₄ and even 8D. Its counts have no archived census comparison; this is not a true-vacuum or phenomenological viability test.` : `The archived comparisons above use the published seed.`);
   },
 
   /* ---------------------------------------------------------------- the recurrence */
@@ -320,6 +333,10 @@ const CENSUS_SECTION = {
       `n_free → n_free + 1 is a bijection onto the contents with n_free ≥ 1. The difference is the ` +
       `count with n_free = 0, which is the table cell P. It is an identity, not an approximation. ` +
       `<span class="chip thm">theorem</span></span>`;
+    if (CEN_SEED === "candidate") {
+      document.getElementById("cnRecNote").textContent = "The recurrence has been checked on this seed's own half-integral A₄ grid. The published odd-rung ratios and totals are not applied to it.";
+      return;
+    }
     const rows = [74, 140, 212].map((t) => {
       const a = censusAt(C, t, 1), b = censusAt(C, t, 7);
       return `A₄ = ${t}: N(·,7)/N(·,1) = <b>${(b / a).toFixed(6)}</b>`;
@@ -335,6 +352,13 @@ const CENSUS_SECTION = {
   /* ---------------------------------------------------------------- the fibre */
 
   _fibre(ctx) {
+    if (CEN_SEED === "candidate") {
+      document.getElementById("cnFibre").className = "verdict";
+      document.getElementById("cnFibre").innerHTML = "<b>Published reference belongs to the other seed</b><span>The archived 81-content fibre has odd 8D and integral A₄. A corresponding measured-mass fibre has not been established for this candidate seed.</span>";
+      document.getElementById("cnClasses").innerHTML = "";
+      document.getElementById("cnFibreNote").textContent = "The candidate counting curves are computed above; no published-seed fibre or mass-window verification is transferred.";
+      return;
+    }
     const C0 = ctx.DATA.census.fibre;
     if (!C0) return;
     const conv = ctx.model().conventions;
@@ -410,6 +434,10 @@ const CENSUS_SECTION = {
   /* ---------------------------------------------------------------- the reach */
 
   _budget(ctx) {
+    if (CEN_SEED === "candidate") {
+      document.getElementById("cnBudget").textContent = `The candidate count table reaches A₄ = ${CEN_C.baseA4 + CEN_C.tMax}. Counts are computed on its own lattice; the published odd-rung budget benchmarks do not apply. Extend the range with the checkbox above.`;
+      return;
+    }
     const C = CEN_C, B = ctx.DATA.census.budget;
     const rows = B.map((b) => {
       const n = censusAt(C, b.A4, b.k8D);

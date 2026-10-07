@@ -106,7 +106,8 @@ def report(path, violations, waivers, out=sys.stdout):
         for w in waivers:
             print(f"    line {w['line']:5d}  {w['rule']:<15} {w['reason']}", file=out)
     if not violations:
-        print(f"  EDITION GATE PASSED — {name} reaches nothing outside itself.", file=out)
+        message='has only the declared exceptions above' if waivers else 'reaches nothing outside itself'
+        print(f"  EDITION GATE PASSED — {name} {message}.", file=out)
         return 0
     print(f"  EDITION GATE FAILED — {name} would reach outside itself:", file=out)
     for v in violations:

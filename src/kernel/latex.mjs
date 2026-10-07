@@ -245,7 +245,8 @@ function valueTex(v, { math = false } = {}) {
   if (typeof v.value === "number")
     return M(String(v.value)) + (v.units ? `~${tex(v.units)}` : "");
   if (typeof v.value === "boolean") return v.value ? "yes" : "no";
-  return (math ? texMath : tex)(String(v.value)) + (v.units ? `~${tex(v.units)}` : "");
+  const text = typeof v.value === "object" ? JSON.stringify(v.value) : String(v.value);
+  return (math ? texMath : tex)(text) + (v.units ? `~${tex(v.units)}` : "");
 }
 
 /* `caption` is passed through VERBATIM, and that is deliberate: a caption is written by the author

@@ -16,3 +16,6 @@ build/sources.local
 # ran on THIS checkout. A clone must not inherit a certification it never earned, so it stays out
 # of git and `_test_browsergate.py` handles its absence as "stale", which is the honest answer.
 build/.browser_gate.json
+.tmp/
+.local/
+tools/thermal_bounce

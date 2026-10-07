@@ -1,8 +1,8 @@
 # 🔧 GHU Lab — the source tree of the gauge–Higgs unification instrument
 
 This repository builds **[karlesmarin.github.io/ghu-explorer](https://karlesmarin.github.io/ghu-explorer/)**:
-one self-contained HTML page holding **28 interactive panels** — including tools for models nobody has
-written yet — over three published models:
+one self-contained HTML page holding **29 interactive panels** — including tools for models nobody has
+written yet — over three original model families, extended with literature benchmarks:
 1️⃣ SU(7) on S¹/Z₂×S¹/Z₂ (Komori–Maru), 2️⃣ SU(4) on T²/Z₂ (AHMN), and 3️⃣ Haba–Yamashita's 5D SU(N) on
 S¹/Z₂ — with **every output carrying what is known about it**: `theorem`, `verified`, `measured`
 or `unknown`, as fields in the exported result card rather than as decoration.
@@ -17,9 +17,15 @@ of the data, the Kaluza–Klein towers in GeV against the CMS dijet bound, and t
 Wilson line gives the fermions. Every measured number carries its source and the date it was
 read; no event is ever simulated.
 
+## Research experiments added in October 2026
+
+Existing sections now include Maru–Nago SU(6), warped differential running, three-flavour neutrino reconstruction, computed Majoron widths, RS anomaly flow, finite-temperature GHU with PhaseTracer, and complete scalar scenarios evaluated by HiggsTools. Each experiment presents its question, key indicators, figures and interpretation together. Save a reference point to compare changes, or export a short research summary and the complete JSON.
+
+[Where to start, what each result means and how to run the optional scientific engine](docs/research-extensions.md).
+
 ## 🔬 The instrument
 
-**Twenty-eight runnable panels**, listed in the same order as the app menu. Each name
+**Twenty-nine runnable panels**, listed in the same order as the app menu. Each name
 opens its panel in the public app. This catalog also appears in the
 [publication repository](https://github.com/karlesmarin/ghu-explorer#-the-instrument).
 
@@ -53,15 +59,16 @@ opens its panel in the public app. This catalog also appears in the
 | 26 | **[🌡️ Brane kinetic terms](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=blkt)** · Haba–Yamashita · AHMN | the tower when the Kaluza–Klein masses stop being n/R: the transcendental mass equation solved in the browser, checked against mpmath at forty digits and against the closed-form limit as the coefficient goes to zero |
 | 27 | **[🌌 Gravity–gauge · 3D](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=gravitygauge)** · gravity and gauge research | **equal paired masses, different responses.** Vary the positive gauge kinetic family through η and move the source through t: two interactive 3D plots and the table update in place. The tensor-NN/vector-DD massive tower stays fixed while source residues and the Wilson-line kinetic scale change at fixed g₄; the vector-NN tower is an unprotected control. Rotate the plots or select a point on the response surface, switch between spectral weight and Z, and save the current model with the card, LaTeX or permalink. Help explains the dimensionless reference masses and the open questions: this panel does not compute a Higgs mass, radion stability or a collider rate |
 | 28 | **[📚 The literature](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=litcensus)** · curation | the reading list behind the series, measured for what each paper publishes and curated for what a person has actually read — with the shortlist of what is worth reading next, and an explicit statement of what a keyword sweep cannot see |
+| 29 | **[Conjugate boundary conditions](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=cbclass)** | Compares ordinary similarity with conjugate congruence, including the parity-dependent class count. |
 
-The table follows the app menu and counts every runnable panel once. **Conjugate boundary conditions** is a planned, disabled menu entry and is excluded from the 28 runnable panels.
+The table includes all 29 runnable sections. New research experiments are integrated inside those sections.
 
 ## 🏗️ Building and checking the app
 
 The deployed page is a build artifact. This is where it comes from, and why it says what it says.
 
 ```
-🏗️  python build/build_app.py    # inline → collision guard → edition gate → 51 harnesses → app/index.html
+🏗️  python build/build_app.py    # inline → collision guard → edition gate → 62 harnesses → app/index.html
 🌐  python build/build_site.py --legacy ../ghu-explorer/tools-2026-07     # → site/, then gates itself
 📸  node   build/shoot.mjs       # headless screenshots of every section + console + which model
 🖱️  node   build/drive.mjs       # USES the panels: a real mouse through the DevTools Input domain
@@ -82,12 +89,7 @@ The deployed page is a build artifact. This is where it comes from, and why it s
 
 ## 🧪 What is checked, and against what
 
-Latest verification of the published app, **18 September 2026**: **51 source harnesses passed**,
-with **2,298 individually counted checks** in their summaries, plus **210 general browser
-interaction checks**, **30 site checks**, and **20 dedicated gravity–gauge browser checks**.
-The browser gates also found no clipped boxes, no growing listener counts or console errors,
-**464 clean renders** across extreme input states, and no abandoned work in the **nine panels**
-covered by the lifecycle test. The 20 dedicated checks also passed against the live public app.
+Verified for the October 2026 release: **3,738 source checks across 62 harnesses**, plus all nine browser gates. The dedicated extensions gate covers controls, comparison snapshots, permalinks, exports, stale external results, mobile layout and both KK-comb seeds. Real PhaseTracer/HiggsTools HTTP calculations and eight exact Sage checks are recorded separately.
 
 **How the total is counted.** The builder prints the number quoted above, and it is now the
 whole of it. Until 18 September 2026 its tally recognised `ok` and `checks pass` but not `passed`,
@@ -95,11 +97,10 @@ so it silently dropped everything two harnesses do — `_test_eta.mjs` (**75**) 
 `_test_selection.mjs` (**53**), 128 checks that ran, passed and were never counted. That was
 documented here rather than fixed, which is the wrong half of the pair: a tally that measures its
 own wording is not a tally. Three structural harnesses report success without an assertion count;
-they are among the 51 but add no invented number to the sum. Browser checks, site checks and
+they are among the registered harnesses but add no invented number to the sum. Browser checks, site checks and
 render counts are reported separately.
 
-The table explains the main independent references and failure cases. The complete list of all
-51 source harnesses and their recorded counts follows it.
+The table explains the main independent references and failure cases. The older recorded list below is retained as a historical inventory; `build/build_app.py` is the current executable registry, including the research-extension harnesses.
 
 | harness | what it puts at risk |
 |---|---|
@@ -140,9 +141,9 @@ this is not a blanket claim that every assertion in every harness has been mutat
 `HANDOFF.md` records the defects and corrections behind the checks.
 
 <details>
-<summary>📋 Complete source-build inventory — 51 passing harnesses</summary>
+<summary>📋 Historical source-build inventory — 18 September 2026, 51 harnesses</summary>
 
-Counts below come from the same successful build. “No count emitted” means the harness passed
+Counts below come from the historical September build. “No count emitted” means the harness passed
 without printing an assertion total; it does not mean the harness ran zero checks.
 
 | Harness | Passing checks reported |
@@ -337,3 +338,82 @@ profile. Nothing of the engineering narrative is lost — `HANDOFF.md` carries t
 🆔 [ORCID 0009-0007-5637-9688](https://orcid.org/0009-0007-5637-9688) ·
 🤖 Claude (Anthropic) as AI research assistant; the mathematics and every claim are the author's
 responsibility · ⚖️ Apache 2.0
+
+
+## Neutrino ring inside the Simulator
+
+The existing Simulator has a model selector: the SU(N) builder remains the default, and
+**Neutrino ring · 4D research model** opens live controls for the link and portal strengths,
+the scale and both Majorana terms. Results, two plots and an interpretation update together.
+Calibration can hold a chosen 0.1 eV light mass and 10⁻⁴ active-current deficit fixed while
+the second Majorana term moves the heavy-pair splitting. These are input targets, not predictions.
+
+The calculation is a pure module, `src/modules/neutrino_ring.mjs`; the reusable view lives in
+`src/view/neutrino_panel.js`. It is mounted by the existing Simulator, without adding a rail entry.
+Its model record, approximation, unknown quantities and actual inputs travel in the existing
+JSON/LaTeX exports and permalink. See [the derivation and scope](docs/neutrino-ring.md).
+
+The build runs `_test_neutrino_ring.mjs` against independent 65-digit full-matrix references.
+
+The same panel also compares reference mixing weights with the six official CMS-EXO-22-011
+HEPData tables (190 rows; electrons, muons and taus; Dirac/Majorana). Observed and expected
+limits, expected bands, dataset provenance and the conditions for interpreting the comparison
+travel with the results. This conditional overlay does not claim a model exclusion.
+It adds active weights, their sum rule, induced Majorana entries, scale diagnostics and the
+actual mass matrix. `build/neutrino.mjs` exercises this view in the existing browser tier.
+
+Local validation on **6 October 2026**: **2,647 counted checks across 52 source harnesses**
+and all six registered browser gates passed. The ring contributes 346 source checks and
+35 dedicated browser checks. This local validation does not update the published snapshot
+described above.
+
+
+## Dynamic robustness and Higgs production
+
+In **Hierarchy**, the robustness card follows the selected bulk content and gauge seed.
+Vary the central g4, its span and the winding cutoff to inspect the Higgs mass and
+compactification scale together. Numerical convergence, model variation and the
+registered W-mass uncertainty are displayed separately, with a live summary.
+
+In **Simulator → Higgs production · top KK reference**, vary MKK, the top mass and
+KK truncation. The panel shows the production ratio, a conditional scale interval,
+two graphs, convergence bounds and an approximation diagnostic. The published window
+is a historical Carson–Okada benchmark; custom windows are explicitly user scenarios.
+
+Both views use the existing engines, model cards and permalinks. There is no new rail
+entry. Five independent 70-digit spectral sums and a dedicated browser gate cover the
+new calculations and controls. See [scope and derivation](docs/diagnostics.md).
+
+Final diagnostic-extension validation (6 October 2026): **2,711 counted checks across 53 source harnesses**, including 64 new checks. All seven registered browser gates passed; the diagnostic gate adds 43 browser checks. That local checkpoint retained 29 live sections; these diagnostics are included in this October research release.
+
+Additional SageMath verification: **39 checks** with SageMath 10.9 in the existing local Docker image, without network access. Exact symbolic algebra and rational series are supplemented by 256-bit Arb interval checks at the five reference points. These research checks are separate from the source-build tally.
+
+
+### Robustness figures
+
+The Hierarchy robustness card includes three dynamic figures comparing both masses:
+model variation of g4, the measured W-mass response and winding convergence. Inspect
+points with a pointer, touch or keyboard to read absolute values; export each plot
+as a standalone SVG carrying its inputs and values. The plots use the existing scan.
+
+Usability preference: make results easier to understand with meaningful visual data,
+controls and concise explanations placed together, while reusing existing modules.
+
+Figure-extension validation (6 October 2026): the 58-check diagnostic browser gate passed, including 15 new figure checks. The full build and all seven browser gates passed. The physics engines are unchanged.
+
+### Neutrino decay diagnostics
+
+Inside **Simulator → Neutrino ring**, the decay card combines W/Z/h partial widths,
+an explicit extra-width scenario, proper lifetime, boosted flight distance and the
+ideal coherent-pair SS/OS ratio. Select any of the six pairs, inspect three dynamic
+SVG figures, and export the same inputs and results. The CMS selector supplies the
+charged-lepton flavour; its Dirac/Majorana reference choice does not rescale lifetimes.
+
+The complete ring width remains unknown: Majoron and other new channels, heavy
+cascades, off-shell decays and scalar mixing require further work. The extra width
+is a user hypothesis. Neither the lifetime scenario nor the geometric probability
+establishes detector acceptance or a CMS exclusion. See [decay conventions and
+sources](docs/neutrino-decays.md). The new numerical harness contains 213 checks;
+20 independent SageMath checks audit spin traces, normalization and units.
+
+Final decay-extension validation (6 October 2026): **2924 checks across 54 harnesses**, all eight registered browser gates passed, including 41 decay-browser checks. The complete local build is offline and retains 29 live sections. That checkpoint was local; the decay extension is included in this October research release.

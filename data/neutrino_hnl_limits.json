@@ -1,0 +1,1970 @@
+{
+  "analysis": "CMS-EXO-22-011",
+  "publication": "https://cms-results.web.cern.ch/cms-results/public-results/publications/EXO-22-011/",
+  "arxiv": "2403.00100",
+  "record": "https://www.hepdata.net/record/ins2763679",
+  "retrieved": "2026-10-06",
+  "sqrt_s_TeV": 13,
+  "luminosity_fb": 138,
+  "confidence_level": 0.95,
+  "curves": [
+    {
+      "kind": "dirac",
+      "flavour": "electron",
+      "doi": "10.17182/hepdata.146676.v2/t4",
+      "name": "Limits on Dirac HNL with electron coupling",
+      "source_sha256": "a1768bd4f39aa07df14ac88cec67fe7d8527fe5518924664e15c618a568b3cac",
+      "qualifiers": {
+        "LUMINOSITY": [
+          {
+            "colspan": 6,
+            "group": 0,
+            "type": "LUMINOSITY",
+            "value": "138 fb$^{-1}$"
+          }
+        ],
+        "Limits": [
+          {
+            "colspan": 6,
+            "group": 0,
+            "type": "Limits",
+            "value": "Exclusion limit on $|V_{eN}|^2$"
+          }
+        ],
+        "SQRT(S)": [
+          {
+            "colspan": 6,
+            "group": 0,
+            "type": "SQRT(S)",
+            "value": "13 TeV"
+          }
+        ]
+      },
+      "license": {
+        "description": "CC0 enables reusers to distribute, remix, adapt, and build upon the material in any medium or format, with no conditions.",
+        "name": "CC0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "rows": [
+        {
+          "massGeV": 10.0,
+          "observed": 5.7415e-05,
+          "expected": 4.0495e-05,
+          "expected68lo": 3.2172e-05,
+          "expected68hi": 4.6609e-05,
+          "expected95lo": 2.4761e-05,
+          "expected95hi": 5.2531e-05
+        },
+        {
+          "massGeV": 12.5,
+          "observed": 3.4322e-05,
+          "expected": 2.2239e-05,
+          "expected68lo": 1.9311e-05,
+          "expected68hi": 2.4391e-05,
+          "expected95lo": 1.581e-05,
+          "expected95hi": 3.203e-05
+        },
+        {
+          "massGeV": 15.0,
+          "observed": 2.4092e-05,
+          "expected": 1.6048e-05,
+          "expected68lo": 9.9766e-06,
+          "expected68hi": 2.0596e-05,
+          "expected95lo": 9.0911e-06,
+          "expected95hi": 2.351e-05
+        },
+        {
+          "massGeV": 17.5,
+          "observed": 2.2246e-05,
+          "expected": 1.0623e-05,
+          "expected68lo": 8.7505e-06,
+          "expected68hi": 1.7347e-05,
+          "expected95lo": 7.1866e-06,
+          "expected95hi": 2.1693e-05
+        },
+        {
+          "massGeV": 20.0,
+          "observed": 2.2348e-05,
+          "expected": 9.9671e-06,
+          "expected68lo": 8.2672e-06,
+          "expected68hi": 1.7162e-05,
+          "expected95lo": 6.2519e-06,
+          "expected95hi": 2.1917e-05
+        },
+        {
+          "massGeV": 25.0,
+          "observed": 2.2467e-05,
+          "expected": 9.8462e-06,
+          "expected68lo": 7.8421e-06,
+          "expected68hi": 1.6753e-05,
+          "expected95lo": 5.5023e-06,
+          "expected95hi": 2.1635e-05
+        },
+        {
+          "massGeV": 30.0,
+          "observed": 2.3412e-05,
+          "expected": 1.094e-05,
+          "expected68lo": 8.2768e-06,
+          "expected68hi": 1.8059e-05,
+          "expected95lo": 5.9723e-06,
+          "expected95hi": 2.2646e-05
+        },
+        {
+          "massGeV": 30.0,
+          "observed": 2.1386e-05,
+          "expected": 1.0406e-05,
+          "expected68lo": 7.3957e-06,
+          "expected68hi": 1.4762e-05,
+          "expected95lo": 5.5283e-06,
+          "expected95hi": 2.0169e-05
+        },
+        {
+          "massGeV": 40.0,
+          "observed": 1.8877e-05,
+          "expected": 1.2141e-05,
+          "expected68lo": 8.5697e-06,
+          "expected68hi": 1.7367e-05,
+          "expected95lo": 6.3549e-06,
+          "expected95hi": 2.4011e-05
+        },
+        {
+          "massGeV": 40.0,
+          "observed": 1.4696e-05,
+          "expected": 1.6781e-05,
+          "expected68lo": 1.1908e-05,
+          "expected68hi": 2.4072e-05,
+          "expected95lo": 8.7839e-06,
+          "expected95hi": 3.3234e-05
+        },
+        {
+          "massGeV": 50.0,
+          "observed": 1.9231e-05,
+          "expected": 1.9141e-05,
+          "expected68lo": 1.3511e-05,
+          "expected68hi": 2.7304e-05,
+          "expected95lo": 1.0019e-05,
+          "expected95hi": 3.8047e-05
+        },
+        {
+          "massGeV": 60.0,
+          "observed": 3.2845e-05,
+          "expected": 3.6094e-05,
+          "expected68lo": 2.5276e-05,
+          "expected68hi": 5.192e-05,
+          "expected95lo": 1.8893e-05,
+          "expected95hi": 7.2027e-05
+        },
+        {
+          "massGeV": 75.0,
+          "observed": 0.00095518,
+          "expected": 0.001043,
+          "expected68lo": 0.00074009,
+          "expected68hi": 0.0015044,
+          "expected95lo": 0.00054593,
+          "expected95hi": 0.002084
+        },
+        {
+          "massGeV": 85.0,
+          "observed": 0.0014553,
+          "expected": 0.0023672,
+          "expected68lo": 0.0016766,
+          "expected68hi": 0.0033579,
+          "expected95lo": 0.0012483,
+          "expected95hi": 0.004603
+        },
+        {
+          "massGeV": 100.0,
+          "observed": 0.0012746,
+          "expected": 0.0019375,
+          "expected68lo": 0.0013841,
+          "expected68hi": 0.0027484,
+          "expected95lo": 0.0010293,
+          "expected95hi": 0.0037307
+        },
+        {
+          "massGeV": 125.0,
+          "observed": 0.0033508,
+          "expected": 0.0051875,
+          "expected68lo": 0.0037181,
+          "expected68hi": 0.0073173,
+          "expected95lo": 0.0027761,
+          "expected95hi": 0.009861
+        },
+        {
+          "massGeV": 125.0,
+          "observed": 0.0017024,
+          "expected": 0.0041719,
+          "expected68lo": 0.0029802,
+          "expected68hi": 0.0059013,
+          "expected95lo": 0.0022163,
+          "expected95hi": 0.007995
+        },
+        {
+          "massGeV": 150.0,
+          "observed": 0.0023286,
+          "expected": 0.0053438,
+          "expected68lo": 0.0038173,
+          "expected68hi": 0.0075803,
+          "expected95lo": 0.0028389,
+          "expected95hi": 0.010323
+        },
+        {
+          "massGeV": 200.0,
+          "observed": 0.0037992,
+          "expected": 0.0076172,
+          "expected68lo": 0.0054135,
+          "expected68hi": 0.010836,
+          "expected95lo": 0.0040466,
+          "expected95hi": 0.014832
+        },
+        {
+          "massGeV": 250.0,
+          "observed": 0.0078008,
+          "expected": 0.015859,
+          "expected68lo": 0.011233,
+          "expected68hi": 0.022497,
+          "expected95lo": 0.0083633,
+          "expected95hi": 0.030738
+        },
+        {
+          "massGeV": 250.0,
+          "observed": 0.01092,
+          "expected": 0.010352,
+          "expected68lo": 0.0073318,
+          "expected68hi": 0.014725,
+          "expected95lo": 0.0054588,
+          "expected95hi": 0.020157
+        },
+        {
+          "massGeV": 300.0,
+          "observed": 0.016793,
+          "expected": 0.013437,
+          "expected68lo": 0.0094851,
+          "expected68hi": 0.019169,
+          "expected95lo": 0.0070337,
+          "expected95hi": 0.026371
+        },
+        {
+          "massGeV": 350.0,
+          "observed": 0.024861,
+          "expected": 0.018516,
+          "expected68lo": 0.01307,
+          "expected68hi": 0.026486,
+          "expected95lo": 0.0096918,
+          "expected95hi": 0.036503
+        },
+        {
+          "massGeV": 400.0,
+          "observed": 0.03652,
+          "expected": 0.026016,
+          "expected68lo": 0.018364,
+          "expected68hi": 0.037319,
+          "expected95lo": 0.013618,
+          "expected95hi": 0.051521
+        },
+        {
+          "massGeV": 400.0,
+          "observed": 0.029669,
+          "expected": 0.026016,
+          "expected68lo": 0.018176,
+          "expected68hi": 0.037837,
+          "expected95lo": 0.013313,
+          "expected95hi": 0.052992
+        },
+        {
+          "massGeV": 450.0,
+          "observed": 0.040754,
+          "expected": 0.033887,
+          "expected68lo": 0.023593,
+          "expected68hi": 0.04969,
+          "expected95lo": 0.017208,
+          "expected95hi": 0.069907
+        },
+        {
+          "massGeV": 500.0,
+          "observed": 0.054455,
+          "expected": 0.043945,
+          "expected68lo": 0.03032,
+          "expected68hi": 0.06479,
+          "expected95lo": 0.022144,
+          "expected95hi": 0.09195
+        },
+        {
+          "massGeV": 600.0,
+          "observed": 0.082357,
+          "expected": 0.064922,
+          "expected68lo": 0.044634,
+          "expected68hi": 0.096234,
+          "expected95lo": 0.032461,
+          "expected95hi": 0.13694
+        },
+        {
+          "massGeV": 700.0,
+          "observed": 0.13275,
+          "expected": 0.10234,
+          "expected68lo": 0.070361,
+          "expected68hi": 0.15252,
+          "expected95lo": 0.051172,
+          "expected95hi": 0.21885
+        },
+        {
+          "massGeV": 800.0,
+          "observed": 0.20825,
+          "expected": 0.15859,
+          "expected68lo": 0.10865,
+          "expected68hi": 0.23635,
+          "expected95lo": 0.078677,
+          "expected95hi": 0.34009
+        },
+        {
+          "massGeV": 900.0,
+          "observed": 0.30535,
+          "expected": 0.23203,
+          "expected68lo": 0.15896,
+          "expected68hi": 0.34579,
+          "expected95lo": 0.11511,
+          "expected95hi": 0.49617
+        },
+        {
+          "massGeV": 1000.0,
+          "observed": 0.44465,
+          "expected": 0.33516,
+          "expected68lo": 0.22911,
+          "expected68hi": 0.49948,
+          "expected95lo": 0.16758,
+          "expected95hi": 0.72075
+        },
+        {
+          "massGeV": 1200.0,
+          "observed": 0.86508,
+          "expected": 0.64844,
+          "expected68lo": 0.44327,
+          "expected68hi": 0.96377,
+          "expected95lo": 0.32422,
+          "expected95hi": 1.389
+        },
+        {
+          "massGeV": 1500.0,
+          "observed": 2.5392,
+          "expected": 1.8828,
+          "expected68lo": 1.2944,
+          "expected68hi": 2.8059,
+          "expected95lo": 0.94141,
+          "expected95hi": 4.0718
+        }
+      ]
+    },
+    {
+      "kind": "dirac",
+      "flavour": "muon",
+      "doi": "10.17182/hepdata.146676.v2/t5",
+      "name": "Limits on Dirac HNL with muon coupling",
+      "source_sha256": "263d378edefd3bc907c69353daf13c8dcdbda6d596c60a26bf4fd1e8f04d4e0e",
+      "qualifiers": {
+        "LUMINOSITY": [
+          {
+            "colspan": 6,
+            "group": 0,
+            "type": "LUMINOSITY",
+            "value": "138 fb$^{-1}$"
+          }
+        ],
+        "Limits": [
+          {
+            "colspan": 6,
+            "group": 0,
+            "type": "Limits",
+            "value": "Exclusion limit on $|V_{\\mu N}|^2$"
+          }
+        ],
+        "SQRT(S)": [
+          {
+            "colspan": 6,
+            "group": 0,
+            "type": "SQRT(S)",
+            "value": "13 TeV"
+          }
+        ]
+      },
+      "license": {
+        "description": "CC0 enables reusers to distribute, remix, adapt, and build upon the material in any medium or format, with no conditions.",
+        "name": "CC0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "rows": [
+        {
+          "massGeV": 10.0,
+          "observed": 4.1553e-05,
+          "expected": 3.8181e-05,
+          "expected68lo": 2.9032e-05,
+          "expected68hi": 4.4887e-05,
+          "expected95lo": 2.4382e-05,
+          "expected95hi": 4.9138e-05
+        },
+        {
+          "massGeV": 12.5,
+          "observed": 2.3266e-05,
+          "expected": 2.2295e-05,
+          "expected68lo": 1.9448e-05,
+          "expected68hi": 2.4345e-05,
+          "expected95lo": 1.6123e-05,
+          "expected95hi": 3.1204e-05
+        },
+        {
+          "massGeV": 15.0,
+          "observed": 1.735e-05,
+          "expected": 1.6374e-05,
+          "expected68lo": 1.0387e-05,
+          "expected68hi": 2.0779e-05,
+          "expected95lo": 9.1872e-06,
+          "expected95hi": 2.3587e-05
+        },
+        {
+          "massGeV": 17.5,
+          "observed": 1.2402e-05,
+          "expected": 9.9871e-06,
+          "expected68lo": 8.6714e-06,
+          "expected68hi": 1.6755e-05,
+          "expected95lo": 7.0838e-06,
+          "expected95hi": 2.1121e-05
+        },
+        {
+          "massGeV": 20.0,
+          "observed": 1.0466e-05,
+          "expected": 9.4565e-06,
+          "expected68lo": 7.6021e-06,
+          "expected68hi": 1.4859e-05,
+          "expected95lo": 5.3645e-06,
+          "expected95hi": 2.0068e-05
+        },
+        {
+          "massGeV": 25.0,
+          "observed": 1.1645e-05,
+          "expected": 9.4589e-06,
+          "expected68lo": 7.25e-06,
+          "expected68hi": 1.5441e-05,
+          "expected95lo": 4.9198e-06,
+          "expected95hi": 2.0734e-05
+        },
+        {
+          "massGeV": 30.0,
+          "observed": 1.17e-05,
+          "expected": 9.557e-06,
+          "expected68lo": 7.4225e-06,
+          "expected68hi": 1.5633e-05,
+          "expected95lo": 4.9666e-06,
+          "expected95hi": 2.0655e-05
+        },
+        {
+          "massGeV": 30.0,
+          "observed": 1.0528e-05,
+          "expected": 9e-06,
+          "expected68lo": 6.4506e-06,
+          "expected68hi": 1.2659e-05,
+          "expected95lo": 4.8164e-06,
+          "expected95hi": 1.7083e-05
+        },
+        {
+          "massGeV": 40.0,
+          "observed": 1.29e-05,
+          "expected": 1.0656e-05,
+          "expected68lo": 7.6377e-06,
+          "expected68hi": 1.4946e-05,
+          "expected95lo": 5.7028e-06,
+          "expected95hi": 2.0197e-05
+        },
+        {
+          "massGeV": 40.0,
+          "observed": 2.3926e-05,
+          "expected": 1.8563e-05,
+          "expected68lo": 1.3304e-05,
+          "expected68hi": 2.6036e-05,
+          "expected95lo": 9.9338e-06,
+          "expected95hi": 3.5182e-05
+        },
+        {
+          "massGeV": 50.0,
+          "observed": 2.2485e-05,
+          "expected": 1.2703e-05,
+          "expected68lo": 9.0745e-06,
+          "expected68hi": 1.802e-05,
+          "expected95lo": 6.7485e-06,
+          "expected95hi": 2.454e-05
+        },
+        {
+          "massGeV": 60.0,
+          "observed": 3.6119e-05,
+          "expected": 2.0344e-05,
+          "expected68lo": 1.4458e-05,
+          "expected68hi": 2.8696e-05,
+          "expected95lo": 1.0808e-05,
+          "expected95hi": 3.919e-05
+        },
+        {
+          "massGeV": 75.0,
+          "observed": 0.0012635,
+          "expected": 0.00088125,
+          "expected68lo": 0.00063162,
+          "expected68hi": 0.0012395,
+          "expected95lo": 0.00047161,
+          "expected95hi": 0.0016727
+        },
+        {
+          "massGeV": 85.0,
+          "observed": 0.0023128,
+          "expected": 0.001832,
+          "expected68lo": 0.0012976,
+          "expected68hi": 0.0026061,
+          "expected95lo": 0.00096611,
+          "expected95hi": 0.0035674
+        },
+        {
+          "massGeV": 100.0,
+          "observed": 0.0018582,
+          "expected": 0.0016563,
+          "expected68lo": 0.0011771,
+          "expected68hi": 0.0023494,
+          "expected95lo": 0.00087988,
+          "expected95hi": 0.0031996
+        },
+        {
+          "massGeV": 125.0,
+          "observed": 0.0063129,
+          "expected": 0.0042969,
+          "expected68lo": 0.0030797,
+          "expected68hi": 0.0060268,
+          "expected95lo": 0.0022995,
+          "expected95hi": 0.0081441
+        },
+        {
+          "massGeV": 125.0,
+          "observed": 0.005341,
+          "expected": 0.0038281,
+          "expected68lo": 0.0027346,
+          "expected68hi": 0.0053998,
+          "expected95lo": 0.0020337,
+          "expected95hi": 0.0073745
+        },
+        {
+          "massGeV": 150.0,
+          "observed": 0.0069802,
+          "expected": 0.0050156,
+          "expected68lo": 0.0035646,
+          "expected68hi": 0.0071148,
+          "expected95lo": 0.0026646,
+          "expected95hi": 0.0096894
+        },
+        {
+          "massGeV": 200.0,
+          "observed": 0.0096299,
+          "expected": 0.007,
+          "expected68lo": 0.0049411,
+          "expected68hi": 0.0099855,
+          "expected95lo": 0.0036641,
+          "expected95hi": 0.013694
+        },
+        {
+          "massGeV": 200.0,
+          "observed": 0.013835,
+          "expected": 0.0090312,
+          "expected68lo": 0.0064184,
+          "expected68hi": 0.012775,
+          "expected95lo": 0.0047979,
+          "expected95hi": 0.017422
+        },
+        {
+          "massGeV": 250.0,
+          "observed": 0.017413,
+          "expected": 0.0091797,
+          "expected68lo": 0.0065357,
+          "expected68hi": 0.013095,
+          "expected95lo": 0.0048409,
+          "expected95hi": 0.017957
+        },
+        {
+          "massGeV": 300.0,
+          "observed": 0.023288,
+          "expected": 0.011625,
+          "expected68lo": 0.008249,
+          "expected68hi": 0.016583,
+          "expected95lo": 0.006085,
+          "expected95hi": 0.022814
+        },
+        {
+          "massGeV": 350.0,
+          "observed": 0.03326,
+          "expected": 0.016484,
+          "expected68lo": 0.011636,
+          "expected68hi": 0.023515,
+          "expected95lo": 0.0086285,
+          "expected95hi": 0.032351
+        },
+        {
+          "massGeV": 400.0,
+          "observed": 0.04863,
+          "expected": 0.023828,
+          "expected68lo": 0.016908,
+          "expected68hi": 0.034181,
+          "expected95lo": 0.012473,
+          "expected95hi": 0.04689
+        },
+        {
+          "massGeV": 400.0,
+          "observed": 0.041795,
+          "expected": 0.022734,
+          "expected68lo": 0.015938,
+          "expected68hi": 0.032974,
+          "expected95lo": 0.011722,
+          "expected95hi": 0.045969
+        },
+        {
+          "massGeV": 450.0,
+          "observed": 0.052411,
+          "expected": 0.029453,
+          "expected68lo": 0.020465,
+          "expected68hi": 0.042954,
+          "expected95lo": 0.015072,
+          "expected95hi": 0.06025
+        },
+        {
+          "massGeV": 500.0,
+          "observed": 0.06658,
+          "expected": 0.038789,
+          "expected68lo": 0.026857,
+          "expected68hi": 0.056879,
+          "expected95lo": 0.019698,
+          "expected95hi": 0.08002
+        },
+        {
+          "massGeV": 600.0,
+          "observed": 0.091386,
+          "expected": 0.0575,
+          "expected68lo": 0.039812,
+          "expected68hi": 0.084545,
+          "expected95lo": 0.029199,
+          "expected95hi": 0.11947
+        },
+        {
+          "massGeV": 700.0,
+          "observed": 0.13599,
+          "expected": 0.091602,
+          "expected68lo": 0.0632,
+          "expected68hi": 0.13542,
+          "expected95lo": 0.046159,
+          "expected95hi": 0.193
+        },
+        {
+          "massGeV": 800.0,
+          "observed": 0.19576,
+          "expected": 0.13867,
+          "expected68lo": 0.095337,
+          "expected68hi": 0.205,
+          "expected95lo": 0.069336,
+          "expected95hi": 0.29387
+        },
+        {
+          "massGeV": 900.0,
+          "observed": 0.28503,
+          "expected": 0.20859,
+          "expected68lo": 0.14392,
+          "expected68hi": 0.3092,
+          "expected95lo": 0.10511,
+          "expected95hi": 0.44
+        },
+        {
+          "massGeV": 1000.0,
+          "observed": 0.43873,
+          "expected": 0.33438,
+          "expected68lo": 0.22988,
+          "expected68hi": 0.49698,
+          "expected95lo": 0.16719,
+          "expected95hi": 0.71424
+        },
+        {
+          "massGeV": 1200.0,
+          "observed": 0.7546,
+          "expected": 0.58984,
+          "expected68lo": 0.40696,
+          "expected68hi": 0.86963,
+          "expected95lo": 0.29723,
+          "expected95hi": 1.2486
+        },
+        {
+          "massGeV": 1500.0,
+          "observed": 1.7316,
+          "expected": 1.4102,
+          "expected68lo": 0.97637,
+          "expected68hi": 2.079,
+          "expected95lo": 0.71609,
+          "expected95hi": 2.9851
+        }
+      ]
+    },
+    {
+      "kind": "dirac",
+      "flavour": "tau",
+      "doi": "10.17182/hepdata.146676.v2/t6",
+      "name": "Limits on Dirac HNL with tau coupling",
+      "source_sha256": "02eeb47c8926ccec6fcc637747d9a4a8cd810fc20f5ad2425a8cf77e48690b7e",
+      "qualifiers": {
+        "LUMINOSITY": [
+          {
+            "colspan": 6,
+            "group": 0,
+            "type": "LUMINOSITY",
+            "value": "138 fb$^{-1}$"
+          }
+        ],
+        "Limits": [
+          {
+            "colspan": 6,
+            "group": 0,
+            "type": "Limits",
+            "value": "Exclusion limit on $|V_{\\tau N}|^2$"
+          }
+        ],
+        "SQRT(S)": [
+          {
+            "colspan": 6,
+            "group": 0,
+            "type": "SQRT(S)",
+            "value": "13 TeV"
+          }
+        ]
+      },
+      "license": {
+        "description": "CC0 enables reusers to distribute, remix, adapt, and build upon the material in any medium or format, with no conditions.",
+        "name": "CC0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "rows": [
+        {
+          "massGeV": 10.0,
+          "observed": 0.00075437,
+          "expected": 0.00072538,
+          "expected68lo": 0.0005215,
+          "expected68hi": 0.0010494,
+          "expected95lo": 0.00044021,
+          "expected95hi": 0.0017645
+        },
+        {
+          "massGeV": 15.0,
+          "observed": 0.000526,
+          "expected": 0.00048045,
+          "expected68lo": 0.000349,
+          "expected68hi": 0.00070773,
+          "expected95lo": 0.00023885,
+          "expected95hi": 0.00097671
+        },
+        {
+          "massGeV": 20.0,
+          "observed": 0.00062761,
+          "expected": 0.00049765,
+          "expected68lo": 0.00041397,
+          "expected68hi": 0.00071837,
+          "expected95lo": 0.00031286,
+          "expected95hi": 0.00098007
+        },
+        {
+          "massGeV": 25.0,
+          "observed": 0.0005104,
+          "expected": 0.00049138,
+          "expected68lo": 0.00040778,
+          "expected68hi": 0.00069909,
+          "expected95lo": 0.00030872,
+          "expected95hi": 0.00095705
+        },
+        {
+          "massGeV": 30.0,
+          "observed": 0.00064295,
+          "expected": 0.00058019,
+          "expected68lo": 0.00045244,
+          "expected68hi": 0.0007807,
+          "expected95lo": 0.00036972,
+          "expected95hi": 0.0011301
+        },
+        {
+          "massGeV": 30.0,
+          "observed": 0.00053425,
+          "expected": 0.00049219,
+          "expected68lo": 0.00034346,
+          "expected68hi": 0.00071192,
+          "expected95lo": 0.00025571,
+          "expected95hi": 0.00099087
+        },
+        {
+          "massGeV": 40.0,
+          "observed": 0.00056866,
+          "expected": 0.00059062,
+          "expected68lo": 0.00041182,
+          "expected68hi": 0.00086372,
+          "expected95lo": 0.00030454,
+          "expected95hi": 0.0012097
+        },
+        {
+          "massGeV": 40.0,
+          "observed": 0.00083825,
+          "expected": 0.00055312,
+          "expected68lo": 0.00039044,
+          "expected68hi": 0.00079565,
+          "expected95lo": 0.00028953,
+          "expected95hi": 0.0011038
+        },
+        {
+          "massGeV": 50.0,
+          "observed": 0.00089819,
+          "expected": 0.00069727,
+          "expected68lo": 0.00049218,
+          "expected68hi": 0.001003,
+          "expected95lo": 0.00036497,
+          "expected95hi": 0.0013914
+        },
+        {
+          "massGeV": 60.0,
+          "observed": 0.0019005,
+          "expected": 0.0016875,
+          "expected68lo": 0.0011871,
+          "expected68hi": 0.0024341,
+          "expected95lo": 0.00087671,
+          "expected95hi": 0.0033719
+        },
+        {
+          "massGeV": 75.0,
+          "observed": 0.024369,
+          "expected": 0.024141,
+          "expected68lo": 0.016982,
+          "expected68hi": 0.034918,
+          "expected95lo": 0.012542,
+          "expected95hi": 0.0486
+        },
+        {
+          "massGeV": 85.0,
+          "observed": 0.26979,
+          "expected": 0.23926,
+          "expected68lo": 0.17004,
+          "expected68hi": 0.3394,
+          "expected95lo": 0.12711,
+          "expected95hi": 0.46524
+        },
+        {
+          "massGeV": 100.0,
+          "observed": 0.086876,
+          "expected": 0.10078,
+          "expected68lo": 0.071994,
+          "expected68hi": 0.14256,
+          "expected95lo": 0.05354,
+          "expected95hi": 0.19442
+        },
+        {
+          "massGeV": 125.0,
+          "observed": 0.092318,
+          "expected": 0.081641,
+          "expected68lo": 0.05832,
+          "expected68hi": 0.11548,
+          "expected95lo": 0.043372,
+          "expected95hi": 0.15698
+        },
+        {
+          "massGeV": 150.0,
+          "observed": 0.11303,
+          "expected": 0.089844,
+          "expected68lo": 0.06418,
+          "expected68hi": 0.12745,
+          "expected95lo": 0.047729,
+          "expected95hi": 0.17356
+        },
+        {
+          "massGeV": 200.0,
+          "observed": 0.14763,
+          "expected": 0.12109,
+          "expected68lo": 0.085477,
+          "expected68hi": 0.17371,
+          "expected95lo": 0.063385,
+          "expected95hi": 0.23981
+        },
+        {
+          "massGeV": 250.0,
+          "observed": 0.13908,
+          "expected": 0.13281,
+          "expected68lo": 0.093108,
+          "expected68hi": 0.1921,
+          "expected95lo": 0.068481,
+          "expected95hi": 0.26738
+        },
+        {
+          "massGeV": 300.0,
+          "observed": 0.16985,
+          "expected": 0.17568,
+          "expected68lo": 0.12316,
+          "expected68hi": 0.25482,
+          "expected95lo": 0.090587,
+          "expected95hi": 0.35414
+        },
+        {
+          "massGeV": 350.0,
+          "observed": 0.21139,
+          "expected": 0.23291,
+          "expected68lo": 0.16328,
+          "expected68hi": 0.33689,
+          "expected95lo": 0.12009,
+          "expected95hi": 0.46744
+        },
+        {
+          "massGeV": 400.0,
+          "observed": 0.273,
+          "expected": 0.30469,
+          "expected68lo": 0.2136,
+          "expected68hi": 0.4395,
+          "expected95lo": 0.1571,
+          "expected95hi": 0.60881
+        },
+        {
+          "massGeV": 450.0,
+          "observed": 0.33067,
+          "expected": 0.3584,
+          "expected68lo": 0.25039,
+          "expected68hi": 0.52126,
+          "expected95lo": 0.1834,
+          "expected95hi": 0.72781
+        },
+        {
+          "massGeV": 500.0,
+          "observed": 0.432,
+          "expected": 0.46094,
+          "expected68lo": 0.3214,
+          "expected68hi": 0.66855,
+          "expected95lo": 0.23767,
+          "expected95hi": 0.92914
+        },
+        {
+          "massGeV": 600.0,
+          "observed": 0.59063,
+          "expected": 0.61719,
+          "expected68lo": 0.4297,
+          "expected68hi": 0.9001,
+          "expected95lo": 0.31342,
+          "expected95hi": 1.2625
+        },
+        {
+          "massGeV": 700.0,
+          "observed": 0.88346,
+          "expected": 0.89453,
+          "expected68lo": 0.6228,
+          "expected68hi": 1.3046,
+          "expected95lo": 0.45425,
+          "expected95hi": 1.8299
+        },
+        {
+          "massGeV": 800.0,
+          "observed": 1.2368,
+          "expected": 1.2891,
+          "expected68lo": 0.89748,
+          "expected68hi": 1.88,
+          "expected95lo": 0.6546,
+          "expected95hi": 2.6529
+        },
+        {
+          "massGeV": 900.0,
+          "observed": 1.7177,
+          "expected": 1.8359,
+          "expected68lo": 1.2712,
+          "expected68hi": 2.6775,
+          "expected95lo": 0.93231,
+          "expected95hi": 3.7784
+        },
+        {
+          "massGeV": 1000.0,
+          "observed": 2.3898,
+          "expected": 2.4609,
+          "expected68lo": 1.7039,
+          "expected68hi": 3.6086,
+          "expected95lo": 1.2497,
+          "expected95hi": 5.1071
+        }
+      ]
+    },
+    {
+      "kind": "majorana",
+      "flavour": "electron",
+      "doi": "10.17182/hepdata.146676.v2/t1",
+      "name": "Limits on Majorana HNL with electron coupling",
+      "source_sha256": "a7acaf57d2dc193644734cb746bd17c5dbe675026a4f8e273f1e19b5aa83497f",
+      "qualifiers": {
+        "LUMINOSITY": [
+          {
+            "colspan": 6,
+            "group": 0,
+            "type": "LUMINOSITY",
+            "value": "138 fb$^{-1}$"
+          }
+        ],
+        "Limits": [
+          {
+            "colspan": 6,
+            "group": 0,
+            "type": "Limits",
+            "value": "Exclusion limit on $|V_{eN}|^2$"
+          }
+        ],
+        "SQRT(S)": [
+          {
+            "colspan": 6,
+            "group": 0,
+            "type": "SQRT(S)",
+            "value": "13 TeV"
+          }
+        ]
+      },
+      "license": {
+        "description": "CC0 enables reusers to distribute, remix, adapt, and build upon the material in any medium or format, with no conditions.",
+        "name": "CC0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "rows": [
+        {
+          "massGeV": 10.0,
+          "observed": 2.3915e-05,
+          "expected": 2.3226e-05,
+          "expected68lo": 2.0683e-05,
+          "expected68hi": 2.5055e-05,
+          "expected95lo": 1.7645e-05,
+          "expected95hi": 3.6685e-05
+        },
+        {
+          "massGeV": 12.5,
+          "observed": 1.183e-05,
+          "expected": 1.0152e-05,
+          "expected68lo": 9.0081e-06,
+          "expected68hi": 1.6822e-05,
+          "expected95lo": 7.7909e-06,
+          "expected95hi": 2.0915e-05
+        },
+        {
+          "massGeV": 15.0,
+          "observed": 7.9718e-06,
+          "expected": 7.7432e-06,
+          "expected68lo": 5.3848e-06,
+          "expected68hi": 9.4044e-06,
+          "expected95lo": 4.6432e-06,
+          "expected95hi": 1.3507e-05
+        },
+        {
+          "massGeV": 17.5,
+          "observed": 5.9217e-06,
+          "expected": 5.4127e-06,
+          "expected68lo": 4.4537e-06,
+          "expected68hi": 8.0717e-06,
+          "expected95lo": 3.7156e-06,
+          "expected95hi": 9.7337e-06
+        },
+        {
+          "massGeV": 20.0,
+          "observed": 4.8494e-06,
+          "expected": 4.6782e-06,
+          "expected68lo": 3.7181e-06,
+          "expected68hi": 6.8807e-06,
+          "expected95lo": 2.566e-06,
+          "expected95hi": 9.1155e-06
+        },
+        {
+          "massGeV": 25.0,
+          "observed": 4.5586e-06,
+          "expected": 4.5044e-06,
+          "expected68lo": 3.2229e-06,
+          "expected68hi": 6.7812e-06,
+          "expected95lo": 2.3691e-06,
+          "expected95hi": 9.2249e-06
+        },
+        {
+          "massGeV": 30.0,
+          "observed": 4.4901e-06,
+          "expected": 4.7917e-06,
+          "expected68lo": 3.6069e-06,
+          "expected68hi": 7.6075e-06,
+          "expected95lo": 2.4439e-06,
+          "expected95hi": 9.7747e-06
+        },
+        {
+          "massGeV": 30.0,
+          "observed": 4.1909e-06,
+          "expected": 4.6406e-06,
+          "expected68lo": 3.2244e-06,
+          "expected68hi": 6.8049e-06,
+          "expected95lo": 2.3747e-06,
+          "expected95hi": 9.6305e-06
+        },
+        {
+          "massGeV": 40.0,
+          "observed": 5.0726e-06,
+          "expected": 6.2578e-06,
+          "expected68lo": 4.36e-06,
+          "expected68hi": 9.1762e-06,
+          "expected95lo": 3.2022e-06,
+          "expected95hi": 1.2987e-05
+        },
+        {
+          "massGeV": 40.0,
+          "observed": 4.4101e-06,
+          "expected": 6.6563e-06,
+          "expected68lo": 4.6087e-06,
+          "expected68hi": 9.787e-06,
+          "expected95lo": 3.3801e-06,
+          "expected95hi": 1.3911e-05
+        },
+        {
+          "massGeV": 50.0,
+          "observed": 8.0162e-06,
+          "expected": 1.1133e-05,
+          "expected68lo": 7.7625e-06,
+          "expected68hi": 1.6236e-05,
+          "expected95lo": 5.7404e-06,
+          "expected95hi": 2.2911e-05
+        },
+        {
+          "massGeV": 60.0,
+          "observed": 1.4994e-05,
+          "expected": 2.1641e-05,
+          "expected68lo": 1.5089e-05,
+          "expected68hi": 3.1561e-05,
+          "expected95lo": 1.1158e-05,
+          "expected95hi": 4.4269e-05
+        },
+        {
+          "massGeV": 75.0,
+          "observed": 0.00033461,
+          "expected": 0.00052344,
+          "expected68lo": 0.00036497,
+          "expected68hi": 0.00076129,
+          "expected95lo": 0.0002699,
+          "expected95hi": 0.0010695
+        },
+        {
+          "massGeV": 85.0,
+          "observed": 0.001179,
+          "expected": 0.0018828,
+          "expected68lo": 0.001329,
+          "expected68hi": 0.0027159,
+          "expected95lo": 0.00098553,
+          "expected95hi": 0.0037621
+        },
+        {
+          "massGeV": 100.0,
+          "observed": 0.00088167,
+          "expected": 0.0015,
+          "expected68lo": 0.0010588,
+          "expected68hi": 0.0021457,
+          "expected95lo": 0.00078516,
+          "expected95hi": 0.0029572
+        },
+        {
+          "massGeV": 125.0,
+          "observed": 0.0023747,
+          "expected": 0.0035469,
+          "expected68lo": 0.0025337,
+          "expected68hi": 0.0050172,
+          "expected95lo": 0.0018843,
+          "expected95hi": 0.0068424
+        },
+        {
+          "massGeV": 125.0,
+          "observed": 0.0019704,
+          "expected": 0.0026641,
+          "expected68lo": 0.0018805,
+          "expected68hi": 0.0038109,
+          "expected95lo": 0.0013945,
+          "expected95hi": 0.0052689
+        },
+        {
+          "massGeV": 150.0,
+          "observed": 0.0025595,
+          "expected": 0.0031523,
+          "expected68lo": 0.0022099,
+          "expected68hi": 0.0045597,
+          "expected95lo": 0.0016254,
+          "expected95hi": 0.0063463
+        },
+        {
+          "massGeV": 200.0,
+          "observed": 0.0040197,
+          "expected": 0.0052148,
+          "expected68lo": 0.0036135,
+          "expected68hi": 0.0075222,
+          "expected95lo": 0.0026685,
+          "expected95hi": 0.010453
+        },
+        {
+          "massGeV": 250.0,
+          "observed": 0.0076581,
+          "expected": 0.010117,
+          "expected68lo": 0.007005,
+          "expected68hi": 0.014594,
+          "expected95lo": 0.0051376,
+          "expected95hi": 0.020342
+        },
+        {
+          "massGeV": 250.0,
+          "observed": 0.015281,
+          "expected": 0.0077344,
+          "expected68lo": 0.0053551,
+          "expected68hi": 0.011341,
+          "expected95lo": 0.0039276,
+          "expected95hi": 0.015956
+        },
+        {
+          "massGeV": 300.0,
+          "observed": 0.022674,
+          "expected": 0.010469,
+          "expected68lo": 0.0071973,
+          "expected68hi": 0.015434,
+          "expected95lo": 0.0052344,
+          "expected95hi": 0.021905
+        },
+        {
+          "massGeV": 350.0,
+          "observed": 0.032834,
+          "expected": 0.014727,
+          "expected68lo": 0.010125,
+          "expected68hi": 0.021829,
+          "expected95lo": 0.0073633,
+          "expected95hi": 0.031064
+        },
+        {
+          "massGeV": 400.0,
+          "observed": 0.04752,
+          "expected": 0.021172,
+          "expected68lo": 0.014504,
+          "expected68hi": 0.031299,
+          "expected95lo": 0.010503,
+          "expected95hi": 0.044609
+        },
+        {
+          "massGeV": 400.0,
+          "observed": 0.035299,
+          "expected": 0.025469,
+          "expected68lo": 0.017758,
+          "expected68hi": 0.037042,
+          "expected95lo": 0.013132,
+          "expected95hi": 0.051878
+        },
+        {
+          "massGeV": 450.0,
+          "observed": 0.044487,
+          "expected": 0.033203,
+          "expected68lo": 0.023117,
+          "expected68hi": 0.048556,
+          "expected95lo": 0.016861,
+          "expected95hi": 0.068414
+        },
+        {
+          "massGeV": 500.0,
+          "observed": 0.056878,
+          "expected": 0.043164,
+          "expected68lo": 0.029886,
+          "expected68hi": 0.063638,
+          "expected95lo": 0.021919,
+          "expected95hi": 0.090316
+        },
+        {
+          "massGeV": 600.0,
+          "observed": 0.078471,
+          "expected": 0.061172,
+          "expected68lo": 0.042056,
+          "expected68hi": 0.090676,
+          "expected95lo": 0.030586,
+          "expected95hi": 0.12978
+        },
+        {
+          "massGeV": 700.0,
+          "observed": 0.12027,
+          "expected": 0.094531,
+          "expected68lo": 0.064759,
+          "expected68hi": 0.14126,
+          "expected95lo": 0.046896,
+          "expected95hi": 0.2035
+        },
+        {
+          "massGeV": 800.0,
+          "observed": 0.17825,
+          "expected": 0.1418,
+          "expected68lo": 0.096793,
+          "expected68hi": 0.21301,
+          "expected95lo": 0.069791,
+          "expected95hi": 0.30931
+        },
+        {
+          "massGeV": 900.0,
+          "observed": 0.25522,
+          "expected": 0.20391,
+          "expected68lo": 0.13838,
+          "expected68hi": 0.30632,
+          "expected95lo": 0.10036,
+          "expected95hi": 0.44603
+        },
+        {
+          "massGeV": 1000.0,
+          "observed": 0.36015,
+          "expected": 0.28945,
+          "expected68lo": 0.19644,
+          "expected68hi": 0.43598,
+          "expected95lo": 0.14247,
+          "expected95hi": 0.63553
+        },
+        {
+          "massGeV": 1200.0,
+          "observed": 0.6758,
+          "expected": 0.54297,
+          "expected68lo": 0.36823,
+          "expected68hi": 0.82216,
+          "expected95lo": 0.26512,
+          "expected95hi": 1.2042
+        },
+        {
+          "massGeV": 1500.0,
+          "observed": 1.9457,
+          "expected": 1.5625,
+          "expected68lo": 1.0527,
+          "expected68hi": 2.3784,
+          "expected95lo": 0.75684,
+          "expected95hi": 3.5092
+        }
+      ]
+    },
+    {
+      "kind": "majorana",
+      "flavour": "muon",
+      "doi": "10.17182/hepdata.146676.v2/t2",
+      "name": "Limits on Majorana HNL with muon coupling",
+      "source_sha256": "902550e862355407ac5a632f0816b4cdbebe9c2d8977b41ba43a4c9311bc9c31",
+      "qualifiers": {
+        "LUMINOSITY": [
+          {
+            "colspan": 6,
+            "group": 0,
+            "type": "LUMINOSITY",
+            "value": "138 fb$^{-1}$"
+          }
+        ],
+        "Limits": [
+          {
+            "colspan": 6,
+            "group": 0,
+            "type": "Limits",
+            "value": "Exclusion limit on $|V_{\\mu N}|^2$"
+          }
+        ],
+        "SQRT(S)": [
+          {
+            "colspan": 6,
+            "group": 0,
+            "type": "SQRT(S)",
+            "value": "13 TeV"
+          }
+        ]
+      },
+      "license": {
+        "description": "CC0 enables reusers to distribute, remix, adapt, and build upon the material in any medium or format, with no conditions.",
+        "name": "CC0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "rows": [
+        {
+          "massGeV": 10.0,
+          "observed": 1.8633e-05,
+          "expected": 1.8359e-05,
+          "expected68lo": 1.3034e-05,
+          "expected68hi": 2.2296e-05,
+          "expected95lo": 9.7472e-06,
+          "expected95hi": 2.4584e-05
+        },
+        {
+          "massGeV": 12.5,
+          "observed": 7.9616e-06,
+          "expected": 7.8099e-06,
+          "expected68lo": 5.5821e-06,
+          "expected68hi": 9.4702e-06,
+          "expected95lo": 4.7662e-06,
+          "expected95hi": 1.4037e-05
+        },
+        {
+          "massGeV": 15.0,
+          "observed": 4.8171e-06,
+          "expected": 4.7495e-06,
+          "expected68lo": 4.083e-06,
+          "expected68hi": 6.7217e-06,
+          "expected95lo": 3.3634e-06,
+          "expected95hi": 8.7936e-06
+        },
+        {
+          "massGeV": 17.5,
+          "observed": 3.8873e-06,
+          "expected": 3.7266e-06,
+          "expected68lo": 2.5199e-06,
+          "expected68hi": 4.6604e-06,
+          "expected95lo": 2.3572e-06,
+          "expected95hi": 6.4598e-06
+        },
+        {
+          "massGeV": 20.0,
+          "observed": 2.949e-06,
+          "expected": 2.6899e-06,
+          "expected68lo": 2.3134e-06,
+          "expected68hi": 4.0413e-06,
+          "expected95lo": 2.0662e-06,
+          "expected95hi": 4.9126e-06
+        },
+        {
+          "massGeV": 25.0,
+          "observed": 2.4784e-06,
+          "expected": 2.4242e-06,
+          "expected68lo": 2.0437e-06,
+          "expected68hi": 3.7458e-06,
+          "expected95lo": 1.588e-06,
+          "expected95hi": 4.8492e-06
+        },
+        {
+          "massGeV": 30.0,
+          "observed": 2.4783e-06,
+          "expected": 2.4388e-06,
+          "expected68lo": 2.0067e-06,
+          "expected68hi": 3.8599e-06,
+          "expected95lo": 1.4819e-06,
+          "expected95hi": 4.9255e-06
+        },
+        {
+          "massGeV": 30.0,
+          "observed": 2.4879e-06,
+          "expected": 2.375e-06,
+          "expected68lo": 1.6547e-06,
+          "expected68hi": 3.5205e-06,
+          "expected95lo": 1.2153e-06,
+          "expected95hi": 5.0098e-06
+        },
+        {
+          "massGeV": 40.0,
+          "observed": 2.6358e-06,
+          "expected": 2.7344e-06,
+          "expected68lo": 1.8866e-06,
+          "expected68hi": 4.0641e-06,
+          "expected95lo": 1.3779e-06,
+          "expected95hi": 5.8408e-06
+        },
+        {
+          "massGeV": 40.0,
+          "observed": 2.7869e-06,
+          "expected": 2.8359e-06,
+          "expected68lo": 1.9497e-06,
+          "expected68hi": 4.2264e-06,
+          "expected95lo": 1.418e-06,
+          "expected95hi": 6.1158e-06
+        },
+        {
+          "massGeV": 50.0,
+          "observed": 3.5288e-06,
+          "expected": 3.1875e-06,
+          "expected68lo": 2.1914e-06,
+          "expected68hi": 4.7503e-06,
+          "expected95lo": 1.5937e-06,
+          "expected95hi": 6.8354e-06
+        },
+        {
+          "massGeV": 60.0,
+          "observed": 6.3397e-06,
+          "expected": 5.6484e-06,
+          "expected68lo": 3.8971e-06,
+          "expected68hi": 8.3727e-06,
+          "expected95lo": 2.8463e-06,
+          "expected95hi": 1.2052e-05
+        },
+        {
+          "massGeV": 75.0,
+          "observed": 0.00020036,
+          "expected": 0.00019922,
+          "expected68lo": 0.00013842,
+          "expected68hi": 0.00029213,
+          "expected95lo": 0.00010194,
+          "expected95hi": 0.00041343
+        },
+        {
+          "massGeV": 85.0,
+          "observed": 0.0014455,
+          "expected": 0.00094883,
+          "expected68lo": 0.00065,
+          "expected68hi": 0.001414,
+          "expected95lo": 0.00047071,
+          "expected95hi": 0.0020175
+        },
+        {
+          "massGeV": 100.0,
+          "observed": 0.0011399,
+          "expected": 0.00094063,
+          "expected68lo": 0.00065942,
+          "expected68hi": 0.0013643,
+          "expected95lo": 0.00048501,
+          "expected95hi": 0.0018961
+        },
+        {
+          "massGeV": 125.0,
+          "observed": 0.0035922,
+          "expected": 0.0027109,
+          "expected68lo": 0.0019366,
+          "expected68hi": 0.0038348,
+          "expected95lo": 0.0014402,
+          "expected95hi": 0.0051953
+        },
+        {
+          "massGeV": 125.0,
+          "observed": 0.0025494,
+          "expected": 0.0020859,
+          "expected68lo": 0.0014802,
+          "expected68hi": 0.0029673,
+          "expected95lo": 0.0010919,
+          "expected95hi": 0.0040618
+        },
+        {
+          "massGeV": 150.0,
+          "observed": 0.0030577,
+          "expected": 0.0025547,
+          "expected68lo": 0.0018109,
+          "expected68hi": 0.0036443,
+          "expected95lo": 0.0013572,
+          "expected95hi": 0.0050781
+        },
+        {
+          "massGeV": 200.0,
+          "observed": 0.0047868,
+          "expected": 0.0040625,
+          "expected68lo": 0.0028774,
+          "expected68hi": 0.00586,
+          "expected95lo": 0.0021423,
+          "expected95hi": 0.0082697
+        },
+        {
+          "massGeV": 200.0,
+          "observed": 0.0069421,
+          "expected": 0.005125,
+          "expected68lo": 0.0035929,
+          "expected68hi": 0.0074334,
+          "expected95lo": 0.0026426,
+          "expected95hi": 0.010363
+        },
+        {
+          "massGeV": 250.0,
+          "observed": 0.0098934,
+          "expected": 0.0061914,
+          "expected68lo": 0.0042566,
+          "expected68hi": 0.0091036,
+          "expected95lo": 0.0030957,
+          "expected95hi": 0.012864
+        },
+        {
+          "massGeV": 300.0,
+          "observed": 0.014314,
+          "expected": 0.008375,
+          "expected68lo": 0.0057374,
+          "expected68hi": 0.012414,
+          "expected95lo": 0.0041548,
+          "expected95hi": 0.017666
+        },
+        {
+          "massGeV": 350.0,
+          "observed": 0.02106,
+          "expected": 0.012109,
+          "expected68lo": 0.0082956,
+          "expected68hi": 0.017998,
+          "expected95lo": 0.0060074,
+          "expected95hi": 0.025719
+        },
+        {
+          "massGeV": 400.0,
+          "observed": 0.030748,
+          "expected": 0.017578,
+          "expected68lo": 0.011999,
+          "expected68hi": 0.026126,
+          "expected95lo": 0.0086517,
+          "expected95hi": 0.037334
+        },
+        {
+          "massGeV": 400.0,
+          "observed": 0.029897,
+          "expected": 0.018437,
+          "expected68lo": 0.012766,
+          "expected68hi": 0.027036,
+          "expected95lo": 0.0093628,
+          "expected95hi": 0.038262
+        },
+        {
+          "massGeV": 450.0,
+          "observed": 0.037891,
+          "expected": 0.024453,
+          "expected68lo": 0.016931,
+          "expected68hi": 0.035955,
+          "expected95lo": 0.012418,
+          "expected95hi": 0.051106
+        },
+        {
+          "massGeV": 500.0,
+          "observed": 0.047196,
+          "expected": 0.032344,
+          "expected68lo": 0.022315,
+          "expected68hi": 0.047686,
+          "expected95lo": 0.016298,
+          "expected95hi": 0.068071
+        },
+        {
+          "massGeV": 600.0,
+          "observed": 0.059902,
+          "expected": 0.045625,
+          "expected68lo": 0.031479,
+          "expected68hi": 0.067812,
+          "expected95lo": 0.022991,
+          "expected95hi": 0.097457
+        },
+        {
+          "massGeV": 700.0,
+          "observed": 0.085255,
+          "expected": 0.071094,
+          "expected68lo": 0.048599,
+          "expected68hi": 0.10595,
+          "expected95lo": 0.035547,
+          "expected95hi": 0.15375
+        },
+        {
+          "massGeV": 800.0,
+          "observed": 0.12042,
+          "expected": 0.10586,
+          "expected68lo": 0.072365,
+          "expected68hi": 0.1586,
+          "expected95lo": 0.05293,
+          "expected95hi": 0.23069
+        },
+        {
+          "massGeV": 900.0,
+          "observed": 0.1674,
+          "expected": 0.15469,
+          "expected68lo": 0.10536,
+          "expected68hi": 0.23176,
+          "expected95lo": 0.07674,
+          "expected95hi": 0.33709
+        },
+        {
+          "massGeV": 1000.0,
+          "observed": 0.2593,
+          "expected": 0.24766,
+          "expected68lo": 0.16905,
+          "expected68hi": 0.37303,
+          "expected95lo": 0.12189,
+          "expected95hi": 0.54524
+        },
+        {
+          "massGeV": 1200.0,
+          "observed": 0.41964,
+          "expected": 0.41211,
+          "expected68lo": 0.28131,
+          "expected68hi": 0.62402,
+          "expected95lo": 0.20284,
+          "expected95hi": 0.91401
+        },
+        {
+          "massGeV": 1500.0,
+          "observed": 0.92285,
+          "expected": 0.94922,
+          "expected68lo": 0.64419,
+          "expected68hi": 1.4373,
+          "expected95lo": 0.46719,
+          "expected95hi": 2.1222
+        }
+      ]
+    },
+    {
+      "kind": "majorana",
+      "flavour": "tau",
+      "doi": "10.17182/hepdata.146676.v2/t3",
+      "name": "Limits on Majorana HNL with tau coupling",
+      "source_sha256": "79f352c17b3d35f00e0bffcca3d6b519b3e8d48774c625dc61f1cc05a2864437",
+      "qualifiers": {
+        "LUMINOSITY": [
+          {
+            "colspan": 6,
+            "group": 0,
+            "type": "LUMINOSITY",
+            "value": "138 fb$^{-1}$"
+          }
+        ],
+        "Limits": [
+          {
+            "colspan": 6,
+            "group": 0,
+            "type": "Limits",
+            "value": "Exclusion limit on $|V_{\\tau N}|^2$"
+          }
+        ],
+        "SQRT(S)": [
+          {
+            "colspan": 6,
+            "group": 0,
+            "type": "SQRT(S)",
+            "value": "13 TeV"
+          }
+        ]
+      },
+      "license": {
+        "description": "CC0 enables reusers to distribute, remix, adapt, and build upon the material in any medium or format, with no conditions.",
+        "name": "CC0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "rows": [
+        {
+          "massGeV": 10.0,
+          "observed": 0.000784337,
+          "expected": 0.000794071,
+          "expected68lo": 0.000585811,
+          "expected68hi": 0.001280149,
+          "expected95lo": 0.000463686,
+          "expected95hi": 0.001919723
+        },
+        {
+          "massGeV": 15.0,
+          "observed": 0.000489058,
+          "expected": 0.000480945,
+          "expected68lo": 0.000359111,
+          "expected68hi": 0.000703631,
+          "expected95lo": 0.000245123,
+          "expected95hi": 0.000972938
+        },
+        {
+          "massGeV": 20.0,
+          "observed": 0.00061145,
+          "expected": 0.000493443,
+          "expected68lo": 0.000407281,
+          "expected68hi": 0.000702767,
+          "expected95lo": 0.000305994,
+          "expected95hi": 0.000951568
+        },
+        {
+          "massGeV": 25.0,
+          "observed": 0.000494467,
+          "expected": 0.000480743,
+          "expected68lo": 0.000389669,
+          "expected68hi": 0.000674767,
+          "expected95lo": 0.000283319,
+          "expected95hi": 0.000918194
+        },
+        {
+          "massGeV": 30.0,
+          "observed": 0.000552306,
+          "expected": 0.000521578,
+          "expected68lo": 0.000420398,
+          "expected68hi": 0.000731003,
+          "expected95lo": 0.000318468,
+          "expected95hi": 0.000990044
+        },
+        {
+          "massGeV": 30.0,
+          "observed": 0.000519657,
+          "expected": 0.000478501,
+          "expected68lo": 0.000335104,
+          "expected68hi": 0.000686462,
+          "expected95lo": 0.00025046,
+          "expected95hi": 0.000953643
+        },
+        {
+          "massGeV": 40.0,
+          "observed": 0.00054046,
+          "expected": 0.000578935,
+          "expected68lo": 0.000406438,
+          "expected68hi": 0.000839701,
+          "expected95lo": 0.00030303,
+          "expected95hi": 0.001174093
+        },
+        {
+          "massGeV": 40.0,
+          "observed": 0.000772574,
+          "expected": 0.000553141,
+          "expected68lo": 0.000390423,
+          "expected68hi": 0.00079343,
+          "expected95lo": 0.000289529,
+          "expected95hi": 0.001102244
+        },
+        {
+          "massGeV": 50.0,
+          "observed": 0.00086343,
+          "expected": 0.000705464,
+          "expected68lo": 0.000495336,
+          "expected68hi": 0.001011922,
+          "expected95lo": 0.000369259,
+          "expected95hi": 0.00139711
+        },
+        {
+          "massGeV": 60.0,
+          "observed": 0.001805479,
+          "expected": 0.001773285,
+          "expected68lo": 0.001251812,
+          "expected68hi": 0.002543971,
+          "expected95lo": 0.000928316,
+          "expected95hi": 0.003534123
+        },
+        {
+          "massGeV": 75.0,
+          "observed": 0.023484951,
+          "expected": 0.030232402,
+          "expected68lo": 0.021341902,
+          "expected68hi": 0.043610093,
+          "expected95lo": 0.015826685,
+          "expected95hi": 0.060411601
+        },
+        {
+          "massGeV": 85.0,
+          "observed": 0.295619371,
+          "expected": 0.268577439,
+          "expected68lo": 0.191841491,
+          "expected68hi": 0.380981811,
+          "expected95lo": 0.142680971,
+          "expected95hi": 0.518842859
+        },
+        {
+          "massGeV": 100.0,
+          "observed": 0.108501243,
+          "expected": 0.123445204,
+          "expected68lo": 0.088467101,
+          "expected68hi": 0.173626376,
+          "expected95lo": 0.066058672,
+          "expected95hi": 0.234320284
+        },
+        {
+          "massGeV": 125.0,
+          "observed": 0.111904976,
+          "expected": 0.108204253,
+          "expected68lo": 0.077555563,
+          "expected68hi": 0.152211286,
+          "expected95lo": 0.057910991,
+          "expected95hi": 0.205390331
+        },
+        {
+          "massGeV": 150.0,
+          "observed": 0.137261297,
+          "expected": 0.121095021,
+          "expected68lo": 0.086356947,
+          "expected68hi": 0.170344773,
+          "expected95lo": 0.064810139,
+          "expected95hi": 0.229859232
+        },
+        {
+          "massGeV": 200.0,
+          "observed": 0.198982232,
+          "expected": 0.176555024,
+          "expected68lo": 0.125474498,
+          "expected68hi": 0.250446401,
+          "expected95lo": 0.093794335,
+          "expected95hi": 0.341120203
+        },
+        {
+          "massGeV": 250.0,
+          "observed": 0.186569363,
+          "expected": 0.19189543,
+          "expected68lo": 0.135912585,
+          "expected68hi": 0.272992536,
+          "expected95lo": 0.101190799,
+          "expected95hi": 0.37367605
+        },
+        {
+          "massGeV": 300.0,
+          "observed": 0.212616575,
+          "expected": 0.239953189,
+          "expected68lo": 0.169944183,
+          "expected68hi": 0.341360029,
+          "expected95lo": 0.126532742,
+          "expected95hi": 0.467242024
+        },
+        {
+          "massGeV": 350.0,
+          "observed": 0.253002791,
+          "expected": 0.303226261,
+          "expected68lo": 0.214756634,
+          "expected68hi": 0.431372993,
+          "expected95lo": 0.15992054,
+          "expected95hi": 0.590469463
+        },
+        {
+          "massGeV": 400.0,
+          "observed": 0.315021785,
+          "expected": 0.379885586,
+          "expected68lo": 0.269040296,
+          "expected68hi": 0.538874371,
+          "expected95lo": 0.200350418,
+          "expected95hi": 0.738734286
+        },
+        {
+          "massGeV": 450.0,
+          "observed": 0.381718856,
+          "expected": 0.453157634,
+          "expected68lo": 0.321530863,
+          "expected68hi": 0.648233492,
+          "expected95lo": 0.237195015,
+          "expected95hi": 0.890466013
+        },
+        {
+          "massGeV": 500.0,
+          "observed": 0.483103446,
+          "expected": 0.564459063,
+          "expected68lo": 0.398411515,
+          "expected68hi": 0.80523795,
+          "expected95lo": 0.295453206,
+          "expected95hi": 1.107812733
+        },
+        {
+          "massGeV": 600.0,
+          "observed": 0.634508336,
+          "expected": 0.728551138,
+          "expected68lo": 0.512464593,
+          "expected68hi": 1.045039216,
+          "expected95lo": 0.378473187,
+          "expected95hi": 1.451988352
+        },
+        {
+          "massGeV": 700.0,
+          "observed": 0.800610683,
+          "expected": 1.043021393,
+          "expected68lo": 0.733663714,
+          "expected68hi": 1.508682852,
+          "expected95lo": 0.541836544,
+          "expected95hi": 2.099644554
+        },
+        {
+          "massGeV": 800.0,
+          "observed": 1.142404733,
+          "expected": 1.496117709,
+          "expected68lo": 1.048902269,
+          "expected68hi": 2.164065997,
+          "expected95lo": 0.771472953,
+          "expected95hi": 3.030749908
+        },
+        {
+          "massGeV": 900.0,
+          "observed": 1.569740872,
+          "expected": 2.039146249,
+          "expected68lo": 1.429660432,
+          "expected68hi": 2.957627627,
+          "expected95lo": 1.051522518,
+          "expected95hi": 4.161089558
+        },
+        {
+          "massGeV": 1000.0,
+          "observed": 2.167338458,
+          "expected": 2.773612785,
+          "expected68lo": 1.933901402,
+          "expected68hi": 4.045029687,
+          "expected95lo": 1.430062399,
+          "expected95hi": 5.690956711
+        }
+      ]
+    }
+  ],
+  "scope": "Single-HNL, exclusive single-flavour benchmark. This overlay is not a likelihood or an exclusion of the neutrino ring.",
+  "interpolation": "Log-linear in mass between adjacent distinct published points; no extrapolation. Duplicate mass knots are retained as transitions and have no single interpolated limit.",
+  "missing_for_model_exclusion": [
+    "flavour Yukawa vector",
+    "decay widths and branching fractions including new scalar/gauge channels",
+    "prompt acceptance and lifetime",
+    "pseudo-Dirac interference and multiple-state likelihood"
+  ]
+}

@@ -23,6 +23,15 @@ const HIERARCHY_SECTION = {
   modules: [selectionModule(DATA), ...modules(DATA)],
   certificates: certificates(DATA),
 
+  encodeState() { return [HR_S.g4,HR_S.span,HR_S.windings].join(','); },
+  decodeState(text) {
+    Object.assign(HR_S,{g4:.63,span:10,windings:600});
+    if (!text) return;
+    const a=String(text).split(',').map(Number);
+    if (a.length===3 && a.every(Number.isFinite) && a[0]>=.4 && a[0]<=1.2 && a[1]>=0 && a[1]<=40 && [300,600,1200].includes(a[2]))
+      Object.assign(HR_S,{g4:a[0],span:a[1],windings:a[2]});
+  },
+  texExport(ctx,r) { return hierarchyRobustnessExport(ctx,r); },
   html: `
   <div class="card" style="margin-bottom:18px">
     <p class="lead" id="lead">—</p>
@@ -203,9 +212,10 @@ const HIERARCHY_SECTION = {
       </div>
 
     </div>
-  </div>`,
+  </div>${hierarchyRobustnessHTML()}`,
 
   init(ctx) {
+    this._robustnessView=hierarchyRobustnessMount(ctx);
     const $ = (id) => document.getElementById(id);
     $("slots").innerHTML = ctx.SLOTS.map((s, i) => {
       const ch = ctx.DATA.reps[s.rep][s.key].map((t) => (t[1] > 0 ? "+" : "−") + t[2]).join(" ");
@@ -353,6 +363,7 @@ const HIERARCHY_SECTION = {
     this._map(v, ctx.DATA);
     this._surface(v, r.model, ctx.DATA);
     this._sweep();
+    this._robustnessView.render(r.model,ctx.DATA);
   },
 
   /* THE SEED, SAID OUT LOUD.  The radio reflects the model; the note says what standing on that

@@ -31,7 +31,8 @@ const HOWTO = {
     what: "Given a bulk content of the SU(7) model, where the compactification scale and the Higgs mass land — and how far that content sits below the ceiling no content can pass.",
     steps: ["Set the multiplicities of the eight (representation, parity) types in the left panel — or press a published row to load it.",
             "Read α_min and m_h from the closed form; the numeric minimisation of the same potential is beside them as the check.",
-            "The ceiling card says how much room is left above this content, and on which certificate."],
+            "The ceiling card says how much room is left above this content, and on which certificate.",
+            "In the robustness card below, vary g4, its model span and the winding cutoff. Read both masses, the separate response ranges and the live summary; the diagnostic W anchor is stated there."],
     read: "Every absolute TeV and GeV inherits the anchor caveat at the top of the page: our α does not reproduce the published α, by a factor that varies from row to row. The mass ratio and the arithmetic laws do not.",
   },
   inverse: {
@@ -42,8 +43,8 @@ const HOWTO = {
   },
   census: {
     what: "How many bulk contents sit on a rung — counted, not built.",
-    steps: ["Choose a rung (A₄, 8D).", "Read N(A₄, 8D) from the dynamic programme.", "Press a cell to enumerate its fibre where the count is small enough to."],
-    read: "The four rung totals were checked against an enumeration that built 69 022 464 contents one by one; the count here takes milliseconds. A large fibre is reported and not drawn.",
+    steps: ["The counting table and graph are built automatically when you enter.", "Click the graph to move the A₄ probe and read the count on each rung.", "Change the gauge seed or extend the range; the table and graph rebuild together."],
+    read: "The four published-seed totals reproduce an independent enumeration of 69 022 464 contents. The candidate uses even rungs and half-integral A₄; its counts are computed separately, without transferring the published measured-mass fibre.",
   },
   atlas7: {
     what: "Every bulk content of at most five multiplets — 1 286 of them — with its potential drawn as one tile.",
@@ -57,7 +58,7 @@ const HOWTO = {
   },
   anomalies: {
     what: "What each multiplet contributes to the anomaly bill, in eighths, and what the proton-decay escape costs.",
-    steps: ["Read the signed bars: each multiplet's contribution to 8D.", "The ladder shows the odd eighths, with 8D = 0 marked as the rung that does not exist.",
+    steps: ["Use the RS anomaly-flow shortcut to compare UV/IR contributions, gauge-generation cancellation and the separate baryon-current matrix.", "Read the signed bars: each multiplet's contribution to 8D.", "The ladder shows the odd eighths, with 8D = 0 marked as the rung that does not exist.",
             "The rows below run the escape on each published row."],
     read: "A non-zero bill is not an inconsistency: brane fermions pay into the same channels with the opposite sign. What the ladder forbids is a rung, not a model.",
   },
@@ -78,7 +79,7 @@ const HOWTO = {
   },
   collider: {
     what: "Which state a dijet search actually bounds, with no free parameter.",
-    steps: ["Read the coloron's mass and width — both fixed by the localisation, not chosen.",
+    steps: ["Use the Higgs-rates shortcut to compare a saved scalar scenario, its widths and rates, and matching HiggsBounds/HiggsSignals calculations.", "Read the coloron's mass and width — both fixed by the localisation, not chosen.",
             "Drag the relief over (M_jj, χ), the plane CMS bins its angular measurement in.",
             "Type any 1/R₅ to see the ratio table move."],
     read: "The Δχ² numbers are quoted from the published record. The margin behind the conclusion is the integrality of 8D: halve the quantum and the sign changes.",
@@ -175,19 +176,19 @@ const HOWTO = {
   },
   blkt: {
     what: "What happens to the tower when brane-localised kinetic terms make the masses stop being n/R.",
-    steps: ["Set the brane coefficient.", "Read the roots of the transcendental mass equation.", "Take the coefficient to zero and watch the ordinary twisted tower come back."],
+    steps: ["Use the Warped SU(6) shortcut to compare C1/C2 differential running, required UV brane terms and the separate localization probe.", "Set the brane coefficient.", "Read the roots of the transcendental mass equation.", "Take the coefficient to zero and watch the ordinary twisted tower come back."],
     read: "The special functions are checked against mpmath at forty digits, and the c → 0 limit is computed in closed form by code that shares nothing with the solver. That limit found three real defects.",
   },
   predict: {
     what: "The model on the builder, turned into the numbers a detector measures, each beside its measured partner.",
-    steps: ["Load a model in SU(N) builder.", "Choose at the minimum, or move the probe by hand.",
+    steps: ["For neutrinos, expand the three-flavour experiment and include the computed Majoron channels in Decays. For the builder, use the thermal SU(3) experiment and its matching PhaseTracer results. Each experiment has a reading box, figures, comparison snapshots and summary export.", "Choose the builder, the Higgs-production top KK reference, or the neutrino-ring research model in the Simulator selector.", "For Higgs production, vary MKK, top mass and KK cutoff; inspect the joint rate, conditional interval, convergence and summary. A custom window is a scenario.", "For the ring, move the links and Majorana terms; calibration can hold the two light inputs fixed. Read the joint results and live summary.", "For the builder, choose at the minimum or move the probe by hand.",
             "g₄ scales the Higgs mass ONLY — everything else is fixed by the measured m_W.",
             "Read the table, then the fermion masses; drag the landscape to turn it."],
     read: "No event is simulated: every mark is a predicted mass or a published bound. A vacuum at a symmetric point sets no scale and the page says so instead of inventing one.",
   },
   papers: {
     what: "Four models somebody else published, taken off their pages and run through this instrument's engine.",
-    steps: ["Pick one of the four; Kubo–Lim–Yamashita carries a dial, the number of triplet fermions.",
+    steps: ["Use the Maru–Nago shortcut for Type 2/3 SU(6), the magnified minimum and Fourier convergence; its button transfers the supported bulk potential to the builder.", "Pick one of the four; Kubo–Lim–Yamashita carries a dial, the number of triplet fermions.",
             "Read the table: what the paper prints, then what this returns, then the verdict.",
             "Press Load into the SU(N) builder and walk the spectrum, the ledger and the simulator on their model."],
     read: "Three of the four are supersymmetric and this engine's potential is not, so their rows are boundary-condition and zero-mode statements only. An amber row disagrees with one printed equation, not with a paper, and names which of that paper's own equations agrees with which.",

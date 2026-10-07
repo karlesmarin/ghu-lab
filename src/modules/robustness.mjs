@@ -65,15 +65,19 @@ export function invRFromSum(terms, { windings = 600, mW = 80.4 } = {}) {
  * precisely why the verdict below matters more than its width: whatever the range, the budget it
  * produces is a CONVENTION's spread and not an uncertainty, and it dwarfs both of the others. A
  * reader who wants a different span passes it; the label does not change. */
-export function knobsFor({ g4 = 0.63, mW = EXPERIMENT.m_W.value, mWErr = EXPERIMENT.m_W.error } = {}) {
+export function knobsFor({ g4 = 0.63, mW = EXPERIMENT.m_W.value, mWErr = EXPERIMENT.m_W.error,
+                           g4Fraction = 0.1, windings = 600 } = {}) {
+  if (![g4,mW,mWErr,g4Fraction,windings].every(Number.isFinite) || g4 <= 0 || mW <= mWErr ||
+      mWErr < 0 || g4Fraction < 0 || g4Fraction >= 1 || !Number.isInteger(windings) || windings < 100 || windings > 2400)
+    throw new RangeError('Invalid sensitivity settings');
   return [
     { name: "windings", kind: "convergence", target: 0.01,
       what: "how far the winding sum of the one-loop potential is carried",
-      values: [150, 300, 600, 1200] },
+      values: [Math.floor(windings / 4), Math.floor(windings / 2), windings, 2 * windings] },
     { name: "g4", kind: "model",
       what: "the 4D gauge coupling, a CONVENTION of the data file and not a measurement; the mass"
         + " formula is linear in it",
-      values: [g4 * 0.9, g4, g4 * 1.1] },
+      values: [g4 * (1 - g4Fraction), g4, g4 * (1 + g4Fraction)] },
     { name: "mW", kind: "measured", source: "EXPERIMENT.m_W, " + EXPERIMENT.m_W.source,
       what: "the measured W mass, which sets the scale",
       values: [mW - mWErr, mW, mW + mWErr] },
@@ -83,12 +87,36 @@ export function knobsFor({ g4 = 0.63, mW = EXPERIMENT.m_W.value, mWErr = EXPERIM
 /* Run the three budgets on one term table and return both the raw scan and the sentence. */
 export function robustness(terms, opts = {}) {
   const knobs = knobsFor(opts);
-  const base = { windings: 600, g4: opts.g4 ?? 0.63, mW: opts.mW ?? EXPERIMENT.m_W.value };
-  const mh = budget(scan((s) => higgsFromSum(terms, s), knobs, base), { target: 0.5 });
-  const iR = budget(scan((s) => invRFromSum(terms, s), knobs, base), { target: 5 });
+  const base = { windings: opts.windings ?? 600, g4: opts.g4 ?? 0.63, mW: opts.mW ?? EXPERIMENT.m_W.value };
+  // The potential depends on neither g4 nor mW. Minimise once per truncation, then rescale.
+  const geometry = new Map();
+  const at = (n) => {
+    if (!geometry.has(n)) {
+      const alpha = numericMin(terms, { windings:n, lo:1e-4, hi:1 });
+      const curvature = alpha === null ? null : curvatureSummed(terms, alpha, n);
+      geometry.set(n, {windings:n, alpha, curvature});
+    }
+    const q = geometry.get(n);
+    if (!(q.alpha > 1e-4 && q.alpha < 1 && q.curvature > 0))
+      throw new Error('No resolved interior minimum with positive curvature on [0.0001, 1]');
+    return q;
+  };
+  const rawMH = scan(s => {const q=at(s.windings);return kConst(s.mW,s.g4)*Math.sqrt(q.curvature)/q.alpha;}, knobs, base);
+  const rawIR = scan(s => 2*s.mW/at(s.windings).alpha, knobs, base);
+  const finish = (raw,name) => {
+    const b = budget(raw);
+    const valid = Number.isFinite(raw.base) && !raw.baseError && raw.scans.every(s=>s.failed===0&&s.values.every(p=>Number.isFinite(p.y)));
+    const convergenceOK = valid && raw.scans.filter(s=>s.knob.kind==='convergence').every(s=>s.spread<=s.knob.target);
+    if (!valid) b.verdict={word:'not-determined',why:'No complete valid scan; no robustness claim is available.'};
+    else if (!convergenceOK) b.verdict={word:'sensitive-to-truncation',why:'The full winding spread exceeds the declared 0.01 GeV numerical target.'};
+    // Budget's default label has no absolute convergence target; apply the declared one here.
+    else b.verdict=budget(raw,{target:0.01}).verdict;
+    return {...b,valid,convergenceOK,raw,line:valid?stateResult(name,'GeV',b):name+': not determined — no complete valid scan'};
+  };
+  const mh=finish(rawMH,'m_h'),iR=finish(rawIR,'1/R');
   return {
-    m_h: { ...mh, line: stateResult("m_h", "GeV", mh) },
-    invR5: { ...iR, line: stateResult("1/R", "GeV", iR) },
-    knobs: knobs.map((k) => ({ name: k.name, kind: k.kind, what: k.what, values: k.values })),
+    m_h: mh, invR5:iR, base, vacua:[...geometry.values()],
+    knobs,
+    scope:'One parameter at a time, fixed geometry; measured input is the registered W mass. Winding spread is a diagnostic, not a rigorous remainder or a joint uncertainty. Global minimum is searched on a finite grid in [0.0001, 1].',
   };
 }

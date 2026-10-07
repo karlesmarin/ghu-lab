@@ -45,7 +45,7 @@ KERNEL = ["meta.mjs", "status.mjs", "experiment.mjs", "observables.mjs", "sensit
           "cite.mjs", "latex.mjs", "blkt.mjs", "alphabet.mjs", "fibres.mjs", "moves.mjs", "rotations.mjs",
           # rank.mjs before unbroken.mjs: the second calls the first, and one scope means order is the import.
           "rank.mjs", "unbroken.mjs", "tripod.mjs"]
-VIEW = ["fibre_panels.js", "tower3d.js", "demo.js", "howto.js", "help.js"]
+VIEW = ["fibre_panels.js", "tower3d.js", "demo.js", "howto.js", "help.js", "neutrino_panel.js", "neutrino_decay_panel.js", "diagnostics_panels.js", "research_panels.js"]
 MODULES = ["selection.mjs", "calculator.mjs", "hierarchy.mjs", "anomalies.mjs", "escape.mjs",
            "samepot.mjs", "screen.mjs", "collider.mjs", "atlas.mjs", "eta.mjs", "fived.mjs",
            "spectrum.mjs", "inverse.mjs", "census.mjs", "sun5d.mjs", "bcclass.mjs",
@@ -53,7 +53,7 @@ MODULES = ["selection.mjs", "calculator.mjs", "hierarchy.mjs", "anomalies.mjs", 
            "spectrum5d.mjs", "anomaly5d.mjs", "vacuum5d.mjs", "smcell.mjs", "brane.mjs",
            "yukawa.mjs",
            "predict.mjs", "reading.mjs", "sweep5d.mjs", "dossier.mjs", "papers.mjs", "particles.mjs",
-           "robustness.mjs", "gravitygauge.mjs"]
+            "robustness.mjs", "gravitygauge.mjs", "neutrino_ring.mjs", "neutrino_limits.mjs", "neutrino_majoron.mjs", "neutrino_decay.mjs", "higgs_diagnostics.mjs", "su6_maru_nago.mjs", "rs_unification.mjs", "neutrino_flavour.mjs", "thermal_ghu.mjs", "rs_anomaly.mjs", "higgstools_reference.mjs", "higgstools_adapter.mjs", "external_reference.mjs"]
 SECTIONS = ["torus_panels.js", "hierarchy_section.js", "inverse_section.js", "census_section.js",
             "atlas_section.js", "samepot_section.js",
             "anomalies_section.js", "escape_section.js", "screen_section.js",
@@ -66,9 +66,9 @@ SECTIONS = ["torus_panels.js", "hierarchy_section.js", "inverse_section.js", "ce
             "cbclass_section.js", "blkt_section.js",
             "census_lit_section.js",
             "multiplets_section.js",
-            "gravitygauge_section.js", "registry.js"]
+            "gravitygauge_section.js", "research_extensions.js", "registry.js"]
 
-IMPORT_LINE = re.compile(r'^\s*import\s+[^;]*?from\s+["\'][^"\']+["\']\s*;?\s*$', re.M)
+IMPORT_LINE = re.compile(r'^\s*import\s+[^;]*?from\s+["\'][^"\']+["\']\s*(?:with\s*\{\s*type\s*:\s*["\']json["\']\s*\}\s*)?;?\s*$', re.M)
 EXPORT_KW = re.compile(r"^\s*export\s+(?=(?:const|let|var|function|class|async))", re.M)
 EXPORT_BLOCK = re.compile(r"^\s*export\s*\{[^}]*\}\s*;?\s*$", re.M)
 
@@ -169,6 +169,7 @@ def build(edition=False, home=None, out_path=None):
               f'const BUILD = "{datetime.datetime.now().strftime("%Y-%m-%d %H:%M")}";\n'
               f'const KERNEL_HASH = "{kernel_hash()}";\n'
               f'const CENSUS = {json.dumps(census, separators=(",", ":"), ensure_ascii=False)};\n'
+              f'const NR_HNL_LIMITS = {read("data", "neutrino_hnl_limits.json")};\n'
               + "\n".join(src for name, src in frags if name in KERNEL)
               + "\n".join(src for name, src in frags if name in VIEW)
               + "\n".join(src for name, src in frags if name in MODULES))
@@ -184,6 +185,11 @@ def build(edition=False, home=None, out_path=None):
             .replace("__SECTIONS__", sections)
             .replace("__APP__", app)
             .replace("__HOME__", HOME_LINKED.format(href=home) if home else HOME_PLAIN))
+    if edition:
+        page=page.replace('const RX_NETWORK_ENABLED=true;', 'const RX_NETWORK_ENABLED=false;')
+        page,n=re.subn(r'// rx-app-network-start[\s\S]*?// rx-app-network-end',
+                      "throw new Error('This offline Edition has no local-engine connection; import a result instead.');",page)
+        if n!=1:raise SystemExit('FATAL: offline scientific bridge replacement did not match exactly once')
     for token in ("__DATA__", "__ENGINE__", "__SECTIONS__", "__APP__", "__HOME__"):
         if token in page:
             raise SystemExit(f"FATAL: {token} survived substitution.")
@@ -264,7 +270,7 @@ def build(edition=False, home=None, out_path=None):
 # week: the header above this list says the failure mode was never "too slow to run", it was
 # "I forgot".  It costs about two minutes.
 BROWSER_GATES = [("leaks.mjs", []), ("layout.mjs", ["--quiet"]), ("extremes.mjs", []),
-                 ("lifecycle.mjs", []), ("drive.mjs", [])]
+                 ("lifecycle.mjs", []), ("drive.mjs", []), ("neutrino.mjs", []), ("diagnostics.mjs", []), ("neutrino_decay.mjs", []), ("extensions.mjs", [])]
 STAMP = HERE / ".browser_gate.json"
 
 
@@ -280,7 +286,7 @@ def source_fingerprint():
                    # hole: editing the build would have kept the tier "clean" over a page it had
                    # never seen.  The cost is that touching this file marks the tier stale, which
                    # is the correct answer and clears in one run.
-                   "build/build_app.py"]):
+                   "build/build_app.py", "build/neutrino.mjs", "data/neutrino_hnl_limits.json", "build/diagnostics.mjs", "data/higgs_diagnostics_reference.json", "build/neutrino_decay.mjs", "data/neutrino_decay_reference.json", "build/extensions.mjs"]):
         p = ROOT / rel
         if p.exists():
             out[rel] = hashlib.sha256(p.read_bytes()).hexdigest()[:16]
@@ -368,16 +374,19 @@ def main(argv=None):
                 ["node", "_test_spectrum5d.mjs"], ["node", "_test_anomaly5d.mjs"],
                 ["node", "_test_vacuum5d.mjs"], ["node", "_test_smcell.mjs"],
                 ["node", "_test_brane.mjs"],
-                ["node", "_test_running.mjs"], ["node", "_test_predict.mjs"], ["node", "_test_yukawa.mjs"],
+                ["node", "_test_running.mjs"], ["node", "_test_neutrino_ring.mjs"], ["node", "_test_neutrino_decay.mjs"], ["node", "_test_predict.mjs"], ["node", "_test_yukawa.mjs"],
                 ["node", "_test_reading.mjs"],
+                ["node", "_test_neutrino_majoron.mjs"], ["node", "_test_su6_maru_nago.mjs"], ["node", "_test_rs_unification.mjs"],
+                ["node", "_test_neutrino_flavour.mjs"], ["node", "_test_thermal_ghu.mjs"], ["node", "_test_rs_anomaly.mjs"], ["node", "_test_higgstools.mjs"],
                 ["node", "_test_sweep5d.mjs"], ["node", "_test_papers.mjs"],
                 ["node", "_test_latex.mjs"], ["node", "_test_blkt.mjs"], ["node", "_test_gravitygauge.mjs"], ["node", "_test_census_lit.mjs"],
-                ["node", "_test_dossier.mjs"], ["node", "_test_rank.mjs"], ["node", "_test_observables.mjs"], ["node", "_test_particles.mjs"], ["node", "_test_sensitivity.mjs"], ["node", "_test_higgsrate.mjs"], ["node", "_test_bundle.mjs"], ["node", "_test_robustness.mjs"],
+                ["node", "_test_dossier.mjs"], ["node", "_test_rank.mjs"], ["node", "_test_observables.mjs"], ["node", "_test_particles.mjs"], ["node", "_test_sensitivity.mjs"], ["node", "_test_higgsrate.mjs"], ["node", "_test_bundle.mjs"], ["node", "_test_robustness.mjs"], ["node", "_test_diagnostics.mjs"],
                 # the golden suite that SHIPS with the artifact: the built page against the
                 # Python engine of Part VII.  It runs here too, so the deployed copy can never
                 # carry a suite the build has not just seen pass.
                 ["node", "tests/run.mjs"],
                 [sys.executable, "_test_editiongate.py"],
+                [sys.executable, "_test_research_build.py"],
                 [sys.executable, "_test_help.py"], [sys.executable, "_test_howto.py"],
                 # the gate on the gate: the browser tier's staleness detector, checked for FIRING
                 # and not only for absolving.  Cheap, no Chromium, so it runs every build.

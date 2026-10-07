@@ -65,7 +65,8 @@ export function buildCensus(L, { tMax = 560 } = {}) {
  * pinned: its multiplicity is (s - Q) / step, so only the s at or above Q and congruent to it
  * mod step contribute. */
 export function censusAt(C, A4, k8D) {
-  const T = Math.round(A4 - C.baseA4), Q = k8D - C.base8D;
+  const T = A4 - C.baseA4, Q = k8D - C.base8D;
+  if (!Number.isInteger(T) || !Number.isInteger(Q)) return 0;
   if (T < 0 || T > C.tMax) return null;
   const row = T * C.sMax;
   let n = 0;
@@ -76,7 +77,8 @@ export function censusAt(C, A4, k8D) {
 /* the raw table cell: contents that use NO free generator.  It is what the recurrence below is
  * about, so it gets a name rather than an index into someone else's array. */
 export function censusCell(C, A4, k8D) {
-  const T = Math.round(A4 - C.baseA4), Q = k8D - C.base8D;
+  const T = A4 - C.baseA4, Q = k8D - C.base8D;
+  if (!Number.isInteger(T) || !Number.isInteger(Q)) return 0;
   if (T < 0 || T > C.tMax || Q < 0 || Q >= C.sMax) return 0;
   return C.dp[T * C.sMax + Q];
 }
@@ -90,7 +92,7 @@ export const censusLegal = (C, A4, k8D) =>
 /* the whole counting function along one rung, up to its ceiling's A_4 */
 export function censusCurve(C, k8D, A4cap) {
   const A4 = [], N = [];
-  for (let t = Math.ceil(C.baseA4); t <= A4cap; t++) {
+  for (let t = C.baseA4; t <= A4cap; t++) {
     if (!censusLegal(C, t, k8D)) continue;
     const n = censusAt(C, t, k8D);
     if (n === null) break;
@@ -115,7 +117,7 @@ export function censusCurve(C, k8D, A4cap) {
 export function recurrenceCheck(C, { tSpan = 320, kMax = 60 } = {}) {
   let tested = 0, failures = 0, worst = 0;
   const bad = [];
-  for (let t = Math.ceil(C.baseA4); t < C.baseA4 + tSpan; t++) {
+  for (let t = C.baseA4; t < C.baseA4 + tSpan; t++) {
     for (let k = C.base8D; k < kMax; k++) {
       if ((((k - 2 * t - 3) % 6) + 6) % 6) continue;
       const lo = censusAt(C, t, k), hi = censusAt(C, t, k + C.step);

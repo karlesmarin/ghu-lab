@@ -55,7 +55,7 @@ heavy-exchange contributions to neutrinoless double beta decay remain open.
 The [CMS HNL comparison](neutrino-ring.md#experimental-reference-inside-the-same-panel)
 and [decay card](neutrino-decays.md) retain their own base-ring hypotheses.
 
-## 🌌 IceCube context and a possible extension
+## 🧊 Implemented DeepCore reference and further IceCube possibilities
 
 The Nobel Prize in Physics 2026 recognizes Francis Halzen's contributions to
 IceCube and the discovery of high-energy astrophysical neutrinos, as reported by
@@ -64,7 +64,13 @@ This provides context for exploring neutrino astronomy; it does not validate thi
 laboratory's ring model. The [2015 Nobel Prize](https://www.nobelprize.org/prizes/physics/2015/press-release/)
 recognized the discovery of neutrino oscillations showing that neutrinos have mass.
 
-A useful **future extension, not currently implemented**, would connect chosen
+The [Fixed light inputs experiment](neutrino-identifiability.md) now implements nine reconstructed
+parameter paths, raw and explicitly normalized nonunitary **vacuum current factors**, and the
+archived **DeepCore 2018 standard-three-neutrino reference**. Its five figures distinguish heavy
+responses from fixed light inputs. It does not reinterpret that map as a ring likelihood or
+combine it with NuFIT. The original Three active flavours curves retain their unitary limit.
+
+A separate **future extension, not currently implemented**, would connect chosen
 source flavour compositions to Earthly compositions after averaged propagation,
 then add a specifically versioned IceCube data comparison. Matter effects, energy
 and direction dependence, detector response and the selected dataset's likelihood

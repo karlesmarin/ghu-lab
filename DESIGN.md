@@ -80,6 +80,14 @@ under `research/<date>/` with commands, figures, budgets and scope. A proposed i
 is documented as future work until its controls and validation exist. See
 [the experiment guide](docs/research-extensions.md) and [the exploration report](docs/research-exploration-2026-10-07.md).
 
+The fixed-light-input neutrino experiment follows this policy with shared upstream inputs,
+explicit reconstructed couplings and unevaluated domain failures. Its standard-three-neutrino
+DeepCore 2018 archive is not a nonunitary likelihood. NuFIT and DeepCore are never summed.
+SVG exports retain sampled values and display transformations (including a stated numerical-zero
+threshold); cropped axes, logarithmic spacing and color saturation are visible. Independent
+NumPy/SVD references validate the current factors and conserving spectrum before browser gates.
+See [the method](docs/neutrino-identifiability.md) and [738-point study](research/2026-10-07-neutrinos/README.md).
+
 ## D2 — The model record is the interchange format. It is our SLHA.
 
 One canonical JSON document is the only thing the five sections share:

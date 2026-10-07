@@ -213,3 +213,15 @@ a hash. `build/build_app.py` computes it in `kernel_hash()` and injects `const K
 fingerprint in the built page equals the digest of the sources on disk, and no card's text form
 contains `[object Object]`. Each check is also fed input built to trip it — a control that cannot
 fail is not a control.
+
+
+## 🔬 Fixed-light-input neutrino research
+
+The experiment JSON contains the sweep controls, shared flavour and ring inputs, every sampled
+row, separately selected point, current-factor curves, archived DeepCore provenance and an optional
+saved comparison. Its standard-data reference explicitly withholds ring exclusion, ordering odds
+and a combined NuFIT likelihood. Each SVG is self-contained with units, legends, an accessible
+description and full data metadata; numerical-zero display transformations retain raw samples.
+The global Simulator export also contains this experiment under `researchExtensions.identifiability`.
+Permalinks restore controls; preserve comparisons and computed arrays in JSON. See the
+[method and first experiments](neutrino-identifiability.md).

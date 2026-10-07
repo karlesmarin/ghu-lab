@@ -102,7 +102,9 @@ establish a uniform approximation bound over the entire control domain.
 
 One SM Yukawa vector gives the base ring light flavour rank at most one. The separate
 [three-copy flavour card](neutrino-flavour.md) reconstructs chosen light masses and
-mixing inputs; it is not a joint experimental fit. The decay controls now include
+mixing inputs; it is not a joint experimental fit. The [fixed-light-input experiment](neutrino-identifiability.md)
+then varies reconstructed ring paths and plots their heavy and vacuum-current responses, with a
+separate archived DeepCore 2018 standard-three-neutrino reference. The decay controls now include
 optional [leading Majoron light and heavy cascade widths](neutrino-majoron.md).
 Electroweak loop masses, radial stability, dimension-five matching and minimization
 of the full phase potential with nonzero μ remain open.

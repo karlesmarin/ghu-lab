@@ -1,0 +1,25 @@
+{
+  "url": "https://icecube.wisc.edu/data-releases/20180213_Measurement_of_atmospheric_neutrino_oscillations_with_three_years_of_data_from_the_full_sky.zip",
+  "doi": "10.21234/B4105H",
+  "retrieved": "2026-10-07",
+  "archiveSHA256": "c5ea7f09fd8479a66436b37d1063122829c797e22e8828b57c2e5489bd462883",
+  "files": {
+    "chi2_map_IH.dat": {
+      "sha256": "3d7e9ef5eca5e071b4d2cfbdfa27d51eb2e01720a27ad81d626a3d0de3c7ec0b",
+      "archivePath": "chi2_map_IH.dat"
+    },
+    "chi2_map_NH.dat": {
+      "sha256": "ef0dc780ff0c3ff95e7b5964ef01691c4ffedbe557cbff58017a8855cab0a1d3",
+      "archivePath": "chi2_map_NH.dat"
+    },
+    "IC2017_90CL_FC.dat": {
+      "sha256": "dd1f465a4869f93735cca93d42c212f651ff56f351653e2a8ee3383de73f37ee",
+      "archivePath": "IC2017_90CL_FC.dat"
+    },
+    "README": {
+      "sha256": "89300bf8c200bca2075d0d6063b8aa59cbda14e611d6ca50d65c59bb11187b73",
+      "archivePath": "README"
+    }
+  },
+  "laterReleases": "The 2024 and 2025 Harvard Dataverse endpoints returned HTTP 403 in this environment. This is explicitly the archived 2018 reference, not a latest-data claim."
+}

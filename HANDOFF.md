@@ -1,5 +1,33 @@
 # HANDOFF — GHU Lab
 
+## 2026-10-07 — neutrino identifiability and descriptive figures
+
+Current inventory: **29 menu sections, three Simulator modes, eight experiment cards and four
+archived study categories**. Ten October additions means eight cards plus Majoron and conditional
+bounds; these organization levels overlap and must not be added into a panel count.
+
+Simulator → Neutrino ring → Fixed light inputs now sweeps nine reconstructed paths, with five
+linked figures: heavy centre, splitting, vacuum current factors, magnified normalized difference
+and the archived DeepCore 2018 standard-three-neutrino map. Shared flavour/ring inputs, comparisons,
+permalinks, JSON, global result export and all SVG metadata preserve the calculation. Domain failures
+are unevaluated; tiny numerical shape noise is labelled before display at zero.
+
+`tools/neutrino_identifiability.mjs` archives 738 points in `research/2026-10-07-neutrinos/`.
+`tools/plot_neutrino_identifiability.py` generates scientific SVG/PNG/PDF figures. Data hashes,
+grid conventions, normalization equations and reproduction are in `docs/neutrino-identifiability.md`.
+The 2018 map is not a latest-data claim, a ring fit or independent data to add to NuFIT.
+The 2024/2025 Harvard metadata endpoints returned HTTP 403 during this delivery.
+
+Validation for this release: **5,503 source checks / 65 harnesses, eleven browser gates, 30 site checks**.
+The new source harness contributes 1,608 checks; its independent NumPy/SVD cases and 360
+current-factor samples are distinct from the browser implementation. The dedicated browser gate
+checks real controls, exports, missing values and desktop/mobile presentation. Earlier release
+counts below describe their historical snapshots.
+
+Matter propagation, detector/weak-input treatment, a likelihood allowing nonunitarity, coherent
+multi-state production/decay and radiative stability remain open. No new exclusion is inferred.
+
+
 > State at 2026-10-07. The section below is the newest; the earlier handoffs follow it
 > unchanged and are still the map of the code.
 
@@ -25,7 +53,7 @@ gates must be rerun because the corrected explanation is part of the compiled ap
 
 ## 2026-10-07 — integrated histories, conditional certificates and reproducible exploration
 
-**Current validation: 3,895 checks / 64 source harnesses; ten browser gates; 30 site checks.**
+**Historical closure validation: 3,895 checks / 64 source harnesses; ten browser gates; 30 site checks.**
 The closure browser gate contributes 21 checks, and the archived batch studies have twelve separate
 record checks. Earlier counts below are historical. The menu still has 29 sections.
 

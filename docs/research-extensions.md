@@ -3,7 +3,8 @@
 🧭 The [complete laboratory map](laboratory-inventory.md) covers the navigation,
 Simulator modes, embedded cards, diagnostics and batch studies. For the neutrino
 extension, see the [three-flavour guide](neutrino-flavour.md), including what its
-vacuum oscillation plots compute and the scope of a future IceCube comparison.
+vacuum oscillation plots compute, and the [fixed-light-input experiment](neutrino-identifiability.md)
+with nine parameter paths, five descriptive figures and the archived DeepCore 2018 reference.
 
 Each new experiment stays in an existing section. Start with its **What this tests** box, choose a reference, then vary one physical parameter. The result area presents the key quantities and a short interpretation before the figures. **Use this point as comparison** saves a snapshot; subsequent changes show differences beside the indicators. The snapshot travels in the JSON export. Tables, matrices and numerical precision controls are expandable.
 
@@ -106,6 +107,16 @@ The HNL panel includes the published [CMS EXO-22-011 search](https://cms-results
 
 HiggsBounds and HiggsSignals use pinned official experimental datasets that include CMS and ATLAS results. The saved SM reference has χ²=151.642065 over 159 observables; this is a reference calculation, not a joint GHU fit or 159 independent degrees of freedom. Dataset commits and hashes are retained. The historical Higgs-rate window elsewhere in the laboratory is a paper-era reference and is not advertised as the latest combination.
 
+## 🔬 Fixed-light-input neutrino experiment
+
+In **Simulator → Neutrino ring**, open **Fixed light inputs: what can distinguish the neutrino ring?**
+Compare the heavy-splitting, common-suppression and unequal-deficit presets. The five figures
+show what is held fixed, what responds and how the reference data are used. The [method guide](neutrino-identifiability.md)
+details the vacuum current normalization, data provenance, invalid points and limits.
+The fourth [archived study](../research/2026-10-07-neutrinos/README.md) records 738 scan points
+with standalone SVG/PNG/PDF figures. Reproduce it with `node tools/neutrino_identifiability.mjs`
+and `python tools/plot_neutrino_identifiability.py`.
+
 ## Reproducible exploration beyond one point
 
 The [October 7 report](research-exploration-2026-10-07.md) applies these tools to three separate
@@ -127,5 +138,5 @@ The batch scans are supplied as command-line tools, not extra interactive panels
 profile scans, a resumable candidate queue and plasma/friction dynamics are proposed extensions.
 The report explains their prerequisites. The menu has 29 entries; the full contents are mapped
 in the [laboratory inventory](laboratory-inventory.md). The current
-release validation is 3,895 source checks across 64 harnesses, ten browser gates and 30 site checks.
+release validation is 5,503 source checks across 65 harnesses, eleven browser gates and 30 site checks.
 The twelve study-record checks are counted separately.

@@ -1,0 +1,4542 @@
+{
+  "method": "NumPy full SVD of each 7x6 conserving matrix; null vector fixes reconstruction; independent rotation matrices and complex matrix products for all CC samples",
+  "numpy": "2.4.4",
+  "cases": [
+    {
+      "name": "default",
+      "flavour": {
+        "order": 0,
+        "lightEV": 0.001,
+        "s12": 0.3088,
+        "s23": 0.47,
+        "s13": 0.02248,
+        "delta": 212,
+        "alpha21": 0,
+        "alpha31": 0,
+        "dm21": 7.537,
+        "dm3": 2.511,
+        "d1": 0.0001,
+        "d2": 0.0001,
+        "d3": 0.0001
+      },
+      "ring": {
+        "fGeV": 1000,
+        "t": 1,
+        "q": 0.3,
+        "r": 0.4,
+        "muBkeV": 500
+      },
+      "copies": [
+        {
+          "mDGeV": 1.8719573419286146,
+          "muAkeV": 4.46703125000192,
+          "deficit": 9.999999999976694e-05,
+          "pairs": [
+            {
+              "centerGeV": 183.77440441941948,
+              "activeWeight": 9.994450016831058e-05,
+              "splitEV": 126.79800562881337
+            },
+            {
+              "centerGeV": 1329.6730544834552,
+              "activeWeight": 2.5938298050704412e-09,
+              "splitEV": 197163.08943349496
+            },
+            {
+              "centerGeV": 1368.4524161035233,
+              "activeWeight": 4.7912729466451856e-08,
+              "splitEV": 5407.954716269824
+            },
+            {
+              "centerGeV": 2497.850728680244,
+              "activeWeight": 1.7191144047842626e-10,
+              "splitEV": 97196.64816348242
+            },
+            {
+              "centerGeV": 2518.3198106238146,
+              "activeWeight": 3.776817945213685e-09,
+              "splitEV": 108881.50551509953
+            },
+            {
+              "centerGeV": 3009.4592694032,
+              "activeWeight": 1.0445430416553066e-09,
+              "splitEV": 95691.03441602636
+            }
+          ]
+        },
+        {
+          "mDGeV": 1.8719573419286146,
+          "muAkeV": 39.037355168546775,
+          "deficit": 9.999999999976694e-05,
+          "pairs": [
+            {
+              "centerGeV": 183.77440441941948,
+              "activeWeight": 9.994450016831058e-05,
+              "splitEV": 215.6186539140853
+            },
+            {
+              "centerGeV": 1329.6730544834552,
+              "activeWeight": 2.5938298050704412e-09,
+              "splitEV": 206546.14398284775
+            },
+            {
+              "centerGeV": 1368.4524161035233,
+              "activeWeight": 4.7912729466451856e-08,
+              "splitEV": 9965.767770718981
+            },
+            {
+              "centerGeV": 2497.850728680244,
+              "activeWeight": 1.7191144047842626e-10,
+              "splitEV": 99098.05784646199
+            },
+            {
+              "centerGeV": 2518.3198106238146,
+              "activeWeight": 3.776817945213685e-09,
+              "splitEV": 121018.94017866954
+            },
+            {
+              "centerGeV": 3009.4592694032,
+              "activeWeight": 1.0445430416553066e-09,
+              "splitEV": 102192.8179969413
+            }
+          ]
+        },
+        {
+          "mDGeV": 1.8719573419286146,
+          "muAkeV": 223.88696453678634,
+          "deficit": 9.999999999976694e-05,
+          "pairs": [
+            {
+              "centerGeV": 183.77440441941948,
+              "activeWeight": 9.994450016831058e-05,
+              "splitEV": 690.5480233365921
+            },
+            {
+              "centerGeV": 1329.6730544834552,
+              "activeWeight": 2.5938298050704412e-09,
+              "splitEV": 256717.90321239657
+            },
+            {
+              "centerGeV": 1368.4524161035233,
+              "activeWeight": 4.7912729466451856e-08,
+              "splitEV": 34336.66937619786
+            },
+            {
+              "centerGeV": 2497.850728680244,
+              "activeWeight": 1.7191144047842626e-10,
+              "splitEV": 109265.01022954968
+            },
+            {
+              "centerGeV": 2518.3198106238146,
+              "activeWeight": 3.776817945213685e-09,
+              "splitEV": 185918.53618997254
+            },
+            {
+              "centerGeV": 3009.4592694032,
+              "activeWeight": 1.0445430416553066e-09,
+              "splitEV": 136958.24738547654
+            }
+          ]
+        }
+      ],
+      "samples": [
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 2.034817582699761e-33,
+          "nearNormalized": 2.035224607268968e-33
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9998000100000003,
+          "nearNormalized": 1.0
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 5.8363345026326904e-33,
+          "nearNormalized": 5.837501944646599e-33
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 1.445669598769845e-33,
+          "nearNormalized": 1.44595877606547e-33
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.00010038802285744943,
+          "nearNormalized": 0.00010040810347406317
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9970331747437,
+          "nearNormalized": 0.9972326112936324
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.00015518011753070028,
+          "nearNormalized": 0.00015521115821023068
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.0026677653287299893,
+          "nearNormalized": 0.0026682989618393668
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.04895847961937716,
+          "nearNormalized": 0.04896827278425127
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.006836585019687232,
+          "nearNormalized": 0.006837952541816068
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.05439998326493999,
+          "nearNormalized": 0.05441086489381009
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9576695308458356,
+          "nearNormalized": 0.9578610934859216
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.003772294692033238,
+          "nearNormalized": 0.003773049264155575
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9952779869731954,
+          "nearNormalized": 0.995477072432911
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.003761910324798277,
+          "nearNormalized": 0.003762662819735595
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.0006892910069543387,
+          "nearNormalized": 0.000689428885837217
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.056966457319176135,
+          "nearNormalized": 0.05697785231986157
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.5179538804910462,
+          "nearNormalized": 0.5180574868078327
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.02178273664473269,
+          "nearNormalized": 0.02178709384563087
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.4453226464470076,
+          "nearNormalized": 0.4454117243377578
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 2.034817582699761e-33,
+          "nearNormalized": 2.035224607268968e-33
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9998000100000003,
+          "nearNormalized": 1.0
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 5.8363345026326904e-33,
+          "nearNormalized": 5.837501944646599e-33
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 1.445669598769845e-33,
+          "nearNormalized": 1.44595877606547e-33
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 9.906992757057169e-05,
+          "nearNormalized": 9.908974452857993e-05
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9970331747437,
+          "nearNormalized": 0.9972326112936324
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.00015386202224382367,
+          "nearNormalized": 0.00015389279926474858
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.0026664472334431135,
+          "nearNormalized": 0.0026669806028938856
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.03529389413447742,
+          "nearNormalized": 0.03530095397226232
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.006836585019687232,
+          "nearNormalized": 0.006837952541816068
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.04073539778004022,
+          "nearNormalized": 0.04074354608182111
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9440049453609363,
+          "nearNormalized": 0.9441937746739331
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.0038327320198506144,
+          "nearNormalized": 0.003833498681251877
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9952779869731954,
+          "nearNormalized": 0.995477072432911
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.0038223476526156536,
+          "nearNormalized": 0.0038231122368318966
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.0007497283347717169,
+          "nearNormalized": 0.0007498783029335203
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.036523483061946395,
+          "nearNormalized": 0.03653078885440938
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.5179538804910462,
+          "nearNormalized": 0.5180574868078327
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.0013397623875029644,
+          "nearNormalized": 0.001340030380178696
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.4248796721897778,
+          "nearNormalized": 0.4249646608723055
+        }
+      ],
+      "lightMixing": [
+        [
+          [
+            0.821945410485149,
+            0.0
+          ],
+          [
+            0.5493887423149477,
+            0.0
+          ],
+          [
+            -0.1271443076222457,
+            0.0794485811028728
+          ]
+        ],
+        [
+          [
+            -0.3320656071359301,
+            0.04528318225657383
+          ],
+          [
+            0.6536645162382567,
+            0.030267302707212028
+          ],
+          [
+            0.6777820125674626,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.4579031197647706,
+            0.04808680748660971
+          ],
+          [
+            -0.5185031732196849,
+            0.032141247277500125
+          ],
+          [
+            0.7197456435713939,
+            0.0
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "muB zero",
+      "flavour": {
+        "order": 0,
+        "lightEV": 0.001,
+        "s12": 0.3088,
+        "s23": 0.47,
+        "s13": 0.02248,
+        "delta": 212,
+        "alpha21": 0,
+        "alpha31": 0,
+        "dm21": 7.537,
+        "dm3": 2.511,
+        "d1": 0.0001,
+        "d2": 0.0001,
+        "d3": 0.0001
+      },
+      "ring": {
+        "fGeV": 1000,
+        "t": 1,
+        "q": 0.3,
+        "r": 0.4,
+        "muBkeV": 0
+      },
+      "copies": [
+        {
+          "mDGeV": 1.8719573419286146,
+          "muAkeV": 4.46703125000192,
+          "deficit": 9.999999999976694e-05,
+          "pairs": [
+            {
+              "centerGeV": 183.77440441941948,
+              "activeWeight": 9.994450016831058e-05,
+              "splitEV": 11.477029040011377
+            },
+            {
+              "centerGeV": 1329.6730544834552,
+              "activeWeight": 2.5938298050704412e-09,
+              "splitEV": 1212.4386798107805
+            },
+            {
+              "centerGeV": 1368.4524161035233,
+              "activeWeight": 4.7912729466451856e-08,
+              "splitEV": 588.9413531057273
+            },
+            {
+              "centerGeV": 2497.850728680244,
+              "activeWeight": 1.7191144047842626e-10,
+              "splitEV": 245.6921286864103
+            },
+            {
+              "centerGeV": 2518.3198106238146,
+              "activeWeight": 3.776817945213685e-09,
+              "splitEV": 1568.3480451260389
+            },
+            {
+              "centerGeV": 3009.4592694032,
+              "activeWeight": 1.0445430416553066e-09,
+              "splitEV": 840.133014232948
+            }
+          ]
+        },
+        {
+          "mDGeV": 1.8719573419286146,
+          "muAkeV": 39.037355168546775,
+          "deficit": 9.999999999976694e-05,
+          "pairs": [
+            {
+              "centerGeV": 183.77440441941948,
+              "activeWeight": 9.994450016831058e-05,
+              "splitEV": 100.29767732528329
+            },
+            {
+              "centerGeV": 1329.6730544834552,
+              "activeWeight": 2.5938298050704412e-09,
+              "splitEV": 10595.493229163563
+            },
+            {
+              "centerGeV": 1368.4524161035233,
+              "activeWeight": 4.7912729466451856e-08,
+              "splitEV": 5146.754407554886
+            },
+            {
+              "centerGeV": 2497.850728680244,
+              "activeWeight": 1.7191144047842626e-10,
+              "splitEV": 2147.1018116659866
+            },
+            {
+              "centerGeV": 2518.3198106238146,
+              "activeWeight": 3.776817945213685e-09,
+              "splitEV": 13705.782708696046
+            },
+            {
+              "centerGeV": 3009.4592694032,
+              "activeWeight": 1.0445430416553066e-09,
+              "splitEV": 7341.916595147896
+            }
+          ]
+        },
+        {
+          "mDGeV": 1.8719573419286146,
+          "muAkeV": 223.88696453678634,
+          "deficit": 9.999999999976694e-05,
+          "pairs": [
+            {
+              "centerGeV": 183.77440441941948,
+              "activeWeight": 9.994450016831058e-05,
+              "splitEV": 575.22704674779
+            },
+            {
+              "centerGeV": 1329.6730544834552,
+              "activeWeight": 2.5938298050704412e-09,
+              "splitEV": 60767.252458712384
+            },
+            {
+              "centerGeV": 1368.4524161035233,
+              "activeWeight": 4.7912729466451856e-08,
+              "splitEV": 29517.656013033768
+            },
+            {
+              "centerGeV": 2497.850728680244,
+              "activeWeight": 1.7191144047842626e-10,
+              "splitEV": 12314.054194753675
+            },
+            {
+              "centerGeV": 2518.3198106238146,
+              "activeWeight": 3.776817945213685e-09,
+              "splitEV": 78605.37871999905
+            },
+            {
+              "centerGeV": 3009.4592694032,
+              "activeWeight": 1.0445430416553066e-09,
+              "splitEV": 42107.34598368314
+            }
+          ]
+        }
+      ],
+      "samples": [
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 2.034817582699761e-33,
+          "nearNormalized": 2.035224607268968e-33
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9998000100000003,
+          "nearNormalized": 1.0
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 5.8363345026326904e-33,
+          "nearNormalized": 5.837501944646599e-33
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 1.445669598769845e-33,
+          "nearNormalized": 1.44595877606547e-33
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.00010038802285744943,
+          "nearNormalized": 0.00010040810347406317
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9970331747437,
+          "nearNormalized": 0.9972326112936324
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.00015518011753070028,
+          "nearNormalized": 0.00015521115821023068
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.0026677653287299893,
+          "nearNormalized": 0.0026682989618393668
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.04895847961937716,
+          "nearNormalized": 0.04896827278425127
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.006836585019687232,
+          "nearNormalized": 0.006837952541816068
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.05439998326493999,
+          "nearNormalized": 0.05441086489381009
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9576695308458356,
+          "nearNormalized": 0.9578610934859216
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.003772294692033238,
+          "nearNormalized": 0.003773049264155575
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9952779869731954,
+          "nearNormalized": 0.995477072432911
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.003761910324798277,
+          "nearNormalized": 0.003762662819735595
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.0006892910069543387,
+          "nearNormalized": 0.000689428885837217
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.056966457319176135,
+          "nearNormalized": 0.05697785231986157
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.5179538804910462,
+          "nearNormalized": 0.5180574868078327
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.02178273664473269,
+          "nearNormalized": 0.02178709384563087
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.4453226464470076,
+          "nearNormalized": 0.4454117243377578
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 2.034817582699761e-33,
+          "nearNormalized": 2.035224607268968e-33
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9998000100000003,
+          "nearNormalized": 1.0
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 5.8363345026326904e-33,
+          "nearNormalized": 5.837501944646599e-33
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 1.445669598769845e-33,
+          "nearNormalized": 1.44595877606547e-33
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 9.906992757057169e-05,
+          "nearNormalized": 9.908974452857993e-05
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9970331747437,
+          "nearNormalized": 0.9972326112936324
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.00015386202224382367,
+          "nearNormalized": 0.00015389279926474858
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.0026664472334431135,
+          "nearNormalized": 0.0026669806028938856
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.03529389413447742,
+          "nearNormalized": 0.03530095397226232
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.006836585019687232,
+          "nearNormalized": 0.006837952541816068
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.04073539778004022,
+          "nearNormalized": 0.04074354608182111
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9440049453609363,
+          "nearNormalized": 0.9441937746739331
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.0038327320198506144,
+          "nearNormalized": 0.003833498681251877
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9952779869731954,
+          "nearNormalized": 0.995477072432911
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.0038223476526156536,
+          "nearNormalized": 0.0038231122368318966
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.0007497283347717169,
+          "nearNormalized": 0.0007498783029335203
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.036523483061946395,
+          "nearNormalized": 0.03653078885440938
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.5179538804910462,
+          "nearNormalized": 0.5180574868078327
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.0013397623875029644,
+          "nearNormalized": 0.001340030380178696
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.4248796721897778,
+          "nearNormalized": 0.4249646608723055
+        }
+      ],
+      "lightMixing": [
+        [
+          [
+            0.821945410485149,
+            0.0
+          ],
+          [
+            0.5493887423149477,
+            0.0
+          ],
+          [
+            -0.1271443076222457,
+            0.0794485811028728
+          ]
+        ],
+        [
+          [
+            -0.3320656071359301,
+            0.04528318225657383
+          ],
+          [
+            0.6536645162382567,
+            0.030267302707212028
+          ],
+          [
+            0.6777820125674626,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.4579031197647706,
+            0.04808680748660971
+          ],
+          [
+            -0.5185031732196849,
+            0.032141247277500125
+          ],
+          [
+            0.7197456435713939,
+            0.0
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "muB maximum",
+      "flavour": {
+        "order": 0,
+        "lightEV": 0.001,
+        "s12": 0.3088,
+        "s23": 0.47,
+        "s13": 0.02248,
+        "delta": 212,
+        "alpha21": 0,
+        "alpha31": 0,
+        "dm21": 7.537,
+        "dm3": 2.511,
+        "d1": 0.0001,
+        "d2": 0.0001,
+        "d3": 0.0001
+      },
+      "ring": {
+        "fGeV": 1000,
+        "t": 1,
+        "q": 0.3,
+        "r": 0.4,
+        "muBkeV": 5000
+      },
+      "copies": [
+        {
+          "mDGeV": 1.8719573419286146,
+          "muAkeV": 4.46703125000192,
+          "deficit": 9.999999999976694e-05,
+          "pairs": [
+            {
+              "centerGeV": 183.77440441941948,
+              "activeWeight": 9.994450016831058e-05,
+              "splitEV": 1164.6867949280313
+            },
+            {
+              "centerGeV": 1329.6730544834552,
+              "activeWeight": 2.5938298050704412e-09,
+              "splitEV": 1960718.9462166529
+            },
+            {
+              "centerGeV": 1368.4524161035233,
+              "activeWeight": 4.7912729466451856e-08,
+              "splitEV": 48779.07498474668
+            },
+            {
+              "centerGeV": 2497.850728680244,
+              "activeWeight": 1.7191144047842626e-10,
+              "splitEV": 969755.2524766466
+            },
+            {
+              "centerGeV": 2518.3198106238146,
+              "activeWeight": 3.776817945213685e-09,
+              "splitEV": 1074699.922744861
+            },
+            {
+              "centerGeV": 3009.4592694032,
+              "activeWeight": 1.0445430416553066e-09,
+              "splitEV": 949349.1470321671
+            }
+          ]
+        },
+        {
+          "mDGeV": 1.8719573419286146,
+          "muAkeV": 39.037355168546775,
+          "deficit": 9.999999999976694e-05,
+          "pairs": [
+            {
+              "centerGeV": 183.77440441941948,
+              "activeWeight": 9.994450016831058e-05,
+              "splitEV": 1253.5074432133033
+            },
+            {
+              "centerGeV": 1329.6730544834552,
+              "activeWeight": 2.5938298050704412e-09,
+              "splitEV": 1970102.0007660058
+            },
+            {
+              "centerGeV": 1368.4524161035233,
+              "activeWeight": 4.7912729466451856e-08,
+              "splitEV": 53336.888039195845
+            },
+            {
+              "centerGeV": 2497.850728680244,
+              "activeWeight": 1.7191144047842626e-10,
+              "splitEV": 971656.662159626
+            },
+            {
+              "centerGeV": 2518.3198106238146,
+              "activeWeight": 3.776817945213685e-09,
+              "splitEV": 1086837.357408431
+            },
+            {
+              "centerGeV": 3009.4592694032,
+              "activeWeight": 1.0445430416553066e-09,
+              "splitEV": 955850.930613082
+            }
+          ]
+        },
+        {
+          "mDGeV": 1.8719573419286146,
+          "muAkeV": 223.88696453678634,
+          "deficit": 9.999999999976694e-05,
+          "pairs": [
+            {
+              "centerGeV": 183.77440441941948,
+              "activeWeight": 9.994450016831058e-05,
+              "splitEV": 1728.43681263581
+            },
+            {
+              "centerGeV": 1329.6730544834552,
+              "activeWeight": 2.5938298050704412e-09,
+              "splitEV": 2020273.7599955548
+            },
+            {
+              "centerGeV": 1368.4524161035233,
+              "activeWeight": 4.7912729466451856e-08,
+              "splitEV": 77707.78964467473
+            },
+            {
+              "centerGeV": 2497.850728680244,
+              "activeWeight": 1.7191144047842626e-10,
+              "splitEV": 981823.6145427137
+            },
+            {
+              "centerGeV": 2518.3198106238146,
+              "activeWeight": 3.776817945213685e-09,
+              "splitEV": 1151736.953419734
+            },
+            {
+              "centerGeV": 3009.4592694032,
+              "activeWeight": 1.0445430416553066e-09,
+              "splitEV": 990616.3600016172
+            }
+          ]
+        }
+      ],
+      "samples": [
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 2.034817582699761e-33,
+          "nearNormalized": 2.035224607268968e-33
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9998000100000003,
+          "nearNormalized": 1.0
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 5.8363345026326904e-33,
+          "nearNormalized": 5.837501944646599e-33
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 1.445669598769845e-33,
+          "nearNormalized": 1.44595877606547e-33
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.00010038802285744943,
+          "nearNormalized": 0.00010040810347406317
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9970331747437,
+          "nearNormalized": 0.9972326112936324
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.00015518011753070028,
+          "nearNormalized": 0.00015521115821023068
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.0026677653287299893,
+          "nearNormalized": 0.0026682989618393668
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.04895847961937716,
+          "nearNormalized": 0.04896827278425127
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.006836585019687232,
+          "nearNormalized": 0.006837952541816068
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.05439998326493999,
+          "nearNormalized": 0.05441086489381009
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9576695308458356,
+          "nearNormalized": 0.9578610934859216
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.003772294692033238,
+          "nearNormalized": 0.003773049264155575
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9952779869731954,
+          "nearNormalized": 0.995477072432911
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.003761910324798277,
+          "nearNormalized": 0.003762662819735595
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.0006892910069543387,
+          "nearNormalized": 0.000689428885837217
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.056966457319176135,
+          "nearNormalized": 0.05697785231986157
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.5179538804910462,
+          "nearNormalized": 0.5180574868078327
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.02178273664473269,
+          "nearNormalized": 0.02178709384563087
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.4453226464470076,
+          "nearNormalized": 0.4454117243377578
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 2.034817582699761e-33,
+          "nearNormalized": 2.035224607268968e-33
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9998000100000003,
+          "nearNormalized": 1.0
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 5.8363345026326904e-33,
+          "nearNormalized": 5.837501944646599e-33
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 1.445669598769845e-33,
+          "nearNormalized": 1.44595877606547e-33
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 9.906992757057169e-05,
+          "nearNormalized": 9.908974452857993e-05
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9970331747437,
+          "nearNormalized": 0.9972326112936324
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.00015386202224382367,
+          "nearNormalized": 0.00015389279926474858
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.0026664472334431135,
+          "nearNormalized": 0.0026669806028938856
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.03529389413447742,
+          "nearNormalized": 0.03530095397226232
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.006836585019687232,
+          "nearNormalized": 0.006837952541816068
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.04073539778004022,
+          "nearNormalized": 0.04074354608182111
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9440049453609363,
+          "nearNormalized": 0.9441937746739331
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.0038327320198506144,
+          "nearNormalized": 0.003833498681251877
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9952779869731954,
+          "nearNormalized": 0.995477072432911
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.0038223476526156536,
+          "nearNormalized": 0.0038231122368318966
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.0007497283347717169,
+          "nearNormalized": 0.0007498783029335203
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.036523483061946395,
+          "nearNormalized": 0.03653078885440938
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.5179538804910462,
+          "nearNormalized": 0.5180574868078327
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.0013397623875029644,
+          "nearNormalized": 0.001340030380178696
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.4248796721897778,
+          "nearNormalized": 0.4249646608723055
+        }
+      ],
+      "lightMixing": [
+        [
+          [
+            0.821945410485149,
+            0.0
+          ],
+          [
+            0.5493887423149477,
+            0.0
+          ],
+          [
+            -0.1271443076222457,
+            0.0794485811028728
+          ]
+        ],
+        [
+          [
+            -0.3320656071359301,
+            0.04528318225657383
+          ],
+          [
+            0.6536645162382567,
+            0.030267302707212028
+          ],
+          [
+            0.6777820125674626,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.4579031197647706,
+            0.04808680748660971
+          ],
+          [
+            -0.5185031732196849,
+            0.032141247277500125
+          ],
+          [
+            0.7197456435713939,
+            0.0
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "heavy scale",
+      "flavour": {
+        "order": 0,
+        "lightEV": 0.001,
+        "s12": 0.3088,
+        "s23": 0.47,
+        "s13": 0.02248,
+        "delta": 212,
+        "alpha21": 0,
+        "alpha31": 0,
+        "dm21": 7.537,
+        "dm3": 2.511,
+        "d1": 0.0001,
+        "d2": 0.0001,
+        "d3": 0.0001
+      },
+      "ring": {
+        "fGeV": 2500,
+        "t": 1,
+        "q": 0.3,
+        "r": 0.4,
+        "muBkeV": 500
+      },
+      "copies": [
+        {
+          "mDGeV": 4.6798933548215365,
+          "muAkeV": 4.467031250002728,
+          "deficit": 9.999999999932285e-05,
+          "pairs": [
+            {
+              "centerGeV": 459.4360110485486,
+              "activeWeight": 9.994450016829505e-05,
+              "splitEV": 126.79800562881493
+            },
+            {
+              "centerGeV": 3324.1826362086404,
+              "activeWeight": 2.5938298051340523e-09,
+              "splitEV": 197163.08943349516
+            },
+            {
+              "centerGeV": 3421.1310402588115,
+              "activeWeight": 4.791272946640325e-08,
+              "splitEV": 5407.954716269993
+            },
+            {
+              "centerGeV": 6244.6268217006145,
+              "activeWeight": 1.7191144048788812e-10,
+              "splitEV": 97196.64816348277
+            },
+            {
+              "centerGeV": 6295.799526559539,
+              "activeWeight": 3.776817945281915e-09,
+              "splitEV": 108881.50551509915
+            },
+            {
+              "centerGeV": 7523.648173508003,
+              "activeWeight": 1.044543041662483e-09,
+              "splitEV": 95691.03441602667
+            }
+          ]
+        },
+        {
+          "mDGeV": 4.6798933548215365,
+          "muAkeV": 39.03735516855384,
+          "deficit": 9.999999999932285e-05,
+          "pairs": [
+            {
+              "centerGeV": 459.4360110485486,
+              "activeWeight": 9.994450016829505e-05,
+              "splitEV": 215.6186539141019
+            },
+            {
+              "centerGeV": 3324.1826362086404,
+              "activeWeight": 2.5938298051340523e-09,
+              "splitEV": 206546.1439828496
+            },
+            {
+              "centerGeV": 3421.1310402588115,
+              "activeWeight": 4.791272946640325e-08,
+              "splitEV": 9965.767770719984
+            },
+            {
+              "centerGeV": 6244.6268217006145,
+              "activeWeight": 1.7191144048788812e-10,
+              "splitEV": 99098.0578464627
+            },
+            {
+              "centerGeV": 6295.799526559539,
+              "activeWeight": 3.776817945281915e-09,
+              "splitEV": 121018.94017867134
+            },
+            {
+              "centerGeV": 7523.648173508003,
+              "activeWeight": 1.044543041662483e-09,
+              "splitEV": 102192.8179969428
+            }
+          ]
+        },
+        {
+          "mDGeV": 4.6798933548215365,
+          "muAkeV": 223.8869645368268,
+          "deficit": 9.999999999932285e-05,
+          "pairs": [
+            {
+              "centerGeV": 459.4360110485486,
+              "activeWeight": 9.994450016829505e-05,
+              "splitEV": 690.5480233366893
+            },
+            {
+              "centerGeV": 3324.1826362086404,
+              "activeWeight": 2.5938298051340523e-09,
+              "splitEV": 256717.90321240755
+            },
+            {
+              "centerGeV": 3421.1310402588115,
+              "activeWeight": 4.791272946640325e-08,
+              "splitEV": 34336.66937620332
+            },
+            {
+              "centerGeV": 6244.6268217006145,
+              "activeWeight": 1.7191144048788812e-10,
+              "splitEV": 109265.01022955232
+            },
+            {
+              "centerGeV": 6295.799526559539,
+              "activeWeight": 3.776817945281915e-09,
+              "splitEV": 185918.53618998599
+            },
+            {
+              "centerGeV": 7523.648173508003,
+              "activeWeight": 1.044543041662483e-09,
+              "splitEV": 136958.24738548437
+            }
+          ]
+        }
+      ],
+      "samples": [
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 4.7125626224680525e-34,
+          "nearNormalized": 4.713505276388273e-34
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.999800010000001,
+          "nearNormalized": 1.0
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 1.4605907580049641e-34,
+          "nearNormalized": 1.4608829199801289e-34
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 8.757238941024482e-34,
+          "nearNormalized": 8.758990651564874e-34
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.00010038802285744939,
+          "nearNormalized": 0.00010040810347406306
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9970331747437009,
+          "nearNormalized": 0.9972326112936326
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.0001551801175307007,
+          "nearNormalized": 0.00015521115821023096
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.0026677653287299915,
+          "nearNormalized": 0.0026682989618393655
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.0489584796193772,
+          "nearNormalized": 0.048968272784251275
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.006836585019687244,
+          "nearNormalized": 0.006837952541816075
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.054399983264940006,
+          "nearNormalized": 0.05441086489381004
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9576695308458367,
+          "nearNormalized": 0.9578610934859214
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.0037722946920332404,
+          "nearNormalized": 0.003773049264155575
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.995277986973196,
+          "nearNormalized": 0.995477072432911
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.0037619103247982797,
+          "nearNormalized": 0.003762662819735593
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.0006892910069543403,
+          "nearNormalized": 0.0006894288858372178
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.05696645731917618,
+          "nearNormalized": 0.05697785231986157
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.5179538804910467,
+          "nearNormalized": 0.5180574868078329
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.021782736644732705,
+          "nearNormalized": 0.02178709384563086
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.4453226464470079,
+          "nearNormalized": 0.4454117243377575
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 4.7125626224680525e-34,
+          "nearNormalized": 4.713505276388273e-34
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.999800010000001,
+          "nearNormalized": 1.0
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 1.4605907580049641e-34,
+          "nearNormalized": 1.4608829199801289e-34
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 8.757238941024482e-34,
+          "nearNormalized": 8.758990651564874e-34
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 9.906992757057151e-05,
+          "nearNormalized": 9.908974452857968e-05
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9970331747437009,
+          "nearNormalized": 0.9972326112936326
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.0001538620222438232,
+          "nearNormalized": 0.00015389279926474796
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.002666447233443114,
+          "nearNormalized": 0.002666980602893882
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.03529389413447744,
+          "nearNormalized": 0.03530095397226232
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.006836585019687244,
+          "nearNormalized": 0.006837952541816075
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.040735397780040254,
+          "nearNormalized": 0.0407435460818211
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9440049453609372,
+          "nearNormalized": 0.9441937746739326
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.0038327320198506187,
+          "nearNormalized": 0.0038334986812518785
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.995277986973196,
+          "nearNormalized": 0.995477072432911
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.003822347652615659,
+          "nearNormalized": 0.0038231122368318974
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.0007497283347717184,
+          "nearNormalized": 0.0007498783029335209
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.03652348306194643,
+          "nearNormalized": 0.036530788854409385
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.5179538804910467,
+          "nearNormalized": 0.5180574868078329
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.0013397623875029629,
+          "nearNormalized": 0.0013400303801786929
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.4248796721897784,
+          "nearNormalized": 0.42496466087230556
+        }
+      ],
+      "lightMixing": [
+        [
+          [
+            0.8219454104851492,
+            0.0
+          ],
+          [
+            0.5493887423149478,
+            0.0
+          ],
+          [
+            -0.12714430762224574,
+            0.07944858110287283
+          ]
+        ],
+        [
+          [
+            -0.33206560713593014,
+            0.04528318225657384
+          ],
+          [
+            0.6536645162382568,
+            0.03026730270721203
+          ],
+          [
+            0.6777820125674627,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.4579031197647707,
+            0.04808680748660972
+          ],
+          [
+            -0.5185031732196851,
+            0.03214124727750013
+          ],
+          [
+            0.7197456435713941,
+            0.0
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "geometry",
+      "flavour": {
+        "order": 0,
+        "lightEV": 0.001,
+        "s12": 0.3088,
+        "s23": 0.47,
+        "s13": 0.02248,
+        "delta": 212,
+        "alpha21": 0,
+        "alpha31": 0,
+        "dm21": 7.537,
+        "dm3": 2.511,
+        "d1": 0.0001,
+        "d2": 0.0001,
+        "d3": 0.0001
+      },
+      "ring": {
+        "fGeV": 1000,
+        "t": 0.6,
+        "q": 0.2,
+        "r": 0.45,
+        "muBkeV": 500
+      },
+      "copies": [
+        {
+          "mDGeV": 1.9966679882594707,
+          "muAkeV": 25.861848974965092,
+          "deficit": 0.00010000000000043308,
+          "pairs": [
+            {
+              "centerGeV": 197.9893114700152,
+              "activeWeight": 9.997904313663314e-05,
+              "splitEV": 11.94060334931916
+            },
+            {
+              "centerGeV": 1555.3085322811726,
+              "activeWeight": 3.2321207901706105e-10,
+              "splitEV": 193852.0152599398
+            },
+            {
+              "centerGeV": 1587.8430328815884,
+              "activeWeight": 1.5858915354117823e-08,
+              "splitEV": 18809.353812263864
+            },
+            {
+              "centerGeV": 2258.8585374639774,
+              "activeWeight": 9.601590759579769e-11,
+              "splitEV": 79862.05683129755
+            },
+            {
+              "centerGeV": 2281.7284303526812,
+              "activeWeight": 3.490883089614922e-09,
+              "splitEV": 137612.38861072753
+            },
+            {
+              "centerGeV": 2610.9093376476835,
+              "activeWeight": 1.187836936541797e-09,
+              "splitEV": 95714.09285738676
+            }
+          ]
+        },
+        {
+          "mDGeV": 1.9966679882594707,
+          "muAkeV": 226.00651915085564,
+          "deficit": 0.00010000000000043308,
+          "pairs": [
+            {
+              "centerGeV": 197.9893114700152,
+              "activeWeight": 9.997904313663314e-05,
+              "splitEV": 99.27723275101121
+            },
+            {
+              "centerGeV": 1555.3085322811726,
+              "activeWeight": 3.2321207901706105e-10,
+              "splitEV": 255626.2646480719
+            },
+            {
+              "centerGeV": 1587.8430328815884,
+              "activeWeight": 1.5858915354117823e-08,
+              "splitEV": 38741.04971821506
+            },
+            {
+              "centerGeV": 2258.8585374639774,
+              "activeWeight": 9.601590759579769e-11,
+              "splitEV": 93167.93864291355
+            },
+            {
+              "centerGeV": 2281.7284303526812,
+              "activeWeight": 3.490883089614922e-09,
+              "splitEV": 206549.75115868685
+            },
+            {
+              "centerGeV": 2610.9093376476835,
+              "activeWeight": 1.187836936541797e-09,
+              "splitEV": 131822.2290112239
+            }
+          ]
+        },
+        {
+          "mDGeV": 1.9966679882594707,
+          "muAkeV": 1296.192155430129,
+          "deficit": 0.00010000000000043308,
+          "pairs": [
+            {
+              "centerGeV": 197.9893114700152,
+              "activeWeight": 9.997904313663314e-05,
+              "splitEV": 566.271463597114
+            },
+            {
+              "centerGeV": 1555.3085322811726,
+              "activeWeight": 3.2321207901706105e-10,
+              "splitEV": 585936.9060906554
+            },
+            {
+              "centerGeV": 1587.8430328815884,
+              "activeWeight": 1.5858915354117823e-08,
+              "splitEV": 145317.03121444804
+            },
+            {
+              "centerGeV": 2258.8585374639774,
+              "activeWeight": 9.601590759579769e-11,
+              "splitEV": 164315.29210632035
+            },
+            {
+              "centerGeV": 2281.7284303526812,
+              "activeWeight": 3.490883089614922e-09,
+              "splitEV": 575161.9911797047
+            },
+            {
+              "centerGeV": 2610.9093376476835,
+              "activeWeight": 1.187836936541797e-09,
+              "splitEV": 324894.613255547
+            }
+          ]
+        }
+      ],
+      "samples": [
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 7.563859337553106e-34,
+          "nearNormalized": 7.565372336366664e-34
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.999800009999999,
+          "nearNormalized": 1.0
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 6.60848582595578e-33,
+          "nearNormalized": 6.609807721401988e-33
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 4.992829511074533e-33,
+          "nearNormalized": 4.993828226781611e-33
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.00010038802285744883,
+          "nearNormalized": 0.00010040810347406271
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9970331747436989,
+          "nearNormalized": 0.9972326112936325
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.0001551801175306997,
+          "nearNormalized": 0.0001552111582102303
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.0026677653287299867,
+          "nearNormalized": 0.002668298961839367
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.04895847961937709,
+          "nearNormalized": 0.04896827278425126
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.006836585019687225,
+          "nearNormalized": 0.00683795254181607
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.05439998326493993,
+          "nearNormalized": 0.054410864893810085
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9576695308458346,
+          "nearNormalized": 0.9578610934859216
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.003772294692033231,
+          "nearNormalized": 0.0037730492641555734
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.995277986973194,
+          "nearNormalized": 0.995477072432911
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.003761910324798272,
+          "nearNormalized": 0.003762662819735594
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.0006892910069543389,
+          "nearNormalized": 0.000689428885837218
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.05696645731917605,
+          "nearNormalized": 0.05697785231986156
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.5179538804910456,
+          "nearNormalized": 0.5180574868078328
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.021782736644732667,
+          "nearNormalized": 0.02178709384563087
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.44532264644700714,
+          "nearNormalized": 0.44541172433775783
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 7.563859337553106e-34,
+          "nearNormalized": 7.565372336366664e-34
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.999800009999999,
+          "nearNormalized": 1.0
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 6.60848582595578e-33,
+          "nearNormalized": 6.609807721401988e-33
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 4.992829511074533e-33,
+          "nearNormalized": 4.993828226781611e-33
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 9.906992757057189e-05,
+          "nearNormalized": 9.908974452858027e-05
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9970331747436989,
+          "nearNormalized": 0.9972326112936325
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.00015386202224382337,
+          "nearNormalized": 0.00015389279926474844
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.002666447233443109,
+          "nearNormalized": 0.0026669806028938843
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.03529389413447736,
+          "nearNormalized": 0.03530095397226231
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.006836585019687225,
+          "nearNormalized": 0.00683795254181607
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.040735397780040185,
+          "nearNormalized": 0.040743546081821125
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9440049453609352,
+          "nearNormalized": 0.944193774673933
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.0038327320198506118,
+          "nearNormalized": 0.0038334986812518794
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.995277986973194,
+          "nearNormalized": 0.995477072432911
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.00382234765261565,
+          "nearNormalized": 0.0038231122368318974
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.0007497283347717175,
+          "nearNormalized": 0.0007498783029335217
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.03652348306194633,
+          "nearNormalized": 0.036530788854409364
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.5179538804910456,
+          "nearNormalized": 0.5180574868078328
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.0013397623875029629,
+          "nearNormalized": 0.001340030380178696
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.4248796721897774,
+          "nearNormalized": 0.4249646608723056
+        }
+      ],
+      "lightMixing": [
+        [
+          [
+            0.8219454104851488,
+            0.0
+          ],
+          [
+            0.5493887423149475,
+            0.0
+          ],
+          [
+            -0.12714430762224568,
+            0.07944858110287278
+          ]
+        ],
+        [
+          [
+            -0.33206560713593,
+            0.04528318225657381
+          ],
+          [
+            0.6536645162382565,
+            0.030267302707212018
+          ],
+          [
+            0.6777820125674624,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.4579031197647705,
+            0.04808680748660969
+          ],
+          [
+            -0.5185031732196848,
+            0.03214124727750012
+          ],
+          [
+            0.7197456435713937,
+            0.0
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "common suppression",
+      "flavour": {
+        "order": 0,
+        "lightEV": 0.001,
+        "s12": 0.3088,
+        "s23": 0.47,
+        "s13": 0.02248,
+        "delta": 212,
+        "alpha21": 0,
+        "alpha31": 0,
+        "dm21": 7.537,
+        "dm3": 2.511,
+        "d1": 0.001,
+        "d2": 0.001,
+        "d3": 0.001
+      },
+      "ring": {
+        "fGeV": 1000,
+        "t": 1,
+        "q": 0.3,
+        "r": 0.4,
+        "muBkeV": 500
+      },
+      "copies": [
+        {
+          "mDGeV": 5.922314791380364,
+          "muAkeV": 0.44670312499997333,
+          "deficit": 0.0009999999999998899,
+          "pairs": [
+            {
+              "centerGeV": 183.8571210817889,
+              "activeWeight": 0.0009994444847388887,
+              "splitEV": 116.47100509028894
+            },
+            {
+              "centerGeV": 1329.6730700193987,
+              "activeWeight": 2.596217143467849e-08,
+              "splitEV": 196071.9935803023
+            },
+            {
+              "centerGeV": 1368.452711452125,
+              "activeWeight": 4.795749138733814e-07,
+              "splitEV": 4877.805690176658
+            },
+            {
+              "centerGeV": 2497.8507306145275,
+              "activeWeight": 1.720673350195596e-09,
+              "splitEV": 96975.61430280002
+            },
+            {
+              "centerGeV": 2518.3198534674343,
+              "activeWeight": 3.780258711541057e-08,
+              "splitEV": 107469.91045481972
+            },
+            {
+              "centerGeV": 3009.459283563205,
+              "activeWeight": 1.0454915290151463e-08,
+              "splitEV": 94934.90709181102
+            }
+          ]
+        },
+        {
+          "mDGeV": 5.922314791380364,
+          "muAkeV": 3.9037355168527657,
+          "deficit": 0.0009999999999998899,
+          "pairs": [
+            {
+              "centerGeV": 183.8571210817889,
+              "activeWeight": 0.0009994444847388887,
+              "splitEV": 125.34616582972401
+            },
+            {
+              "centerGeV": 1329.6730700193987,
+              "activeWeight": 2.596217143467849e-08,
+              "splitEV": 197010.30133305723
+            },
+            {
+              "centerGeV": 1368.452711452125,
+              "activeWeight": 4.795749138733814e-07,
+              "splitEV": 5333.584679742643
+            },
+            {
+              "centerGeV": 2497.8507306145275,
+              "activeWeight": 1.720673350195596e-09,
+              "splitEV": 97165.7556969655
+            },
+            {
+              "centerGeV": 2518.3198534674343,
+              "activeWeight": 3.780258711541057e-08,
+              "splitEV": 108683.65351598819
+            },
+            {
+              "centerGeV": 3009.459283563205,
+              "activeWeight": 1.0454915290151463e-08,
+              "splitEV": 95585.08538627645
+            }
+          ]
+        },
+        {
+          "mDGeV": 5.922314791380364,
+          "muAkeV": 22.38869645366767,
+          "deficit": 0.0009999999999998899,
+          "pairs": [
+            {
+              "centerGeV": 183.8571210817889,
+              "activeWeight": 0.0009994444847388887,
+              "splitEV": 172.80218619072642
+            },
+            {
+              "centerGeV": 1329.6730700193987,
+              "activeWeight": 2.596217143467849e-08,
+              "splitEV": 202027.4895425925
+            },
+            {
+              "centerGeV": 1368.452711452125,
+              "activeWeight": 4.795749138733814e-07,
+              "splitEV": 7770.662457146058
+            },
+            {
+              "centerGeV": 2497.8507306145275,
+              "activeWeight": 1.720673350195596e-09,
+              "splitEV": 98182.45321241359
+            },
+            {
+              "centerGeV": 2518.3198534674343,
+              "activeWeight": 3.780258711541057e-08,
+              "splitEV": 115173.61095055098
+            },
+            {
+              "centerGeV": 3009.459283563205,
+              "activeWeight": 1.0454915290151463e-08,
+              "splitEV": 99061.62798491755
+            }
+          ]
+        }
+      ],
+      "samples": [
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 4.4705070605744915e-34,
+          "nearNormalized": 4.47946150412123e-34
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.998001,
+          "nearNormalized": 1.0
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 5.389634114713861e-34,
+          "nearNormalized": 5.40042957343115e-34
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 4.800843171883457e-34,
+          "nearNormalized": 4.810459279984145e-34
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.00010020738767521829,
+          "nearNormalized": 0.00010040810347406294
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9952391433036566,
+          "nearNormalized": 0.9972326112936325
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.00015490089110496916,
+          "nearNormalized": 0.00015521115821023142
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.002662965032214649,
+          "nearNormalized": 0.002668298961839366
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.04887038520695556,
+          "nearNormalized": 0.048968272784251275
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.006824283474684986,
+          "nearNormalized": 0.006837952541816076
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.05430209757488735,
+          "nearNormalized": 0.05441086489381007
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9559463291600436,
+          "nearNormalized": 0.957861093485922
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.0037655069386765285,
+          "nearNormalized": 0.0037730492641555756
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9934871137651176,
+          "nearNormalized": 0.995477072432911
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.0037551412567589436,
+          "nearNormalized": 0.003762662819735595
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.000688050717494428,
+          "nearNormalized": 0.0006894288858372166
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.05686395359307415,
+          "nearNormalized": 0.05697785231986155
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.517021889891704,
+          "nearNormalized": 0.5180574868078328
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.021743541445033446,
+          "nearNormalized": 0.02178709384563086
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.44452134630080664,
+          "nearNormalized": 0.44541172433775783
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 4.4705070605744915e-34,
+          "nearNormalized": 4.47946150412123e-34
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.998001,
+          "nearNormalized": 1.0
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 5.389634114713861e-34,
+          "nearNormalized": 5.40042957343115e-34
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 4.800843171883457e-34,
+          "nearNormalized": 4.810459279984145e-34
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 9.889166412926748e-05,
+          "nearNormalized": 9.90897445285801e-05
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9952391433036566,
+          "nearNormalized": 0.9972326112936325
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.00015358516755901704,
+          "nearNormalized": 0.00015389279926474725
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.002661649308668699,
+          "nearNormalized": 0.002666980602893884
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.03523038736527176,
+          "nearNormalized": 0.03530095397226231
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.006824283474684986,
+          "nearNormalized": 0.006837952541816076
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.04066209973320356,
+          "nearNormalized": 0.04074354608182112
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9423063313183597,
+          "nearNormalized": 0.9441937746739328
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.0038258355173880565,
+          "nearNormalized": 0.003833498681251879
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9934871137651178,
+          "nearNormalized": 0.9954770724329112
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.003815469835470469,
+          "nearNormalized": 0.0038231122368318957
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.0007483792962059581,
+          "nearNormalized": 0.0007498783029335222
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.03645776380748942,
+          "nearNormalized": 0.036530788854409385
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.5170218898917041,
+          "nearNormalized": 0.5180574868078329
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.0013373516594487173,
+          "nearNormalized": 0.0013400303801786944
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.42411515651522164,
+          "nearNormalized": 0.4249646608723054
+        }
+      ],
+      "lightMixing": [
+        [
+          [
+            0.8215754147830862,
+            0.0
+          ],
+          [
+            0.54914143699415,
+            0.0
+          ],
+          [
+            -0.12708707408001543,
+            0.07941281761643189
+          ]
+        ],
+        [
+          [
+            -0.33191612902476125,
+            0.04526279819870705
+          ],
+          [
+            0.6533702715615252,
+            0.030253677992271293
+          ],
+          [
+            0.6774769114885023,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.45769699636032923,
+            0.04806516138716198
+          ],
+          [
+            -0.5182697709241675,
+            0.03212677901330653
+          ],
+          [
+            0.7194216527183485,
+            0.0
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "unequal deficits and Majorana phases",
+      "flavour": {
+        "order": 0,
+        "lightEV": 0.001,
+        "s12": 0.3088,
+        "s23": 0.47,
+        "s13": 0.02248,
+        "delta": 212,
+        "alpha21": 123,
+        "alpha31": 271,
+        "dm21": 7.537,
+        "dm3": 2.511,
+        "d1": 1e-06,
+        "d2": 0.0002,
+        "d3": 0.001
+      },
+      "ring": {
+        "fGeV": 1000,
+        "t": 1,
+        "q": 0.3,
+        "r": 0.4,
+        "muBkeV": 500
+      },
+      "copies": [
+        {
+          "mDGeV": 0.1871864677654027,
+          "muAkeV": 446.70312500280005,
+          "deficit": 9.999999996956888e-07,
+          "pairs": [
+            {
+              "centerGeV": 183.76531240061948,
+              "activeWeight": 9.994450584883624e-07,
+              "splitEV": 1263.1216608028403
+            },
+            {
+              "centerGeV": 1329.673052776227,
+              "activeWeight": 2.5935674656266626e-11,
+              "splitEV": 317194.47526592284
+            },
+            {
+              "centerGeV": 1368.4523836482374,
+              "activeWeight": 4.790781075475713e-10,
+              "splitEV": 63713.19271291092
+            },
+            {
+              "centerGeV": 2497.8507284676853,
+              "activeWeight": 1.7189430934875195e-12,
+              "splitEV": 121520.1530762976
+            },
+            {
+              "centerGeV": 2518.319805915751,
+              "activeWeight": 3.77643984325814e-11,
+              "splitEV": 264147.97672232334
+            },
+            {
+              "centerGeV": 3009.4592678471627,
+              "activeWeight": 1.0444388131664065e-11,
+              "splitEV": 178864.20456454216
+            }
+          ]
+        },
+        {
+          "mDGeV": 2.6474798516808207,
+          "muAkeV": 19.518677584257468,
+          "deficit": 0.00019999999999986695,
+          "pairs": [
+            {
+              "centerGeV": 183.78358964694564,
+              "activeWeight": 0.00019988898885846205,
+              "splitEV": 165.46584122500684
+            },
+            {
+              "centerGeV": 1329.6730562082748,
+              "activeWeight": 5.1881896962828596e-09,
+              "splitEV": 201248.4097622237
+            },
+            {
+              "centerGeV": 1368.4524488932875,
+              "activeWeight": 9.583539777554258e-08,
+              "splitEV": 7392.377845547849
+            },
+            {
+              "centerGeV": 2497.850728894993,
+              "activeWeight": 3.4385749629635787e-10,
+              "splitEV": 98024.51708853622
+            },
+            {
+              "centerGeV": 2518.319815380387,
+              "activeWeight": 7.554399886556433e-09,
+              "splitEV": 114166.03949236905
+            },
+            {
+              "centerGeV": 3009.4592709752706,
+              "activeWeight": 2.089296688289377e-09,
+              "splitEV": 98521.85881536253
+            }
+          ]
+        },
+        {
+          "mDGeV": 5.922314791380364,
+          "muAkeV": 22.38869645366767,
+          "deficit": 0.0009999999999998899,
+          "pairs": [
+            {
+              "centerGeV": 183.8571210817889,
+              "activeWeight": 0.0009994444847388887,
+              "splitEV": 172.80218619072642
+            },
+            {
+              "centerGeV": 1329.6730700193987,
+              "activeWeight": 2.596217143467849e-08,
+              "splitEV": 202027.4895425925
+            },
+            {
+              "centerGeV": 1368.452711452125,
+              "activeWeight": 4.795749138733814e-07,
+              "splitEV": 7770.662457146058
+            },
+            {
+              "centerGeV": 2497.8507306145275,
+              "activeWeight": 1.720673350195596e-09,
+              "splitEV": 98182.45321241359
+            },
+            {
+              "centerGeV": 2518.3198534674343,
+              "activeWeight": 3.780258711541057e-08,
+              "splitEV": 115173.61095055098
+            },
+            {
+              "centerGeV": 3009.459283563205,
+              "activeWeight": 1.0454915290151463e-08,
+              "splitEV": 99061.62798491755
+            }
+          ]
+        }
+      ],
+      "samples": [
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 2.7632946506480957e-09,
+          "nearNormalized": 2.7663101796910945e-09
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9989099092845273,
+          "nearNormalized": 1.0
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 2.4814898703083154e-08,
+          "nearNormalized": 2.481904466535663e-08
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 1.7656419556357375e-07,
+          "nearNormalized": 1.7676645703806055e-07
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 9.958888967693863e-05,
+          "nearNormalized": 9.969756907133849e-05
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9961457204705972,
+          "nearNormalized": 0.9972327946812442
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.00015448364178468344,
+          "nearNormalized": 0.00015450945222051765
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.002664790973062974,
+          "nearNormalized": 0.0026678435996144133
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.04889699641548048,
+          "nearNormalized": 0.04895035674488716
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.006897997177184717,
+          "nearNormalized": 0.00690552482568266
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.05437945063210759,
+          "nearNormalized": 0.054388536107469417
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9567734023289517,
+          "nearNormalized": 0.9578694252144927
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.003778262395389698,
+          "nearNormalized": 0.0037823855387478255
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9943905967345611,
+          "nearNormalized": 0.9954757556132333
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.003768314495559068,
+          "nearNormalized": 0.0037689440886885875
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.0006933049555366899,
+          "nearNormalized": 0.0006940991645898235
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.0569333394178172,
+          "nearNormalized": 0.05699546965010679
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.5175259031314937,
+          "nearNormalized": 0.5180906689594995
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.021801939160068968,
+          "nearNormalized": 0.021805581730539546
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.44491075419089826,
+          "nearNormalized": 0.44542041757350226
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 2.7632946506480957e-09,
+          "nearNormalized": 2.7663101796910945e-09
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9989099092845273,
+          "nearNormalized": 1.0
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 2.4814898703083154e-08,
+          "nearNormalized": 2.481904466535663e-08
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 1.7656419556357375e-07,
+          "nearNormalized": 1.7676645703806055e-07
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 9.957716835738805e-05,
+          "nearNormalized": 9.968583496054269e-05
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.996145720470597,
+          "nearNormalized": 0.9972327946812439
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.00015447192046513255,
+          "nearNormalized": 0.00015449772894262113
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.002664779251743437,
+          "nearNormalized": 0.002667831864867627
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.035238689105881064,
+          "nearNormalized": 0.03527714439345276
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.0068979971771847195,
+          "nearNormalized": 0.0069055248256826626
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.04072114332250821,
+          "nearNormalized": 0.040727946828980996
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9431150950193523,
+          "nearNormalized": 0.9441954717577987
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.0038261869219192815,
+          "nearNormalized": 0.003830362364369577
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9943905967345615,
+          "nearNormalized": 0.9954757556132338
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.003816239022088654,
+          "nearNormalized": 0.00381687662223369
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.0007412294820662714,
+          "nearNormalized": 0.0007420785906156989
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.03647343128962582,
+          "nearNormalized": 0.036513234027030564
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.5175259031314934,
+          "nearNormalized": 0.5180906689594992
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.001342031031877606,
+          "nearNormalized": 0.0013422552524192481
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.4244508460627067,
+          "nearNormalized": 0.42493707178756446
+        }
+      ],
+      "lightMixing": [
+        [
+          [
+            0.8219860998448674,
+            0.0
+          ],
+          [
+            0.2621325422624034,
+            0.48278808462082956
+          ],
+          [
+            0.034983733097750214,
+            -0.1457177354289634
+          ]
+        ],
+        [
+          [
+            -0.3320820456204894,
+            0.04528542394278379
+          ],
+          [
+            0.28528805972102306,
+            0.5888644230716231
+          ],
+          [
+            -0.4832107114107619,
+            0.4748498436115414
+          ]
+        ],
+        [
+          [
+            0.4579257876749731,
+            0.04808918796271258
+          ],
+          [
+            -0.2756408250004067,
+            -0.44031096448922735
+          ],
+          [
+            -0.5131278169326056,
+            0.5042493013282006
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "inverted rank two",
+      "flavour": {
+        "order": 1,
+        "lightEV": 0,
+        "s12": 0.3088,
+        "s23": 0.55,
+        "s13": 0.02248,
+        "delta": 274,
+        "alpha21": 0,
+        "alpha31": 0,
+        "dm21": 7.537,
+        "dm3": 2.483,
+        "d1": 0.0001,
+        "d2": 0.0001,
+        "d3": 0.0001
+      },
+      "ring": {
+        "fGeV": 1000,
+        "t": 1,
+        "q": 0.3,
+        "r": 0.4,
+        "muBkeV": 500
+      },
+      "copies": [
+        {
+          "mDGeV": 1.8719573419286146,
+          "muAkeV": 219.18653125058376,
+          "deficit": 9.999999999976694e-05,
+          "pairs": [
+            {
+              "centerGeV": 183.77440441941948,
+              "activeWeight": 9.994450016831058e-05,
+              "splitEV": 678.4713204197814
+            },
+            {
+              "centerGeV": 1329.6730544834552,
+              "activeWeight": 2.5938298050704412e-09,
+              "splitEV": 255442.11470564286
+            },
+            {
+              "centerGeV": 1368.4524161035233,
+              "activeWeight": 4.7912729466451856e-08,
+              "splitEV": 33716.9558830903
+            },
+            {
+              "centerGeV": 2497.850728680244,
+              "activeWeight": 1.7191144047842626e-10,
+              "splitEV": 109006.48070620347
+            },
+            {
+              "centerGeV": 2518.3198106238146,
+              "activeWeight": 3.776817945213685e-09,
+              "splitEV": 184268.24208118205
+            },
+            {
+              "centerGeV": 3009.4592694032,
+              "activeWeight": 1.0445430416553066e-09,
+              "splitEV": 136074.21748643866
+            }
+          ]
+        },
+        {
+          "mDGeV": 1.8719573419286146,
+          "muAkeV": 222.59087180751575,
+          "deficit": 9.999999999976694e-05,
+          "pairs": [
+            {
+              "centerGeV": 183.77440441941948,
+              "activeWeight": 9.994450016831058e-05,
+              "splitEV": 687.2180054656895
+            },
+            {
+              "centerGeV": 1329.6730544834552,
+              "activeWeight": 2.5938298050704412e-09,
+              "splitEV": 256366.11857744723
+            },
+            {
+              "centerGeV": 1368.4524161035233,
+              "activeWeight": 4.7912729466451856e-08,
+              "splitEV": 34165.79020320645
+            },
+            {
+              "centerGeV": 2497.850728680244,
+              "activeWeight": 1.7191144047842626e-10,
+              "splitEV": 109193.72355976663
+            },
+            {
+              "centerGeV": 2518.3198106238146,
+              "activeWeight": 3.776817945213685e-09,
+              "splitEV": 185463.48575837933
+            },
+            {
+              "centerGeV": 3009.4592694032,
+              "activeWeight": 1.0445430416553066e-09,
+              "splitEV": 136714.48587354016
+            }
+          ]
+        },
+        {
+          "mDGeV": 1.8719573419286146,
+          "muAkeV": 0.0,
+          "deficit": 9.999999999976694e-05,
+          "pairs": [
+            {
+              "centerGeV": 183.77440441941948,
+              "activeWeight": 9.994450016831058e-05,
+              "splitEV": 115.32097658880201
+            },
+            {
+              "centerGeV": 1329.6730544834552,
+              "activeWeight": 2.5938298050704412e-09,
+              "splitEV": 195950.6507536842
+            },
+            {
+              "centerGeV": 1368.4524161035233,
+              "activeWeight": 4.7912729466451856e-08,
+              "splitEV": 4819.013363164096
+            },
+            {
+              "centerGeV": 2497.850728680244,
+              "activeWeight": 1.7191144047842626e-10,
+              "splitEV": 96950.956034796
+            },
+            {
+              "centerGeV": 2518.3198106238146,
+              "activeWeight": 3.776817945213685e-09,
+              "splitEV": 107313.15746997349
+            },
+            {
+              "centerGeV": 3009.4592694032,
+              "activeWeight": 1.0445430416553066e-09,
+              "splitEV": 94850.90140179341
+            }
+          ]
+        }
+      ],
+      "samples": [
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 9.737994723460991e-33,
+          "nearNormalized": 9.739942614584479e-33
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9998000100000003,
+          "nearNormalized": 1.0
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 4.51029912805829e-33,
+          "nearNormalized": 4.511201323210918e-33
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 9.261286332883316e-34,
+          "nearNormalized": 9.263138868025527e-34
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.00013297736214365867,
+          "nearNormalized": 0.0001330039616059402
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9970149391121569,
+          "nearNormalized": 0.9972143720144158
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.00011231816945165048,
+          "nearNormalized": 0.00011234063645553519
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.0026545111917698825,
+          "nearNormalized": 0.0026550421736541902
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.06189981240095762,
+          "nearNormalized": 0.0619121942206798
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.005919301885971552,
+          "nearNormalized": 0.005920485923951482
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.05334137798388267,
+          "nearNormalized": 0.053352047859934165
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9576097602161808,
+          "nearNormalized": 0.9578013109003473
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.0036982126824161013,
+          "nearNormalized": 0.0036989524359137584
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9953498584809739,
+          "nearNormalized": 0.9955489583171474
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.004202057092406994,
+          "nearNormalized": 0.004202897629903997
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.0007323099054598868,
+          "nearNormalized": 0.0007324563894132052
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.05950630981623231,
+          "nearNormalized": 0.05951821286362289
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.5332762301949618,
+          "nearNormalized": 0.533382901441421
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.05394753338718933,
+          "nearNormalized": 0.05395832451250857
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.45107848644487386,
+          "nearNormalized": 0.4511687156763217
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 9.737994723460991e-33,
+          "nearNormalized": 9.739942614584479e-33
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9998000100000003,
+          "nearNormalized": 1.0
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 4.51029912805829e-33,
+          "nearNormalized": 4.511201323210918e-33
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 9.261286332883316e-34,
+          "nearNormalized": 9.263138868025527e-34
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.00013055969607342528,
+          "nearNormalized": 0.0001305858119299531
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9970149391121569,
+          "nearNormalized": 0.9972143720144158
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.00010990050338141869,
+          "nearNormalized": 0.0001099224867795497
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.002652093525699651,
+          "nearNormalized": 0.002652624023978205
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.036270947897848224,
+          "nearNormalized": 0.03627820317570132
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.005919301885971546,
+          "nearNormalized": 0.005920485923951476
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.027712513480773242,
+          "nearNormalized": 0.027718056814955656
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9319808957130713,
+          "nearNormalized": 0.9321673198553687
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.003717841613566482,
+          "nearNormalized": 0.0037185852934393158
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9953498584809739,
+          "nearNormalized": 0.9955489583171474
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.0042216860235573805,
+          "nearNormalized": 0.004222530487429561
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.0007519388366102762,
+          "nearNormalized": 0.0007520892469387711
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.015445293360164435,
+          "nearNormalized": 0.015448382882257054
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.5332762301949618,
+          "nearNormalized": 0.533382901441421
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.009886516931121428,
+          "nearNormalized": 0.009888494531142709
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.40701746998880595,
+          "nearNormalized": 0.4070988856949559
+        }
+      ],
+      "lightMixing": [
+        [
+          [
+            0.821945410485149,
+            0.0
+          ],
+          [
+            0.5493887423149477,
+            0.0
+          ],
+          [
+            0.010458296642093058,
+            0.14956060989226402
+          ]
+        ],
+        [
+          [
+            -0.3792030346044764,
+            0.09221475929631057
+          ],
+          [
+            0.55337167918996,
+            0.06163639334973944
+          ],
+          [
+            0.7331999975450082,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.4062631895905535,
+            0.08341138819603627
+          ],
+          [
+            -0.6204389091357863,
+            0.055752215501411594
+          ],
+          [
+            0.6632043513126252,
+            0.0
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "CP conserving",
+      "flavour": {
+        "order": 0,
+        "lightEV": 0.001,
+        "s12": 0.3088,
+        "s23": 0.47,
+        "s13": 0.02248,
+        "delta": 0,
+        "alpha21": 0,
+        "alpha31": 0,
+        "dm21": 7.537,
+        "dm3": 2.511,
+        "d1": 0.0001,
+        "d2": 0.0001,
+        "d3": 0.0001
+      },
+      "ring": {
+        "fGeV": 1000,
+        "t": 1,
+        "q": 0.3,
+        "r": 0.4,
+        "muBkeV": 500
+      },
+      "copies": [
+        {
+          "mDGeV": 1.8719573419286146,
+          "muAkeV": 4.46703125000192,
+          "deficit": 9.999999999976694e-05,
+          "pairs": [
+            {
+              "centerGeV": 183.77440441941948,
+              "activeWeight": 9.994450016831058e-05,
+              "splitEV": 126.79800562881337
+            },
+            {
+              "centerGeV": 1329.6730544834552,
+              "activeWeight": 2.5938298050704412e-09,
+              "splitEV": 197163.08943349496
+            },
+            {
+              "centerGeV": 1368.4524161035233,
+              "activeWeight": 4.7912729466451856e-08,
+              "splitEV": 5407.954716269824
+            },
+            {
+              "centerGeV": 2497.850728680244,
+              "activeWeight": 1.7191144047842626e-10,
+              "splitEV": 97196.64816348242
+            },
+            {
+              "centerGeV": 2518.3198106238146,
+              "activeWeight": 3.776817945213685e-09,
+              "splitEV": 108881.50551509953
+            },
+            {
+              "centerGeV": 3009.4592694032,
+              "activeWeight": 1.0445430416553066e-09,
+              "splitEV": 95691.03441602636
+            }
+          ]
+        },
+        {
+          "mDGeV": 1.8719573419286146,
+          "muAkeV": 39.037355168546775,
+          "deficit": 9.999999999976694e-05,
+          "pairs": [
+            {
+              "centerGeV": 183.77440441941948,
+              "activeWeight": 9.994450016831058e-05,
+              "splitEV": 215.6186539140853
+            },
+            {
+              "centerGeV": 1329.6730544834552,
+              "activeWeight": 2.5938298050704412e-09,
+              "splitEV": 206546.14398284775
+            },
+            {
+              "centerGeV": 1368.4524161035233,
+              "activeWeight": 4.7912729466451856e-08,
+              "splitEV": 9965.767770718981
+            },
+            {
+              "centerGeV": 2497.850728680244,
+              "activeWeight": 1.7191144047842626e-10,
+              "splitEV": 99098.05784646199
+            },
+            {
+              "centerGeV": 2518.3198106238146,
+              "activeWeight": 3.776817945213685e-09,
+              "splitEV": 121018.94017866954
+            },
+            {
+              "centerGeV": 3009.4592694032,
+              "activeWeight": 1.0445430416553066e-09,
+              "splitEV": 102192.8179969413
+            }
+          ]
+        },
+        {
+          "mDGeV": 1.8719573419286146,
+          "muAkeV": 223.88696453678634,
+          "deficit": 9.999999999976694e-05,
+          "pairs": [
+            {
+              "centerGeV": 183.77440441941948,
+              "activeWeight": 9.994450016831058e-05,
+              "splitEV": 690.5480233365921
+            },
+            {
+              "centerGeV": 1329.6730544834552,
+              "activeWeight": 2.5938298050704412e-09,
+              "splitEV": 256717.90321239657
+            },
+            {
+              "centerGeV": 1368.4524161035233,
+              "activeWeight": 4.7912729466451856e-08,
+              "splitEV": 34336.66937619786
+            },
+            {
+              "centerGeV": 2497.850728680244,
+              "activeWeight": 1.7191144047842626e-10,
+              "splitEV": 109265.01022954968
+            },
+            {
+              "centerGeV": 2518.3198106238146,
+              "activeWeight": 3.776817945213685e-09,
+              "splitEV": 185918.53618997254
+            },
+            {
+              "centerGeV": 3009.4592694032,
+              "activeWeight": 1.0445430416553066e-09,
+              "splitEV": 136958.24738547654
+            }
+          ]
+        }
+      ],
+      "samples": [
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 1.3251401966691456e-34,
+          "nearNormalized": 1.3254052644679858e-34
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9998000100000005,
+          "nearNormalized": 1.0
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 1.762721652356526e-34,
+          "nearNormalized": 1.7630742495756982e-34
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 8.719416782513656e-33,
+          "nearNormalized": 8.72116092748754e-33
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.0001430956554503752,
+          "nearNormalized": 0.0001431242788749073
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9969923933158695,
+          "nearNormalized": 0.9971918217082925
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.00011115438965089716,
+          "nearNormalized": 0.00011117662386390367
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.0026645210286806303,
+          "nearNormalized": 0.0026650540128326555
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.04243992827729187,
+          "nearNormalized": 0.04244841753631494
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.006527190853606096,
+          "nearNormalized": 0.006528496487618651
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.04725394912212551,
+          "nearNormalized": 0.04726340132975743
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9508328908691027,
+          "nearNormalized": 0.9510230859760666
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.004286458472709559,
+          "nearNormalized": 0.004287315893015
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.9947653014691444,
+          "nearNormalized": 0.9949642843763764
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.003308183871939335,
+          "nearNormalized": 0.0033088456079724726
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.0007482500581462432,
+          "nearNormalized": 0.0007483997306083673
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": false,
+          "ccKernel": 0.007708597949852423,
+          "nearNormalized": 0.007710139900731166
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.5544668200747777,
+          "nearNormalized": 0.5545777300750151
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": false,
+          "ccKernel": 0.050597621756826666,
+          "nearNormalized": 0.05060774279930909
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": false,
+          "ccKernel": 0.43762459197537,
+          "nearNormalized": 0.43771213002425335
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 1.3251401966691456e-34,
+          "nearNormalized": 1.3254052644679858e-34
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9998000100000005,
+          "nearNormalized": 1.0
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 1.762721652356526e-34,
+          "nearNormalized": 1.7630742495756982e-34
+        },
+        {
+          "LoverE": 0,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 8.719416782513656e-33,
+          "nearNormalized": 8.72116092748754e-33
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.0001430956554503752,
+          "nearNormalized": 0.0001431242788749073
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9969923933158695,
+          "nearNormalized": 0.9971918217082925
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.00011115438965089716,
+          "nearNormalized": 0.00011117662386390367
+        },
+        {
+          "LoverE": 17,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.0026645210286806303,
+          "nearNormalized": 0.0026650540128326555
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.04243992827729187,
+          "nearNormalized": 0.04244841753631494
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.006527190853606096,
+          "nearNormalized": 0.006528496487618651
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.04725394912212551,
+          "nearNormalized": 0.04726340132975743
+        },
+        {
+          "LoverE": 500,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9508328908691027,
+          "nearNormalized": 0.9510230859760666
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.004286458472709559,
+          "nearNormalized": 0.004287315893015
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.9947653014691444,
+          "nearNormalized": 0.9949642843763764
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.003308183871939335,
+          "nearNormalized": 0.0033088456079724726
+        },
+        {
+          "LoverE": 1000,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.0007482500581462432,
+          "nearNormalized": 0.0007483997306083673
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 0,
+          "antineutrino": true,
+          "ccKernel": 0.007708597949852423,
+          "nearNormalized": 0.007710139900731166
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 1,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.5544668200747777,
+          "nearNormalized": 0.5545777300750151
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 0,
+          "toFlavour": 2,
+          "antineutrino": true,
+          "ccKernel": 0.050597621756826666,
+          "nearNormalized": 0.05060774279930909
+        },
+        {
+          "LoverE": 1777,
+          "fromFlavour": 2,
+          "toFlavour": 1,
+          "antineutrino": true,
+          "ccKernel": 0.43762459197537,
+          "nearNormalized": 0.43771213002425335
+        }
+      ],
+      "lightMixing": [
+        [
+          [
+            0.821945410485149,
+            0.0
+          ],
+          [
+            0.5493887423149477,
+            0.0
+          ],
+          [
+            0.1499258216585789,
+            0.0
+          ]
+        ],
+        [
+          [
+            -0.4899868310005861,
+            0.0
+          ],
+          [
+            0.5481098876010204,
+            0.0
+          ],
+          [
+            0.6777820125674626,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.2902044927777707,
+            0.0
+          ],
+          [
+            -0.6305930232183012,
+            0.0
+          ],
+          [
+            0.7197456435713939,
+            0.0
+          ]
+        ]
+      ]
+    }
+  ]
+}

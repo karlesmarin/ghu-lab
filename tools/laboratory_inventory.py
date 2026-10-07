@@ -26,7 +26,7 @@ def collect(root):
     modes=[dict(id=k,label=v) for k,v in re.findall(r'<option value="([^"]+)">([^<]+)</option>',select.group(1))]
     return dict(menuSections=sections,experimentCards=experiments,simulatorModes=modes,
       integratedAnalyses=['Hierarchy robustness','CMS HNL comparison','Neutrino decays with computed Majoron channels','Conditional rung bounds and full-potential witnesses'],
-      batchStudies=['Higgs coupling/width assumptions','Thermal wall/efficiency/background scenarios','Candidate enumeration and selected full-potential checks'],
+      batchStudies=['Higgs coupling/width assumptions','Thermal wall/efficiency/background scenarios','Candidate enumeration and selected full-potential checks','Fixed-light-input neutrino identifiability paths'],
       countingRule='Menu sections, embedded cards, model modes and batch studies are overlapping levels of organization, not quantities to add into a panel total.')
 if __name__=='__main__':
     root=Path(__file__).resolve().parents[1];record=collect(root)

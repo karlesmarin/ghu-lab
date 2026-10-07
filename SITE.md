@@ -6,8 +6,8 @@ Follows the decisions in [`DESIGN.md`](DESIGN.md). One repository, GitHub Pages,
 ## Current implementation — 7 October 2026
 
 The site is generated from the source repository and published in `karlesmarin/ghu-explorer`.
-The navigation has **29 menu sections**, containing **three Simulator modes**, **seven embedded
-experiment cards**, integrated diagnostics and links to **three archived batch studies**.
+The navigation has **29 menu sections**, containing **three Simulator modes**, **eight embedded
+experiment cards**, integrated diagnostics and links to **four archived batch studies**.
 The [complete laboratory map](docs/laboratory-inventory.md) explains these overlapping counts;
 [README.md](README.md) lists every section in actual menu order and describes the available tools.
 The map and sketches below are the original August design, retained as design history.
@@ -18,11 +18,11 @@ The map and sketches below are the original August design, retained as design hi
 | `/app/index.html#s=predict` | Thermal SU(3) coexistence plus integrated nucleation/percolation/completion and conditional acoustics | `src/sections/research_extensions.js`, `src/modules/thermal_history.mjs` |
 | `/app/index.html#s=screen` | Seed-dependent interval bounds and separate full-potential witness checks | `src/sections/screen_section.js`, the candidate-bound modules and reference records |
 | `/app/index.html#s=collider` | Complete scalar scenarios compared with pinned HiggsTools experimental datasets | The Higgs experiment in `src/sections/research_extensions.js` |
-| Simulator → Neutrino ring | Ring spectrum, CMS HNL comparisons, three-copy flavour reconstruction and decay/lifetime/coherence diagnostics with optional Majoron channels | `docs/neutrino-ring.md`, `docs/research-extensions.md`, `docs/neutrino-decays.md`, `docs/neutrino-majoron.md` |
+| Simulator → Neutrino ring | Ring spectrum, CMS HNL comparisons, three-copy reconstruction, fixed-light-input paths with five figures and DeepCore 2018, and decay/coherence with optional Majoron channels | `docs/neutrino-ring.md`, `docs/research-extensions.md`, `docs/neutrino-decays.md`, `docs/neutrino-majoron.md` |
 | Hierarchy and Simulator → Higgs production | Dynamic robustness and the top-KK finite/resummed rate comparison | `docs/diagnostics.md` |
 | `/docs/index.html` | Updated routes, conventions, glossary and links to the batch studies | `src/site/docs.html`, `docs/research-extensions.md`, `docs/research-exploration-2026-10-07.md` |
-| `/changes/index.html` | New extension entry with what/why/so and reproduction steps | `changes/2026-10-07-transition-history-and-conditional-bounds.md` |
-| Source README and research archive | Study descriptions, figures, inputs, budgets and proposed next work | `README.md`, `research/2026-10-07/` |
+| `/changes/index.html` | New extension entry with what/why/so and reproduction steps | `changes/2026-10-07-neutrino-identifiability.md` |
+| Source README and research archive | Study descriptions, figures, inputs, budgets and proposed next work | `README.md`, `research/2026-10-07/`, `research/2026-10-07-neutrinos/` |
 
 The static app and saved references run offline. New PhaseTracer/HiggsTools calculations use an
 optional local engine, contacted only by an explicit button. The Edition build removes that

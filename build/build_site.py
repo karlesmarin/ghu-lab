@@ -245,6 +245,7 @@ def load_groups():
         "higgstools_sm_reference.json", "higgstools_validation.json",
         "neutrino_decay_reference.json", "neutrino_hnl_limits.json",
         "neutrino_majoron_reference.json", "neutrino_ring_reference.json",
+        "neutrino_research_reference.json", "icecube_deepcore_reference.json",
         "thermal_case1_phasetracer.json", "thermal_case2_phasetracer.json",
         "thermal_history_case1.json", "thermal_history_case2.json",
         "candidate_bounds.json", "candidate_vacua.json",

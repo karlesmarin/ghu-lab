@@ -11,12 +11,12 @@ the capabilities inside those entries and the tools that run outside the browser
 |---|---:|---|
 | 🗂️ Menu sections | 29 | Active section registrations in `src/sections/registry.js` |
 | 🔮 Simulator model modes | 3 | The builder, top-KK Higgs production and neutrino-ring options in `predict_section.js` |
-| 🧪 Embedded experiment cards | 7 | The `rxAttach` registrations in `research_extensions.js` |
-| 🔬 Archived batch studies | 3 | Higgs assumptions, thermal assumptions and candidate vacuum screening under `research/2026-10-07/` |
+| 🧪 Embedded experiment cards | 8 | The `rxAttach` registrations in `research_extensions.js` |
+| 🔬 Archived batch studies | 4 | Higgs, thermal and vacuum studies under `research/2026-10-07/`; neutrino paths under `research/2026-10-07-neutrinos/` |
 
 These counts describe different levels. A mode or experiment lives inside a menu section, and
 one study may use several engines. They do not add up to a total of independent panels.
-The nine October research additions are the seven experiment cards plus computed Majoron
+The ten October research additions are the eight experiment cards plus computed Majoron
 channels inside Decays and conditional certificates inside Screen a table. The original
 neutrino-ring mode, Higgs-production mode and robustness/decay diagnostics remain part of the
 laboratory as well.
@@ -31,19 +31,20 @@ The script derives section order, labels, experiment hosts and Simulator options
 their registrations. The named analysis areas and batch-study categories are documented groupings;
 they are not a count of every control, plot or numerical function.
 
-## 🧪 The seven embedded experiment cards
+## 🧪 The eight embedded experiment cards
 
 | Card | Host section | Main controls and results |
 |---|---|---|
 | 🧩 Maru–Nago SU(6) | Paper models | Type 2/3 generations, adjoint matter, Fourier cutoff, Wilson potential and minimum, convergence and transfer to the builder |
 | 🌌 Warped SU(6) running | Brane kinetic terms | C1/C2 assignments, IR/UV scales, differential coupling curves, required UV brane terms and the separate localization probe |
 | 🧬 Three active flavours | Simulator → Neutrino ring | Chosen masses and PMNS inputs, reconstructed Yukawa/light-mass matrices, active deficit, heavy flavour weights and unitary-limit oscillation plots |
+| 🔬 Fixed light inputs | Simulator → Neutrino ring | Nine reconstructed paths, heavy mass/splitting responses, vacuum CC factors, magnified shape differences and the archived DeepCore 2018 map |
 | 🌡️ Finite-temperature GHU | Simulator → SU(N) builder | Independent thermal SU(3) benchmark, coexistence, phase flow, cutoff comparison and matching PhaseTracer bounce |
 | 🫧 Integrated transition history | Simulator → SU(N) builder | Refined actions, nucleation, percolation, completion, false-vacuum fraction, bubble separation and a conditional acoustic spectrum |
 | ⚖️ RS anomaly flow | Anomalies & proton | Z-mode profiles and masses, UV/IR anomaly factors, gauge cancellation and baryon-current matrix |
 | 💥 Higgs rates and experimental tests | Collider | Scalar couplings, invisible width, complete rate/width tables and matching HiggsBounds/HiggsSignals results |
 
-Use each section's **Go to experiment** shortcut. The flavour card appears in the neutrino mode;
+Use each section's **Go to experiment** shortcut. The flavour and fixed-input cards appear in the neutrino mode;
 the two thermal cards appear in the builder mode and use their own thermal inputs.
 The [experiment guide](research-extensions.md) documents equations, references and limitations.
 
@@ -72,6 +73,7 @@ inverse design and census remain separately listed in the main navigation catalo
 | 💥 CMS dijet result | Comparison under the specified colour-octet/bulk-colour hypothesis | A named model comparison, not a detector event simulation |
 | 📡 CMS EXO-22-011 HNL tables | Six official HEPData tables with observed/expected curves and bands | Single-flavour Dirac/Majorana hypotheses are retained; the ring overlay is not a multi-state likelihood |
 | 📊 ATLAS/CMS Higgs datasets | Pinned HiggsBounds/HiggsSignals evaluations for an explicit scalar scenario | Selected-limit exclusion and HiggsSignals χ² remain separate |
+| 🧊 IceCube DeepCore 2018 | Original normal/inverted 51 × 51 standard-three-neutrino maps and supplied normal-ordering FC contour | An archived reference; no extrapolation, nonunitary ring exclusion or combination with NuFIT |
 | 🧬 NuFIT and PDG references | Chosen flavour parameters, separate reference ranges, masses and measured-input uncertainties | Inputs and their editions are identified; separate ranges are not silently combined into a fit |
 
 The thermal transition and gravitational-wave outputs are model calculations. They are not
@@ -84,8 +86,9 @@ points use the optional local engine or imported matching JSON. A changed input 
 unmatched result. Integrated thermal history requires refined action tables in addition to
 the ordinary bounce result. See [setup and refinement](research-extensions.md).
 
-The [three batch studies](research-exploration-2026-10-07.md) contain 2,646 HiggsTools evaluations,
+The [earlier three batch studies](research-exploration-2026-10-07.md) contain 2,646 HiggsTools evaluations,
 160 thermal scenarios and 80 selected full-potential checks after budgeted candidate enumeration.
+The fourth [neutrino study](../research/2026-10-07-neutrinos/README.md) adds 738 fixed-light-input scan points and standalone figures; see its [interactive guide](neutrino-identifiability.md).
 Their [JSON records and figures](../research/2026-10-07/README.md) are reproducible command-line
 artifacts. Interactive profile scans, a resumable candidate queue and plasma/friction dynamics
 remain proposed extensions.

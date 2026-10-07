@@ -74,6 +74,31 @@ const NF_PANEL={
 };
 rxAttach(PRED_SECTION,NF_PANEL);
 
+const NI_PANEL={
+  id:'identifiability',title:'Fixed light inputs: what can distinguish the neutrino ring?',
+  intro:'Hold the selected light masses and PMNS orientation fixed, reconstruct the couplings along a parameter path, and compare the heavy spectrum with raw and normalized vacuum current factors. The archived DeepCore map is a separate standard-three-neutrino reference.',
+  defaults:niDefaults(),validate:niValidate,visible:()=>PRED_S.variant==='neutrino',
+  compute:p=>({...niModel(p,RX_STATE.flavour,NR_S,NI_DEEPCORE),provenance:{version:VERSION,build:BUILD,kernelHash:KERNEL_HASH,dataset:NI_DEEPCORE.provenance}}),
+  presets:[{label:'Heavy splitting at fixed light inputs',values:niDefaults()},
+    {label:'Common suppression hidden by normalization',values:{...niDefaults(),axis:5,position:1}},
+    {label:'Unequal deficits and flavour shape',values:{...niDefaults(),axis:8,position:1}}],
+  fields:[{key:'axis',label:'Parameter to investigate',options:NI_AXES.map((a,i)=>[i,a.label])},
+    {key:'position',label:'Selected position in the sweep [0–1]',min:0,max:1,step:.01},
+    {key:'copy',label:'Sterile copy',options:[[0,'Direction 1'],[1,'Direction 2'],[2,'Direction 3']]},
+    {key:'pair',label:'Heavy pair',options:Array.from({length:6},(_,i)=>[i+1,'Pair '+(i+1)])},
+    {key:'from',label:'Source flavour',options:[[0,'Electron'],[1,'Muon'],[2,'Tau']]},
+    {key:'to',label:'Detected flavour',options:[[0,'Electron'],[1,'Muon'],[2,'Tau']]},
+    {key:'antineutrino',label:'Propagation',options:[[0,'Neutrino'],[1,'Antineutrino']]}],
+  source:'Equations: <a href="https://arxiv.org/abs/1609.08637" target="_blank" rel="noopener">Blennow et al., vacuum limit of eqs. (5),(7)</a>. Data: <a href="https://doi.org/10.21234/B4105H" target="_blank" rel="noopener">IceCube DeepCore 2018, DOI 10.21234/B4105H</a>. <a href="https://github.com/karlesmarin/ghu-lab/blob/main/docs/neutrino-identifiability.md" target="_blank" rel="noopener">Method, current scope and reproduction</a>.',
+  present:niPresent,
+  tex:r=>`Fixed light inputs; ${r.axis.key} sweep: ${r.summary.valid}/${r.summary.total} points evaluated. Light reconstruction residual ${r.summary.maxLightResidualEV} eV. DeepCore 2018 reference Delta chi2 ${r.deepcore?.deltaChi2??'outside grid'} is not a nonunitary ring likelihood.`
+};
+RX_RESEARCH_GUIDE.identifiability={question:'Which ring parameters can change with the same light masses and mixing, and which additional observables distinguish them?',
+  metrics:r=>[['Light residual',r.summary.maxLightResidualEV,'eV'],['Heavy centre',r.selected?.massGeV,'GeV'],['Heavy splitting',r.selected?.splitEV,'eV'],['Max shape difference',r.selected?.maxShapeDifference,'']],
+  takeaway:r=>r.reading};
+rxAttach(PRED_SECTION,NI_PANEL);
+
+
 const TH_PANEL={
   id:'thermal',title:'Finite-temperature GHU: Wilson potential and phase coexistence',external:true,
   intro:'Reproduce the two flat SU(3) benchmarks of Hirose–Shibuya, then change their matter content. This experiment uses its own thermal SU(3) inputs; the model selected in the SU(N) builder is separate.',

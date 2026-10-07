@@ -45,7 +45,7 @@ KERNEL = ["meta.mjs", "status.mjs", "experiment.mjs", "observables.mjs", "sensit
           "cite.mjs", "latex.mjs", "blkt.mjs", "alphabet.mjs", "fibres.mjs", "moves.mjs", "rotations.mjs",
           # rank.mjs before unbroken.mjs: the second calls the first, and one scope means order is the import.
           "rank.mjs", "unbroken.mjs", "tripod.mjs"]
-VIEW = ["fibre_panels.js", "tower3d.js", "demo.js", "howto.js", "help.js", "neutrino_panel.js", "neutrino_decay_panel.js", "diagnostics_panels.js", "research_panels.js"]
+VIEW = ["fibre_panels.js", "tower3d.js", "demo.js", "howto.js", "help.js", "neutrino_panel.js", "neutrino_decay_panel.js", "diagnostics_panels.js", "research_panels.js", "neutrino_research_panel.js"]
 MODULES = ["selection.mjs", "calculator.mjs", "hierarchy.mjs", "anomalies.mjs", "escape.mjs",
            "samepot.mjs", "screen.mjs", "collider.mjs", "atlas.mjs", "eta.mjs", "fived.mjs",
            "spectrum.mjs", "inverse.mjs", "census.mjs", "sun5d.mjs", "bcclass.mjs",
@@ -53,7 +53,7 @@ MODULES = ["selection.mjs", "calculator.mjs", "hierarchy.mjs", "anomalies.mjs", 
            "spectrum5d.mjs", "anomaly5d.mjs", "vacuum5d.mjs", "smcell.mjs", "brane.mjs",
            "yukawa.mjs",
            "predict.mjs", "reading.mjs", "sweep5d.mjs", "dossier.mjs", "papers.mjs", "particles.mjs",
-            "robustness.mjs", "gravitygauge.mjs", "neutrino_ring.mjs", "neutrino_limits.mjs", "neutrino_majoron.mjs", "neutrino_decay.mjs", "higgs_diagnostics.mjs", "su6_maru_nago.mjs", "rs_unification.mjs", "neutrino_flavour.mjs", "thermal_ghu.mjs", "rs_anomaly.mjs", "higgstools_reference.mjs", "higgstools_adapter.mjs", "external_reference.mjs",
+            "robustness.mjs", "gravitygauge.mjs", "neutrino_ring.mjs", "neutrino_limits.mjs", "neutrino_majoron.mjs", "neutrino_decay.mjs", "higgs_diagnostics.mjs", "su6_maru_nago.mjs", "rs_unification.mjs", "neutrino_flavour.mjs", "neutrino_research.mjs", "thermal_ghu.mjs", "rs_anomaly.mjs", "higgstools_reference.mjs", "higgstools_adapter.mjs", "external_reference.mjs",
             "thermal_history.mjs", "thermal_history_reference.mjs", "candidate_bounds_reference.mjs", "candidate_bounds.mjs", "candidate_vacua_reference.mjs"]
 SECTIONS = ["torus_panels.js", "hierarchy_section.js", "inverse_section.js", "census_section.js",
             "atlas_section.js", "samepot_section.js",
@@ -171,6 +171,7 @@ def build(edition=False, home=None, out_path=None):
               f'const KERNEL_HASH = "{kernel_hash()}";\n'
               f'const CENSUS = {json.dumps(census, separators=(",", ":"), ensure_ascii=False)};\n'
               f'const NR_HNL_LIMITS = {read("data", "neutrino_hnl_limits.json")};\n'
+              f'const NI_DEEPCORE = {read("data", "icecube_deepcore_reference.json")};\n'
               + "\n".join(src for name, src in frags if name in KERNEL)
               + "\n".join(src for name, src in frags if name in VIEW)
               + "\n".join(src for name, src in frags if name in MODULES))
@@ -271,7 +272,7 @@ def build(edition=False, home=None, out_path=None):
 # week: the header above this list says the failure mode was never "too slow to run", it was
 # "I forgot".  It costs about two minutes.
 BROWSER_GATES = [("leaks.mjs", []), ("layout.mjs", ["--quiet"]), ("extremes.mjs", []),
-                 ("lifecycle.mjs", []), ("drive.mjs", []), ("neutrino.mjs", []), ("diagnostics.mjs", []), ("neutrino_decay.mjs", []), ("extensions.mjs", []), ("closure.mjs", [])]
+                 ("lifecycle.mjs", []), ("drive.mjs", []), ("neutrino.mjs", []), ("diagnostics.mjs", []), ("neutrino_decay.mjs", []), ("extensions.mjs", []), ("closure.mjs", []), ("neutrino_research.mjs", [])]
 STAMP = HERE / ".browser_gate.json"
 
 
@@ -287,7 +288,7 @@ def source_fingerprint():
                    # hole: editing the build would have kept the tier "clean" over a page it had
                    # never seen.  The cost is that touching this file marks the tier stale, which
                    # is the correct answer and clears in one run.
-                   "build/build_app.py", "build/neutrino.mjs", "data/neutrino_hnl_limits.json", "build/diagnostics.mjs", "data/higgs_diagnostics_reference.json", "build/neutrino_decay.mjs", "data/neutrino_decay_reference.json", "build/extensions.mjs"]):
+                   "build/build_app.py", "build/neutrino.mjs", "data/neutrino_hnl_limits.json", "data/icecube_deepcore_reference.json", "build/neutrino_research.mjs", "build/diagnostics.mjs", "data/higgs_diagnostics_reference.json", "build/neutrino_decay.mjs", "data/neutrino_decay_reference.json", "build/extensions.mjs"]):
         p = ROOT / rel
         if p.exists():
             out[rel] = hashlib.sha256(p.read_bytes()).hexdigest()[:16]
@@ -379,7 +380,7 @@ def main(argv=None):
                 ["node", "_test_running.mjs"], ["node", "_test_neutrino_ring.mjs"], ["node", "_test_neutrino_decay.mjs"], ["node", "_test_predict.mjs"], ["node", "_test_yukawa.mjs"],
                 ["node", "_test_reading.mjs"],
                 ["node", "_test_neutrino_majoron.mjs"], ["node", "_test_su6_maru_nago.mjs"], ["node", "_test_rs_unification.mjs"],
-                ["node", "_test_neutrino_flavour.mjs"], ["node", "_test_thermal_ghu.mjs"], ["node", "_test_rs_anomaly.mjs"], ["node", "_test_higgstools.mjs"],
+                ["node", "_test_neutrino_flavour.mjs"], ["node", "_test_neutrino_research.mjs"], ["node", "_test_thermal_ghu.mjs"], ["node", "_test_rs_anomaly.mjs"], ["node", "_test_higgstools.mjs"],
                 ["node", "_test_thermal_history.mjs"], ["node", "_test_candidate_bounds.mjs"],
                 ["node", "_test_sweep5d.mjs"], ["node", "_test_papers.mjs"],
                 ["node", "_test_latex.mjs"], ["node", "_test_blkt.mjs"], ["node", "_test_gravitygauge.mjs"], ["node", "_test_census_lit.mjs"],

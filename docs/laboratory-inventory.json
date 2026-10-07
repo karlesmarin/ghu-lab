@@ -192,6 +192,11 @@
       "host": "predict"
     },
     {
+      "id": "identifiability",
+      "title": "Fixed light inputs: what can distinguish the neutrino ring?",
+      "host": "predict"
+    },
+    {
       "id": "thermal",
       "title": "Finite-temperature GHU: Wilson potential and phase coexistence",
       "host": "predict"
@@ -235,7 +240,8 @@
   "batchStudies": [
     "Higgs coupling/width assumptions",
     "Thermal wall/efficiency/background scenarios",
-    "Candidate enumeration and selected full-potential checks"
+    "Candidate enumeration and selected full-potential checks",
+    "Fixed-light-input neutrino identifiability paths"
   ],
   "countingRule": "Menu sections, embedded cards, model modes and batch studies are overlapping levels of organization, not quantities to add into a panel total."
 }

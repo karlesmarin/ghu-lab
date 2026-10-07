@@ -1,0 +1,358 @@
+{
+  "budget": {
+    "orderings": 2,
+    "axes": 9,
+    "pointsPerAxis": 41,
+    "totalScanPoints": 738,
+    "shapeSamplesPerPoint": 81,
+    "LoverERange": [
+      0,
+      2000
+    ]
+  },
+  "summary": [
+    {
+      "id": "NO-muBkeV",
+      "valid": 41,
+      "invalid": 0,
+      "total": 41,
+      "maxLightResidualEV": 6.938893903907228e-18,
+      "maxMixingResidual": 0,
+      "maxInsertionToGap": 0.00024427084779785757,
+      "massRangeGeV": [
+        183.77440441941945,
+        183.77440441941945
+      ],
+      "splitRangeEV": [
+        11.477029040006538,
+        1164.6867949280265
+      ],
+      "deepcoreReferenceDeltaChi2": 1.3962375000000025,
+      "maxNormalizedShapeDifference": 5.551115123125783e-17
+    },
+    {
+      "id": "NO-fGeV",
+      "valid": 41,
+      "invalid": 0,
+      "total": 41,
+      "maxLightResidualEV": 1.3877787807814457e-17,
+      "maxMixingResidual": 0,
+      "maxInsertionToGap": 0.00004885416955957152,
+      "massRangeGeV": [
+        91.88720220970973,
+        918.8720220970972
+      ],
+      "splitRangeEV": [
+        126.79800562880853,
+        126.79800562880855
+      ],
+      "deepcoreReferenceDeltaChi2": 1.3962375000000025,
+      "maxNormalizedShapeDifference": 5.551115123125783e-17
+    },
+    {
+      "id": "NO-t",
+      "valid": 41,
+      "invalid": 0,
+      "total": 41,
+      "maxLightResidualEV": 2.0816681711721685e-17,
+      "maxMixingResidual": 0,
+      "maxInsertionToGap": 0.0003229992213648264,
+      "massRangeGeV": [
+        183.15636982556387,
+        185.62645042374015
+      ],
+      "splitRangeEV": [
+        11.836299185256896,
+        355.66483506225956
+      ],
+      "deepcoreReferenceDeltaChi2": 1.3962375000000025,
+      "maxNormalizedShapeDifference": 5.551115123125783e-17
+    },
+    {
+      "id": "NO-q",
+      "valid": 41,
+      "invalid": 0,
+      "total": 41,
+      "maxLightResidualEV": 6.938893903907228e-18,
+      "maxMixingResidual": 0,
+      "maxInsertionToGap": 0.00003546437682336846,
+      "massRangeGeV": [
+        163.35158490059868,
+        224.19442818088964
+      ],
+      "splitRangeEV": [
+        14.407584088811245,
+        236.7936632501649
+      ],
+      "deepcoreReferenceDeltaChi2": 1.3962375000000025,
+      "maxNormalizedShapeDifference": 5.551115123125783e-17
+    },
+    {
+      "id": "NO-r",
+      "valid": 41,
+      "invalid": 0,
+      "total": 41,
+      "maxLightResidualEV": 1.3877787807814457e-17,
+      "maxMixingResidual": 0,
+      "maxInsertionToGap": 0.00008042588313197367,
+      "massRangeGeV": [
+        167.51442205349105,
+        215.9099731993978
+      ],
+      "splitRangeEV": [
+        120.22496179888756,
+        149.4181364581792
+      ],
+      "deepcoreReferenceDeltaChi2": 1.3962375000000025,
+      "maxNormalizedShapeDifference": 5.551115123125783e-17
+    },
+    {
+      "id": "NO-common",
+      "valid": 41,
+      "invalid": 0,
+      "total": 41,
+      "maxLightResidualEV": 1.3877787807814457e-17,
+      "maxMixingResidual": 0,
+      "maxInsertionToGap": 0.0010937814129861742,
+      "massRangeGeV": [
+        183.7653124006194,
+        183.8571210817887
+      ],
+      "splitRangeEV": [
+        116.4710050902889,
+        1263.1216607956674
+      ],
+      "deepcoreReferenceDeltaChi2": 1.3962375000000025,
+      "maxNormalizedShapeDifference": 9.71445146547012e-17
+    },
+    {
+      "id": "NO-d1",
+      "valid": 41,
+      "invalid": 0,
+      "total": 41,
+      "maxLightResidualEV": 6.938893903907228e-18,
+      "maxMixingResidual": 0,
+      "maxInsertionToGap": 0.00002442709014456552,
+      "massRangeGeV": [
+        183.7653124006194,
+        183.8571210817887
+      ],
+      "splitRangeEV": [
+        116.4710050902889,
+        1263.1216607956674
+      ],
+      "deepcoreReferenceDeltaChi2": 1.3962375000000025,
+      "maxNormalizedShapeDifference": 0.00009417354770113046
+    },
+    {
+      "id": "NO-d2",
+      "valid": 41,
+      "invalid": 0,
+      "total": 41,
+      "maxLightResidualEV": 6.938893903907228e-18,
+      "maxMixingResidual": 0,
+      "maxInsertionToGap": 0.00019071379874142049,
+      "massRangeGeV": [
+        183.77440441941945,
+        183.77440441941945
+      ],
+      "splitRangeEV": [
+        126.79800562880853,
+        126.79800562880853
+      ],
+      "deepcoreReferenceDeltaChi2": 1.3962375000000025,
+      "maxNormalizedShapeDifference": 0.00009520419666350644
+    },
+    {
+      "id": "NO-d3",
+      "valid": 41,
+      "invalid": 0,
+      "total": 41,
+      "maxLightResidualEV": 1.3877787807814457e-17,
+      "maxMixingResidual": 0,
+      "maxInsertionToGap": 0.0010937814129861742,
+      "massRangeGeV": [
+        183.77440441941945,
+        183.77440441941945
+      ],
+      "splitRangeEV": [
+        126.79800562880853,
+        126.79800562880853
+      ],
+      "deepcoreReferenceDeltaChi2": 1.3962375000000025,
+      "maxNormalizedShapeDifference": 0.00002359561378744747
+    },
+    {
+      "id": "IO-muBkeV",
+      "valid": 41,
+      "invalid": 0,
+      "total": 41,
+      "maxLightResidualEV": 6.938893903907228e-18,
+      "maxMixingResidual": 0,
+      "maxInsertionToGap": 0.00024427084779785757,
+      "massRangeGeV": [
+        183.77440441941945,
+        183.77440441941945
+      ],
+      "splitRangeEV": [
+        566.5317761861662,
+        1719.7415420741863
+      ],
+      "deepcoreReferenceDeltaChi2": 2.597977777777781,
+      "maxNormalizedShapeDifference": 5.551115123125783e-17
+    },
+    {
+      "id": "IO-fGeV",
+      "valid": 41,
+      "invalid": 0,
+      "total": 41,
+      "maxLightResidualEV": 2.0816681711721685e-17,
+      "maxMixingResidual": 0,
+      "maxInsertionToGap": 0.00004885416955957152,
+      "massRangeGeV": [
+        91.88720220970973,
+        918.8720220970972
+      ],
+      "splitRangeEV": [
+        681.852752774968,
+        681.8527527749685
+      ],
+      "deepcoreReferenceDeltaChi2": 2.597977777777781,
+      "maxNormalizedShapeDifference": 5.551115123125783e-17
+    },
+    {
+      "id": "IO-t",
+      "valid": 41,
+      "invalid": 0,
+      "total": 41,
+      "maxLightResidualEV": 2.0816681711721685e-17,
+      "maxMixingResidual": 0,
+      "maxInsertionToGap": 0.0003229992213648264,
+      "massRangeGeV": [
+        183.15636982556387,
+        185.62645042374015
+      ],
+      "splitRangeEV": [
+        574.9557628434013,
+        909.9752661026904
+      ],
+      "deepcoreReferenceDeltaChi2": 2.597977777777781,
+      "maxNormalizedShapeDifference": 5.551115123125783e-17
+    },
+    {
+      "id": "IO-q",
+      "valid": 41,
+      "invalid": 0,
+      "total": 41,
+      "maxLightResidualEV": 6.938893903907228e-18,
+      "maxMixingResidual": 0,
+      "maxInsertionToGap": 0.00003546437682336846,
+      "massRangeGeV": [
+        163.35158490059868,
+        224.19442818088964
+      ],
+      "splitRangeEV": [
+        558.2160631945103,
+        792.9923792425909
+      ],
+      "deepcoreReferenceDeltaChi2": 2.597977777777781,
+      "maxNormalizedShapeDifference": 5.551115123125783e-17
+    },
+    {
+      "id": "IO-r",
+      "valid": 41,
+      "invalid": 0,
+      "total": 41,
+      "maxLightResidualEV": 1.3877787807814457e-17,
+      "maxMixingResidual": 0,
+      "maxInsertionToGap": 0.00008042588313197367,
+      "massRangeGeV": [
+        167.51442205349105,
+        215.9099731993978
+      ],
+      "splitRangeEV": [
+        656.5867982688185,
+        786.9810242411141
+      ],
+      "deepcoreReferenceDeltaChi2": 2.597977777777781,
+      "maxNormalizedShapeDifference": 5.551115123125783e-17
+    },
+    {
+      "id": "IO-common",
+      "valid": 41,
+      "invalid": 0,
+      "total": 41,
+      "maxLightResidualEV": 2.0816681711721685e-17,
+      "maxMixingResidual": 0,
+      "maxInsertionToGap": 0.0010937814129861742,
+      "massRangeGeV": [
+        183.7653124006194,
+        183.8571210817887
+      ],
+      "splitRangeEV": [
+        171.93333502385704,
+        56773.342344724
+      ],
+      "deepcoreReferenceDeltaChi2": 2.597977777777781,
+      "maxNormalizedShapeDifference": 8.326672684688674e-17
+    },
+    {
+      "id": "IO-d1",
+      "valid": 41,
+      "invalid": 0,
+      "total": 41,
+      "maxLightResidualEV": 2.0816681711721685e-17,
+      "maxMixingResidual": 0,
+      "maxInsertionToGap": 0.001077247549749561,
+      "massRangeGeV": [
+        183.7653124006194,
+        183.8571210817887
+      ],
+      "splitRangeEV": [
+        171.93333502385704,
+        56773.342344724
+      ],
+      "deepcoreReferenceDeltaChi2": 2.597977777777781,
+      "maxNormalizedShapeDifference": 0.00009256257815561109
+    },
+    {
+      "id": "IO-d2",
+      "valid": 41,
+      "invalid": 0,
+      "total": 41,
+      "maxLightResidualEV": 1.3877787807814457e-17,
+      "maxMixingResidual": 0,
+      "maxInsertionToGap": 0.0010937814129861742,
+      "massRangeGeV": [
+        183.77440441941945,
+        183.77440441941945
+      ],
+      "splitRangeEV": [
+        681.8527527749683,
+        681.8527527749683
+      ],
+      "deepcoreReferenceDeltaChi2": 2.597977777777781,
+      "maxNormalizedShapeDifference": 0.00009568201652716823
+    },
+    {
+      "id": "IO-d3",
+      "valid": 41,
+      "invalid": 0,
+      "total": 41,
+      "maxLightResidualEV": 6.938893903907228e-18,
+      "maxMixingResidual": 0,
+      "maxInsertionToGap": 0.00002442709014456552,
+      "massRangeGeV": [
+        183.77440441941945,
+        183.77440441941945
+      ],
+      "splitRangeEV": [
+        681.8527527749683,
+        681.8527527749683
+      ],
+      "deepcoreReferenceDeltaChi2": 2.597977777777781,
+      "maxNormalizedShapeDifference": 0.000023691410759170764
+    }
+  ],
+  "scope": "Fixed light masses and PMNS inputs are reconstructed at tree level, leading Majorana order. Vacuum CC kernels assume inaccessible heavy states. Near normalization divides by the source current strength squared under the stated hypothetical protocol; it is not the IceCube response. Matter, fluxes, cross sections, weak-input refits and detector likelihoods are not included."
+}

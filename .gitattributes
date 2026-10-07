@@ -1,0 +1,2 @@
+# Preserve the bytes of the original published experimental tables and their hashes.
+data/icecube_deepcore_2018/* -text -whitespace

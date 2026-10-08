@@ -1,0 +1,27 @@
+{
+  "generator": "build/guide_manual.py",
+  "languages": {
+    "en": {
+      "pdfSHA256": "359fc6eb87a6193c3a171488c9869a80fb35f55342dd342a713187c9eab3d641",
+      "texSHA256": "204f80cf4e2d1402ac4171083b519b2762bc982dd039827664780061811b36fa",
+      "guides": 42,
+      "glossaryTerms": 59,
+      "missingGlyphs": 0,
+      "overfullBoxes": 0
+    },
+    "es": {
+      "pdfSHA256": "47c578104c8f37f30ef1dfd85fccdfbdd183d7805d02cd579a33b4c44eb147ea",
+      "texSHA256": "38694e34aa3342247a7e8c05247e89993bf422120f5db118bdef4d0b8ffcedc6",
+      "guides": 42,
+      "glossaryTerms": 59,
+      "missingGlyphs": 0,
+      "overfullBoxes": 0
+    }
+  },
+  "babelSpanishOptions": "spanish,es-noshorthands,es-nodecimaldot,es-tabla",
+  "inputs": {
+    "docs/user-guides.json": "f0f2e4040d6c13ddc101e1068e1fe82746bccfa485b2cd70587acdcee20424e4",
+    "docs/user-guides.es.json": "407f52574766c74c3ddcc8a63ecd595cf27b7049dcab159ed2bfa4f3704ffa7f",
+    "build/guide_manual.py": "9f699c17eed3b6c37de06770025b9b46a029ad21863ccfb1857b528db729ef2d"
+  }
+}

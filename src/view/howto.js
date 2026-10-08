@@ -1,219 +1,44 @@
-/* howto.js — one collapsible "how to use this section" per section, written once and mounted by
- * the shell.
- *
- * Copyright (c) 2026 Carles Marin. All rights reserved.
- * Author: Carles Marin <karlesmarin@gmail.com>  (with Claude, Anthropic, as assistant)
- *
- * WHY THE SHELL MOUNTS IT AND NOT THE SECTIONS.  Twenty-five sections would mean twenty-five
- * edits and twenty-five chances to forget one; and a section that forgot would look exactly like
- * a section that had nothing to say.  The shell inserts this block at the top of whatever it
- * renders, so a new section without an entry is caught by `_test_howto.py` rather than shipping
- * silently without help.
- *
- * WHAT AN ENTRY IS.  Three fields, and each has a job the others cannot do:
- *   `what`  — one sentence: what the section answers.  Not what it is *about*.
- *   `steps` — what to press, in order, phrased as instructions to a reader who has never seen it.
- *   `read`  — how to read what comes back, INCLUDING what would make the answer not apply.
- * `helpMark` glossary entries explain a *term*; this explains a *panel*, and the two do not
- * overlap: a reader who knows what a Wilson line is may still not know which button runs it.
- *
- * D3 SAYS THE KERNEL KNOWS NO DOM, so this is view: data plus one function that returns HTML.
- */
-const HOWTO = {
-  gravitygauge: {
-    what: "Which physical information a complete tower of masses leaves undetermined in a controlled gravity-gauge example.",
-    steps: ["Start with p=1.1 and press eta=-0.9, eta=0, then eta=4. The paired masses stay equal while the Wilson scale and the response change.",
-            "Drag either 3D plot to turn it. On the response surface, switch drag to select point to change eta and the source position together. Shift-drag always turns; the wheel changes relief; arrow keys turn a focused plot.",
-            "Read the table below the plots. Choose gauge kinetic Z as the height to inspect the action. Use the header card or LaTeX buttons to export this exact input, or link to restore it."],
-    read: "The positive paired tensor NN and vector DD masses are protected by their common canonical operator. The gauge NN control has different boundaries and moves. The source position is in the extra dimension, not a laboratory location; the Wilson kinetic scale is not a Higgs mass. For p=1.1 a canonical bulk scalar realizes the family, with stability and cutoff still open.",
-  },
-  hierarchy: {
-    what: "Given a bulk content of the SU(7) model, where the compactification scale and the Higgs mass land — and how far that content sits below the ceiling no content can pass.",
-    steps: ["Set the multiplicities of the eight (representation, parity) types in the left panel — or press a published row to load it.",
-            "Read α_min and m_h from the closed form; the numeric minimisation of the same potential is beside them as the check.",
-            "The ceiling card says how much room is left above this content, and on which certificate.",
-            "In the robustness card below, vary g4, its model span and the winding cutoff. Read both masses, the separate response ranges and the live summary; the diagnostic W anchor is stated there."],
-    read: "Every absolute TeV and GeV inherits the anchor caveat at the top of the page: our α does not reproduce the published α, by a factor that varies from row to row. The mass ratio and the arithmetic laws do not.",
-  },
-  inverse: {
-    what: "The map run backwards: name a compactification scale and a Higgs-mass window, and get a bulk content that lands there — or a named certificate that none exists.",
-    steps: ["Type the target 1/R₅ and the m_h window.", "Press the rung buttons to decide them one by one, or ask for a design.",
-            "Read the certificate: `floor`, `cone`, `congruence`, a Farkas `dual`, `exhaustion` — or `budget`, which is not a no."],
-    read: "`budget` means the search stopped, not that the rung is empty; the page keeps the two apart on purpose. The reachable-set panel resolves each cluster into the finite set of points it really is.",
-  },
-  census: {
-    what: "How many bulk contents sit on a rung — counted, not built.",
-    steps: ["The counting table and graph are built automatically when you enter.", "Click the graph to move the A₄ probe and read the count on each rung.", "Change the gauge seed or extend the range; the table and graph rebuild together."],
-    read: "The four published-seed totals reproduce an independent enumeration of 69 022 464 contents. The candidate uses even rungs and half-integral A₄; its counts are computed separately, without transferring the published measured-mass fibre.",
-  },
-  atlas7: {
-    what: "Every bulk content of at most five multiplets — 1 286 of them — with its potential drawn as one tile.",
-    steps: ["Read the tiles: sorted by α_min, coloured by verdict.", "Hover for the content.", "Click a tile to load that content into the model."],
-    read: "One tile is green in the Higgs window, and it is the published row (2). A blank tile is a content whose potential is flat, and the harness predicts which tiles blank before they are drawn.",
-  },
-  samepot: {
-    what: "Whether two bulk contents are the same one-loop potential, by Part VII's Theorem 3.",
-    steps: ["Load a content.", "Press a kernel relation to rewrite it into another content.", "Compare the five coordinates and the two drawn potentials."],
-    read: "Same five coordinates ⟺ identically the same potential. The dashed curve riding exactly on the solid one is the theorem, not a coincidence.",
-  },
-  anomalies: {
-    what: "What each multiplet contributes to the anomaly bill, in eighths, and what the proton-decay escape costs.",
-    steps: ["Use the RS anomaly-flow shortcut to compare UV/IR contributions, gauge-generation cancellation and the separate baryon-current matrix.", "Read the signed bars: each multiplet's contribution to 8D.", "The ladder shows the odd eighths, with 8D = 0 marked as the rung that does not exist.",
-            "The rows below run the escape on each published row."],
-    read: "A non-zero bill is not an inconsistency: brane fermions pay into the same channels with the opposite sign. What the ladder forbids is a rung, not a model.",
-  },
-  escape: {
-    what: "The escape from proton decay, constructed: type a brane content and watch the six channels, the assignments and the selection rule recompute.",
-    steps: ["Set the rungs, X_Q and q_φ.", "Read the six anomaly channels in exact rationals.", "Turn the rung cube to see where protection dies."],
-    read: "Every assignment that protects the proton can also cancel all six channels — protection never costs an anomaly. That is an enumeration, not an argument.",
-  },
-  multiplets: {
-    what: "The layer under the term tables: every representation broken into multiplets with their three Z₂ parities.",
-    steps: ["Pick a representation.", "Turn the parity cube.", "Read the sign s = η·η′·P₅·P′₅, which gives both the zero modes and the sign of the potential."],
-    read: "The term tables here are DERIVED and then checked against the ones the rest of the page computes with. If the two ever disagreed, this panel is where it would show.",
-  },
-  screen: {
-    what: "Arithmetic screens for a published row, with conditional rung certificates and independent full-potential witness checks.",
-    steps: ["Type the row's two observables.", "Read the mod-6 law, the K invariant and the arithmetic comb.", "Open Conditional rung bounds and check the seed, coupling and Higgs-mass window before using a ceiling.", "Compare the archived full-Fourier witnesses: a stationary point may have a deeper competing vacuum."],
-    read: "The interval certificates bound a small-angle moment relaxation under the stated conventions. They do not certify a ceiling for the full potential. The separate vacuum checks compare numerically located extrema with Fourier-tail errors; an observed surviving witness is not an exhaustive optimum.",
-  },
-  collider: {
-    what: "Which state a dijet search bounds, plus a separate Higgs-rate scenario checked against pinned experimental datasets.",
-    steps: ["Use the Higgs-rates shortcut to compare a saved scalar scenario, its widths and rates, and matching HiggsBounds/HiggsSignals calculations.", "Read the coupling and invisible-width assumptions alongside the HiggsSignals chi-square and the analysis selected by HiggsBounds.", "Read the coloron's mass and width — both fixed by the localisation, not chosen.",
-            "Drag the relief over (M_jj, χ), the plane CMS bins its angular measurement in.",
-            "Type any 1/R₅ to see the ratio table move."],
-    read: "The dijet Δχ² values are quoted from the published record; the Higgs experiment computes its own comparison. Its 159 HiggsSignals observables are not 159 independent degrees of freedom. Coupling and width assumptions can compensate in visible rates, so this scalar comparison is not a complete GHU fit.",
-  },
-  selection: {
-    what: "Which α-domain a search may legally use, and which SU(4) representations can hold a quark generation.",
-    steps: ["Pick Dynkin labels (a, b, c).", "Read the three gates: centre charge odd, middle node excited, labels summing to at least three.",
-            "The closed count N = (b+1)(a+c+1)/2 comes with them."],
-    read: "The centre-charge gate is classical and is credited as such. What is ours is the chiral projection that gives the closed count.",
-  },
-  calculator: {
-    what: "A matter content in, the Higgs out — the AHMN model recomputed in front of you.",
-    steps: ["Set the multiplicities and the boundary signs.", "Read the vacuum, the mass ratio and the anchor chip.",
-            "The anchor recomputes on every render: if it stopped reproducing AHMN's published number, the chip would say so."],
-    read: "The mass ratio carries no normalisation and no caveat. Absolute scales do.",
-  },
-  eta: {
-    what: "What the boundary sign η does to a multiplet's contribution — in closed form, from one integer.",
-    steps: ["Pick a multiplet.", "Read the one-sentence answer and the brute-force Hessian beside it.",
-            "The atlas draws 119 landscapes at once; switch to η-difference mode."],
-    read: "In difference mode every blind multiplet goes blank. That is Part V's theorem seen without reading a number.",
-  },
-  fived: {
-    what: "Haba–Yamashita's own 5D SU(3) model, with the vacuum their paper leaves undone.",
-    steps: ["Type the six bulk counts.", "Read α_min, checked against direct minimisation on the same render.",
-            "Press the three one-press facts."],
-    read: "Pure gauge never breaks the symmetry (D = −9). In this whole 5D class 8D is even: the odd rung the SU(7) ceiling stands on needs the sixth dimension.",
-  },
-  sun5d: {
-    what: "The one-loop Wilson-line potential of ANY 5D SU(N) model on S¹/Z₂ — the model is the input.",
-    steps: ["Type a boundary condition as four block sizes (n₊₊, n₊₋, n₋₊, n₋₋): that is what simultaneously diagonal orbifold parities are.",
-            "Add bulk fields: representation, ηη′, and how many.",
-            "Read the unbroken subgroup, the potential term by term, and where its minimum is. Click the plot to move the probe."],
-    read: "Every equation of all four worked examples in the source paper is checked against this. With one Wilson-line phase the terms are the same (m, s, c) triples the SU(7) sections run on, so Part VII's closed form applies to somebody else's model.",
-  },
-  spectrum5d: {
-    what: "What the model on the builder CONTAINS: the four-dimensional fields and their Kaluza–Klein towers.",
-    steps: ["Edit the model in SU(N) builder — this section shares it.",
-            "Choose at the vacuum or type a phase.",
-            "Read the massless content, then the families, then the exact tower and its landscape."],
-    read: "The families are the potential's multiset and are right for it; at a broken vacuum they are wrong at the LOWEST level of the adjoint and the symmetric tensor, which is why the exact tower is a second table and not a repetition.",
-  },
-  anomaly5d: {
-    what: "What that content owes: every anomaly channel of the unbroken group, in exact rationals.",
-    steps: ["Edit the model in SU(N) builder.", "Read the channels: [SU(n)]³, U(1)×[SU(n)]², U(1)³, U(1)×[grav]².",
-            "Read the verdict: no subject, cancels, or owes."],
-    read: "A non-zero row is a BILL, not an inconsistency: the brane fermions such a model needs pay into the same channels with the opposite sign. And a model with no massless fermion has nothing to cancel — that is `no subject`, not `cancels`.",
-  },
-  brane: {
-    what: "Who pays that bill, and what it costs: matter on the two fixed points, held at once to the anomaly ledger and to Part I's boundary-mass gate.",
-    steps: ["Edit the model in SU(N) builder — or press the example to load Kawamura's SU(5).",
-            "Read the two branes first: they are different groups whenever the orbifold breaks anything.",
-            "Add fields with the + buttons, or pick a massless mode and let the partners panel say which representations contain its conjugate.",
-            "Press solve to get the local charges that cancel the linear channels."],
-    read: "Two verdicts, kept apart on purpose: the bill before and after, and the massless count before and after. The same field can pay one and not the other, because the charge that cancels an anomaly is not in general the charge a mass term needs. The surviving count is a lower bound — the rank test assumes generic couplings.",
-  },
-  sweep5d: {
-    what: "The model-building loop closed: walk the whole space of boundary conditions and contents through filters.",
-    steps: ["Choose N and the maximum content size.", "Tick the filters you want — they run cheapest first.",
-            "Press run, then read the funnel stage by stage.", "Click a hit to load it into the builder."],
-    read: "Surviving boundary conditions are not surviving theories: [p,q,r,s] ~ [p−1,q+1,r+1,s−1] is the same theory, so the headline is a pair of numbers. An undecided vacuum is counted apart from a no.",
-  },
-  dossier: {
-    what: "Which of the instrument's answers about this model are about the THEORY, and which only about the frame you are standing in.",
-    steps: ["Edit the model in SU(N) builder.", "Read the tagged table: the theory, the frame, or declined with a reason.",
-            "Click a class-mate on the left: same theory, different boundary condition. Watch which rows move.",
-            "Press run on the separation panel to ask the second question: does an invariant line separate any two theories at all?"],
-    read: "The tag is measured on that render, never read off a list. The lines at the minimum are the theory's; the ones at the symmetric point are mostly the frame's — which is the whole point of the section.",
-  },
-  bcclass: {
-    what: "Which boundary conditions are the same theory, walked as orbits rather than quoted as a theorem.",
-    steps: ["Choose N and the orbifold.", "Read the classes and their sizes.", "Compare the apparent unbroken group across a class — it is not an invariant.",
-            "Ask which member the vacuum energy prefers."],
-    read: "The counts come out (N+1)² at every N on S¹/Z₂, which is Haba–Hosotani–Kawamura's theorem as a measurement. Press T²/Z₃ and the answer changes.",
-  },
-  cbclass: {
-    what: "How many inequivalent CONJUGATE boundary conditions there are on S¹/Z₂ — and, because that count rests on a hypothesis nobody has settled, what each of the two answers would be.",
-    steps: ["Set N with − and +, then choose the twist at y = 0 and at y = πR: symmetric or antisymmetric. For N odd the antisymmetric button refuses, because that label does not exist.",
-            "Read the two counts side by side. Neither is chosen for you: one takes the gauge transformations at the two fixed points as independent, the other does not.",
-            "Open the Wilson-line card. Whether the ordinary case's entitlement transfers is a dimension count, and it is the one measurement that moves this question."],
-    read: "What the panel puts on screen is the disagreement, not a number, and that is the point: the twists move by congruence rather than similarity, and independence decides between four classes flat in N and no finite count at all. What the label leaves unbroken is not a property of the label — the same verdict the ordinary panel reaches by another route. The exported card carries the hypothesis beside the count, so a number never travels without the condition it rests on.",
-  },
-  orbifold: {
-    what: "The alphabet of an orbifold, derived from its rotation matrix and nothing else.",
-    steps: ["Type an integer rotation matrix, up to rank eight.", "Read the cone signature, the alphabet, the local data, the count and its degree.",
-            "Compare SU(N), SO(N) and Sp(N) side by side."],
-    read: "Nothing is entered but the matrix. A matrix of infinite order, or one whose characteristic polynomial is not a power of the m-th cyclotomic, comes back REFUSED rather than classified.",
-  },
-  relations: {
-    what: "Which equivalence relation on boundary conditions the literature already owns, and whether a proposed move set connects a class.",
-    steps: ["Pick an orbifold and a move.", "Read the attribution: whose relation this is and where.",
-            "Run the walk to see whether the moves actually connect the class."],
-    read: "The local/global distinction is the one that gets misquoted, and the page carries it explicitly.",
-  },
-  blkt: {
-    what: "What happens to the tower when brane-localised kinetic terms make the masses stop being n/R.",
-    steps: ["Use the Warped SU(6) shortcut to compare C1/C2 differential running, required UV brane terms and the separate localization probe.", "Set the brane coefficient.", "Read the roots of the transcendental mass equation.", "Take the coefficient to zero and watch the ordinary twisted tower come back."],
-    read: "The special functions are checked against mpmath at forty digits, and the c → 0 limit is computed in closed form by code that shares nothing with the solver. That limit found three real defects.",
-  },
-  predict: {
-    what: "Choose builder predictions, a top-KK Higgs-rate reference or the neutrino ring; compare calculated responses with their explicitly scoped experimental references.",
-    steps: ["For fixed-light-input research, select Neutrino ring and open Fixed light inputs. Sweep the selected position, compare common versus unequal deficits, and read the five figures. DeepCore 2018 is a standard-three-neutrino reference, not a ring fit. Every figure exports samples and provenance.", "For neutrinos, expand the three-flavour experiment and include the computed Majoron channels in Decays. For the builder, use the thermal SU(3) experiment and its matching PhaseTracer results. Each experiment has a reading box, figures, comparison snapshots and summary export.", "Open the integrated transition history to compare nucleation, percolation and completion. Vary wall speed, acoustic efficiency and the expansion background, then inspect convergence and export the assumptions with the result.", "Choose the builder, the Higgs-production top KK reference, or the neutrino-ring research model in the Simulator selector.", "For Higgs production, vary MKK, top mass and KK cutoff; inspect the joint rate, conditional interval, convergence and summary. A custom window is a scenario.", "For the ring, move the links and Majorana terms; calibration can hold the two light inputs fixed. Read the joint results and live summary.", "For the builder, choose at the minimum or move the probe by hand.",
-            "g₄ scales the Higgs mass ONLY — everything else is fixed by the measured m_W.",
-            "Read the table, then the fermion masses; drag the landscape to turn it."],
-    read: "No collider event is simulated. The thermal history is a separate SU(3) benchmark with supplied wall and efficiency parameters; its acoustic spectrum is evaluated only in the supported completed, weak-transition, fast-wall regime. It is not a detector forecast or the thermal history of the SU(7) builder. A symmetric vacuum sets no compactification scale.",
-  },
-  papers: {
-    what: "Four models somebody else published, taken off their pages and run through this instrument's engine.",
-    steps: ["Use the Maru–Nago shortcut for Type 2/3 SU(6), the magnified minimum and Fourier convergence; its button transfers the supported bulk potential to the builder.", "Pick one of the four; Kubo–Lim–Yamashita carries a dial, the number of triplet fermions.",
-            "Read the table: what the paper prints, then what this returns, then the verdict.",
-            "Press Load into the SU(N) builder and walk the spectrum, the ledger and the simulator on their model."],
-    read: "Three of the four are supersymmetric and this engine's potential is not, so their rows are boundary-condition and zero-mode statements only. An amber row disagrees with one printed equation, not with a paper, and names which of that paper's own equations agrees with which.",
-  },
-  litcensus: {
-    what: "The reading list behind the series: what each paper publishes, and which ones a person has actually read.",
-    steps: ["Search or filter.", "Read the measured row: what the file contains and which signals fired.",
-            "The curated rows name the page or equation a claim comes from."],
-    read: "A signal is a keyword, and a keyword sweep misses whatever is phrased differently. Nothing is asserted from a signal alone, and the corpus is our reading list rather than the field.",
-  },
-};
-
-function howToBlock(id) {
-  const h = HOWTO[id];
-  if (!h) return "";
-  /* the demo button sits INSIDE the summary line, so a reader who has not opened the how-to can
-   * still start it — and it is only rendered where a demo exists, rather than being a dead
-   * control on the other sections */
-  const demo = (typeof demoHas === "function" && demoHas(id))
-    ? `<button class="ghost" id="demoRun" data-demo="${id}" style="float:right;width:auto;padding:2px 10px">▶ demo</button>`
-    : "";
-  return `<details class="card howto" style="margin-bottom:14px;padding:10px 14px">` +
-    `<summary style="cursor:pointer;font-weight:650">How to use this section${demo}</summary>` +
-    `<p style="margin:8px 0 0"><b>What it answers.</b> ${h.what}</p>` +
-    `<ol style="margin:8px 0 0 18px;line-height:1.65">` +
-    h.steps.map((s) => `<li>${s}</li>`).join("") + `</ol>` +
-    `<p class="note" style="margin:8px 0 0"><b>Reading it.</b> ${h.read}</p></details>`;
+/* Help text is generated from docs/user-guides[.es].json at build time. */
+/*__HOWTO__*/
+let GUIDE_LANGUAGE='en';
+try { if(localStorage.getItem('ghu-help-language')==='es')GUIDE_LANGUAGE='es'; } catch {}
+const GUIDE_INITIAL_TARGET=typeof location==='undefined'?null:new URLSearchParams(location.hash.slice(1)).get('help');
+function guideEscape(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function guideHref(id,lang=GUIDE_LANGUAGE){
+  const base=(typeof document==='undefined'?null:document.querySelector?.('[data-guide-base]'))?.dataset.guideBase||'https://karlesmarin.github.io/ghu-explorer/guide/';
+  return base+(lang==='es'?'es/':'')+(id==='index'?'':id+'/')+'index.html';
+}
+function guideLink(id){
+  return `<a class="guide-full-link" data-guide-id="${guideEscape(id)}" href="${guideHref(id)}" target="_blank" rel="noopener" lang="${GUIDE_LANGUAGE}">${GUIDE_LANGUAGE==='es'?'Guía completa ↗':'Full guide ↗'}</a>`;
+}
+function howToBlock(id){
+  if(!HOWTO[id])return '';
+  const demo=(typeof demoHas==='function'&&demoHas(id))?`<button class="ghost" id="demoRun" data-demo="${id}" style="float:right;width:auto;padding:2px 10px">▶ demo</button>`:'';
+  const content=(h,lang)=>`<div data-guide-language="${lang}" lang="${lang}" ${GUIDE_LANGUAGE!==lang?'hidden':''}><p><b>${lang==='es'?'Qué responde.':'What it answers.'}</b> ${guideEscape(h.what)}</p><ol>${h.steps.map(s=>`<li>${guideEscape(s)}</li>`).join('')}</ol><p class="note"><b>${lang==='es'?'Cómo interpretarlo.':'Reading it.'}</b> ${guideEscape(h.read)}</p></div>`;
+  return `<details class="card howto" style="margin-bottom:14px;padding:10px 14px"><summary style="cursor:pointer;font-weight:650"><span data-guide-summary lang="${GUIDE_LANGUAGE}">${GUIDE_LANGUAGE==='es'?'Cómo utilizar esta sección':'How to use this section'}</span>${demo}</summary><div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:12px"><span>Help / Ayuda:</span>${['en','es'].map(l=>`<button type="button" class="ghost" data-guide-set-language="${l}" aria-pressed="${GUIDE_LANGUAGE===l}" lang="${l}">${l==='en'?'English':'Español'}</button>`).join('')}</div>${content(HOWTO[id],'en')}${content(HOWTO_ES[id],'es')}<nav aria-label="User guides" style="display:flex;flex-wrap:wrap;gap:16px">${guideLink(id)}<a data-guide-id="getting-started" data-guide-label="start" href="${guideHref('getting-started')}" target="_blank" rel="noopener">${GUIDE_LANGUAGE==='es'?'Primeros pasos':'Getting started'}</a><a data-guide-id="index" data-guide-label="all" href="${guideHref('index')}" target="_blank" rel="noopener">${GUIDE_LANGUAGE==='es'?'Todas las guías':'All guides'}</a></nav></details>`;
+}
+function syncGuideLanguage(){
+  if(typeof document==='undefined'||typeof document.querySelectorAll!=='function')return;
+  document.querySelectorAll('[data-guide-id]').forEach(n=>{n.href=guideHref(n.dataset.guideId);n.lang=GUIDE_LANGUAGE;const es=GUIDE_LANGUAGE==='es';n.textContent=n.dataset.guideLabel==='start'?(es?'Primeros pasos':'Getting started'):n.dataset.guideLabel==='all'?(es?'Todas las guías':'All guides'):(es?'Guía completa ↗':'Full guide ↗');});
+  document.querySelectorAll('[data-help]').forEach(n=>{const entry=(GUIDE_LANGUAGE==='es'?HELP_TERMS_ES:HELP_TERMS)[n.dataset.help];if(entry){n.title=entry.term;n.setAttribute('aria-label',(GUIDE_LANGUAGE==='es'?'Explicar: ':'Explain: ')+entry.term);}});
+}
+function mountGuideHelp(){
+  if(typeof document==='undefined'||typeof document.addEventListener!=='function')return;
+  if(document.__guideHelpMounted)return;document.__guideHelpMounted=true;
+  document.addEventListener('click',e=>{
+    const button=e.target.closest('[data-guide-set-language]');if(!button)return;
+    GUIDE_LANGUAGE=button.dataset.guideSetLanguage==='es'?'es':'en';
+    try{localStorage.setItem('ghu-help-language',GUIDE_LANGUAGE);}catch{}
+    document.querySelectorAll('[data-guide-language]').forEach(n=>{n.hidden=n.dataset.guideLanguage!==GUIDE_LANGUAGE;});
+    document.querySelectorAll('[data-guide-set-language]').forEach(n=>n.setAttribute('aria-pressed',String(n.dataset.guideSetLanguage===GUIDE_LANGUAGE)));
+    document.querySelectorAll('[data-guide-summary]').forEach(n=>{n.lang=GUIDE_LANGUAGE;n.textContent=GUIDE_LANGUAGE==='es'?'Cómo utilizar esta sección':'How to use this section';});
+    syncGuideLanguage();
+  });
+  if(GUIDE_INITIAL_TARGET&&Object.hasOwn(GUIDE_TARGETS,GUIDE_INITIAL_TARGET))requestAnimationFrame(()=>{
+    const target=document.getElementById(GUIDE_TARGETS[GUIDE_INITIAL_TARGET]);if(!target||target.closest('[hidden]'))return;
+    for(let p=target.parentElement;p;p=p.parentElement)if(p.tagName==='DETAILS')p.open=true;
+    const inset=document.getElementById('top')?.getBoundingClientRect().height||0;
+    target.style.scrollMarginTop=`${inset+12}px`;
+    target.tabIndex=-1;target.scrollIntoView({block:'start'});target.focus({preventScroll:true});
+  });
 }

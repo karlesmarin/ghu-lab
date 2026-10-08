@@ -1,0 +1,2458 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage[english]{babel}
+\usepackage[unicode,hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\setlist{itemsep=3pt,topsep=3pt}
+\hypersetup{pdftitle={GHU Lab -- User guide},pdfauthor={Carles Marin},pdfsubject={Laboratory user guide}}
+\begin{document}
+\begin{titlepage}
+{\Huge\bfseries GHU Lab\par}
+\vspace{12mm}
+{\LARGE User guide\par}
+\vspace{7mm}
+English edition.\par
+9 October 2026\par
+\vspace{8mm}
+Control names are kept as they appear in the application. Start with a reference, change one input at a time, and retain the assumptions with your result.\par
+\vfill
+Carles Marín\par
+Scientific sources and attribution accompany each guide. This manual documents the instrument; it does not claim novelty for the formulas.\par
+\href{https://karlesmarin.github.io/ghu-explorer/guide/index.html}{Current web guide}
+\end{titlepage}
+\tableofcontents
+\clearpage
+\section{Getting started: choose, calculate, interpret and save}
+Choose a laboratory task, run a reference example and understand what its result does and does not establish.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/getting-started/index.html}{Open web guide}
+
+The guide index groups tools by scientific family and lets you search by task, input or result. Every menu section has a short How to use panel with a direct link here. Experiments inside a section and the three Simulator modes also have their own guides. English and Spanish pages describe the same tools; English control labels remain recognizable in both languages.
+\subsection*{First steps}
+\begin{enumerate}
+\item Choose a task in the guide index or select a family in the application menu.
+\item Start from a reference or preset before changing one input at a time.
+\item Read the units, assumptions and result status with the plot.
+\item Save the inputs and source record with any result you want to compare or share.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Menu / section selector}. Changes the active tool. Some experiments live inside a parent section rather than in the main menu. Use Open tool from a guide to reach the correct section and mode.
+
+\textbf{How to use / Full guide}. The short help stays with the application; the full guide opens separately so you can keep your working inputs. Change the help language and open the matching full guide.
+
+\textbf{Presets and reference buttons}. Load a documented example; they can replace the corresponding model inputs. Save your current work before loading another reference.
+
+\textbf{Save, export and permalink controls}. Capture the supported inputs or outputs. Availability and formats vary by tool. Keep units, version, source data and assumptions with the downloaded record.
+
+\subsection*{Reading the results}
+\textbf{Calculated value or numerical check}. A result within the implemented model and numerical settings; convergence tests address their stated numerical question.
+
+\textbf{Certificate or formal theorem}. A machine-checked or rigorously bounded statement with explicit hypotheses. It does not certify the full physical model.
+
+\textbf{Experimental comparison}. Uses a named dataset and hypothesis. A reference overlay, range check and statistical likelihood are not interchangeable.
+
+\textbf{Unknown, unresolved or not evaluated}. A boundary of the calculation. It must not be converted into an allowed, excluded or impossible conclusion.
+
+The laboratory contains several distinct models. A green check, a converged sum, a formal theorem and agreement with an experimental reference each establish different things. Always retain the stated assumptions.
+\subsection*{Worked example: A first 5D workflow}
+\begin{enumerate}
+\item Open SU(N) builder and load a supported reference.
+\item Inspect the potential and its located vacuum.
+\item Continue to KK spectrum, then the anomaly audit.
+\item Inspect brane filtering if the reference requires it.
+\item Use Simulator to read scale calibration and dimensionful outputs.
+\item Save the complete model record before exploring another input.
+\end{enumerate}
+Each step answers a different question. Passing one check does not replace the next or establish complete phenomenological viability.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item Separate SU(7), SU(4), flat 5D, warped, thermal and neutrino-ring models must not be combined without a defined matching calculation.
+\item A finite scan does not establish nonexistence outside its stated domain.
+\item The current guides describe the current instrument; archived HTML editions and videos retain their own dates and scope.
+\item The self-contained application keeps its short help offline. Full web guides and external references require access to their files or websites.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{The guide opens a different-looking part of the Simulator.} Check the model selector: builder, neutrino ring and Higgs production are distinct modes.
+
+\textbf{A changed input gives no new valid result.} Read the validation message. Some panels retain the last valid result until the input is corrected.
+
+\textbf{You cannot find a calculation.} Search the guide index, including embedded experiments, or use the related guides at the end of a page.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/docs/index.html}{Laboratory documentation and reproducibility}
+\item \href{https://karlesmarin.github.io/ghu-explorer/docs/su7-certification.html}{SU(7) certification: statements, assumptions and attribution}
+\end{itemize}
+\section{Hierarchy}
+Calculate a compactification scale and Higgs mass for a chosen SU(7) bulk content, and compare the moment approximation with the implemented full Fourier potential.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/hierarchy/index.html}{Open web guide}
+
+Use this tool to see how changing bulk matter changes the scale associated with an extra dimension. A smaller nonzero Wilson phase can correspond to a larger compactification scale. The tool lets you compare an inexpensive small-angle approximation with calculations of the same implemented potential. Begin with the named examples; only interpret a changed model after checking which assumptions you changed.
+\subsection*{First steps}
+\begin{enumerate}
+\item Start with a Table 1 row so the selected matter content has a named reference.
+\item Read the gauge-seed choice before comparing any numbers. Changing it changes the potential.
+\item Compare the approximate and full-potential minima, masses and scales. Then change one multiplicity and repeat.
+\item Open the approximation and uncertainty diagnostics; use their own coupling and W-mass conventions when reading their results.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Bulk multiplicities}. Counts of the eight supported representation/parity types. These are discrete choices of matter content, not measured probabilities. Load one published row, then change one count by one.
+
+\textbf{Gauge seed}. Selects the printed gauge weights or the candidate split. The seed changes the Fourier coefficients and the arithmetic conditions. Repeat the same content under both choices and retain the seed in any comparison.
+
+\textbf{Published rows and pre-registered sixth row}. Load explicitly recorded contents. A row is a reproducible input, not a promise that its printed phase will be reproduced. Read the printed value and the laboratory value side by side.
+
+\textbf{Robustness: g\ensuremath{{}_{4}}, model span and winding cutoff}. Separate a coupling scenario from numerical convergence. Increasing the number of Fourier terms tests truncation; a coupling span is an assumed model range. Change the cutoff while holding the physical inputs fixed, then vary the coupling separately.
+
+\subsection*{Reading the results}
+\textbf{Wilson phase, Higgs mass and compactification scale}. Read which potential and convention produced each value. Compare the approximate and full-Fourier columns at matching inputs, with GeV and TeV kept distinct.
+
+\textbf{Distance to a ceiling}. A conditional bound for the stated approximation. It is not automatically an attainable content or a bound for every full-potential vacuum.
+
+\textbf{Uncertainty budget and experimental references}. Numerical bounds, recorded W-mass input uncertainty, coupling scenarios and unquantified physical effects have separate meanings. The ATLAS and CMS Higgs-mass entries are separate comparisons.
+
+A ceiling here belongs to its stated moment approximation, seed, coupling and mass window. A numerical result, an interval certificate for a fixed potential and agreement with a published physical model are different claims. The published-phase discrepancy remains open.
+\subsection*{Worked example: Compare an approximation with its full potential}
+\begin{enumerate}
+\item Load a Table 1 row and leave the seed unchanged.
+\item Record the approximate phase, Higgs mass and scale.
+\item Open the moment/full-Fourier comparison and read the differences and available bounds.
+\item Increase the Fourier cutoff in the diagnostic and compare again without changing g\ensuremath{{}_{4}}.
+\end{enumerate}
+You can distinguish a truncation effect from an approximation error. Agreement between these calculations does not resolve the physical gauge-determinant question.
+\subsection*{Formulas and conventions}
+\begin{quote}1/R\ensuremath{{}_{5}} = 2 m\_W / \ensuremath{\alpha}\end{quote}
+The scale conversion in this SU(7) convention, for a nonzero phase. The factor belongs to this convention; do not transfer it unchanged to a different model's phase variable.
+
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item The physical choice of gauge determinant still requires reconciliation with the literature. The eight reconstructed fermion tables do not settle that separate issue.
+\item The small-angle moment approximation has a domain of validity. Check its error against the full potential before using a derived mass or ceiling.
+\item Higher-loop and other physical theory uncertainties are not quantified by a Fourier-tail bound. The displayed uncertainty components are not a complete statistical confidence interval.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{The scale is absent or an output is declined.} Check for a symmetric or flat potential and for a zero phase. Read the stated reason rather than replacing a missing value with zero.
+
+\textbf{Two panels give different masses.} Compare their seed, potential, coupling, W-mass anchor and approximation labels before comparing their digits.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/docs/su7-certification.html}{SU(7) certification dossier: formula attribution and unresolved physical scope}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-vii/index.html}{Part VII: model conventions and current record}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/hierarchy_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{Design a scale}
+Search for integer bulk contents compatible with a target compactification scale and Higgs-mass window under the displayed SU(7) moment conventions.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/inverse/index.html}{Open web guide}
+
+Use this when you have a desired scale and want to know whether the allowed integer matter choices can reach it. The reachable-set plot explains why a continuous target slider does not imply a continuous family of available theories. Some gaps can be certified arithmetically; other searches end because their computational budget is exhausted.
+\subsection*{First steps}
+\begin{enumerate}
+\item Choose the gauge seed and enter the target scale and Higgs-mass window in the displayed units.
+\item Run the design search or inspect a rung separately.
+\item Read the named outcome and its assumptions. A budget stop leaves the question undecided.
+\item Load a returned content into the model and check its full potential in Hierarchy before using it.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Target 1/R\ensuremath{{}_{5}} and Higgs-mass window}. Define the requested region in the displayed scale and mass units. These are design assumptions; entering them does not turn them into experimental constraints. Start from the prefilled target, then make a small change and compare the selected lattice points.
+
+\textbf{Rung buttons and lattice-point probe}. Restrict the arithmetic problem to one rung or point so you can inspect its obstruction or construction. Compare a successful point with a neighbouring refused point.
+
+\textbf{Require W > 0}. Applies the named preliminary screen before the full potential is asked. Passing this screen does not certify a global minimum. Read the screen explanation before enabling it in a search.
+
+\textbf{Design and Load into the model}. Run the bounded search, then transfer a returned content into the laboratory's SU(7) model. Keep the search outcome and inspect the transferred content in Hierarchy.
+
+\subsection*{Reading the results}
+\textbf{Reachable-set clusters}. Resolve a cluster into individual allowed points before interpreting its width as a continuous interval.
+
+\textbf{floor, cone, congruence, dual or exhaustion}. Different reasons the specified arithmetic problem has no solution: a lower bound, a cone restriction, a modular condition, a separating rational certificate, or completed enumeration. Read the accompanying certificate.
+
+\textbf{budget}. The permitted work ended before the question was decided. This is an incomplete search outcome.
+
+The search works on an arithmetic reduction of the model. An impossibility certificate is limited to the problem it states; a found content still needs its potential and vacuum checked. A stopped search supplies neither existence nor impossibility.
+\subsection*{Worked example: Follow a design through to a physical calculation}
+\begin{enumerate}
+\item Run the prefilled design problem.
+\item If a content is returned, save its input values and use Load into the model.
+\item Open Hierarchy with the same seed and compare the approximate and full-potential outputs.
+\item If the search instead stops, read whether it supplied a certificate or only a budget message.
+\end{enumerate}
+The search and the potential check answer successive questions. A lattice solution alone is not a certificate of a physically viable model.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item Bounds and impossibility statements inherit the seed, mass window, coupling convention and arithmetic reduction used by the search.
+\item A positive preliminary screen does not establish a global vacuum or agreement with experimental data.
+\item The reachable set shown is for the stated search problem; changing the model family requires a new problem.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{The target lies between displayed points.} Expand the cluster into its individual points and inspect the certified gap before increasing a search budget.
+
+\textbf{The search reports budget.} Reduce the requested region or use the rung/point controls to isolate the question. Keep the result labelled undecided.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-viii/index.html}{Part VIII: inverse design and arithmetic certificates}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/inverse_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{Count a rung}
+Count supported SU(7) bulk contents at selected moment coordinates without having to list every content individually.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/census/index.html}{Open web guide}
+
+Use this to understand how many discrete matter choices share a moment condition, especially when direct enumeration becomes expensive. A large count can reveal a large family of inputs, but many inputs may share the same potential or fail a later physical check. Compare this page with Same potential? to understand those different notions of sameness.
+\subsection*{First steps}
+\begin{enumerate}
+\item Let the initial table finish, then read the selected gauge seed and coordinate range.
+\item Move the A\ensuremath{{}_{4}} probe on the graph and compare counts across the displayed rungs.
+\item Use the extended range only when you need it; it increases memory use.
+\item Keep published-seed and candidate-seed counts separate when comparing results.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Gauge seed}. Changes the admissible rungs and moment lattice. The candidate case has even rungs and half-integral A\ensuremath{{}_{4}} coordinates. Inspect the labels and counts after a seed change rather than reusing a previous row.
+
+\textbf{A\ensuremath{{}_{4}} graph probe}. Chooses a moment coordinate where the counting function is evaluated. Move between neighbouring displayed points and read the integer counts.
+
+\textbf{Extended range / rebuild}. Recomputes the counting table over the chosen range. The extended range is a larger memory task. First understand a small-range result, then extend it if needed.
+
+\subsection*{Reading the results}
+\textbf{Counts by rung}. The number of supported nonnegative integer contents satisfying the selected moment conditions.
+
+\textbf{Counting-function graph}. Shows how the count changes with the moment coordinate. A large value is a combinatorial multiplicity, not a probability.
+
+\textbf{Archived enumeration comparisons}. Specific independent totals against which the counting method has been checked. They do not certify every physical interpretation of a counted input.
+
+A count records distinct input contents in the stated arithmetic fibre. It does not count physically inequivalent theories or certify acceptable full-potential vacua. Archived enumeration totals validate specific counting cases.
+\subsection*{Worked example: See why many inputs can share one coarse description}
+\begin{enumerate}
+\item Start with the default counting range.
+\item Select a point with several contributing contents and note its rung and A\ensuremath{{}_{4}} coordinate.
+\item Move one coordinate step and compare the count.
+\item Open Same potential? to see why equality of a few moments is weaker than equality of the full potential.
+\end{enumerate}
+The counts are discrete and coordinate-dependent. They describe an arithmetic fibre, not a histogram of observed particles.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item The measured-mass fibre recorded for the published seed is not transferred automatically to the candidate seed.
+\item Counts do not impose all phenomenological requirements, anomaly completion or full-potential vacuum tests.
+\item A content count and an equivalence-class count answer different questions.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{The graph changes substantially after switching seed.} Read the new rung and coordinate conventions; the admissible lattice itself has changed.
+
+\textbf{The extended table is slow or uses substantial memory.} Return to the ordinary range and use a smaller question. A resource limit should not be interpreted as a zero count.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-viii/index.html}{Part VIII: counting and the inverse problem}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/census_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{Atlas}
+Browse the 1,286 supported SU(7) bulk contents with at most five multiplets, compare their potential shapes and load an example into the model.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/atlas7/index.html}{Open web guide}
+
+Use the atlas when you want a visual starting point instead of choosing eight multiplicities from scratch. It shows how different input contents lead to different potential shapes within a small, completely specified catalogue. A useful workflow is to notice an interesting tile, load it, and then inspect its approximation error, anomaly content and source comparison.
+\subsection*{First steps}
+\begin{enumerate}
+\item Draw the lattice and wait for the tiles to finish.
+\item Read the colour legend and the selected seed before comparing tiles.
+\item Hover over a tile to inspect its content; select it to see the details.
+\item Use Load into the model to investigate the selected content in the other SU(7) tools.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Draw the whole lattice}. Calculates and displays the finite catalogue. Let the calculation finish before treating an incomplete display as the full set. Start once and read the legend while the tiles populate.
+
+\textbf{Tile selection}. Identifies one discrete bulk content and its displayed verdict. Compare a flat tile with one that has a nonzero minimum.
+
+\textbf{Load into the model}. Transfers the selected content to the shared SU(7) model used by the neighbouring tools. Open Hierarchy immediately after loading and check that the multiplicities match.
+
+\subsection*{Reading the results}
+\textbf{Potential tiles}. Small plots ordered by the calculated phase. Read the numerical details before comparing shapes at different scales.
+
+\textbf{Content and verdict}. The supported representation/parity counts and the result of the stated mass-window calculation.
+
+\textbf{Flat potentials}. Contents whose implemented potential has no phase-dependent preference at the displayed order. A unique broken vacuum cannot be inferred from a flat curve.
+
+Each tile is a content in a finite catalogue. Its colour summarizes the displayed calculation under its conventions. A flat-potential tile is a mathematical outcome, not missing experimental data; a favourable colour is not a complete model-validation claim.
+\subsection*{Worked example: Turn a visual candidate into an inspectable model}
+\begin{enumerate}
+\item Draw the atlas with the default conventions.
+\item Select the tile corresponding to a named published row and inspect its content.
+\item Load it into the model and open Hierarchy.
+\item Compare the mass-window verdict with the full-potential and uncertainty diagnostics.
+\end{enumerate}
+The same input content can be followed from a thumbnail to a detailed calculation. The catalogue's size limit remains part of what was searched.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item The catalogue stops at five multiplets; it is not an enumeration of every possible bulk content.
+\item A plotted minimum or mass-window colour is not a proof of anomaly cancellation, a complete flavour sector or experimental viability.
+\item The SU(7) normalization and literature-discrepancy cautions also apply to these tiles.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{A tile appears blank or flat.} Inspect its content and flat-potential classification before assuming a drawing failure.
+
+\textbf{The loaded model seems different from another comparison.} Check its gauge seed and every multiplicity; a tile label alone does not specify a different panel's coupling or approximation settings.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-vii/index.html}{Part VII: SU(7) potential and finite catalogue}
+\item \href{https://karlesmarin.github.io/ghu-explorer/docs/su7-certification.html}{Certification and source-discrepancy scope}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/atlas_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{Same potential?}
+Compare two SU(7) bulk contents using the full-potential coordinates, and distinguish equal potentials from equal low-order moments.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/samepot/index.html}{Open web guide}
+
+Use this to avoid counting different matter descriptions as different one-loop potentials. It also demonstrates a common limitation of approximations: two models can agree on the few coefficients used near a symmetric point while differing elsewhere. The algebraic comparison and the numerical graph are deliberately shown together so you can tell an identity from a visually small difference.
+\subsection*{First steps}
+\begin{enumerate}
+\item Use the shared model as content A and copy it into content B.
+\item Apply a displayed kernel relation or edit B's multiplicities.
+\item Read the five-coordinate comparison as well as the curves.
+\item Load the equal-moment example to see how matching local moments can leave different full potentials.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Content B: copy, clear and multiplicities}. Creates the second input independently of the shared content A. Copy A first so the initial equality has an obvious cause.
+
+\textbf{Kernel-relation arrows}. Rewrite a content using a relation that leaves the potential coordinates unchanged, subject to valid nonnegative counts. Apply an available arrow and inspect which multiplicities change.
+
+\textbf{Canonical of A}. Chooses the canonical representative used by the implemented algebraic reduction. Compare its content with A while keeping the coordinates in view.
+
+\textbf{Equal-moment example and plot range}. Loads a pair with matching selected local moments and lets you compare local and full phase ranges. Read the small-angle view, then expand to the full range.
+
+\subsection*{Reading the results}
+\textbf{Five potential coordinates}. The complete identity test for this stated family. Equality has a stronger meaning than agreement at sampled plot points.
+
+\textbf{Two potential curves}. A numerical illustration of the algebraic comparison. Use the full range to inspect structure hidden by a local zoom.
+
+\textbf{Moment diagnostics and evidence}. Show which selected moments coincide and what the available exact or interval checks establish about the example.
+
+For the stated potential family, equality of the five coordinates is the algebraic equality criterion. Two overlapping plots alone cannot prove an identity. Matching only the selected local moments is weaker and can leave different global behaviour.
+\subsection*{Worked example: Compare exact equality with approximate agreement}
+\begin{enumerate}
+\item Copy A to B and verify coordinate equality.
+\item Apply a permitted kernel relation; the content changes while the identity criterion remains satisfied.
+\item Load the equal-moment example.
+\item Compare the local and full plots and read the separate full-potential conclusion.
+\end{enumerate}
+A kernel rewrite and a low-order moment match have different logical strength. Use the coordinate or certificate statement, not the apparent thickness of an overlaid curve.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item The equality criterion concerns the implemented one-loop potential family and its conventions. It does not prove that all particle spectra, couplings or boundary sectors are identical.
+\item Numerical agreement at finitely many phase values does not establish an analytic identity.
+\item A canonical representative of a potential is not automatically a canonical representative of the complete physical theory.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{A relation arrow cannot be used.} Check whether the proposed rewrite would require a negative multiplicity.
+
+\textbf{The curves look identical but the tool distinguishes them.} Read the exact coordinate comparison and use the full phase range; a plot may hide a small or distant difference.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-vii/index.html}{Part VII: potential coordinates and kernel relations}
+\item \href{https://karlesmarin.github.io/ghu-explorer/docs/su7-certification.html}{Moment diagnostics and theorem scope}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/samepot_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{Anomalies \& proton}
+Inspect the SU(7) bulk anomaly contributions and the boundary matter needed to cancel them; the separate RS experiment studies another model's anomaly flow.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/anomalies/index.html}{Open web guide}
+
+Use this to connect a compact anomaly number with the fields that contribute to it. The signed bars help you see why adding a multiplet can increase or decrease the total. The brane construction then asks whether additional boundary matter can cancel the relevant channels while meeting a separate proton-protection condition.
+\subsection*{First steps}
+\begin{enumerate}
+\item Load a named SU(7) content in Hierarchy and return here.
+\item Read the signed contributions to 8D and the six anomaly channels.
+\item Check the selected seed before interpreting the displayed rung ladder.
+\item Follow the brane-matter construction in Escape, or open the separate RS anomaly-flow experiment for its own inputs and assumptions.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Shared SU(7) bulk model}. Supplies the matter multiplicities used by the bars and channel table. Edit it in Hierarchy or load a named row. Compare two published rows and track which contributions change.
+
+\textbf{Gauge seed and rung information}. State the arithmetic convention behind the ladder and the conditional ceiling. Read the rung parity after changing seed; do not carry a previous impossibility statement across the change.
+
+\textbf{RS anomaly-flow shortcut}. Opens an embedded warped-model experiment with its own parameters and outputs. Use its dedicated guide before comparing UV and IR contributions.
+
+\subsection*{Reading the results}
+\textbf{Signed contribution bars}. Show how individual multiplets contribute to the displayed anomaly combination, in the stated eighth-unit normalization.
+
+\textbf{Six-channel table}. Separates the anomaly conditions that a proposed matter completion must satisfy. Cancellation in one combination is not cancellation in every channel.
+
+\textbf{Rung ladder and brane-construction costs}. Relate the arithmetic of the selected bulk content to the boundary assignments examined by the laboratory.
+
+A nonzero bulk anomaly contribution is an obligation for the complete model to cancel. It is not by itself a final inconsistency verdict when boundary matter is allowed. A forbidden arithmetic rung is a statement under the selected seed's assumptions.
+\subsection*{Worked example: Trace an anomaly total back to its content}
+\begin{enumerate}
+\item Load a published SU(7) row in Hierarchy.
+\item Read its total and individual bars on this page.
+\item Change one bulk multiplicity in Hierarchy and return.
+\item Open Escape to inspect all channels for an explicit boundary assignment.
+\end{enumerate}
+The total is connected to individual contributions, while the completion must be checked channel by channel.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item Bulk-only anomaly information does not describe every possible boundary completion.
+\item An anomaly cancellation calculation does not determine a proton lifetime.
+\item The RS anomaly-flow experiment is a separate model. Its UV/IR results are not corrections to the SU(7) table.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{A nonzero row seems to contradict a usable model.} Check which fields are included. The bulk subtotal and the complete bulk-plus-boundary ledger answer different questions.
+
+\textbf{The ladder interpretation changes with the seed.} Read the seed-dependent arithmetic statement and compare only calculations made under matching assumptions.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-vi/index.html}{Part VI: anomaly and boundary-matter construction}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-vii/index.html}{Part VII: seed-dependent arithmetic}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/anomalies_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{Escape from proton decay}
+Construct the supported SU(7) boundary-matter assignments and check their anomaly cancellation and proton-protection selection rules separately.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/escape/index.html}{Open web guide}
+
+Use this when you want to see how a boundary completion can cancel the bulk contribution while restricting dangerous operators. The tool makes the charges and assignments explicit so that a successful label can be traced back to a concrete choice.
+\subsection*{First steps}
+\begin{enumerate}
+\item Start with a listed assignment so its rung and charge conventions are explicit.
+\item Change the rung choices, X\_Q or q\_\ensuremath{\phi} one at a time.
+\item Read every anomaly channel, then the allowed-operator and residual-symmetry information.
+\item Compare the result with the selected bulk model's required anomaly cancellation.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Rung choices}. Select the boundary assignment in the displayed charge lattice. Load one of the twenty listed assignments before editing its rungs.
+
+\textbf{X\_Q and q\_\ensuremath{\phi}}. Charge parameters entering the anomaly conditions and the selection rule. Use the exact rational conventions shown by the panel. Change one charge and compare the anomaly table with the operator verdict.
+
+\textbf{Rung cube}. A view of the assignment space and where the protection condition changes. Rotate it, then select a listed assignment to inspect its numbers.
+
+\subsection*{Reading the results}
+\textbf{Six anomaly channels}. Exact rational contributions for the supported content. Check every channel rather than only a displayed total.
+
+\textbf{Selection rule and residual group}. Identify which supported operators the charge assignment permits or forbids.
+
+\textbf{Boundary contribution against the bulk}. Shows whether this completion supplies the cancellation required by the current bulk input.
+
+Cancellation and operator protection are separate tests within the implemented assignment family. A protected operator pattern is not a calculated proton lifetime, and enumerating this family does not classify every possible completion.
+\subsection*{Worked example: Separate cancellation from protection}
+\begin{enumerate}
+\item Load a listed assignment and record both verdicts.
+\item Change a rung or charge.
+\item Read which channel or operator condition changed.
+\item Restore the assignment and verify that the original two conclusions return.
+\end{enumerate}
+You can explain a verdict from the charge and channel tables rather than relying on its colour.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item The enumeration concerns the implemented assignment family and operator tests.
+\item No proton decay rate, hadronic matrix element or experimental lifetime likelihood is evaluated here.
+\item A complete model may need additional matter and interaction checks beyond these conditions.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{Cancellation succeeds but protection changes.} Read the operator selection rule separately; an anomaly condition does not determine every allowed interaction.
+
+\textbf{The boundary contribution does not match the bulk.} Confirm the selected SU(7) content and seed, then compare channel signs and charge normalization.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-vi/index.html}{Part VI: boundary assignments and operator protection}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/escape_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{Multiplets \& parities}
+Inspect how supported SU(7) representations split under the boundary symmetries, and how their parity signs determine zero modes and potential terms.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/multiplets/index.html}{Open web guide}
+
+Use this to connect the representation names in the bulk-content editor with the components that survive the boundaries. The cube is a visual index of signs; the component and coefficient tables contain the detailed information.
+\subsection*{First steps}
+\begin{enumerate}
+\item Choose a supported representation and read its parity labels.
+\item Use the cube and the component table together to identify which fields occupy each corner.
+\item Read the derived fermion term table and its comparison with the reference coefficients.
+\item Keep the gauge-sector split and its unresolved physical interpretation separate from the reconstructed fermion tables.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Representation selector}. Chooses the supported multiplet whose decomposition is displayed. Start with the fundamental representation, then compare a tensor representation.
+
+\textbf{Parity and intrinsic-sign choices}. Specify how a component transforms at the boundaries and which sign enters its Fourier term. Change one available sign and follow the affected components.
+
+\textbf{Parity cube}. Groups components by their displayed Z\ensuremath{{}_{2}} signs. Rotate it and read the table instead of inferring multiplicity from a drawing alone.
+
+\subsection*{Reading the results}
+\textbf{Component decomposition}. The subgroup representations and parity assignments obtained from the supported parent representation.
+
+\textbf{Zero-mode information}. Identifies components allowed to remain massless by the stated boundary projection before additional mass-generating effects.
+
+\textbf{Derived term table}. Checks the Fourier coefficients reconstructed from the component signs against the implemented reference.
+
+A zero mode is a component allowed by the displayed boundary conditions. Reconstructing fermion coefficients checks that part of the potential; it does not determine the complete physical gauge determinant.
+\subsection*{Worked example: Follow one sign through the calculation}
+\begin{enumerate}
+\item Select the fundamental representation.
+\item Read a component's boundary signs and zero-mode label.
+\item Change an available intrinsic sign.
+\item Compare the component and Fourier-term tables before and after.
+\end{enumerate}
+You can identify which boundary choice changes a component or a potential contribution, without treating the sign cube as a spectrum calculation by itself.
+\subsection*{Formulas and conventions}
+\begin{quote}s = \ensuremath{\eta} \ensuremath{\eta}\ensuremath{\prime} P\ensuremath{{}_{5}} P\ensuremath{\prime}\ensuremath{{}_{5}}\end{quote}
+The sign product shown for this potential convention. Read the definitions of the component and intrinsic signs on the panel.
+
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item Only the supported representation and boundary conventions are covered.
+\item Boundary-allowed zero modes can be lifted by interactions that are outside this decomposition.
+\item The eight fermion tables and the physical gauge-sector question have different evidence status.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{A component exists in the decomposition but has no zero mode.} Check its individual boundary parities; belonging to the parent representation is not sufficient to survive the projection.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/docs/su7-certification.html}{Formula attribution and fermion-table reconstruction}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/multiplets_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{Screen a table}
+Arithmetic screens for a published row, with conditional rung certificates and independent full-potential witness checks.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/screen/index.html}{Open web guide}
+
+Use this to check whether a proposed SU(7) row is compatible with the implemented arithmetic before doing a broader calculation. It also provides access to the certificate dossier. Read which question each certificate answers: a fixed-potential global minimum and a conditional ceiling for a moment relaxation are different mathematical statements.
+\subsection*{First steps}
+\begin{enumerate}
+\item Type the row's two observables.
+\item Read the mod-6 law, the K invariant and the arithmetic comb.
+\item Open Conditional rung bounds and check the seed, coupling and Higgs-mass window before using a ceiling.
+\item Compare the archived full-Fourier witnesses: a stationary point may have a deeper competing vacuum.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Row inputs}. The observables or arithmetic quantities labelled by the screen. Preserve the source's units and rounding when entering a printed row. Load a listed row before typing an alternative.
+
+\textbf{Gauge seed, coupling and mass window}. The conventions conditioning the arithmetic and bound comparisons. Read them beside a certificate before comparing its ceiling with another result.
+
+\textbf{Save certificate buttons}. Download the archived evidence, assumptions and associated checks as JSON. Save a bundle when recording a result so its scope travels with the number.
+
+\subsection*{Reading the results}
+\textbf{Arithmetic laws and K invariant}. Consistency screens within the stated model reduction. A failed screen identifies the stated mismatch; a passed screen leaves later tests open.
+
+\textbf{KK comb}. The allowed arithmetic spacing displayed in squared mass. It should not be read as equally spaced masses.
+
+\textbf{Formal and interval evidence}. The dossier distinguishes exact algebra, certificates for ten fixed one-phase potentials, conditional moment ceilings and separate numerical witness comparisons.
+
+The interval certificates bound a small-angle moment relaxation under the stated conventions. They do not certify a ceiling for the full potential. The separate vacuum checks compare numerically located extrema with Fourier-tail errors; an observed surviving witness is not an exhaustive optimum.
+\subsection*{Worked example: Read a certificate without enlarging its claim}
+\begin{enumerate}
+\item Load one archived row and read all three screens.
+\item Open the conditional bound information and record the seed and mass window.
+\item Compare a full-potential witness with one labelled as having a deeper competing vacuum.
+\item Save the evidence bundle and follow the attribution link.
+\end{enumerate}
+A stationary point can pass one test while failing the global-vacuum comparison. The exported assumptions explain which conclusion can be reused.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item A moment-relaxation ceiling is not a universal ceiling for full-potential vacua.
+\item Numerically checked witnesses do not establish exhaustive optimality.
+\item Mathematical certificates for the implemented potential do not resolve the outstanding physical gauge-determinant choice or establish scientific novelty.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{A printed row fails a screen.} Check rounding intervals, units and seed first, then read the specific failed relation. Do not infer that an entire paper is wrong from one mismatch.
+
+\textbf{A stationary witness has a lower competing vacuum.} Keep the stationarity result but withdraw the claim that this witness is the global vacuum.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/docs/su7-certification.html}{English certification dossier: assumptions, authorship and downloadable evidence}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-vii/index.html}{Part VII: row consistency and scale arithmetic}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/screen_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{Collider}
+Which state a dijet search bounds, plus a separate Higgs-rate scenario checked against pinned experimental datasets.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/collider/index.html}{Open web guide}
+
+Use this to connect a model's coloured state with the particular dijet measurement used in the archived comparison. The separate Higgs-rates experiment studies a specified scalar-coupling scenario. Keeping those two subjects distinct prevents a limit on one particle hypothesis from becoming an unsupported verdict about a whole GHU model.
+\subsection*{First steps}
+\begin{enumerate}
+\item Use the Higgs-rates shortcut to compare a saved scalar scenario, its widths and rates, and matching HiggsBounds/HiggsSignals calculations.
+\item Read the coupling and invisible-width assumptions alongside the HiggsSignals chi-square and the analysis selected by HiggsBounds.
+\item Read the coloron's mass and width --- both fixed by the localisation, not chosen.
+\item Drag the relief over (M\_jj, \ensuremath{\chi}), the plane CMS bins its angular measurement in.
+\item Type any 1/R\ensuremath{{}_{5}} to see the ratio table move.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Compactification scale 1/R\ensuremath{{}_{5}}}. Sets the model scale for the displayed colour-sector comparison. Change it and read the model-to-reference ratios at the named bins.
+
+\textbf{Dijet relief}. Displays the predicted distortion over the dijet mass and angular variable used in the measurement. Rotate the view and read the axes and reference-bin labels.
+
+\textbf{Higgs-rates shortcut}. Opens the separate coupling/width experiment and its matching experimental calculations. Start with its Standard Model reference before changing a coupling.
+
+\subsection*{Reading the results}
+\textbf{Coloron mass, width and coupling}. Belong to the stated localization and colour-sector assumptions; they are not freely interchangeable with another resonance model's parameters.
+
+\textbf{Dijet ratio and archived \ensuremath{\Delta}\ensuremath{\chi}\ensuremath{{}^{2}}}. The displayed comparison retains the provenance of the original recast. It is not a newly executed fit to every dataset stored in the laboratory.
+
+\textbf{CMS reference snapshot}. Seven distributions and 77 bins are archived with source records. The correlation table concerns fitted signal strengths and is not an unfolded-spectrum covariance matrix.
+
+The dijet \ensuremath{\Delta}\ensuremath{\chi}\ensuremath{{}^{2}} values are quoted from the published record; the Higgs experiment computes its own comparison. Its 159 HiggsSignals observables are not 159 independent degrees of freedom. Coupling and width assumptions can compensate in visible rates, so this scalar comparison is not a complete GHU fit.
+\subsection*{Worked example: Inspect the hypothesis behind a collider comparison}
+\begin{enumerate}
+\item Read which coloured state and localization assumptions define the current calculation.
+\item Record the scale and one named-bin ratio.
+\item Change the scale while retaining the particle hypothesis.
+\item Open the dataset/source description and distinguish the archived recast from newly stored reference data.
+\end{enumerate}
+The numerical response is traceable to a named hypothesis and analysis. Importing a dataset alone has not created a new GHU exclusion.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item A published bound is reusable only to the extent that its production, decay and acceptance assumptions match the proposed state.
+\item The stored CMS data have not been combined into a new laboratory likelihood or a new GHU fit.
+\item The HiggsTools comparison belongs to its supplied scalar scenario. Its observable count is not automatically the statistical number of degrees of freedom.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{A limit seems much stronger than another panel's limit.} Compare the particle identity, production channel, branching assumptions and reference analysis before comparing numbers.
+
+\textbf{The Higgs experiment reports a pending calculation.} Use a matching saved reference, import a matching result or explicitly run the configured local engine. Do not reuse a result for different couplings.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-vii/index.html}{Part VII: model-to-collider comparison and its assumptions}
+\item \href{https://karlesmarin.github.io/ghu-explorer/docs/su7-certification.html}{Experimental reference and ingestion scope}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/collider_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{Selection rule}
+Check the supported SU(4) representation and Wilson-domain selection conditions, including the chiral-count test for a quark-generation embedding.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/selection/index.html}{Open web guide}
+
+Use this before choosing a representation or reducing a vacuum-search domain. Boundary symmetries can relate some phase values, but the allowed reduction depends on the content. The embedding test asks a second question: whether the supported representation can contain the required chiral structure under the stated projection.
+\subsection*{First steps}
+\begin{enumerate}
+\item Select the Dynkin labels (a, b, c), which identify the representation.
+\item Read the centre-charge condition and the permitted Wilson-line search domain.
+\item Inspect all three embedding conditions before using the displayed count.
+\item Compare a passing representation with one that fails a single condition.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Dynkin labels a, b, c}. Nonnegative integer labels of an SU(4) representation; changing them changes the representation, not a continuous coupling. Start with a catalogue entry and change one label.
+
+\textbf{Test the rule on every representation}. Runs the displayed finite catalogue comparison. Read the tested range together with the verdict.
+
+\textbf{Shared SU(4) content}. Connects the selection rule to the matter content used by the calculator. Inspect the domain again after editing that content.
+
+\subsection*{Reading the results}
+\textbf{Permitted phase domain}. The domain justified by the selected content's symmetry. An unjustified reduction can miss a vacuum.
+
+\textbf{Three embedding conditions}. Centre-charge parity, a nonzero middle Dynkin label and the stated size condition must be read together.
+
+\textbf{Chiral count}. The count for the stated projection when its hypotheses hold; it does not specify Yukawa couplings or measured quark masses.
+
+The count applies under the displayed projection and embedding conditions. Classical centre-charge facts and the series' chiral-count calculation have separate attribution. Passing these representation tests does not construct a complete quark sector.
+\subsection*{Worked example: Check a proposed representation before calculating its vacuum}
+\begin{enumerate}
+\item Choose a catalogue representation.
+\item Record each condition and the permitted domain.
+\item Change one Dynkin label and inspect which condition changes.
+\item Follow the representation to Model calculator using a domain justified for that content.
+\end{enumerate}
+You can distinguish a representation-selection result from the later potential and mass calculations.
+\subsection*{Formulas and conventions}
+\begin{quote}N = (b + 1)(a + c + 1) / 2\end{quote}
+The displayed count under the panel's three embedding conditions and chiral projection. The symbol here is a count, not the SU(4) gauge-group rank.
+
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item The conditions use this SU(4) embedding and boundary projection; they are not a universal criterion for every GHU model.
+\item A finite catalogue check does not replace the stated proof assumptions.
+\item An allowed representation does not settle masses, interactions or anomaly completion.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{The count is unavailable or a condition fails.} Read the failed condition before interpreting the formula. Do not evaluate an out-of-scope count as an accepted embedding.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-ii/index.html}{Part II: embedding and chiral projection}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-iii/index.html}{Part III: Wilson-domain selection}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/selection_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{Model calculator}
+Evaluate the supported SU(4) one-loop potential, locate its vacuum and calculate the associated Higgs curvature for a chosen matter content.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/calculator/index.html}{Open web guide}
+
+Use this as the numerical workspace for the SU(4) model family. Loading the published reference gives you a reproducible starting point. You can then change one representation count or sign and see how the vacuum and mass response change.
+\subsection*{First steps}
+\begin{enumerate}
+\item Load the named AHMN reference before constructing a custom content.
+\item Set multiplicities, boundary signs and the displayed matter/gauge roles.
+\item Read the vacuum location and the reference-reproduction indicator.
+\item Use Selection rule to understand the search domain, and eta-meter to inspect sign sensitivity.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Load AHMN / clear}. Restores the named reference or removes the editable matter content. Record the anchor before making any changes.
+
+\textbf{Representation multiplicities}. Add or remove copies of supported representations from the catalogue. Change one count by one and compare the vacuum.
+
+\textbf{\ensuremath{\eta} and matter/gauge role}. Change the boundary-sign or contribution convention used for that row. Keep a record of these labels with the multiplicities; the counts alone are insufficient.
+
+\textbf{Search-domain comparison}. Shows the effect of an assumed domain reduction on the catalogue calculation. Use the justified domain rather than choosing the smaller search only for speed.
+
+\subsection*{Reading the results}
+\textbf{Potential cut and vacuum}. The curve and located minimum for the selected input. Read which cut through the multidimensional potential is being shown.
+
+\textbf{Mass/curvature results}. Derived from the potential's local curvature and the stated normalization; a potential value itself is not a particle mass.
+
+\textbf{Anchor indicator}. Reports whether the implementation reproduces the named AHMN reference within its stated comparison.
+
+Mass ratios remove some overall normalization dependence but retain the model and approximation assumptions. Absolute masses and scales require the stated normalization and physical inputs. The anchor indicator tests a named reference calculation, not general phenomenological validity.
+\subsection*{Worked example: Measure one change relative to the anchor}
+\begin{enumerate}
+\item Load AHMN and note the vacuum and mass ratio.
+\item Change one multiplicity while keeping its sign and role fixed.
+\item Read the new vacuum and potential cut.
+\item Reload AHMN and confirm the baseline is restored.
+\end{enumerate}
+The difference is attributable to one documented input change. A successful reference reproduction is a check on that calculation.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item The supported one-loop model does not include every correction or boundary interaction of a complete theory.
+\item A mass ratio can remain sensitive to content, vacuum selection and approximation even when an overall normalization cancels.
+\item The finite representation catalogue is the implemented search range.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{A sign change seems to do nothing.} Open eta-meter and check whether this representation is insensitive to that sign in the stated calculation.
+
+\textbf{A reduced search gives another minimum.} Check Selection rule and compare the full justified domain.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2312.08608}{AHMN reference, arXiv:2312.08608}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-iv/index.html}{Part IV: SU(4) potential calculation}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/calculator_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{eta-meter}
+Compare the analytic and directly evaluated response of supported SU(4) multiplets to their boundary sign \ensuremath{\eta}.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/eta/index.html}{Open web guide}
+
+Use this to understand why changing a boundary sign sometimes moves a result and sometimes leaves it unchanged. Difference mode removes the common part of two calculations, making an otherwise hidden dependence easier to see.
+\subsection*{First steps}
+\begin{enumerate}
+\item Choose a multiplet or load the AHMN content.
+\item Compare the predicted sign response with the directly evaluated Hessian.
+\item Draw the atlas and select \ensuremath{\eta}-difference mode to isolate the sign-dependent part.
+\item Filter sign-sensitive and insensitive multiplets, then compare individual tiles.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Multiplet and content choices}. Choose the contribution or combined content being studied. Compare one sensitive multiplet with one labelled insensitive.
+
+\textbf{Flip every \ensuremath{\eta}}. Changes the selected boundary signs together while retaining the content. Read the predicted response before applying the flip.
+
+\textbf{Potential / \ensuremath{\eta}-difference}. Switches between the full landscape and the difference under sign reversal. Use both views for an insensitive multiplet.
+
+\textbf{Atlas filters and two-tile comparison}. Select the displayed subset and compare two contributions at matching conventions. Keep the display mode unchanged while switching tiles.
+
+\subsection*{Reading the results}
+\textbf{Predicted versus evaluated response}. Compares the closed-form calculation with the direct numerical calculation of the stated quantity.
+
+\textbf{Difference landscape}. A zero difference indicates sign insensitivity in that calculation, even if the full potential is nonzero.
+
+\textbf{Finite catalogue check}. Tests the implemented rule across the 119 supported representations.
+
+Insensitivity to \ensuremath{\eta} concerns the specified difference or contribution. It does not mean that a representation contributes nothing to the potential or has no physical effects. The analytic statement and the finite numerical checks have their stated scope.
+\subsection*{Worked example: See what a zero difference means}
+\begin{enumerate}
+\item Choose a multiplet labelled insensitive to \ensuremath{\eta}.
+\item Inspect its full potential.
+\item Switch to \ensuremath{\eta}-difference mode and read the zero response.
+\item Choose a sensitive multiplet and compare the same two views.
+\end{enumerate}
+A vanishing difference and a vanishing potential are visibly different statements.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item The result concerns the specified SU(4) sign dependence and projection.
+\item Numerical comparisons retain their cutoff and precision assumptions.
+\item Sign insensitivity alone does not determine the full spectrum or phenomenological viability.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{An atlas tile becomes blank in difference mode.} Check whether it is classified as sign-insensitive; a zero difference can be the expected result.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-v/index.html}{Part V: boundary-sign response and its scope}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/eta_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{Five dimensions}
+Evaluate the supported Haba--Yamashita five-dimensional SU(3) example and compare its potential, located vacuum and Kaluza--Klein spectrum.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/fived/index.html}{Open web guide}
+
+Use this compact example to learn how matter and boundary signs shape a Wilson-line potential. The six counts separate the supported adjoint fermion, fundamental fermion and scalar contributions by parity-product sign. The preset buttons supply controlled comparisons without requiring a new model from scratch.
+\subsection*{First steps}
+\begin{enumerate}
+\item Load the archived row, then identify the six matter counts and their parity-product signs.
+\item Compare the evaluated potential with its located minimum and the separate approximation when available.
+\item Use the pure-gauge, marginal-trio and blind-step examples to change one structural feature at a time.
+\item Read the spectrum at the resulting phase and retain this model's normalization conventions.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Adjoint fermion counts, + and \ensuremath{-}}. Numbers of the supported adjoint Dirac fields in the two parity-product sectors. Start from the archived row and change one count.
+
+\textbf{Fundamental fermion and scalar counts, + and \ensuremath{-}}. Separate fermionic and complex-scalar contributions; their signs and degrees of freedom enter the potential differently. Use the blind-step button to inspect the specific cancelling combination.
+
+\textbf{Archived row / pure gauge / marginal trio}. Load the named reference or a targeted example with stated matter content. Compare pure gauge with the marginal trio while reading the potential and moment diagnostics.
+
+\subsection*{Reading the results}
+\textbf{Evaluated potential and minimum}. The phase dependence of the implemented source formula and the minimum located for that input.
+
+\textbf{Moment/rung diagnostics}. Describe the arithmetic of this supported five-dimensional content, including its even-rung property.
+
+\textbf{KK spectrum}. The tower structure at the selected vacuum under this model's boundary and normalization conventions.
+
+This is a particular 5D model family. Its even-rung arithmetic and phase normalization should not be replaced by those of the 6D SU(7) family. The located vacuum and a small-angle approximation must be compared within their domains.
+\subsection*{Worked example: Separate a content change from a potential change}
+\begin{enumerate}
+\item Load the archived row and note its potential.
+\item Apply the blind-step example.
+\item Check the changed counts and compare the potential.
+\item Use the marginal-trio example and inspect the changed vacuum behaviour.
+\end{enumerate}
+Different matter counts can have the same implemented potential contribution. The preset states which combination is being tested.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item The page covers the stated SU(3) family and supported matter sectors.
+\item The 5D parity-product and phase conventions differ from those of the SU(7) family.
+\item A one-loop vacuum and spectrum do not establish a complete phenomenological model.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{A content change leaves the curve unchanged.} Check whether the change is the displayed blind combination of fermion and scalar contributions.
+
+\textbf{The approximation is unavailable near a marginal case.} Read the direct potential and the stated domain restriction instead of forcing a small-angle formula.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/docs/index.html}{Model conventions and literature links}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/fived_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{SU(N) builder}
+Build a supported five-dimensional SU(N) model on S\ensuremath{{}^{1}}/Z\ensuremath{{}_{2}} from boundary blocks and bulk matter, then inspect its one-loop potential and vacuum.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/sun5d/index.html}{Open web guide}
+
+Use the builder as the starting point for a connected model investigation. The four blocks specify simultaneously diagonal boundary parities. Their sizes determine N and the apparent boundary-symmetry structure. The bulk fields supply the matter contributions to the potential. Neighbouring tools share this builder state, so you can inspect the spectrum and anomaly obligations without retyping the model.
+\subsection*{First steps}
+\begin{enumerate}
+\item Start from a preset or enter the four nonnegative boundary-block sizes.
+\item Add supported bulk representations, their parity-product signs and copy counts.
+\item Read the resulting group and number of Wilson phases before interpreting the potential.
+\item Follow the same model into 4D spectrum, Anomalies, Brane matter and Simulator.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{n\ensuremath{{}_{++}}, n\ensuremath{{}_{+-}}, n\ensuremath{{}_{-+}}, n\ensuremath{{}_{--}}}. Nonnegative dimensions of the four simultaneous parity blocks. Their sum fixes the SU(N) rank parameter. Load a preset first and identify which blocks are nonzero.
+
+\textbf{Bulk representation, \ensuremath{\eta}\ensuremath{\eta}\ensuremath{\prime} and multiplicity}. Choose a supported field contribution, its boundary-sign product and the number of copies. Add one supported copy while keeping the boundary blocks fixed.
+
+\textbf{Presets and clear bulk}. Provide named starting inputs or a gauge-only matter setting. Read a preset's boundary blocks before changing it.
+
+\textbf{Potential probe}. Selects a phase at which to inspect the potential; the probe and the located vacuum are distinct positions. Click away from the minimum and compare the probe information with the vacuum result.
+
+\subsection*{Reading the results}
+\textbf{Apparent unbroken subgroup}. The group visible in the chosen boundary frame. Its appearance need not be invariant under gauge-equivalent boundary descriptions.
+
+\textbf{Potential terms and Wilson phases}. Show what the supported matter and boundary data contribute and how many independent phase directions are being investigated.
+
+\textbf{Vacuum result}. A located minimum or a stated undecided/unsupported result under the numerical method's scope.
+
+The builder covers the implemented boundary and representation families. A one-phase reduction permits additional moment diagnostics under their stated assumptions. A located vacuum may be undecided in a harder search; an unfinished calculation is not a proof that no vacuum exists.
+\subsection*{Worked example: Carry one model through the laboratory}
+\begin{enumerate}
+\item Load a named builder preset.
+\item Record its blocks and bulk content.
+\item Open 4D spectrum and read its zero modes at the selected phase.
+\item Open Anomalies, then Brane matter if a completion is needed.
+\item Use Simulator for the model's dimensionful comparison.
+\end{enumerate}
+The same builder input is inspected from several perspectives. A favourable result in one view does not substitute for the others.
+\subsection*{Formulas and conventions}
+\begin{quote}N = n\ensuremath{{}_{++}} + n\ensuremath{{}_{+-}} + n\ensuremath{{}_{-+}} + n\ensuremath{{}_{--}}\end{quote}
+The boundary block dimensions add to the defining-representation dimension of SU(N).
+
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item Supported representations and simultaneously diagonal parity blocks define the implemented model family; the builder does not represent every possible 5D theory.
+\item A brane interaction or supersymmetric cancellation absent from the implemented potential cannot be inferred from the model name.
+\item Minimum searches, moment approximations and global certificates have different scopes.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{There is no Wilson-line direction.} Inspect the chosen boundary blocks and surviving gauge-field components; a valid boundary condition need not leave a Higgs candidate.
+
+\textbf{The vacuum is labelled undecided.} Retain that status and inspect the stated search limitation. Do not substitute a symmetric point as a certified minimum.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/docs/index.html}{Boundary conventions, normalization and literature}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/sun5d_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{Paper models}
+Four models somebody else published, taken off their pages and run through this instrument's engine.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/papers/index.html}{Open web guide}
+
+Use this to begin from a named published construction and see which of its statements the laboratory can actually reproduce. The reference table separates boundary and zero-mode information from potential calculations. The Maru--Nago experiment is an additional supported SU(6) potential study with its own guide.
+\subsection*{First steps}
+\begin{enumerate}
+\item Use the Maru--Nago shortcut for Type 2/3 SU(6), the magnified minimum and Fourier convergence; its button transfers the supported bulk potential to the builder.
+\item Pick one of the four; Kubo--Lim--Yamashita carries a dial, the number of triplet fermions.
+\item Read the table: what the paper prints, then what this returns, then the verdict.
+\item Press Load into the SU(N) builder and walk the spectrum, the ledger and the simulator on their model.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Model selector}. Chooses one of the four archived model comparisons. Read the source and supported comparison scope immediately after selection.
+
+\textbf{Triplet-fermion count, where available}. Changes the matter input in the Kubo--Lim--Yamashita example. Compare two counts while retaining the same boundary conditions.
+
+\textbf{Load into the SU(N) builder}. Transfers the supported boundary and bulk input for further inspection. Open 4D spectrum after loading and compare the supported zero-mode statement.
+
+\textbf{Maru--Nago shortcut}. Opens the separate Type 2 / Type 3 experiment. Read its convergence study before transferring its bulk potential.
+
+\subsection*{Reading the results}
+\textbf{Printed statement / computed result / verdict}. Compares a specific source claim with the laboratory result and retains the source's equation or table reference.
+
+\textbf{Explanation rows}. Describe normalization, implementation scope or disagreements that a short status label cannot explain.
+
+\textbf{Transferred model}. Contains only the supported input; additional interactions of the original construction may remain outside the builder.
+
+Three of the four are supersymmetric and this engine's potential is not, so their rows are boundary-condition and zero-mode statements only. An amber row disagrees with one printed equation, not with a paper, and names which of that paper's own equations agrees with which.
+\subsection*{Worked example: Reproduce one statement from a paper}
+\begin{enumerate}
+\item Select a published model and read its scope note.
+\item Choose a boundary or zero-mode row with an explicit source reference.
+\item Load the model into the builder and inspect the corresponding spectrum.
+\item Read any discrepancy at the level of the named statement.
+\end{enumerate}
+You can trace one comparison from source to input to output without treating it as a reproduction of every part of the paper.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item Three archived models are supersymmetric while the builder potential is not; their stated comparisons are limited to supported boundary and zero-mode information.
+\item A disagreement with one printed equation is not a blanket judgement about an entire paper.
+\item Transferred bulk data do not automatically include brane interactions, supersymmetric cancellations or flavour completion.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{A comparison is amber or limited in scope.} Read the explanatory row and the cited equation before changing a normalization to make numbers agree.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/papers.mjs}{Published-model sources and comparison records}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/papers_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{4D spectrum}
+What the model on the builder CONTAINS: the four-dimensional fields and their Kaluza--Klein towers.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/spectrum5d/index.html}{Open web guide}
+
+Use this to identify the four-dimensional fields supplied by the builder model and how their higher Kaluza--Klein levels are organized. The tables distinguish a family description useful for the potential from the exact tower accounting needed at exceptional low levels.
+\subsection*{First steps}
+\begin{enumerate}
+\item Edit the model in SU(N) builder --- this section shares it.
+\item Choose at the vacuum or type a phase.
+\item Read the massless content, then the families, then the exact tower and its landscape.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Shared builder model}. Determines the boundary blocks and bulk representations whose spectrum is displayed. Use the named SU(6) example, then inspect the same blocks in the builder.
+
+\textbf{At the vacuum / phase probe}. Chooses whether to evaluate the spectrum at the located vacuum or at a manually selected phase. Compare a symmetric point with the available broken vacuum.
+
+\textbf{Spectrum landscape}. A rotatable view of the calculated levels; the tables retain the detailed multiplicities and labels. Read the lowest levels in the exact table before relying on the picture.
+
+\subsection*{Reading the results}
+\textbf{Massless content and chirality}. The surviving four-dimensional components under the selected boundary and phase conditions.
+
+\textbf{Tower families}. A compact organization of spectral contributions useful for reconstructing the potential.
+
+\textbf{Exact low-level tower}. Resolves low-level details that the potential-family multiset alone does not describe correctly for every representation at a broken vacuum.
+
+The families are the potential's multiset and are right for it; at a broken vacuum they are wrong at the LOWEST level of the adjoint and the symmetric tensor, which is why the exact tower is a second table and not a repetition.
+\subsection*{Worked example: Compare the symmetric point with the vacuum}
+\begin{enumerate}
+\item Load the supplied SU(6) example.
+\item Inspect the massless content at the symmetric point.
+\item Switch to the located vacuum if available.
+\item Compare the lowest exact levels, multiplicities and chirality labels.
+\end{enumerate}
+A phase change can alter which states remain massless. The potential's term multiplicities are not a substitute for the exact lowest-level spectrum.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item The spectrum uses the supported builder model and its boundary conditions.
+\item Additional boundary masses and interactions require the separate completion analysis.
+\item A plotted tower does not establish experimental production or decay rates.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{The family and exact tables appear to disagree at the lowest level.} Read the page's explanation of exceptional lowest modes, especially for adjoint and symmetric-tensor fields at a broken vacuum.
+
+\textbf{At the vacuum is unavailable.} Return to the builder and inspect whether a vacuum was located or left undecided.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/spectrum5d.mjs}{Spectrum implementation and conventions}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/spectrum5d_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{Anomalies}
+What that content owes: every anomaly channel of the unbroken group, in exact rationals.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/anomaly5d/index.html}{Open web guide}
+
+Use this after inspecting the builder spectrum. It sums the supported chiral massless content into the anomaly channels of the displayed unbroken group. Exact rational arithmetic makes a cancellation distinguishable from a small floating-point residual.
+\subsection*{First steps}
+\begin{enumerate}
+\item Edit the model in SU(N) builder.
+\item Read the channels: [SU(n)]\ensuremath{{}^{3}}, U(1)\ensuremath{\times}[SU(n)]\ensuremath{{}^{2}}, U(1)\ensuremath{{}^{3}}, U(1)\ensuremath{\times}[grav]\ensuremath{{}^{2}}.
+\item Read the verdict: no subject, cancels, or owes.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Shared builder content}. Supplies the boundary conditions and matter being checked. Load the supplied SU(6) example and inspect its massless fermions before reading the ledger.
+
+\textbf{Model and spectrum choices}. Determine which supported chiral fields are included in the stated ledger. Change one builder field, then compare the summands as well as the total.
+
+\subsection*{Reading the results}
+\textbf{SU(n)\ensuremath{{}^{3}} and mixed U(1) channels}. Separate non-Abelian, mixed, Abelian and mixed gravitational anomaly combinations under the displayed normalization.
+
+\textbf{Summand table}. Names the chiral fields contributing to each channel; it explains the total.
+
+\textbf{No subject / cancels / owes}. Distinguishes absence of relevant massless fermions, cancellation of the stated ledger, and a nonzero contribution requiring a completion.
+
+A non-zero row is a BILL, not an inconsistency: the brane fermions such a model needs pay into the same channels with the opposite sign. And a model with no massless fermion has nothing to cancel --- that is `no subject`, not `cancels`.
+\subsection*{Worked example: Read a cancellation claim from its ingredients}
+\begin{enumerate}
+\item Load the supplied example.
+\item Check the list of massless chiral fermions.
+\item Read every nonzero channel and its contributors.
+\item Open Brane matter to inspect a possible completion.
+\end{enumerate}
+A zero obtained from an empty fermion list is identified separately from cancellation between nonzero contributions.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item The ledger concerns the stated included spectrum and channels. It does not automatically settle all consistency conditions of a higher-dimensional completion.
+\item A nonzero bulk contribution may be cancelled by suitable boundary matter; this page alone does not provide that completion.
+\item Anomaly cancellation is not an experimental acceptance test.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{The total is zero but the verdict says no subject.} Inspect the fermion list. There may be no relevant massless chiral fields to test.
+
+\textbf{A nonzero channel remains.} Record its normalization and contributors before adding boundary matter; cancellation must be checked with matching conventions.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/anomaly5d.mjs}{Exact anomaly-ledger implementation}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/anomaly5d_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{Brane matter}
+Who pays that bill, and what it costs: matter on the two fixed points, held at once to the anomaly ledger and to Part I's boundary-mass gate.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/brane/index.html}{Open web guide}
+
+Use this to add explicit matter at the two orbifold endpoints and inspect two consequences: changes to the anomaly ledger and possible boundary masses for unwanted zero modes. The local groups at the two endpoints can differ, so a representation that is available at one boundary need not be available at the other.
+\subsection*{First steps}
+\begin{enumerate}
+\item Edit the model in SU(N) builder --- or press the example to load Kawamura's SU(5).
+\item Read the two branes first: they are different groups whenever the orbifold breaks anything.
+\item Add fields with the + buttons, or pick a massless mode and let the partners panel say which representations contain its conjugate.
+\item Press solve to get the local charges that cancel the linear channels.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Builder model / Kawamura SU(5) example}. Sets the bulk model and its local boundary groups. Load the named example and read both boundary-group headings.
+
+\textbf{Boundary fields and copy counts}. Add representations of the selected endpoint's local group. Use the partner suggestions for one massless mode before adding fields arbitrarily.
+
+\textbf{Boundary charges and linear-channel solver}. Choose charges or solve the stated linear anomaly conditions. The remaining channels still need inspection. Compare the suggested charge with the charge required for a boundary mass.
+
+\textbf{Clear / reset charges / return to builder model}. Restore a defined starting point for a controlled comparison. Save the current choices before resetting.
+
+\subsection*{Reading the results}
+\textbf{Anomaly ledger before and after}. Shows what the added fields contribute in the same channel conventions.
+
+\textbf{Possible partners}. Lists supported local representations that contain a conjugate partner for the selected mode.
+
+\textbf{Surviving massless content}. The rank-based result assumes generic allowed couplings; the displayed surviving count is a lower bound under that assumption.
+
+Two verdicts, kept apart on purpose: the bill before and after, and the massless count before and after. The same field can pay one and not the other, because the charge that cancels an anomaly is not in general the charge a mass term needs. The surviving count is a lower bound --- the rank test assumes generic couplings.
+\subsection*{Worked example: Check the cost of removing a zero mode}
+\begin{enumerate}
+\item Load Kawamura's SU(5) example.
+\item Choose an unwanted massless mode and inspect its possible partners.
+\item Add a suggested local representation.
+\item Compare both the anomaly ledger and the boundary-mass condition, including its charge.
+\end{enumerate}
+A field that helps one requirement can leave another unresolved. Read the two outcomes independently.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item Solving the linear anomaly channels does not by itself solve every cubic condition.
+\item Generic-coupling rank information does not specify actual numerical masses or a complete Yukawa sector.
+\item Only the supported local representations and boundary-mass conditions are examined.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{The anomaly-solving charge does not permit the desired mass term.} Keep both conditions explicit and try another supported completion; do not treat the two charge requirements as interchangeable.
+
+\textbf{A representation introduces additional fields.} Read its full local decomposition, then include those fields in the updated ledger and surviving-content count.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-i/index.html}{Part I: boundary masses and representation constraints}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/brane_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{Scan}
+Search a bounded set of supported 5D SU(N) boundary conditions and bulk contents through selected group, Higgs, chirality, anomaly and vacuum filters.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/sweep5d/index.html}{Open web guide}
+
+Use this when a single-model investigation suggests a precise search question. The filters run from cheaper structural checks to more expensive vacuum calculations. Starting with a small range makes it easier to understand which requirement removes candidates before increasing the search size.
+\subsection*{First steps}
+\begin{enumerate}
+\item Choose N and a small maximum content size for your first run.
+\item Select the required filters, including what you mean by a Higgs doublet.
+\item Run the sweep and read the stage-by-stage funnel.
+\item Load a surviving hit into the builder and inspect its detailed spectrum, ledger and vacuum status.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{N and maximum content size}. Define the finite model space to be enumerated. Use a small case to understand the funnel before increasing the range.
+
+\textbf{Group, chirality and anomaly filters}. Specify which supported conditions a candidate must pass. Change one filter at a time so you can identify its effect on the count.
+
+\textbf{Higgs requirement}. Distinguishes no requirement, any supported doublet and a colour-singlet doublet. Read the colour condition explicitly before interpreting a Higgs-candidate count.
+
+\textbf{Run and load hit}. Perform the bounded search and transfer one result into the builder. Inspect a hit individually after the sweep.
+
+\subsection*{Reading the results}
+\textbf{Filter funnel}. Reports how many candidates were considered and survived each requested stage.
+
+\textbf{Boundary conditions and theory classes}. Separates multiple descriptions of an equivalent model from distinct classes under the implemented equivalence.
+
+\textbf{Rejected and undecided cases}. A failed condition and a vacuum question left unresolved are different outcomes.
+
+The headline distinguishes boundary descriptions from equivalence classes. A hit passes the filters that were actually requested, within the searched range. Undecided vacuum calculations remain separate from rejected models.
+\subsection*{Worked example: Find which requirement reduces a search}
+\begin{enumerate}
+\item Run a small sweep with a minimal set of filters.
+\item Record the tested range and stage counts.
+\item Add a colour-singlet Higgs requirement or another supported filter.
+\item Compare the funnel and load one surviving hit.
+\end{enumerate}
+You can state which requirement was imposed and how many inputs it removed. The result remains bounded by the selected search space.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item A finite search cannot establish absence outside its rank and content limits.
+\item Equivalent boundary conditions must not be counted as unrelated theories.
+\item Passing the available filters does not supply every interaction or experimental comparison of a complete model.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{No hits survive.} Read the first stage that removes all candidates and the exact searched range before claiming nonexistence.
+
+\textbf{The vacuum stage reports undecided cases.} Keep them in the unresolved category and investigate selected cases individually.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/sweep5d.mjs}{Search-space and filter implementation}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/sweep5d_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{One model, every verdict}
+Compare supported model diagnostics across gauge-equivalent boundary descriptions and identify which results remain unchanged in that comparison.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/dossier/index.html}{Open web guide}
+
+Use this to avoid mistaking a convenient description of a model for an observable property of the theory. A group or spectrum read at a fixed symmetric point can move under an equivalent boundary description. The dossier recomputes its diagnostics to show which quantities survive that change and which questions cannot be answered by the available calculation.
+\subsection*{First steps}
+\begin{enumerate}
+\item Start from the model in SU(N) builder.
+\item Select another member of its displayed equivalence class.
+\item Read the theory, frame and declined tags with their explanations.
+\item Run the separate separation test to ask whether an invariant diagnostic distinguishes different classes.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Shared builder model}. Defines the equivalence class and diagnostics being examined. Begin with a model having more than one displayed class member.
+
+\textbf{Class-member selection}. Changes the boundary description within the displayed equivalence class. Compare the same row before and after changing member.
+
+\textbf{Separation test}. Asks whether the measured invariant distinguishes the different tested classes. Run it after understanding why a row is invariant within one class.
+
+\subsection*{Reading the results}
+\textbf{Theory / frame / declined tags}. Summarize invariance, dependence on the chosen description, or a reason the calculation cannot supply a verdict.
+
+\textbf{Symmetric-point and vacuum diagnostics}. Show why the point at which a property is evaluated matters to its interpretation.
+
+\textbf{Separation results}. An invariant may be shared by several different classes and therefore fail to identify a theory uniquely.
+
+Invariance across the tested equivalent descriptions and ability to distinguish different theories are separate properties. The tags report the performed comparison; they should not be extended into an untested classification theorem.
+\subsection*{Worked example: Test a tempting model label}
+\begin{enumerate}
+\item Choose a model with several equivalent boundary descriptions.
+\item Record its apparent group and one vacuum diagnostic.
+\item Select another class member and compare the same rows.
+\item Read the separation test before using an invariant as a unique model identifier.
+\end{enumerate}
+A quantity can be invariant without uniquely identifying the theory, and a useful coordinate label can still depend on the chosen frame.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item The conclusions cover the displayed diagnostics and equivalence comparison.
+\item A numerical comparison is not automatically a proof over every possible model.
+\item A declined row should retain its stated reason; it is not a zero or a successful test.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{A label changes even though the selected descriptions are equivalent.} Check whether the row is evaluated at a fixed symmetric point and tagged as frame-dependent.
+
+\textbf{An invariant fails to separate two classes.} Use another diagnostic; invariance alone does not imply completeness as a classifier.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/dossier.mjs}{Dossier diagnostics and comparison scope}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/dossier_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{Simulator}
+Choose among three distinct calculation modes: the 5D builder model, a top-KK Higgs-production reference, or the 4D neutrino-ring research model.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/predict/index.html}{Open web guide}
+
+Use this page as the entry point for calculated masses and experimental comparisons. First identify the model you want to study. The builder mode follows the shared SU(N) input; the Higgs-production mode isolates a top-KK contribution; the neutrino mode studies a separate four-dimensional construction. Thermal and flavour experiments have their own inputs even when they appear on the same page.
+\subsection*{First steps}
+\begin{enumerate}
+\item Choose Model to calculate and read the mode's own guide.
+\item Start from a named reference or the restored default before changing one input.
+\item Read the result summary, units and assumptions together.
+\item Use the visible experiment guides for thermal, flavour and decay questions, then save the inputs and results.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Model to calculate}. Selects the model supplying the main results, summary, permalink and exports. Read the model name above the results after every change.
+
+\textbf{Mode-specific parameters}. Only the controls relevant to the selected model are shown. Open the mode guide rather than transferring another mode's phase or scale convention.
+
+\textbf{Experiment shortcuts}. Jump to the additional cards available in that mode. In the builder mode inspect thermal questions; in the neutrino mode inspect flavour and fixed-light-input questions.
+
+\textbf{Save, compare and permalink controls}. Record the current input and its explicitly scoped result. Save a reference before modifying one assumption.
+
+\subsection*{Reading the results}
+\textbf{Main result and live summary}. Describe the selected model, inputs and supported conclusion.
+
+\textbf{Reference comparison}. Names the measurement or calculation being compared and the assumptions needed to use it.
+
+\textbf{Experiments and diagnostics}. Answer additional questions with separately labelled inputs, provenance and limitations.
+
+These modes answer different model questions and keep separate input records. The laboratory computes model responses and compares named references; it does not generate collider events. A missing matching external calculation remains pending rather than being borrowed from another input point.
+\subsection*{Worked example: Choose the right starting point}
+\begin{enumerate}
+\item Choose the 5D builder mode to inspect a model already entered in SU(N) builder.
+\item Choose Higgs production for the isolated top-KK rate question.
+\item Choose Neutrino ring for neutral-fermion masses, mixing and decay questions.
+\item Follow the matching guide and begin with its reference example.
+\end{enumerate}
+The selected mode explains where each number comes from. Results from the three models are not silently combined.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item No mode constitutes a complete GHU fit to all available measurements.
+\item The thermal SU(3) benchmark is separate from the current SU(N) builder model and from the SU(7) mass certificates.
+\item Inputs supplied to calibrate or reconstruct a model are not subsequently predictions of those same observables.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{An expected experiment is missing.} Check the selected mode: thermal cards belong to the builder view, while flavour and fixed-light-input cards belong to the neutrino view.
+
+\textbf{A saved external result disappears after an input change.} Check its parameter match. A new input point requires a matching calculation or import.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/docs/research-extensions.md}{Research experiments and reproduction notes}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/predict_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{Boundary conditions}
+Group supported orbifold boundary conditions into equivalence classes and compare their apparent symmetries under the stated ordinary-boundary relation.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/bcclass/index.html}{Open web guide}
+
+Use this to see why listing boundary conditions can overcount theories. The tool walks explicit classes so you can inspect both their size and the different descriptions they contain. It also shows why a group name read at a symmetric point need not identify the whole equivalence class.
+\subsection*{First steps}
+\begin{enumerate}
+\item Select an available orbifold and the gauge-group parameter N.
+\item Choose a boundary condition and inspect the other members of its class.
+\item Compare the apparent groups within that class.
+\item Read the conditions on any vacuum-energy comparison before interpreting it.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Orbifold selector}. Chooses the available geometry and its supported boundary-condition relation. Compare S\ensuremath{{}^{1}}/Z\ensuremath{{}_{2}} with T\ensuremath{{}^{2}}/Z\ensuremath{{}_{3}} and read the changed count rule.
+
+\textbf{N and boundary multiplicities}. Set the finite condition being classified within the selected family. Start at a small N and inspect a class with several members.
+
+\textbf{Class-member and energy views}. Select equivalent descriptions and inspect the explicitly permitted energy comparisons. Read What cannot be compared before using an energy ranking.
+
+\subsection*{Reading the results}
+\textbf{Equivalence class and size}. The boundary descriptions connected by the implemented relation.
+
+\textbf{Class totals}. Counts for the chosen group parameter and orbifold, with the relevant published attribution.
+
+\textbf{Apparent group and energy information}. Properties of the selected description and calculation; their interpretation requires the displayed comparison conditions.
+
+The class count is about the specified equivalence relation and orbifold. A boundary description's apparent unbroken group can change within one class. The S\ensuremath{{}^{1}}/Z\ensuremath{{}_{2}} count must not be transferred to another orbifold.
+\subsection*{Worked example: Compare two descriptions of one class}
+\begin{enumerate}
+\item Choose S\ensuremath{{}^{1}}/Z\ensuremath{{}_{2}} at a small N.
+\item Select a class containing more than one condition.
+\item Compare the apparent group of two members.
+\item Open One model, every verdict to investigate which calculated quantities remain invariant.
+\end{enumerate}
+Different displayed group labels can occur within the same supported equivalence class.
+\subsection*{Formulas and conventions}
+\begin{quote}Number of classes = (N + 1)\ensuremath{{}^{2}}\end{quote}
+The Haba--Hosotani--Kawamura count for the stated ordinary SU(N) conditions on S\ensuremath{{}^{1}}/Z\ensuremath{{}_{2}}. Other geometries or equivalence hypotheses require their own result.
+
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item Conjugate, antilinear boundary conditions belong to the separate Conjugate boundary conditions tool.
+\item Classifying boundaries does not complete the model's matter content or phenomenology.
+\item Energy comparisons are meaningful only under the conditions stated by that panel.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{The apparent group changes within a class.} Read it as a property of the selected boundary description and symmetric point, then inspect the invariant diagnostics separately.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/docs/index.html}{Boundary-condition conventions and literature}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/bcclass_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{Classify an orbifold}
+Derive supported orbifold classification data from an integer rotation matrix, then compare the SU, SO and Sp cases under the stated hypotheses.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/orbifold/index.html}{Open web guide}
+
+Use this to investigate which building blocks and local labels are available for a supported orbifold rotation. The 'alphabet' is the list of representation building blocks; a 'fibre' collects conditions sharing the selected local data. The plan and relief offer two views of the same computed field.
+\subsection*{First steps}
+\begin{enumerate}
+\item Start with a supplied rotation before entering your own integer matrix.
+\item Check that the matrix passes the finite-order and cyclotomic tests.
+\item Choose the group family and N, then read the signature, alphabet and count information.
+\item Inspect a datum-lattice cell and its fibre before comparing the plan and relief views.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Rotation preset or integer matrix}. Defines the torus rotation. Custom matrices are supported up to the stated rank-eight limit and must satisfy the implemented hypotheses. Classify a supplied example before modifying an entry.
+
+\textbf{SU(N), SO(N), Sp(N) and N}. Choose the gauge-group family and parameter whose classification data are displayed. Keep the rotation fixed while comparing the three real forms.
+
+\textbf{Datum axes, cell and boundary input}. Select local multiplicity data and inspect the corresponding conditions. Compare a cell's class information with the number of conditions in its fibre.
+
+\subsection*{Reading the results}
+\textbf{Cone signature and alphabet}. The rotation's local singularity orders and the supported building blocks with their weights.
+
+\textbf{Class count, degree and generating information}. Describe the computed classification problem and its stated growth properties.
+
+\textbf{Plan, relief and selected fibre}. Visualize the same datum field and expose the detailed contents of a selected cell.
+
+A refused matrix lies outside the implemented theorem's hypotheses; refusal is not a class count of zero. The rotation-matrix dimension and the gauge-group parameter N are different inputs.
+\subsection*{Worked example: Change the group while retaining the geometry}
+\begin{enumerate}
+\item Load a supplied rotation and classify it.
+\item Read the signature and alphabet.
+\item Compare SU, SO and Sp at the selected N.
+\item Inspect the reality-type information to understand why the alphabets differ.
+\end{enumerate}
+The geometry stays fixed while the representation constraints of the group family change.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item Infinite-order matrices and matrices outside the stated cyclotomic hypothesis are refused.
+\item A supported classification result does not calculate a phenomenological vacuum or experimental spectrum.
+\item Local-data equivalence and the completeness of a proposed move set are separate questions, explored in Name the relations.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{A custom matrix is refused.} Check that it is square with integer entries, then read which finite-order or cyclotomic condition failed.
+
+\textbf{A plotted cell has no conditions.} Inspect the rank and local multiplicity constraints; a selected coordinate need not be realizable.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-ix-a/index.html}{Part IX-A: hypotheses, local data and classification}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/orbifold_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{Name the relations}
+Which equivalence relation on boundary conditions the literature already owns, and whether a proposed move set connects a class.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/relations/index.html}{Open web guide}
+
+Use this to identify the existing mathematics behind a boundary-condition relation and test a proposed rewrite. A valid individual move must preserve the required data. A set of valid moves can still be incomplete if it leaves a class split into disconnected pieces.
+\subsection*{First steps}
+\begin{enumerate}
+\item Pick an orbifold and a move.
+\item Read the attribution: whose relation this is and where.
+\item Run the walk to see whether the moves actually connect the class.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Orbifold, group and N}. Choose the configuration whose relations are being inspected. Start with a supplied small case.
+
+\textbf{Proposed relation and Judge it}. Checks the entered move against the stated preserved data. Read exactly which condition is tested before interpreting a successful verdict.
+
+\textbf{Walk a class}. Explores reachability under the selected moves in the tested finite case. Compare the number reached with the size of the class.
+
+\subsection*{Reading the results}
+\textbf{Attribution}. Names the existing configuration, relation or result and its source. A known mathematical identification should retain that credit.
+
+\textbf{Move validity}. Reports whether the specified rewrite preserves the tested data.
+
+\textbf{Connectivity and structural diagnostics}. Separate finite-class reachability from broader claims about generating relations or complete intersections.
+
+The local/global distinction is the one that gets misquoted, and the page carries it explicitly.
+\subsection*{Worked example: Distinguish a valid move from a complete move set}
+\begin{enumerate}
+\item Choose a supplied small configuration.
+\item Inspect a proposed relation and its preserved data.
+\item Run the class walk with the selected moves.
+\item Compare the reached component with the full class size and read the attribution.
+\end{enumerate}
+A move can be legitimate while its move set fails to reach the entire tested class.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item A finite connectivity experiment does not prove completeness at every rank.
+\item Local and global equivalence statements must retain their different hypotheses.
+\item A relation already identified in the literature should not be presented as a new discovery of the laboratory.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{A move is rejected.} Read which datum it changes; increasing the walk budget cannot repair a move that violates the required invariant.
+
+\textbf{A valid move set reaches only part of a class.} Keep the incompleteness result for that case and inspect which additional relations are needed.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-ix-b/index.html}{Part IX-B: attribution and local/global relations}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/relations_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{Conjugate boundary conditions}
+Compare conjugate boundary conditions on S\ensuremath{{}^{1}}/Z\ensuremath{{}_{2}} under two explicit hypotheses about the allowed transformations at the endpoints.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/cbclass/index.html}{Open web guide}
+
+Use this to understand why conjugate boundary conditions require a different classification from ordinary linear twists. They transform by congruence, and the allowed relation between endpoint transformations changes which information can be removed.
+\subsection*{First steps}
+\begin{enumerate}
+\item Choose N and a symmetric or antisymmetric twist at each endpoint.
+\item For odd N, read why the antisymmetric choice is unavailable.
+\item Compare the independent-endpoint and linked-transformation conclusions side by side.
+\item Read the Wilson-line and unbroken-group diagnostics with the hypothesis attached.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{N}. The gauge-group parameter; its parity affects which twist types exist. Compare a small even N with a small odd N.
+
+\textbf{Twist at y = 0 and y = \ensuremath{\pi}R}. Choose a symmetric or, when allowed, antisymmetric conjugate twist at each endpoint. Inspect all allowed combinations at even N.
+
+\textbf{Hypothesis comparison and Wilson-line card}. Show the consequences of independent versus linked endpoint transformations and the additional dimension-count diagnostic. Read the hypothesis before quoting a class count.
+
+\subsection*{Reading the results}
+\textbf{Counts under explicit hypotheses}. A discrete classification under one assumption and retained continuous data under the other are different answers to different problems.
+
+\textbf{Wilson-line diagnostic}. Examines the stated degrees of freedom; it does not silently transfer the ordinary-boundary conclusion.
+
+\textbf{Unbroken-group information}. Must be interpreted with the selected twist and transformation hypothesis, not from a short label alone.
+
+Independent endpoint transformations give four classes at even N and one at odd N in the displayed classification. Linked transformations retain continuous information. The laboratory keeps these hypotheses explicit instead of treating one as an unconditional physical answer.
+\subsection*{Worked example: See why the hypothesis must accompany the count}
+\begin{enumerate}
+\item Choose an even N and inspect the allowed endpoint types.
+\item Read both hypothesis columns.
+\item Switch to an odd N and observe the unavailable antisymmetric choice.
+\item Save a result with the hypothesis retained in its description.
+\end{enumerate}
+You can state precisely which classification problem produced a number.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item The calculation does not choose the correct transformation hypothesis for every physical construction.
+\item Ordinary-boundary class counts do not automatically extend to antilinear twists.
+\item The displayed structural diagnostic is not a full vacuum or phenomenological analysis.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{The antisymmetric option is refused at odd N.} This is the stated existence condition, not a missing interface feature.
+
+\textbf{Two columns give different kinds of answers.} Compare the permitted endpoint transformations; the columns intentionally describe different equivalence hypotheses.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/cbclass.mjs}{Conjugate-condition implementation and source discussion}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/cbclass_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{Brane kinetic terms}
+What happens to the tower when brane-localised kinetic terms make the masses stop being n/R.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/blkt/index.html}{Open web guide}
+
+Use this to see how kinetic terms localized at a boundary change a Kaluza--Klein mass equation and its roots. The zero-boundary-coefficient limit provides a useful check against a simpler tower. The warped SU(6) running card is a separate experiment and has its own inputs and guide.
+\subsection*{First steps}
+\begin{enumerate}
+\item Use the Warped SU(6) shortcut to compare C1/C2 differential running, required UV brane terms and the separate localization probe.
+\item Set the brane coefficient.
+\item Read the roots of the transcendental mass equation.
+\item Take the coefficient to zero and watch the ordinary twisted tower come back.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Brane coefficient c}. Controls the boundary kinetic contribution in the displayed mass equation. Compare a nonzero value with c = 0.
+
+\textbf{\ensuremath{\alpha}\ensuremath{{}_{1}} and \ensuremath{\alpha}\ensuremath{{}_{2}}}. The displayed phase parameters of this spectral example; retain its normalization when comparing another model. Vary one phase while holding c fixed.
+
+\textbf{m and q}. The additional mass/charge parameters defined by the equation on the page. Read their role in the equation before changing both together.
+
+\textbf{Demonstration / Warped SU(6) shortcut}. Run the guided spectral example or open the separate differential-running experiment. Use the demonstration first to connect the equation with its root plot.
+
+\subsection*{Reading the results}
+\textbf{Mass-equation roots}. The allowed levels of the stated boundary problem; they need not be integer-spaced.
+
+\textbf{Tower view}. Displays the same roots as a spectrum rather than as intersections of the mass equation.
+
+\textbf{Zero-coefficient comparison}. Checks the solver against the ordinary twisted-tower limit under the same parameters.
+
+The special functions are checked against mpmath at forty digits, and the c \ensuremath{\rightarrow} 0 limit is computed in closed form by code that shares nothing with the solver. That limit found three real defects.
+\subsection*{Worked example: Recover a known limit}
+\begin{enumerate}
+\item Run the supplied demonstration.
+\item Record a few roots at nonzero c.
+\item Bring c to zero while keeping the phases fixed.
+\item Compare the resulting tower with the displayed closed-form limit.
+\end{enumerate}
+The numerical spectrum connects continuously to the stated reference limit where that limit applies.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item This is the supported spectral boundary problem, not a complete scan of all boundary operators.
+\item A solver check does not establish every physical consistency property of an arbitrary kinetic-term choice.
+\item The warped SU(6) running experiment is not a result computed from these spectral controls.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{The tower is no longer equally spaced.} Read the modified mass equation; the boundary kinetic term changes the root condition.
+
+\textbf{Two cases have different limits.} Compare phases, m, q and normalization as well as the coefficient c.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/kernel/blkt.mjs}{Boundary kinetic terms: equations and checks}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/blkt_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{Gravity--gauge · 3D}
+Which physical information a complete tower of masses leaves undetermined in a controlled gravity-gauge example.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/gravitygauge/index.html}{Open web guide}
+
+Use this controlled example to distinguish knowing an entire sequence of masses from knowing how a source couples to those states. The paired mass towers can stay fixed while source residues and the Wilson kinetic scale change. The second, unprotected gauge tower provides a comparison with different boundary conditions.
+\subsection*{First steps}
+\begin{enumerate}
+\item Start with p=1.1 and press eta=-0.9, eta=0, then eta=4. The paired masses stay equal while the Wilson scale and the response change.
+\item Drag either 3D plot to turn it. On the response surface, switch drag to select point to change eta and the source position together. Shift-drag always turns; the wheel changes relief; arrow keys turn a focused plot.
+\item Read the table below the plots. Choose gauge kinetic Z as the height to inspect the action. Use the header card or LaTeX buttons to export this exact input, or link to restore it.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Geometry p}. Selects the displayed background; p = 1.1 is the scalar-supported example and p = 1 the AdS reference. Begin at p = 1.1.
+
+\textbf{\ensuremath{\eta} and log\ensuremath{{}_{10}}(1 + \ensuremath{\eta})}. Two ways to select the positive gauge-kinetic family parameter in its supported range. Compare the \ensuremath{\eta} = \ensuremath{-}0.9, 0 and 4 presets.
+
+\textbf{Source t}. A position along the extra dimension, not a location in a laboratory detector. Move the source while comparing spectral weight with mass.
+
+\textbf{Height, drag mode and 3D controls}. Choose spectral-weight ratio or Z(t); drag to rotate or select a point. Shift-drag rotates, the wheel changes relief, and focused plots accept arrow keys. Select a point on the response surface, then read its exact table values.
+
+\subsection*{Reading the results}
+\textbf{Paired tensor NN and vector DD masses}. The protected comparison governed by the shared canonical operator and stated boundary conditions.
+
+\textbf{Vector NN control}. Uses different boundary conditions and need not keep the same masses.
+
+\textbf{Response and Wilson kinetic scale}. Additional information that is not fixed by the paired masses alone; the Wilson kinetic scale is not a Higgs mass.
+
+The positive paired tensor NN and vector DD masses are protected by their common canonical operator. The gauge NN control has different boundaries and moves. The source position is in the extra dimension, not a laboratory location; the Wilson kinetic scale is not a Higgs mass. For p=1.1 a canonical bulk scalar realizes the family, with stability and cutoff still open.
+\subsection*{Worked example: Hold the paired masses while changing the response}
+\begin{enumerate}
+\item Set p = 1.1.
+\item Compare \ensuremath{\eta} = \ensuremath{-}0.9, 0 and 4 at a fixed source position.
+\item Read the paired masses and the response table at each setting.
+\item Move the source and save a card or permalink for the selected point.
+\end{enumerate}
+The protected paired towers remain equal within the implemented construction while other response information changes.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item The boundary-condition pairing is essential; it does not protect every tower.
+\item The construction does not calculate a Higgs mass, radion stability or collider rate.
+\item Stability and cutoff questions remain open for the displayed family.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{Dragging changes the view instead of the selected parameter.} Switch drag mode to select point; use Shift-drag when you want to rotate.
+
+\textbf{The gauge control masses move while the paired masses do not.} Check the boundary labels. The NN control is deliberately outside the protected NN/DD pairing.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/gravitygauge.mjs}{Gravity--gauge construction, equations and open questions}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/gravitygauge_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{The literature}
+The reading list behind the series: what each paper publishes, and which ones a person has actually read.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/litcensus/index.html}{Open web guide}
+
+Use this as a map of the laboratory's reading record. Automated text signals help locate possible subjects, while curated entries name the page or equation behind an interpreted claim. The distinction matters when deciding whether a paper actually reports the quantities needed for a comparison.
+\subsection*{First steps}
+\begin{enumerate}
+\item Search or filter.
+\item Read the measured row: what the file contains and which signals fired.
+\item The curated rows name the page or equation a claim comes from.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Search and available filters}. Restrict the displayed reading records by the supported signals or curation categories. Compare all read records with those carrying the complete comparison triple.
+
+\textbf{Complete triple / no published minimum}. Selects records according to the stated information available for the comparison. Open a row and read its source location instead of relying on a filter label alone.
+
+\textbf{Shortlisted, not yet opened}. Separates a possible reading candidate from a source already examined by a person. Keep an unopened record out of a claimed literature conclusion.
+
+\subsection*{Reading the results}
+\textbf{Corpus and signal counts}. Describe this recorded reading collection and its text matching; they are not a census of the entire field.
+
+\textbf{Read and asserted entries}. Record curated interpretations with their source locations.
+
+\textbf{Missing comparison information}. Identifies what the record does not supply, such as a reported minimum, rather than inventing a value.
+
+A signal is a keyword, and a keyword sweep misses whatever is phrased differently. Nothing is asserted from a signal alone, and the corpus is our reading list rather than the field.
+\subsection*{Worked example: Turn a search hit into a checkable source}
+\begin{enumerate}
+\item Choose a signal or available filter.
+\item Open a curated record and locate its cited page or equation.
+\item Read which comparison quantities are actually supplied.
+\item Keep keyword-only or unopened entries separate in your notes.
+\end{enumerate}
+A search signal becomes evidence only after its relevant content and interpretation are checked.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item A keyword search misses different terminology and can match irrelevant passages.
+\item The collection is the laboratory's reading list, not a complete systematic review of every GHU paper.
+\item Absence from this list does not establish novelty or priority.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{A signal fires but the desired result is absent.} Read the source context; the word may be used for another quantity or in a reference list.
+
+\textbf{A relevant paper does not appear.} Treat the catalogue as incomplete and check the paper directly before updating the reading record.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/data/census.json}{Recorded literature data}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/census_lit_section.js}{Implementation and source attribution}
+\end{itemize}
+\section{Simulator: 5D builder predictions}
+Convert the supported SU(N) builder vacuum into dimensionful masses and compare specified model quantities with named reference measurements.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/simulator-builder/index.html}{Open web guide}
+
+Use this after the builder's potential and spectrum have been understood. It translates the dimensionless model into quantities that can be compared with measurements, while retaining the assumptions behind each comparison. The result is a theoretical calculation, not simulated collider data.
+\subsection*{First steps}
+\begin{enumerate}
+\item Load or construct the model in SU(N) builder.
+\item Select the builder mode in Simulator and choose the located minimum or a manual phase probe.
+\item Read the coupling choice and the W-mass anchor before interpreting GeV values.
+\item Inspect the prediction table, fermion masses and tower plots together.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{At the minimum / probe}. Chooses the located vacuum or an explicitly selected phase. Compare the two labels before attributing a mass to the vacuum.
+
+\textbf{g\ensuremath{{}_{4}} and the g\ensuremath{{}_{2}}(1/R) option}. Choose the coupling convention used in the Higgs-curvature conversion. Move g\ensuremath{{}_{4}} while retaining the same phase and observe which outputs change.
+
+\textbf{3D tower view}. Displays calculated masses alongside reference lines and the explicitly conditional colour-sector bound. Rotate the landscape and confirm values in the table.
+
+\subsection*{Reading the results}
+\textbf{Compactification and Higgs scales}. Use the model's own phase normalization and measured-W calibration.
+
+\textbf{Weak-angle and fermion comparisons}. Compare the supported embedding and Wilson-line mass structure with the named reference quantities.
+
+\textbf{KK mass axis}. Shows predicted states and the stated reference reach; the coloron comparison assumes the relevant colour sector lives in the bulk.
+
+The measured W mass supplies the scale calibration. In this mode, changing g\ensuremath{{}_{4}} at a fixed builder vacuum changes the displayed Higgs mass, while the anchored KK masses do not follow that slider. A manually selected probe is not a dynamically selected vacuum.
+\subsection*{Worked example: See what fixes the mass scale}
+\begin{enumerate}
+\item Load a builder reference with an available broken vacuum.
+\item Record the Higgs mass and one KK level in Simulator.
+\item Change only g\ensuremath{{}_{4}}.
+\item Compare the changed Higgs result with the W-anchored tower masses.
+\end{enumerate}
+The controls affect different parts of the conversion. A stationary tower under this slider is an expected feature of the chosen calibration.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item A symmetric vacuum does not provide the nonzero phase needed for this electroweak scale calibration.
+\item A probe point is not a vacuum certificate.
+\item Colour-sector limits require their stated particle and localization assumptions; the display is not a complete experimental fit.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{The compactification scale is undefined.} Check whether the selected vacuum is symmetric or unresolved before changing the coupling.
+
+\textbf{Changing g\ensuremath{{}_{4}} leaves the tower unchanged.} Read the W-mass calibration and the Higgs-specific role of g\ensuremath{{}_{4}} in this mode.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/predict_section.js}{Builder prediction conventions and source equations}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/predict.mjs}{Implementation and source attribution}
+\end{itemize}
+\section{Simulator: Higgs production from a top KK tower}
+Compare the leading top-KK correction to Higgs production with finite-tower and resummed low-energy-theorem calculations under a stated domain policy.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/simulator-higgsrate/index.html}{Open web guide}
+
+Use this to study one isolated production-rate mechanism without treating it as a complete GHU signal calculation. The finite sum tests how many KK terms are needed, while the resummed comparison asks a different approximation question.
+\subsection*{First steps}
+\begin{enumerate}
+\item Select Higgs production in the Simulator model selector.
+\item Start from the Carson--Okada reference and read its historical rate window.
+\item Vary the KK scale, top mass or numerical cutoff separately.
+\item Compare numerical truncation, the leading/resummed difference and the conditional allowed interval.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{KK scale and top mass}. Set the ratio x = m\_t/M\_KK governing this reference correction. Use the displayed units. Increase the KK scale with the top mass fixed.
+
+\textbf{KK cutoff}. Sets how many terms enter the finite leading tower. Increase it while keeping the physical inputs fixed and read the tail bound.
+
+\textbf{Reference or custom rate window}. Defines the interval against which the rate is compared. Read both window edges; do not interpret a custom window as a new experimental likelihood.
+
+\subsection*{Reading the results}
+\textbf{Leading and resummed rates}. Two calculations with different approximation scope inside the same top-only reference.
+
+\textbf{Finite-tower tail bound}. Bounds the omitted leading-sum contribution, not missing particles or higher-order physical effects.
+
+\textbf{Conditional scale interval}. Intersects the chosen rate window with the laboratory policy x \ensuremath{\leq} 0.2.
+
+The historical window reproduces a source benchmark; a custom window is a user scenario with no assigned confidence level. The numerical tail and the small-x expansion comparison do not quantify all physical theory uncertainty.
+\subsection*{Worked example: Separate truncation from approximation}
+\begin{enumerate}
+\item Use the historical reference inputs.
+\item Increase the cutoff and inspect the finite-tower tail.
+\item Compare the converged leading rate with the resummed rate.
+\item Change the user window and observe that the conditional interval changes without changing the rate formula.
+\end{enumerate}
+A smaller numerical tail does not remove the difference between physical approximations.
+\subsection*{Formulas and conventions}
+\begin{quote}R\_gg = [1 \ensuremath{-} (\ensuremath{\pi}\ensuremath{{}^{2}}/3)(m\_t/M\_KK)\ensuremath{{}^{2}}]\ensuremath{{}^{2}}\end{quote}
+The leading top-only reference rate from Carson--Okada under the stated spectrum and approximation.
+
+\begin{quote}A\_LET = \ensuremath{\pi}x cot(\ensuremath{\pi}x),  x = m\_t/M\_KK\end{quote}
+The independently resummed determinant low-energy-theorem amplitude. Its square is not a full finite-mass loop calculation.
+
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item The x \ensuremath{\leq} 0.2 policy defines the displayed working domain; it does not promise a uniform physical accuracy.
+\item Branching fractions and additional coloured particles are outside this mode.
+\item The historical scale bound is not presented as a current global exclusion.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{The current rate or verdict is withheld.} Check whether x exceeds the displayed domain policy.
+
+\textbf{The finite sum converges but differs from the resummed result.} Read the distinction between truncation of the leading sum and the small-x expansion within the low-energy theorem.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/1510.03092}{Carson--Okada, arXiv:1510.03092, equations (33), (35), (41) and Table 1}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/docs/diagnostics.md}{Rate, tail and domain definitions}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/higgs_diagnostics.mjs}{Implementation and source attribution}
+\end{itemize}
+\section{Simulator: the 4D neutrino ring}
+Explore light masses, active-current deficit and six heavy pairs in the supported four-dimensional neutrino-ring research model.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/simulator-neutrino/index.html}{Open web guide}
+
+Use this to study how a model can preserve selected light-sector quantities while changing its heavy states and interactions. This is a four-dimensional deconstructed ring at a fixed phase background, with explicitly stated leading-order approximations. It is separate from the five-dimensional builder.
+\subsection*{First steps}
+\begin{enumerate}
+\item Choose Neutrino ring and start from its default point.
+\item Read whether calibration is enabled: it fixes two chosen light-sector targets.
+\item Change one link, portal or Majorana input and inspect masses and active weights together.
+\item Use the dedicated flavour, fixed-light-input and decay guides before interpreting those additional experiments.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Scale f, link t/f and portals q, r}. Set the conserving mass structure. The scale is dimensionful; the link and portal ratios are dimensionless. Change one ratio at fixed f and read the heavy centres.
+
+\textbf{Majorana inputs \ensuremath{\mu}A and \ensuremath{\mu}B}. Small symmetry-breaking mass entries displayed in keV. Vary \ensuremath{\mu}B with calibration enabled and compare light inputs with pair splittings.
+
+\textbf{Calibration}. Solves for entries that reproduce the chosen 0.1 eV light mass and 10\ensuremath{{}^{-4}} deficit in the reference setup. Disable it before treating the Dirac entry and \ensuremath{\mu}A as independently adjustable.
+
+\textbf{CMS flavour and Dirac/Majorana reference}. Selects the published single-HNL hypothesis used for the overlay. Read the pair-summed or per-component mixing convention after switching hypothesis.
+
+\subsection*{Reading the results}
+\textbf{Light mass and active deficit}. A calculated response or a reproduced calibration target, depending on the control setting.
+
+\textbf{Six heavy centres and splittings}. Centres are shown in GeV and splittings in eV. The approximation diagnostics must accompany them.
+
+\textbf{CMS comparison and source record}. Uses named HEPData tables, interpolation brackets and the selected flavour/hypothesis; it does not extrapolate beyond the table.
+
+The calibration targets are supplied inputs, not predictions. Heavy centres, light masses and pair splittings use different displayed units. The CMS overlay is a conditional single-HNL reference comparison, not a full multi-state ring exclusion.
+\subsection*{Worked example: Change a heavy splitting while keeping light targets}
+\begin{enumerate}
+\item Restore the default ring with calibration enabled.
+\item Record the light mass, deficit and first heavy splitting.
+\item Change \ensuremath{\mu}B and read all three quantities again.
+\item Inspect the approximation diagnostics and save the full input record.
+\end{enumerate}
+At the displayed order, this path can change heavy-pair splitting while preserving the chosen light targets. That freedom prevents a unique heavy prediction from those targets alone.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item The phase is held at \ensuremath{\theta} = \ensuremath{\pi}; the complete vacuum and radial-stability problem is not solved here.
+\item One base-ring Yukawa vector has light flavour rank at most one. The separate three-copy card reconstructs supplied flavour inputs.
+\item The small-insertion diagnostic is not a uniform error bound, especially near small inter-pair gaps.
+\item Single-HNL limits and exclusive-flavour assumptions do not automatically apply to six interfering heavy pairs.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{The light mass does not change when a parameter moves.} Check whether calibration is holding it fixed by construction.
+
+\textbf{A CMS ratio is absent at a mass point.} Check the tabulated range and duplicated transition knots. The laboratory deliberately withholds an ambiguous or extrapolated ratio.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/docs/neutrino-ring.md}{Ring action, approximations, units and CMS table provenance}
+\item \href{https://cms-results.web.cern.ch/cms-results/public-results/publications/EXO-22-011/}{CMS EXO-22-011 reference analysis}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/neutrino_ring.mjs}{Implementation and source attribution}
+\end{itemize}
+\section{Neutrino decays, Majoron channels and coherence}
+Calculate the included heavy-neutrino partial widths and conditional lifetime, flight-window and isolated-pair coherence diagnostics.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/neutrino-decays/index.html}{Open web guide}
+
+Use this to see how specified decay assumptions affect lifetime and coherence. The controls make missing channels visible as assumptions rather than silently setting a complete width. Optional leading Majoron contributions have their own calculation and validity conditions.
+\subsection*{First steps}
+\begin{enumerate}
+\item Select a heavy pair in the Neutrino ring mode.
+\item Read which weak channels are open, and choose whether to include the computed Majoron widths.
+\item Set any additional width as an explicit scenario input.
+\item Choose the boost and flight window, then read the probability separately from the all-time coherence ratio.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Heavy-pair selection}. Chooses the mass, active weight and splitting used in the decay scenario. Select a pair from the channel bars or use the supported keyboard controls.
+
+\textbf{Computed Majoron channels and scalar VEV ratios}. Enable the included leading light and heavy-cascade Majoron widths under the stated scalar assumptions. Compare enabled and disabled values without interpreting disabled as physically absent.
+
+\textbf{Additional width}. An input contribution in eV representing an assumed uncomputed width. Increase it and observe how the conditional lifetime changes.
+
+\textbf{\ensuremath{\beta}\ensuremath{\gamma}, Lmin and Lmax}. A fixed boost and straight-line distance window in the displayed units. Move the window while keeping the decay scenario fixed.
+
+\subsection*{Reading the results}
+\textbf{Partial widths and lifetime}. The included width sum gives \ensuremath{\tau} = \ensuremath{\hbar}/\ensuremath{\Gamma} for the chosen scenario. A zero included sum does not prove stability.
+
+\textbf{Flight probability}. The probability to decay in the chosen straight-line window at one fixed boost; it is not an event yield.
+
+\textbf{SS/OS and same-sign fraction}. Distinct ideal-coherence quantities under isolated-pair, equal-width and CP assumptions.
+
+The displayed width belongs to one component of a heavy pair. The complete physical ring width remains unknown. A flight-window probability is not detector acceptance, and the all-time same-sign/opposite-sign ratio is not a selected-event ratio.
+\subsection*{Worked example: See how a missing-channel assumption changes a prediction}
+\begin{enumerate}
+\item Select one pair and record the included width and lifetime.
+\item Enable the computed Majoron contribution where supported.
+\item Add a small explicit extra-width scenario and compare again.
+\item Read the flight probability and the coherence warning separately.
+\end{enumerate}
+Lifetime and coherence depend on the included channels. The controls explore that dependence rather than determining the unknown complete width.
+\subsection*{Formulas and conventions}
+\begin{quote}P = exp[\ensuremath{-}Lmin/(\ensuremath{\beta}\ensuremath{\gamma} c\ensuremath{\tau})] \ensuremath{-} exp[\ensuremath{-}Lmax/(\ensuremath{\beta}\ensuremath{\gamma} c\ensuremath{\tau})]\end{quote}
+The fixed-boost straight-line window probability in this scenario.
+
+\begin{quote}SS/OS = \ensuremath{\Delta}m\ensuremath{{}^{2}} / (2\ensuremath{\Gamma}\ensuremath{{}^{2}} + \ensuremath{\Delta}m\ensuremath{{}^{2}})\end{quote}
+The all-proper-time isolated coherent-pair result under the stated equal-width and CP assumptions.
+
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item Off-shell weak processes, additional scalar/gauge channels and unresolved corrections can change the complete width.
+\item Near-degenerate different pairs can invalidate isolated-pair reasoning.
+\item Detector efficiencies, boost distributions and event selections are not included.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{The lifetime or probability is undefined.} Check whether the included width is zero or the inputs are out of scope; do not label the state stable.
+
+\textbf{A coherence warning appears.} Read the width, insertion and inter-pair-gap diagnostics before using the isolated-pair ratio.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/docs/neutrino-decays.md}{Weak widths, normalization and ideal coherence sources}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/docs/neutrino-majoron.md}{Computed Majoron channels and their scope}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/view/neutrino_decay_panel.js}{Implementation and source attribution}
+\end{itemize}
+\section{Maru--Nago SU(6): families and the Wilson minimum}
+Reproduce the supported Type 2 / Type 3 bulk Wilson potential and compare its minimum with the published table and an independent infinite-sum calculation.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/su6mn/index.html}{Open web guide}
+
+Use this worked literature example to connect matter content, a calculable Wilson potential and its numerical minimum. The source equations remain attributed to Maru and Nago; the laboratory supplies an implementation and independent checks.
+\subsection*{First steps}
+\begin{enumerate}
+\item Choose the number of Type 3 generations and adjoint copies.
+\item Compare the full potential and the magnified minimum.
+\item Increase the Fourier cutoff and inspect convergence.
+\item Load the supported bulk content into the builder if you want to inspect its spectrum.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Type 3 generations k\ensuremath{{}_{3}}}. An integer from 0 to 3; k\ensuremath{{}_{2}} = 3 \ensuremath{-} k\ensuremath{{}_{3}} and k\ensuremath{{}_{1}} = 0. Compare k\ensuremath{{}_{3}} = 0 and k\ensuremath{{}_{3}} = 3 at fixed adjoint content.
+
+\textbf{Adjoint Dirac copies}. Changes the supported bulk contribution to the potential. Change one copy and follow the minimum.
+
+\textbf{Fourier terms}. Numerical truncation of the winding sum. Increase it before interpreting small differences in \ensuremath{\alpha}.
+
+\subsection*{Reading the results}
+\textbf{Minimum and convergence table}. The selected finite-sum minimum, stored paper comparison where available, and independent infinite-sum reference.
+
+\textbf{Builder transfer}. Transfers supported bulk-potential content, retaining Wilson-blind singlets in the model record.
+
+The difference from a published decimal is a numerical comparison. The authors' truncation procedure is not established, so this alone does not identify an error in the paper.
+\subsection*{Worked example: Check a quoted minimum}
+\begin{enumerate}
+\item Restore k\ensuremath{{}_{3}} = 3 and five adjoint copies.
+\item Read the published and independent reference values.
+\item Increase the Fourier terms and compare the minimum again.
+\end{enumerate}
+Convergence clarifies the numerical discrepancy without establishing the paper's original numerical procedure.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item This is a bulk-potential comparison, not a complete phenomenological viability test.
+\item Brane terms needed to lift exotic adjoint zero modes require additional input.
+\item A matching minimum does not establish a realistic Higgs mass or flavour sector.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{No published comparison is shown.} The chosen matter content may have no stored Table 2 entry; use the convergence test and source equations.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://doi.org/10.1007/JHEP11(2024)035}{Maru--Nago, JHEP 11 (2024) 035, equation (4.3) and Table 2}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/su6_maru_nago.mjs}{Implementation and source attribution}
+\end{itemize}
+\section{Warped SU(6): running and UV boundary terms}
+Calculate two independent inverse-coupling differences and the UV boundary terms required for the supported warped SU(6) assignments.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/rsrunning/index.html}{Open web guide}
+
+Use this to see how assumed boundary terms enter a unification calculation. It makes those terms visible instead of interpreting a crossing of running curves as a parameter-free prediction.
+\subsection*{First steps}
+\begin{enumerate}
+\item Choose C1 or C2 matter content.
+\item Set the IR and UV scales with their displayed units.
+\item Compare the required boundary differences with your chosen values.
+\item Open the advanced UV-mass probe only after reading its separate scope.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Matter assignment C1 / C2}. Selects the implemented assignment from the cited calculation. Compare both with unchanged scales.
+
+\textbf{IR scale [TeV] / log\ensuremath{{}_{10}} UV scale [GeV]}. The first is a scale; the second is the base-ten logarithm of a scale. Keep the different units and logarithm convention explicit in exports.
+
+\textbf{Chosen \ensuremath{\Delta}\ensuremath{\lambda}\ensuremath{{}_{21}} / \ensuremath{\Delta}\ensuremath{\lambda}\ensuremath{{}_{31}}}. User-supplied UV boundary differences. Set them to the required values and observe the residuals.
+
+\textbf{Probe c and UV mass / k}. Inputs to the separate localization and UV-mass diagnostic. Read its status independently of the main running plot.
+
+\subsection*{Reading the results}
+\textbf{Differential running}. \ensuremath{\alpha}\ensuremath{{}_{2}}\ensuremath{{}^{-1}} \ensuremath{-} \ensuremath{\alpha}\ensuremath{{}_{1}}\ensuremath{{}^{-1}} and \ensuremath{\alpha}\ensuremath{{}_{3}}\ensuremath{{}^{-1}} \ensuremath{-} \ensuremath{\alpha}\ensuremath{{}_{1}}\ensuremath{{}^{-1}} as functions of log\ensuremath{{}_{10}} q.
+
+\textbf{Required terms and residuals}. Quantify the boundary assumptions needed under approximate IR matching.
+
+Residuals are differences between required and chosen boundary terms. They are not \ensuremath{\chi}\ensuremath{{}^{2}} values or statistical exclusions; the NDA number is a reference scale.
+\subsection*{Worked example: Identify the boundary assumption}
+\begin{enumerate}
+\item Start with chosen boundary differences equal to zero.
+\item Record the required values.
+\item Enter those values and compare residuals.
+\end{enumerate}
+Small residuals after this adjustment express a chosen matching condition, not independent experimental agreement.
+\subsection*{Formulas and conventions}
+\begin{quote}NDA reference = 1/(16\ensuremath{\pi}\ensuremath{{}^{2}})\end{quote}
+A dimensional-analysis comparison scale, without a probability or confidence level.
+
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item One-loop differential running and approximate IR matching are used.
+\item Unspecified threshold and boundary effects can change the matching.
+\item The UV-mass probe is not a full model fit.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{A zero residual looks like a perfect fit.} Check whether the boundary terms were chosen to equal the required values; no statistical fit is being performed.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2512.22094}{Angelescu et al., Planck-brane correlators, sections 4.4--6}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/rs_unification.mjs}{Implementation and source attribution}
+\end{itemize}
+\section{Three active flavours and a rank 2 or rank 3 extension}
+Reconstruct a three-copy ring extension from chosen light masses, PMNS parameters and active deficits.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/flavour/index.html}{Open web guide}
+
+Use this to explore the extra independent mass directions needed beyond the rank-one base ring. The construction shows how chosen oscillation inputs can be represented; it does not derive them from the original one-copy action.
+\subsection*{First steps}
+\begin{enumerate}
+\item Select Neutrino ring, then the three-flavour experiment.
+\item Choose a normal or inverted reference and the lightest mass.
+\item Inspect reconstructed couplings and the mass rank.
+\item Compare the separate reference ranges and the unitary-limit vacuum plot.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Ordering and lightest mass [eV]}. Set the light mass spectrum together with the two supplied splittings. Compare zero and nonzero lightest mass.
+
+\textbf{sin\ensuremath{{}^{2}} \ensuremath{\theta}, \ensuremath{\delta} and Majorana phases}. Specify the input PMNS orientation; phases are in degrees. Change a Majorana phase and compare m\ensuremath{\beta}\ensuremath{\beta} with the vacuum oscillation plot.
+
+\textbf{Active deficit directions}. Set the three independent deficit inputs used in the reconstruction. Open the matrix details to inspect the full active deficit.
+
+\subsection*{Reading the results}
+\textbf{Rank, masses and reconstructed matrices}. Describe the constructed extension, including Yukawa and deficit matrices.
+
+\textbf{Vacuum appearance probabilities}. The unitary PMNS limit; matter effects and a nonunitarity fit are absent.
+
+\textbf{NuFIT ranges}. Separate reference intervals with their recorded edition and ordering.
+
+Masses and PMNS orientation are inputs to this inverse construction. Separate NuFIT ranges do not define a likelihood, and the historical Hosotani button does not turn the ring into that paper's RS model.
+\subsection*{Worked example: Understand the role of the lightest mass}
+\begin{enumerate}
+\item Use the normal-ordering reference and set the lightest mass to zero.
+\item Read the rank and reconstructed masses.
+\item Choose a small nonzero lightest mass and repeat.
+\end{enumerate}
+The construction changes rank with the supplied spectrum; this is not a new prediction of the lightest mass.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item Three sterile copies extend the base model.
+\item The plotted vacuum probabilities omit matter effects and active-deficit corrections.
+\item Light-sector m\ensuremath{\beta}\ensuremath{\beta} does not include all possible heavy-state contributions.
+\item Reference interval membership is not a joint goodness of fit.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{A reference preset reproduces its own PMNS values.} That is expected: these values were supplied as inputs. Inspect the reconstructed couplings to see the calculated result.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://www.nu-fit.org/sites/default/files/v61.tbl-parameters.pdf}{NuFIT 6.1 reference table}
+\item \href{https://arxiv.org/abs/2507.08321}{Hosotani historical RS reference}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/neutrino_flavour.mjs}{Implementation and source attribution}
+\end{itemize}
+\section{Fixed light inputs: distinguish the heavy ring}
+Follow parameter paths that preserve selected light masses and mixing while changing heavy states or current factors.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/identifiability/index.html}{Open web guide}
+
+Use this to ask whether the chosen light data determine the heavy sector uniquely. The experiment gives explicit counterexamples along supported parameter paths and points to additional observables that can distinguish them.
+\subsection*{First steps}
+\begin{enumerate}
+\item Set the desired light inputs in the flavour card.
+\item Choose a parameter to investigate and a position along the path.
+\item Read the light reconstruction residual with the heavy response.
+\item Compare raw and normalized vacuum current factors separately.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Parameter to investigate / position}. Selects a supported path and a point between its endpoints. Start with the fixed-light heavy-splitting preset.
+
+\textbf{Sterile copy and heavy pair}. Choose the heavy response displayed for that point. Compare different pairs while retaining the same light inputs.
+
+\textbf{Source, detected flavour and propagation}. Select a vacuum channel and neutrino or antineutrino propagation. Compare raw and normalized quantities for the same channel.
+
+\subsection*{Reading the results}
+\textbf{Light reconstruction residual}. Checks how closely the chosen masses and orientation remain fixed along valid points.
+
+\textbf{Heavy centres and splittings}. Can vary despite fixed selected light inputs.
+
+\textbf{Current factors and DeepCore reference}. The former explore the extension; the latter retains the archived standard-model hypothesis and grid limits.
+
+Normalization can hide a common suppression. The archived DeepCore map is a standard-three-neutrino reference, not a likelihood for this nonunitary ring extension.
+\subsection*{Worked example: See a suppression disappear under normalization}
+\begin{enumerate}
+\item Choose Common suppression hidden by normalization.
+\item Compare the raw factor with the normalized shape.
+\item Switch to unequal deficits and compare the shape again.
+\end{enumerate}
+A normalized shape alone can miss information carried by an overall current normalization.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item The supported paths do not exhaust all degeneracies.
+\item Vacuum calculations omit matter propagation and a detector event model.
+\item No nonunitary-ring exclusion is inferred from the DeepCore grid.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{The DeepCore value is unavailable.} Check the archived grid bounds; the laboratory does not extrapolate a new likelihood.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/1609.08637}{Blennow et al., vacuum limits of equations (5) and (7)}
+\item \href{https://doi.org/10.21234/B4105H}{IceCube DeepCore 2018 data reference}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/neutrino_research.mjs}{Implementation and source attribution}
+\end{itemize}
+\section{Finite-temperature SU(3): potential and coexistence}
+Reproduce the supported flat SU(3) thermal benchmarks and inspect their Wilson potential, minima and coexistence candidates.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/thermal/index.html}{Open web guide}
+
+Use this to understand how temperature changes a Wilson potential in the two implemented Hirose--Shibuya benchmarks. Only after the potential is understood should an external bounce calculation be used for transition history.
+\subsection*{First steps}
+\begin{enumerate}
+\item Select the builder mode and open the thermal experiment.
+\item Load paper case 1 or case 2.
+\item Vary R T and compare the potential with doubled numerical cutoffs.
+\item Read coexistence separately from nucleation in the history card.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Fundamental / adjoint matter and parity}. Specify the thermal SU(3) matter content. Keep a paper benchmark intact before exploring changes.
+
+\textbf{1/R [GeV], g\ensuremath{{}_{4}} and R T}. Set the dimensionful scale, field conversion and dimensionless temperature. Vary R T while fixing the other two.
+
+\textbf{Spatial and thermal winding cutoffs}. Independent numerical truncations. Compare the displayed doubled-cutoff response.
+
+\subsection*{Reading the results}
+\textbf{Potential and preferred phase}. The located minima of the truncated potential at the chosen temperature.
+
+\textbf{Coexistence candidate}. A resolved equal-depth candidate within 0 \ensuremath{\leq} R T \ensuremath{\leq} 0.6 under the current numerical settings.
+
+\textbf{Cutoff comparison}. A convergence diagnostic, not a uniform physical error bound.
+
+This card has its own SU(3) inputs, separate from the SU(N) builder model. A coexistence candidate does not establish bubble nucleation, transition completion or a gravitational-wave signal.
+\subsection*{Worked example: Follow the preferred phase with temperature}
+\begin{enumerate}
+\item Load paper case 1.
+\item Read the preferred-phase flow.
+\item Choose temperatures on either side of a resolved coexistence candidate.
+\item Inspect the minima and doubled-cutoff comparison.
+\end{enumerate}
+The potential may exchange its preferred minimum; this alone does not determine when bubbles nucleate.
+\subsection*{Formulas and conventions}
+\begin{quote}C\ensuremath{{}_{4}} = 3/(64\ensuremath{\pi}\ensuremath{{}^{6}}R\ensuremath{{}^{4}}),  \ensuremath{\alpha} = g\ensuremath{{}_{4}}R\ensuremath{\phi}\end{quote}
+The implemented four-dimensional potential normalization and canonical-field conversion.
+
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item The thermal model is separate from the SU(7) candidate and builder selection.
+\item A finite search interval and finite cutoffs can leave coexistence unresolved.
+\item Nucleation and gravitational waves require further calculations and assumptions.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{No coexistence candidate is resolved.} Check the matter content, explored R T interval and cutoff sensitivity before concluding that a transition is absent.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2303.14192}{Hirose--Shibuya, equations (2.30), (2.33), cases 1 and 2}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/thermal_ghu.mjs}{Implementation and source attribution}
+\end{itemize}
+\section{Nucleation, percolation and conditional gravitational waves}
+Integrate bubble growth using a matching refined action table and explicit cosmological assumptions.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/thermalhistory/index.html}{Open web guide}
+
+Use this to move beyond a coexistence temperature or a single S\ensuremath{{}_{3}}/T threshold. It tracks an integrated history and checks physical false-vacuum volume under the specified expansion model.
+\subsection*{First steps}
+\begin{enumerate}
+\item Choose a supported paper benchmark in the thermal card.
+\item Confirm that a matching refined action table is available.
+\item Set g*, assumed wall speed, efficiency and expansion background.
+\item Read nucleation, percolation and completion before the conditional acoustic spectrum.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Relativistic degrees of freedom g*}. An input to the cosmological background. Keep it fixed when comparing wall-speed assumptions.
+
+\textbf{Wall speed / c and fluid efficiency \ensuremath{\kappa}}. Explicit scenario assumptions, not outputs of the potential. Vary one and compare completion and the acoustic spectrum.
+
+\textbf{Expansion background}. Selects radiation only or radiation plus false-vacuum energy. Compare the physical false-volume condition.
+
+\subsection*{Reading the results}
+\textbf{Integrated events}. Nucleation, percolation and completion within the supplied action range, when established.
+
+\textbf{False-vacuum fraction and volume slope}. Track both volume fraction and whether physical false-vacuum volume decreases.
+
+\textbf{Conditional acoustic spectrum}. Depends on the transition history, wall speed, efficiency and sound-wave model.
+
+The two benchmark action tables support the calculation only for matching thermal inputs. Wall speed and fluid efficiency remain assumptions. Collider measurements do not measure these thermal quantities.
+\subsection*{Worked example: Check whether a benchmark completes}
+\begin{enumerate}
+\item Restore a paper benchmark with a refined action table.
+\item Read the available action range and upper-boundary diagnostic.
+\item Compare percolation and completion with the physical-volume slope.
+\item Change the expansion assumption and compare again.
+\end{enumerate}
+Completion is conditional on the supplied actions and cosmology; an unavailable event is not silently extrapolated.
+\subsection*{Formulas and conventions}
+\begin{quote}Percolation: I = 0.34; completion: P\_false = 0.01\end{quote}
+The laboratory's stated event definitions; both also require decreasing physical false-vacuum volume.
+
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item No matching table means the integrated history is pending for those inputs.
+\item The SU(3) benchmarks are not a joint fit of the SU(7) model.
+\item The gravitational-wave spectrum is conditional, not an observed signal or a full detector likelihood.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{Refined action table pending appears.} Restore a paper benchmark or import a matching refined result using the documented reproduction workflow.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2305.02357}{Cosmological transition review}
+\item \href{https://arxiv.org/abs/2309.05474}{Acoustic spectrum, equations (28--30)}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/thermal_history.mjs}{Implementation and source attribution}
+\end{itemize}
+\section{RS anomaly flow and baryon current}
+Inspect UV and IR anomaly factors from normalized Z-tower wavefunctions and compare gauge cancellation with the baryon-current anomaly.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/rsanomaly/index.html}{Open web guide}
+
+Use this to separate boundary flow, matter cancellation and global-current physics in the supported warped calculation. Its source papers and independent numerical checks are linked for comparison.
+\subsection*{First steps}
+\begin{enumerate}
+\item Choose a Wilson angle, warp factor and Z mode.
+\item Start with complete quark and lepton generations.
+\item Compare boundary contributions with their sum.
+\item Remove a matter generation and observe the gauge factor.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{\ensuremath{\theta}H, log\ensuremath{{}_{10}} zL and sin\ensuremath{{}^{2}} \ensuremath{\theta}W\ensuremath{{}^{0}}}. Set the supported warped background and electroweak parameters. Vary the angle at fixed matter content.
+
+\textbf{mKK [TeV] and Z mode}. Set the scale and select the zero, first or second excited Z mode. Compare masses and boundary factors across modes.
+
+\textbf{Quark / lepton generations}. Control the matter factors relevant to cancellation. Compare complete and deliberately incomplete content.
+
+\subsection*{Reading the results}
+\textbf{UV, IR and full anomaly factors}. Resolve the boundary contributions for the normalized modes.
+
+\textbf{Gauge factor and baryon matrix}. Address different currents and must be interpreted separately.
+
+\textbf{Quadrature and finite-KK reference}. The former checks numerical normalization; the latter is a fixed published benchmark.
+
+Gauge cancellation and a surviving global baryon-current anomaly are different statements. A nonzero baryon anomaly does not determine a proton lifetime or baryogenesis yield.
+\subsection*{Worked example: Separate gauge and baryon anomalies}
+\begin{enumerate}
+\item Use equal complete quark and lepton generations.
+\item Read the vanishing gauge factor and the baryon result.
+\item Remove one lepton generation and compare the gauge factor.
+\end{enumerate}
+The matter cancellation changes as intended; the baryon-current result answers a different question.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item The finite-KK reference has fixed benchmark inputs and does not follow every slider.
+\item Quadrature convergence does not certify all physical assumptions.
+\item Neither a proton lifetime nor a baryogenesis yield is calculated.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{A reference table stays unchanged while the angle moves.} Read its fixed \ensuremath{\theta}H = 0.1 and mKK = 13 TeV benchmark label; use the live flow plot for your current inputs.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2606.01829}{RS anomaly flow, June 2026}
+\item \href{https://arxiv.org/abs/2609.29135}{Baryon anomaly, September 2026}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/rs_anomaly.mjs}{Implementation and source attribution}
+\end{itemize}
+\section{Higgs rates, total width and experimental comparisons}
+Construct an explicit CP-even Higgs scenario at 125.2 GeV and inspect production, widths, branching fractions and matching external experimental results.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/higgstools/index.html}{Open web guide}
+
+Use this to see why a production correction alone is insufficient for a Higgs signal comparison: partial widths, the total width and branching fractions enter together. Versioned external results supply a separate experimental calculation for a matching scenario.
+\subsection*{First steps}
+\begin{enumerate}
+\item Start with the SM reference preset.
+\item Change one coupling or the invisible width.
+\item Read the total width and branching fractions with production rates.
+\item Use an external HiggsTools result only when it matches the current inputs and recorded version.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{\ensuremath{\kappa}W = \ensuremath{\kappa}Z and common fermion \ensuremath{\kappa}}. Explicit effective-coupling assumptions for this CP-even scenario. Change one while keeping the others fixed.
+
+\textbf{Effective \ensuremath{\kappa}g, \ensuremath{\kappa}\ensuremath{\gamma} and \ensuremath{\kappa}Z\ensuremath{\gamma}}. Independent effective amplitudes in the supported reference parameterization. Compare the top-tower preset with the SM reference.
+
+\textbf{Invisible width [MeV]}. An additional assumed partial width included in the total. Increase it and compare visible branching fractions.
+
+\subsection*{Reading the results}
+\textbf{Production cross sections}. Use the pinned HiggsPredictions reference at the listed collider energies.
+
+\textbf{Total width, branching fractions and signal strengths}. Account for all partial widths listed in this scenario.
+
+\textbf{Matching external experimental result}. A versioned HiggsBounds/HiggsSignals calculation, available only for compatible inputs.
+
+The top-tower preset changes its specified gluon amplitude and assumes the remaining couplings are SM-like. It is not a complete GHU-model prediction or exclusion.
+\subsection*{Worked example: Change a branching fraction without changing production}
+\begin{enumerate}
+\item Load the SM reference.
+\item Record ggH production and a visible branching fraction.
+\item Increase only the invisible width.
+\item Compare production, total width and visible signal strength.
+\end{enumerate}
+Production can remain unchanged while the extra width reduces visible branching fractions and signal strengths.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item Effective couplings are assumptions unless derived from a complete model.
+\item A missing or mismatched external result is not an allowed verdict.
+\item The number of experimental observables is not automatically the number of statistical degrees of freedom.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{The external result no longer applies.} Restore the matching inputs or calculate/import a new matching result through the documented external workflow.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2608.05401}{HiggsTools for Run 3}
+\item \href{https://gitlab.com/higgsbounds/hbdataset}{Official HiggsBounds dataset}
+\item \href{https://gitlab.com/higgsbounds/hsdataset}{Official HiggsSignals dataset}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/higgstools_adapter.mjs}{Implementation and source attribution}
+\end{itemize}
+\section{Glossary}
+\subsection*{the alphabet}
+A boundary condition on an orbifold is a representation of the space group \ensuremath{\Gamma} = \ensuremath{\Lambda} \ensuremath{\rtimes} Z\_m, so the possible conditions are built out of Irr(\ensuremath{\Gamma}) --- the letters. Part IX-A gets them by Möbius inversion over the fixed points of the rotation, with Clifford theory supplying the weights. Everything else on the orbifold page is derived from this list; nothing is entered.
+
+\subsection*{the weight of a letter}
+Its dimension. A letter of weight one is a diagonal boundary condition. A letter of weight above one is exactly a boundary condition that is not diagonal --- which is why an alphabet with heavy letters cannot be read off a diagonal ansatz, and why the weights, not the number of letters, set the cost of enumerating a rank.
+
+\subsection*{the local datum}
+At a cone point of order e, the eigenvalues of the isotropy element acting on the condition, recorded as multiplicities over the e-th roots of unity. It is local: it says what the condition looks like at that one fixed point and nothing about the rest of the orbifold.
+
+\subsection*{the class of a condition}
+Its tuple of local data, one entry per cone point. This is what any equivalence relation must preserve, so a proposed relation that moves one local datum is wrong, and the check costs seconds and does not need the classification to be finished.
+
+\subsection*{a fibre}
+All the boundary conditions carrying the same class. The classes are the fibres of a marginal map, which is why they are indexed by an affine semigroup rather than by a list. In the panels a cell of the lattice is a fibre: its footprint is the class count and its volume is the number of conditions.
+
+\subsection*{cone points, and the signature}
+The fixed points of the rotation on the torus, each with the order of its isotropy group. The signature is the list of those orders, and it alone fixes the degree of the class count in the rank --- before any condition is enumerated.
+
+\subsection*{the Frobenius--Schur indicator}
++1, 0 or \ensuremath{-}1: whether a letter is real, complex, or quaternionic. It is what decides how the SU alphabet merges into the SO and Sp ones --- a complex letter pairs with its conjugate, a real one survives alone --- so the three real forms are not three separate computations but one alphabet read three ways.
+
+\subsection*{the degree of the count}
+The degree of polynomial growth of the class count under the classification hypotheses is e\ensuremath{{}_{1}} \ensuremath{-} 1, where e\ensuremath{{}_{1}} = 1 + \ensuremath{\Sigma} c(m\ensuremath{{}_{i}}), with c(m) = m\ensuremath{-}1 for SU and \ensuremath{\lfloor}m/2\ensuremath{\rfloor} for SO and Sp. This asymptotic degree is distinct from asserting that every exact finite-rank count is one polynomial without periodic terms.
+
+\subsection*{the Hilbert series}
+The counts are the Hilbert function of the semigroup, so the generating function is P(x) / \ensuremath{\prod}(1\ensuremath{-}x\textasciicircum{}w) over the letter weights. The point is that P terminates: that is checked here, not assumed, and once it does the counts at any rank come from the recurrence with nothing enumerated.
+
+\subsection*{the apparent unbroken group}
+The 4D gauge group a condition looks like it leaves unbroken, S(\ensuremath{\prod} U(n\_\ensuremath{\ell})) for a weight-one alphabet. It is not an invariant of the class: conditions in one fibre --- the same theory --- can wear different apparent symmetries. That is why a survey that lists models by their apparent group double-counts.
+
+\subsection*{the Smith normal form}
+How the fixed points are actually enumerated. They are M\ensuremath{{}^{-1}}Z\ensuremath{{}^{r}}/Z\ensuremath{{}^{r}}, a group of order |det M|, and the normal form walks exactly that many points. The naive box walks |det M|\ensuremath{{}^{r}} of them, which is the same answer at rank 2 and hopeless at rank 6 --- where the heterotic orbifolds are.
+
+\subsection*{why a matrix can be refused}
+An integer matrix of infinite order is not the rotation of any orbifold, so it is returned refused rather than classified. The same for a matrix whose characteristic polynomial is not a power of the m-th cyclotomic: that is outside the hypothesis of Part IX-A, and the machinery would answer with an empty alphabet and degree zero --- which looks like an answer and is not one.
+
+\subsection*{a move}
+A rewriting that preserves the stated class data. Completeness is the stronger claim that a move set connects every member of every relevant fibre. The finite walk tests connectivity for the selected case; legitimate individual moves and success at one rank alone do not prove completeness at every rank.
+
+\subsection*{an affine semigroup}
+The classes are the fibres of a marginal map, so they are indexed by a semigroup with one generator per letter of the alphabet. Naming that semigroup is mostly an exercise in attribution: over Z\ensuremath{{}_{2}} it is a cut configuration with a literature and a published table of invariants, and the useful thing this page can do is stop you deriving it again.
+
+\subsection*{\ensuremath{\alpha}, the Wilson-line phase}
+The vacuum expectation value of the extra-dimensional gauge field, in units where a period is 1. In this family it is the electroweak hierarchy, because 1/R\ensuremath{{}_{5}} = 2m\_W/\ensuremath{\alpha} --- which is why a phase of order 10\ensuremath{{}^{-3}} and a scale of order tens of TeV are the same statement.
+
+\subsection*{gauge--Higgs unification}
+A higher-dimensional gauge-field component can supply a four-dimensional Higgs zero mode. In the supported gauge-invariant setup its Wilson-line potential is generated radiatively. The phase can be calculated within a model, but dimensionful predictions still require the stated scale and coupling inputs; calibrating with measured m\_W is not a prediction of that same input.
+
+\subsection*{the orbifold parities}
+Signs of a component at the orbifold fixed points, such as (+,+) or (+,\ensuremath{-}). In the ordinary untwisted interval problem, a (+,+) component admits a constant zero mode before Wilson backgrounds and additional mass terms. At a nontrivial vacuum the joint boundary problem must be evaluated; a parity table alone is not the complete physical spectrum.
+
+\subsection*{a zero mode}
+A mode at the bottom of the compactification spectrum that is massless under the stated background and boundary problem. At the ordinary symmetric point its existence follows from the component parities. Wilson backgrounds, boundary masses and other interactions can change the massless content, so the chosen background must accompany the count.
+
+\subsection*{the Kaluza--Klein tower}
+The four-dimensional modes associated with an extra-dimensional field. In the simplest untwisted case masses are n/R, while boundary phases can shift the levels and boundary kinetic terms can change the spectral equation. A tower must retain its boundary conditions, phase convention and multiplicities; it does not by itself determine collider rates.
+
+\subsection*{the bulk content}
+The list of representations living in the extra dimensions, each with its orbifold parities and a multiplicity. It is the input to everything --- potential, spectrum, anomalies and scale are all functions of it.
+
+\subsection*{branes, and the fixed points}
+The ends of the interval, where the orbifold has its fixed points. Fields can live there as well as in the bulk, and that matters twice over: the anomaly of this class of models sits entirely on the fixed points, and brane fermions are what pay for unwanted zero modes.
+
+\subsection*{the local group at a fixed point}
+At y = 0 the local group is the commutant of P\ensuremath{{}_{0}}; for diagonal blocks it is S(U(n\ensuremath{{}_{++}} + n\ensuremath{{}_{+-}}) \ensuremath{\times} U(n\ensuremath{{}_{-+}} + n\ensuremath{{}_{--}})). At y = \ensuremath{\pi}R it is the commutant of P\ensuremath{{}_{1}}. These local groups can differ, and the symmetric-point 4D group commutes with both. A local representation can split into several representations of that common subgroup.
+
+\subsection*{a boundary mass, and the rank test}
+A Weyl fermion on a fixed point can pair with a bulk zero mode and give it a mass. In a fully left-handed convention the rule is one line: a mode in r\_q pairs with a localised Weyl in \ensuremath{\overline{r}}\ensuremath{{}_{-}}q --- conjugate representation, opposite charge. What is easy to get wrong is the counting: with generic couplings the mass matrix has maximal rank, so what survives is |difference| in each class separately, and a count of exotics that skips the decomposition can declare a mass allowed that is not.
+
+\subsection*{the one-loop potential}
+The effective Wilson-line potential obtained at one loop from the supported field content and compactification spectrum. Its phase-dependent part is finite in the stated protected setup. This does not quantify every higher-loop correction, boundary interaction or physical theory uncertainty, and an implemented potential still needs a justified normalization and field content.
+
+\subsection*{\ensuremath{\alpha}\_min, the vacuum}
+The closed form locates a stationary branch within the small-phase expansion. It is compared with a numerical search of the Fourier potential; the two can differ. Neither the closed form nor a finite grid alone certifies the global vacuum.
+
+\subsection*{a chiral spectrum}
+Left- and right-handed fields in different representations --- which is the point of orbifolding, and the reason the 4D theory can look like the Standard Model. It is also a gate: a chiral spectrum is inconsistent unless its gauge anomalies cancel.
+
+\subsection*{the anomaly channels}
+A chiral spectrum has to have its gauge anomalies cancel, channel by channel --- tedious, and where an arithmetic slip hides best. A non-zero entry is not a verdict of inconsistency: these models carry brane fields anyway, and a brane fermion conjugate to a zero mode contributes to the same channel with the opposite sign. So the ledger reports a bill, and says who can pay it.
+
+\subsection*{a brane kinetic term}
+An extra kinetic term localised on a fixed point. Turn it on and the Kaluza--Klein masses stop being n/R: they become the roots of a transcendental equation, sliding off the poles of the free summand, and the potential has to be built from those roots instead of written down.
+
+\subsection*{a boundary condition}
+The choice of how the gauge group acts at each fixed point --- for SU(N) on S\ensuremath{{}^{1}}/Z\ensuremath{{}_{2}}, the block sizes [p, q, r, s]. It is what breaks the group, and there are many of them, which is the first problem a model builder meets.
+
+\subsection*{when two boundary conditions are one theory}
+Some boundary conditions are related by a gauge transformation, so they are the same theory wearing different clothes; only the class is physics. Two things follow: the apparent unbroken symmetry is not an invariant of the class --- SU(5) with [2,0,0,3] looks like SU(3)\ensuremath{\times}SU(2)\ensuremath{\times}U(1) and [1,1,1,2] like SU(2)\ensuremath{\times}U(1)\ensuremath{{}^{3}}, and they are one theory --- and a survey that does not quotient by this counts the same model over and over.
+
+\subsection*{D and A\ensuremath{{}_{4}}}
+Charge-weighted second and fourth moments describe the small-phase reduction of the implemented potential. The allowed arithmetic depends on the gauge seed: the published SU(7) seed gives odd 8D, whereas the candidate seed has even rungs. Read the seed and nondegeneracy conditions before using a stationary branch or a curvature verdict; moments do not generally determine the full potential.
+
+\subsection*{a rung of the ladder}
+A quantized value of the curvature coordinate D in the stated moment reduction. Its parity and accessible values depend on the seed. Finite enumeration and counting statements require the stated additional coordinate or mass-window bounds. A search stopped by its computational budget has not proved that a rung contains no solution.
+
+\subsection*{the ceiling}
+An upper bound on the scale for the stated moment relaxation, gauge seed, coupling and Higgs-mass window. Rational or interval certificates establish that mathematical bound under those hypotheses. It need not be attained by an integer content and is not automatically a universal bound on full-potential global vacua or on a physically reconciled model.
+
+\subsection*{the reachable set}
+Scales reached by the integer contents admitted in the stated inverse-design problem. They can form separated clusters rather than a continuous interval. A quoted gap must retain its seed, mass window, coupling and approximation; a plot or a budget-limited search alone is not a certificate that every intermediate scale is impossible.
+
+\subsection*{a certificate}
+Evidence for a precisely stated mathematical claim and its hypotheses: for example an arithmetic obstruction, a rational bound, or an interval proof for a fixed potential. The claim and domain travel with the certificate. A budget stop is undecided, and certifying an implemented formula does not prove its full physical applicability or scientific novelty.
+
+\subsection*{counting instead of enumerating}
+The multiplet lattice with its congruence is a rational cone cut by an affine sublattice, so the count at fixed (A\ensuremath{{}_{4}}, 8D) is a vector partition function. A dynamic programme gives every count at once in milliseconds, where building the contents one at a time took about twenty-five minutes and ran out of budget.
+
+\subsection*{when two contents give one potential}
+Part VII Theorem 3 gives an if-and-only-if equality criterion in five coordinates for the implemented potential family. Distinct multiplet contents can therefore give the same Wilson-line potential. Matching only selected local moments or plotted samples is weaker; equal potentials do not establish equality of all spectra, interactions or complete physical theories.
+
+\subsection*{the canonical representative}
+A distinguished content among those with the same implemented potential, as defined in Part VII, equation (43). It provides a reproducible representative for that algebraic equality. It is not automatically a canonical representative of a complete physical theory: quantities not encoded by the potential can still differ.
+
+\subsection*{the selection rule}
+Part III: one bit, arithmetic on three integers, says that half the torus is redundant --- you never have to search it. The claim is testable by a computation that has never heard of Dynkin labels, which is what this page runs.
+
+\subsection*{\ensuremath{\eta}, the boundary sign}
+The boundary-condition sign \ensuremath{\eta} = \ensuremath{\eta}\ensuremath{{}_{0}}\ensuremath{\eta}\ensuremath{{}_{1}}. Part V shows it rides on an index alone, so it is invisible to the Higgs potential exactly on Part IV's vanishing class.
+
+\subsection*{blindness is not smallness}
+In the SU(4) projection and potential contribution studied in Parts IV--V, the stated vanishing-index class has no \ensuremath{\eta}-dependent response. Increasing its multiplicity does not create that sign-dependent difference. This does not mean its full potential contribution, spectrum or other physical effects vanish; compare full-potential and \ensuremath{\eta}-difference views separately.
+
+\subsection*{K, the row-consistency invariant}
+m\_h a / \ensuremath{\surd}F'' = 2.2456 g\ensuremath{{}_{4}} in the registered convention. At fixed input m\_h, F \ensuremath{\rightarrow} \ensuremath{\lambda}F changes K by \ensuremath{\lambda}\textasciicircum{}(\ensuremath{-}\ensuremath{\frac{1}{2}}). Invariance requires also recomputing m\_h as \ensuremath{\surd}\ensuremath{\lambda} m\_h. This compares the implied coupling; it does not establish stationarity or a global minimum. Part VI, open problem 3.
+
+\subsection*{the comb}
+The KK scale can only sit on teeth, spaced exactly in M\ensuremath{{}^{2}} and not in M, with each rung's teeth stopping at its own ceiling. The spacing is arithmetic and carries nothing; the position carries the anchor residual and g\ensuremath{{}_{4}}. Confusing the two is how a screen becomes an accusation.
+
+\subsection*{the bill, in eighths}
+The cost of an escape from the proton-decay obstruction, measured in the quantum of D. It is a ratio of integers, so no normalisation enters it --- which is what lets it be quoted without an anchor.
+
+\subsection*{the rung cube}
+The 64 ordered triples of lepton rungs, drawn. Its main diagonal is the family-universal line, where every A\_j vanishes and the protection dies --- so the failure set is a line, not a region, and the theorem is the geometry rather than a summary of it.
+
+\subsection*{the coloron}
+The colour-octet vector used in the laboratory's stated dijet comparison. Its mass, width and coupling follow the localization and compactification assumptions of that model. A limit derived for another resonance, production mechanism or branching pattern cannot be transferred solely because a mass value matches.
+
+\subsection*{a recast}
+A published experimental bound re-expressed on this model's scale. The \ensuremath{\Delta}\ensuremath{\chi}\ensuremath{{}^{2}} teeth here are quoted from the published record, never re-derived --- a near-miss re-derivation would put a number on the page that disagrees with the paper it claims to come from.
+
+\subsection*{the anchor}
+A published computation the instrument recomputes at load and shows as a chip, so the tool declares whether it currently reproduces an outside number before it shows you any of its own.
+
+\subsection*{the theory, or the frame}
+A number the instrument computes about a boundary condition is only a statement about the theory if it survives replacing that boundary condition by a gauge-equivalent one. The dossier recomputes every line on every member of the class and tags it by what came back --- so the tag is a measurement made on this render, never a list of which lines ought to be invariant. Most of the symmetric-point lines are not: the apparent unbroken group, the massless content and the anomaly ledger are read at \ensuremath{\theta} = 0 of the representative you happen to be holding. The same three, read at the minimum, come back invariant --- and that too is measured on the render.
+
+\subsection*{the Standard-Model cell}
+Is SU(3)\ensuremath{\times}SU(2)\ensuremath{\times}U(1)\_Y in the unbroken group, with massless pieces carrying Q, u\ensuremath{{}^{c}}, d\ensuremath{{}^{c}}, L and e\ensuremath{{}^{c}} at their hypercharges? Colour is a block of size three, weak isospin a block of size two, and Y is solved exactly in the blocks' U(1) generators on the pieces offered as each field --- Part II's counting: K \ensuremath{-} 1 unknowns against one constraint per field. When the fields fix Y the embedding fixes sin\ensuremath{{}^{2}}\ensuremath{\theta}\_W = tr T\ensuremath{{}_{3}}\ensuremath{{}^{2}} / (tr T\ensuremath{{}_{3}}\ensuremath{{}^{2}} + tr Y\ensuremath{{}^{2}}), 3/8 for Georgi--Glashow's direction. It is read at the symmetric point nearest the vacuum, because the vacuum's job is to break SU(2)\ensuremath{\times}U(1); the distance says whether the electroweak sector is light. What is not found is listed as missing --- on SU(5) with P = diag(+,+,+,\ensuremath{-},\ensuremath{-}) that is always Q and d\ensuremath{{}^{c}}, which the literature puts on the brane.
+
+\subsection*{against the data}
+In the builder comparison, the vacuum supplies a dimensionless m\_W R and the recorded measured W mass calibrates 1/R. This makes dimensionful quantities conditional on that anchor. A colour-octet reference limit applies only under its particle and localization assumptions, including colour in the bulk. Other modes use their own named datasets and hypotheses. Reference overlays, interval membership and statistical likelihoods are different comparisons; retain each source edition and input record.
+
+\subsection*{the content at the minimum}
+Gauge the constant A\_y away and the reflection about y = \ensuremath{\pi}R becomes P\ensuremath{{}_{1}}\ensuremath{\prime} = W\ensuremath{{}^{-1}}P\ensuremath{{}_{1}}, with W the holonomy round the circle (Hosotani; Haba--Hosotani--Kawamura §2). A massless four-dimensional mode is a vector fixed by both P\ensuremath{{}_{0}} and P\ensuremath{{}_{1}}\ensuremath{\prime}, so the content at the minimum is a joint eigenspace --- linear algebra, not a parity table. When every phase is 0 or 1 it is the parity rule applied to a class-mate. A boundary face alone does not decide breaking: compare the surviving generators with those at \ensuremath{\theta} = 0. The instrument reaches the count by two independent routes --- the representation theory of the pairs the Wilson line rotates, and the explicit matrices --- and the harness holds one to the other. The scalars are tree-level flat directions; the tolerance for "at an end" is 10\ensuremath{{}^{-6}}.
+
+\subsection*{invariant, and still useless}
+A line can be the same on every member of a class and also the same for every class, and then it distinguishes no theory from any other however stable it is --- N\ensuremath{{}_{0}} is one, and so is N. The two axes are independent and are measured separately: splitting within a class makes a line the frame's, and taking one value between classes makes it no verdict at all.
+
+\subsection*{what a keyword sweep is worth}
+It turns a corpus into a shortlist, and that is all. A signal firing means ``worth opening''; it is never quoted as a fact about a paper. The two are kept in separate columns here for exactly that reason.
+
+\subsection*{measured, read, and unmeasured}
+Measured records describe the reproducible extraction or keyword sweep over the declared corpus. Read records are human-reviewed statements with a source page or equation. A PDF whose text extraction loses the needed glyphs is not evidence that its paper omits a formula; keep extraction failure separate from a negative literature finding.
+
+\subsection*{the tripod bound}
+For a finite abelian G, the group-based model on the claw tree with three leaves is a complete intersection iff |G| \ensuremath{\leq} 3. The arithmetic settles orders five and up in one line, for every abelian group at once: |G|\ensuremath{{}^{2}} \ensuremath{-} 6|G| + 6 \ensuremath{\leq} 0. Order four passes the bound and is still not a complete intersection --- Z\ensuremath{{}_{4}} and Z\ensuremath{{}_{2}}\ensuremath{\times}Z\ensuremath{{}_{2}} are decided by exhaustion in Part IX-B §5, and a bound that is silent is reported as silent.
+
+\subsection*{complete intersection: global, not local}
+Casanellas, Fernández-Sánchez and Micha\l{}ek prove these varieties are complete intersections in a Zariski-open set. The question asked here is the global one, about the toric ideal itself, and the Z\ensuremath{{}_{4}} tripod separates the two: local yes, global no. Quoting one for the other is the misreading this page exists to prevent.
+
+\subsection*{three verdicts, and the amber one is the output}
+Green: the instrument returns what the paper prints. Amber: it does not --- and the row names which of that paper's own equations agrees with which, and what moves as a result. Grey: outside this engine, said out loud, because a blank cell reads as a no and "we did not compute it" is not "it does not hold". A verdict that changes is what fails the build; a verdict that differs is what this page is for.
+
+\subsection*{what each row was read at}
+Three of the four models are supersymmetric and this engine's one-loop potential is not, so their rows are parity linear algebra only --- which boundary condition, which unbroken group, which zero modes --- and never their dynamics. Kubo--Lim--Yamashita is not supersymmetric, which is why its potential, its vacuum and its Higgs mass can be anchored at all, and why it is the one where this engine can be wrong by a number.
+
+\end{document}

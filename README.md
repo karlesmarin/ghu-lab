@@ -7,6 +7,34 @@ original SU(7), SU(4) and general 5D SU(N) tools, flat and warped SU(6) benchmar
 the 4D neutrino ring, Higgs-rate scenarios, integrated diagnostics and reproducible batch studies.
 Outputs retain their inputs, provenance and status: `theorem`, `verified`, `measured` or `unknown`.
 
+## User guides · 9 October 2026
+
+[English](https://karlesmarin.github.io/ghu-explorer/guide/index.html)
+· [Castellano](https://karlesmarin.github.io/ghu-explorer/guide/es/index.html)
+· [Getting started](https://karlesmarin.github.io/ghu-explorer/guide/getting-started/index.html)
+· [Spanish manual (PDF)](https://karlesmarin.github.io/ghu-explorer/guide/manual/ghu-lab-guide-es.pdf).
+
+The searchable guide index organizes tasks and model families. **42 guides** cover the 29 menu
+sections, three Simulator modes, eight embedded experiments, neutrino decays and getting started;
+these overlap and are not a count of independent panels. Each guide explains controls, outputs,
+an example, assumptions, troubleshooting and source attribution. The 59-term glossary and inline
+help share the English/Spanish catalogues, so scope corrections reach both places.
+
+The application links each section, mode and experiment to its guide. Help language persists without
+resetting the calculation; full guides open separately. The website pages remain readable without
+JavaScript and have canonical URLs and reciprocal language alternatives. The root
+[sitemap](https://karlesmarin.github.io/ghu-explorer/sitemap.xml) is generated from current pages,
+including both guide languages; archived artifacts remain accessible through Editions.
+
+Maintain `docs/user-guides.json` and `docs/user-guides.es.json`; rebuild with
+`python build/guide_manual.py` (pdfLaTeX and Babel), `python tools/laboratory_inventory.py`,
+`python build/build_app.py --browser`, then `python build/build_site.py --legacy <legacy-directory>`.
+Run `node build/guide_pages.mjs` to check the generated guides in desktop and mobile Chromium.
+The Spanish manual uses Babel’s `spanish,es-noshorthands,es-nodecimaldot,es-tabla` options.
+Babel handles typesetting; translations are explicit source content. Guide checks reject missing
+tools, wrong mode/focus routes and formula differences between languages. The corrected glossary
+keeps gauge-seed parity, moment ceilings, boundary assumptions and experimental comparisons scoped.
+
 ### Formula consistency corrections · 8 October 2026
 
 The SU(N) minimizers now report the same **V/C** as the potential evaluator: the extra
@@ -255,7 +283,7 @@ capabilities implemented in this release.
 The deployed page is a build artifact. This is where it comes from, and why it says what it says.
 
 ```
-🏗️  python build/build_app.py    # inline → collision guard → edition gate → 69 harnesses → app/index.html
+🏗️  python build/build_app.py    # inline → collision guard → edition gate → 70 harnesses → app/index.html
 🌐  python build/build_site.py --legacy ../ghu-explorer/tools-2026-07     # → site/, then gates itself
 📸  node   build/shoot.mjs       # headless screenshots of every section + console + which model
 🖱️  node   build/drive.mjs       # USES the panels: a real mouse through the DevTools Input domain
@@ -276,7 +304,7 @@ The deployed page is a build artifact. This is where it comes from, and why it s
 
 ## 🧪 What is checked, and against what
 
-The certification update passes **7,805 source checks across 69 harnesses** and all thirteen browser gates. Its mathematical dossier contains 26 Lean theorems, 53 native exact/interval checks, 1,347 independent Sage/Arb checks and 235 checks of 21 conditional moment ceilings. The earlier formula/video release separately passed 30 site checks and 13 SageMath checks. The dedicated extensions and closure gates cover controls, comparison snapshots, permalinks, exports, stale external results, mobile layout, both KK-comb seeds and the conditional history/bounds. Real PhaseTracer/HiggsTools HTTP calculations, eight earlier exact Sage checks and the twelve study-record checks are recorded separately.
+The current build passes **8,023 source checks across 70 harnesses** and all fourteen browser gates. The generated site passes 32 site checks and 118 guide, link, language and manual checks; the guide pages also pass 190 desktop/mobile browser checks. The certification dossier contains 26 Lean theorems, 53 native exact/interval checks, 1,347 independent Sage/Arb checks and 235 checks of 21 conditional moment ceilings. The earlier formula/video release separately passed 30 site checks and 13 SageMath checks. The dedicated extensions and closure gates cover controls, comparison snapshots, permalinks, exports, stale external results, mobile layout, both KK-comb seeds and the conditional history/bounds. Real PhaseTracer/HiggsTools HTTP calculations, eight earlier exact Sage checks and the twelve study-record checks are recorded separately.
 
 The fixed-light-input extension registers `build/neutrino_research.mjs` as the eleventh browser gate: **31 checks** cover shared inputs, cancellation and unequal-deficit responses, invalid points, actual JSON/SVG downloads, saved comparisons, permalinks and desktop/mobile layout. `_test_neutrino_research.mjs` contributes **1,608 source checks** against independent NumPy/SVD references and original DeepCore tables.
 

@@ -86,6 +86,7 @@ const PRED_SECTION = {
       <option value="higgsrate">Higgs production · top KK reference</option>
       <option value="neutrino">Neutrino ring · 4D research model</option>
     </select><div class="note">The selected model supplies the results, summary, permalink and exports.</div></div>
+  <p id="prGuide"></p>
   <div id="prBuilderView">
   <div class="card" style="margin-bottom:18px">
     <p class="lead">The model on the <b>SU(N) builder</b>, taken to its vacuum and turned into the
@@ -198,6 +199,7 @@ const PRED_SECTION = {
   render(ctx) {
     const $ = (id) => document.getElementById(id);
     const nr=PRED_S.variant==="neutrino";
+    if($("prGuide")&&typeof guideLink==='function')$("prGuide").innerHTML=guideLink('simulator-'+PRED_S.variant);
     $("prModel").value=PRED_S.variant;$("prBuilderView").hidden=PRED_S.variant!=="builder";$("prNeutrinoView").hidden=!nr;
     $("prHiggsView").hidden=PRED_S.variant!=="higgsrate";
     if(PRED_S.variant==="higgsrate"){this._higgsView.render();return;}

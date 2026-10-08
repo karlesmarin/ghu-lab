@@ -29,6 +29,7 @@ import argparse
 import pathlib
 import re
 import sys
+from html.parser import HTMLParser
 
 WAIVER = re.compile(r"edition-allow\s*:\s*(.+?)\s*(?:\*/|-->|$)", re.I)
 
@@ -73,6 +74,17 @@ RULES = [
 def _line_of(text, pos):
     return text.count("\n", 0, pos) + 1
 
+class _LinkMetadata(HTMLParser):
+    def __init__(self):
+        super().__init__();self.safe=False
+    def handle_starttag(self,tag,attrs):
+        if tag!='link':return
+        if len(attrs)!=len(dict(attrs)):return
+        a=dict(attrs);rel=set((a.get('rel') or '').lower().split())
+        # Canonical and language-alternative declarations do not load resources.
+        # A combined `alternate stylesheet` or a preload must still fail the gate.
+        self.safe=rel=={'canonical'} or (rel=={'alternate'} and bool(a.get('hreflang')))
+
 
 def check(html):
     """Returns (violations, waivers).  Each is a list of dicts; a clean Edition has no violations."""
@@ -80,6 +92,10 @@ def check(html):
     violations, waivers = [], []
     for rid, pat, why in RULES:
         for m in pat.finditer(html):
+            if rid=='link-href':
+                end=html.find('>',m.start())
+                parsed=_LinkMetadata();parsed.feed(html[m.start():end+1])
+                if parsed.safe:continue
             # A rule that captures a value judges the value: a data: URI is carried by the file,
             # not fetched, so it is exactly what we ask people to use instead.
             if m.groups() and m.group(1) is not None and m.group(1).lower().startswith("data:"):

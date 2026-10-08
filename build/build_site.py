@@ -398,7 +398,7 @@ def page(shell, css, *, title, desc, body, depth, here, build):
            .replace("__BODY__", body)
            .replace("__BUILD__", build)
            .replace("__ROOT__", root))
-    for key in ("APP", "PAPERS", "CHANGES", "DOCS", "EDITIONS", "VIDEO"):
+    for key in ("APP", "PAPERS", "CHANGES", "DOCS", "EDITIONS", "VIDEO", "GUIDE"):
         out = out.replace(f"__NAV_{key}__", ' aria-current="page"' if key == here else "")
     left = re.search(r"__[A-Z_]+__", out)
     if left:
@@ -583,8 +583,13 @@ def main(argv=None):
     def write(rel, text):
         p = OUT / rel
         p.parent.mkdir(parents=True, exist_ok=True)
+        from search_index import metadata
+        text = metadata(rel, text)
         p.write_text(text, encoding="utf-8", newline="\n")
         written.append(rel)
+
+    import user_guides
+    user_guides.render_all(ROOT, OUT, write, page, shell, css, build)
 
     # --- home
     counts = site_counts()
@@ -696,7 +701,10 @@ def main(argv=None):
                            "# External records retain their original whitespace and checksums.\n"
                            "data/lhc_reference/** -text -whitespace\n"
                            "# Preserve the verified video revision, including VTT line endings.\n"
-                           "video/media/2026-10-08-certification/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol\n")
+                           "video/media/2026-10-08-certification/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol\n"
+                           "# Preserve downloadable manual hashes across checkouts.\n"
+                           "guide/manual/** -text\n"
+                           "guide/manual/*.pdf binary\n")
 
     # --- Requested video manual. Only this page uses adjacent, hash-pinned media.
     import video_guide
@@ -772,6 +780,12 @@ def main(argv=None):
            'include the 8 October certification and uncertainty update. Formal algebra, '
            'interval proofs, numerical comparisons and open physical assumptions retain '
            'their separate scope. This living release does not replace a frozen paper.</p>'
+           '<h2>Current user guides · 9 October 2026</h2>'
+           '<p><a href="../guide/index.html">English</a> and '
+           '<a href="../guide/es/index.html" lang="es">castellano</a> guides cover every '
+           'menu section, Simulator mode and embedded experiment. The same catalogues supply '
+           'in-app help, the glossary and downloadable manuals. Current guidance does not '
+           'rewrite frozen evidence or archived tutorials.</p>'
            '<h2>Versioned video guides</h2>'
            '<ul><li><a href="../video/index.html">Current certification revision · '
            '8 October 2026</a>: 43 chapters and 139 scenes in each language, including '
@@ -809,10 +823,8 @@ def main(argv=None):
     # artifacts remain reachable through Editions. Omit lastmod rather than invent
     # modification dates for pages whose content has not changed.
     public_base = "https://karlesmarin.github.io/ghu-explorer/"
-    current_pages = [rel for rel in written if rel.endswith('.html')
-                     and not rel.startswith('tools-')
-                     and (not rel.startswith('editions/') or rel == 'editions/index.html')
-                     and (not rel.startswith('video/') or rel == 'video/index.html')]
+    from search_index import current_page
+    current_pages = [rel for rel in written if current_page(rel)]
     locations = [public_base + ('' if rel == 'index.html' else rel)
                  for rel in sorted(set(current_pages))]
     write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -831,13 +843,16 @@ def main(argv=None):
     # The build gates itself, exactly as build_app.py does.  A site that is built but not checked
     # is a site nobody checked, because the checking is the step that gets skipped.
     print()
-    r = subprocess.run([sys.executable, "_test_site.py"], cwd=ROOT, capture_output=True, text=True)
-    tail = [ln for ln in r.stdout.strip().split("\n") if ln.strip()][-1:] or ["(no output)"]
-    print(f"  _test_site.py            {tail[0].strip()}")
-    if r.returncode:
-        print(r.stdout[-2500:])
-        print("*** SITE RED — do not deploy ***")
-    return r.returncode
+    worst = 0
+    for gate in ["_test_site.py", "_test_guide_site.py"]:
+        r = subprocess.run([sys.executable, gate], cwd=ROOT, capture_output=True, encoding="utf-8", errors="replace")
+        tail = [ln for ln in r.stdout.strip().split("\n") if ln.strip()][-1:] or ["(no output)"]
+        print(f"  {gate:<24} {tail[0].strip()}")
+        if r.returncode:
+            print(r.stdout[-2500:] + r.stderr[-2500:])
+            print("*** SITE RED — do not deploy ***")
+        worst = max(worst, r.returncode)
+    return worst
 
 
 if __name__ == "__main__":

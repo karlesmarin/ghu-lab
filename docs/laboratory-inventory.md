@@ -5,6 +5,25 @@ boundary conditions, collider references, neutrino dynamics and thermal transiti
 [README catalog](../README.md#-the-instrument) follows the actual menu order; this guide explains
 the capabilities inside those entries and the tools that run outside the browser.
 
+## User guides · 9 October 2026
+
+[English](https://karlesmarin.github.io/ghu-explorer/guide/index.html)
+· [Castellano](https://karlesmarin.github.io/ghu-explorer/guide/es/index.html)
+· [Getting started](https://karlesmarin.github.io/ghu-explorer/guide/getting-started/index.html)
+· [Spanish manual (PDF)](https://karlesmarin.github.io/ghu-explorer/guide/manual/ghu-lab-guide-es.pdf).
+
+The searchable guide index organizes tasks and model families. **42 guides** cover the 29 menu
+sections, three Simulator modes, eight embedded experiments, neutrino decays and getting started;
+these overlap and are not a count of independent panels. Each guide explains controls, outputs,
+an example, assumptions, troubleshooting and source attribution. The 59-term glossary and inline
+help share the English/Spanish catalogues, so scope corrections reach both places.
+
+The application links each section, mode and experiment to its guide. Help language persists without
+resetting the calculation; full guides open separately. The website pages remain readable without
+JavaScript and have canonical URLs and reciprocal language alternatives. The root
+[sitemap](https://karlesmarin.github.io/ghu-explorer/sitemap.xml) is generated from current pages,
+including both guide languages; archived artifacts remain accessible through Editions.
+
 ## 🔢 What each count describes
 
 | Inventory | Count | Source of the count |

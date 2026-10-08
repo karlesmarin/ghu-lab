@@ -1,0 +1,3896 @@
+{
+  "schema": "ghu-user-guides-v1",
+  "language": "es",
+  "guides": [
+    {
+      "id": "hierarchy",
+      "title": "Jerarquía y escala de compactificación",
+      "kind": "section",
+      "host": "hierarchy",
+      "route": "s=hierarchy",
+      "video": "hierarchy",
+      "source": "src/sections/hierarchy_section.js",
+      "what": "Calcula la escala de compactificación y la masa del Higgs para un contenido SU(7), comparando la aproximación por momentos con el potencial de Fourier implementado.",
+      "steps": [
+        "Carga una fila de Table 1 y lee la opción Gauge seed.",
+        "Compara fase, masa y escala en las columnas aproximada y de potencial completo.",
+        "Cambia una multiplicidad y revisa los diagnósticos de aproximación e incertidumbre."
+      ],
+      "read": "El techo depende de la aproximación, la semilla gauge, el acoplamiento y la ventana de masa. Certificar un potencial implementado no resuelve la discrepancia física con las fases publicadas.",
+      "purpose": "Permite seguir cómo el contenido de materia modifica el potencial y la escala de la dimensión extra. Una fase pequeña no nula puede corresponder a una escala grande; hay que comprobar que sea el vacío pertinente.",
+      "controls": [
+        {
+          "name": "Bulk multiplicities",
+          "meaning": "Ocho multiplicidades enteras de representación y paridad.",
+          "try": "Modifica una sola copia de una fila de referencia."
+        },
+        {
+          "name": "Gauge seed",
+          "meaning": "Selecciona los pesos publicados o la descomposición candidata; cambia el potencial.",
+          "try": "Conserva la semilla en toda comparación."
+        },
+        {
+          "name": "Robustness: g₄ / winding cutoff",
+          "meaning": "El acoplamiento define un escenario físico; el corte controla la truncación numérica.",
+          "try": "Varía primero el corte con los parámetros físicos fijos."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Fase, masa y escala",
+          "meaning": "Comprueba el potencial, la normalización y las unidades GeV o TeV de cada columna."
+        },
+        {
+          "name": "Techo e incertidumbre",
+          "meaning": "Separa cotas numéricas, incertidumbre de mW, escenarios de acoplamiento y efectos físicos sin cuantificar. ATLAS y CMS son comparaciones distintas."
+        }
+      ],
+      "example": {
+        "title": "Separar dos errores",
+        "steps": [
+          "Carga una fila manteniendo la semilla.",
+          "Compara momentos y Fourier.",
+          "Aumenta el corte de Fourier sin cambiar g₄."
+        ],
+        "expect": "La convergencia de la suma no elimina el error de aproximación ni decide el determinante gauge físico."
+      },
+      "formulas": [
+        {
+          "expression": "1/R₅ = 2 m_W / α",
+          "meaning": "Conversión de escala en esta convención SU(7), para fase no nula. El factor no se traslada automáticamente a otras variables de fase."
+        }
+      ],
+      "limits": [
+        "La elección física del determinante gauge sigue pendiente de reconciliación bibliográfica; las ocho tablas fermiónicas no la resuelven.",
+        "La aproximación de ángulo pequeño tiene un dominio de validez.",
+        "La cota de la cola de Fourier no cuantifica lazos superiores ni proporciona un intervalo de confianza físico completo."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "Falta la escala o dos masas difieren.",
+          "action": "Comprueba fase nula, potencial plano, semilla, acoplamiento, anclaje de mW y aproximación. Un valor no definido no debe sustituirse por cero."
+        }
+      ],
+      "terms": [
+        "wilson-line",
+        "bulk-content",
+        "moments",
+        "ceiling"
+      ],
+      "related": [
+        "inverse",
+        "samepot",
+        "screen"
+      ],
+      "references": [
+        {
+          "label": "SU(7) certification dossier: formula attribution and unresolved physical scope",
+          "url": "https://karlesmarin.github.io/ghu-explorer/docs/su7-certification.html"
+        },
+        {
+          "label": "Part VII: model conventions and current record",
+          "url": "https://karlesmarin.github.io/ghu-explorer/papers/part-vii/index.html"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/hierarchy_section.js"
+        }
+      ]
+    },
+    {
+      "id": "inverse",
+      "title": "Diseñar una escala",
+      "kind": "section",
+      "host": "inverse",
+      "route": "s=inverse",
+      "video": "inverse",
+      "source": "src/sections/inverse_section.js",
+      "what": "Busca contenidos enteros de materia compatibles con una escala objetivo y una ventana de masa del Higgs, bajo la reducción por momentos SU(7).",
+      "steps": [
+        "Selecciona semilla, escala objetivo y ventana de masa con sus unidades.",
+        "Ejecuta Design o examina un peldaño concreto.",
+        "Lee el motivo del resultado y carga un contenido encontrado en Hierarchy."
+      ],
+      "read": "Una solución aritmética necesita comprobación del potencial y del vacío. Un resultado budget deja la búsqueda sin decidir; no demuestra imposibilidad.",
+      "purpose": "Muestra por qué un objetivo continuo no implica una familia continua de teorías: las multiplicidades permitidas son enteras y pueden dejar huecos certificables.",
+      "controls": [
+        {
+          "name": "Target 1/R₅ / Higgs-mass window",
+          "meaning": "Región solicitada; son hipótesis de diseño, no restricciones experimentales automáticas.",
+          "try": "Cambia ligeramente el objetivo."
+        },
+        {
+          "name": "Rung / lattice-point probe",
+          "meaning": "Aísla un peldaño o punto de la red.",
+          "try": "Compara un punto aceptado y su vecino rechazado."
+        },
+        {
+          "name": "Require W > 0 / Load into the model",
+          "meaning": "El primero es un filtro preliminar; el segundo transfiere el contenido encontrado.",
+          "try": "Después de cargarlo, verifica el potencial completo."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "floor, cone, congruence, dual, exhaustion",
+          "meaning": "Motivos distintos de imposibilidad del problema aritmético especificado; lee el certificado asociado."
+        },
+        {
+          "name": "budget y grupos de puntos",
+          "meaning": "budget indica trabajo incompleto. Despliega los puntos de un grupo antes de interpretarlo como intervalo continuo."
+        }
+      ],
+      "example": {
+        "title": "Del diseño al vacío",
+        "steps": [
+          "Ejecuta el objetivo inicial.",
+          "Carga una solución si existe.",
+          "Comprueba su potencial completo con la misma semilla."
+        ],
+        "expect": "Encontrar un punto de la red y establecer un vacío adecuado son preguntas sucesivas."
+      },
+      "limits": [
+        "Las cotas heredan semilla, acoplamiento, ventana y reducción aritmética.",
+        "Un filtro positivo no certifica el mínimo global ni la viabilidad experimental.",
+        "Una búsqueda agotada por presupuesto no aporta un certificado de inexistencia."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "Aparece budget o el objetivo cae entre puntos.",
+          "action": "Reduce la región, examina un peldaño y lee los huecos certificados. Mantén sin decidir los casos incompletos."
+        }
+      ],
+      "terms": [
+        "reachable-set",
+        "certificate",
+        "rung"
+      ],
+      "related": [
+        "hierarchy",
+        "census",
+        "screen"
+      ],
+      "references": [
+        {
+          "label": "Part VIII: inverse design and arithmetic certificates",
+          "url": "https://karlesmarin.github.io/ghu-explorer/papers/part-viii/index.html"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/inverse_section.js"
+        }
+      ]
+    },
+    {
+      "id": "census",
+      "title": "Contar un peldaño",
+      "kind": "section",
+      "host": "census",
+      "route": "s=census",
+      "video": "census",
+      "source": "src/sections/census_section.js",
+      "what": "Cuenta contenidos SU(7) compatibles con coordenadas de momentos seleccionadas sin enumerarlos individualmente.",
+      "steps": [
+        "Espera a que termine la tabla inicial y comprueba semilla y rango.",
+        "Mueve la sonda A₄ y compara los peldaños.",
+        "Amplía el rango únicamente si necesitas esa región."
+      ],
+      "read": "Se cuentan contenidos de entrada en una fibra aritmética, no teorías físicamente inequivalentes ni vacíos aceptables. Las enumeraciones archivadas comprueban casos concretos.",
+      "purpose": "Sirve para explorar multiplicidades combinatorias grandes. Varios contenidos pueden compartir potencial o fallar comprobaciones físicas posteriores.",
+      "controls": [
+        {
+          "name": "Gauge seed",
+          "meaning": "Cambia la red admisible; la candidata tiene peldaños pares y coordenadas A₄ semienteras.",
+          "try": "Lee de nuevo los ejes al cambiarla."
+        },
+        {
+          "name": "A₄ / Extended range",
+          "meaning": "Elige la coordenada y el tamaño de la tabla; ampliar consume más memoria.",
+          "try": "Empieza por el rango ordinario."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Counts by rung",
+          "meaning": "Número de contenidos enteros no negativos en las condiciones indicadas."
+        },
+        {
+          "name": "Gráfica y referencias archivadas",
+          "meaning": "Las cantidades son conteos, no probabilidades; los totales de referencia validan casos aritméticos determinados."
+        }
+      ],
+      "example": {
+        "title": "Comparar coordenadas vecinas",
+        "steps": [
+          "Selecciona un punto con varios contenidos.",
+          "Anota peldaño y A₄.",
+          "Avanza una coordenada y compara el conteo."
+        ],
+        "expect": "El número cambia de forma discreta y depende de las condiciones impuestas."
+      },
+      "limits": [
+        "La fibra de masa registrada para la semilla publicada no se traslada automáticamente a la candidata.",
+        "No se imponen aquí todas las condiciones fenomenológicas, de anomalías o de vacío.",
+        "Contar contenidos y contar clases de equivalencia son tareas distintas."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "La tabla ampliada resulta lenta.",
+          "action": "Vuelve al rango ordinario. Un límite de recursos no equivale a un conteo nulo."
+        }
+      ],
+      "terms": [
+        "rung",
+        "vector-partition-function",
+        "fibre"
+      ],
+      "related": [
+        "inverse",
+        "samepot",
+        "atlas7"
+      ],
+      "references": [
+        {
+          "label": "Part VIII: counting and the inverse problem",
+          "url": "https://karlesmarin.github.io/ghu-explorer/papers/part-viii/index.html"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/census_section.js"
+        }
+      ]
+    },
+    {
+      "id": "atlas7",
+      "title": "Atlas visual de contenidos SU(7)",
+      "kind": "section",
+      "host": "atlas7",
+      "route": "s=atlas7",
+      "video": "atlas7",
+      "source": "src/sections/atlas_section.js",
+      "what": "Explora los 1.286 contenidos SU(7) admitidos con hasta cinco multipletes y carga un ejemplo para estudiarlo en detalle.",
+      "steps": [
+        "Pulsa Draw the whole lattice y espera a que termine.",
+        "Lee semilla y leyenda de colores.",
+        "Selecciona una tesela y usa Load into the model."
+      ],
+      "read": "Cada tesela representa un contenido de un catálogo finito. Un color favorable no certifica un modelo completo; un potencial plano es un resultado del cálculo.",
+      "purpose": "Ofrece una entrada visual para elegir multiplicidades sin empezar desde cero. Después puedes seguir el mismo contenido en jerarquía, anomalías y comparaciones bibliográficas.",
+      "controls": [
+        {
+          "name": "Draw the whole lattice",
+          "meaning": "Calcula el catálogo finito.",
+          "try": "No interpretes una ejecución incompleta como el conjunto entero."
+        },
+        {
+          "name": "Tile / Load into the model",
+          "meaning": "Selecciona y transfiere las multiplicidades al modelo SU(7) compartido.",
+          "try": "Comprueba esas multiplicidades en Hierarchy."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Teselas y veredicto",
+          "meaning": "Resumen de forma del potencial y ventana de masa bajo las convenciones indicadas."
+        },
+        {
+          "name": "Flat potentials",
+          "meaning": "No hay preferencia dependiente de la fase al orden mostrado; no se deduce un vacío roto único."
+        }
+      ],
+      "example": {
+        "title": "Seguir una tesela",
+        "steps": [
+          "Dibuja el atlas.",
+          "Selecciona un contenido de referencia.",
+          "Cárgalo y revisa su potencial e incertidumbre en Hierarchy."
+        ],
+        "expect": "La miniatura conduce al cálculo detallado del mismo contenido."
+      },
+      "limits": [
+        "El catálogo termina en cinco multipletes.",
+        "No certifica cancelación de anomalías, estructura completa de sabores ni viabilidad experimental.",
+        "Se mantienen las cautelas de normalización y discrepancia bibliográfica SU(7)."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "Una tesela parece vacía o el resultado cargado difiere.",
+          "action": "Comprueba si el potencial es plano y compara semilla, multiplicidades, acoplamiento y aproximación."
+        }
+      ],
+      "terms": [
+        "bulk-content",
+        "one-loop-potential",
+        "zero-mode"
+      ],
+      "related": [
+        "hierarchy",
+        "samepot",
+        "census"
+      ],
+      "references": [
+        {
+          "label": "Part VII: SU(7) potential and finite catalogue",
+          "url": "https://karlesmarin.github.io/ghu-explorer/papers/part-vii/index.html"
+        },
+        {
+          "label": "Certification and source-discrepancy scope",
+          "url": "https://karlesmarin.github.io/ghu-explorer/docs/su7-certification.html"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/atlas_section.js"
+        }
+      ]
+    },
+    {
+      "id": "samepot",
+      "title": "¿El mismo potencial?",
+      "kind": "section",
+      "host": "samepot",
+      "route": "s=samepot",
+      "video": "samepot",
+      "source": "src/sections/samepot_section.js",
+      "what": "Compara dos contenidos SU(7) y distingue la igualdad del potencial completo de la coincidencia de unos pocos momentos.",
+      "steps": [
+        "Copia el contenido compartido A en B.",
+        "Aplica una relación del núcleo o modifica B.",
+        "Compara las coordenadas del potencial, los momentos y el espectro."
+      ],
+      "read": "Tener el mismo potencial no implica tener el mismo contenido de partículas. La coincidencia de momentos de orden bajo es una condición más débil.",
+      "purpose": "Ayuda a precisar qué información conserva cada descripción del modelo y cuál pierde al agrupar contenidos.",
+      "controls": [
+        {
+          "name": "Content A / B",
+          "meaning": "Dos contenidos con la convención común indicada.",
+          "try": "Empieza con una copia exacta."
+        },
+        {
+          "name": "Kernel relations",
+          "meaning": "Desplazamientos que preservan las coordenadas del potencial dentro del dominio admisible.",
+          "try": "Aplica uno y conserva multiplicidades no negativas."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Coordenadas y diferencias",
+          "meaning": "Indican qué invariantes coinciden y qué contribuciones cambian."
+        },
+        {
+          "name": "Potencial y espectro",
+          "meaning": "Permiten comprobar que igualdad del potencial e identidad del modelo no son sinónimos."
+        }
+      ],
+      "example": {
+        "title": "Cambiar contenido conservando el potencial",
+        "steps": [
+          "Copia A en B.",
+          "Aplica una relación admisible.",
+          "Compara las curvas y las tablas de contenido."
+        ],
+        "expect": "Pueden coincidir las curvas mientras cambia información que el potencial no distingue."
+      },
+      "limits": [
+        "Las relaciones se refieren al potencial implementado y sus convenciones.",
+        "Igualdad de momentos no demuestra igualdad funcional.",
+        "No se certifica equivalencia física completa a partir de estas coordenadas."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "Coinciden momentos pero difieren las curvas.",
+          "action": "Revisa las coordenadas del potencial completo: los momentos seleccionados no contienen toda su información."
+        }
+      ],
+      "terms": [
+        "same-potential",
+        "canonical-representative",
+        "moments"
+      ],
+      "related": [
+        "hierarchy",
+        "census",
+        "screen"
+      ],
+      "references": [
+        {
+          "label": "Part VII: potential coordinates and kernel relations",
+          "url": "https://karlesmarin.github.io/ghu-explorer/papers/part-vii/index.html"
+        },
+        {
+          "label": "Moment diagnostics and theorem scope",
+          "url": "https://karlesmarin.github.io/ghu-explorer/docs/su7-certification.html"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/samepot_section.js"
+        }
+      ]
+    },
+    {
+      "id": "anomalies",
+      "title": "Anomalías SU(7)",
+      "kind": "section",
+      "host": "anomalies",
+      "route": "s=anomalies",
+      "video": "anomalies",
+      "source": "src/sections/anomalies_section.js",
+      "what": "Descompone las contribuciones de anomalía del contenido SU(7) y las relaciona con los canales y completaciones de frontera examinados.",
+      "steps": [
+        "Carga un contenido de referencia en Hierarchy.",
+        "Lee las barras con signo y todos los canales.",
+        "Compara la contribución de frontera necesaria en Escape."
+      ],
+      "read": "Un subtotal del bulk y el balance completo con campos de frontera responden a preguntas distintas. Cancelar una combinación no cancela automáticamente todos los canales.",
+      "purpose": "Permite rastrear una suma de anomalías hasta cada multiplete y leer su normalización en octavos.",
+      "controls": [
+        {
+          "name": "Contenido SU(7) compartido",
+          "meaning": "Determina las contribuciones mostradas.",
+          "try": "Cambia una multiplicidad en Hierarchy y vuelve."
+        },
+        {
+          "name": "RS anomaly flow",
+          "meaning": "Experimento de otro modelo con factores UV e IR.",
+          "try": "Abre su guía específica antes de compararlo."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Barras y seis canales",
+          "meaning": "Contribuciones con signo y condiciones independientes de cancelación."
+        },
+        {
+          "name": "Peldaños y coste de frontera",
+          "meaning": "Conectan la aritmética del contenido con las asignaciones de materia consideradas."
+        }
+      ],
+      "example": {
+        "title": "Rastrear una contribución",
+        "steps": [
+          "Anota el total de una fila publicada.",
+          "Cambia una copia de materia.",
+          "Identifica las barras y canales que cambian."
+        ],
+        "expect": "El balance puede explicarse con contribuciones concretas, no solo por el color del resultado."
+      },
+      "limits": [
+        "El subtotal del bulk no incluye todas las completaciones posibles.",
+        "Cancelar anomalías no calcula la vida del protón.",
+        "El experimento RS es un modelo separado, no una corrección de esta tabla SU(7)."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "Un canal no nulo parece contradecir una completación.",
+          "action": "Comprueba qué campos incluye cada tabla y compara bulk más frontera con signos y normalización comunes."
+        }
+      ],
+      "terms": [
+        "bill-in-eighths",
+        "anomaly-channel",
+        "rung",
+        "brane"
+      ],
+      "related": [
+        "escape",
+        "multiplets",
+        "rsanomaly"
+      ],
+      "references": [
+        {
+          "label": "Part VI: anomaly and boundary-matter construction",
+          "url": "https://karlesmarin.github.io/ghu-explorer/papers/part-vi/index.html"
+        },
+        {
+          "label": "Part VII: seed-dependent arithmetic",
+          "url": "https://karlesmarin.github.io/ghu-explorer/papers/part-vii/index.html"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/anomalies_section.js"
+        }
+      ]
+    },
+    {
+      "id": "escape",
+      "title": "Asignaciones de frontera y protección del protón",
+      "kind": "section",
+      "host": "escape",
+      "route": "s=escape",
+      "video": "escape",
+      "source": "src/sections/escape_section.js",
+      "what": "Construye las asignaciones de frontera SU(7) admitidas y comprueba por separado anomalías y reglas de selección de operadores.",
+      "steps": [
+        "Carga una de las asignaciones listadas.",
+        "Modifica un peldaño, X_Q o q_φ.",
+        "Lee todos los canales y después los operadores permitidos y el grupo residual."
+      ],
+      "read": "Cancelación y protección son pruebas distintas dentro de esta familia. Un patrón de operadores protegido no proporciona una vida media del protón.",
+      "purpose": "Hace explícitas las cargas con las que una completación puede cancelar el bulk y restringir operadores peligrosos.",
+      "controls": [
+        {
+          "name": "Rung choices / rung cube",
+          "meaning": "Seleccionan y visualizan la asignación en la red de cargas.",
+          "try": "Empieza con una de las veinte asignaciones listadas."
+        },
+        {
+          "name": "X_Q / q_φ",
+          "meaning": "Cargas que intervienen en anomalías y reglas de selección.",
+          "try": "Conserva la convención racional exacta al editarlas."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Seis canales",
+          "meaning": "Contribuciones racionales que deben revisarse individualmente."
+        },
+        {
+          "name": "Regla de selección y grupo residual",
+          "meaning": "Indican qué operadores admitidos permite o prohíbe la asignación."
+        }
+      ],
+      "example": {
+        "title": "Separar cancelación y protección",
+        "steps": [
+          "Anota ambos resultados para una asignación.",
+          "Cambia una carga.",
+          "Identifica el canal u operador afectado."
+        ],
+        "expect": "Un cambio puede afectar de forma distinta a las dos condiciones."
+      },
+      "limits": [
+        "La enumeración cubre la familia implementada, no todas las completaciones.",
+        "No se evalúan tasas de desintegración, elementos de matriz hadrónicos ni una verosimilitud experimental de vida media.",
+        "Un modelo completo exige otras comprobaciones de materia e interacciones."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "Se cancelan anomalías pero cambia la protección.",
+          "action": "Lee la regla de selección aparte: las condiciones de anomalía no determinan todas las interacciones permitidas."
+        }
+      ],
+      "terms": [
+        "brane",
+        "anomaly-channel",
+        "selection-rule",
+        "rung-cube"
+      ],
+      "related": [
+        "anomalies",
+        "multiplets"
+      ],
+      "references": [
+        {
+          "label": "Part VI: boundary assignments and operator protection",
+          "url": "https://karlesmarin.github.io/ghu-explorer/papers/part-vi/index.html"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/escape_section.js"
+        }
+      ]
+    },
+    {
+      "id": "multiplets",
+      "title": "Multipletes y paridades",
+      "kind": "section",
+      "host": "multiplets",
+      "route": "s=multiplets",
+      "video": "multiplets",
+      "source": "src/sections/multiplets_section.js",
+      "what": "Inspecciona la descomposición de representaciones SU(7), sus paridades, modos cero y contribuciones al potencial.",
+      "steps": [
+        "Selecciona una representación admitida.",
+        "Lee conjuntamente el cubo de signos y la tabla de componentes.",
+        "Compara los coeficientes fermiónicos derivados con la referencia."
+      ],
+      "read": "Reconstruir las tablas fermiónicas comprueba esa parte del potencial. No determina por sí solo el determinante gauge físico.",
+      "purpose": "Relaciona los nombres del editor de materia con las componentes que sobreviven a las fronteras. El cubo organiza los signos; la tabla contiene multiplicidades y coeficientes.",
+      "controls": [
+        {
+          "name": "Representation selector",
+          "meaning": "Elige la representación cuya descomposición se muestra.",
+          "try": "Compara la fundamental con una tensorial."
+        },
+        {
+          "name": "Parities / intrinsic signs",
+          "meaning": "Fijan las transformaciones de frontera y los signos de Fourier.",
+          "try": "Cambia un signo y sigue una componente."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Componentes y modos cero",
+          "meaning": "Muestran qué componentes permite la proyección antes de masas adicionales."
+        },
+        {
+          "name": "Derived term table",
+          "meaning": "Compara los coeficientes reconstruidos con los de referencia."
+        }
+      ],
+      "example": {
+        "title": "Seguir un signo",
+        "steps": [
+          "Escoge la fundamental.",
+          "Anota las paridades de una componente.",
+          "Cambia un signo intrínseco y compara las tablas."
+        ],
+        "expect": "Puedes rastrear qué condición modifica un modo o un término del potencial."
+      },
+      "formulas": [
+        {
+          "expression": "s = η η′ P₅ P′₅",
+          "meaning": "Producto de signos de esta convención del potencial. Las definiciones de signos intrínsecos y de componentes aparecen en el panel."
+        }
+      ],
+      "limits": [
+        "Solo se cubren las representaciones y convenciones admitidas.",
+        "Interacciones adicionales pueden dar masa a un modo permitido por la frontera.",
+        "Las ocho tablas fermiónicas y la cuestión del sector gauge tienen estados de evidencia diferentes."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "Existe una componente pero no un modo cero.",
+          "action": "Revisa ambas paridades: pertenecer a la representación no basta para sobrevivir a la proyección."
+        }
+      ],
+      "terms": [
+        "parities",
+        "zero-mode",
+        "bulk-content"
+      ],
+      "related": [
+        "hierarchy",
+        "anomalies",
+        "screen"
+      ],
+      "references": [
+        {
+          "label": "Formula attribution and fermion-table reconstruction",
+          "url": "https://karlesmarin.github.io/ghu-explorer/docs/su7-certification.html"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/multiplets_section.js"
+        }
+      ]
+    },
+    {
+      "id": "screen",
+      "title": "Comprobar una tabla",
+      "kind": "section",
+      "host": "screen",
+      "route": "s=screen",
+      "video": "screen",
+      "source": "src/sections/screen_section.js",
+      "what": "Aplica filtros aritméticos a una fila SU(7) y permite consultar certificados condicionales y comprobaciones de vacíos del potencial completo.",
+      "steps": [
+        "Introduce los observables de la fila con sus unidades.",
+        "Lee la ley módulo 6, el invariante K y la estructura discreta.",
+        "Abre las cotas de peldaños y compara los testigos de Fourier completo."
+      ],
+      "read": "Las cotas por intervalos del relajamiento de momentos no certifican un techo universal del potencial completo. Un testigo estacionario puede tener un vacío competidor más profundo.",
+      "purpose": "Detecta incompatibilidades del modelo reducido antes de una búsqueda extensa y permite guardar la evidencia con sus hipótesis.",
+      "controls": [
+        {
+          "name": "Row inputs",
+          "meaning": "Observables o cantidades aritméticas de la fila.",
+          "try": "Conserva redondeo y unidades de la fuente."
+        },
+        {
+          "name": "Seed / coupling / mass window",
+          "meaning": "Condiciones de los filtros y cotas.",
+          "try": "Anótalas antes de comparar techos."
+        },
+        {
+          "name": "Save certificate",
+          "meaning": "Descarga evidencia y supuestos en JSON.",
+          "try": "Guarda el certificado junto al resultado."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Leyes aritméticas y K",
+          "meaning": "Un filtro superado deja abiertas las comprobaciones posteriores."
+        },
+        {
+          "name": "KK comb",
+          "meaning": "La separación indicada corresponde a masa al cuadrado, no a masas equidistantes."
+        },
+        {
+          "name": "Evidencia formal y numérica",
+          "meaning": "Distingue álgebra exacta, diez potenciales fijos certificados, techos condicionales y testigos numéricos."
+        }
+      ],
+      "example": {
+        "title": "Leer el alcance de un certificado",
+        "steps": [
+          "Carga una fila archivada.",
+          "Anota las hipótesis de su cota.",
+          "Compara un testigo con otro que tenga un vacío competidor."
+        ],
+        "expect": "Estacionariedad, mínimo global y techo de una aproximación son afirmaciones diferentes."
+      },
+      "limits": [
+        "Los testigos numéricos no establecen optimalidad exhaustiva.",
+        "Certificar el potencial implementado no resuelve la elección gauge física.",
+        "Un certificado no establece novedad científica por sí solo."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "Una fila publicada falla o un testigo pierde frente a otro vacío.",
+          "action": "Revisa unidades, redondeo y semilla. Conserva la afirmación demostrada y retira únicamente la conclusión que la comparación no sostiene."
+        }
+      ],
+      "terms": [
+        "k-invariant",
+        "comb",
+        "certificate",
+        "ceiling"
+      ],
+      "related": [
+        "hierarchy",
+        "inverse",
+        "multiplets"
+      ],
+      "references": [
+        {
+          "label": "English certification dossier: assumptions, authorship and downloadable evidence",
+          "url": "https://karlesmarin.github.io/ghu-explorer/docs/su7-certification.html"
+        },
+        {
+          "label": "Part VII: row consistency and scale arithmetic",
+          "url": "https://karlesmarin.github.io/ghu-explorer/papers/part-vii/index.html"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/screen_section.js"
+        }
+      ]
+    },
+    {
+      "id": "collider",
+      "title": "Comparaciones con colisionadores",
+      "kind": "section",
+      "host": "collider",
+      "route": "s=collider",
+      "video": "collider",
+      "source": "src/sections/collider_section.js",
+      "what": "Relaciona el estado de color del modelo con una búsqueda de dijets y ofrece un experimento separado de tasas y anchuras del Higgs.",
+      "steps": [
+        "Lee la identidad, masa, anchura y localización del colorón.",
+        "Explora la figura en masa dijet y variable angular.",
+        "Cambia 1/R₅ y consulta las fuentes; usa la guía HiggsTools para el escenario escalar."
+      ],
+      "read": "Los Δχ² de dijets proceden del análisis archivado. Almacenar nuevos datos no ejecuta un nuevo ajuste. Los 159 observables de HiggsSignals no son automáticamente 159 grados de libertad independientes.",
+      "purpose": "Evita trasladar un límite entre hipótesis de partículas diferentes sin comprobar producción, desintegraciones y aceptación.",
+      "controls": [
+        {
+          "name": "1/R₅",
+          "meaning": "Escala del modelo para la comparación de color.",
+          "try": "Sigue una razón en un intervalo identificado."
+        },
+        {
+          "name": "Dijet relief / Higgs-rates shortcut",
+          "meaning": "El primero muestra la distorsión en las variables medidas; el segundo abre otro escenario de acoplamientos y anchuras.",
+          "try": "Lee los ejes y empieza el escenario Higgs por la referencia SM."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Masa, anchura y acoplamiento del colorón",
+          "meaning": "Dependen de la localización y de la hipótesis de sector de color."
+        },
+        {
+          "name": "Razones, recast y datos CMS",
+          "meaning": "Siete distribuciones y 77 intervalos tienen procedencia registrada; la tabla de correlaciones de intensidades ajustadas no es una covarianza del espectro desplegado."
+        }
+      ],
+      "example": {
+        "title": "Conservar la hipótesis experimental",
+        "steps": [
+          "Anota la hipótesis de partícula.",
+          "Cambia la escala y sigue una razón.",
+          "Distingue el recast archivado de los nuevos datos de referencia."
+        ],
+        "expect": "Cada número conserva la procedencia del análisis y no se convierte en una exclusión general GHU."
+      },
+      "limits": [
+        "Producción, desintegraciones y aceptación deben ser compatibles para reutilizar un límite.",
+        "Los datos almacenados no se han combinado en una nueva verosimilitud GHU.",
+        "El escenario Higgs conserva sus propios acoplamientos y anchuras supuestos."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "Dos límites difieren mucho o falta el resultado Higgs.",
+          "action": "Compara hipótesis y análisis. Un cálculo externo solo sirve para sus parámetros coincidentes; restaura la referencia o importa un resultado compatible."
+        }
+      ],
+      "terms": [
+        "coloron",
+        "recast",
+        "against-the-data"
+      ],
+      "related": [
+        "higgstools",
+        "simulator-builder",
+        "screen"
+      ],
+      "references": [
+        {
+          "label": "Part VII: model-to-collider comparison and its assumptions",
+          "url": "https://karlesmarin.github.io/ghu-explorer/papers/part-vii/index.html"
+        },
+        {
+          "label": "Experimental reference and ingestion scope",
+          "url": "https://karlesmarin.github.io/ghu-explorer/docs/su7-certification.html"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/collider_section.js"
+        }
+      ]
+    },
+    {
+      "id": "selection",
+      "title": "Reglas de selección SU(4)",
+      "kind": "section",
+      "host": "selection",
+      "route": "s=selection",
+      "video": "selection",
+      "source": "src/sections/selection_section.js",
+      "what": "Comprueba las condiciones admitidas de representación, dominio de Wilson y proyección quiral para una generación de quarks en SU(4).",
+      "steps": [
+        "Elige las etiquetas de Dynkin (a, b, c).",
+        "Lee la carga del centro y el dominio permitido.",
+        "Comprueba las tres condiciones antes de interpretar el conteo."
+      ],
+      "read": "El conteo requiere la proyección y las condiciones de encaje indicadas. Los hechos clásicos sobre el centro y el cálculo quiral de la serie conservan atribuciones distintas.",
+      "purpose": "Permite saber qué representaciones pasan estas condiciones previas sin confundirlas con la construcción completa de masas e interacciones.",
+      "controls": [
+        {
+          "name": "a, b, c",
+          "meaning": "Enteros no negativos que identifican una representación, no acoplamientos continuos.",
+          "try": "Cambia una etiqueta de un ejemplo del catálogo."
+        },
+        {
+          "name": "Test the rule on every representation",
+          "meaning": "Comprueba el catálogo finito mostrado.",
+          "try": "Anota también el rango examinado."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Condiciones y dominio",
+          "meaning": "Especifican cuándo es válida la selección y la reducción del dominio de búsqueda."
+        },
+        {
+          "name": "Conteo quiral",
+          "meaning": "Se interpreta únicamente bajo las tres condiciones indicadas; N aquí no es el parámetro del grupo SU(4)."
+        }
+      ],
+      "example": {
+        "title": "Identificar una condición necesaria",
+        "steps": [
+          "Elige una representación que pase.",
+          "Cambia una etiqueta.",
+          "Lee qué condición cambia."
+        ],
+        "expect": "Puedes justificar la aceptación o el rechazo con una condición concreta."
+      },
+      "formulas": [
+        {
+          "expression": "N = (b + 1)(a + c + 1) / 2",
+          "meaning": "Conteo bajo las tres condiciones de encaje y la proyección quiral del panel. N designa aquí el conteo, no el rango del grupo gauge."
+        }
+      ],
+      "limits": [
+        "No es un criterio universal para todos los modelos GHU.",
+        "El catálogo finito no sustituye las hipótesis de la demostración.",
+        "La selección no resuelve masas, interacciones ni completación de anomalías."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "El conteo parece válido pero falla una condición.",
+          "action": "No uses la fórmula fuera de las tres hipótesis; revisa también la proyección y el contenido compartido."
+        }
+      ],
+      "terms": [
+        "selection-rule",
+        "parities",
+        "chiral"
+      ],
+      "related": [
+        "calculator",
+        "eta"
+      ],
+      "references": [
+        {
+          "label": "Part II: embedding and chiral projection",
+          "url": "https://karlesmarin.github.io/ghu-explorer/papers/part-ii/index.html"
+        },
+        {
+          "label": "Part III: Wilson-domain selection",
+          "url": "https://karlesmarin.github.io/ghu-explorer/papers/part-iii/index.html"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/selection_section.js"
+        }
+      ]
+    },
+    {
+      "id": "calculator",
+      "title": "Calculadora del potencial SU(4)",
+      "kind": "section",
+      "host": "calculator",
+      "route": "s=calculator",
+      "video": "calculator",
+      "source": "src/sections/calculator_section.js",
+      "what": "Evalúa el potencial SU(4) a un lazo, localiza su vacío y calcula la curvatura asociada al Higgs para el contenido seleccionado.",
+      "steps": [
+        "Carga Load AHMN.",
+        "Lee multiplicidades, signos y funciones de materia o gauge.",
+        "Anota el vacío y el indicador de reproducción antes de cambiar una entrada."
+      ],
+      "read": "Las razones de masas eliminan alguna dependencia de normalización, pero conservan hipótesis del modelo, del vacío y de la aproximación. El indicador comprueba una referencia concreta.",
+      "purpose": "Sirve para explorar la respuesta del potencial a representaciones y signos de frontera, utilizando la referencia como punto de partida verificable.",
+      "controls": [
+        {
+          "name": "Load AHMN / clear",
+          "meaning": "Restaura la referencia o vacía el contenido editable.",
+          "try": "Guarda el estado inicial antes de borrar."
+        },
+        {
+          "name": "Multiplicities / η / matter-gauge role",
+          "meaning": "Definen copias, signos y convención de contribución; los conteos solos no bastan.",
+          "try": "Modifica una sola cantidad."
+        },
+        {
+          "name": "Search-domain comparison",
+          "meaning": "Compara la reducción de dominio asumida.",
+          "try": "Usa el dominio justificado por Selection rule."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Vacío y curvatura",
+          "meaning": "Pertenecen al potencial y contenido actuales."
+        },
+        {
+          "name": "Referencia, masas y razones",
+          "meaning": "La reproducción valida ese cálculo; masas absolutas requieren los datos físicos y normalización indicados."
+        }
+      ],
+      "example": {
+        "title": "Cambiar una contribución",
+        "steps": [
+          "Carga AHMN y anota el vacío.",
+          "Añade una copia admitida.",
+          "Compara el nuevo mínimo y la curvatura."
+        ],
+        "expect": "El cambio se atribuye a una entrada concreta y queda separado del ensayo de referencia."
+      },
+      "limits": [
+        "El cálculo a un lazo no incluye todas las correcciones e interacciones de frontera.",
+        "Una razón de masas no elimina todas las dependencias físicas.",
+        "El catálogo de representaciones fija el rango implementado."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "No se reproduce la referencia.",
+          "action": "Restaura Load AHMN y revisa signos, funciones de las filas y dominio antes de comparar cifras."
+        }
+      ],
+      "terms": [
+        "one-loop-potential",
+        "bulk-content",
+        "anchor",
+        "eta"
+      ],
+      "related": [
+        "selection",
+        "eta"
+      ],
+      "references": [
+        {
+          "label": "AHMN reference, arXiv:2312.08608",
+          "url": "https://arxiv.org/abs/2312.08608"
+        },
+        {
+          "label": "Part IV: SU(4) potential calculation",
+          "url": "https://karlesmarin.github.io/ghu-explorer/papers/part-iv/index.html"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/calculator_section.js"
+        }
+      ]
+    },
+    {
+      "id": "eta",
+      "title": "Sensibilidad al signo η",
+      "kind": "section",
+      "host": "eta",
+      "route": "s=eta",
+      "video": "eta",
+      "source": "src/sections/eta_section.js",
+      "what": "Compara la respuesta analítica y numérica de los multipletes SU(4) frente al cambio del signo de frontera η.",
+      "steps": [
+        "Elige un multiplete o carga AHMN.",
+        "Compara la respuesta prevista con el hessiano evaluado.",
+        "Dibuja el atlas y alterna potencial completo y diferencia η."
+      ],
+      "read": "Insensibilidad a η significa que no cambia la contribución especificada; no significa que la representación carezca de potencial o de efectos físicos.",
+      "purpose": "Permite aislar la parte que depende del signo, separándola de la contribución completa de una representación.",
+      "controls": [
+        {
+          "name": "Multiplet / Flip every η",
+          "meaning": "Selecciona el contenido y cambia sus signos conservando las multiplicidades.",
+          "try": "Compara un multiplete sensible con otro insensible."
+        },
+        {
+          "name": "Potential / η-difference",
+          "meaning": "Alterna el paisaje completo y su diferencia bajo inversión del signo.",
+          "try": "Usa ambas vistas para el mismo multiplete."
+        },
+        {
+          "name": "Atlas filters",
+          "meaning": "Filtran las teselas y permiten comparar dos contribuciones.",
+          "try": "Mantén fijo el modo de visualización."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Respuesta y hessiano",
+          "meaning": "Contrastan la predicción analítica con una evaluación directa."
+        },
+        {
+          "name": "Atlas de diferencias",
+          "meaning": "Muestra dónde interviene η sin eliminar visualmente la contribución independiente del signo."
+        }
+      ],
+      "example": {
+        "title": "Una diferencia nula no es un potencial nulo",
+        "steps": [
+          "Escoge un multiplete insensible.",
+          "Lee su diferencia η.",
+          "Vuelve al potencial completo."
+        ],
+        "expect": "Una diferencia nula puede coexistir con una contribución no nula."
+      },
+      "limits": [
+        "La afirmación depende de la proyección y del modelo SU(4).",
+        "Los ensayos numéricos conservan sus cortes y precisión.",
+        "La insensibilidad al signo no determina espectro ni viabilidad completa."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "La diferencia desaparece aunque queda una curva.",
+          "action": "Comprueba el modo seleccionado: diferencia y potencial completo son cantidades distintas."
+        }
+      ],
+      "terms": [
+        "eta",
+        "eta-blindness",
+        "one-loop-potential"
+      ],
+      "related": [
+        "calculator",
+        "selection"
+      ],
+      "references": [
+        {
+          "label": "Part V: boundary-sign response and its scope",
+          "url": "https://karlesmarin.github.io/ghu-explorer/papers/part-v/index.html"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/eta_section.js"
+        }
+      ]
+    },
+    {
+      "id": "fived",
+      "title": "Ejemplo SU(3) en cinco dimensiones",
+      "kind": "section",
+      "host": "fived",
+      "route": "s=fived",
+      "video": "fived",
+      "source": "src/sections/fived_section.js",
+      "what": "Evalúa el ejemplo SU(3) de Haba–Yamashita implementado y compara potencial, vacío localizado y espectro Kaluza–Klein.",
+      "steps": [
+        "Carga la fila archivada e identifica los seis conteos de materia.",
+        "Compara potencial, mínimo y aproximación disponible.",
+        "Explora pure gauge, marginal trio y blind step conservando las convenciones 5D."
+      ],
+      "read": "La aritmética de peldaños pares y la normalización de fase de este modelo 5D no se sustituyen por las del modelo SU(7) en 6D.",
+      "purpose": "Ofrece un ejemplo concreto para entender el efecto de fermiones adjuntos, fundamentales y escalares con diferentes productos de paridad.",
+      "controls": [
+        {
+          "name": "Adjoint / fundamental fermions ±",
+          "meaning": "Copias Dirac de los sectores de producto de paridad indicados.",
+          "try": "Modifica una copia de la referencia."
+        },
+        {
+          "name": "Fundamental scalars ±",
+          "meaning": "Escalares complejos con grados de libertad y signos distintos de los fermiones.",
+          "try": "Examina la combinación que cancela blind step."
+        },
+        {
+          "name": "Archived row / pure gauge / marginal trio",
+          "meaning": "Referencias y ejemplos estructurales concretos.",
+          "try": "Compara potencial y momentos entre dos ejemplos."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Vacío y potencial",
+          "meaning": "La localización numérica y la aproximación responden a procedimientos distintos."
+        },
+        {
+          "name": "Espectro KK",
+          "meaning": "Se evalúa con la fase y normalización de esta familia SU(3)."
+        }
+      ],
+      "example": {
+        "title": "Comparar materia y gauge puro",
+        "steps": [
+          "Carga pure gauge.",
+          "Anota la forma del potencial.",
+          "Carga marginal trio y compara."
+        ],
+        "expect": "El contenido modifica la estructura bajo la misma convención 5D."
+      },
+      "limits": [
+        "Se cubren la familia SU(3) y los sectores de materia admitidos.",
+        "Las convenciones difieren de SU(7).",
+        "Un vacío y espectro a un lazo no completan la fenomenología."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "Una escala no coincide con SU(7).",
+          "action": "Compara dimensiones, variable de fase, normalización y materia antes de trasladar fórmulas entre modelos."
+        }
+      ],
+      "terms": [
+        "bulk-content",
+        "alpha-min",
+        "kk-tower",
+        "anchor"
+      ],
+      "related": [
+        "sun5d",
+        "spectrum5d"
+      ],
+      "references": [
+        {
+          "label": "Model conventions and literature links",
+          "url": "https://karlesmarin.github.io/ghu-explorer/docs/index.html"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/fived_section.js"
+        }
+      ]
+    },
+    {
+      "id": "sun5d",
+      "title": "Constructor de modelos SU(N) en 5D",
+      "kind": "section",
+      "host": "sun5d",
+      "route": "s=sun5d",
+      "video": "sun5d",
+      "source": "src/sections/sun5d_section.js",
+      "what": "Construye un modelo SU(N) admitido sobre S¹/Z₂ con bloques de frontera y materia del bulk, y examina su potencial a un lazo.",
+      "steps": [
+        "Empieza por un preset y lee los cuatro bloques.",
+        "Añade representaciones, producto de paridades y copias.",
+        "Comprueba grupo, fases de Wilson y vacío.",
+        "Continúa por espectro, anomalías, materia de frontera y Simulator."
+      ],
+      "read": "El constructor cubre las familias implementadas. Una búsqueda de mínimo sin terminar permanece sin decidir; no demuestra ausencia de vacío.",
+      "purpose": "Mantiene un modelo compartido entre varias herramientas para que cada comprobación use las mismas fronteras y materia.",
+      "controls": [
+        {
+          "name": "n₊₊, n₊₋, n₋₊, n₋₋",
+          "meaning": "Dimensiones enteras no negativas de los bloques simultáneos de paridad.",
+          "try": "Identifica los bloques no nulos del preset."
+        },
+        {
+          "name": "Bulk representation / ηη′ / multiplicity",
+          "meaning": "Especifican cada contribución admitida.",
+          "try": "Añade una copia con las fronteras fijas."
+        },
+        {
+          "name": "Presets / clear bulk / potential probe",
+          "meaning": "Cargan referencias, retiran materia o seleccionan una fase de inspección.",
+          "try": "Distingue la sonda manual del mínimo localizado."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Grupo y fases",
+          "meaning": "Se derivan de los bloques de frontera seleccionados."
+        },
+        {
+          "name": "Potencial y vacío",
+          "meaning": "Las búsquedas, aproximaciones por momentos y certificados tienen alcances distintos."
+        }
+      ],
+      "example": {
+        "title": "Recorrer el mismo modelo",
+        "steps": [
+          "Carga un preset.",
+          "Inspecciona su potencial.",
+          "Abre espectro y anomalías sin cambiar los bloques."
+        ],
+        "expect": "Las vistas responden a preguntas diferentes sobre una entrada compartida."
+      },
+      "formulas": [
+        {
+          "expression": "N = n₊₊ + n₊₋ + n₋₊ + n₋₋",
+          "meaning": "Las dimensiones de los cuatro bloques suman la dimensión de la representación definitoria de SU(N)."
+        }
+      ],
+      "limits": [
+        "No representa cualquier teoría 5D: se limitan representaciones y bloques de paridad simultáneamente diagonales.",
+        "No se añaden interacciones de brana ni cancelaciones supersimétricas por el nombre del modelo.",
+        "Un punto de sondeo no es un certificado de vacío."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "El vacío aparece sin decidir.",
+          "action": "Lee el estado de la búsqueda y la complejidad del modelo. Usa un preset sencillo para comprobar el flujo sin convertir la ausencia de respuesta en inexistencia."
+        }
+      ],
+      "terms": [
+        "boundary-condition",
+        "bulk-content",
+        "wilson-line",
+        "unbroken-group"
+      ],
+      "related": [
+        "papers",
+        "spectrum5d",
+        "anomaly5d",
+        "brane",
+        "simulator-builder"
+      ],
+      "references": [
+        {
+          "label": "Boundary conventions, normalization and literature",
+          "url": "https://karlesmarin.github.io/ghu-explorer/docs/index.html"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/sun5d_section.js"
+        }
+      ]
+    },
+    {
+      "id": "papers",
+      "title": "Modelos publicados y reproducción",
+      "kind": "section",
+      "host": "papers",
+      "route": "s=papers",
+      "video": "papers",
+      "source": "src/sections/papers_section.js",
+      "what": "Compara cuatro modelos publicados con las cantidades que el motor del laboratorio puede calcular bajo sus hipótesis.",
+      "steps": [
+        "Selecciona un modelo y lee la fuente.",
+        "Compara valor publicado, cálculo y veredicto.",
+        "Carga las entradas admitidas en el constructor.",
+        "Usa la guía Maru–Nago para su experimento SU(6) adicional."
+      ],
+      "read": "Tres referencias son supersimétricas y el potencial del motor no lo es: sus comparaciones se limitan a fronteras y modos cero admitidos. Una fila ámbar identifica una ecuación concreta.",
+      "purpose": "Facilita una comparación atribuida y localizable, sin convertir una discrepancia de una ecuación en un juicio sobre todo un paper.",
+      "controls": [
+        {
+          "name": "Model selector",
+          "meaning": "Elige una de las cuatro comparaciones archivadas.",
+          "try": "Lee inmediatamente su alcance."
+        },
+        {
+          "name": "Triplet-fermion count",
+          "meaning": "Entrada variable del ejemplo Kubo–Lim–Yamashita cuando está disponible.",
+          "try": "Compara dos conteos con fronteras fijas."
+        },
+        {
+          "name": "Load into the SU(N) builder / Maru–Nago",
+          "meaning": "Transfiere las entradas admitidas o abre el experimento adicional.",
+          "try": "Inspecciona después los modos cero."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Tabla de comparación",
+          "meaning": "Relaciona una afirmación publicada con lo que calcula el motor."
+        },
+        {
+          "name": "Modelo transferido",
+          "meaning": "Incluye solo las fronteras y el contenido que el motor representa."
+        }
+      ],
+      "example": {
+        "title": "Reproducir una afirmación concreta",
+        "steps": [
+          "Selecciona una referencia.",
+          "Lee la ecuación y el alcance de una fila.",
+          "Carga el modelo y sigue su espectro."
+        ],
+        "expect": "La comparación mantiene la atribución y limita la conclusión a la cantidad examinada."
+      },
+      "limits": [
+        "La transferencia no incorpora automáticamente supersimetría, interacciones de brana o estructura de sabores.",
+        "Una discrepancia local no invalida un paper completo.",
+        "El experimento Maru–Nago conserva su propio estudio de convergencia."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "El resultado no reproduce una cantidad supersimétrica.",
+          "action": "Comprueba si esa cantidad está dentro del alcance declarado del motor no supersimétrico."
+        }
+      ],
+      "terms": [
+        "anchor-scope",
+        "boundary-condition",
+        "zero-mode"
+      ],
+      "related": [
+        "sun5d",
+        "spectrum5d",
+        "su6mn"
+      ],
+      "references": [
+        {
+          "label": "Published-model sources and comparison records",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/papers.mjs"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/papers_section.js"
+        }
+      ]
+    },
+    {
+      "id": "spectrum5d",
+      "title": "Espectro 4D y torres Kaluza–Klein",
+      "kind": "section",
+      "host": "spectrum5d",
+      "route": "s=spectrum5d",
+      "video": "spectrum5d",
+      "source": "src/sections/spectrum5d_section.js",
+      "what": "Descompone el contenido del constructor en campos 4D y torres KK, separando las familias del potencial de los niveles exactos admitidos.",
+      "steps": [
+        "Edita el modelo en el constructor.",
+        "Escoge el vacío o una fase manual.",
+        "Lee modos sin masa, familias y tabla exacta en ese orden."
+      ],
+      "read": "Las familias describen el multiconjunto del potencial. En un vacío roto no dan correctamente el nivel más bajo del adjunto y del tensor simétrico; para ello está la tabla exacta.",
+      "purpose": "Evita interpretar una descomposición adecuada para el potencial como si fuera automáticamente el espectro detallado de baja energía.",
+      "controls": [
+        {
+          "name": "At the vacuum / phase probe",
+          "meaning": "Selecciona vacío localizado o fase impuesta.",
+          "try": "Compara un punto simétrico con el vacío roto."
+        },
+        {
+          "name": "Spectrum landscape",
+          "meaning": "Visualización giratoria de los niveles calculados.",
+          "try": "Contrasta los primeros niveles con la tabla exacta."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Contenido sin masa y familias",
+          "meaning": "Describen los campos permitidos y el multiconjunto usado por el potencial."
+        },
+        {
+          "name": "Exact tower",
+          "meaning": "Resuelve los niveles admitidos con sus etiquetas y multiplicidades."
+        }
+      ],
+      "example": {
+        "title": "Comprobar el nivel más bajo",
+        "steps": [
+          "Carga un ejemplo con vacío roto.",
+          "Lee las familias.",
+          "Compara los primeros niveles del adjunto en la tabla exacta."
+        ],
+        "expect": "La segunda tabla aporta información que la primera no puede sustituir."
+      },
+      "limits": [
+        "Se usan las fronteras y representaciones admitidas del constructor.",
+        "Masas e interacciones de frontera requieren la completación correspondiente.",
+        "Una torre de masas no proporciona tasas de producción o desintegración."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "Familias y primeros niveles no coinciden.",
+          "action": "Comprueba si estás en un vacío roto y lee la distinción documentada para adjunto y tensor simétrico."
+        }
+      ],
+      "terms": [
+        "zero-mode",
+        "chiral",
+        "kk-tower"
+      ],
+      "related": [
+        "sun5d",
+        "anomaly5d",
+        "brane",
+        "dossier"
+      ],
+      "references": [
+        {
+          "label": "Spectrum implementation and conventions",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/spectrum5d.mjs"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/spectrum5d_section.js"
+        }
+      ]
+    },
+    {
+      "id": "anomaly5d",
+      "title": "Balance de anomalías del modelo 5D",
+      "kind": "section",
+      "host": "anomaly5d",
+      "route": "s=anomaly5d",
+      "video": "anomaly5d",
+      "source": "src/sections/anomaly5d_section.js",
+      "what": "Calcula en racionales exactos los canales de anomalía del contenido quiral incluido y del grupo no roto.",
+      "steps": [
+        "Configura el modelo en el constructor.",
+        "Lee cada canal y sus sumandos.",
+        "Distingue no subject, cancels y owes."
+      ],
+      "read": "Un subtotal no nulo puede requerir materia de frontera que lo cancele. Si no hay fermiones sin masa, no subject significa que no existe el contenido al que aplicar la prueba, no una cancelación no trivial.",
+      "purpose": "Rastrea las condiciones de anomalía y señala qué obligación debe satisfacer una completación.",
+      "controls": [
+        {
+          "name": "Shared builder content",
+          "meaning": "Fronteras y materia que suministran el espectro incluido.",
+          "try": "Inspecciona sus fermiones sin masa antes del balance."
+        },
+        {
+          "name": "Model and spectrum choices",
+          "meaning": "Determinan las contribuciones quirales contadas.",
+          "try": "Cambia un campo y compara los sumandos."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "[SU(n)]³, U(1)×[SU(n)]², U(1)³, U(1)×[grav]²",
+          "meaning": "Canales separados expresados en la normalización racional indicada."
+        },
+        {
+          "name": "Veredicto",
+          "meaning": "Distingue ausencia de contenido, cancelación y contribución pendiente."
+        }
+      ],
+      "example": {
+        "title": "Leer un balance pendiente",
+        "steps": [
+          "Carga el ejemplo SU(6).",
+          "Lee sus fermiones y canales.",
+          "Continúa a Brane matter para estudiar una completación."
+        ],
+        "expect": "El subtotal identifica una condición pendiente sin adelantar el resultado del modelo completo."
+      },
+      "limits": [
+        "No resuelve automáticamente todas las condiciones de consistencia de una completación en dimensiones superiores.",
+        "La página no construye por sí sola la materia que falta.",
+        "Cancelación de anomalías no equivale a aceptación experimental."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "No subject parece un resultado vacío.",
+          "action": "Comprueba si hay fermiones sin masa; distingue ausencia del objeto de prueba y cancelación entre contribuciones."
+        }
+      ],
+      "terms": [
+        "anomaly-channel",
+        "chiral",
+        "zero-mode"
+      ],
+      "related": [
+        "spectrum5d",
+        "brane",
+        "dossier"
+      ],
+      "references": [
+        {
+          "label": "Exact anomaly-ledger implementation",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/anomaly5d.mjs"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/anomaly5d_section.js"
+        }
+      ]
+    },
+    {
+      "id": "brane",
+      "title": "Materia y masas en las fronteras",
+      "kind": "section",
+      "host": "brane",
+      "route": "s=brane",
+      "video": "brane",
+      "source": "src/sections/brane_section.js",
+      "what": "Añade materia en los dos puntos fijos y comprueba simultáneamente su balance de anomalías y las condiciones de masas de frontera.",
+      "steps": [
+        "Carga el modelo o el ejemplo SU(5) de Kawamura.",
+        "Lee el grupo local de cada frontera.",
+        "Añade campos o consulta compañeros de un modo sin masa.",
+        "Resuelve los canales lineales y revisa también los restantes."
+      ],
+      "read": "La carga que cancela una anomalía no tiene por qué permitir una masa. El conteo de supervivientes es una cota inferior basada en acoplamientos genéricos, no masas numéricas calculadas.",
+      "purpose": "Separa dos tareas que una misma materia de frontera puede resolver de forma diferente: cancelar anomalías y levantar modos sin masa.",
+      "controls": [
+        {
+          "name": "Boundary fields / copies",
+          "meaning": "Representaciones del grupo local de cada extremo.",
+          "try": "Usa las sugerencias de compañeros de un modo."
+        },
+        {
+          "name": "Charges / solve",
+          "meaning": "Fija cargas o resuelve las condiciones lineales indicadas.",
+          "try": "Compara la carga de cancelación con la necesaria para una masa."
+        },
+        {
+          "name": "Clear / reset charges",
+          "meaning": "Restaura un punto de partida.",
+          "try": "Guarda la configuración antes de reiniciar."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Balance antes y después",
+          "meaning": "Efecto de la materia añadida en cada canal."
+        },
+        {
+          "name": "Modos supervivientes",
+          "meaning": "Cota del conteo bajo la prueba de rango y la hipótesis de acoplamientos genéricos."
+        }
+      ],
+      "example": {
+        "title": "Comparar dos condiciones",
+        "steps": [
+          "Añade un compañero sugerido.",
+          "Lee el balance de anomalías.",
+          "Comprueba por separado el operador de masa."
+        ],
+        "expect": "Un campo puede resolver una condición sin resolver la otra."
+      },
+      "limits": [
+        "Resolver canales lineales no resuelve automáticamente los cúbicos.",
+        "La prueba de rango no determina masas numéricas ni un sector Yukawa completo.",
+        "Solo se examinan representaciones y operadores de frontera admitidos."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "Se cancela un canal pero sobrevive un modo.",
+          "action": "Revisa representación conjugada, cargas del operador de masa y rango; la cancelación no basta para levantarlo."
+        }
+      ],
+      "terms": [
+        "brane",
+        "boundary-mass",
+        "anomaly-channel",
+        "chiral"
+      ],
+      "related": [
+        "sun5d",
+        "spectrum5d",
+        "anomaly5d",
+        "sweep5d"
+      ],
+      "references": [
+        {
+          "label": "Part I: boundary masses and representation constraints",
+          "url": "https://karlesmarin.github.io/ghu-explorer/papers/part-i/index.html"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/brane_section.js"
+        }
+      ]
+    },
+    {
+      "id": "sweep5d",
+      "title": "Búsqueda acotada de modelos 5D",
+      "kind": "section",
+      "host": "sweep5d",
+      "route": "s=sweep5d",
+      "video": "sweep5d",
+      "source": "src/sections/sweep5d_section.js",
+      "what": "Recorre un conjunto finito de fronteras y contenidos SU(N) mediante filtros de grupo, Higgs, quiralidad, anomalías y vacío.",
+      "steps": [
+        "Elige N y un tamaño pequeño de contenido.",
+        "Selecciona los filtros y el significado del requisito de Higgs.",
+        "Ejecuta la búsqueda y lee el embudo.",
+        "Carga un candidato y comprueba sus detalles."
+      ],
+      "read": "Los conteos distinguen descripciones de frontera y clases de equivalencia. Un candidato solo pasa los filtros solicitados dentro del rango; un vacío sin decidir no es un modelo rechazado.",
+      "purpose": "Permite localizar ejemplos manteniendo visible el espacio buscado y el efecto de cada condición.",
+      "controls": [
+        {
+          "name": "N / maximum content size",
+          "meaning": "Definen el espacio finito.",
+          "try": "Empieza por un caso pequeño."
+        },
+        {
+          "name": "Group / chirality / anomaly filters",
+          "meaning": "Condiciones que debe satisfacer cada candidato.",
+          "try": "Cambia un filtro por ejecución."
+        },
+        {
+          "name": "Higgs requirement",
+          "meaning": "Distingue ningún requisito, cualquier doblete o un doblete singlete de color.",
+          "try": "Lee expresamente la condición de color."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Embudo de filtros",
+          "meaning": "Cuántos casos pasan cada etapa realmente ejecutada."
+        },
+        {
+          "name": "Candidatos y estados de vacío",
+          "meaning": "Permiten continuar la inspección y conservar los casos sin decidir."
+        }
+      ],
+      "example": {
+        "title": "Medir el efecto de un filtro",
+        "steps": [
+          "Ejecuta un caso pequeño.",
+          "Añade el requisito de doblete singlete de color.",
+          "Compara el embudo y carga un superviviente."
+        ],
+        "expect": "La reducción se atribuye al filtro cambiado, no a una exclusión fuera del rango."
+      },
+      "limits": [
+        "No demuestra ausencia fuera de N y tamaño de contenido examinados.",
+        "Fronteras equivalentes no deben contarse como teorías independientes.",
+        "Los filtros no completan interacciones ni todas las comparaciones experimentales."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "No hay candidatos o quedan vacíos sin decidir.",
+          "action": "Revisa rango y filtros. Conserva separados rechazo, ausencia en el rango y cálculo incompleto."
+        }
+      ],
+      "terms": [
+        "chiral",
+        "boundary-condition",
+        "equivalence-class"
+      ],
+      "related": [
+        "sun5d",
+        "spectrum5d",
+        "brane",
+        "dossier"
+      ],
+      "references": [
+        {
+          "label": "Search-space and filter implementation",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/sweep5d.mjs"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/sweep5d_section.js"
+        }
+      ]
+    },
+    {
+      "id": "dossier",
+      "title": "Diagnósticos y equivalencia de fronteras",
+      "kind": "section",
+      "host": "dossier",
+      "route": "s=dossier",
+      "video": "dossier",
+      "source": "src/sections/dossier_section.js",
+      "what": "Compara diagnósticos entre descripciones de frontera equivalentes y examina qué cantidades permanecen invariantes.",
+      "steps": [
+        "Carga el modelo del constructor.",
+        "Selecciona otro miembro de su clase.",
+        "Lee theory, frame y declined con sus motivos.",
+        "Ejecuta aparte la prueba de separación entre clases."
+      ],
+      "read": "Ser invariante dentro de una clase y distinguir teorías distintas son propiedades diferentes. Las etiquetas describen la comparación realizada, no un teorema universal adicional.",
+      "purpose": "Ayuda a identificar si un resultado depende de la descripción elegida y si contiene información suficiente para diferenciar clases.",
+      "controls": [
+        {
+          "name": "Class-member selection",
+          "meaning": "Cambia de descripción dentro de la clase mostrada.",
+          "try": "Compara la misma fila antes y después."
+        },
+        {
+          "name": "Separation test",
+          "meaning": "Comprueba si el diagnóstico distingue las clases finitas examinadas.",
+          "try": "Úsalo después de entender su invariancia interna."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Theory / frame / declined",
+          "meaning": "Etiquetas acompañadas del motivo y del alcance de cada evaluación."
+        },
+        {
+          "name": "Separación",
+          "meaning": "Capacidad de distinguir los casos efectivamente probados."
+        }
+      ],
+      "example": {
+        "title": "Invariante pero insuficiente",
+        "steps": [
+          "Compara miembros de una clase.",
+          "Identifica una cantidad invariante.",
+          "Ejecuta su prueba entre clases."
+        ],
+        "expect": "Una cantidad puede ser invariante y aun así no distinguir diferentes clases."
+      },
+      "limits": [
+        "Las conclusiones se limitan a los diagnósticos y casos examinados.",
+        "Comparar numéricamente no demuestra una afirmación sobre todos los modelos.",
+        "Declined conserva su motivo; no significa cero ni prueba superada."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "Una cantidad invariante no separa clases.",
+          "action": "Lee ambas propiedades por separado; no hay contradicción entre ellas."
+        }
+      ],
+      "terms": [
+        "equivalence-class",
+        "boundary-condition",
+        "unbroken-group"
+      ],
+      "related": [
+        "bcclass",
+        "sun5d",
+        "spectrum5d"
+      ],
+      "references": [
+        {
+          "label": "Dossier diagnostics and comparison scope",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/dossier.mjs"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/dossier_section.js"
+        }
+      ]
+    },
+    {
+      "id": "predict",
+      "title": "Simulator: elegir el modelo",
+      "kind": "section",
+      "host": "predict",
+      "route": "s=predict",
+      "video": "predict",
+      "source": "src/sections/predict_section.js",
+      "what": "Selecciona entre el modelo 5D del constructor, la referencia de producción del Higgs por torre top y el modelo 4D de anillo de neutrinos.",
+      "steps": [
+        "Elige Model to calculate.",
+        "Abre la guía propia del modo y carga una referencia.",
+        "Lee unidades, resultado e hipótesis juntos.",
+        "Consulta los experimentos visibles y guarda entradas y resultados."
+      ],
+      "read": "Los modos mantienen entradas distintas. Se calculan respuestas de modelos y comparaciones concretas, no eventos de colisionador. Un cálculo externo sin coincidencia permanece pendiente.",
+      "purpose": "Es el punto de acceso a tres cálculos diferentes. Los experimentos térmicos aparecen en builder; sabores, identificabilidad y desintegraciones pertenecen al modo de neutrinos.",
+      "controls": [
+        {
+          "name": "Model to calculate",
+          "meaning": "Selecciona el modelo que suministra resultados y exportaciones.",
+          "try": "Comprueba el nombre después de cada cambio."
+        },
+        {
+          "name": "Mode-specific parameters / experiment shortcuts",
+          "meaning": "Parámetros y tarjetas pertinentes del modo elegido.",
+          "try": "No traslades convenciones de fase o escala desde otro modo."
+        },
+        {
+          "name": "Save / compare / permalink",
+          "meaning": "Conservan entradas y el resultado con su alcance.",
+          "try": "Guarda la referencia antes de modificarla."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Resumen del modelo",
+          "meaning": "Resultados bajo las hipótesis específicas del modo."
+        },
+        {
+          "name": "Experimentos y referencias",
+          "meaning": "Cálculos adicionales que conservan sus propias entradas y procedencia."
+        }
+      ],
+      "example": {
+        "title": "Elegir antes de interpretar",
+        "steps": [
+          "Abre el selector.",
+          "Escoge neutrino ring.",
+          "Lee su guía y comprueba qué experimentos aparecen."
+        ],
+        "expect": "Los controles visibles corresponden al modelo elegido y no a una combinación automática de modelos."
+      },
+      "limits": [
+        "Ningún modo es un ajuste GHU completo a todas las medidas.",
+        "El SU(3) térmico es independiente del constructor SU(N) y de los certificados SU(7).",
+        "Calibrar o reconstruir un observable dado no lo convierte después en predicción."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "No aparece el experimento buscado.",
+          "action": "Comprueba primero el modo: térmico en builder; sabores e identificabilidad en neutrino ring."
+        }
+      ],
+      "terms": [
+        "against-the-data",
+        "at-the-minimum",
+        "anchor-scope"
+      ],
+      "related": [
+        "simulator-builder",
+        "simulator-higgsrate",
+        "simulator-neutrino",
+        "thermal",
+        "flavour",
+        "identifiability",
+        "neutrino-decays"
+      ],
+      "references": [
+        {
+          "label": "Research experiments and reproduction notes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/docs/research-extensions.md"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/predict_section.js"
+        }
+      ]
+    },
+    {
+      "id": "bcclass",
+      "title": "Clases de condiciones de contorno",
+      "kind": "section",
+      "host": "bcclass",
+      "route": "s=bcclass",
+      "video": "bcclass",
+      "source": "src/sections/bcclass_section.js",
+      "what": "Agrupa las condiciones ordinarias de frontera admitidas en clases de equivalencia y compara sus simetrías aparentes.",
+      "steps": [
+        "Selecciona orbifold y N.",
+        "Elige una condición y recorre miembros de su clase.",
+        "Compara sus grupos aparentes y lee las condiciones de cualquier comparación energética."
+      ],
+      "read": "El conteo corresponde a una geometría y relación de equivalencia concretas. El grupo aparente puede cambiar dentro de una clase; la fórmula de S¹/Z₂ no se traslada a otro orbifold.",
+      "purpose": "Permite reconocer varias descripciones de frontera que pertenecen a la misma clase sin confundir sus grupos aparentes con teorías independientes.",
+      "controls": [
+        {
+          "name": "Orbifold / N",
+          "meaning": "Seleccionan geometría y parámetro del grupo.",
+          "try": "Compara S¹/Z₂ y T²/Z₃ con N pequeño."
+        },
+        {
+          "name": "Class member / energy views",
+          "meaning": "Recorren descripciones y comparaciones energéticas admitidas.",
+          "try": "Lee What cannot be compared antes de ordenar energías."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Clases y miembros",
+          "meaning": "Conteo y agrupación bajo la relación indicada."
+        },
+        {
+          "name": "Grupos aparentes",
+          "meaning": "Pueden variar entre descripciones de una misma clase."
+        }
+      ],
+      "example": {
+        "title": "Misma clase, distintas descripciones",
+        "steps": [
+          "Elige una clase con varios miembros.",
+          "Selecciona dos miembros.",
+          "Compara sus grupos aparentes."
+        ],
+        "expect": "Una diferencia de grupo aparente no basta para concluir que pertenecen a clases distintas."
+      },
+      "formulas": [
+        {
+          "expression": "Number of classes = (N + 1)²",
+          "meaning": "Conteo de Haba–Hosotani–Kawamura para las condiciones ordinarias SU(N) indicadas sobre S¹/Z₂. Otras geometrías e hipótesis requieren su propio resultado."
+        }
+      ],
+      "limits": [
+        "Las condiciones conjugadas antilineales tienen otra herramienta.",
+        "Clasificar fronteras no completa materia ni fenomenología.",
+        "Comparar energías exige las condiciones expresas del panel."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "Cambiar orbifold altera la regla de conteo.",
+          "action": "Lee la relación y geometría seleccionadas; no reutilices la fórmula de S¹/Z₂ fuera de sus hipótesis."
+        }
+      ],
+      "terms": [
+        "boundary-condition",
+        "equivalence-class",
+        "unbroken-group"
+      ],
+      "related": [
+        "dossier",
+        "orbifold",
+        "cbclass"
+      ],
+      "references": [
+        {
+          "label": "Boundary-condition conventions and literature",
+          "url": "https://karlesmarin.github.io/ghu-explorer/docs/index.html"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/bcclass_section.js"
+        }
+      ]
+    },
+    {
+      "id": "orbifold",
+      "title": "Clasificación a partir de una rotación",
+      "kind": "section",
+      "host": "orbifold",
+      "route": "s=orbifold",
+      "video": "orbifold",
+      "source": "src/sections/orbifold_section.js",
+      "what": "Deriva datos de clasificación admitidos desde una matriz entera de rotación y compara los casos SU, SO y Sp.",
+      "steps": [
+        "Empieza con una rotación predefinida.",
+        "Comprueba orden finito e hipótesis ciclotómica.",
+        "Elige familia gauge y N.",
+        "Inspecciona signatura, alfabeto y fibra de una celda."
+      ],
+      "read": "Una matriz rechazada queda fuera de las hipótesis implementadas; no tiene un conteo de cero clases. La dimensión de la matriz y N son entradas distintas.",
+      "purpose": "Conecta la geometría de la rotación con los datos locales usados para clasificar condiciones de frontera.",
+      "controls": [
+        {
+          "name": "Rotation preset / integer matrix",
+          "meaning": "Rotación del toro, admitida hasta dimensión ocho bajo las condiciones indicadas.",
+          "try": "Modifica una entrada solo después de entender un preset."
+        },
+        {
+          "name": "SU(N), SO(N), Sp(N) / N",
+          "meaning": "Familia gauge y parámetro del grupo.",
+          "try": "Mantén fija la rotación al compararlas."
+        },
+        {
+          "name": "Datum axes / cell / boundary input",
+          "meaning": "Datos locales y condiciones de la fibra seleccionada.",
+          "try": "Distingue clases de condiciones individuales."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Signatura, alfabeto y conteo",
+          "meaning": "Datos derivados bajo las hipótesis verificadas."
+        },
+        {
+          "name": "Retícula de datos y fibra",
+          "meaning": "Permiten explorar cuántas condiciones comparten los datos locales."
+        }
+      ],
+      "example": {
+        "title": "Cambiar de familia gauge",
+        "steps": [
+          "Carga una rotación admitida.",
+          "Lee el caso SU.",
+          "Compara SO y Sp conservando la rotación."
+        ],
+        "expect": "Cambian los datos de la clasificación sin cambiar la geometría introducida."
+      },
+      "limits": [
+        "Se rechazan matrices de orden infinito o fuera de la hipótesis ciclotómica.",
+        "Clasificar no calcula un vacío ni un espectro experimental.",
+        "Equivalencia local y completitud de movimientos son preguntas distintas."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "La matriz se rechaza.",
+          "action": "Lee la condición incumplida y vuelve a un ejemplo válido. No interpretes el rechazo como ausencia de clases."
+        }
+      ],
+      "terms": [
+        "alphabet",
+        "cone",
+        "fibre",
+        "frobenius-schur",
+        "crystallographic"
+      ],
+      "related": [
+        "bcclass",
+        "relations"
+      ],
+      "references": [
+        {
+          "label": "Part IX-A: hypotheses, local data and classification",
+          "url": "https://karlesmarin.github.io/ghu-explorer/papers/part-ix-a/index.html"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/orbifold_section.js"
+        }
+      ]
+    },
+    {
+      "id": "relations",
+      "title": "Relaciones, atribución y conectividad",
+      "kind": "section",
+      "host": "relations",
+      "route": "s=relations",
+      "video": "relations",
+      "source": "src/sections/relations_section.js",
+      "what": "Identifica la atribución bibliográfica de relaciones entre fronteras y comprueba si movimientos propuestos conectan una clase finita.",
+      "steps": [
+        "Elige orbifold y movimiento.",
+        "Lee autoría, fuente e hipótesis.",
+        "Ejecuta el recorrido y compara cuántos miembros alcanza."
+      ],
+      "read": "La distinción entre equivalencia local y global debe conservarse. Un recorrido finito no demuestra completitud para todo rango.",
+      "purpose": "Evita presentar como descubrimiento nuevo una relación ya publicada y permite probar qué datos preserva un movimiento.",
+      "controls": [
+        {
+          "name": "Orbifold / group / N",
+          "meaning": "Configuración examinada.",
+          "try": "Empieza por un caso pequeño."
+        },
+        {
+          "name": "Proposed relation / Judge it",
+          "meaning": "Comprueba el movimiento frente a los datos preservados indicados.",
+          "try": "Lee la condición concreta ensayada."
+        },
+        {
+          "name": "Walk a class",
+          "meaning": "Explora alcanzabilidad con el conjunto de movimientos.",
+          "try": "Compara alcanzados y tamaño total de la clase."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Atribución y veredicto",
+          "meaning": "Localizan la relación y precisan qué condición cumple."
+        },
+        {
+          "name": "Recorrido",
+          "meaning": "Conectividad observada en el caso finito elegido."
+        }
+      ],
+      "example": {
+        "title": "Comprobar un conjunto de movimientos",
+        "steps": [
+          "Selecciona una clase pequeña.",
+          "Lee la fuente de los movimientos.",
+          "Ejecuta el recorrido."
+        ],
+        "expect": "Alcanzar todos los miembros resuelve ese caso, conservando la atribución original."
+      },
+      "limits": [
+        "No demuestra completitud para todos los rangos.",
+        "Las afirmaciones locales y globales requieren hipótesis diferentes.",
+        "Una relación bibliográfica conocida no debe presentarse como nueva."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "El recorrido no alcanza toda la clase.",
+          "action": "Revisa el conjunto de movimientos y la relación de equivalencia; preservar datos no garantiza conectividad completa."
+        }
+      ],
+      "terms": [
+        "move",
+        "affine-semigroup",
+        "complete-intersection",
+        "tripod"
+      ],
+      "related": [
+        "orbifold",
+        "bcclass"
+      ],
+      "references": [
+        {
+          "label": "Part IX-B: attribution and local/global relations",
+          "url": "https://karlesmarin.github.io/ghu-explorer/papers/part-ix-b/index.html"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/relations_section.js"
+        }
+      ]
+    },
+    {
+      "id": "cbclass",
+      "title": "Condiciones de frontera conjugadas",
+      "kind": "section",
+      "host": "cbclass",
+      "route": "s=cbclass",
+      "video": "cbclass",
+      "source": "src/sections/cbclass_section.js",
+      "what": "Compara condiciones antilineales sobre S¹/Z₂ bajo dos hipótesis explícitas sobre las transformaciones permitidas en los extremos.",
+      "steps": [
+        "Elige N y un twist simétrico o antisimétrico en cada extremo.",
+        "Comprueba la restricción de paridad de N.",
+        "Lee por separado los casos de extremos independientes y transformaciones ligadas."
+      ],
+      "read": "Con extremos independientes aparecen cuatro clases para N par y una para N impar en esta clasificación. Las transformaciones ligadas conservan información continua.",
+      "purpose": "Hace visible la hipótesis que condiciona un conteo en vez de presentarlo como una respuesta física universal.",
+      "controls": [
+        {
+          "name": "N",
+          "meaning": "Su paridad determina qué tipos de twist existen.",
+          "try": "Compara un N par pequeño con otro impar."
+        },
+        {
+          "name": "Twist at y = 0 / y = πR",
+          "meaning": "Elección simétrica o antisimétrica cuando está admitida.",
+          "try": "Recorre las combinaciones para N par."
+        },
+        {
+          "name": "Hypothesis comparison / Wilson-line card",
+          "meaning": "Contrasta transformaciones y diagnósticos estructurales.",
+          "try": "Anota la hipótesis antes del número de clases."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Conteo condicionado",
+          "meaning": "Corresponde a la elección de transformaciones indicada."
+        },
+        {
+          "name": "Información continua y grupo no roto",
+          "meaning": "Diagnósticos estructurales que conservan sus hipótesis."
+        }
+      ],
+      "example": {
+        "title": "Comparar hipótesis",
+        "steps": [
+          "Escoge N par.",
+          "Lee el resultado de extremos independientes.",
+          "Compáralo con transformaciones ligadas."
+        ],
+        "expect": "Cambiar la hipótesis de equivalencia cambia la información retenida."
+      },
+      "limits": [
+        "El cálculo no decide qué transformaciones corresponden a cualquier construcción física.",
+        "Los conteos ordinarios no se extienden automáticamente a twists antilineales.",
+        "No es un análisis completo de vacío ni fenomenología."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "No puedes elegir twist antisimétrico.",
+          "action": "Comprueba si N es impar y lee la condición de existencia; la opción ausente es una restricción matemática."
+        }
+      ],
+      "terms": [
+        "boundary-condition",
+        "equivalence-class"
+      ],
+      "related": [
+        "bcclass",
+        "orbifold",
+        "dossier"
+      ],
+      "references": [
+        {
+          "label": "Conjugate-condition implementation and source discussion",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/cbclass.mjs"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/cbclass_section.js"
+        }
+      ]
+    },
+    {
+      "id": "blkt",
+      "title": "Términos cinéticos localizados en branas",
+      "kind": "section",
+      "host": "blkt",
+      "route": "s=blkt",
+      "video": "blkt",
+      "source": "src/sections/blkt_section.js",
+      "what": "Estudia cómo los términos cinéticos de frontera modifican las raíces de la ecuación de masas y la torre ordinaria n/R.",
+      "steps": [
+        "Empieza por la demostración.",
+        "Fija coeficiente de brana y parámetros de la ecuación.",
+        "Lee las raíces.",
+        "Lleva el coeficiente a cero y compara el límite independiente."
+      ],
+      "read": "Las funciones especiales se contrastan con mpmath a cuarenta dígitos y el límite c → 0 se calcula de forma independiente. Eso comprueba el problema espectral indicado, no toda hipótesis física posible.",
+      "purpose": "Relaciona una ecuación trascendente con la posición de sus raíces y ofrece un límite controlado para interpretar el efecto de la frontera.",
+      "controls": [
+        {
+          "name": "c / α₁ / α₂",
+          "meaning": "Coeficiente cinético y fases de este ejemplo con su propia normalización.",
+          "try": "Compara c no nulo con c = 0."
+        },
+        {
+          "name": "m / q",
+          "meaning": "Parámetros de masa y carga definidos en la ecuación.",
+          "try": "Cambia uno después de leer su función."
+        },
+        {
+          "name": "Warped SU(6) shortcut",
+          "meaning": "Abre otro experimento de evolución diferencial de acoplamientos.",
+          "try": "Consulta su guía específica."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Raíces y torre",
+          "meaning": "Masas del problema de frontera admitido."
+        },
+        {
+          "name": "Límite c → 0",
+          "meaning": "Comparación con la torre torcida ordinaria calculada independientemente."
+        }
+      ],
+      "example": {
+        "title": "Recuperar el límite conocido",
+        "steps": [
+          "Anota raíces con c no nulo.",
+          "Reduce c.",
+          "Compara con el resultado de c = 0."
+        ],
+        "expect": "El límite permite verificar el comportamiento del solucionador."
+      },
+      "limits": [
+        "No recorre todos los operadores de frontera.",
+        "Una prueba numérica no establece toda la consistencia física de un término cinético arbitrario.",
+        "El experimento warped SU(6) no se calcula a partir de estos controles espectrales."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "Esperabas masas n/R pero las raíces difieren.",
+          "action": "Comprueba coeficiente de brana, fases y ecuación; la modificación de la torre es precisamente el efecto estudiado."
+        }
+      ],
+      "terms": [
+        "blkt",
+        "kk-tower"
+      ],
+      "related": [
+        "rsrunning",
+        "spectrum5d"
+      ],
+      "references": [
+        {
+          "label": "Boundary kinetic terms: equations and checks",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/kernel/blkt.mjs"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/blkt_section.js"
+        }
+      ]
+    },
+    {
+      "id": "gravitygauge",
+      "title": "Gravedad y gauge: qué no fijan las masas",
+      "kind": "section",
+      "host": "gravitygauge",
+      "route": "s=gravitygauge",
+      "video": "gravitygauge",
+      "source": "src/sections/gravitygauge_section.js",
+      "what": "Explora información física que queda indeterminada aunque coincidan torres de masas en una familia controlada de gravedad y gauge.",
+      "steps": [
+        "Empieza con p = 1.1.",
+        "Compara η = −0.9, 0 y 4.",
+        "Lee masas, escala de Wilson y respuesta junto a las figuras.",
+        "Guarda el punto exacto mediante la tarjeta o LaTeX."
+      ],
+      "read": "La coincidencia protege masas positivas tensor NN y vector DD por su operador canónico común. El control gauge NN tiene otras fronteras y cambia. La escala cinética de Wilson no es una masa del Higgs.",
+      "purpose": "Muestra por qué conocer masas no basta para reconstruir acoplamientos o respuestas. La posición de la fuente está en la dimensión extra, no en un detector.",
+      "controls": [
+        {
+          "name": "Geometry p",
+          "meaning": "p = 1.1 tiene la realización escalar indicada; p = 1 es la referencia AdS.",
+          "try": "Empieza en p = 1.1."
+        },
+        {
+          "name": "η / log₁₀(1 + η) / Source t",
+          "meaning": "Parámetro de la familia cinética positiva y posición de la fuente.",
+          "try": "Cambia t conservando las masas a la vista."
+        },
+        {
+          "name": "Height / drag mode",
+          "meaning": "Muestra respuesta o Z(t). Arrastrar gira o selecciona; Mayús arrastra para girar, rueda cambia relieve y flechas giran la figura enfocada.",
+          "try": "Selecciona un punto y lee su tabla."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Masas emparejadas y control NN",
+          "meaning": "La protección depende de las condiciones de frontera emparejadas."
+        },
+        {
+          "name": "Escala de Wilson y respuesta",
+          "meaning": "Pueden cambiar con la familia aunque las masas emparejadas coincidan."
+        }
+      ],
+      "example": {
+        "title": "Iguales masas, distinta respuesta",
+        "steps": [
+          "Fija p = 1.1.",
+          "Compara los tres valores predefinidos de η.",
+          "Lee masas y respuesta en la tabla."
+        ],
+        "expect": "La igualdad espectral indicada no determina toda la información física."
+      },
+      "limits": [
+        "El emparejamiento de fronteras es esencial; no protege cualquier torre.",
+        "No se calculan masa del Higgs, estabilidad del radion ni tasas de colisionador.",
+        "Estabilidad y escala de corte siguen abiertas."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "El control gauge NN cambia aunque otra torre no.",
+          "action": "Comprueba sus fronteras: el argumento de operador común se aplica al emparejamiento tensor NN/vector DD."
+        }
+      ],
+      "terms": [
+        "kk-tower",
+        "boundary-condition"
+      ],
+      "related": [
+        "spectrum5d",
+        "blkt",
+        "dossier"
+      ],
+      "references": [
+        {
+          "label": "Gravity–gauge construction, equations and open questions",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/gravitygauge.mjs"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/gravitygauge_section.js"
+        }
+      ]
+    },
+    {
+      "id": "litcensus",
+      "title": "Bibliografía y registro de lectura",
+      "kind": "section",
+      "host": "litcensus",
+      "route": "s=litcensus",
+      "video": "litcensus",
+      "source": "src/sections/census_lit_section.js",
+      "what": "Consulta el registro de lectura de la serie, qué información publica cada fuente y cuáles se han examinado realmente.",
+      "steps": [
+        "Busca o aplica un filtro.",
+        "Lee qué contiene el archivo y qué señales se detectaron.",
+        "Consulta página o ecuación de las filas revisadas."
+      ],
+      "read": "Una señal es una palabra clave: puede omitir otras formulaciones o producir coincidencias irrelevantes. La colección es nuestra lista de lectura, no todo el campo.",
+      "purpose": "Mantiene separadas una referencia candidata, una fuente leída y una afirmación localizada, conservando autoría y procedencia.",
+      "controls": [
+        {
+          "name": "Search / filters",
+          "meaning": "Filtran señales o categorías de revisión.",
+          "try": "Compara fuentes leídas con las que contienen la terna completa."
+        },
+        {
+          "name": "Complete triple / no published minimum",
+          "meaning": "Clasifican la información disponible para la comparación.",
+          "try": "Abre la localización de la fuente."
+        },
+        {
+          "name": "Shortlisted, not yet opened",
+          "meaning": "Candidatos aún no examinados por una persona.",
+          "try": "No los uses como evidencia de una conclusión bibliográfica."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Registros y señales",
+          "meaning": "Indican contenido y criterios de selección, no conclusiones automáticas."
+        },
+        {
+          "name": "Filas revisadas",
+          "meaning": "Localizan la afirmación en su página o ecuación."
+        }
+      ],
+      "example": {
+        "title": "Del filtro a la fuente",
+        "steps": [
+          "Filtra por terna completa.",
+          "Abre una fila revisada.",
+          "Comprueba la localización citada."
+        ],
+        "expect": "La afirmación queda respaldada por una fuente concreta, no solo por una palabra encontrada."
+      },
+      "limits": [
+        "La búsqueda por palabras no es exhaustiva.",
+        "No constituye una revisión sistemática completa de GHU.",
+        "Ausencia en la lista no demuestra novedad ni prioridad."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "No aparece una fórmula o paper conocido.",
+          "action": "Prueba otra terminología y consulta las fuentes; no deduzcas inexistencia a partir del registro."
+        }
+      ],
+      "terms": [
+        "keyword-sweep",
+        "measured-vs-read"
+      ],
+      "related": [
+        "papers",
+        "screen"
+      ],
+      "references": [
+        {
+          "label": "Recorded literature data",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/data/census.json"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/census_lit_section.js"
+        }
+      ]
+    },
+    {
+      "id": "simulator-builder",
+      "kind": "mode",
+      "title": "Simulator: predicciones del constructor 5D",
+      "host": "predict",
+      "mode": "builder",
+      "route": "s=predict&predict.s=v%3A0",
+      "video": "predict",
+      "source": "src/modules/predict.mjs",
+      "what": "Convierte el vacío del constructor SU(N) admitido en masas con unidades y compara cantidades concretas con referencias identificadas.",
+      "steps": [
+        "Carga un modelo con vacío roto en el constructor.",
+        "Selecciona builder y el mínimo o una fase de prueba.",
+        "Lee el acoplamiento y el anclaje de masa del W.",
+        "Compara tabla de predicciones, masas fermiónicas y torres."
+      ],
+      "read": "La masa medida del W fija la escala. A vacío fijo, cambiar g₄ modifica la masa del Higgs mostrada, mientras las masas KK ancladas al W no siguen ese control. Una fase manual no es un vacío seleccionado dinámicamente.",
+      "purpose": "Traduce el modelo adimensional a cantidades comparables con medidas después de entender su potencial y espectro. Es un cálculo teórico, no una simulación de eventos.",
+      "controls": [
+        {
+          "name": "At the minimum / probe",
+          "meaning": "Vacío localizado o fase impuesta.",
+          "try": "Comprueba la etiqueta antes de atribuir una masa al vacío."
+        },
+        {
+          "name": "g₄ / g₂(1/R)",
+          "meaning": "Convención de acoplamiento usada en la conversión de curvatura del Higgs.",
+          "try": "Muévelo con la misma fase y compara qué cambia."
+        },
+        {
+          "name": "3D tower view",
+          "meaning": "Masas calculadas y referencias con una cota de color condicionada.",
+          "try": "Contrasta la figura con la tabla."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Escala y masa del Higgs",
+          "meaning": "Usan la fase propia del modelo y la calibración mediante mW."
+        },
+        {
+          "name": "Ángulo débil, fermiones y KK",
+          "meaning": "Comparaciones de la estructura admitida; la referencia de colorón supone el sector de color pertinente en el bulk."
+        }
+      ],
+      "example": {
+        "title": "Identificar el anclaje de escala",
+        "steps": [
+          "Anota masa del Higgs y un nivel KK.",
+          "Cambia solo g₄.",
+          "Compara ambas masas."
+        ],
+        "expect": "Que la torre permanezca fija responde a la calibración elegida; no es un fallo del control."
+      },
+      "limits": [
+        "Un vacío simétrico no aporta la fase no nula necesaria para esta calibración electrodébil.",
+        "La sonda manual no certifica un vacío.",
+        "Los límites del sector de color dependen de identidad y localización; no se hace un ajuste experimental completo."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "La escala no está definida.",
+          "action": "Comprueba si el vacío es simétrico o sigue sin decidir antes de variar el acoplamiento."
+        }
+      ],
+      "terms": [
+        "at-the-minimum",
+        "kk-tower",
+        "against-the-data"
+      ],
+      "related": [
+        "sun5d",
+        "spectrum5d",
+        "thermal",
+        "thermalhistory"
+      ],
+      "references": [
+        {
+          "label": "Builder prediction conventions and source equations",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/predict_section.js"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/predict.mjs"
+        }
+      ]
+    },
+    {
+      "id": "simulator-higgsrate",
+      "kind": "mode",
+      "title": "Simulator: producción del Higgs y torre top",
+      "host": "predict",
+      "mode": "higgsrate",
+      "route": "s=predict&predict.s=v%3A2",
+      "video": "higgs-production",
+      "source": "src/modules/higgs_diagnostics.mjs",
+      "what": "Compara la corrección principal de una torre KK del top con una suma finita y un resultado resumado del teorema de baja energía.",
+      "steps": [
+        "Selecciona Higgs production.",
+        "Carga la referencia Carson–Okada y lee su ventana histórica.",
+        "Varía por separado escala KK, masa top y corte.",
+        "Compara cola numérica, aproximación e intervalo condicionado."
+      ],
+      "read": "La ventana histórica reproduce una referencia. Una ventana personalizada no tiene nivel de confianza asignado. La cola numérica y la diferencia entre aproximaciones no cuantifican toda incertidumbre física.",
+      "purpose": "Aísla un mecanismo de producción para distinguir truncación de una suma y aproximación en x pequeño, sin presentarlo como una señal GHU completa.",
+      "controls": [
+        {
+          "name": "KK scale / top mass",
+          "meaning": "Fijan x = m_t/M_KK en las unidades mostradas.",
+          "try": "Aumenta la escala KK con m_t fijo."
+        },
+        {
+          "name": "KK cutoff",
+          "meaning": "Número de términos de la suma principal.",
+          "try": "Auméntalo manteniendo los parámetros físicos."
+        },
+        {
+          "name": "Reference / custom rate window",
+          "meaning": "Intervalo elegido para comparar la tasa.",
+          "try": "Lee sus dos extremos sin asignar una verosimilitud a la ventana personalizada."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Tasas principal y resumada",
+          "meaning": "Comparten referencia top-only, con distinto alcance de aproximación."
+        },
+        {
+          "name": "Cola e intervalo de escala",
+          "meaning": "La cota corresponde a la suma principal; el intervalo se intersecta con la política x ≤ 0.2."
+        }
+      ],
+      "example": {
+        "title": "Convergencia y aproximación",
+        "steps": [
+          "Usa las entradas históricas.",
+          "Aumenta el corte.",
+          "Compara el resultado convergido con el resumado."
+        ],
+        "expect": "Reducir la cola no elimina la diferencia entre aproximaciones físicas."
+      },
+      "formulas": [
+        {
+          "expression": "R_gg = [1 − (π²/3)(m_t/M_KK)²]²",
+          "meaning": "Tasa principal top-only de Carson–Okada bajo el espectro y aproximación indicados."
+        },
+        {
+          "expression": "A_LET = πx cot(πx),  x = m_t/M_KK",
+          "meaning": "Amplitud del determinante resumada en el teorema de baja energía. Su cuadrado no es el cálculo completo de lazo con masas finitas."
+        }
+      ],
+      "limits": [
+        "x ≤ 0.2 define un dominio de trabajo, no una precisión física uniforme garantizada.",
+        "Se omiten fracciones de desintegración y otras partículas de color.",
+        "La cota histórica no se presenta como exclusión global actual."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "Falta un veredicto o las dos tasas no coinciden.",
+          "action": "Comprueba x y distingue truncación de la suma principal y expansión de x pequeño dentro del teorema de baja energía."
+        }
+      ],
+      "terms": [
+        "kk-tower",
+        "anchor-scope"
+      ],
+      "related": [
+        "predict",
+        "higgstools",
+        "collider"
+      ],
+      "references": [
+        {
+          "label": "Carson–Okada, arXiv:1510.03092, equations (33), (35), (41) and Table 1",
+          "url": "https://arxiv.org/abs/1510.03092"
+        },
+        {
+          "label": "Rate, tail and domain definitions",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/docs/diagnostics.md"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/higgs_diagnostics.mjs"
+        }
+      ]
+    },
+    {
+      "id": "simulator-neutrino",
+      "kind": "mode",
+      "title": "Simulator: anillo 4D de neutrinos",
+      "host": "predict",
+      "mode": "neutrino",
+      "route": "s=predict&predict.s=v%3A1",
+      "video": "neutrino-ring",
+      "source": "src/modules/neutrino_ring.mjs",
+      "what": "Explora masas ligeras, déficit de corriente activa y seis pares pesados en el modelo de investigación del anillo de neutrinos en cuatro dimensiones.",
+      "steps": [
+        "Selecciona Neutrino ring y restaura el punto inicial.",
+        "Comprueba si Calibration está activada.",
+        "Cambia un enlace, portal o término de Majorana.",
+        "Lee masas, pesos activos y diagnósticos antes de usar las tarjetas adicionales."
+      ],
+      "read": "La calibración fija objetivos elegidos, no predice esos mismos datos. Centros pesados, masas ligeras y desdoblamientos usan unidades distintas. CMS aporta una referencia condicionada de un solo HNL, no una exclusión completa del anillo.",
+      "purpose": "Permite observar cómo se conservan algunas cantidades ligeras mientras cambian estados pesados. Es un anillo deconstruido 4D con fase fija, distinto del constructor 5D.",
+      "controls": [
+        {
+          "name": "f / t/f / q / r",
+          "meaning": "Escala en GeV y razones adimensionales del sector conservativo.",
+          "try": "Cambia una razón a f fijo."
+        },
+        {
+          "name": "μA / μB [keV]",
+          "meaning": "Entradas pequeñas de ruptura de simetría.",
+          "try": "Varía μB con calibración y compara el desdoblamiento."
+        },
+        {
+          "name": "Calibration",
+          "meaning": "Reconstruye entradas para los objetivos de referencia de 0.1 eV y déficit 10⁻⁴.",
+          "try": "Desactívala antes de tratar mD y μA como entradas independientes."
+        },
+        {
+          "name": "CMS flavour / Dirac-Majorana",
+          "meaning": "Selecciona la hipótesis publicada y la convención de mezcla por par o componente.",
+          "try": "Lee la normalización al cambiarla."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Masa ligera y déficit",
+          "meaning": "Son respuestas o valores reproducidos por calibración según el estado del control."
+        },
+        {
+          "name": "Seis centros y desdoblamientos",
+          "meaning": "Centros en GeV y desdoblamientos en eV; deben acompañarse de los diagnósticos de aproximación."
+        },
+        {
+          "name": "Comparación CMS",
+          "meaning": "Usa tablas HEPData y una interpolación registrada, sin extrapolar fuera del rango."
+        }
+      ],
+      "example": {
+        "title": "Fijar datos ligeros y cambiar un par pesado",
+        "steps": [
+          "Restaura el anillo con calibración.",
+          "Anota masa ligera, déficit y primer desdoblamiento.",
+          "Cambia μB y compara los tres."
+        ],
+        "expect": "Al orden mostrado, los objetivos ligeros pueden mantenerse mientras cambia el desdoblamiento: no fijan una predicción pesada única."
+      },
+      "limits": [
+        "θ = π está fijada; no se resuelven vacío completo ni estabilidad radial.",
+        "El anillo base tiene rango ligero como máximo uno; la tarjeta de tres copias reconstruye otras entradas.",
+        "La inserción pequeña no da una cota de error uniforme, especialmente cerca de huecos pequeños entre pares.",
+        "Límites de un HNL y sabor exclusivo no se trasladan automáticamente a seis pares que pueden interferir."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "La masa ligera no cambia o falta una razón CMS.",
+          "action": "Comprueba calibración, rango de la tabla y nudos de transición duplicados; una interpolación ambigua se deja sin resultado."
+        }
+      ],
+      "terms": [
+        "against-the-data",
+        "anchor-scope"
+      ],
+      "related": [
+        "flavour",
+        "identifiability",
+        "neutrino-decays",
+        "predict"
+      ],
+      "references": [
+        {
+          "label": "Ring action, approximations, units and CMS table provenance",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/docs/neutrino-ring.md"
+        },
+        {
+          "label": "CMS EXO-22-011 reference analysis",
+          "url": "https://cms-results.web.cern.ch/cms-results/public-results/publications/EXO-22-011/"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/neutrino_ring.mjs"
+        }
+      ]
+    },
+    {
+      "id": "neutrino-decays",
+      "kind": "analysis",
+      "title": "Desintegraciones, Majorón y coherencia",
+      "host": "predict",
+      "mode": "neutrino",
+      "route": "s=predict&predict.s=v%3A1&help=neutrino-decays",
+      "video": "decays",
+      "source": "src/view/neutrino_decay_panel.js",
+      "what": "Calcula anchuras parciales incluidas y diagnósticos condicionados de vida media, recorrido y coherencia de un par pesado.",
+      "steps": [
+        "Selecciona un par en Neutrino ring.",
+        "Lee los canales débiles abiertos y decide si incluir los Majorones calculados.",
+        "Declara cualquier anchura adicional como hipótesis.",
+        "Fija boost y ventana; lee probabilidad y coherencia por separado."
+      ],
+      "read": "La anchura corresponde a una componente del par. La anchura física completa del anillo sigue desconocida. La probabilidad de recorrido no es aceptación del detector, y SS/OS integrado en todo tiempo no es una razón con selección de eventos.",
+      "purpose": "Hace visibles las hipótesis sobre canales que determinan la vida media y la coherencia, incluidas las condiciones de las contribuciones principales del Majorón.",
+      "controls": [
+        {
+          "name": "Inspect pair",
+          "meaning": "Selecciona masa, peso activo y desdoblamiento.",
+          "try": "Usa selector o barras con teclado."
+        },
+        {
+          "name": "Include calculated Majoron channels / χ/f / Σ/f",
+          "meaning": "Incluye anchuras principales calculadas bajo las hipótesis escalares indicadas.",
+          "try": "Compara activado y desactivado sin interpretar desactivado como ausencia física."
+        },
+        {
+          "name": "Additional width [eV]",
+          "meaning": "Contribución no calculada supuesta.",
+          "try": "Auméntala y sigue la vida media."
+        },
+        {
+          "name": "βγ / Lmin / Lmax",
+          "meaning": "Boost fijo y ventana de distancia rectilínea.",
+          "try": "Mueve la ventana manteniendo el escenario."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Anchuras y vida media",
+          "meaning": "La suma incluida determina τ = ℏ/Γ; una suma nula no demuestra estabilidad."
+        },
+        {
+          "name": "Probabilidad y SS/OS",
+          "meaning": "La primera usa una ventana a boost fijo; la segunda requiere par aislado, anchuras iguales, CP e integración temporal completa."
+        }
+      ],
+      "example": {
+        "title": "Añadir un canal supuesto",
+        "steps": [
+          "Anota anchura y vida media de un par.",
+          "Incluye Majorones cuando proceda.",
+          "Añade una pequeña anchura extra y compara."
+        ],
+        "expect": "La respuesta muestra dependencia de canales sin determinar la anchura física completa desconocida."
+      },
+      "formulas": [
+        {
+          "expression": "P = exp[−Lmin/(βγ cτ)] − exp[−Lmax/(βγ cτ)]",
+          "meaning": "Probabilidad en una ventana rectilínea con boost fijo bajo este escenario."
+        },
+        {
+          "expression": "SS/OS = Δm² / (2Γ² + Δm²)",
+          "meaning": "Razón integrada en todo tiempo propio para un par coherente aislado con anchuras iguales y las hipótesis de CP indicadas."
+        }
+      ],
+      "limits": [
+        "Canales débiles fuera de la capa de masa, otros escalares o gauge y correcciones pueden modificar la anchura completa.",
+        "Pares diferentes casi degenerados pueden invalidar la aproximación de par aislado.",
+        "No se incluyen eficiencias, distribuciones de boost ni selección experimental."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "La vida media no está definida o aparece una advertencia de coherencia.",
+          "action": "Comprueba suma de anchuras, inserciones y huecos entre pares. No conviertas una anchura incluida nula en estabilidad demostrada."
+        }
+      ],
+      "terms": [
+        "against-the-data"
+      ],
+      "related": [
+        "simulator-neutrino",
+        "flavour",
+        "identifiability"
+      ],
+      "references": [
+        {
+          "label": "Weak widths, normalization and ideal coherence sources",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/docs/neutrino-decays.md"
+        },
+        {
+          "label": "Computed Majoron channels and their scope",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/docs/neutrino-majoron.md"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/view/neutrino_decay_panel.js"
+        }
+      ]
+    },
+    {
+      "id": "su6mn",
+      "kind": "experiment",
+      "title": "Maru–Nago SU(6): familias y mínimo de Wilson",
+      "host": "papers",
+      "route": "s=papers&help=su6mn",
+      "video": "su6mn",
+      "source": "src/modules/su6_maru_nago.mjs",
+      "what": "Reproduce el potencial del bulk de las familias Type 2 y Type 3 y compara el mínimo con la tabla publicada y una suma infinita independiente.",
+      "steps": [
+        "Elige generaciones Type 3 y copias adjuntas.",
+        "Lee potencial completo y ampliación del mínimo.",
+        "Aumenta Fourier terms.",
+        "Carga el contenido admitido en el constructor si quieres inspeccionarlo."
+      ],
+      "read": "La diferencia con un decimal publicado es una comparación numérica. No se conoce el procedimiento de truncación de los autores; la diferencia no identifica por sí sola un error del paper.",
+      "purpose": "Conecta materia, potencial y mínimo en un ejemplo bibliográfico atribuido a Maru y Nago. El laboratorio aporta implementación y comprobaciones independientes.",
+      "controls": [
+        {
+          "name": "Type 3 generations k₃",
+          "meaning": "Entero de 0 a 3; k₂ = 3 − k₃ y k₁ = 0.",
+          "try": "Compara los extremos con adjuntos fijos."
+        },
+        {
+          "name": "Adjoint Dirac copies",
+          "meaning": "Modifica la contribución de materia del bulk.",
+          "try": "Cambia una copia."
+        },
+        {
+          "name": "Fourier terms",
+          "meaning": "Truncación numérica de la suma.",
+          "try": "Auméntala antes de interpretar diferencias pequeñas en α."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Mínimo y convergencia",
+          "meaning": "Comparan suma finita, tabla publicada cuando existe y referencia de suma infinita."
+        },
+        {
+          "name": "Transferencia al constructor",
+          "meaning": "Transfiere el potencial admitido y conserva en el registro los singletes ciegos a Wilson."
+        }
+      ],
+      "example": {
+        "title": "Comprobar un mínimo tabulado",
+        "steps": [
+          "Fija k₃ = 3 y cinco adjuntos.",
+          "Lee los valores comparados.",
+          "Aumenta el corte."
+        ],
+        "expect": "La convergencia acota la comparación numérica sin reconstruir el procedimiento original de los autores."
+      },
+      "limits": [
+        "Se compara el potencial del bulk, no viabilidad fenomenológica completa.",
+        "Levantar modos cero exóticos adjuntos mediante branas necesita más entradas.",
+        "Coincidir en un mínimo no establece masa realista del Higgs ni sabores."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "No aparece comparación publicada.",
+          "action": "El contenido puede no tener entrada almacenada en Table 2. Consulta ecuaciones y convergencia."
+        }
+      ],
+      "terms": [],
+      "related": [
+        "papers",
+        "sun5d",
+        "spectrum5d"
+      ],
+      "references": [
+        {
+          "label": "Maru–Nago, JHEP 11 (2024) 035, equation (4.3) and Table 2",
+          "url": "https://doi.org/10.1007/JHEP11(2024)035"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/su6_maru_nago.mjs"
+        }
+      ]
+    },
+    {
+      "id": "rsrunning",
+      "kind": "experiment",
+      "title": "SU(6) warped: evolución y términos UV",
+      "host": "blkt",
+      "route": "s=blkt&help=rsrunning",
+      "video": "rsrunning",
+      "source": "src/modules/rs_unification.mjs",
+      "what": "Calcula dos diferencias independientes de acoplamientos inversos y los términos de frontera UV necesarios para las asignaciones SU(6) admitidas.",
+      "steps": [
+        "Elige C1 o C2.",
+        "Fija escalas IR y UV con sus unidades.",
+        "Compara términos requeridos y elegidos.",
+        "Lee aparte el alcance de la sonda de masa UV avanzada."
+      ],
+      "read": "Los residuos comparan términos requeridos y elegidos: no son χ² ni exclusiones estadísticas. NDA es una escala de referencia.",
+      "purpose": "Hace visibles las hipótesis de frontera necesarias para el emparejamiento, en vez de tratar un cruce de curvas como predicción sin parámetros.",
+      "controls": [
+        {
+          "name": "Matter assignment C1 / C2",
+          "meaning": "Asignaciones implementadas de la fuente citada.",
+          "try": "Compara ambas con escalas fijas."
+        },
+        {
+          "name": "IR scale [TeV] / log₁₀ UV scale [GeV]",
+          "meaning": "La primera es una escala y la segunda su logaritmo decimal en otra unidad.",
+          "try": "Conserva ambas convenciones al guardar."
+        },
+        {
+          "name": "Chosen Δλ₂₁ / Δλ₃₁",
+          "meaning": "Diferencias de frontera supuestas.",
+          "try": "Iguala los valores requeridos y observa el residuo."
+        },
+        {
+          "name": "Probe c / UV mass / k",
+          "meaning": "Sonda separada de localización y masa UV.",
+          "try": "Lee su estado independientemente de las curvas."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Evolución diferencial",
+          "meaning": "α₂⁻¹ − α₁⁻¹ y α₃⁻¹ − α₁⁻¹ frente a log₁₀ q."
+        },
+        {
+          "name": "Términos requeridos",
+          "meaning": "Hipótesis necesarias bajo emparejamiento IR aproximado."
+        }
+      ],
+      "example": {
+        "title": "Anular un residuo por elección",
+        "steps": [
+          "Empieza con términos elegidos nulos.",
+          "Anota los requeridos.",
+          "Introduce esos valores."
+        ],
+        "expect": "El residuo pequeño expresa la condición elegida, no un acuerdo experimental independiente."
+      },
+      "formulas": [
+        {
+          "expression": "NDA reference = 1/(16π²)",
+          "meaning": "Escala de comparación por análisis dimensional, sin probabilidad ni nivel de confianza."
+        }
+      ],
+      "limits": [
+        "Evolución diferencial a un lazo y emparejamiento IR aproximado.",
+        "Umbrales y fronteras no especificados pueden cambiar el resultado.",
+        "La sonda UV no es un ajuste completo."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "Un residuo nulo parece un ajuste perfecto.",
+          "action": "Comprueba si has elegido los términos requeridos; no se ha ejecutado un ajuste estadístico."
+        }
+      ],
+      "terms": [],
+      "related": [
+        "blkt",
+        "brane"
+      ],
+      "references": [
+        {
+          "label": "Angelescu et al., Planck-brane correlators, sections 4.4–6",
+          "url": "https://arxiv.org/abs/2512.22094"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/rs_unification.mjs"
+        }
+      ]
+    },
+    {
+      "id": "flavour",
+      "kind": "experiment",
+      "title": "Tres sabores activos y rango ligero",
+      "host": "predict",
+      "mode": "neutrino",
+      "route": "s=predict&predict.s=v%3A1&help=flavour",
+      "video": "flavour",
+      "source": "src/modules/neutrino_flavour.mjs",
+      "what": "Reconstruye una extensión de tres copias del anillo a partir de masas ligeras, parámetros PMNS y déficits activos elegidos.",
+      "steps": [
+        "Abre el experimento en Neutrino ring.",
+        "Selecciona orden normal o invertido y masa más ligera.",
+        "Lee rango y acoplamientos reconstruidos.",
+        "Compara los intervalos separados y la figura de vacío en límite unitario."
+      ],
+      "read": "Masas y orientación PMNS son entradas. Los intervalos NuFIT separados no forman una verosimilitud; el botón histórico Hosotani no convierte el anillo en el modelo RS del paper.",
+      "purpose": "Explora direcciones de masa independientes más allá del rango uno del anillo base, mostrando cómo representar unos datos elegidos.",
+      "controls": [
+        {
+          "name": "Ordering / lightest mass [eV]",
+          "meaning": "Definen el espectro con los dos desdoblamientos aportados.",
+          "try": "Compara masa más ligera nula y no nula."
+        },
+        {
+          "name": "sin² θ / δ / Majorana phases",
+          "meaning": "Orientación PMNS de entrada, fases en grados.",
+          "try": "Cambia una fase de Majorana y compara mββ con oscilaciones."
+        },
+        {
+          "name": "Active deficit directions",
+          "meaning": "Tres déficits independientes para la reconstrucción.",
+          "try": "Inspecciona la matriz completa."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Rango, masas y matrices",
+          "meaning": "Resultados de la construcción inversa, incluidas Yukawa y déficit."
+        },
+        {
+          "name": "Probabilidades y rangos NuFIT",
+          "meaning": "La figura usa PMNS unitario en vacío; las tablas mantienen edición y orden registrados."
+        }
+      ],
+      "example": {
+        "title": "Cambiar el rango con una entrada",
+        "steps": [
+          "Usa orden normal y masa más ligera cero.",
+          "Lee rango y masas.",
+          "Introduce una masa pequeña no nula."
+        ],
+        "expect": "El rango sigue el espectro suministrado; no se predice la masa más ligera."
+      },
+      "limits": [
+        "Tres copias extienden el modelo base.",
+        "La figura omite materia y correcciones del déficit activo.",
+        "mββ ligero no incluye todas las contribuciones pesadas posibles.",
+        "Pertenecer a intervalos separados no es una bondad de ajuste conjunta."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "El preset reproduce sus propios valores PMNS.",
+          "action": "Es lo esperado: son entradas. Examina los acoplamientos reconstruidos para identificar qué se ha calculado."
+        }
+      ],
+      "terms": [],
+      "related": [
+        "simulator-neutrino",
+        "identifiability"
+      ],
+      "references": [
+        {
+          "label": "NuFIT 6.1 reference table",
+          "url": "https://www.nu-fit.org/sites/default/files/v61.tbl-parameters.pdf"
+        },
+        {
+          "label": "Hosotani historical RS reference",
+          "url": "https://arxiv.org/abs/2507.08321"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/neutrino_flavour.mjs"
+        }
+      ]
+    },
+    {
+      "id": "identifiability",
+      "kind": "experiment",
+      "title": "Datos ligeros fijos y sector pesado",
+      "host": "predict",
+      "mode": "neutrino",
+      "route": "s=predict&predict.s=v%3A1&help=identifiability",
+      "video": "identifiability",
+      "source": "src/modules/neutrino_research.mjs",
+      "what": "Recorre trayectorias que conservan masas ligeras y mezcla seleccionadas mientras cambian estados pesados o factores de corriente.",
+      "steps": [
+        "Fija las entradas ligeras en la tarjeta de sabores.",
+        "Elige parámetro y posición en la trayectoria.",
+        "Lee residuo de reconstrucción y respuesta pesada.",
+        "Compara factores de vacío sin normalizar y normalizados."
+      ],
+      "read": "Normalizar puede ocultar una supresión común. El mapa DeepCore archivado corresponde a tres neutrinos estándar, no a una verosimilitud de esta extensión no unitaria.",
+      "purpose": "Comprueba mediante ejemplos si los datos ligeros elegidos determinan de forma única el sector pesado y qué información adicional puede distinguirlo.",
+      "controls": [
+        {
+          "name": "Parameter to investigate / position",
+          "meaning": "Trayectoria admitida y punto entre extremos.",
+          "try": "Empieza por el preset de desdoblamiento a datos ligeros fijos."
+        },
+        {
+          "name": "Sterile copy / heavy pair",
+          "meaning": "Respuesta pesada inspeccionada.",
+          "try": "Compara pares con los mismos datos ligeros."
+        },
+        {
+          "name": "Source / detected flavour / propagation",
+          "meaning": "Canal en vacío y neutrino o antineutrino.",
+          "try": "Compara el mismo canal antes y después de normalizar."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Residuo ligero y respuesta pesada",
+          "meaning": "Comprueban qué se conserva y qué cambia en los puntos válidos."
+        },
+        {
+          "name": "Factores de corriente y DeepCore",
+          "meaning": "El mapa de referencia conserva su hipótesis y límites de retícula propios."
+        }
+      ],
+      "example": {
+        "title": "Ocultar una supresión al normalizar",
+        "steps": [
+          "Carga Common suppression hidden by normalization.",
+          "Compara factor original y forma normalizada.",
+          "Pasa al preset de déficits desiguales."
+        ],
+        "expect": "La forma normalizada puede perder información de normalización global."
+      },
+      "limits": [
+        "Las trayectorias no agotan todas las degeneraciones.",
+        "Se omiten propagación en materia y modelo de eventos del detector.",
+        "El mapa DeepCore no proporciona una exclusión del anillo no unitario."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "No aparece un valor DeepCore.",
+          "action": "Comprueba el dominio archivado: no se extrapola una nueva verosimilitud fuera de la retícula."
+        }
+      ],
+      "terms": [],
+      "related": [
+        "flavour",
+        "simulator-neutrino",
+        "neutrino-decays"
+      ],
+      "references": [
+        {
+          "label": "Blennow et al., vacuum limits of equations (5) and (7)",
+          "url": "https://arxiv.org/abs/1609.08637"
+        },
+        {
+          "label": "IceCube DeepCore 2018 data reference",
+          "url": "https://doi.org/10.21234/B4105H"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/neutrino_research.mjs"
+        }
+      ]
+    },
+    {
+      "id": "thermal",
+      "kind": "experiment",
+      "title": "SU(3) térmico: potencial y coexistencia",
+      "host": "predict",
+      "mode": "builder",
+      "route": "s=predict&predict.s=v%3A0&help=thermal",
+      "video": "thermal",
+      "source": "src/modules/thermal_ghu.mjs",
+      "what": "Reproduce las referencias térmicas SU(3) planas e inspecciona potencial de Wilson, mínimos y candidatos de coexistencia.",
+      "steps": [
+        "Abre la tarjeta térmica en builder.",
+        "Carga paper case 1 o case 2.",
+        "Varía R T y compara cortes duplicados.",
+        "Distingue coexistencia de nucleación en la tarjeta de historia."
+      ],
+      "read": "La tarjeta usa entradas SU(3) propias, independientes del constructor SU(N). Coexistencia no establece nucleación, finalización de la transición ni señal gravitacional.",
+      "purpose": "Permite entender primero cómo cambia el potencial con la temperatura en los ejemplos de Hirose–Shibuya, antes del cálculo externo de rebote.",
+      "controls": [
+        {
+          "name": "Fundamental / adjoint matter ±",
+          "meaning": "Contenido térmico y productos de paridad.",
+          "try": "Comprende un benchmark antes de modificarlo."
+        },
+        {
+          "name": "1/R [GeV] / g₄ / R T",
+          "meaning": "Escala, conversión de campo y temperatura adimensional.",
+          "try": "Varía R T con los otros parámetros fijos."
+        },
+        {
+          "name": "Spatial / thermal winding cutoff",
+          "meaning": "Truncaciones numéricas independientes.",
+          "try": "Lee el efecto de duplicar ambas."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Potencial y fase preferida",
+          "meaning": "Mínimos localizados de la suma truncada."
+        },
+        {
+          "name": "Coexistencia y convergencia",
+          "meaning": "Candidato de igual profundidad en 0 ≤ R T ≤ 0.6 y sensibilidad a cortes."
+        }
+      ],
+      "example": {
+        "title": "Seguir la fase preferida",
+        "steps": [
+          "Carga case 1.",
+          "Lee el flujo de fase.",
+          "Inspecciona temperaturas a ambos lados de una coexistencia resuelta."
+        ],
+        "expect": "Puede cambiar el mínimo preferido sin determinar cuándo nuclean burbujas."
+      },
+      "formulas": [
+        {
+          "expression": "C₄ = 3/(64π⁶R⁴),  α = g₄Rφ",
+          "meaning": "Normalización del potencial cuatridimensional y conversión a campo canónico implementadas."
+        }
+      ],
+      "limits": [
+        "Modelo independiente del candidato SU(7) y de la selección del constructor.",
+        "Rango y cortes finitos pueden dejar coexistencia sin resolver.",
+        "La comparación de cortes no es una cota uniforme de error físico; nucleación y ondas gravitacionales requieren más cálculos."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "No se resuelve coexistencia.",
+          "action": "Comprueba contenido, intervalo R T y sensibilidad a cortes antes de afirmar que no hay transición."
+        }
+      ],
+      "terms": [],
+      "related": [
+        "thermalhistory",
+        "simulator-builder"
+      ],
+      "references": [
+        {
+          "label": "Hirose–Shibuya, equations (2.30), (2.33), cases 1 and 2",
+          "url": "https://arxiv.org/abs/2303.14192"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/thermal_ghu.mjs"
+        }
+      ]
+    },
+    {
+      "id": "thermalhistory",
+      "kind": "experiment",
+      "title": "Nucleación, percolación y ondas gravitacionales",
+      "host": "predict",
+      "mode": "builder",
+      "route": "s=predict&predict.s=v%3A0&help=thermalhistory",
+      "video": "thermalhistory",
+      "source": "src/modules/thermal_history.mjs",
+      "what": "Integra el crecimiento de burbujas a partir de una tabla refinada de acciones coincidente y de hipótesis cosmológicas explícitas.",
+      "steps": [
+        "Selecciona un benchmark térmico admitido.",
+        "Comprueba que existe una tabla de acciones coincidente.",
+        "Fija g*, velocidad de pared, eficiencia y fondo.",
+        "Lee nucleación, percolación y finalización antes del espectro acústico."
+      ],
+      "read": "Las acciones de referencia solo se aplican a entradas térmicas coincidentes. Velocidad de pared y eficiencia son hipótesis; CMS y ATLAS no miden estas cantidades térmicas.",
+      "purpose": "Sigue una historia integrada más allá de coexistencia o de un umbral único S₃/T y comprueba el volumen físico de falso vacío.",
+      "controls": [
+        {
+          "name": "g*",
+          "meaning": "Grados de libertad relativistas del fondo cosmológico.",
+          "try": "Fíjalo al comparar velocidades."
+        },
+        {
+          "name": "Wall speed / c / efficiency κ",
+          "meaning": "Hipótesis explícitas, no resultados del potencial.",
+          "try": "Cambia una y observa finalización y espectro."
+        },
+        {
+          "name": "Expansion background",
+          "meaning": "Radiación sola o con energía de falso vacío.",
+          "try": "Compara la condición de volumen físico."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Eventos integrados",
+          "meaning": "Nucleación, percolación y finalización dentro del rango de acciones cuando se establecen."
+        },
+        {
+          "name": "Fracción, volumen y espectro",
+          "meaning": "El espectro acústico depende de historia, pared, eficiencia y modelo de ondas sonoras."
+        }
+      ],
+      "example": {
+        "title": "Comprobar finalización condicionada",
+        "steps": [
+          "Restaura un benchmark con acciones refinadas.",
+          "Lee rango y diagnóstico del borde superior.",
+          "Compara eventos y pendiente del volumen al cambiar el fondo."
+        ],
+        "expect": "No se extrapolan eventos ausentes; la conclusión conserva acciones y cosmología supuestas."
+      },
+      "formulas": [
+        {
+          "expression": "Percolation: I = 0.34; completion: P_false = 0.01",
+          "meaning": "Definiciones de eventos del laboratorio. Ambas exigen también que disminuya el volumen físico de falso vacío."
+        }
+      ],
+      "limits": [
+        "Sin tabla coincidente la historia queda pendiente.",
+        "Los benchmarks SU(3) no son un ajuste conjunto del modelo SU(7).",
+        "El espectro gravitacional es condicional, no una señal observada ni una verosimilitud completa de detector."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "Aparece Refined action table pending.",
+          "action": "Restaura un benchmark o importa un resultado refinado coincidente mediante el procedimiento documentado."
+        }
+      ],
+      "terms": [],
+      "related": [
+        "thermal",
+        "simulator-builder"
+      ],
+      "references": [
+        {
+          "label": "Cosmological transition review",
+          "url": "https://arxiv.org/abs/2305.02357"
+        },
+        {
+          "label": "Acoustic spectrum, equations (28–30)",
+          "url": "https://arxiv.org/abs/2309.05474"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/thermal_history.mjs"
+        }
+      ]
+    },
+    {
+      "id": "rsanomaly",
+      "kind": "experiment",
+      "title": "Flujo de anomalías RS y corriente bariónica",
+      "host": "anomalies",
+      "route": "s=anomalies&help=rsanomaly",
+      "video": "rsanomaly",
+      "source": "src/modules/rs_anomaly.mjs",
+      "what": "Inspecciona factores UV e IR de funciones normalizadas de la torre Z y distingue cancelación gauge y anomalía de la corriente bariónica.",
+      "steps": [
+        "Elige ángulo, deformación y modo Z.",
+        "Empieza con generaciones completas de quarks y leptones.",
+        "Compara fronteras y suma.",
+        "Retira una generación y observa el factor gauge."
+      ],
+      "read": "La cancelación gauge y una anomalía bariónica global son afirmaciones distintas. Una anomalía bariónica no determina vida del protón ni producción de asimetría bariónica.",
+      "purpose": "Separa flujo de frontera, cancelación de materia y corrientes globales en el cálculo warped admitido, con fuentes y verificaciones numéricas identificadas.",
+      "controls": [
+        {
+          "name": "θH / log₁₀ zL / sin² θW⁰",
+          "meaning": "Fondo warped y parámetros electrodébiles.",
+          "try": "Varía el ángulo con materia fija."
+        },
+        {
+          "name": "mKK [TeV] / Z mode",
+          "meaning": "Escala y modo cero, primero o segundo excitado.",
+          "try": "Compara masas y factores."
+        },
+        {
+          "name": "Quark / lepton generations",
+          "meaning": "Materia que interviene en la cancelación.",
+          "try": "Compara contenido completo e incompleto."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Factores UV, IR y total",
+          "meaning": "Contribuciones de frontera de los modos normalizados."
+        },
+        {
+          "name": "Factor gauge y matriz bariónica",
+          "meaning": "Corresponden a corrientes distintas."
+        },
+        {
+          "name": "Cuadratura y referencia KK",
+          "meaning": "La cuadratura comprueba normalización; la tabla publicada usa un benchmark fijo."
+        }
+      ],
+      "example": {
+        "title": "Separar las dos anomalías",
+        "steps": [
+          "Usa generaciones completas iguales.",
+          "Lee factor gauge y resultado bariónico.",
+          "Retira una generación leptónica."
+        ],
+        "expect": "Cambia la cancelación gauge sin convertir la corriente bariónica en la misma pregunta."
+      },
+      "limits": [
+        "La tabla KK publicada permanece en su benchmark y no sigue todos los controles.",
+        "Convergencia de cuadratura no certifica todas las hipótesis físicas.",
+        "No se calculan vida del protón ni rendimiento de bariogénesis."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "La tabla de referencia no cambia con θH.",
+          "action": "Lee su etiqueta θH = 0.1 y mKK = 13 TeV; consulta el flujo para las entradas actuales."
+        }
+      ],
+      "terms": [],
+      "related": [
+        "anomalies",
+        "anomaly5d"
+      ],
+      "references": [
+        {
+          "label": "RS anomaly flow, June 2026",
+          "url": "https://arxiv.org/abs/2606.01829"
+        },
+        {
+          "label": "Baryon anomaly, September 2026",
+          "url": "https://arxiv.org/abs/2609.29135"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/rs_anomaly.mjs"
+        }
+      ]
+    },
+    {
+      "id": "higgstools",
+      "kind": "experiment",
+      "title": "Higgs: tasas, anchura y comparación experimental",
+      "host": "collider",
+      "route": "s=collider&help=higgstools",
+      "video": "higgstools",
+      "source": "src/modules/higgstools_adapter.mjs",
+      "what": "Construye un escenario explícito de Higgs par bajo CP a 125.2 GeV y examina producción, anchuras, fracciones y resultados experimentales externos coincidentes.",
+      "steps": [
+        "Empieza con SM reference.",
+        "Cambia un acoplamiento o anchura invisible.",
+        "Lee anchura total y fracciones junto a producción.",
+        "Usa un resultado HiggsTools solo con entradas y versión coincidentes."
+      ],
+      "read": "El preset de torre top cambia la amplitud gluónica especificada y supone los otros acoplamientos de tipo SM. No es una predicción ni exclusión completa de un modelo GHU.",
+      "purpose": "Muestra por qué una corrección de producción no basta para comparar señales: también intervienen anchura total y fracciones de desintegración.",
+      "controls": [
+        {
+          "name": "κW = κZ / common fermion κ",
+          "meaning": "Hipótesis de acoplamientos efectivos del escenario.",
+          "try": "Cambia uno con los demás fijos."
+        },
+        {
+          "name": "κg / κγ / κZγ",
+          "meaning": "Amplitudes efectivas independientes en la parametrización admitida.",
+          "try": "Compara torre top y SM."
+        },
+        {
+          "name": "Invisible width [MeV]",
+          "meaning": "Anchura parcial adicional supuesta, incluida en la total.",
+          "try": "Auméntala y sigue una fracción visible."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Producción",
+          "meaning": "Usa la referencia fijada de HiggsPredictions en las energías indicadas."
+        },
+        {
+          "name": "Anchura, fracciones e intensidades",
+          "meaning": "Incluyen todas las anchuras parciales listadas del escenario."
+        },
+        {
+          "name": "Resultado externo",
+          "meaning": "Cálculo versionado HiggsBounds/HiggsSignals para parámetros compatibles."
+        }
+      ],
+      "example": {
+        "title": "Cambiar señal sin cambiar producción",
+        "steps": [
+          "Carga SM y anota ggH.",
+          "Aumenta solo la anchura invisible.",
+          "Compara producción, anchura total e intensidad visible."
+        ],
+        "expect": "La producción puede mantenerse mientras disminuyen fracciones e intensidades visibles."
+      },
+      "limits": [
+        "Los acoplamientos son hipótesis salvo derivación de un modelo completo.",
+        "Un resultado externo ausente o incompatible no es un veredicto permitido.",
+        "Número de observables no equivale automáticamente a grados de libertad estadísticos."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "El resultado externo deja de ser aplicable.",
+          "action": "Restaura los parámetros coincidentes o calcula e importa un nuevo resultado compatible siguiendo el procedimiento documentado."
+        }
+      ],
+      "terms": [],
+      "related": [
+        "collider",
+        "simulator-higgsrate"
+      ],
+      "references": [
+        {
+          "label": "HiggsTools for Run 3",
+          "url": "https://arxiv.org/abs/2608.05401"
+        },
+        {
+          "label": "Official HiggsBounds dataset",
+          "url": "https://gitlab.com/higgsbounds/hbdataset"
+        },
+        {
+          "label": "Official HiggsSignals dataset",
+          "url": "https://gitlab.com/higgsbounds/hsdataset"
+        },
+        {
+          "label": "Implementación y atribución de fuentes",
+          "url": "https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/higgstools_adapter.mjs"
+        }
+      ]
+    },
+    {
+      "id": "getting-started",
+      "kind": "start",
+      "title": "Primeros pasos: elegir, calcular, interpretar y guardar",
+      "host": "sun5d",
+      "route": "s=sun5d",
+      "video": "start",
+      "what": "Elige una tarea del laboratorio, ejecuta un ejemplo de referencia y entiende qué establece su resultado y qué queda abierto.",
+      "steps": [
+        "Elige una tarea en el índice o una familia en el menú.",
+        "Empieza con una referencia y cambia un parámetro cada vez.",
+        "Lee unidades, hipótesis y estado del resultado junto a la figura.",
+        "Guarda entradas, versión y fuentes con los resultados que quieras comparar."
+      ],
+      "read": "El laboratorio contiene modelos distintos. Una comprobación numérica, un certificado formal y un acuerdo con datos acreditan cosas diferentes: conserva siempre las hipótesis.",
+      "purpose": "El índice organiza las herramientas por tareas y familias y permite buscarlas por entradas o resultados. Cada sección tiene ayuda breve y enlace a su guía; los modos y experimentos integrados tienen guías propias. El selector English/Español conserva la página. Los nombres de controles en inglés permiten localizarlos en la aplicación.",
+      "controls": [
+        {
+          "name": "Menú / selector de sección",
+          "meaning": "Cambia la herramienta activa; algunos experimentos están dentro de una sección.",
+          "try": "Usa Abrir herramienta para llegar al modo y tarjeta adecuados."
+        },
+        {
+          "name": "How to use / Full guide",
+          "meaning": "Ayuda breve dentro de la aplicación y guía completa en otra pestaña.",
+          "try": "Cambia idioma sin reiniciar el cálculo."
+        },
+        {
+          "name": "Presets / referencias",
+          "meaning": "Cargan ejemplos y pueden reemplazar entradas.",
+          "try": "Guarda tu trabajo antes de cargar otro."
+        },
+        {
+          "name": "Save / export / permalink",
+          "meaning": "Conservan entradas o salidas admitidas; los formatos varían por herramienta.",
+          "try": "Acompaña los números de unidades, hipótesis y procedencia."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cálculo o comprobación numérica",
+          "meaning": "Resultado dentro de modelo y ajustes implementados; convergencia responde a su pregunta numérica específica."
+        },
+        {
+          "name": "Certificado o teorema formal",
+          "meaning": "Afirmación comprobada o acotada rigurosamente bajo hipótesis, no certificación del modelo físico completo."
+        },
+        {
+          "name": "Comparación experimental",
+          "meaning": "Usa datos e hipótesis identificados; superposición de referencia, intervalo y verosimilitud no son intercambiables."
+        },
+        {
+          "name": "Unknown / unresolved / not evaluated",
+          "meaning": "Límite del cálculo; no debe convertirse en aceptación, exclusión o imposibilidad."
+        }
+      ],
+      "example": {
+        "title": "Primer recorrido 5D",
+        "steps": [
+          "Carga una referencia en SU(N) builder.",
+          "Inspecciona potencial y vacío.",
+          "Continúa por KK spectrum y anomalías.",
+          "Examina materia de frontera si procede.",
+          "Abre Simulator, lee la calibración y guarda el registro."
+        ],
+        "expect": "Cada etapa responde a una pregunta distinta. Superar una no sustituye las siguientes ni establece viabilidad fenomenológica completa."
+      },
+      "limits": [
+        "SU(7), SU(4), 5D plano, warped, SU(3) térmico y anillo de neutrinos no se combinan sin un cálculo de correspondencia definido.",
+        "Un barrido finito no demuestra inexistencia fuera del dominio.",
+        "Estas guías describen el instrumento actual; vídeos y ediciones archivadas conservan fecha y alcance.",
+        "La ayuda breve queda disponible sin conexión. Las guías completas y referencias requieren sus archivos o acceso web."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "No aparece el cálculo esperado.",
+          "action": "Comprueba familia y modo del Simulator. Busca también los experimentos integrados en el índice."
+        },
+        {
+          "symptom": "Cambiar una entrada no produce un resultado válido nuevo.",
+          "action": "Lee el mensaje de validación: algunos paneles conservan el último resultado válido hasta corregir la entrada."
+        }
+      ],
+      "terms": [],
+      "related": [
+        "sun5d",
+        "spectrum5d",
+        "anomaly5d",
+        "brane",
+        "predict",
+        "hierarchy"
+      ],
+      "references": [
+        {
+          "label": "Laboratory documentation and reproducibility",
+          "url": "https://karlesmarin.github.io/ghu-explorer/docs/index.html"
+        },
+        {
+          "label": "SU(7) certification: statements, assumptions and attribution",
+          "url": "https://karlesmarin.github.io/ghu-explorer/docs/su7-certification.html"
+        }
+      ]
+    }
+  ],
+  "glossary": {
+    "alphabet": {
+      "term": "Alfabeto",
+      "body": "Las condiciones admitidas se construyen con representaciones irreducibles del grupo espacial Γ = Λ ⋊ Z_m. La Parte IX-A obtiene estas letras mediante inversión de Möbius sobre puntos fijos; la teoría de Clifford proporciona sus pesos. Los datos posteriores se derivan de ese alfabeto bajo las hipótesis de clasificación."
+    },
+    "weight": {
+      "term": "Peso de una letra",
+      "body": "Es su dimensión. Una letra de peso uno representa una condición diagonal; pesos mayores permiten condiciones no diagonales. Un ansatz exclusivamente diagonal no recupera esas letras. Los pesos determinan el coste de enumerar un rango."
+    },
+    "local-datum": {
+      "term": "Dato local",
+      "body": "En un punto cónico de orden e, registra las multiplicidades de los autovalores de la isotropía entre las raíces e-ésimas de la unidad. Describe ese punto fijo, no toda la geometría del orbifold."
+    },
+    "class": {
+      "term": "Clase de una condición",
+      "body": "En la clasificación indicada, se registra mediante una tupla de datos locales, uno por punto cónico. La equivalencia considerada debe conservarlos. Un movimiento que cambia uno no preserva esa clase; comprobarlo no requiere terminar toda la clasificación."
+    },
+    "fibre": {
+      "term": "Fibra",
+      "body": "Conjunto de entradas que comparten los datos fijados. En clasificación reúne condiciones con la misma clase, indexadas por el mapa marginal; en conteos de materia reúne contenidos con las coordenadas impuestas. El contexto determina qué se está fijando y contando."
+    },
+    "cone": {
+      "term": "Puntos cónicos y signatura",
+      "body": "Puntos fijos de la rotación del toro con el orden de su grupo de isotropía. La lista de órdenes es la signatura. Bajo las hipótesis de clasificación determina el grado de crecimiento del conteo antes de enumerar condiciones."
+    },
+    "frobenius-schur": {
+      "term": "Indicador de Frobenius–Schur",
+      "body": "Los valores +1, 0 y −1 distinguen letras reales, complejas y cuaterniónicas. Determina cómo se reorganiza el alfabeto entre SU, SO y Sp; por ejemplo, las letras complejas se emparejan con sus conjugadas."
+    },
+    "degree": {
+      "term": "Grado del conteo",
+      "body": "Bajo las hipótesis indicadas, el grado de crecimiento polinómico es e₁ − 1, con e₁ = 1 + Σ c(mᵢ), donde c(m) = m−1 para SU y ⌊m/2⌋ para SO y Sp. Este grado asintótico no afirma que todo conteo exacto de rango finito sea un único polinomio sin términos periódicos."
+    },
+    "hilbert-series": {
+      "term": "Serie de Hilbert",
+      "body": "Función generatriz de los conteos del semigrupo, escrita como P(x) / ∏(1−x^w) con los pesos de las letras. La terminación de P se comprueba en el cálculo indicado; después la recurrencia permite obtener conteos sin enumerar cada condición."
+    },
+    "unbroken-group": {
+      "term": "Grupo aparente no roto",
+      "body": "Grupo gauge que parece conservar una descripción de frontera. Para un alfabeto de peso uno se expresa como S(∏ U(n_ℓ)). Puede variar entre representantes de una misma clase; ordenar modelos solo por este grupo puede contar varias veces descripciones equivalentes."
+    },
+    "smith-normal-form": {
+      "term": "Forma normal de Smith",
+      "body": "Permite enumerar los puntos fijos descritos por M⁻¹Zʳ/Zʳ, de orden |det M|. Recorre el grupo finito pertinente en lugar de una caja de candidatos mucho mayor. Es una herramienta algebraica para el conteo, no una hipótesis física adicional."
+    },
+    "crystallographic": {
+      "term": "Matriz rechazada",
+      "body": "La rotación entera debe tener orden finito y satisfacer la hipótesis ciclotómica de la Parte IX-A. Fuera de ese dominio el cálculo se rechaza. Devolver un alfabeto vacío como si fuera un conteo válido ocultaría que no se cumplen las hipótesis."
+    },
+    "move": {
+      "term": "Movimiento",
+      "body": "Reescritura que preserva los datos de clase indicados. La completitud exige además conectar todos los miembros de cada fibra pertinente. Un recorrido finito comprueba el caso elegido; movimientos válidos o éxito en un rango no prueban completitud en todos."
+    },
+    "affine-semigroup": {
+      "term": "Semigrupo afín",
+      "body": "Los datos de clase se indexan mediante el semigrupo asociado al mapa marginal, con generadores procedentes del alfabeto. Identificarlo conserva la atribución a configuraciones ya estudiadas, como las de cortes sobre Z₂, y permite consultar sus invariantes publicados."
+    },
+    "wilson-line": {
+      "term": "Línea y fase de Wilson",
+      "body": "La fase del campo gauge en la dimensión extra parametriza el fondo de Wilson. En la convención SU(7) indicada, 1/R₅ = 2m_W/α para fase no nula. Esa conversión requiere sus entradas y normalización; no se copia automáticamente a otro modelo."
+    },
+    "hosotani": {
+      "term": "Mecanismo de Hosotani",
+      "body": "Una componente del campo gauge de dimensión superior puede aportar el modo cero que actúa como Higgs 4D. Su potencial de Wilson se genera radiativamente en el planteamiento protegido admitido. Calcular una fase no fija por sí solo todos los datos dimensionales; usar mW como calibración no predice ese mismo dato."
+    },
+    "parities": {
+      "term": "Paridades",
+      "body": "Signos de una componente en los puntos fijos, como (+,+) o (+,−). En el intervalo ordinario sin fondo de Wilson, (+,+) admite un modo constante antes de masas adicionales. En un vacío no trivial hay que resolver el problema conjunto de frontera; la tabla sola no es todo el espectro físico."
+    },
+    "zero-mode": {
+      "term": "Modo cero",
+      "body": "Modo sin masa bajo el fondo y problema de frontera especificados. En el punto simétrico ordinario su existencia se deduce de las paridades. Fondos de Wilson, masas de frontera e interacciones pueden cambiar el contenido sin masa; hay que indicar el fondo del conteo."
+    },
+    "kk-tower": {
+      "term": "Torre Kaluza–Klein",
+      "body": "Modos 4D asociados a un campo en la dimensión extra. En el caso simple sin torsión sus masas son n/R; fases de frontera desplazan niveles y términos cinéticos de brana pueden cambiar la ecuación espectral. La torre conserva fronteras, fase y multiplicidades, y no determina por sí sola tasas de colisionador."
+    },
+    "bulk-content": {
+      "term": "Contenido del bulk",
+      "body": "Representaciones que se propagan en las dimensiones extra, con paridades y multiplicidades. Es una entrada fundamental del potencial, espectro y anomalías; para definir el modelo también deben conservarse las fronteras y convenciones indicadas."
+    },
+    "brane": {
+      "term": "Brana o frontera",
+      "body": "En el intervalo orbifold, los extremos son puntos fijos donde puede localizarse materia además de la que se propaga en el bulk. Esa materia puede contribuir a anomalías y emparejar modos cero bajo las condiciones de representación y carga correspondientes."
+    },
+    "local-group": {
+      "term": "Grupo local",
+      "body": "En y = 0 es el conmutante de P₀; con bloques diagonales, S(U(n₊₊ + n₊₋) × U(n₋₊ + n₋₋)). En y = πR es el conmutante de P₁. Pueden diferir; el grupo 4D en el punto simétrico conmuta con ambos. Una representación local puede descomponerse bajo ese subgrupo común."
+    },
+    "boundary-mass": {
+      "term": "Masa de frontera",
+      "body": "En convención completamente levógira, un modo r_q puede emparejarse con un Weyl localizado en la representación conjugada y de carga opuesta. Con acoplamientos genéricos, el rango máximo deja el valor absoluto de la diferencia por cada clase. Hay que descomponer antes de contar modos levantados."
+    },
+    "one-loop-potential": {
+      "term": "Potencial a un lazo",
+      "body": "Potencial efectivo de Wilson obtenido del contenido y espectro admitidos. Su parte dependiente de la fase es finita en el planteamiento protegido indicado. Eso no cuantifica todas las correcciones de lazos superiores ni interacciones de frontera; normalización y contenido siguen necesitando justificación física."
+    },
+    "alpha-min": {
+      "term": "Mínimo aproximado",
+      "body": "La expresión cerrada localiza una rama estacionaria de la expansión de fase pequeña y se compara con la búsqueda numérica del potencial de Fourier. Pueden diferir. Ni esa expresión ni una retícula finita por sí solas certifican el vacío global."
+    },
+    "chiral": {
+      "term": "Contenido quiral",
+      "body": "Las componentes de quiralidad izquierda y derecha tienen representaciones diferentes. La proyección orbifold puede producir este contenido 4D. Las anomalías gauge del modelo completo deben cancelarse canal por canal."
+    },
+    "anomaly-channel": {
+      "term": "Canal de anomalía",
+      "body": "Condición independiente de cancelación del espectro quiral considerado. Una entrada no nula del subtotal del bulk señala una contribución pendiente cuando se permite materia de frontera; no sustituye el balance del modelo completo ni construye automáticamente su completación."
+    },
+    "blkt": {
+      "term": "Término cinético localizado",
+      "body": "Contribución cinética situada en un punto fijo. Puede modificar la ecuación espectral de la torre: las masas pasan a ser raíces de una ecuación trascendente. Su solución y sus hipótesis deben conservarse al construir el potencial o comparar límites."
+    },
+    "boundary-condition": {
+      "term": "Condición de contorno",
+      "body": "Especifica cómo actúa el grupo gauge en las fronteras. En la familia SU(N) ordinaria sobre S¹/Z₂ se registra mediante cuatro bloques [p, q, r, s]. Diferentes descripciones pueden estar relacionadas por la equivalencia gauge indicada."
+    },
+    "equivalence-class": {
+      "term": "Clase de equivalencia",
+      "body": "Agrupa condiciones relacionadas por las transformaciones gauge permitidas. El grupo aparente de un representante puede cambiar dentro de la clase. La comparación física exige conservar la relación de equivalencia y transformar coherentemente el resto de los datos del modelo."
+    },
+    "moments": {
+      "term": "Momentos del potencial",
+      "body": "Momentos segundo y cuarto ponderados por cargas de Wilson, usados en la reducción de fase pequeña. La aritmética depende de la semilla: la publicada SU(7) tiene 8D impar y la candidata admite peldaños pares. Los momentos no determinan en general todo el potencial; hay que conservar semilla y condiciones de no degeneración."
+    },
+    "rung": {
+      "term": "Peldaño",
+      "body": "Valor cuantizado de la coordenada de curvatura D en la reducción indicada. Paridad y valores accesibles dependen de la semilla. Los conteos finitos requieren las cotas adicionales de coordenadas o masa especificadas. Un presupuesto agotado no demuestra que no haya solución."
+    },
+    "ceiling": {
+      "term": "Techo condicionado",
+      "body": "Cota superior de escala para un relajamiento de momentos, semilla, acoplamiento y ventana de masa concretos. Un certificado racional o por intervalos demuestra esa cota con sus hipótesis. No tiene por qué alcanzarse ni ser una cota universal de vacíos globales del potencial completo."
+    },
+    "reachable-set": {
+      "term": "Conjunto alcanzable",
+      "body": "Escalas obtenidas por contenidos enteros admitidos en el problema inverso especificado. Pueden formar grupos separados. Un hueco conserva semilla, ventana, acoplamiento y aproximación; una gráfica o búsqueda incompleta no certifica por sí sola la imposibilidad de todas las escalas intermedias."
+    },
+    "certificate": {
+      "term": "Certificado",
+      "body": "Evidencia de una afirmación matemática precisa: obstrucción aritmética, cota racional o prueba por intervalos de un potencial fijo, por ejemplo. Hipótesis y dominio viajan con ella. Un presupuesto agotado queda sin decidir; certificar una fórmula no prueba toda su aplicabilidad física ni novedad."
+    },
+    "vector-partition-function": {
+      "term": "Función de partición vectorial",
+      "body": "Cuenta puntos enteros no negativos que satisfacen las coordenadas y congruencias impuestas, aquí en (A₄, 8D). La programación dinámica puede calcular muchos conteos sin construir cada contenido. El resultado sigue siendo un conteo aritmético, no una prueba de viabilidad física."
+    },
+    "same-potential": {
+      "term": "Igualdad de potenciales",
+      "body": "El Teorema 3 de la Parte VII da un criterio necesario y suficiente de cinco coordenadas para la familia implementada. Contenidos distintos pueden tener el mismo potencial. Coincidir en momentos o muestras gráficas es más débil; tampoco la igualdad del potencial prueba identidad de espectros e interacciones completos."
+    },
+    "canonical-representative": {
+      "term": "Representante canónico",
+      "body": "Contenido distinguido entre los que comparten el potencial implementado, definido en la ecuación (43) de la Parte VII. Representa esa igualdad algebraica; no representa automáticamente una teoría física completa, pues otras cantidades pueden diferir."
+    },
+    "selection-rule": {
+      "term": "Regla de selección",
+      "body": "La condición aritmética de la Parte III determina cuándo es redundante la mitad del toro en la proyección SU(4) indicada. Deben conservarse sus hipótesis antes de reducir una búsqueda. La comprobación directa ofrece un contraste independiente de la formulación por etiquetas de Dynkin."
+    },
+    "eta": {
+      "term": "Signo η",
+      "body": "Producto de signos de frontera η = η₀η₁. En el problema SU(4) estudiado en las Partes IV–V, el índice especificado controla la respuesta del potencial a ese signo. La clase de anulación tiene que interpretarse para esa contribución y proyección."
+    },
+    "eta-blindness": {
+      "term": "Insensibilidad a η",
+      "body": "En la contribución SU(4) y proyección estudiadas, la clase de índice nulo no tiene respuesta dependiente de η. Aumentar su multiplicidad no crea esa diferencia. No significa que desaparezcan potencial completo, espectro u otros efectos; compara las dos vistas por separado."
+    },
+    "k-invariant": {
+      "term": "Invariante K y normalización",
+      "body": "En la convención registrada, m_h a / √F'' = 2.2456 g₄. A m_h de entrada fijo, F → λF cambia K por λ^(−½); la invariancia requiere recalcular también m_h como √λ m_h. Compara el acoplamiento implícito, no demuestra estacionariedad ni mínimo global. Parte VI, problema abierto 3."
+    },
+    "comb": {
+      "term": "Estructura discreta de escalas",
+      "body": "La separación aritmética se expresa en M², no en M, con las cotas condicionadas de cada peldaño. La posición conserva el residuo de referencia y g₄. Hay que distinguir separación y posición antes de atribuir un desacuerdo a una fuente publicada."
+    },
+    "bill-in-eighths": {
+      "term": "Contribución en octavos",
+      "body": "Coste de la construcción de protección frente al problema de desintegración del protón, medido en la unidad de D indicada. La razón entera permite comparar esa contabilidad sin una normalización global de masa, manteniendo las hipótesis de la construcción."
+    },
+    "rung-cube": {
+      "term": "Cubo de peldaños",
+      "body": "Visualiza las 64 ternas ordenadas de peldaños leptónicos de la familia examinada. La diagonal universal entre familias tiene A_j nulos y pierde la protección indicada. La afirmación geométrica se refiere a esta familia y a la regla de selección especificada."
+    },
+    "coloron": {
+      "term": "Colorón",
+      "body": "Vector octete de color usado en la comparación dijet del laboratorio. Masa, anchura y acoplamiento dependen de localización y compactificación del modelo. No se transfiere un límite de otra resonancia, producción o patrón de desintegración solo porque coincida una masa."
+    },
+    "recast": {
+      "term": "Reinterpretación de un límite",
+      "body": "Límite experimental publicado expresado en la escala del modelo bajo hipótesis compatibles. Los valores Δχ² del panel dijet se citan del registro publicado; no se recalculan ni se convierten automáticamente en un nuevo ajuste por almacenar otros datos."
+    },
+    "anchor": {
+      "term": "Referencia reproducida",
+      "body": "Cálculo publicado que el instrumento vuelve a evaluar y muestra mediante un indicador. Informa de si reproduce esa referencia y bajo qué alcance antes de interpretar entradas modificadas. No certifica por sí solo toda la fenomenología."
+    },
+    "gauge-or-physics": {
+      "term": "Descripción y cantidad física",
+      "body": "Un diagnóstico de teoría debe conservarse al cambiar coherentemente a una descripción gauge equivalente. El dossier recomputa filas y etiqueta lo observado. Una cantidad al punto simétrico del representante puede variar; la comparación al mínimo plantea otra pregunta y conserva el alcance del ensayo."
+    },
+    "sm-cell": {
+      "term": "Encaje del Modelo Estándar",
+      "body": "Busca la estructura SU(3)×SU(2)×U(1)_Y y componentes Q, uᶜ, dᶜ, L y eᶜ con sus hipercargas. Resuelve Y en los generadores abelianos de los bloques; cuando queda fijado determina sin²θ_W = tr T₃² / (tr T₃² + tr Y²). Se examina el punto simétrico más cercano al vacío y se declaran los campos ausentes."
+    },
+    "against-the-data": {
+      "term": "Comparar con datos",
+      "body": "En builder, el vacío aporta m_W R adimensional y la masa W registrada calibra 1/R. Las cantidades dimensionales son condicionales a ese anclaje. Un límite octete de color requiere sus hipótesis, incluido color en el bulk. Cada modo conserva datos y convenciones propios; referencia, intervalo y verosimilitud son comparaciones distintas."
+    },
+    "at-the-minimum": {
+      "term": "En el mínimo",
+      "body": "Al eliminar el fondo constante A_y mediante una transformación gauge, la reflexión se modifica con la holonomía: P₁′ = W⁻¹P₁. El contenido sin masa es el espacio fijado por ambas condiciones. Hosotani y Haba–Hosotani–Kawamura proporcionan el marco; las rutas de cálculo del laboratorio se contrastan. Las direcciones escalares planas son de árbol y se declara la tolerancia de extremos."
+    },
+    "separates-nothing": {
+      "term": "Invariancia sin separación",
+      "body": "Una cantidad puede ser constante dentro de cada clase y tomar además el mismo valor en todas. Entonces no distingue teorías aunque sea invariante. El dossier mide por separado variación dentro de una clase y capacidad de separar las clases examinadas."
+    },
+    "keyword-sweep": {
+      "term": "Búsqueda por palabras clave",
+      "body": "Reduce un corpus a candidatos de lectura. Una coincidencia significa que conviene abrir la fuente, no que quede demostrada una afirmación sobre el paper. Señales automáticas y conclusiones revisadas se registran por separado."
+    },
+    "measured-vs-read": {
+      "term": "Extraído, leído y no evaluado",
+      "body": "Measured describe la extracción o búsqueda reproducible en el corpus declarado. Read identifica una afirmación revisada con página o ecuación. Si la extracción pierde símbolos, no demuestra que el paper omita una fórmula; el fallo de extracción se separa del hallazgo bibliográfico negativo."
+    },
+    "tripod": {
+      "term": "Cota del trípode",
+      "body": "Para el modelo basado en un grupo abeliano finito G sobre el árbol de tres hojas, la afirmación global indicada es intersección completa si y solo si |G| ≤ 3. La cota |G|² − 6|G| + 6 ≤ 0 descarta órdenes desde cinco. El orden cuatro la pasa pero se resuelve aparte por enumeración en la Parte IX-B, §5."
+    },
+    "complete-intersection": {
+      "term": "Intersección completa local y global",
+      "body": "Casanellas, Fernández-Sánchez y Michałek prueban la propiedad en un abierto de Zariski. La pregunta del panel es global, sobre el ideal tórico. El trípode Z₄ distingue ambas: localmente sí y globalmente no. Una afirmación no sustituye a la otra."
+    },
+    "anchor-verdicts": {
+      "term": "Veredictos de referencia",
+      "body": "Verde: reproduce la cantidad publicada bajo el alcance indicado. Ámbar: difiere y localiza las ecuaciones pertinentes. Gris: fuera del motor. No evaluado no equivale a falso. Las comprobaciones detectan cambios inesperados de esos veredictos, incluida una discrepancia conocida que debe seguir visible."
+    },
+    "anchor-scope": {
+      "term": "Alcance de la referencia",
+      "body": "Tres de los cuatro modelos archivados son supersimétricos y el potencial del motor no lo es: sus filas se limitan a álgebra de paridades, grupos y modos cero. Kubo–Lim–Yamashita no es supersimétrico y permite también las comparaciones dinámicas indicadas. La transferencia no añade interacciones ausentes."
+    }
+  }
+}

@@ -90,6 +90,9 @@ def audit(howto, shell, sections):
 
 def main():
     howto = (ROOT / "src/view/howto.js").read_text(encoding="utf-8")
+    sys.path.insert(0, str(ROOT / "build"))
+    from user_guides import howto_source
+    howto = howto.replace("/*__HOWTO__*/", howto_source(ROOT))
     shell = (ROOT / "src/shell/app.js").read_text(encoding="utf-8")
     sections = {p.name: p.read_text(encoding="utf-8")
                 for p in sorted((ROOT / "src/sections").glob("*.js")) if p.name != "registry.js"}

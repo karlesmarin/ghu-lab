@@ -4,231 +4,391 @@
       "number": 1,
       "id": "hierarchy",
       "label": "Hierarchy",
-      "source": "src/sections/hierarchy_section.js"
+      "source": "src/sections/hierarchy_section.js",
+      "guides": {
+        "en": "guide/hierarchy/index.html",
+        "es": "guide/es/hierarchy/index.html"
+      }
     },
     {
       "number": 2,
       "id": "inverse",
       "label": "Design a scale",
-      "source": "src/sections/inverse_section.js"
+      "source": "src/sections/inverse_section.js",
+      "guides": {
+        "en": "guide/inverse/index.html",
+        "es": "guide/es/inverse/index.html"
+      }
     },
     {
       "number": 3,
       "id": "census",
       "label": "Count a rung",
-      "source": "src/sections/census_section.js"
+      "source": "src/sections/census_section.js",
+      "guides": {
+        "en": "guide/census/index.html",
+        "es": "guide/es/census/index.html"
+      }
     },
     {
       "number": 4,
       "id": "atlas7",
       "label": "Atlas",
-      "source": "src/sections/atlas_section.js"
+      "source": "src/sections/atlas_section.js",
+      "guides": {
+        "en": "guide/atlas7/index.html",
+        "es": "guide/es/atlas7/index.html"
+      }
     },
     {
       "number": 5,
       "id": "samepot",
       "label": "Same potential?",
-      "source": "src/sections/samepot_section.js"
+      "source": "src/sections/samepot_section.js",
+      "guides": {
+        "en": "guide/samepot/index.html",
+        "es": "guide/es/samepot/index.html"
+      }
     },
     {
       "number": 6,
       "id": "anomalies",
       "label": "Anomalies & proton",
-      "source": "src/sections/anomalies_section.js"
+      "source": "src/sections/anomalies_section.js",
+      "guides": {
+        "en": "guide/anomalies/index.html",
+        "es": "guide/es/anomalies/index.html"
+      }
     },
     {
       "number": 7,
       "id": "escape",
       "label": "Escape from proton decay",
-      "source": "src/sections/escape_section.js"
+      "source": "src/sections/escape_section.js",
+      "guides": {
+        "en": "guide/escape/index.html",
+        "es": "guide/es/escape/index.html"
+      }
     },
     {
       "number": 8,
       "id": "multiplets",
       "label": "Multiplets & parities",
-      "source": "src/sections/multiplets_section.js"
+      "source": "src/sections/multiplets_section.js",
+      "guides": {
+        "en": "guide/multiplets/index.html",
+        "es": "guide/es/multiplets/index.html"
+      }
     },
     {
       "number": 9,
       "id": "screen",
       "label": "Screen a table",
-      "source": "src/sections/screen_section.js"
+      "source": "src/sections/screen_section.js",
+      "guides": {
+        "en": "guide/screen/index.html",
+        "es": "guide/es/screen/index.html"
+      }
     },
     {
       "number": 10,
       "id": "collider",
       "label": "Collider",
-      "source": "src/sections/collider_section.js"
+      "source": "src/sections/collider_section.js",
+      "guides": {
+        "en": "guide/collider/index.html",
+        "es": "guide/es/collider/index.html"
+      }
     },
     {
       "number": 11,
       "id": "selection",
       "label": "Selection rule",
-      "source": "src/sections/selection_section.js"
+      "source": "src/sections/selection_section.js",
+      "guides": {
+        "en": "guide/selection/index.html",
+        "es": "guide/es/selection/index.html"
+      }
     },
     {
       "number": 12,
       "id": "calculator",
       "label": "Model calculator",
-      "source": "src/sections/calculator_section.js"
+      "source": "src/sections/calculator_section.js",
+      "guides": {
+        "en": "guide/calculator/index.html",
+        "es": "guide/es/calculator/index.html"
+      }
     },
     {
       "number": 13,
       "id": "eta",
       "label": "eta-meter",
-      "source": "src/sections/eta_section.js"
+      "source": "src/sections/eta_section.js",
+      "guides": {
+        "en": "guide/eta/index.html",
+        "es": "guide/es/eta/index.html"
+      }
     },
     {
       "number": 14,
       "id": "fived",
       "label": "Five dimensions",
-      "source": "src/sections/fived_section.js"
+      "source": "src/sections/fived_section.js",
+      "guides": {
+        "en": "guide/fived/index.html",
+        "es": "guide/es/fived/index.html"
+      }
     },
     {
       "number": 15,
       "id": "sun5d",
       "label": "SU(N) builder",
-      "source": "src/sections/sun5d_section.js"
+      "source": "src/sections/sun5d_section.js",
+      "guides": {
+        "en": "guide/sun5d/index.html",
+        "es": "guide/es/sun5d/index.html"
+      }
     },
     {
       "number": 16,
       "id": "papers",
       "label": "Paper models",
-      "source": "src/sections/papers_section.js"
+      "source": "src/sections/papers_section.js",
+      "guides": {
+        "en": "guide/papers/index.html",
+        "es": "guide/es/papers/index.html"
+      }
     },
     {
       "number": 17,
       "id": "spectrum5d",
       "label": "4D spectrum",
-      "source": "src/sections/spectrum5d_section.js"
+      "source": "src/sections/spectrum5d_section.js",
+      "guides": {
+        "en": "guide/spectrum5d/index.html",
+        "es": "guide/es/spectrum5d/index.html"
+      }
     },
     {
       "number": 18,
       "id": "anomaly5d",
       "label": "Anomalies",
-      "source": "src/sections/anomaly5d_section.js"
+      "source": "src/sections/anomaly5d_section.js",
+      "guides": {
+        "en": "guide/anomaly5d/index.html",
+        "es": "guide/es/anomaly5d/index.html"
+      }
     },
     {
       "number": 19,
       "id": "brane",
       "label": "Brane matter",
-      "source": "src/sections/brane_section.js"
+      "source": "src/sections/brane_section.js",
+      "guides": {
+        "en": "guide/brane/index.html",
+        "es": "guide/es/brane/index.html"
+      }
     },
     {
       "number": 20,
       "id": "sweep5d",
       "label": "Scan",
-      "source": "src/sections/sweep5d_section.js"
+      "source": "src/sections/sweep5d_section.js",
+      "guides": {
+        "en": "guide/sweep5d/index.html",
+        "es": "guide/es/sweep5d/index.html"
+      }
     },
     {
       "number": 21,
       "id": "dossier",
       "label": "One model, every verdict",
-      "source": "src/sections/dossier_section.js"
+      "source": "src/sections/dossier_section.js",
+      "guides": {
+        "en": "guide/dossier/index.html",
+        "es": "guide/es/dossier/index.html"
+      }
     },
     {
       "number": 22,
       "id": "predict",
       "label": "Simulator",
-      "source": "src/sections/predict_section.js"
+      "source": "src/sections/predict_section.js",
+      "guides": {
+        "en": "guide/predict/index.html",
+        "es": "guide/es/predict/index.html"
+      }
     },
     {
       "number": 23,
       "id": "bcclass",
       "label": "Boundary conditions",
-      "source": "src/sections/bcclass_section.js"
+      "source": "src/sections/bcclass_section.js",
+      "guides": {
+        "en": "guide/bcclass/index.html",
+        "es": "guide/es/bcclass/index.html"
+      }
     },
     {
       "number": 24,
       "id": "orbifold",
       "label": "Classify an orbifold",
-      "source": "src/sections/orbifold_section.js"
+      "source": "src/sections/orbifold_section.js",
+      "guides": {
+        "en": "guide/orbifold/index.html",
+        "es": "guide/es/orbifold/index.html"
+      }
     },
     {
       "number": 25,
       "id": "relations",
       "label": "Name the relations",
-      "source": "src/sections/relations_section.js"
+      "source": "src/sections/relations_section.js",
+      "guides": {
+        "en": "guide/relations/index.html",
+        "es": "guide/es/relations/index.html"
+      }
     },
     {
       "number": 26,
       "id": "cbclass",
       "label": "Conjugate boundary conditions",
-      "source": "src/sections/cbclass_section.js"
+      "source": "src/sections/cbclass_section.js",
+      "guides": {
+        "en": "guide/cbclass/index.html",
+        "es": "guide/es/cbclass/index.html"
+      }
     },
     {
       "number": 27,
       "id": "blkt",
       "label": "Brane kinetic terms",
-      "source": "src/sections/blkt_section.js"
+      "source": "src/sections/blkt_section.js",
+      "guides": {
+        "en": "guide/blkt/index.html",
+        "es": "guide/es/blkt/index.html"
+      }
     },
     {
       "number": 28,
       "id": "gravitygauge",
       "label": "Gravity–gauge · 3D",
-      "source": "src/sections/gravitygauge_section.js"
+      "source": "src/sections/gravitygauge_section.js",
+      "guides": {
+        "en": "guide/gravitygauge/index.html",
+        "es": "guide/es/gravitygauge/index.html"
+      }
     },
     {
       "number": 29,
       "id": "litcensus",
       "label": "The literature",
-      "source": "src/sections/census_lit_section.js"
+      "source": "src/sections/census_lit_section.js",
+      "guides": {
+        "en": "guide/litcensus/index.html",
+        "es": "guide/es/litcensus/index.html"
+      }
     }
   ],
   "experimentCards": [
     {
       "id": "su6mn",
       "title": "Maru–Nago SU(6): Type 2 / Type 3 families",
-      "host": "papers"
+      "host": "papers",
+      "guides": {
+        "en": "guide/su6mn/index.html",
+        "es": "guide/es/su6mn/index.html"
+      }
     },
     {
       "id": "rsrunning",
       "title": "Warped SU(6): differential running and UV brane terms",
-      "host": "blkt"
+      "host": "blkt",
+      "guides": {
+        "en": "guide/rsrunning/index.html",
+        "es": "guide/es/rsrunning/index.html"
+      }
     },
     {
       "id": "flavour",
       "title": "Three active flavours: construct a rank 2 or rank 3 ring extension",
-      "host": "predict"
+      "host": "predict",
+      "guides": {
+        "en": "guide/flavour/index.html",
+        "es": "guide/es/flavour/index.html"
+      }
     },
     {
       "id": "identifiability",
       "title": "Fixed light inputs: what can distinguish the neutrino ring?",
-      "host": "predict"
+      "host": "predict",
+      "guides": {
+        "en": "guide/identifiability/index.html",
+        "es": "guide/es/identifiability/index.html"
+      }
     },
     {
       "id": "thermal",
       "title": "Finite-temperature GHU: Wilson potential and phase coexistence",
-      "host": "predict"
+      "host": "predict",
+      "guides": {
+        "en": "guide/thermal/index.html",
+        "es": "guide/es/thermal/index.html"
+      }
     },
     {
       "id": "thermalhistory",
       "title": "Integrated nucleation, percolation and conditional gravitational waves",
-      "host": "predict"
+      "host": "predict",
+      "guides": {
+        "en": "guide/thermalhistory/index.html",
+        "es": "guide/es/thermalhistory/index.html"
+      }
     },
     {
       "id": "rsanomaly",
       "title": "RS anomaly flow and baryon current",
-      "host": "anomalies"
+      "host": "anomalies",
+      "guides": {
+        "en": "guide/rsanomaly/index.html",
+        "es": "guide/es/rsanomaly/index.html"
+      }
     },
     {
       "id": "higgstools",
       "title": "Higgs rates, total width and experimental tests",
-      "host": "collider"
+      "host": "collider",
+      "guides": {
+        "en": "guide/higgstools/index.html",
+        "es": "guide/es/higgstools/index.html"
+      }
     }
   ],
   "simulatorModes": [
     {
       "id": "builder",
-      "label": "5D model from the SU(N) builder"
+      "label": "5D model from the SU(N) builder",
+      "guides": {
+        "en": "guide/simulator-builder/index.html",
+        "es": "guide/es/simulator-builder/index.html"
+      }
     },
     {
       "id": "higgsrate",
-      "label": "Higgs production · top KK reference"
+      "label": "Higgs production · top KK reference",
+      "guides": {
+        "en": "guide/simulator-higgsrate/index.html",
+        "es": "guide/es/simulator-higgsrate/index.html"
+      }
     },
     {
       "id": "neutrino",
-      "label": "Neutrino ring · 4D research model"
+      "label": "Neutrino ring · 4D research model",
+      "guides": {
+        "en": "guide/simulator-neutrino/index.html",
+        "es": "guide/es/simulator-neutrino/index.html"
+      }
     }
   ],
   "integratedAnalyses": [
@@ -243,5 +403,27 @@
     "Candidate enumeration and selected full-potential checks",
     "Fixed-light-input neutrino identifiability paths"
   ],
-  "countingRule": "Menu sections, embedded cards, model modes and batch studies are overlapping levels of organization, not quantities to add into a panel total."
+  "countingRule": "Menu sections, embedded cards, model modes and batch studies are overlapping levels of organization, not quantities to add into a panel total.",
+  "userGuides": {
+    "guidesPerLanguage": 42,
+    "glossaryTerms": 59,
+    "languages": [
+      "en",
+      "es"
+    ],
+    "catalogues": [
+      "docs/user-guides.json",
+      "docs/user-guides.es.json"
+    ],
+    "indexes": {
+      "en": "guide/index.html",
+      "es": "guide/es/index.html"
+    },
+    "manuals": {
+      "en": "guide/manual/ghu-lab-guide-en.pdf",
+      "es": "guide/manual/ghu-lab-guide-es.pdf"
+    },
+    "sitemap": "sitemap.xml",
+    "countingRule": "Guides cover overlapping navigation levels, plus getting started; they are not an independent panel total."
+  }
 }

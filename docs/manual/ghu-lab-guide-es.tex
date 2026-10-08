@@ -1,0 +1,2230 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage[spanish,es-noshorthands,es-nodecimaldot,es-tabla]{babel}
+\usepackage[unicode,hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\setlist{itemsep=3pt,topsep=3pt}
+\hypersetup{pdftitle={GHU Lab -- Guía de uso},pdfauthor={Carles Marin},pdfsubject={Laboratory user guide}}
+\begin{document}
+\begin{titlepage}
+{\Huge\bfseries GHU Lab\par}
+\vspace{12mm}
+{\LARGE Guía de uso\par}
+\vspace{7mm}
+Castellano. Composición con Babel.\par
+9 de octubre de 2026\par
+\vspace{8mm}
+Los nombres de los controles se conservan tal como aparecen en la aplicación. Empieza con una referencia, cambia un parámetro cada vez y conserva las hipótesis junto al resultado.\par
+\vfill
+Carles Marín\par
+Fuentes y atribuciones científicas al final de cada guía. Este manual documenta el instrumento; no reclama novedad de las fórmulas.\par
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/index.html}{Guía web actual}
+\end{titlepage}
+\tableofcontents
+\clearpage
+\section{Primeros pasos: elegir, calcular, interpretar y guardar}
+Elige una tarea del laboratorio, ejecuta un ejemplo de referencia y entiende qué establece su resultado y qué queda abierto.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/getting-started/index.html}{Abrir guía web}
+
+El índice organiza las herramientas por tareas y familias y permite buscarlas por entradas o resultados. Cada sección tiene ayuda breve y enlace a su guía; los modos y experimentos integrados tienen guías propias. El selector English/Español conserva la página. Los nombres de controles en inglés permiten localizarlos en la aplicación.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Elige una tarea en el índice o una familia en el menú.
+\item Empieza con una referencia y cambia un parámetro cada vez.
+\item Lee unidades, hipótesis y estado del resultado junto a la figura.
+\item Guarda entradas, versión y fuentes con los resultados que quieras comparar.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Menú / selector de sección}. Cambia la herramienta activa; algunos experimentos están dentro de una sección. Usa Abrir herramienta para llegar al modo y tarjeta adecuados.
+
+\textbf{How to use / Full guide}. Ayuda breve dentro de la aplicación y guía completa en otra pestaña. Cambia idioma sin reiniciar el cálculo.
+
+\textbf{Presets / referencias}. Cargan ejemplos y pueden reemplazar entradas. Guarda tu trabajo antes de cargar otro.
+
+\textbf{Save / export / permalink}. Conservan entradas o salidas admitidas; los formatos varían por herramienta. Acompaña los números de unidades, hipótesis y procedencia.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Cálculo o comprobación numérica}. Resultado dentro de modelo y ajustes implementados; convergencia responde a su pregunta numérica específica.
+
+\textbf{Certificado o teorema formal}. Afirmación comprobada o acotada rigurosamente bajo hipótesis, no certificación del modelo físico completo.
+
+\textbf{Comparación experimental}. Usa datos e hipótesis identificados; superposición de referencia, intervalo y verosimilitud no son intercambiables.
+
+\textbf{Unknown / unresolved / not evaluated}. Límite del cálculo; no debe convertirse en aceptación, exclusión o imposibilidad.
+
+El laboratorio contiene modelos distintos. Una comprobación numérica, un certificado formal y un acuerdo con datos acreditan cosas diferentes: conserva siempre las hipótesis.
+\subsection*{Ejemplo guiado: Primer recorrido 5D}
+\begin{enumerate}
+\item Carga una referencia en SU(N) builder.
+\item Inspecciona potencial y vacío.
+\item Continúa por KK spectrum y anomalías.
+\item Examina materia de frontera si procede.
+\item Abre Simulator, lee la calibración y guarda el registro.
+\end{enumerate}
+Cada etapa responde a una pregunta distinta. Superar una no sustituye las siguientes ni establece viabilidad fenomenológica completa.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item SU(7), SU(4), 5D plano, warped, SU(3) térmico y anillo de neutrinos no se combinan sin un cálculo de correspondencia definido.
+\item Un barrido finito no demuestra inexistencia fuera del dominio.
+\item Estas guías describen el instrumento actual; vídeos y ediciones archivadas conservan fecha y alcance.
+\item La ayuda breve queda disponible sin conexión. Las guías completas y referencias requieren sus archivos o acceso web.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{No aparece el cálculo esperado.} Comprueba familia y modo del Simulator. Busca también los experimentos integrados en el índice.
+
+\textbf{Cambiar una entrada no produce un resultado válido nuevo.} Lee el mensaje de validación: algunos paneles conservan el último resultado válido hasta corregir la entrada.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/docs/index.html}{Laboratory documentation and reproducibility}
+\item \href{https://karlesmarin.github.io/ghu-explorer/docs/su7-certification.html}{SU(7) certification: statements, assumptions and attribution}
+\end{itemize}
+\section{Jerarquía y escala de compactificación}
+Calcula la escala de compactificación y la masa del Higgs para un contenido SU(7), comparando la aproximación por momentos con el potencial de Fourier implementado.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/hierarchy/index.html}{Abrir guía web}
+
+Permite seguir cómo el contenido de materia modifica el potencial y la escala de la dimensión extra. Una fase pequeña no nula puede corresponder a una escala grande; hay que comprobar que sea el vacío pertinente.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Carga una fila de Table 1 y lee la opción Gauge seed.
+\item Compara fase, masa y escala en las columnas aproximada y de potencial completo.
+\item Cambia una multiplicidad y revisa los diagnósticos de aproximación e incertidumbre.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Bulk multiplicities}. Ocho multiplicidades enteras de representación y paridad. Modifica una sola copia de una fila de referencia.
+
+\textbf{Gauge seed}. Selecciona los pesos publicados o la descomposición candidata; cambia el potencial. Conserva la semilla en toda comparación.
+
+\textbf{Robustness: g\ensuremath{{}_{4}} / winding cutoff}. El acoplamiento define un escenario físico; el corte controla la truncación numérica. Varía primero el corte con los parámetros físicos fijos.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Fase, masa y escala}. Comprueba el potencial, la normalización y las unidades GeV o TeV de cada columna.
+
+\textbf{Techo e incertidumbre}. Separa cotas numéricas, incertidumbre de mW, escenarios de acoplamiento y efectos físicos sin cuantificar. ATLAS y CMS son comparaciones distintas.
+
+El techo depende de la aproximación, la semilla gauge, el acoplamiento y la ventana de masa. Certificar un potencial implementado no resuelve la discrepancia física con las fases publicadas.
+\subsection*{Ejemplo guiado: Separar dos errores}
+\begin{enumerate}
+\item Carga una fila manteniendo la semilla.
+\item Compara momentos y Fourier.
+\item Aumenta el corte de Fourier sin cambiar g\ensuremath{{}_{4}}.
+\end{enumerate}
+La convergencia de la suma no elimina el error de aproximación ni decide el determinante gauge físico.
+\subsection*{Fórmulas y convenciones}
+\begin{quote}1/R\ensuremath{{}_{5}} = 2 m\_W / \ensuremath{\alpha}\end{quote}
+Conversión de escala en esta convención SU(7), para fase no nula. El factor no se traslada automáticamente a otras variables de fase.
+
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item La elección física del determinante gauge sigue pendiente de reconciliación bibliográfica; las ocho tablas fermiónicas no la resuelven.
+\item La aproximación de ángulo pequeño tiene un dominio de validez.
+\item La cota de la cola de Fourier no cuantifica lazos superiores ni proporciona un intervalo de confianza físico completo.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{Falta la escala o dos masas difieren.} Comprueba fase nula, potencial plano, semilla, acoplamiento, anclaje de mW y aproximación. Un valor no definido no debe sustituirse por cero.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/docs/su7-certification.html}{SU(7) certification dossier: formula attribution and unresolved physical scope}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-vii/index.html}{Part VII: model conventions and current record}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/hierarchy_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Diseñar una escala}
+Busca contenidos enteros de materia compatibles con una escala objetivo y una ventana de masa del Higgs, bajo la reducción por momentos SU(7).
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/inverse/index.html}{Abrir guía web}
+
+Muestra por qué un objetivo continuo no implica una familia continua de teorías: las multiplicidades permitidas son enteras y pueden dejar huecos certificables.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Selecciona semilla, escala objetivo y ventana de masa con sus unidades.
+\item Ejecuta Design o examina un peldaño concreto.
+\item Lee el motivo del resultado y carga un contenido encontrado en Hierarchy.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Target 1/R\ensuremath{{}_{5}} / Higgs-mass window}. Región solicitada; son hipótesis de diseño, no restricciones experimentales automáticas. Cambia ligeramente el objetivo.
+
+\textbf{Rung / lattice-point probe}. Aísla un peldaño o punto de la red. Compara un punto aceptado y su vecino rechazado.
+
+\textbf{Require W > 0 / Load into the model}. El primero es un filtro preliminar; el segundo transfiere el contenido encontrado. Después de cargarlo, verifica el potencial completo.
+
+\subsection*{Cómo leer los resultados}
+\textbf{floor, cone, congruence, dual, exhaustion}. Motivos distintos de imposibilidad del problema aritmético especificado; lee el certificado asociado.
+
+\textbf{budget y grupos de puntos}. budget indica trabajo incompleto. Despliega los puntos de un grupo antes de interpretarlo como intervalo continuo.
+
+Una solución aritmética necesita comprobación del potencial y del vacío. Un resultado budget deja la búsqueda sin decidir; no demuestra imposibilidad.
+\subsection*{Ejemplo guiado: Del diseño al vacío}
+\begin{enumerate}
+\item Ejecuta el objetivo inicial.
+\item Carga una solución si existe.
+\item Comprueba su potencial completo con la misma semilla.
+\end{enumerate}
+Encontrar un punto de la red y establecer un vacío adecuado son preguntas sucesivas.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item Las cotas heredan semilla, acoplamiento, ventana y reducción aritmética.
+\item Un filtro positivo no certifica el mínimo global ni la viabilidad experimental.
+\item Una búsqueda agotada por presupuesto no aporta un certificado de inexistencia.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{Aparece budget o el objetivo cae entre puntos.} Reduce la región, examina un peldaño y lee los huecos certificados. Mantén sin decidir los casos incompletos.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-viii/index.html}{Part VIII: inverse design and arithmetic certificates}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/inverse_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Contar un peldaño}
+Cuenta contenidos SU(7) compatibles con coordenadas de momentos seleccionadas sin enumerarlos individualmente.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/census/index.html}{Abrir guía web}
+
+Sirve para explorar multiplicidades combinatorias grandes. Varios contenidos pueden compartir potencial o fallar comprobaciones físicas posteriores.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Espera a que termine la tabla inicial y comprueba semilla y rango.
+\item Mueve la sonda A\ensuremath{{}_{4}} y compara los peldaños.
+\item Amplía el rango únicamente si necesitas esa región.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Gauge seed}. Cambia la red admisible; la candidata tiene peldaños pares y coordenadas A\ensuremath{{}_{4}} semienteras. Lee de nuevo los ejes al cambiarla.
+
+\textbf{A\ensuremath{{}_{4}} / Extended range}. Elige la coordenada y el tamaño de la tabla; ampliar consume más memoria. Empieza por el rango ordinario.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Counts by rung}. Número de contenidos enteros no negativos en las condiciones indicadas.
+
+\textbf{Gráfica y referencias archivadas}. Las cantidades son conteos, no probabilidades; los totales de referencia validan casos aritméticos determinados.
+
+Se cuentan contenidos de entrada en una fibra aritmética, no teorías físicamente inequivalentes ni vacíos aceptables. Las enumeraciones archivadas comprueban casos concretos.
+\subsection*{Ejemplo guiado: Comparar coordenadas vecinas}
+\begin{enumerate}
+\item Selecciona un punto con varios contenidos.
+\item Anota peldaño y A\ensuremath{{}_{4}}.
+\item Avanza una coordenada y compara el conteo.
+\end{enumerate}
+El número cambia de forma discreta y depende de las condiciones impuestas.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item La fibra de masa registrada para la semilla publicada no se traslada automáticamente a la candidata.
+\item No se imponen aquí todas las condiciones fenomenológicas, de anomalías o de vacío.
+\item Contar contenidos y contar clases de equivalencia son tareas distintas.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{La tabla ampliada resulta lenta.} Vuelve al rango ordinario. Un límite de recursos no equivale a un conteo nulo.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-viii/index.html}{Part VIII: counting and the inverse problem}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/census_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Atlas visual de contenidos SU(7)}
+Explora los 1.286 contenidos SU(7) admitidos con hasta cinco multipletes y carga un ejemplo para estudiarlo en detalle.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/atlas7/index.html}{Abrir guía web}
+
+Ofrece una entrada visual para elegir multiplicidades sin empezar desde cero. Después puedes seguir el mismo contenido en jerarquía, anomalías y comparaciones bibliográficas.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Pulsa Draw the whole lattice y espera a que termine.
+\item Lee semilla y leyenda de colores.
+\item Selecciona una tesela y usa Load into the model.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Draw the whole lattice}. Calcula el catálogo finito. No interpretes una ejecución incompleta como el conjunto entero.
+
+\textbf{Tile / Load into the model}. Selecciona y transfiere las multiplicidades al modelo SU(7) compartido. Comprueba esas multiplicidades en Hierarchy.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Teselas y veredicto}. Resumen de forma del potencial y ventana de masa bajo las convenciones indicadas.
+
+\textbf{Flat potentials}. No hay preferencia dependiente de la fase al orden mostrado; no se deduce un vacío roto único.
+
+Cada tesela representa un contenido de un catálogo finito. Un color favorable no certifica un modelo completo; un potencial plano es un resultado del cálculo.
+\subsection*{Ejemplo guiado: Seguir una tesela}
+\begin{enumerate}
+\item Dibuja el atlas.
+\item Selecciona un contenido de referencia.
+\item Cárgalo y revisa su potencial e incertidumbre en Hierarchy.
+\end{enumerate}
+La miniatura conduce al cálculo detallado del mismo contenido.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item El catálogo termina en cinco multipletes.
+\item No certifica cancelación de anomalías, estructura completa de sabores ni viabilidad experimental.
+\item Se mantienen las cautelas de normalización y discrepancia bibliográfica SU(7).
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{Una tesela parece vacía o el resultado cargado difiere.} Comprueba si el potencial es plano y compara semilla, multiplicidades, acoplamiento y aproximación.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-vii/index.html}{Part VII: SU(7) potential and finite catalogue}
+\item \href{https://karlesmarin.github.io/ghu-explorer/docs/su7-certification.html}{Certification and source-discrepancy scope}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/atlas_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{¿El mismo potencial?}
+Compara dos contenidos SU(7) y distingue la igualdad del potencial completo de la coincidencia de unos pocos momentos.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/samepot/index.html}{Abrir guía web}
+
+Ayuda a precisar qué información conserva cada descripción del modelo y cuál pierde al agrupar contenidos.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Copia el contenido compartido A en B.
+\item Aplica una relación del núcleo o modifica B.
+\item Compara las coordenadas del potencial, los momentos y el espectro.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Content A / B}. Dos contenidos con la convención común indicada. Empieza con una copia exacta.
+
+\textbf{Kernel relations}. Desplazamientos que preservan las coordenadas del potencial dentro del dominio admisible. Aplica uno y conserva multiplicidades no negativas.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Coordenadas y diferencias}. Indican qué invariantes coinciden y qué contribuciones cambian.
+
+\textbf{Potencial y espectro}. Permiten comprobar que igualdad del potencial e identidad del modelo no son sinónimos.
+
+Tener el mismo potencial no implica tener el mismo contenido de partículas. La coincidencia de momentos de orden bajo es una condición más débil.
+\subsection*{Ejemplo guiado: Cambiar contenido conservando el potencial}
+\begin{enumerate}
+\item Copia A en B.
+\item Aplica una relación admisible.
+\item Compara las curvas y las tablas de contenido.
+\end{enumerate}
+Pueden coincidir las curvas mientras cambia información que el potencial no distingue.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item Las relaciones se refieren al potencial implementado y sus convenciones.
+\item Igualdad de momentos no demuestra igualdad funcional.
+\item No se certifica equivalencia física completa a partir de estas coordenadas.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{Coinciden momentos pero difieren las curvas.} Revisa las coordenadas del potencial completo: los momentos seleccionados no contienen toda su información.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-vii/index.html}{Part VII: potential coordinates and kernel relations}
+\item \href{https://karlesmarin.github.io/ghu-explorer/docs/su7-certification.html}{Moment diagnostics and theorem scope}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/samepot_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Anomalías SU(7)}
+Descompone las contribuciones de anomalía del contenido SU(7) y las relaciona con los canales y completaciones de frontera examinados.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/anomalies/index.html}{Abrir guía web}
+
+Permite rastrear una suma de anomalías hasta cada multiplete y leer su normalización en octavos.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Carga un contenido de referencia en Hierarchy.
+\item Lee las barras con signo y todos los canales.
+\item Compara la contribución de frontera necesaria en Escape.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Contenido SU(7) compartido}. Determina las contribuciones mostradas. Cambia una multiplicidad en Hierarchy y vuelve.
+
+\textbf{RS anomaly flow}. Experimento de otro modelo con factores UV e IR. Abre su guía específica antes de compararlo.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Barras y seis canales}. Contribuciones con signo y condiciones independientes de cancelación.
+
+\textbf{Peldaños y coste de frontera}. Conectan la aritmética del contenido con las asignaciones de materia consideradas.
+
+Un subtotal del bulk y el balance completo con campos de frontera responden a preguntas distintas. Cancelar una combinación no cancela automáticamente todos los canales.
+\subsection*{Ejemplo guiado: Rastrear una contribución}
+\begin{enumerate}
+\item Anota el total de una fila publicada.
+\item Cambia una copia de materia.
+\item Identifica las barras y canales que cambian.
+\end{enumerate}
+El balance puede explicarse con contribuciones concretas, no solo por el color del resultado.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item El subtotal del bulk no incluye todas las completaciones posibles.
+\item Cancelar anomalías no calcula la vida del protón.
+\item El experimento RS es un modelo separado, no una corrección de esta tabla SU(7).
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{Un canal no nulo parece contradecir una completación.} Comprueba qué campos incluye cada tabla y compara bulk más frontera con signos y normalización comunes.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-vi/index.html}{Part VI: anomaly and boundary-matter construction}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-vii/index.html}{Part VII: seed-dependent arithmetic}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/anomalies_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Asignaciones de frontera y protección del protón}
+Construye las asignaciones de frontera SU(7) admitidas y comprueba por separado anomalías y reglas de selección de operadores.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/escape/index.html}{Abrir guía web}
+
+Hace explícitas las cargas con las que una completación puede cancelar el bulk y restringir operadores peligrosos.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Carga una de las asignaciones listadas.
+\item Modifica un peldaño, X\_Q o q\_\ensuremath{\phi}.
+\item Lee todos los canales y después los operadores permitidos y el grupo residual.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Rung choices / rung cube}. Seleccionan y visualizan la asignación en la red de cargas. Empieza con una de las veinte asignaciones listadas.
+
+\textbf{X\_Q / q\_\ensuremath{\phi}}. Cargas que intervienen en anomalías y reglas de selección. Conserva la convención racional exacta al editarlas.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Seis canales}. Contribuciones racionales que deben revisarse individualmente.
+
+\textbf{Regla de selección y grupo residual}. Indican qué operadores admitidos permite o prohíbe la asignación.
+
+Cancelación y protección son pruebas distintas dentro de esta familia. Un patrón de operadores protegido no proporciona una vida media del protón.
+\subsection*{Ejemplo guiado: Separar cancelación y protección}
+\begin{enumerate}
+\item Anota ambos resultados para una asignación.
+\item Cambia una carga.
+\item Identifica el canal u operador afectado.
+\end{enumerate}
+Un cambio puede afectar de forma distinta a las dos condiciones.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item La enumeración cubre la familia implementada, no todas las completaciones.
+\item No se evalúan tasas de desintegración, elementos de matriz hadrónicos ni una verosimilitud experimental de vida media.
+\item Un modelo completo exige otras comprobaciones de materia e interacciones.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{Se cancelan anomalías pero cambia la protección.} Lee la regla de selección aparte: las condiciones de anomalía no determinan todas las interacciones permitidas.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-vi/index.html}{Part VI: boundary assignments and operator protection}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/escape_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Multipletes y paridades}
+Inspecciona la descomposición de representaciones SU(7), sus paridades, modos cero y contribuciones al potencial.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/multiplets/index.html}{Abrir guía web}
+
+Relaciona los nombres del editor de materia con las componentes que sobreviven a las fronteras. El cubo organiza los signos; la tabla contiene multiplicidades y coeficientes.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Selecciona una representación admitida.
+\item Lee conjuntamente el cubo de signos y la tabla de componentes.
+\item Compara los coeficientes fermiónicos derivados con la referencia.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Representation selector}. Elige la representación cuya descomposición se muestra. Compara la fundamental con una tensorial.
+
+\textbf{Parities / intrinsic signs}. Fijan las transformaciones de frontera y los signos de Fourier. Cambia un signo y sigue una componente.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Componentes y modos cero}. Muestran qué componentes permite la proyección antes de masas adicionales.
+
+\textbf{Derived term table}. Compara los coeficientes reconstruidos con los de referencia.
+
+Reconstruir las tablas fermiónicas comprueba esa parte del potencial. No determina por sí solo el determinante gauge físico.
+\subsection*{Ejemplo guiado: Seguir un signo}
+\begin{enumerate}
+\item Escoge la fundamental.
+\item Anota las paridades de una componente.
+\item Cambia un signo intrínseco y compara las tablas.
+\end{enumerate}
+Puedes rastrear qué condición modifica un modo o un término del potencial.
+\subsection*{Fórmulas y convenciones}
+\begin{quote}s = \ensuremath{\eta} \ensuremath{\eta}\ensuremath{\prime} P\ensuremath{{}_{5}} P\ensuremath{\prime}\ensuremath{{}_{5}}\end{quote}
+Producto de signos de esta convención del potencial. Las definiciones de signos intrínsecos y de componentes aparecen en el panel.
+
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item Solo se cubren las representaciones y convenciones admitidas.
+\item Interacciones adicionales pueden dar masa a un modo permitido por la frontera.
+\item Las ocho tablas fermiónicas y la cuestión del sector gauge tienen estados de evidencia diferentes.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{Existe una componente pero no un modo cero.} Revisa ambas paridades: pertenecer a la representación no basta para sobrevivir a la proyección.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/docs/su7-certification.html}{Formula attribution and fermion-table reconstruction}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/multiplets_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Comprobar una tabla}
+Aplica filtros aritméticos a una fila SU(7) y permite consultar certificados condicionales y comprobaciones de vacíos del potencial completo.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/screen/index.html}{Abrir guía web}
+
+Detecta incompatibilidades del modelo reducido antes de una búsqueda extensa y permite guardar la evidencia con sus hipótesis.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Introduce los observables de la fila con sus unidades.
+\item Lee la ley módulo 6, el invariante K y la estructura discreta.
+\item Abre las cotas de peldaños y compara los testigos de Fourier completo.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Row inputs}. Observables o cantidades aritméticas de la fila. Conserva redondeo y unidades de la fuente.
+
+\textbf{Seed / coupling / mass window}. Condiciones de los filtros y cotas. Anótalas antes de comparar techos.
+
+\textbf{Save certificate}. Descarga evidencia y supuestos en JSON. Guarda el certificado junto al resultado.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Leyes aritméticas y K}. Un filtro superado deja abiertas las comprobaciones posteriores.
+
+\textbf{KK comb}. La separación indicada corresponde a masa al cuadrado, no a masas equidistantes.
+
+\textbf{Evidencia formal y numérica}. Distingue álgebra exacta, diez potenciales fijos certificados, techos condicionales y testigos numéricos.
+
+Las cotas por intervalos del relajamiento de momentos no certifican un techo universal del potencial completo. Un testigo estacionario puede tener un vacío competidor más profundo.
+\subsection*{Ejemplo guiado: Leer el alcance de un certificado}
+\begin{enumerate}
+\item Carga una fila archivada.
+\item Anota las hipótesis de su cota.
+\item Compara un testigo con otro que tenga un vacío competidor.
+\end{enumerate}
+Estacionariedad, mínimo global y techo de una aproximación son afirmaciones diferentes.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item Los testigos numéricos no establecen optimalidad exhaustiva.
+\item Certificar el potencial implementado no resuelve la elección gauge física.
+\item Un certificado no establece novedad científica por sí solo.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{Una fila publicada falla o un testigo pierde frente a otro vacío.} Revisa unidades, redondeo y semilla. Conserva la afirmación demostrada y retira únicamente la conclusión que la comparación no sostiene.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/docs/su7-certification.html}{English certification dossier: assumptions, authorship and downloadable evidence}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-vii/index.html}{Part VII: row consistency and scale arithmetic}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/screen_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Comparaciones con colisionadores}
+Relaciona el estado de color del modelo con una búsqueda de dijets y ofrece un experimento separado de tasas y anchuras del Higgs.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/collider/index.html}{Abrir guía web}
+
+Evita trasladar un límite entre hipótesis de partículas diferentes sin comprobar producción, desintegraciones y aceptación.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Lee la identidad, masa, anchura y localización del colorón.
+\item Explora la figura en masa dijet y variable angular.
+\item Cambia 1/R\ensuremath{{}_{5}} y consulta las fuentes; usa la guía HiggsTools para el escenario escalar.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{1/R\ensuremath{{}_{5}}}. Escala del modelo para la comparación de color. Sigue una razón en un intervalo identificado.
+
+\textbf{Dijet relief / Higgs-rates shortcut}. El primero muestra la distorsión en las variables medidas; el segundo abre otro escenario de acoplamientos y anchuras. Lee los ejes y empieza el escenario Higgs por la referencia SM.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Masa, anchura y acoplamiento del colorón}. Dependen de la localización y de la hipótesis de sector de color.
+
+\textbf{Razones, recast y datos CMS}. Siete distribuciones y 77 intervalos tienen procedencia registrada; la tabla de correlaciones de intensidades ajustadas no es una covarianza del espectro desplegado.
+
+Los \ensuremath{\Delta}\ensuremath{\chi}\ensuremath{{}^{2}} de dijets proceden del análisis archivado. Almacenar nuevos datos no ejecuta un nuevo ajuste. Los 159 observables de HiggsSignals no son automáticamente 159 grados de libertad independientes.
+\subsection*{Ejemplo guiado: Conservar la hipótesis experimental}
+\begin{enumerate}
+\item Anota la hipótesis de partícula.
+\item Cambia la escala y sigue una razón.
+\item Distingue el recast archivado de los nuevos datos de referencia.
+\end{enumerate}
+Cada número conserva la procedencia del análisis y no se convierte en una exclusión general GHU.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item Producción, desintegraciones y aceptación deben ser compatibles para reutilizar un límite.
+\item Los datos almacenados no se han combinado en una nueva verosimilitud GHU.
+\item El escenario Higgs conserva sus propios acoplamientos y anchuras supuestos.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{Dos límites difieren mucho o falta el resultado Higgs.} Compara hipótesis y análisis. Un cálculo externo solo sirve para sus parámetros coincidentes; restaura la referencia o importa un resultado compatible.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-vii/index.html}{Part VII: model-to-collider comparison and its assumptions}
+\item \href{https://karlesmarin.github.io/ghu-explorer/docs/su7-certification.html}{Experimental reference and ingestion scope}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/collider_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Reglas de selección SU(4)}
+Comprueba las condiciones admitidas de representación, dominio de Wilson y proyección quiral para una generación de quarks en SU(4).
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/selection/index.html}{Abrir guía web}
+
+Permite saber qué representaciones pasan estas condiciones previas sin confundirlas con la construcción completa de masas e interacciones.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Elige las etiquetas de Dynkin (a, b, c).
+\item Lee la carga del centro y el dominio permitido.
+\item Comprueba las tres condiciones antes de interpretar el conteo.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{a, b, c}. Enteros no negativos que identifican una representación, no acoplamientos continuos. Cambia una etiqueta de un ejemplo del catálogo.
+
+\textbf{Test the rule on every representation}. Comprueba el catálogo finito mostrado. Anota también el rango examinado.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Condiciones y dominio}. Especifican cuándo es válida la selección y la reducción del dominio de búsqueda.
+
+\textbf{Conteo quiral}. Se interpreta únicamente bajo las tres condiciones indicadas; N aquí no es el parámetro del grupo SU(4).
+
+El conteo requiere la proyección y las condiciones de encaje indicadas. Los hechos clásicos sobre el centro y el cálculo quiral de la serie conservan atribuciones distintas.
+\subsection*{Ejemplo guiado: Identificar una condición necesaria}
+\begin{enumerate}
+\item Elige una representación que pase.
+\item Cambia una etiqueta.
+\item Lee qué condición cambia.
+\end{enumerate}
+Puedes justificar la aceptación o el rechazo con una condición concreta.
+\subsection*{Fórmulas y convenciones}
+\begin{quote}N = (b + 1)(a + c + 1) / 2\end{quote}
+Conteo bajo las tres condiciones de encaje y la proyección quiral del panel. N designa aquí el conteo, no el rango del grupo gauge.
+
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item No es un criterio universal para todos los modelos GHU.
+\item El catálogo finito no sustituye las hipótesis de la demostración.
+\item La selección no resuelve masas, interacciones ni completación de anomalías.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{El conteo parece válido pero falla una condición.} No uses la fórmula fuera de las tres hipótesis; revisa también la proyección y el contenido compartido.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-ii/index.html}{Part II: embedding and chiral projection}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-iii/index.html}{Part III: Wilson-domain selection}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/selection_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Calculadora del potencial SU(4)}
+Evalúa el potencial SU(4) a un lazo, localiza su vacío y calcula la curvatura asociada al Higgs para el contenido seleccionado.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/calculator/index.html}{Abrir guía web}
+
+Sirve para explorar la respuesta del potencial a representaciones y signos de frontera, utilizando la referencia como punto de partida verificable.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Carga Load AHMN.
+\item Lee multiplicidades, signos y funciones de materia o gauge.
+\item Anota el vacío y el indicador de reproducción antes de cambiar una entrada.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Load AHMN / clear}. Restaura la referencia o vacía el contenido editable. Guarda el estado inicial antes de borrar.
+
+\textbf{Multiplicities / \ensuremath{\eta} / matter-gauge role}. Definen copias, signos y convención de contribución; los conteos solos no bastan. Modifica una sola cantidad.
+
+\textbf{Search-domain comparison}. Compara la reducción de dominio asumida. Usa el dominio justificado por Selection rule.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Vacío y curvatura}. Pertenecen al potencial y contenido actuales.
+
+\textbf{Referencia, masas y razones}. La reproducción valida ese cálculo; masas absolutas requieren los datos físicos y normalización indicados.
+
+Las razones de masas eliminan alguna dependencia de normalización, pero conservan hipótesis del modelo, del vacío y de la aproximación. El indicador comprueba una referencia concreta.
+\subsection*{Ejemplo guiado: Cambiar una contribución}
+\begin{enumerate}
+\item Carga AHMN y anota el vacío.
+\item Añade una copia admitida.
+\item Compara el nuevo mínimo y la curvatura.
+\end{enumerate}
+El cambio se atribuye a una entrada concreta y queda separado del ensayo de referencia.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item El cálculo a un lazo no incluye todas las correcciones e interacciones de frontera.
+\item Una razón de masas no elimina todas las dependencias físicas.
+\item El catálogo de representaciones fija el rango implementado.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{No se reproduce la referencia.} Restaura Load AHMN y revisa signos, funciones de las filas y dominio antes de comparar cifras.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2312.08608}{AHMN reference, arXiv:2312.08608}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-iv/index.html}{Part IV: SU(4) potential calculation}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/calculator_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Sensibilidad al signo \ensuremath{\eta}}
+Compara la respuesta analítica y numérica de los multipletes SU(4) frente al cambio del signo de frontera \ensuremath{\eta}.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/eta/index.html}{Abrir guía web}
+
+Permite aislar la parte que depende del signo, separándola de la contribución completa de una representación.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Elige un multiplete o carga AHMN.
+\item Compara la respuesta prevista con el hessiano evaluado.
+\item Dibuja el atlas y alterna potencial completo y diferencia \ensuremath{\eta}.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Multiplet / Flip every \ensuremath{\eta}}. Selecciona el contenido y cambia sus signos conservando las multiplicidades. Compara un multiplete sensible con otro insensible.
+
+\textbf{Potential / \ensuremath{\eta}-difference}. Alterna el paisaje completo y su diferencia bajo inversión del signo. Usa ambas vistas para el mismo multiplete.
+
+\textbf{Atlas filters}. Filtran las teselas y permiten comparar dos contribuciones. Mantén fijo el modo de visualización.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Respuesta y hessiano}. Contrastan la predicción analítica con una evaluación directa.
+
+\textbf{Atlas de diferencias}. Muestra dónde interviene \ensuremath{\eta} sin eliminar visualmente la contribución independiente del signo.
+
+Insensibilidad a \ensuremath{\eta} significa que no cambia la contribución especificada; no significa que la representación carezca de potencial o de efectos físicos.
+\subsection*{Ejemplo guiado: Una diferencia nula no es un potencial nulo}
+\begin{enumerate}
+\item Escoge un multiplete insensible.
+\item Lee su diferencia \ensuremath{\eta}.
+\item Vuelve al potencial completo.
+\end{enumerate}
+Una diferencia nula puede coexistir con una contribución no nula.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item La afirmación depende de la proyección y del modelo SU(4).
+\item Los ensayos numéricos conservan sus cortes y precisión.
+\item La insensibilidad al signo no determina espectro ni viabilidad completa.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{La diferencia desaparece aunque queda una curva.} Comprueba el modo seleccionado: diferencia y potencial completo son cantidades distintas.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-v/index.html}{Part V: boundary-sign response and its scope}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/eta_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Ejemplo SU(3) en cinco dimensiones}
+Evalúa el ejemplo SU(3) de Haba--Yamashita implementado y compara potencial, vacío localizado y espectro Kaluza--Klein.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/fived/index.html}{Abrir guía web}
+
+Ofrece un ejemplo concreto para entender el efecto de fermiones adjuntos, fundamentales y escalares con diferentes productos de paridad.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Carga la fila archivada e identifica los seis conteos de materia.
+\item Compara potencial, mínimo y aproximación disponible.
+\item Explora pure gauge, marginal trio y blind step conservando las convenciones 5D.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Adjoint / fundamental fermions \ensuremath{\pm}}. Copias Dirac de los sectores de producto de paridad indicados. Modifica una copia de la referencia.
+
+\textbf{Fundamental scalars \ensuremath{\pm}}. Escalares complejos con grados de libertad y signos distintos de los fermiones. Examina la combinación que cancela blind step.
+
+\textbf{Archived row / pure gauge / marginal trio}. Referencias y ejemplos estructurales concretos. Compara potencial y momentos entre dos ejemplos.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Vacío y potencial}. La localización numérica y la aproximación responden a procedimientos distintos.
+
+\textbf{Espectro KK}. Se evalúa con la fase y normalización de esta familia SU(3).
+
+La aritmética de peldaños pares y la normalización de fase de este modelo 5D no se sustituyen por las del modelo SU(7) en 6D.
+\subsection*{Ejemplo guiado: Comparar materia y gauge puro}
+\begin{enumerate}
+\item Carga pure gauge.
+\item Anota la forma del potencial.
+\item Carga marginal trio y compara.
+\end{enumerate}
+El contenido modifica la estructura bajo la misma convención 5D.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item Se cubren la familia SU(3) y los sectores de materia admitidos.
+\item Las convenciones difieren de SU(7).
+\item Un vacío y espectro a un lazo no completan la fenomenología.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{Una escala no coincide con SU(7).} Compara dimensiones, variable de fase, normalización y materia antes de trasladar fórmulas entre modelos.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/docs/index.html}{Model conventions and literature links}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/fived_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Constructor de modelos SU(N) en 5D}
+Construye un modelo SU(N) admitido sobre S\ensuremath{{}^{1}}/Z\ensuremath{{}_{2}} con bloques de frontera y materia del bulk, y examina su potencial a un lazo.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/sun5d/index.html}{Abrir guía web}
+
+Mantiene un modelo compartido entre varias herramientas para que cada comprobación use las mismas fronteras y materia.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Empieza por un preset y lee los cuatro bloques.
+\item Añade representaciones, producto de paridades y copias.
+\item Comprueba grupo, fases de Wilson y vacío.
+\item Continúa por espectro, anomalías, materia de frontera y Simulator.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{n\ensuremath{{}_{++}}, n\ensuremath{{}_{+-}}, n\ensuremath{{}_{-+}}, n\ensuremath{{}_{--}}}. Dimensiones enteras no negativas de los bloques simultáneos de paridad. Identifica los bloques no nulos del preset.
+
+\textbf{Bulk representation / \ensuremath{\eta}\ensuremath{\eta}\ensuremath{\prime} / multiplicity}. Especifican cada contribución admitida. Añade una copia con las fronteras fijas.
+
+\textbf{Presets / clear bulk / potential probe}. Cargan referencias, retiran materia o seleccionan una fase de inspección. Distingue la sonda manual del mínimo localizado.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Grupo y fases}. Se derivan de los bloques de frontera seleccionados.
+
+\textbf{Potencial y vacío}. Las búsquedas, aproximaciones por momentos y certificados tienen alcances distintos.
+
+El constructor cubre las familias implementadas. Una búsqueda de mínimo sin terminar permanece sin decidir; no demuestra ausencia de vacío.
+\subsection*{Ejemplo guiado: Recorrer el mismo modelo}
+\begin{enumerate}
+\item Carga un preset.
+\item Inspecciona su potencial.
+\item Abre espectro y anomalías sin cambiar los bloques.
+\end{enumerate}
+Las vistas responden a preguntas diferentes sobre una entrada compartida.
+\subsection*{Fórmulas y convenciones}
+\begin{quote}N = n\ensuremath{{}_{++}} + n\ensuremath{{}_{+-}} + n\ensuremath{{}_{-+}} + n\ensuremath{{}_{--}}\end{quote}
+Las dimensiones de los cuatro bloques suman la dimensión de la representación definitoria de SU(N).
+
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item No representa cualquier teoría 5D: se limitan representaciones y bloques de paridad simultáneamente diagonales.
+\item No se añaden interacciones de brana ni cancelaciones supersimétricas por el nombre del modelo.
+\item Un punto de sondeo no es un certificado de vacío.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{El vacío aparece sin decidir.} Lee el estado de la búsqueda y la complejidad del modelo. Usa un preset sencillo para comprobar el flujo sin convertir la ausencia de respuesta en inexistencia.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/docs/index.html}{Boundary conventions, normalization and literature}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/sun5d_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Modelos publicados y reproducción}
+Compara cuatro modelos publicados con las cantidades que el motor del laboratorio puede calcular bajo sus hipótesis.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/papers/index.html}{Abrir guía web}
+
+Facilita una comparación atribuida y localizable, sin convertir una discrepancia de una ecuación en un juicio sobre todo un paper.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Selecciona un modelo y lee la fuente.
+\item Compara valor publicado, cálculo y veredicto.
+\item Carga las entradas admitidas en el constructor.
+\item Usa la guía Maru--Nago para su experimento SU(6) adicional.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Model selector}. Elige una de las cuatro comparaciones archivadas. Lee inmediatamente su alcance.
+
+\textbf{Triplet-fermion count}. Entrada variable del ejemplo Kubo--Lim--Yamashita cuando está disponible. Compara dos conteos con fronteras fijas.
+
+\textbf{Load into the SU(N) builder / Maru--Nago}. Transfiere las entradas admitidas o abre el experimento adicional. Inspecciona después los modos cero.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Tabla de comparación}. Relaciona una afirmación publicada con lo que calcula el motor.
+
+\textbf{Modelo transferido}. Incluye solo las fronteras y el contenido que el motor representa.
+
+Tres referencias son supersimétricas y el potencial del motor no lo es: sus comparaciones se limitan a fronteras y modos cero admitidos. Una fila ámbar identifica una ecuación concreta.
+\subsection*{Ejemplo guiado: Reproducir una afirmación concreta}
+\begin{enumerate}
+\item Selecciona una referencia.
+\item Lee la ecuación y el alcance de una fila.
+\item Carga el modelo y sigue su espectro.
+\end{enumerate}
+La comparación mantiene la atribución y limita la conclusión a la cantidad examinada.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item La transferencia no incorpora automáticamente supersimetría, interacciones de brana o estructura de sabores.
+\item Una discrepancia local no invalida un paper completo.
+\item El experimento Maru--Nago conserva su propio estudio de convergencia.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{El resultado no reproduce una cantidad supersimétrica.} Comprueba si esa cantidad está dentro del alcance declarado del motor no supersimétrico.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/papers.mjs}{Published-model sources and comparison records}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/papers_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Espectro 4D y torres Kaluza--Klein}
+Descompone el contenido del constructor en campos 4D y torres KK, separando las familias del potencial de los niveles exactos admitidos.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/spectrum5d/index.html}{Abrir guía web}
+
+Evita interpretar una descomposición adecuada para el potencial como si fuera automáticamente el espectro detallado de baja energía.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Edita el modelo en el constructor.
+\item Escoge el vacío o una fase manual.
+\item Lee modos sin masa, familias y tabla exacta en ese orden.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{At the vacuum / phase probe}. Selecciona vacío localizado o fase impuesta. Compara un punto simétrico con el vacío roto.
+
+\textbf{Spectrum landscape}. Visualización giratoria de los niveles calculados. Contrasta los primeros niveles con la tabla exacta.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Contenido sin masa y familias}. Describen los campos permitidos y el multiconjunto usado por el potencial.
+
+\textbf{Exact tower}. Resuelve los niveles admitidos con sus etiquetas y multiplicidades.
+
+Las familias describen el multiconjunto del potencial. En un vacío roto no dan correctamente el nivel más bajo del adjunto y del tensor simétrico; para ello está la tabla exacta.
+\subsection*{Ejemplo guiado: Comprobar el nivel más bajo}
+\begin{enumerate}
+\item Carga un ejemplo con vacío roto.
+\item Lee las familias.
+\item Compara los primeros niveles del adjunto en la tabla exacta.
+\end{enumerate}
+La segunda tabla aporta información que la primera no puede sustituir.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item Se usan las fronteras y representaciones admitidas del constructor.
+\item Masas e interacciones de frontera requieren la completación correspondiente.
+\item Una torre de masas no proporciona tasas de producción o desintegración.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{Familias y primeros niveles no coinciden.} Comprueba si estás en un vacío roto y lee la distinción documentada para adjunto y tensor simétrico.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/spectrum5d.mjs}{Spectrum implementation and conventions}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/spectrum5d_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Balance de anomalías del modelo 5D}
+Calcula en racionales exactos los canales de anomalía del contenido quiral incluido y del grupo no roto.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/anomaly5d/index.html}{Abrir guía web}
+
+Rastrea las condiciones de anomalía y señala qué obligación debe satisfacer una completación.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Configura el modelo en el constructor.
+\item Lee cada canal y sus sumandos.
+\item Distingue no subject, cancels y owes.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Shared builder content}. Fronteras y materia que suministran el espectro incluido. Inspecciona sus fermiones sin masa antes del balance.
+
+\textbf{Model and spectrum choices}. Determinan las contribuciones quirales contadas. Cambia un campo y compara los sumandos.
+
+\subsection*{Cómo leer los resultados}
+\textbf{[SU(n)]\ensuremath{{}^{3}}, U(1)\ensuremath{\times}[SU(n)]\ensuremath{{}^{2}}, U(1)\ensuremath{{}^{3}}, U(1)\ensuremath{\times}[grav]\ensuremath{{}^{2}}}. Canales separados expresados en la normalización racional indicada.
+
+\textbf{Veredicto}. Distingue ausencia de contenido, cancelación y contribución pendiente.
+
+Un subtotal no nulo puede requerir materia de frontera que lo cancele. Si no hay fermiones sin masa, no subject significa que no existe el contenido al que aplicar la prueba, no una cancelación no trivial.
+\subsection*{Ejemplo guiado: Leer un balance pendiente}
+\begin{enumerate}
+\item Carga el ejemplo SU(6).
+\item Lee sus fermiones y canales.
+\item Continúa a Brane matter para estudiar una completación.
+\end{enumerate}
+El subtotal identifica una condición pendiente sin adelantar el resultado del modelo completo.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item No resuelve automáticamente todas las condiciones de consistencia de una completación en dimensiones superiores.
+\item La página no construye por sí sola la materia que falta.
+\item Cancelación de anomalías no equivale a aceptación experimental.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{No subject parece un resultado vacío.} Comprueba si hay fermiones sin masa; distingue ausencia del objeto de prueba y cancelación entre contribuciones.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/anomaly5d.mjs}{Exact anomaly-ledger implementation}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/anomaly5d_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Materia y masas en las fronteras}
+Añade materia en los dos puntos fijos y comprueba simultáneamente su balance de anomalías y las condiciones de masas de frontera.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/brane/index.html}{Abrir guía web}
+
+Separa dos tareas que una misma materia de frontera puede resolver de forma diferente: cancelar anomalías y levantar modos sin masa.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Carga el modelo o el ejemplo SU(5) de Kawamura.
+\item Lee el grupo local de cada frontera.
+\item Añade campos o consulta compañeros de un modo sin masa.
+\item Resuelve los canales lineales y revisa también los restantes.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Boundary fields / copies}. Representaciones del grupo local de cada extremo. Usa las sugerencias de compañeros de un modo.
+
+\textbf{Charges / solve}. Fija cargas o resuelve las condiciones lineales indicadas. Compara la carga de cancelación con la necesaria para una masa.
+
+\textbf{Clear / reset charges}. Restaura un punto de partida. Guarda la configuración antes de reiniciar.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Balance antes y después}. Efecto de la materia añadida en cada canal.
+
+\textbf{Modos supervivientes}. Cota del conteo bajo la prueba de rango y la hipótesis de acoplamientos genéricos.
+
+La carga que cancela una anomalía no tiene por qué permitir una masa. El conteo de supervivientes es una cota inferior basada en acoplamientos genéricos, no masas numéricas calculadas.
+\subsection*{Ejemplo guiado: Comparar dos condiciones}
+\begin{enumerate}
+\item Añade un compañero sugerido.
+\item Lee el balance de anomalías.
+\item Comprueba por separado el operador de masa.
+\end{enumerate}
+Un campo puede resolver una condición sin resolver la otra.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item Resolver canales lineales no resuelve automáticamente los cúbicos.
+\item La prueba de rango no determina masas numéricas ni un sector Yukawa completo.
+\item Solo se examinan representaciones y operadores de frontera admitidos.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{Se cancela un canal pero sobrevive un modo.} Revisa representación conjugada, cargas del operador de masa y rango; la cancelación no basta para levantarlo.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-i/index.html}{Part I: boundary masses and representation constraints}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/brane_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Búsqueda acotada de modelos 5D}
+Recorre un conjunto finito de fronteras y contenidos SU(N) mediante filtros de grupo, Higgs, quiralidad, anomalías y vacío.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/sweep5d/index.html}{Abrir guía web}
+
+Permite localizar ejemplos manteniendo visible el espacio buscado y el efecto de cada condición.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Elige N y un tamaño pequeño de contenido.
+\item Selecciona los filtros y el significado del requisito de Higgs.
+\item Ejecuta la búsqueda y lee el embudo.
+\item Carga un candidato y comprueba sus detalles.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{N / maximum content size}. Definen el espacio finito. Empieza por un caso pequeño.
+
+\textbf{Group / chirality / anomaly filters}. Condiciones que debe satisfacer cada candidato. Cambia un filtro por ejecución.
+
+\textbf{Higgs requirement}. Distingue ningún requisito, cualquier doblete o un doblete singlete de color. Lee expresamente la condición de color.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Embudo de filtros}. Cuántos casos pasan cada etapa realmente ejecutada.
+
+\textbf{Candidatos y estados de vacío}. Permiten continuar la inspección y conservar los casos sin decidir.
+
+Los conteos distinguen descripciones de frontera y clases de equivalencia. Un candidato solo pasa los filtros solicitados dentro del rango; un vacío sin decidir no es un modelo rechazado.
+\subsection*{Ejemplo guiado: Medir el efecto de un filtro}
+\begin{enumerate}
+\item Ejecuta un caso pequeño.
+\item Añade el requisito de doblete singlete de color.
+\item Compara el embudo y carga un superviviente.
+\end{enumerate}
+La reducción se atribuye al filtro cambiado, no a una exclusión fuera del rango.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item No demuestra ausencia fuera de N y tamaño de contenido examinados.
+\item Fronteras equivalentes no deben contarse como teorías independientes.
+\item Los filtros no completan interacciones ni todas las comparaciones experimentales.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{No hay candidatos o quedan vacíos sin decidir.} Revisa rango y filtros. Conserva separados rechazo, ausencia en el rango y cálculo incompleto.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/sweep5d.mjs}{Search-space and filter implementation}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/sweep5d_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Diagnósticos y equivalencia de fronteras}
+Compara diagnósticos entre descripciones de frontera equivalentes y examina qué cantidades permanecen invariantes.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/dossier/index.html}{Abrir guía web}
+
+Ayuda a identificar si un resultado depende de la descripción elegida y si contiene información suficiente para diferenciar clases.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Carga el modelo del constructor.
+\item Selecciona otro miembro de su clase.
+\item Lee theory, frame y declined con sus motivos.
+\item Ejecuta aparte la prueba de separación entre clases.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Class-member selection}. Cambia de descripción dentro de la clase mostrada. Compara la misma fila antes y después.
+
+\textbf{Separation test}. Comprueba si el diagnóstico distingue las clases finitas examinadas. Úsalo después de entender su invariancia interna.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Theory / frame / declined}. Etiquetas acompañadas del motivo y del alcance de cada evaluación.
+
+\textbf{Separación}. Capacidad de distinguir los casos efectivamente probados.
+
+Ser invariante dentro de una clase y distinguir teorías distintas son propiedades diferentes. Las etiquetas describen la comparación realizada, no un teorema universal adicional.
+\subsection*{Ejemplo guiado: Invariante pero insuficiente}
+\begin{enumerate}
+\item Compara miembros de una clase.
+\item Identifica una cantidad invariante.
+\item Ejecuta su prueba entre clases.
+\end{enumerate}
+Una cantidad puede ser invariante y aun así no distinguir diferentes clases.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item Las conclusiones se limitan a los diagnósticos y casos examinados.
+\item Comparar numéricamente no demuestra una afirmación sobre todos los modelos.
+\item Declined conserva su motivo; no significa cero ni prueba superada.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{Una cantidad invariante no separa clases.} Lee ambas propiedades por separado; no hay contradicción entre ellas.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/dossier.mjs}{Dossier diagnostics and comparison scope}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/dossier_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Simulator: elegir el modelo}
+Selecciona entre el modelo 5D del constructor, la referencia de producción del Higgs por torre top y el modelo 4D de anillo de neutrinos.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/predict/index.html}{Abrir guía web}
+
+Es el punto de acceso a tres cálculos diferentes. Los experimentos térmicos aparecen en builder; sabores, identificabilidad y desintegraciones pertenecen al modo de neutrinos.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Elige Model to calculate.
+\item Abre la guía propia del modo y carga una referencia.
+\item Lee unidades, resultado e hipótesis juntos.
+\item Consulta los experimentos visibles y guarda entradas y resultados.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Model to calculate}. Selecciona el modelo que suministra resultados y exportaciones. Comprueba el nombre después de cada cambio.
+
+\textbf{Mode-specific parameters / experiment shortcuts}. Parámetros y tarjetas pertinentes del modo elegido. No traslades convenciones de fase o escala desde otro modo.
+
+\textbf{Save / compare / permalink}. Conservan entradas y el resultado con su alcance. Guarda la referencia antes de modificarla.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Resumen del modelo}. Resultados bajo las hipótesis específicas del modo.
+
+\textbf{Experimentos y referencias}. Cálculos adicionales que conservan sus propias entradas y procedencia.
+
+Los modos mantienen entradas distintas. Se calculan respuestas de modelos y comparaciones concretas, no eventos de colisionador. Un cálculo externo sin coincidencia permanece pendiente.
+\subsection*{Ejemplo guiado: Elegir antes de interpretar}
+\begin{enumerate}
+\item Abre el selector.
+\item Escoge neutrino ring.
+\item Lee su guía y comprueba qué experimentos aparecen.
+\end{enumerate}
+Los controles visibles corresponden al modelo elegido y no a una combinación automática de modelos.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item Ningún modo es un ajuste GHU completo a todas las medidas.
+\item El SU(3) térmico es independiente del constructor SU(N) y de los certificados SU(7).
+\item Calibrar o reconstruir un observable dado no lo convierte después en predicción.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{No aparece el experimento buscado.} Comprueba primero el modo: térmico en builder; sabores e identificabilidad en neutrino ring.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/docs/research-extensions.md}{Research experiments and reproduction notes}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/predict_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Clases de condiciones de contorno}
+Agrupa las condiciones ordinarias de frontera admitidas en clases de equivalencia y compara sus simetrías aparentes.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/bcclass/index.html}{Abrir guía web}
+
+Permite reconocer varias descripciones de frontera que pertenecen a la misma clase sin confundir sus grupos aparentes con teorías independientes.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Selecciona orbifold y N.
+\item Elige una condición y recorre miembros de su clase.
+\item Compara sus grupos aparentes y lee las condiciones de cualquier comparación energética.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Orbifold / N}. Seleccionan geometría y parámetro del grupo. Compara S\ensuremath{{}^{1}}/Z\ensuremath{{}_{2}} y T\ensuremath{{}^{2}}/Z\ensuremath{{}_{3}} con N pequeño.
+
+\textbf{Class member / energy views}. Recorren descripciones y comparaciones energéticas admitidas. Lee What cannot be compared antes de ordenar energías.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Clases y miembros}. Conteo y agrupación bajo la relación indicada.
+
+\textbf{Grupos aparentes}. Pueden variar entre descripciones de una misma clase.
+
+El conteo corresponde a una geometría y relación de equivalencia concretas. El grupo aparente puede cambiar dentro de una clase; la fórmula de S\ensuremath{{}^{1}}/Z\ensuremath{{}_{2}} no se traslada a otro orbifold.
+\subsection*{Ejemplo guiado: Misma clase, distintas descripciones}
+\begin{enumerate}
+\item Elige una clase con varios miembros.
+\item Selecciona dos miembros.
+\item Compara sus grupos aparentes.
+\end{enumerate}
+Una diferencia de grupo aparente no basta para concluir que pertenecen a clases distintas.
+\subsection*{Fórmulas y convenciones}
+\begin{quote}Number of classes = (N + 1)\ensuremath{{}^{2}}\end{quote}
+Conteo de Haba--Hosotani--Kawamura para las condiciones ordinarias SU(N) indicadas sobre S\ensuremath{{}^{1}}/Z\ensuremath{{}_{2}}. Otras geometrías e hipótesis requieren su propio resultado.
+
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item Las condiciones conjugadas antilineales tienen otra herramienta.
+\item Clasificar fronteras no completa materia ni fenomenología.
+\item Comparar energías exige las condiciones expresas del panel.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{Cambiar orbifold altera la regla de conteo.} Lee la relación y geometría seleccionadas; no reutilices la fórmula de S\ensuremath{{}^{1}}/Z\ensuremath{{}_{2}} fuera de sus hipótesis.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/docs/index.html}{Boundary-condition conventions and literature}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/bcclass_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Clasificación a partir de una rotación}
+Deriva datos de clasificación admitidos desde una matriz entera de rotación y compara los casos SU, SO y Sp.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/orbifold/index.html}{Abrir guía web}
+
+Conecta la geometría de la rotación con los datos locales usados para clasificar condiciones de frontera.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Empieza con una rotación predefinida.
+\item Comprueba orden finito e hipótesis ciclotómica.
+\item Elige familia gauge y N.
+\item Inspecciona signatura, alfabeto y fibra de una celda.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Rotation preset / integer matrix}. Rotación del toro, admitida hasta dimensión ocho bajo las condiciones indicadas. Modifica una entrada solo después de entender un preset.
+
+\textbf{SU(N), SO(N), Sp(N) / N}. Familia gauge y parámetro del grupo. Mantén fija la rotación al compararlas.
+
+\textbf{Datum axes / cell / boundary input}. Datos locales y condiciones de la fibra seleccionada. Distingue clases de condiciones individuales.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Signatura, alfabeto y conteo}. Datos derivados bajo las hipótesis verificadas.
+
+\textbf{Retícula de datos y fibra}. Permiten explorar cuántas condiciones comparten los datos locales.
+
+Una matriz rechazada queda fuera de las hipótesis implementadas; no tiene un conteo de cero clases. La dimensión de la matriz y N son entradas distintas.
+\subsection*{Ejemplo guiado: Cambiar de familia gauge}
+\begin{enumerate}
+\item Carga una rotación admitida.
+\item Lee el caso SU.
+\item Compara SO y Sp conservando la rotación.
+\end{enumerate}
+Cambian los datos de la clasificación sin cambiar la geometría introducida.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item Se rechazan matrices de orden infinito o fuera de la hipótesis ciclotómica.
+\item Clasificar no calcula un vacío ni un espectro experimental.
+\item Equivalencia local y completitud de movimientos son preguntas distintas.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{La matriz se rechaza.} Lee la condición incumplida y vuelve a un ejemplo válido. No interpretes el rechazo como ausencia de clases.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-ix-a/index.html}{Part IX-A: hypotheses, local data and classification}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/orbifold_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Relaciones, atribución y conectividad}
+Identifica la atribución bibliográfica de relaciones entre fronteras y comprueba si movimientos propuestos conectan una clase finita.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/relations/index.html}{Abrir guía web}
+
+Evita presentar como descubrimiento nuevo una relación ya publicada y permite probar qué datos preserva un movimiento.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Elige orbifold y movimiento.
+\item Lee autoría, fuente e hipótesis.
+\item Ejecuta el recorrido y compara cuántos miembros alcanza.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Orbifold / group / N}. Configuración examinada. Empieza por un caso pequeño.
+
+\textbf{Proposed relation / Judge it}. Comprueba el movimiento frente a los datos preservados indicados. Lee la condición concreta ensayada.
+
+\textbf{Walk a class}. Explora alcanzabilidad con el conjunto de movimientos. Compara alcanzados y tamaño total de la clase.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Atribución y veredicto}. Localizan la relación y precisan qué condición cumple.
+
+\textbf{Recorrido}. Conectividad observada en el caso finito elegido.
+
+La distinción entre equivalencia local y global debe conservarse. Un recorrido finito no demuestra completitud para todo rango.
+\subsection*{Ejemplo guiado: Comprobar un conjunto de movimientos}
+\begin{enumerate}
+\item Selecciona una clase pequeña.
+\item Lee la fuente de los movimientos.
+\item Ejecuta el recorrido.
+\end{enumerate}
+Alcanzar todos los miembros resuelve ese caso, conservando la atribución original.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item No demuestra completitud para todos los rangos.
+\item Las afirmaciones locales y globales requieren hipótesis diferentes.
+\item Una relación bibliográfica conocida no debe presentarse como nueva.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{El recorrido no alcanza toda la clase.} Revisa el conjunto de movimientos y la relación de equivalencia; preservar datos no garantiza conectividad completa.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://karlesmarin.github.io/ghu-explorer/papers/part-ix-b/index.html}{Part IX-B: attribution and local/global relations}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/relations_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Condiciones de frontera conjugadas}
+Compara condiciones antilineales sobre S\ensuremath{{}^{1}}/Z\ensuremath{{}_{2}} bajo dos hipótesis explícitas sobre las transformaciones permitidas en los extremos.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/cbclass/index.html}{Abrir guía web}
+
+Hace visible la hipótesis que condiciona un conteo en vez de presentarlo como una respuesta física universal.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Elige N y un twist simétrico o antisimétrico en cada extremo.
+\item Comprueba la restricción de paridad de N.
+\item Lee por separado los casos de extremos independientes y transformaciones ligadas.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{N}. Su paridad determina qué tipos de twist existen. Compara un N par pequeño con otro impar.
+
+\textbf{Twist at y = 0 / y = \ensuremath{\pi}R}. Elección simétrica o antisimétrica cuando está admitida. Recorre las combinaciones para N par.
+
+\textbf{Hypothesis comparison / Wilson-line card}. Contrasta transformaciones y diagnósticos estructurales. Anota la hipótesis antes del número de clases.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Conteo condicionado}. Corresponde a la elección de transformaciones indicada.
+
+\textbf{Información continua y grupo no roto}. Diagnósticos estructurales que conservan sus hipótesis.
+
+Con extremos independientes aparecen cuatro clases para N par y una para N impar en esta clasificación. Las transformaciones ligadas conservan información continua.
+\subsection*{Ejemplo guiado: Comparar hipótesis}
+\begin{enumerate}
+\item Escoge N par.
+\item Lee el resultado de extremos independientes.
+\item Compáralo con transformaciones ligadas.
+\end{enumerate}
+Cambiar la hipótesis de equivalencia cambia la información retenida.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item El cálculo no decide qué transformaciones corresponden a cualquier construcción física.
+\item Los conteos ordinarios no se extienden automáticamente a twists antilineales.
+\item No es un análisis completo de vacío ni fenomenología.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{No puedes elegir twist antisimétrico.} Comprueba si N es impar y lee la condición de existencia; la opción ausente es una restricción matemática.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/cbclass.mjs}{Conjugate-condition implementation and source discussion}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/cbclass_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Términos cinéticos localizados en branas}
+Estudia cómo los términos cinéticos de frontera modifican las raíces de la ecuación de masas y la torre ordinaria n/R.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/blkt/index.html}{Abrir guía web}
+
+Relaciona una ecuación trascendente con la posición de sus raíces y ofrece un límite controlado para interpretar el efecto de la frontera.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Empieza por la demostración.
+\item Fija coeficiente de brana y parámetros de la ecuación.
+\item Lee las raíces.
+\item Lleva el coeficiente a cero y compara el límite independiente.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{c / \ensuremath{\alpha}\ensuremath{{}_{1}} / \ensuremath{\alpha}\ensuremath{{}_{2}}}. Coeficiente cinético y fases de este ejemplo con su propia normalización. Compara c no nulo con c = 0.
+
+\textbf{m / q}. Parámetros de masa y carga definidos en la ecuación. Cambia uno después de leer su función.
+
+\textbf{Warped SU(6) shortcut}. Abre otro experimento de evolución diferencial de acoplamientos. Consulta su guía específica.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Raíces y torre}. Masas del problema de frontera admitido.
+
+\textbf{Límite c \ensuremath{\rightarrow} 0}. Comparación con la torre torcida ordinaria calculada independientemente.
+
+Las funciones especiales se contrastan con mpmath a cuarenta dígitos y el límite c \ensuremath{\rightarrow} 0 se calcula de forma independiente. Eso comprueba el problema espectral indicado, no toda hipótesis física posible.
+\subsection*{Ejemplo guiado: Recuperar el límite conocido}
+\begin{enumerate}
+\item Anota raíces con c no nulo.
+\item Reduce c.
+\item Compara con el resultado de c = 0.
+\end{enumerate}
+El límite permite verificar el comportamiento del solucionador.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item No recorre todos los operadores de frontera.
+\item Una prueba numérica no establece toda la consistencia física de un término cinético arbitrario.
+\item El experimento warped SU(6) no se calcula a partir de estos controles espectrales.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{Esperabas masas n/R pero las raíces difieren.} Comprueba coeficiente de brana, fases y ecuación; la modificación de la torre es precisamente el efecto estudiado.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/kernel/blkt.mjs}{Boundary kinetic terms: equations and checks}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/blkt_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Gravedad y gauge: qué no fijan las masas}
+Explora información física que queda indeterminada aunque coincidan torres de masas en una familia controlada de gravedad y gauge.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/gravitygauge/index.html}{Abrir guía web}
+
+Muestra por qué conocer masas no basta para reconstruir acoplamientos o respuestas. La posición de la fuente está en la dimensión extra, no en un detector.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Empieza con p = 1.1.
+\item Compara \ensuremath{\eta} = \ensuremath{-}0.9, 0 y 4.
+\item Lee masas, escala de Wilson y respuesta junto a las figuras.
+\item Guarda el punto exacto mediante la tarjeta o LaTeX.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Geometry p}. p = 1.1 tiene la realización escalar indicada; p = 1 es la referencia AdS. Empieza en p = 1.1.
+
+\textbf{\ensuremath{\eta} / log\ensuremath{{}_{10}}(1 + \ensuremath{\eta}) / Source t}. Parámetro de la familia cinética positiva y posición de la fuente. Cambia t conservando las masas a la vista.
+
+\textbf{Height / drag mode}. Muestra respuesta o Z(t). Arrastrar gira o selecciona; Mayús arrastra para girar, rueda cambia relieve y flechas giran la figura enfocada. Selecciona un punto y lee su tabla.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Masas emparejadas y control NN}. La protección depende de las condiciones de frontera emparejadas.
+
+\textbf{Escala de Wilson y respuesta}. Pueden cambiar con la familia aunque las masas emparejadas coincidan.
+
+La coincidencia protege masas positivas tensor NN y vector DD por su operador canónico común. El control gauge NN tiene otras fronteras y cambia. La escala cinética de Wilson no es una masa del Higgs.
+\subsection*{Ejemplo guiado: Iguales masas, distinta respuesta}
+\begin{enumerate}
+\item Fija p = 1.1.
+\item Compara los tres valores predefinidos de \ensuremath{\eta}.
+\item Lee masas y respuesta en la tabla.
+\end{enumerate}
+La igualdad espectral indicada no determina toda la información física.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item El emparejamiento de fronteras es esencial; no protege cualquier torre.
+\item No se calculan masa del Higgs, estabilidad del radion ni tasas de colisionador.
+\item Estabilidad y escala de corte siguen abiertas.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{El control gauge NN cambia aunque otra torre no.} Comprueba sus fronteras: el argumento de operador común se aplica al emparejamiento tensor NN/vector DD.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/gravitygauge.mjs}{Gravity--gauge construction, equations and open questions}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/gravitygauge_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Bibliografía y registro de lectura}
+Consulta el registro de lectura de la serie, qué información publica cada fuente y cuáles se han examinado realmente.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/litcensus/index.html}{Abrir guía web}
+
+Mantiene separadas una referencia candidata, una fuente leída y una afirmación localizada, conservando autoría y procedencia.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Busca o aplica un filtro.
+\item Lee qué contiene el archivo y qué señales se detectaron.
+\item Consulta página o ecuación de las filas revisadas.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Search / filters}. Filtran señales o categorías de revisión. Compara fuentes leídas con las que contienen la terna completa.
+
+\textbf{Complete triple / no published minimum}. Clasifican la información disponible para la comparación. Abre la localización de la fuente.
+
+\textbf{Shortlisted, not yet opened}. Candidatos aún no examinados por una persona. No los uses como evidencia de una conclusión bibliográfica.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Registros y señales}. Indican contenido y criterios de selección, no conclusiones automáticas.
+
+\textbf{Filas revisadas}. Localizan la afirmación en su página o ecuación.
+
+Una señal es una palabra clave: puede omitir otras formulaciones o producir coincidencias irrelevantes. La colección es nuestra lista de lectura, no todo el campo.
+\subsection*{Ejemplo guiado: Del filtro a la fuente}
+\begin{enumerate}
+\item Filtra por terna completa.
+\item Abre una fila revisada.
+\item Comprueba la localización citada.
+\end{enumerate}
+La afirmación queda respaldada por una fuente concreta, no solo por una palabra encontrada.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item La búsqueda por palabras no es exhaustiva.
+\item No constituye una revisión sistemática completa de GHU.
+\item Ausencia en la lista no demuestra novedad ni prioridad.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{No aparece una fórmula o paper conocido.} Prueba otra terminología y consulta las fuentes; no deduzcas inexistencia a partir del registro.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/data/census.json}{Recorded literature data}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/census_lit_section.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Simulator: predicciones del constructor 5D}
+Convierte el vacío del constructor SU(N) admitido en masas con unidades y compara cantidades concretas con referencias identificadas.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/simulator-builder/index.html}{Abrir guía web}
+
+Traduce el modelo adimensional a cantidades comparables con medidas después de entender su potencial y espectro. Es un cálculo teórico, no una simulación de eventos.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Carga un modelo con vacío roto en el constructor.
+\item Selecciona builder y el mínimo o una fase de prueba.
+\item Lee el acoplamiento y el anclaje de masa del W.
+\item Compara tabla de predicciones, masas fermiónicas y torres.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{At the minimum / probe}. Vacío localizado o fase impuesta. Comprueba la etiqueta antes de atribuir una masa al vacío.
+
+\textbf{g\ensuremath{{}_{4}} / g\ensuremath{{}_{2}}(1/R)}. Convención de acoplamiento usada en la conversión de curvatura del Higgs. Muévelo con la misma fase y compara qué cambia.
+
+\textbf{3D tower view}. Masas calculadas y referencias con una cota de color condicionada. Contrasta la figura con la tabla.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Escala y masa del Higgs}. Usan la fase propia del modelo y la calibración mediante mW.
+
+\textbf{Ángulo débil, fermiones y KK}. Comparaciones de la estructura admitida; la referencia de colorón supone el sector de color pertinente en el bulk.
+
+La masa medida del W fija la escala. A vacío fijo, cambiar g\ensuremath{{}_{4}} modifica la masa del Higgs mostrada, mientras las masas KK ancladas al W no siguen ese control. Una fase manual no es un vacío seleccionado dinámicamente.
+\subsection*{Ejemplo guiado: Identificar el anclaje de escala}
+\begin{enumerate}
+\item Anota masa del Higgs y un nivel KK.
+\item Cambia solo g\ensuremath{{}_{4}}.
+\item Compara ambas masas.
+\end{enumerate}
+Que la torre permanezca fija responde a la calibración elegida; no es un fallo del control.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item Un vacío simétrico no aporta la fase no nula necesaria para esta calibración electrodébil.
+\item La sonda manual no certifica un vacío.
+\item Los límites del sector de color dependen de identidad y localización; no se hace un ajuste experimental completo.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{La escala no está definida.} Comprueba si el vacío es simétrico o sigue sin decidir antes de variar el acoplamiento.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/sections/predict_section.js}{Builder prediction conventions and source equations}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/predict.mjs}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Simulator: producción del Higgs y torre top}
+Compara la corrección principal de una torre KK del top con una suma finita y un resultado resumado del teorema de baja energía.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/simulator-higgsrate/index.html}{Abrir guía web}
+
+Aísla un mecanismo de producción para distinguir truncación de una suma y aproximación en x pequeño, sin presentarlo como una señal GHU completa.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Selecciona Higgs production.
+\item Carga la referencia Carson--Okada y lee su ventana histórica.
+\item Varía por separado escala KK, masa top y corte.
+\item Compara cola numérica, aproximación e intervalo condicionado.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{KK scale / top mass}. Fijan x = m\_t/M\_KK en las unidades mostradas. Aumenta la escala KK con m\_t fijo.
+
+\textbf{KK cutoff}. Número de términos de la suma principal. Auméntalo manteniendo los parámetros físicos.
+
+\textbf{Reference / custom rate window}. Intervalo elegido para comparar la tasa. Lee sus dos extremos sin asignar una verosimilitud a la ventana personalizada.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Tasas principal y resumada}. Comparten referencia top-only, con distinto alcance de aproximación.
+
+\textbf{Cola e intervalo de escala}. La cota corresponde a la suma principal; el intervalo se intersecta con la política x \ensuremath{\leq} 0.2.
+
+La ventana histórica reproduce una referencia. Una ventana personalizada no tiene nivel de confianza asignado. La cola numérica y la diferencia entre aproximaciones no cuantifican toda incertidumbre física.
+\subsection*{Ejemplo guiado: Convergencia y aproximación}
+\begin{enumerate}
+\item Usa las entradas históricas.
+\item Aumenta el corte.
+\item Compara el resultado convergido con el resumado.
+\end{enumerate}
+Reducir la cola no elimina la diferencia entre aproximaciones físicas.
+\subsection*{Fórmulas y convenciones}
+\begin{quote}R\_gg = [1 \ensuremath{-} (\ensuremath{\pi}\ensuremath{{}^{2}}/3)(m\_t/M\_KK)\ensuremath{{}^{2}}]\ensuremath{{}^{2}}\end{quote}
+Tasa principal top-only de Carson--Okada bajo el espectro y aproximación indicados.
+
+\begin{quote}A\_LET = \ensuremath{\pi}x cot(\ensuremath{\pi}x),  x = m\_t/M\_KK\end{quote}
+Amplitud del determinante resumada en el teorema de baja energía. Su cuadrado no es el cálculo completo de lazo con masas finitas.
+
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item x \ensuremath{\leq} 0.2 define un dominio de trabajo, no una precisión física uniforme garantizada.
+\item Se omiten fracciones de desintegración y otras partículas de color.
+\item La cota histórica no se presenta como exclusión global actual.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{Falta un veredicto o las dos tasas no coinciden.} Comprueba x y distingue truncación de la suma principal y expansión de x pequeño dentro del teorema de baja energía.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/1510.03092}{Carson--Okada, arXiv:1510.03092, equations (33), (35), (41) and Table 1}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/docs/diagnostics.md}{Rate, tail and domain definitions}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/higgs_diagnostics.mjs}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Simulator: anillo 4D de neutrinos}
+Explora masas ligeras, déficit de corriente activa y seis pares pesados en el modelo de investigación del anillo de neutrinos en cuatro dimensiones.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/simulator-neutrino/index.html}{Abrir guía web}
+
+Permite observar cómo se conservan algunas cantidades ligeras mientras cambian estados pesados. Es un anillo deconstruido 4D con fase fija, distinto del constructor 5D.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Selecciona Neutrino ring y restaura el punto inicial.
+\item Comprueba si Calibration está activada.
+\item Cambia un enlace, portal o término de Majorana.
+\item Lee masas, pesos activos y diagnósticos antes de usar las tarjetas adicionales.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{f / t/f / q / r}. Escala en GeV y razones adimensionales del sector conservativo. Cambia una razón a f fijo.
+
+\textbf{\ensuremath{\mu}A / \ensuremath{\mu}B [keV]}. Entradas pequeñas de ruptura de simetría. Varía \ensuremath{\mu}B con calibración y compara el desdoblamiento.
+
+\textbf{Calibration}. Reconstruye entradas para los objetivos de referencia de 0.1 eV y déficit 10\ensuremath{{}^{-4}}. Desactívala antes de tratar mD y \ensuremath{\mu}A como entradas independientes.
+
+\textbf{CMS flavour / Dirac-Majorana}. Selecciona la hipótesis publicada y la convención de mezcla por par o componente. Lee la normalización al cambiarla.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Masa ligera y déficit}. Son respuestas o valores reproducidos por calibración según el estado del control.
+
+\textbf{Seis centros y desdoblamientos}. Centros en GeV y desdoblamientos en eV; deben acompañarse de los diagnósticos de aproximación.
+
+\textbf{Comparación CMS}. Usa tablas HEPData y una interpolación registrada, sin extrapolar fuera del rango.
+
+La calibración fija objetivos elegidos, no predice esos mismos datos. Centros pesados, masas ligeras y desdoblamientos usan unidades distintas. CMS aporta una referencia condicionada de un solo HNL, no una exclusión completa del anillo.
+\subsection*{Ejemplo guiado: Fijar datos ligeros y cambiar un par pesado}
+\begin{enumerate}
+\item Restaura el anillo con calibración.
+\item Anota masa ligera, déficit y primer desdoblamiento.
+\item Cambia \ensuremath{\mu}B y compara los tres.
+\end{enumerate}
+Al orden mostrado, los objetivos ligeros pueden mantenerse mientras cambia el desdoblamiento: no fijan una predicción pesada única.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item \ensuremath{\theta} = \ensuremath{\pi} está fijada; no se resuelven vacío completo ni estabilidad radial.
+\item El anillo base tiene rango ligero como máximo uno; la tarjeta de tres copias reconstruye otras entradas.
+\item La inserción pequeña no da una cota de error uniforme, especialmente cerca de huecos pequeños entre pares.
+\item Límites de un HNL y sabor exclusivo no se trasladan automáticamente a seis pares que pueden interferir.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{La masa ligera no cambia o falta una razón CMS.} Comprueba calibración, rango de la tabla y nudos de transición duplicados; una interpolación ambigua se deja sin resultado.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/docs/neutrino-ring.md}{Ring action, approximations, units and CMS table provenance}
+\item \href{https://cms-results.web.cern.ch/cms-results/public-results/publications/EXO-22-011/}{CMS EXO-22-011 reference analysis}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/neutrino_ring.mjs}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Desintegraciones, Majorón y coherencia}
+Calcula anchuras parciales incluidas y diagnósticos condicionados de vida media, recorrido y coherencia de un par pesado.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/neutrino-decays/index.html}{Abrir guía web}
+
+Hace visibles las hipótesis sobre canales que determinan la vida media y la coherencia, incluidas las condiciones de las contribuciones principales del Majorón.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Selecciona un par en Neutrino ring.
+\item Lee los canales débiles abiertos y decide si incluir los Majorones calculados.
+\item Declara cualquier anchura adicional como hipótesis.
+\item Fija boost y ventana; lee probabilidad y coherencia por separado.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Inspect pair}. Selecciona masa, peso activo y desdoblamiento. Usa selector o barras con teclado.
+
+\textbf{Include calculated Majoron channels / \ensuremath{\chi}/f / \ensuremath{\Sigma}/f}. Incluye anchuras principales calculadas bajo las hipótesis escalares indicadas. Compara activado y desactivado sin interpretar desactivado como ausencia física.
+
+\textbf{Additional width [eV]}. Contribución no calculada supuesta. Auméntala y sigue la vida media.
+
+\textbf{\ensuremath{\beta}\ensuremath{\gamma} / Lmin / Lmax}. Boost fijo y ventana de distancia rectilínea. Mueve la ventana manteniendo el escenario.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Anchuras y vida media}. La suma incluida determina \ensuremath{\tau} = \ensuremath{\hbar}/\ensuremath{\Gamma}; una suma nula no demuestra estabilidad.
+
+\textbf{Probabilidad y SS/OS}. La primera usa una ventana a boost fijo; la segunda requiere par aislado, anchuras iguales, CP e integración temporal completa.
+
+La anchura corresponde a una componente del par. La anchura física completa del anillo sigue desconocida. La probabilidad de recorrido no es aceptación del detector, y SS/OS integrado en todo tiempo no es una razón con selección de eventos.
+\subsection*{Ejemplo guiado: Añadir un canal supuesto}
+\begin{enumerate}
+\item Anota anchura y vida media de un par.
+\item Incluye Majorones cuando proceda.
+\item Añade una pequeña anchura extra y compara.
+\end{enumerate}
+La respuesta muestra dependencia de canales sin determinar la anchura física completa desconocida.
+\subsection*{Fórmulas y convenciones}
+\begin{quote}P = exp[\ensuremath{-}Lmin/(\ensuremath{\beta}\ensuremath{\gamma} c\ensuremath{\tau})] \ensuremath{-} exp[\ensuremath{-}Lmax/(\ensuremath{\beta}\ensuremath{\gamma} c\ensuremath{\tau})]\end{quote}
+Probabilidad en una ventana rectilínea con boost fijo bajo este escenario.
+
+\begin{quote}SS/OS = \ensuremath{\Delta}m\ensuremath{{}^{2}} / (2\ensuremath{\Gamma}\ensuremath{{}^{2}} + \ensuremath{\Delta}m\ensuremath{{}^{2}})\end{quote}
+Razón integrada en todo tiempo propio para un par coherente aislado con anchuras iguales y las hipótesis de CP indicadas.
+
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item Canales débiles fuera de la capa de masa, otros escalares o gauge y correcciones pueden modificar la anchura completa.
+\item Pares diferentes casi degenerados pueden invalidar la aproximación de par aislado.
+\item No se incluyen eficiencias, distribuciones de boost ni selección experimental.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{La vida media no está definida o aparece una advertencia de coherencia.} Comprueba suma de anchuras, inserciones y huecos entre pares. No conviertas una anchura incluida nula en estabilidad demostrada.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/docs/neutrino-decays.md}{Weak widths, normalization and ideal coherence sources}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/docs/neutrino-majoron.md}{Computed Majoron channels and their scope}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/view/neutrino_decay_panel.js}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Maru--Nago SU(6): familias y mínimo de Wilson}
+Reproduce el potencial del bulk de las familias Type 2 y Type 3 y compara el mínimo con la tabla publicada y una suma infinita independiente.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/su6mn/index.html}{Abrir guía web}
+
+Conecta materia, potencial y mínimo en un ejemplo bibliográfico atribuido a Maru y Nago. El laboratorio aporta implementación y comprobaciones independientes.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Elige generaciones Type 3 y copias adjuntas.
+\item Lee potencial completo y ampliación del mínimo.
+\item Aumenta Fourier terms.
+\item Carga el contenido admitido en el constructor si quieres inspeccionarlo.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Type 3 generations k\ensuremath{{}_{3}}}. Entero de 0 a 3; k\ensuremath{{}_{2}} = 3 \ensuremath{-} k\ensuremath{{}_{3}} y k\ensuremath{{}_{1}} = 0. Compara los extremos con adjuntos fijos.
+
+\textbf{Adjoint Dirac copies}. Modifica la contribución de materia del bulk. Cambia una copia.
+
+\textbf{Fourier terms}. Truncación numérica de la suma. Auméntala antes de interpretar diferencias pequeñas en \ensuremath{\alpha}.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Mínimo y convergencia}. Comparan suma finita, tabla publicada cuando existe y referencia de suma infinita.
+
+\textbf{Transferencia al constructor}. Transfiere el potencial admitido y conserva en el registro los singletes ciegos a Wilson.
+
+La diferencia con un decimal publicado es una comparación numérica. No se conoce el procedimiento de truncación de los autores; la diferencia no identifica por sí sola un error del paper.
+\subsection*{Ejemplo guiado: Comprobar un mínimo tabulado}
+\begin{enumerate}
+\item Fija k\ensuremath{{}_{3}} = 3 y cinco adjuntos.
+\item Lee los valores comparados.
+\item Aumenta el corte.
+\end{enumerate}
+La convergencia acota la comparación numérica sin reconstruir el procedimiento original de los autores.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item Se compara el potencial del bulk, no viabilidad fenomenológica completa.
+\item Levantar modos cero exóticos adjuntos mediante branas necesita más entradas.
+\item Coincidir en un mínimo no establece masa realista del Higgs ni sabores.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{No aparece comparación publicada.} El contenido puede no tener entrada almacenada en Table 2. Consulta ecuaciones y convergencia.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://doi.org/10.1007/JHEP11(2024)035}{Maru--Nago, JHEP 11 (2024) 035, equation (4.3) and Table 2}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/su6_maru_nago.mjs}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{SU(6) warped: evolución y términos UV}
+Calcula dos diferencias independientes de acoplamientos inversos y los términos de frontera UV necesarios para las asignaciones SU(6) admitidas.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/rsrunning/index.html}{Abrir guía web}
+
+Hace visibles las hipótesis de frontera necesarias para el emparejamiento, en vez de tratar un cruce de curvas como predicción sin parámetros.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Elige C1 o C2.
+\item Fija escalas IR y UV con sus unidades.
+\item Compara términos requeridos y elegidos.
+\item Lee aparte el alcance de la sonda de masa UV avanzada.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Matter assignment C1 / C2}. Asignaciones implementadas de la fuente citada. Compara ambas con escalas fijas.
+
+\textbf{IR scale [TeV] / log\ensuremath{{}_{10}} UV scale [GeV]}. La primera es una escala y la segunda su logaritmo decimal en otra unidad. Conserva ambas convenciones al guardar.
+
+\textbf{Chosen \ensuremath{\Delta}\ensuremath{\lambda}\ensuremath{{}_{21}} / \ensuremath{\Delta}\ensuremath{\lambda}\ensuremath{{}_{31}}}. Diferencias de frontera supuestas. Iguala los valores requeridos y observa el residuo.
+
+\textbf{Probe c / UV mass / k}. Sonda separada de localización y masa UV. Lee su estado independientemente de las curvas.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Evolución diferencial}. \ensuremath{\alpha}\ensuremath{{}_{2}}\ensuremath{{}^{-1}} \ensuremath{-} \ensuremath{\alpha}\ensuremath{{}_{1}}\ensuremath{{}^{-1}} y \ensuremath{\alpha}\ensuremath{{}_{3}}\ensuremath{{}^{-1}} \ensuremath{-} \ensuremath{\alpha}\ensuremath{{}_{1}}\ensuremath{{}^{-1}} frente a log\ensuremath{{}_{10}} q.
+
+\textbf{Términos requeridos}. Hipótesis necesarias bajo emparejamiento IR aproximado.
+
+Los residuos comparan términos requeridos y elegidos: no son \ensuremath{\chi}\ensuremath{{}^{2}} ni exclusiones estadísticas. NDA es una escala de referencia.
+\subsection*{Ejemplo guiado: Anular un residuo por elección}
+\begin{enumerate}
+\item Empieza con términos elegidos nulos.
+\item Anota los requeridos.
+\item Introduce esos valores.
+\end{enumerate}
+El residuo pequeño expresa la condición elegida, no un acuerdo experimental independiente.
+\subsection*{Fórmulas y convenciones}
+\begin{quote}NDA reference = 1/(16\ensuremath{\pi}\ensuremath{{}^{2}})\end{quote}
+Escala de comparación por análisis dimensional, sin probabilidad ni nivel de confianza.
+
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item Evolución diferencial a un lazo y emparejamiento IR aproximado.
+\item Umbrales y fronteras no especificados pueden cambiar el resultado.
+\item La sonda UV no es un ajuste completo.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{Un residuo nulo parece un ajuste perfecto.} Comprueba si has elegido los términos requeridos; no se ha ejecutado un ajuste estadístico.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2512.22094}{Angelescu et al., Planck-brane correlators, sections 4.4--6}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/rs_unification.mjs}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Tres sabores activos y rango ligero}
+Reconstruye una extensión de tres copias del anillo a partir de masas ligeras, parámetros PMNS y déficits activos elegidos.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/flavour/index.html}{Abrir guía web}
+
+Explora direcciones de masa independientes más allá del rango uno del anillo base, mostrando cómo representar unos datos elegidos.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Abre el experimento en Neutrino ring.
+\item Selecciona orden normal o invertido y masa más ligera.
+\item Lee rango y acoplamientos reconstruidos.
+\item Compara los intervalos separados y la figura de vacío en límite unitario.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Ordering / lightest mass [eV]}. Definen el espectro con los dos desdoblamientos aportados. Compara masa más ligera nula y no nula.
+
+\textbf{sin\ensuremath{{}^{2}} \ensuremath{\theta} / \ensuremath{\delta} / Majorana phases}. Orientación PMNS de entrada, fases en grados. Cambia una fase de Majorana y compara m\ensuremath{\beta}\ensuremath{\beta} con oscilaciones.
+
+\textbf{Active deficit directions}. Tres déficits independientes para la reconstrucción. Inspecciona la matriz completa.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Rango, masas y matrices}. Resultados de la construcción inversa, incluidas Yukawa y déficit.
+
+\textbf{Probabilidades y rangos NuFIT}. La figura usa PMNS unitario en vacío; las tablas mantienen edición y orden registrados.
+
+Masas y orientación PMNS son entradas. Los intervalos NuFIT separados no forman una verosimilitud; el botón histórico Hosotani no convierte el anillo en el modelo RS del paper.
+\subsection*{Ejemplo guiado: Cambiar el rango con una entrada}
+\begin{enumerate}
+\item Usa orden normal y masa más ligera cero.
+\item Lee rango y masas.
+\item Introduce una masa pequeña no nula.
+\end{enumerate}
+El rango sigue el espectro suministrado; no se predice la masa más ligera.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item Tres copias extienden el modelo base.
+\item La figura omite materia y correcciones del déficit activo.
+\item m\ensuremath{\beta}\ensuremath{\beta} ligero no incluye todas las contribuciones pesadas posibles.
+\item Pertenecer a intervalos separados no es una bondad de ajuste conjunta.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{El preset reproduce sus propios valores PMNS.} Es lo esperado: son entradas. Examina los acoplamientos reconstruidos para identificar qué se ha calculado.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://www.nu-fit.org/sites/default/files/v61.tbl-parameters.pdf}{NuFIT 6.1 reference table}
+\item \href{https://arxiv.org/abs/2507.08321}{Hosotani historical RS reference}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/neutrino_flavour.mjs}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Datos ligeros fijos y sector pesado}
+Recorre trayectorias que conservan masas ligeras y mezcla seleccionadas mientras cambian estados pesados o factores de corriente.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/identifiability/index.html}{Abrir guía web}
+
+Comprueba mediante ejemplos si los datos ligeros elegidos determinan de forma única el sector pesado y qué información adicional puede distinguirlo.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Fija las entradas ligeras en la tarjeta de sabores.
+\item Elige parámetro y posición en la trayectoria.
+\item Lee residuo de reconstrucción y respuesta pesada.
+\item Compara factores de vacío sin normalizar y normalizados.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Parameter to investigate / position}. Trayectoria admitida y punto entre extremos. Empieza por el preset de desdoblamiento a datos ligeros fijos.
+
+\textbf{Sterile copy / heavy pair}. Respuesta pesada inspeccionada. Compara pares con los mismos datos ligeros.
+
+\textbf{Source / detected flavour / propagation}. Canal en vacío y neutrino o antineutrino. Compara el mismo canal antes y después de normalizar.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Residuo ligero y respuesta pesada}. Comprueban qué se conserva y qué cambia en los puntos válidos.
+
+\textbf{Factores de corriente y DeepCore}. El mapa de referencia conserva su hipótesis y límites de retícula propios.
+
+Normalizar puede ocultar una supresión común. El mapa DeepCore archivado corresponde a tres neutrinos estándar, no a una verosimilitud de esta extensión no unitaria.
+\subsection*{Ejemplo guiado: Ocultar una supresión al normalizar}
+\begin{enumerate}
+\item Carga Common suppression hidden by normalization.
+\item Compara factor original y forma normalizada.
+\item Pasa al preset de déficits desiguales.
+\end{enumerate}
+La forma normalizada puede perder información de normalización global.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item Las trayectorias no agotan todas las degeneraciones.
+\item Se omiten propagación en materia y modelo de eventos del detector.
+\item El mapa DeepCore no proporciona una exclusión del anillo no unitario.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{No aparece un valor DeepCore.} Comprueba el dominio archivado: no se extrapola una nueva verosimilitud fuera de la retícula.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/1609.08637}{Blennow et al., vacuum limits of equations (5) and (7)}
+\item \href{https://doi.org/10.21234/B4105H}{IceCube DeepCore 2018 data reference}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/neutrino_research.mjs}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{SU(3) térmico: potencial y coexistencia}
+Reproduce las referencias térmicas SU(3) planas e inspecciona potencial de Wilson, mínimos y candidatos de coexistencia.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/thermal/index.html}{Abrir guía web}
+
+Permite entender primero cómo cambia el potencial con la temperatura en los ejemplos de Hirose--Shibuya, antes del cálculo externo de rebote.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Abre la tarjeta térmica en builder.
+\item Carga paper case 1 o case 2.
+\item Varía R T y compara cortes duplicados.
+\item Distingue coexistencia de nucleación en la tarjeta de historia.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Fundamental / adjoint matter \ensuremath{\pm}}. Contenido térmico y productos de paridad. Comprende un benchmark antes de modificarlo.
+
+\textbf{1/R [GeV] / g\ensuremath{{}_{4}} / R T}. Escala, conversión de campo y temperatura adimensional. Varía R T con los otros parámetros fijos.
+
+\textbf{Spatial / thermal winding cutoff}. Truncaciones numéricas independientes. Lee el efecto de duplicar ambas.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Potencial y fase preferida}. Mínimos localizados de la suma truncada.
+
+\textbf{Coexistencia y convergencia}. Candidato de igual profundidad en 0 \ensuremath{\leq} R T \ensuremath{\leq} 0.6 y sensibilidad a cortes.
+
+La tarjeta usa entradas SU(3) propias, independientes del constructor SU(N). Coexistencia no establece nucleación, finalización de la transición ni señal gravitacional.
+\subsection*{Ejemplo guiado: Seguir la fase preferida}
+\begin{enumerate}
+\item Carga case 1.
+\item Lee el flujo de fase.
+\item Inspecciona temperaturas a ambos lados de una coexistencia resuelta.
+\end{enumerate}
+Puede cambiar el mínimo preferido sin determinar cuándo nuclean burbujas.
+\subsection*{Fórmulas y convenciones}
+\begin{quote}C\ensuremath{{}_{4}} = 3/(64\ensuremath{\pi}\ensuremath{{}^{6}}R\ensuremath{{}^{4}}),  \ensuremath{\alpha} = g\ensuremath{{}_{4}}R\ensuremath{\phi}\end{quote}
+Normalización del potencial cuatridimensional y conversión a campo canónico implementadas.
+
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item Modelo independiente del candidato SU(7) y de la selección del constructor.
+\item Rango y cortes finitos pueden dejar coexistencia sin resolver.
+\item La comparación de cortes no es una cota uniforme de error físico; nucleación y ondas gravitacionales requieren más cálculos.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{No se resuelve coexistencia.} Comprueba contenido, intervalo R T y sensibilidad a cortes antes de afirmar que no hay transición.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2303.14192}{Hirose--Shibuya, equations (2.30), (2.33), cases 1 and 2}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/thermal_ghu.mjs}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Nucleación, percolación y ondas gravitacionales}
+Integra el crecimiento de burbujas a partir de una tabla refinada de acciones coincidente y de hipótesis cosmológicas explícitas.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/thermalhistory/index.html}{Abrir guía web}
+
+Sigue una historia integrada más allá de coexistencia o de un umbral único S\ensuremath{{}_{3}}/T y comprueba el volumen físico de falso vacío.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Selecciona un benchmark térmico admitido.
+\item Comprueba que existe una tabla de acciones coincidente.
+\item Fija g*, velocidad de pared, eficiencia y fondo.
+\item Lee nucleación, percolación y finalización antes del espectro acústico.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{g*}. Grados de libertad relativistas del fondo cosmológico. Fíjalo al comparar velocidades.
+
+\textbf{Wall speed / c / efficiency \ensuremath{\kappa}}. Hipótesis explícitas, no resultados del potencial. Cambia una y observa finalización y espectro.
+
+\textbf{Expansion background}. Radiación sola o con energía de falso vacío. Compara la condición de volumen físico.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Eventos integrados}. Nucleación, percolación y finalización dentro del rango de acciones cuando se establecen.
+
+\textbf{Fracción, volumen y espectro}. El espectro acústico depende de historia, pared, eficiencia y modelo de ondas sonoras.
+
+Las acciones de referencia solo se aplican a entradas térmicas coincidentes. Velocidad de pared y eficiencia son hipótesis; CMS y ATLAS no miden estas cantidades térmicas.
+\subsection*{Ejemplo guiado: Comprobar finalización condicionada}
+\begin{enumerate}
+\item Restaura un benchmark con acciones refinadas.
+\item Lee rango y diagnóstico del borde superior.
+\item Compara eventos y pendiente del volumen al cambiar el fondo.
+\end{enumerate}
+No se extrapolan eventos ausentes; la conclusión conserva acciones y cosmología supuestas.
+\subsection*{Fórmulas y convenciones}
+\begin{quote}Percolation: I = 0.34; completion: P\_false = 0.01\end{quote}
+Definiciones de eventos del laboratorio. Ambas exigen también que disminuya el volumen físico de falso vacío.
+
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item Sin tabla coincidente la historia queda pendiente.
+\item Los benchmarks SU(3) no son un ajuste conjunto del modelo SU(7).
+\item El espectro gravitacional es condicional, no una señal observada ni una verosimilitud completa de detector.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{Aparece Refined action table pending.} Restaura un benchmark o importa un resultado refinado coincidente mediante el procedimiento documentado.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2305.02357}{Cosmological transition review}
+\item \href{https://arxiv.org/abs/2309.05474}{Acoustic spectrum, equations (28--30)}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/thermal_history.mjs}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Flujo de anomalías RS y corriente bariónica}
+Inspecciona factores UV e IR de funciones normalizadas de la torre Z y distingue cancelación gauge y anomalía de la corriente bariónica.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/rsanomaly/index.html}{Abrir guía web}
+
+Separa flujo de frontera, cancelación de materia y corrientes globales en el cálculo warped admitido, con fuentes y verificaciones numéricas identificadas.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Elige ángulo, deformación y modo Z.
+\item Empieza con generaciones completas de quarks y leptones.
+\item Compara fronteras y suma.
+\item Retira una generación y observa el factor gauge.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{\ensuremath{\theta}H / log\ensuremath{{}_{10}} zL / sin\ensuremath{{}^{2}} \ensuremath{\theta}W\ensuremath{{}^{0}}}. Fondo warped y parámetros electrodébiles. Varía el ángulo con materia fija.
+
+\textbf{mKK [TeV] / Z mode}. Escala y modo cero, primero o segundo excitado. Compara masas y factores.
+
+\textbf{Quark / lepton generations}. Materia que interviene en la cancelación. Compara contenido completo e incompleto.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Factores UV, IR y total}. Contribuciones de frontera de los modos normalizados.
+
+\textbf{Factor gauge y matriz bariónica}. Corresponden a corrientes distintas.
+
+\textbf{Cuadratura y referencia KK}. La cuadratura comprueba normalización; la tabla publicada usa un benchmark fijo.
+
+La cancelación gauge y una anomalía bariónica global son afirmaciones distintas. Una anomalía bariónica no determina vida del protón ni producción de asimetría bariónica.
+\subsection*{Ejemplo guiado: Separar las dos anomalías}
+\begin{enumerate}
+\item Usa generaciones completas iguales.
+\item Lee factor gauge y resultado bariónico.
+\item Retira una generación leptónica.
+\end{enumerate}
+Cambia la cancelación gauge sin convertir la corriente bariónica en la misma pregunta.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item La tabla KK publicada permanece en su benchmark y no sigue todos los controles.
+\item Convergencia de cuadratura no certifica todas las hipótesis físicas.
+\item No se calculan vida del protón ni rendimiento de bariogénesis.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{La tabla de referencia no cambia con \ensuremath{\theta}H.} Lee su etiqueta \ensuremath{\theta}H = 0.1 y mKK = 13 TeV; consulta el flujo para las entradas actuales.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2606.01829}{RS anomaly flow, June 2026}
+\item \href{https://arxiv.org/abs/2609.29135}{Baryon anomaly, September 2026}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/rs_anomaly.mjs}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Higgs: tasas, anchura y comparación experimental}
+Construye un escenario explícito de Higgs par bajo CP a 125.2 GeV y examina producción, anchuras, fracciones y resultados experimentales externos coincidentes.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/higgstools/index.html}{Abrir guía web}
+
+Muestra por qué una corrección de producción no basta para comparar señales: también intervienen anchura total y fracciones de desintegración.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Empieza con SM reference.
+\item Cambia un acoplamiento o anchura invisible.
+\item Lee anchura total y fracciones junto a producción.
+\item Usa un resultado HiggsTools solo con entradas y versión coincidentes.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{\ensuremath{\kappa}W = \ensuremath{\kappa}Z / common fermion \ensuremath{\kappa}}. Hipótesis de acoplamientos efectivos del escenario. Cambia uno con los demás fijos.
+
+\textbf{\ensuremath{\kappa}g / \ensuremath{\kappa}\ensuremath{\gamma} / \ensuremath{\kappa}Z\ensuremath{\gamma}}. Amplitudes efectivas independientes en la parametrización admitida. Compara torre top y SM.
+
+\textbf{Invisible width [MeV]}. Anchura parcial adicional supuesta, incluida en la total. Auméntala y sigue una fracción visible.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Producción}. Usa la referencia fijada de HiggsPredictions en las energías indicadas.
+
+\textbf{Anchura, fracciones e intensidades}. Incluyen todas las anchuras parciales listadas del escenario.
+
+\textbf{Resultado externo}. Cálculo versionado HiggsBounds/HiggsSignals para parámetros compatibles.
+
+El preset de torre top cambia la amplitud gluónica especificada y supone los otros acoplamientos de tipo SM. No es una predicción ni exclusión completa de un modelo GHU.
+\subsection*{Ejemplo guiado: Cambiar señal sin cambiar producción}
+\begin{enumerate}
+\item Carga SM y anota ggH.
+\item Aumenta solo la anchura invisible.
+\item Compara producción, anchura total e intensidad visible.
+\end{enumerate}
+La producción puede mantenerse mientras disminuyen fracciones e intensidades visibles.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item Los acoplamientos son hipótesis salvo derivación de un modelo completo.
+\item Un resultado externo ausente o incompatible no es un veredicto permitido.
+\item Número de observables no equivale automáticamente a grados de libertad estadísticos.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{El resultado externo deja de ser aplicable.} Restaura los parámetros coincidentes o calcula e importa un nuevo resultado compatible siguiendo el procedimiento documentado.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2608.05401}{HiggsTools for Run 3}
+\item \href{https://gitlab.com/higgsbounds/hbdataset}{Official HiggsBounds dataset}
+\item \href{https://gitlab.com/higgsbounds/hsdataset}{Official HiggsSignals dataset}
+\item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/higgstools_adapter.mjs}{Implementación y atribución de fuentes}
+\end{itemize}
+\section{Glosario}
+\subsection*{Alfabeto}
+Las condiciones admitidas se construyen con representaciones irreducibles del grupo espacial \ensuremath{\Gamma} = \ensuremath{\Lambda} \ensuremath{\rtimes} Z\_m. La Parte IX-A obtiene estas letras mediante inversión de Möbius sobre puntos fijos; la teoría de Clifford proporciona sus pesos. Los datos posteriores se derivan de ese alfabeto bajo las hipótesis de clasificación.
+
+\subsection*{Peso de una letra}
+Es su dimensión. Una letra de peso uno representa una condición diagonal; pesos mayores permiten condiciones no diagonales. Un ansatz exclusivamente diagonal no recupera esas letras. Los pesos determinan el coste de enumerar un rango.
+
+\subsection*{Dato local}
+En un punto cónico de orden e, registra las multiplicidades de los autovalores de la isotropía entre las raíces e-ésimas de la unidad. Describe ese punto fijo, no toda la geometría del orbifold.
+
+\subsection*{Clase de una condición}
+En la clasificación indicada, se registra mediante una tupla de datos locales, uno por punto cónico. La equivalencia considerada debe conservarlos. Un movimiento que cambia uno no preserva esa clase; comprobarlo no requiere terminar toda la clasificación.
+
+\subsection*{Fibra}
+Conjunto de entradas que comparten los datos fijados. En clasificación reúne condiciones con la misma clase, indexadas por el mapa marginal; en conteos de materia reúne contenidos con las coordenadas impuestas. El contexto determina qué se está fijando y contando.
+
+\subsection*{Puntos cónicos y signatura}
+Puntos fijos de la rotación del toro con el orden de su grupo de isotropía. La lista de órdenes es la signatura. Bajo las hipótesis de clasificación determina el grado de crecimiento del conteo antes de enumerar condiciones.
+
+\subsection*{Indicador de Frobenius--Schur}
+Los valores +1, 0 y \ensuremath{-}1 distinguen letras reales, complejas y cuaterniónicas. Determina cómo se reorganiza el alfabeto entre SU, SO y Sp; por ejemplo, las letras complejas se emparejan con sus conjugadas.
+
+\subsection*{Grado del conteo}
+Bajo las hipótesis indicadas, el grado de crecimiento polinómico es e\ensuremath{{}_{1}} \ensuremath{-} 1, con e\ensuremath{{}_{1}} = 1 + \ensuremath{\Sigma} c(m\ensuremath{{}_{i}}), donde c(m) = m\ensuremath{-}1 para SU y \ensuremath{\lfloor}m/2\ensuremath{\rfloor} para SO y Sp. Este grado asintótico no afirma que todo conteo exacto de rango finito sea un único polinomio sin términos periódicos.
+
+\subsection*{Serie de Hilbert}
+Función generatriz de los conteos del semigrupo, escrita como P(x) / \ensuremath{\prod}(1\ensuremath{-}x\textasciicircum{}w) con los pesos de las letras. La terminación de P se comprueba en el cálculo indicado; después la recurrencia permite obtener conteos sin enumerar cada condición.
+
+\subsection*{Grupo aparente no roto}
+Grupo gauge que parece conservar una descripción de frontera. Para un alfabeto de peso uno se expresa como S(\ensuremath{\prod} U(n\_\ensuremath{\ell})). Puede variar entre representantes de una misma clase; ordenar modelos solo por este grupo puede contar varias veces descripciones equivalentes.
+
+\subsection*{Forma normal de Smith}
+Permite enumerar los puntos fijos descritos por M\ensuremath{{}^{-1}}Z\ensuremath{{}^{r}}/Z\ensuremath{{}^{r}}, de orden |det M|. Recorre el grupo finito pertinente en lugar de una caja de candidatos mucho mayor. Es una herramienta algebraica para el conteo, no una hipótesis física adicional.
+
+\subsection*{Matriz rechazada}
+La rotación entera debe tener orden finito y satisfacer la hipótesis ciclotómica de la Parte IX-A. Fuera de ese dominio el cálculo se rechaza. Devolver un alfabeto vacío como si fuera un conteo válido ocultaría que no se cumplen las hipótesis.
+
+\subsection*{Movimiento}
+Reescritura que preserva los datos de clase indicados. La completitud exige además conectar todos los miembros de cada fibra pertinente. Un recorrido finito comprueba el caso elegido; movimientos válidos o éxito en un rango no prueban completitud en todos.
+
+\subsection*{Semigrupo afín}
+Los datos de clase se indexan mediante el semigrupo asociado al mapa marginal, con generadores procedentes del alfabeto. Identificarlo conserva la atribución a configuraciones ya estudiadas, como las de cortes sobre Z\ensuremath{{}_{2}}, y permite consultar sus invariantes publicados.
+
+\subsection*{Línea y fase de Wilson}
+La fase del campo gauge en la dimensión extra parametriza el fondo de Wilson. En la convención SU(7) indicada, 1/R\ensuremath{{}_{5}} = 2m\_W/\ensuremath{\alpha} para fase no nula. Esa conversión requiere sus entradas y normalización; no se copia automáticamente a otro modelo.
+
+\subsection*{Mecanismo de Hosotani}
+Una componente del campo gauge de dimensión superior puede aportar el modo cero que actúa como Higgs 4D. Su potencial de Wilson se genera radiativamente en el planteamiento protegido admitido. Calcular una fase no fija por sí solo todos los datos dimensionales; usar mW como calibración no predice ese mismo dato.
+
+\subsection*{Paridades}
+Signos de una componente en los puntos fijos, como (+,+) o (+,\ensuremath{-}). En el intervalo ordinario sin fondo de Wilson, (+,+) admite un modo constante antes de masas adicionales. En un vacío no trivial hay que resolver el problema conjunto de frontera; la tabla sola no es todo el espectro físico.
+
+\subsection*{Modo cero}
+Modo sin masa bajo el fondo y problema de frontera especificados. En el punto simétrico ordinario su existencia se deduce de las paridades. Fondos de Wilson, masas de frontera e interacciones pueden cambiar el contenido sin masa; hay que indicar el fondo del conteo.
+
+\subsection*{Torre Kaluza--Klein}
+Modos 4D asociados a un campo en la dimensión extra. En el caso simple sin torsión sus masas son n/R; fases de frontera desplazan niveles y términos cinéticos de brana pueden cambiar la ecuación espectral. La torre conserva fronteras, fase y multiplicidades, y no determina por sí sola tasas de colisionador.
+
+\subsection*{Contenido del bulk}
+Representaciones que se propagan en las dimensiones extra, con paridades y multiplicidades. Es una entrada fundamental del potencial, espectro y anomalías; para definir el modelo también deben conservarse las fronteras y convenciones indicadas.
+
+\subsection*{Brana o frontera}
+En el intervalo orbifold, los extremos son puntos fijos donde puede localizarse materia además de la que se propaga en el bulk. Esa materia puede contribuir a anomalías y emparejar modos cero bajo las condiciones de representación y carga correspondientes.
+
+\subsection*{Grupo local}
+En y = 0 es el conmutante de P\ensuremath{{}_{0}}; con bloques diagonales, S(U(n\ensuremath{{}_{++}} + n\ensuremath{{}_{+-}}) \ensuremath{\times} U(n\ensuremath{{}_{-+}} + n\ensuremath{{}_{--}})). En y = \ensuremath{\pi}R es el conmutante de P\ensuremath{{}_{1}}. Pueden diferir; el grupo 4D en el punto simétrico conmuta con ambos. Una representación local puede descomponerse bajo ese subgrupo común.
+
+\subsection*{Masa de frontera}
+En convención completamente levógira, un modo r\_q puede emparejarse con un Weyl localizado en la representación conjugada y de carga opuesta. Con acoplamientos genéricos, el rango máximo deja el valor absoluto de la diferencia por cada clase. Hay que descomponer antes de contar modos levantados.
+
+\subsection*{Potencial a un lazo}
+Potencial efectivo de Wilson obtenido del contenido y espectro admitidos. Su parte dependiente de la fase es finita en el planteamiento protegido indicado. Eso no cuantifica todas las correcciones de lazos superiores ni interacciones de frontera; normalización y contenido siguen necesitando justificación física.
+
+\subsection*{Mínimo aproximado}
+La expresión cerrada localiza una rama estacionaria de la expansión de fase pequeña y se compara con la búsqueda numérica del potencial de Fourier. Pueden diferir. Ni esa expresión ni una retícula finita por sí solas certifican el vacío global.
+
+\subsection*{Contenido quiral}
+Las componentes de quiralidad izquierda y derecha tienen representaciones diferentes. La proyección orbifold puede producir este contenido 4D. Las anomalías gauge del modelo completo deben cancelarse canal por canal.
+
+\subsection*{Canal de anomalía}
+Condición independiente de cancelación del espectro quiral considerado. Una entrada no nula del subtotal del bulk señala una contribución pendiente cuando se permite materia de frontera; no sustituye el balance del modelo completo ni construye automáticamente su completación.
+
+\subsection*{Término cinético localizado}
+Contribución cinética situada en un punto fijo. Puede modificar la ecuación espectral de la torre: las masas pasan a ser raíces de una ecuación trascendente. Su solución y sus hipótesis deben conservarse al construir el potencial o comparar límites.
+
+\subsection*{Condición de contorno}
+Especifica cómo actúa el grupo gauge en las fronteras. En la familia SU(N) ordinaria sobre S\ensuremath{{}^{1}}/Z\ensuremath{{}_{2}} se registra mediante cuatro bloques [p, q, r, s]. Diferentes descripciones pueden estar relacionadas por la equivalencia gauge indicada.
+
+\subsection*{Clase de equivalencia}
+Agrupa condiciones relacionadas por las transformaciones gauge permitidas. El grupo aparente de un representante puede cambiar dentro de la clase. La comparación física exige conservar la relación de equivalencia y transformar coherentemente el resto de los datos del modelo.
+
+\subsection*{Momentos del potencial}
+Momentos segundo y cuarto ponderados por cargas de Wilson, usados en la reducción de fase pequeña. La aritmética depende de la semilla: la publicada SU(7) tiene 8D impar y la candidata admite peldaños pares. Los momentos no determinan en general todo el potencial; hay que conservar semilla y condiciones de no degeneración.
+
+\subsection*{Peldaño}
+Valor cuantizado de la coordenada de curvatura D en la reducción indicada. Paridad y valores accesibles dependen de la semilla. Los conteos finitos requieren las cotas adicionales de coordenadas o masa especificadas. Un presupuesto agotado no demuestra que no haya solución.
+
+\subsection*{Techo condicionado}
+Cota superior de escala para un relajamiento de momentos, semilla, acoplamiento y ventana de masa concretos. Un certificado racional o por intervalos demuestra esa cota con sus hipótesis. No tiene por qué alcanzarse ni ser una cota universal de vacíos globales del potencial completo.
+
+\subsection*{Conjunto alcanzable}
+Escalas obtenidas por contenidos enteros admitidos en el problema inverso especificado. Pueden formar grupos separados. Un hueco conserva semilla, ventana, acoplamiento y aproximación; una gráfica o búsqueda incompleta no certifica por sí sola la imposibilidad de todas las escalas intermedias.
+
+\subsection*{Certificado}
+Evidencia de una afirmación matemática precisa: obstrucción aritmética, cota racional o prueba por intervalos de un potencial fijo, por ejemplo. Hipótesis y dominio viajan con ella. Un presupuesto agotado queda sin decidir; certificar una fórmula no prueba toda su aplicabilidad física ni novedad.
+
+\subsection*{Función de partición vectorial}
+Cuenta puntos enteros no negativos que satisfacen las coordenadas y congruencias impuestas, aquí en (A\ensuremath{{}_{4}}, 8D). La programación dinámica puede calcular muchos conteos sin construir cada contenido. El resultado sigue siendo un conteo aritmético, no una prueba de viabilidad física.
+
+\subsection*{Igualdad de potenciales}
+El Teorema 3 de la Parte VII da un criterio necesario y suficiente de cinco coordenadas para la familia implementada. Contenidos distintos pueden tener el mismo potencial. Coincidir en momentos o muestras gráficas es más débil; tampoco la igualdad del potencial prueba identidad de espectros e interacciones completos.
+
+\subsection*{Representante canónico}
+Contenido distinguido entre los que comparten el potencial implementado, definido en la ecuación (43) de la Parte VII. Representa esa igualdad algebraica; no representa automáticamente una teoría física completa, pues otras cantidades pueden diferir.
+
+\subsection*{Regla de selección}
+La condición aritmética de la Parte III determina cuándo es redundante la mitad del toro en la proyección SU(4) indicada. Deben conservarse sus hipótesis antes de reducir una búsqueda. La comprobación directa ofrece un contraste independiente de la formulación por etiquetas de Dynkin.
+
+\subsection*{Signo \ensuremath{\eta}}
+Producto de signos de frontera \ensuremath{\eta} = \ensuremath{\eta}\ensuremath{{}_{0}}\ensuremath{\eta}\ensuremath{{}_{1}}. En el problema SU(4) estudiado en las Partes IV--V, el índice especificado controla la respuesta del potencial a ese signo. La clase de anulación tiene que interpretarse para esa contribución y proyección.
+
+\subsection*{Insensibilidad a \ensuremath{\eta}}
+En la contribución SU(4) y proyección estudiadas, la clase de índice nulo no tiene respuesta dependiente de \ensuremath{\eta}. Aumentar su multiplicidad no crea esa diferencia. No significa que desaparezcan potencial completo, espectro u otros efectos; compara las dos vistas por separado.
+
+\subsection*{Invariante K y normalización}
+En la convención registrada, m\_h a / \ensuremath{\surd}F'' = 2.2456 g\ensuremath{{}_{4}}. A m\_h de entrada fijo, F \ensuremath{\rightarrow} \ensuremath{\lambda}F cambia K por \ensuremath{\lambda}\textasciicircum{}(\ensuremath{-}\ensuremath{\frac{1}{2}}); la invariancia requiere recalcular también m\_h como \ensuremath{\surd}\ensuremath{\lambda} m\_h. Compara el acoplamiento implícito, no demuestra estacionariedad ni mínimo global. Parte VI, problema abierto 3.
+
+\subsection*{Estructura discreta de escalas}
+La separación aritmética se expresa en M\ensuremath{{}^{2}}, no en M, con las cotas condicionadas de cada peldaño. La posición conserva el residuo de referencia y g\ensuremath{{}_{4}}. Hay que distinguir separación y posición antes de atribuir un desacuerdo a una fuente publicada.
+
+\subsection*{Contribución en octavos}
+Coste de la construcción de protección frente al problema de desintegración del protón, medido en la unidad de D indicada. La razón entera permite comparar esa contabilidad sin una normalización global de masa, manteniendo las hipótesis de la construcción.
+
+\subsection*{Cubo de peldaños}
+Visualiza las 64 ternas ordenadas de peldaños leptónicos de la familia examinada. La diagonal universal entre familias tiene A\_j nulos y pierde la protección indicada. La afirmación geométrica se refiere a esta familia y a la regla de selección especificada.
+
+\subsection*{Colorón}
+Vector octete de color usado en la comparación dijet del laboratorio. Masa, anchura y acoplamiento dependen de localización y compactificación del modelo. No se transfiere un límite de otra resonancia, producción o patrón de desintegración solo porque coincida una masa.
+
+\subsection*{Reinterpretación de un límite}
+Límite experimental publicado expresado en la escala del modelo bajo hipótesis compatibles. Los valores \ensuremath{\Delta}\ensuremath{\chi}\ensuremath{{}^{2}} del panel dijet se citan del registro publicado; no se recalculan ni se convierten automáticamente en un nuevo ajuste por almacenar otros datos.
+
+\subsection*{Referencia reproducida}
+Cálculo publicado que el instrumento vuelve a evaluar y muestra mediante un indicador. Informa de si reproduce esa referencia y bajo qué alcance antes de interpretar entradas modificadas. No certifica por sí solo toda la fenomenología.
+
+\subsection*{Descripción y cantidad física}
+Un diagnóstico de teoría debe conservarse al cambiar coherentemente a una descripción gauge equivalente. El dossier recomputa filas y etiqueta lo observado. Una cantidad al punto simétrico del representante puede variar; la comparación al mínimo plantea otra pregunta y conserva el alcance del ensayo.
+
+\subsection*{Encaje del Modelo Estándar}
+Busca la estructura SU(3)\ensuremath{\times}SU(2)\ensuremath{\times}U(1)\_Y y componentes Q, u\ensuremath{{}^{c}}, d\ensuremath{{}^{c}}, L y e\ensuremath{{}^{c}} con sus hipercargas. Resuelve Y en los generadores abelianos de los bloques; cuando queda fijado determina sin\ensuremath{{}^{2}}\ensuremath{\theta}\_W = tr T\ensuremath{{}_{3}}\ensuremath{{}^{2}} / (tr T\ensuremath{{}_{3}}\ensuremath{{}^{2}} + tr Y\ensuremath{{}^{2}}). Se examina el punto simétrico más cercano al vacío y se declaran los campos ausentes.
+
+\subsection*{Comparar con datos}
+En builder, el vacío aporta m\_W R adimensional y la masa W registrada calibra 1/R. Las cantidades dimensionales son condicionales a ese anclaje. Un límite octete de color requiere sus hipótesis, incluido color en el bulk. Cada modo conserva datos y convenciones propios; referencia, intervalo y verosimilitud son comparaciones distintas.
+
+\subsection*{En el mínimo}
+Al eliminar el fondo constante A\_y mediante una transformación gauge, la reflexión se modifica con la holonomía: P\ensuremath{{}_{1}}\ensuremath{\prime} = W\ensuremath{{}^{-1}}P\ensuremath{{}_{1}}. El contenido sin masa es el espacio fijado por ambas condiciones. Hosotani y Haba--Hosotani--Kawamura proporcionan el marco; las rutas de cálculo del laboratorio se contrastan. Las direcciones escalares planas son de árbol y se declara la tolerancia de extremos.
+
+\subsection*{Invariancia sin separación}
+Una cantidad puede ser constante dentro de cada clase y tomar además el mismo valor en todas. Entonces no distingue teorías aunque sea invariante. El dossier mide por separado variación dentro de una clase y capacidad de separar las clases examinadas.
+
+\subsection*{Búsqueda por palabras clave}
+Reduce un corpus a candidatos de lectura. Una coincidencia significa que conviene abrir la fuente, no que quede demostrada una afirmación sobre el paper. Señales automáticas y conclusiones revisadas se registran por separado.
+
+\subsection*{Extraído, leído y no evaluado}
+Measured describe la extracción o búsqueda reproducible en el corpus declarado. Read identifica una afirmación revisada con página o ecuación. Si la extracción pierde símbolos, no demuestra que el paper omita una fórmula; el fallo de extracción se separa del hallazgo bibliográfico negativo.
+
+\subsection*{Cota del trípode}
+Para el modelo basado en un grupo abeliano finito G sobre el árbol de tres hojas, la afirmación global indicada es intersección completa si y solo si |G| \ensuremath{\leq} 3. La cota |G|\ensuremath{{}^{2}} \ensuremath{-} 6|G| + 6 \ensuremath{\leq} 0 descarta órdenes desde cinco. El orden cuatro la pasa pero se resuelve aparte por enumeración en la Parte IX-B, §5.
+
+\subsection*{Intersección completa local y global}
+Casanellas, Fernández-Sánchez y Micha\l{}ek prueban la propiedad en un abierto de Zariski. La pregunta del panel es global, sobre el ideal tórico. El trípode Z\ensuremath{{}_{4}} distingue ambas: localmente sí y globalmente no. Una afirmación no sustituye a la otra.
+
+\subsection*{Veredictos de referencia}
+Verde: reproduce la cantidad publicada bajo el alcance indicado. Ámbar: difiere y localiza las ecuaciones pertinentes. Gris: fuera del motor. No evaluado no equivale a falso. Las comprobaciones detectan cambios inesperados de esos veredictos, incluida una discrepancia conocida que debe seguir visible.
+
+\subsection*{Alcance de la referencia}
+Tres de los cuatro modelos archivados son supersimétricos y el potencial del motor no lo es: sus filas se limitan a álgebra de paridades, grupos y modos cero. Kubo--Lim--Yamashita no es supersimétrico y permite también las comparaciones dinámicas indicadas. La transferencia no añade interacciones ausentes.
+
+\end{document}

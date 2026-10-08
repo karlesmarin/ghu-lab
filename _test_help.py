@@ -84,6 +84,9 @@ def audit(glossary, sources):
 
 # ------------------------------------------------------------------ the tree as it stands
 glossary = (ROOT / "src" / "view" / "help.js").read_text(encoding="utf-8")
+sys.path.insert(0, str(ROOT / "build"))
+from user_guides import glossary_source
+glossary = glossary.replace("/*__GLOSSARY__*/", glossary_source(ROOT))
 sources = {f.stem: f.read_text(encoding="utf-8")
            for f in sorted((ROOT / "src" / "sections").glob("*.js"))}
 real = audit(glossary, sources)

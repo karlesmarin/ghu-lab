@@ -24,10 +24,22 @@ def collect(root):
     select=re.search(r'<select[^>]*id="prModel"[^>]*>(.*?)</select>',read('src/sections/predict_section.js'),re.S)
     assert select,'Simulator selector not found'
     modes=[dict(id=k,label=v) for k,v in re.findall(r'<option value="([^"]+)">([^<]+)</option>',select.group(1))]
-    return dict(menuSections=sections,experimentCards=experiments,simulatorModes=modes,
+    record=dict(menuSections=sections,experimentCards=experiments,simulatorModes=modes,
       integratedAnalyses=['Hierarchy robustness','CMS HNL comparison','Neutrino decays with computed Majoron channels','Conditional rung bounds and full-potential witnesses'],
       batchStudies=['Higgs coupling/width assumptions','Thermal wall/efficiency/background scenarios','Candidate enumeration and selected full-potential checks','Fixed-light-input neutrino identifiability paths'],
       countingRule='Menu sections, embedded cards, model modes and batch studies are overlapping levels of organization, not quantities to add into a panel total.')
+    catalogue=root/'docs/user-guides.json'
+    if catalogue.exists():
+        guides=json.loads(catalogue.read_text(encoding='utf-8'))
+        def urls(id):return {lang:'guide/'+('es/' if lang=='es' else '')+id+'/index.html' for lang in ['en','es']}
+        for entry in sections+experiments:entry['guides']=urls(entry['id'])
+        for entry in modes:entry['guides']=urls('simulator-'+entry['id'])
+        record['userGuides']={'guidesPerLanguage':len(guides['guides']),'glossaryTerms':len(guides['glossary']),
+          'languages':['en','es'],'catalogues':['docs/user-guides.json','docs/user-guides.es.json'],
+          'indexes':{'en':'guide/index.html','es':'guide/es/index.html'},
+          'manuals':{lang:'guide/manual/ghu-lab-guide-'+lang+'.pdf' for lang in ['en','es']},
+          'sitemap':'sitemap.xml','countingRule':'Guides cover overlapping navigation levels, plus getting started; they are not an independent panel total.'}
+    return record
 if __name__=='__main__':
     root=Path(__file__).resolve().parents[1];record=collect(root)
     (root/'docs/laboratory-inventory.json').write_text(json.dumps(record,indent=2,ensure_ascii=False)+'\n',encoding='utf-8',newline='\n')

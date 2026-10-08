@@ -1,6 +1,6 @@
 /* Shares the Neutrino ring controls, result card and permalink. */
 const ND_S={pair:1,extraEV:0,boost:1,lminMM:0,lmaxMM:1,majoron:0,chiOverF:1,sigmaOverF:1};
-function neutrinoDecayHTML(){return `<div class="card" id="ndCard" style="margin-top:18px">
+function neutrinoDecayHTML(){return `<div class="card" id="ndCard" style="margin-top:18px">${typeof guideLink==='function'?guideLink('neutrino-decays'):''}
   <h2>Decays, lifetime and pair coherence</h2>
   <p>Use the same six masses and active weights to calculate on-shell W, Z and SM Higgs partial widths.
   Add a hypothetical extra width to see how uncalculated channels could change the result.</p>

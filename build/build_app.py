@@ -34,6 +34,7 @@ try:
 except (AttributeError, ValueError):        # a stdout that cannot be reconfigured is left alone
     pass
 sys.path.insert(0, str(HERE))
+from user_guides import view_source
 from editiongate import check, report                                    # noqa: E402
 
 VERSION = "0.2.0"
@@ -136,8 +137,9 @@ def kernel_hash():
 
 # The two forms of the header name.  Exported, because build_site.py renders the second one and
 # _test_site.py has to be able to normalise one into the other to compare the two builds.
+SITE_HEAD = '<link rel="canonical" href="https://karlesmarin.github.io/ghu-explorer/app/index.html">\n'
 HOME_PLAIN = "GHU Lab"
-HOME_LINKED = '<a href="{href}">&larr; GHU Lab</a>'
+HOME_LINKED = '<a href="{href}" data-guide-base="../guide/">&larr; GHU Lab</a>'
 
 
 def build(edition=False, home=None, out_path=None):
@@ -153,7 +155,7 @@ def build(edition=False, home=None, out_path=None):
     # panels.  A kit the build does not load is not a kit; a kit in the sections directory is a
     # section.  It is inlined with the engine, before any section, so a section can mount it.
     frags = ([(f, strip_modules(read("src", "kernel", f), f)) for f in KERNEL]
-             + [(f, strip_modules(read("src", "view", f), f)) for f in VIEW]
+             + [(f, strip_modules(view_source(ROOT, f, read("src", "view", f)), f)) for f in VIEW]
              + [(f, strip_modules(read("src", "modules", f), f)) for f in MODULES]
              + [(f, strip_modules(read("src", "sections", f), f)) for f in SECTIONS])
     check_collisions(frags)
@@ -187,6 +189,8 @@ def build(edition=False, home=None, out_path=None):
             .replace("__SECTIONS__", sections)
             .replace("__APP__", app)
             .replace("__HOME__", HOME_LINKED.format(href=home) if home else HOME_PLAIN))
+    if home:
+        page = page.replace("</head>", SITE_HEAD + "</head>", 1)
     if edition:
         page=page.replace('const RX_NETWORK_ENABLED=true;', 'const RX_NETWORK_ENABLED=false;')
         page,n=re.subn(r'// rx-app-network-start[\s\S]*?// rx-app-network-end',
@@ -272,7 +276,7 @@ def build(edition=False, home=None, out_path=None):
 # week: the header above this list says the failure mode was never "too slow to run", it was
 # "I forgot".  It costs about two minutes.
 BROWSER_GATES = [("leaks.mjs", []), ("layout.mjs", ["--quiet"]), ("extremes.mjs", []),
-                 ("lifecycle.mjs", []), ("drive.mjs", []), ("neutrino.mjs", []), ("diagnostics.mjs", []), ("neutrino_decay.mjs", []), ("extensions.mjs", []), ("closure.mjs", []), ("neutrino_research.mjs", []), ("moments.mjs", []), ("crossvalidation.mjs", [])]
+                 ("lifecycle.mjs", []), ("drive.mjs", []), ("neutrino.mjs", []), ("diagnostics.mjs", []), ("neutrino_decay.mjs", []), ("extensions.mjs", []), ("closure.mjs", []), ("neutrino_research.mjs", []), ("moments.mjs", []), ("crossvalidation.mjs", []), ("guides.mjs", [])]
 STAMP = HERE / ".browser_gate.json"
 
 
@@ -288,7 +292,7 @@ def source_fingerprint():
                    # hole: editing the build would have kept the tier "clean" over a page it had
                    # never seen.  The cost is that touching this file marks the tier stale, which
                    # is the correct answer and clears in one run.
-                   "build/build_app.py", "build/neutrino.mjs", "data/neutrino_hnl_limits.json", "data/icecube_deepcore_reference.json", "build/neutrino_research.mjs", "build/diagnostics.mjs", "data/higgs_diagnostics_reference.json", "build/neutrino_decay.mjs", "data/neutrino_decay_reference.json", "build/extensions.mjs"]):
+                   "build/build_app.py", "build/user_guides.py", "docs/user-guides.json", "docs/user-guides.es.json", "build/neutrino.mjs", "data/neutrino_hnl_limits.json", "data/icecube_deepcore_reference.json", "build/neutrino_research.mjs", "build/diagnostics.mjs", "data/higgs_diagnostics_reference.json", "build/neutrino_decay.mjs", "data/neutrino_decay_reference.json", "build/extensions.mjs"]):
         p = ROOT / rel
         if p.exists():
             out[rel] = hashlib.sha256(p.read_bytes()).hexdigest()[:16]
@@ -298,8 +302,8 @@ def source_fingerprint():
 
 
 def run_browser_tier():
-    """Run the three, then stamp what they saw.  Returns the worst exit code."""
-    print("\nbrowser tier (Chromium; ~2.5 min):")
+    """Run every registered browser gate, then stamp the sources they saw."""
+    print(f"\nbrowser tier (Chromium; {len(BROWSER_GATES)} gates):")
     worst = 0
     for name, extra in BROWSER_GATES:
         r = subprocess.run(["node", str(HERE / name), *extra], cwd=ROOT,
@@ -344,7 +348,7 @@ def main(argv=None):
     ap.add_argument("--edition", action="store_true")
     ap.add_argument("--skip-tests", action="store_true")
     ap.add_argument("--browser", action="store_true",
-                    help="also run leaks.mjs, layout.mjs and extremes.mjs, and stamp them")
+                    help="also run every registered Chromium gate and stamp its source fingerprint")
     a = ap.parse_args(argv)
 
     out = build(a.edition)
@@ -392,7 +396,7 @@ def main(argv=None):
                 ["node", "tests/run.mjs"],
                 [sys.executable, "_test_editiongate.py"],
                 [sys.executable, "_test_research_build.py"],
-                [sys.executable, "_test_help.py"], [sys.executable, "_test_howto.py"],
+                [sys.executable, "_test_help.py"], [sys.executable, "_test_howto.py"], [sys.executable, "_test_user_guides.py"],
                 # the gate on the gate: the browser tier's staleness detector, checked for FIRING
                 # and not only for absolving.  Cheap, no Chromium, so it runs every build.
                 [sys.executable, "_test_browsergate.py"],

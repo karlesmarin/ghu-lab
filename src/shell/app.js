@@ -721,6 +721,7 @@
       if (sec.init) sec.init(ctx());
     }
     sec.render(ctx(), r);
+    syncGuideLanguage();
     /* THE BUTTONS FOLLOW THE SECTION, NOT THE PAGE, and they follow it TOGETHER.  Only the LaTeX
      * one did, so on the thirteen sections that hold their own model the card button stayed
      * offering a download of something else.  One predicate for both; `drive.mjs` walks the rail
@@ -763,6 +764,7 @@
 /* The inline help: one delegated listener for every mark in every section, wired before the first
  * render so a mark works the moment it is drawn. */
 mountHelp();
+mountGuideHelp();
 
 /* THE RAIL DRAWER, below 960px only.  Wired once at load; above the breakpoint the button is
  * display:none and this never runs.  Picking a section closes it, because a drawer that stays open

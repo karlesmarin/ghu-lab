@@ -52,3 +52,9 @@ tools/thermal_run.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab
 
 # Preserve the hashes of the current video assets on every checkout.
 media/video/2026-10-08-certification/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol
+
+# The manual manifest hashes its catalogues, generator and rendered artifacts.
+docs/user-guides*.json -text
+docs/manual/** -text
+docs/manual/*.pdf binary
+build/guide_manual.py text eol=lf

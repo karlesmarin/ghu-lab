@@ -59,6 +59,11 @@ expect_clean("an in-page anchor in CSS", "background:url(#grad)")
 expect_clean("a canvas", '<canvas id="pot" width="720" height="330"></canvas>')
 expect_clean("the word fetch in prose", "<p>This Edition performs no fetch of any kind.</p>")
 expect_clean("a mailto", '<a href="mailto:karlesmarin@gmail.com">write</a>')
+expect_clean("canonical metadata does not fetch", '<link rel="canonical" href="https://example.org/app/">')
+expect_clean("language alternative does not fetch", '<link href="https://example.org/es/" hreflang="es" rel="alternate">')
+expect_caught("alternate stylesheet still fetches", '<link rel="alternate stylesheet" hreflang="es" href="https://example.org/x.css">', "link-href")
+expect_caught("preload still fetches", '<link href="https://example.org/x.js" rel="preload">', "link-href")
+expect_caught("duplicate rel is not metadata exemption", '<link rel="canonical" rel="stylesheet" href="x.css">', "link-href")
 
 # ---------------------------------------------------------------- waivers are visible, not silent
 v, w = check("const r = fetch('/x');  // edition-allow: unreachable branch, kept for the App build")

@@ -9,9 +9,9 @@
  *                 every entry is an integer on either seed); the PARITY of k = 8D is the seed's.
  *                 Pure integer arithmetic on two numbers a table prints.
  *   K             m_h a_min / sqrt(F''(a_min)) = 2 m_W sqrt(3/(16 pi^6)) g4 for EVERY row of
- *                 EVERY content -- Part VI's open problem 3.  Invariant under F -> lambda F, so
- *                 it tests a row's internal consistency and NOT the normalisation; what it
- *                 returns is the g4 the row implies.
+ *                 EVERY content in the registered convention. At fixed mh, F -> lambda F changes K
+ *                 by lambda^(-1/2). Invariance requires recomputing mh with the same dictionary.
+ *                 The implied g4 does not test stationarity.
  *   THE COMB      cross identity (II) with the mod-6 law and the Kaluza-Klein scale sits on an
  *                 arithmetic comb: M^2 = (8 pi^2 m_W^2 / 3 zeta(3)) (6 mu + A4)/k, teeth spaced
  *                 DM^2 = 8 pi^2 m_W^2 / (zeta(3) k) at fixed k -- independent of content and of

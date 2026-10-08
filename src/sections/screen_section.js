@@ -10,8 +10,8 @@
  * when the inputs are left blank.  The three screens and what each one carries:
  *
  *   laws   k - 2A4 = 3 (mod 6): the lattice's, no normalisation, no seed.  Parity of k: the seed's.
- *   K      m_h a/sqrt(F'') = 2.2456 g4 for every row -- invariant under F -> lambda F, so it
- *          tests internal consistency, never the anchor.  Part VI's open problem 3.
+ *   K      m_h a/sqrt(F'') = 2.2456 g4 in the registered convention. At fixed input mh,
+ *          F -> lambda F changes K by lambda^(-1/2); stationarity is a separate test.  Part VI's open problem 3.
  *   comb   the KK scale sits on teeth spaced exactly in M^2; each rung's teeth stop at its own
  *          ceiling.  The SPACING is arithmetic; the POSITION carries the anchor residual and g4.
  *
@@ -48,7 +48,7 @@ const SCREEN_SECTION = {
         </div>
         <div id="scInputs"></div>
         <div class="note" style="margin-top:9px">8D and A₄ blank = read off the model in the
-        header. F&Prime; blank = computed from that model's exact potential at the row's α —
+        header. F&Prime; blank = computed from that model's truncated Fourier potential at the row's α —
         term-wise derivatives, the same series the archive sums.</div>
       </div>
 
@@ -62,8 +62,8 @@ const SCREEN_SECTION = {
         <div class="verdict stable" id="scKV"><b>—</b><span>—</span></div>
         <div class="note" style="margin-top:9px">K = m<sub>h</sub>α<sub>min</sub>/&radic;F&Prime;
         = 2m<sub>W</sub>&radic;(3/16π⁶)·g₄ = <b>2.2456·g₄</b> for every row of every content —
-        and it is invariant under F &rarr; λF, so it tests what a row says <em>about itself</em>
-        and nothing about the normalisation the anchor question is about.
+        in the stated normalisation. At fixed input m_h, F &rarr; λF changes K by λ<sup>−½</sup>.
+        K is unchanged only if m_h is also recomputed as √λ m_h. Agreement on K does not establish stationarity.
         <span class="chip thm">theorem</span> Part VI, open problem 3.</div>
       </div>
 
@@ -83,7 +83,7 @@ const SCREEN_SECTION = {
         <canvas id="scComb" width="720" height="360" role="img" aria-label="KK mass comb; interpretation and certification below"></canvas>
         <div class="legend">
           <span><i style="background:var(--blue)"></i>a tooth — an admissible (k, A₄)</span>
-          <span><i style="background:#c9d4dc"></i>a tooth past its rung's ceiling — no content reaches it</span>
+          <span><i style="background:#c9d4dc"></i>a tooth above its conditional bound</span>
           <span><i style="background:var(--rust)"></i>the rung's own ceiling</span>
           <span><i style="background:var(--amber)"></i>the candidate resonance</span>
           <span><i style="background:var(--green)"></i>this content's own tooth</span>
@@ -103,7 +103,7 @@ const SCREEN_SECTION = {
         <div class="note" style="margin-top:9px">ΔM² = 8π²m_W²/(ζ(3)·k) — independent of the
         content <b>and of the Higgs mass</b>: pure arithmetic. A spacing in <em>mass</em> is
         ΔM²/2M, meaningless without saying at which M — so each rung's is quoted at its own
-        ceiling, the only place its teeth can reach. <span class="chip thm">theorem</span>
+        conditional upper bound; attainment has not been established. <span class="chip thm">theorem</span>
         Part VII eq. (47).</div>
       </div>
     </div>
@@ -130,7 +130,7 @@ const SCREEN_SECTION = {
     $("scClear").onclick = () => { SCREEN_ROW = this._defaults(ctx); ctx.refresh(); };
   },
 
-  _num(s) { const x = parseFloat(String(s).trim()); return Number.isFinite(x) ? x : null; },
+  _num(s) { const t=String(s).trim(), x=Number(t); return t!==''&&Number.isFinite(x) ? x : null; },
 
   render(ctx, r) {
     const $ = (id) => document.getElementById(id);
@@ -194,27 +194,29 @@ const SCREEN_SECTION = {
         ? `<b style="color:var(--rust)">Their α is not at a minimum</b><span>F″(${alpha}) = ` +
           `${F2.toFixed(4)} &lt; 0 on this content: the published point is not a minimum of the ` +
           `potential its own content generates, and no K exists there. ` +
-          `${F1 !== null ? `The Newton step −F′/F″ = ${(-F1 / F2).toFixed(4)} says where the ` +
-            `nearest extremum actually is.` : ""}</span>`
+          `${F1 !== null ? `The Newton step −F′/F″ = ${(-F1 / F2).toFixed(4)} is a local estimate, without ` +
+            `a convergence or nearest-root guarantee.` : ""}</span>`
         : `<b>K = ${kv.K.toFixed(5)} — the row implies g₄ = ${kv.implied_g4.toFixed(4)}</b>` +
           `<span>Against the g₄ = ${g4} this instrument runs on, that is ` +
-          `${dev < 0.15 ? `within ${(100 * dev).toFixed(1)} % — <b>internally consistent</b>`
+          `${dev < 0.15 ? `within ${(100 * dev).toFixed(1)} % — <b>coupling agreement only</b>`
              : `<b style="color:var(--rust)">${(100 * dev).toFixed(0)} % off — the row's α, m_h ` +
-               `and content do not describe one minimum</b>`}. ` +
+               `and curvature disagree with the stated coupling</b>`}. ` +
           (typedF2 !== null
             ? `F″ as typed from their paper. `
-            : `F″ = ${F2.toFixed(4)} from this model's exact potential at their α` +
+            : `F″ = ${F2.toFixed(4)} from this model's truncated Fourier potential at their α` +
               (F1 !== null ? `; stationarity F′/F″ = ${(F1 / F2).toFixed(4)} ` +
-                `(0 would be exactly at the minimum)` : ``) + `. `) +
+                `(0 is necessary for stationarity, not sufficient for a minimum)` : ``) + `. `) +
           `<span class="chip mea">measured</span> the derivative; the identity is exact.</span>`;
 
     this._five(v);
-    this._comb(ctx, v, { mh: mh ?? 125.2, mW, g4, seed,
-                         MKK: this._num(SCREEN_ROW.MKK), tol: this._num(SCREEN_ROW.tol) ?? 50 });
-    this._spacing(ctx, mW, seed);
-    const bounds=cbBoundStatus({mh,mW,g4,seed:seed.parity_of_8D==='odd'?'published':'candidate'});
+    const comb=cbCombEvidence({mh,mW,g4,seed:seed.parity_of_8D==='odd'?'published':'candidate',
+      MKK:this._num(SCREEN_ROW.MKK),tol:this._num(SCREEN_ROW.tol)??50});
+    const bounds=comb.bounds;
+    this._comb(ctx,v,{mh,mW,g4,seed,MKK:comb.inputs.MKK,tol:comb.inputs.tol,comb});
+    this._spacing(ctx,mW,seed,comb);
+    this._lastEvidence=comb;
     $('scConditionalBounds').innerHTML=cbEvidenceHTML(bounds);
-    $('scBoundsJSON').onclick=()=>rxDownload('ghu-rung-certificates.json',JSON.stringify({bounds,witnessChecks:bounds.seed==='candidate'?CANDIDATE_VACUA:null},null,2));
+    $('scBoundsJSON').onclick=()=>rxDownload('ghu-rung-certificates.json',JSON.stringify({bounds,comb,stationarityAudit:FORMULA_CONSISTENCY,witnessChecks:bounds.seed==='candidate'?CANDIDATE_VACUA:null},null,2));
 
     const chip = (okv) => okv ? `<span class="chip thm">passes</span>`
                               : `<span class="chip bad">fails</span>`;
@@ -226,8 +228,8 @@ const SCREEN_SECTION = {
         : !this._lastCombCertified ? `<span class="chip live">arithmetic only; reachability not evaluated</span>`
         : (this._lastHits && this._lastHits.length ? chip(true) : chip(false))} — ` +
       `three screens, none of which recomputes the foreign model. On their own five rows the K ` +
-      `screen already speaks: three are consistent near g₄ ≈ 0.6, one implies 1.87, and one is ` +
-      `not even at a minimum.`;
+      `screen compares couplings only; all five printed phases fail stationarity for the implemented ` +
+      `potential, even across their rounding intervals. The literature mismatch remains open.`;
   },
 
   /* ---- the archived five, with verdicts ---------------------------------------------------- */
@@ -242,6 +244,8 @@ const SCREEN_SECTION = {
     const s = sc.value;
     $("scFive").innerHTML = s.at_theirs.map((row) => {
       const bad = row.K === null || row.g4 > 1 || row.g4 < 0.3;
+      const interval=FORMULA_CONSISTENCY.su7.find(x=>x.row===row.case);
+      const residual=interval ? `<br><span class="chip bad">F′ excludes 0 across rounding interval</span>` : "";
       const verdict = row.K === null
         ? `<span class="chip bad">not at a minimum</span>`
         : row.g4 > 1 ? `<span class="chip bad">implies g₄ = ${row.g4.toFixed(2)}</span>`
@@ -251,7 +255,7 @@ const SCREEN_SECTION = {
         `<td class="num">${row.F2.toFixed(3)}</td>` +
         `<td class="num">${row.K === null ? "—" : row.K.toFixed(4)}</td>` +
         `<td class="num">${row.g4 === null ? "—" : row.g4.toFixed(4)}</td>` +
-        `<td class="num">${(row.F1 / row.F2).toFixed(4)}</td><td>${verdict}</td></tr>`;
+        `<td class="num">${(row.F1 / row.F2).toFixed(4)}</td><td>${verdict}${residual}</td></tr>`;
     }).join("");
     $("scFiveNote").innerHTML =
       `Evaluated at THEIR published α with the exact F″ of each row's own content — the archived ` +
@@ -259,8 +263,11 @@ const SCREEN_SECTION = {
       `against the archive's ${s.K_over_g4.toFixed(6)}${s.agrees ? "" :
         " — <b style='color:var(--rust)'>and they disagree: the page is broken</b>"}. Rows (1), ` +
       `(2), (5) agree on g₄ ≈ 0.6; row (4) would need g₄ = 1.87; row (3)'s α has F″ &lt; 0. ` +
-      `This is the open anchor question seen from inside their own table. ` +
-      `<span class="chip ver">verified</span> su7_anchor_mh.py, archived.`;
+      `All five printed phases have nonzero F′ throughout their rounding intervals under the implemented potential. ` +
+      `The potential transcription and conventions remain the open anchor question; this does not prove the paper wrong. ` +
+      `<span class="chip ver">verified</span> coupling calculation: su7_anchor_mh.py, archived. ` +
+      `Stationarity: Sage 10.9, 192-bit Arb intervals plus analytic Fourier tail and rounding-radius bound; ` +
+      `download the certificate JSON for enclosures and sources.`;
   },
 
   /* ---------------------------------------------------------------- canvas */
@@ -276,17 +283,15 @@ const SCREEN_SECTION = {
   /* The comb, in a WINDOW.  Drawn over the whole axis the teeth of the high rungs fuse into a
    * bar; drawn in a window each rung is either a readable set of teeth or a greyed row saying its
    * ceiling cannot reach here -- which is the paper's own point about quoting spacings. */
-  _comb(ctx, v, { mh, mW, g4, seed, MKK, tol }) {
+  _comb(ctx, v, { mh, mW, g4, seed, MKK, tol, comb }) {
     const [g, W, H] = this._fit(document.getElementById("scComb"), 360);
     g.fillStyle = "#fff"; g.fillRect(0, 0, W, H);
-    const per = (ctx.DATA.ceilings && ctx.DATA.ceilings.per_rung) || [];
-    const parityOdd = seed.parity_of_8D === "odd";
-    const certificates = per.filter((p) => p["8D"] <= 21 && (p["8D"] % 2 === 1) === parityOdd);
-    const hasCertificates = certificates.length > 0;
-    const RUNGS = hasCertificates ? certificates : Array.from({length:parityOdd?11:10},(_,i)=>({"8D":2*i+(parityOdd?1:2),GeV:null}));
+    const parityOdd = seed.parity_of_8D === 'odd';
+    const hasCertificates = comb.bounds.applicable;
+    const RUNGS = comb.rows.map(r=>({'8D':r.k8D,GeV:r.upperGeV}));
     const $ = (id) => document.getElementById(id);
     this._lastCombCertified=hasCertificates;this._lastHits=[];
-    if (!(mh>0&&mW>0&&g4>0&&tol>=0) || (MKK!==null&&MKK<=0)) {
+    if (!comb.valid) {
       g.fillStyle=this._css('--rust');g.font='14px sans-serif';g.textAlign='center';
       g.fillText('Enter positive masses and a nonnegative tolerance.',W/2,H/2,W-24);
       $('scHits').innerHTML='<b>Input needs correction</b><span>The comb needs positive masses and couplings, and tolerance ≥ 0.</span>';
@@ -308,24 +313,9 @@ const SCREEN_SECTION = {
     }
     g.fillText("M_KK = 1/R₅ (TeV)", L + iw / 2, T + ih + 19);
 
-    /* THE CEILING BOUND FOR EVERY RUNG, certified or not.  The per-rung ceiling is monotone
-     * decreasing in D, so a rung between two certified ones is bounded by the certified rung
-     * BELOW it -- which is what lets the vacuity trap be closed for k = 11, 13, 17, 19 too.
-     * Without this, a 50 GeV tolerance at 10 TeV "lands on a tooth" for every mass, because the
-     * high rungs' teeth are denser than any honest tolerance: a test that cannot fail. */
-    const ceilBound = (kk) => {
-      let best = null;
-      for (const p of certificates) if (p["8D"] <= kk) best = best === null ? p.GeV : Math.min(best, p.GeV);
-      return best;
-    };
-    const hits = (MKK !== null
-      ? combMatch({ MKK, tolGeV: tol, mh, mW, g4, kmax: 21, parity: parityOdd ? "odd" : "even" })
-      : []).map((h2) => {
-        const b = ceilBound(h2.k);
-        return { ...h2, reachable: b === null ? null : h2.M <= b };
-      });
-    const real = hits.filter((h2) => h2.reachable !== false);
-    this._lastHits = real;
+    const hits=comb.hits.map(h=>({...h,reachable:h.withinConditionalBound}));
+    const real=hits.filter(h=>h.reachable!==false);
+    this._lastHits=real;
 
     if (MKK !== null) {
       g.fillStyle = "rgba(216,164,64,.15)";
@@ -386,49 +376,14 @@ const SCREEN_SECTION = {
       }
     }
 
-    const ghosts = hits.length - real.length;
-    const ghostLine = ghosts
-      ? ` ${real.length ? "And a" : "A"}nother ${ghosts} admissible ${ghosts > 1 ? "teeth lie" : "tooth lies"} ` +
-        `<b>past its rung's certified ceiling</b> — arithmetic that no realisable content reaches, ` +
-        `drawn dashed. Counting those, every mass would land somewhere: the high rungs' teeth are ` +
-        `denser than any honest tolerance, and a screen that cannot fail screens nothing.`
-      : ``;
-    $("scHits").className = "verdict " + (MKK === null ? "" : real.length ? "breaks" : "stable");
-    $("scHits").innerHTML = MKK === null
-      ? `<b>${hasCertificates?'Type a candidate M_KK to run the comb':'Arithmetic comb for this seed'}</b><span>${hasCertificates?'The window is parked at the top of the comb, where the ceilings bite and the teeth are sparse.':'Even-rung teeth follow the integer law. No per-rung ceiling certificates are available for this seed; reachability has not been evaluated. Type a candidate mass to inspect arithmetic matches.'}</span>`
-      : !hasCertificates
-        ? `<b>${MKK} ± ${tol} GeV: ${hits.length} arithmetic ${hits.length===1?'match':'matches'}</b><span>These teeth satisfy the integer law for k ≤ 21. Their physical reachability is not evaluated: this seed has no per-rung ceiling certificates. No viability or exclusion verdict is assigned from this view.</span>`
-      : real.length
-        ? `<b>${MKK} ± ${tol} GeV lands on ${real.length} reachable ${real.length > 1 ? "teeth" : "tooth"}</b>` +
-          `<span>${real.map((h2) => `(k = ${h2.k}, A₄ = ${h2.A4}, M = ${Math.round(h2.M)} GeV)`).join(" · ")} ` +
-          `— <b>necessary, not sufficient</b>: every realisable content lands on a tooth, not ` +
-          `every tooth holds a content.${ghostLine} <span class="chip thm">theorem</span> Part VII eq. (46).</span>`
-        : `<b style="color:var(--rust)">No reachable tooth within ±${tol} GeV</b><span>Given ` +
-          `m_h = ${mh}, m_W and g₄, no admissible (k ≤ 21, A₄) below its rung's ceiling puts a ` +
-          `Kaluza–Klein scale there on the ${seed.name} seed.${ghostLine} Either the tolerance is ` +
-          `honest and the model is excluded at that mass — or the resonance is not this model's.</span>`;
-    const mineNote = D8v.status !== "unknown" && !RUNGS.some((p) => p["8D"] === D8v.value)
-      ? ` This content sits on k = ${D8v.value}, a rung outside the certified per-rung list, so ` +
-        `its own tooth is not drawn.`
-      : ``;
-    $("scCombNote").innerHTML =
-      `Teeth from identity (II) at m_h = ${mh} GeV, admissible A₄ only ` +
-      `(${parityOdd ? "k odd, A₄ ≡ −k (mod 3)" : "k even, A₄ half-integral"}), each rung cut at ` +
-        `its own certified ceiling; a rung with no certificate of its own is bounded by the rung ` +
-      `below it, which the monotonicity of the ceiling licenses.${mineNote} <b>The spacing is ` +
-      `arithmetic; the position carries the anchor residual and the choice of g₄</b> — which is ` +
-      `why a miss excludes more honestly than a hit confirms. ` +
-      `<span class="chip mea">measured</span> the positions; ` +
-       `<span class="chip thm">theorem</span> the spacing and the admissibility.`;
-    if (!hasCertificates) $('scCombNote').innerHTML=
-      `The candidate split has even k and half-integral A₄. The teeth and their exact M² spacing are computed from the same arithmetic identity; the odd-seed ceilings are not transferred. ${mineNote} `+
-      `<b>Missing information: certified per-rung ceilings and the true-vacuum screen for this seed.</b> Positions still depend on m_h = ${mh} GeV, g₄ and the open anchor normalization.`;
+    $('scHits').className='verdict stable';
+    $('scHits').innerHTML='<b>'+rxEscape(comb.title)+'</b><span>'+rxEscape(comb.reason)+'</span>';
+    $('scCombNote').textContent='Small-angle arithmetic identity at mh = '+mh+' GeV. Bounds apply only under their registered conventions, with no interpolation between rungs. No full-potential or experimental exclusion follows.';
+
   },
 
-  _spacing(ctx, mW, seed) {
-    const per = (ctx.DATA.ceilings && ctx.DATA.ceilings.per_rung) || [];
-    const odd=seed.parity_of_8D==='odd',cert=per.filter(p=>p['8D']<=21&&(p['8D']%2===1)===odd);
-    const rows=cert.length?cert:Array.from({length:odd?11:10},(_,i)=>({'8D':2*i+(odd?1:2),GeV:null}));
+  _spacing(ctx, mW, seed, comb) {
+    const rows=comb.rows.map(r=>({'8D':r.k8D,GeV:r.upperGeV}));
     document.getElementById("scSpacing").innerHTML = rows.map((p) => {
       const k = p["8D"], d2 = combSpacingM2(k, mW);
       return `<tr><td class="num">${k}</td>` +

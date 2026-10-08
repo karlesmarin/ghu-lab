@@ -7,6 +7,41 @@ original SU(7), SU(4) and general 5D SU(N) tools, flat and warped SU(6) benchmar
 the 4D neutrino ring, Higgs-rate scenarios, integrated diagnostics and reproducible batch studies.
 Outputs retain their inputs, provenance and status: `theorem`, `verified`, `measured` or `unknown`.
 
+### Formula consistency corrections · 8 October 2026
+
+The SU(N) minimizers now report the same **V/C** as the potential evaluator: the extra
+factor ½ in their depths and endpoint difference has been removed. The located phases
+are unchanged. Symmetry breaking is evaluated from the joint commutant relative to
+θ = 0, including boundary minima and rearrangements with equal group dimensions.
+For example, the SU(3) model with two periodic fundamental Dirac fermions has its
+minimum at θ = 1 and changes SU(2)×U(1) to U(1)². A boundary flag alone cannot decide this.
+
+The simulator uses analytic Fourier Hessians with a truncation-error bound. Its JSON
+records the evaluated phase, actual coupling, derivative method and numerical search
+status. A probe is labelled as a probe. The comb, spacing table and bound download now
+share one convention gate; upper bounds do not establish attainable masses or a full
+theory exclusion. The K comparison depends on potential normalization when m_h is held fixed.
+
+The literature anchor remains open. SageMath proves that F′ excludes zero throughout
+the rounding intervals of all five printed SU(7) phases **for the implemented potential**.
+This bounds the disagreement; it does not validate the field-content transcription or
+prove the paper wrong. Maru–Nago's printed phase also differs from the infinite-sum
+stationary point; its proximity to a ten-term result does not establish the authors'
+numerical procedure. The earlier Haba–Yamashita absolute-value claim remains withdrawn.
+
+The [independent Sage proof](proof/formula_consistency.py), its
+[interval results and source links](data/formula_consistency_reference.json), and
+[regressions](_test_formula_consistency.mjs) accompany the correction.
+Reproduce the live probe with `node build/formula_consistency_probe.mjs`, then run
+`sage -python proof/formula_consistency.py` from this repository (SageMath 10.9;
+the local Docker image is `sagemath/sagemath`). The normal build includes the new
+regressions and browser checks. These checks cover the stated identities and cases;
+they do not certify every model or the global optimum of a numerical search.
+
+The bilingual video revision of 8 October includes new captures and corrected explanations,
+with synchronized captions and chapter times. The original 7 October guide remains available
+from the video page as a historical version; frozen editions retain their original checkpoint.
+
 The 5D family goes from a boundary condition to numbers a detector measures: the Wilson-line
 potential of **any** SU(N) model, its vacuum, the four-dimensional spectrum there, the anomaly
 ledger, the matter on the two fixed points that pays that ledger and gives the unwanted zero modes
@@ -26,7 +61,7 @@ sections**, the **3 Simulator modes**, the **8 research cards**, integrated diag
 Each chapter connects a question, a control change and the result, with the assumptions needed
 to interpret it. Use the searchable chapter list, subtitles, transcript and MP4 download. Changing
 language preserves your position within the chapter. Narration is synthetic; the interface keeps
-its English button labels. Recorded on **7 October 2026**.
+its English button labels. Revised and recaptured on **8 October 2026**.
 
 🇪🇸 **Cómo empezar:** abre la guía, elige Español y busca el módulo. Pulsa Reproducir y usa la
 pantalla completa para leer las gráficas. «Probar esta sección» abre el laboratorio. Cambia una
@@ -217,7 +252,7 @@ capabilities implemented in this release.
 The deployed page is a build artifact. This is where it comes from, and why it says what it says.
 
 ```
-🏗️  python build/build_app.py    # inline → collision guard → edition gate → 65 harnesses → app/index.html
+🏗️  python build/build_app.py    # inline → collision guard → edition gate → 66 harnesses → app/index.html
 🌐  python build/build_site.py --legacy ../ghu-explorer/tools-2026-07     # → site/, then gates itself
 📸  node   build/shoot.mjs       # headless screenshots of every section + console + which model
 🖱️  node   build/drive.mjs       # USES the panels: a real mouse through the DevTools Input domain
@@ -238,7 +273,7 @@ The deployed page is a build artifact. This is where it comes from, and why it s
 
 ## 🧪 What is checked, and against what
 
-Verified for the October 7 release: **5,503 source checks across 65 harnesses**, plus all eleven browser gates and **30 site checks**. The dedicated extensions and closure gates cover controls, comparison snapshots, permalinks, exports, stale external results, mobile layout, both KK-comb seeds and the conditional history/bounds. Real PhaseTracer/HiggsTools HTTP calculations, eight exact Sage checks and the twelve new study-record checks are recorded separately.
+Verified for the October 8 correction: **5,867 source checks across 66 harnesses**, plus all eleven browser gates and **30 site checks**. The formula audit adds 13 independent SageMath checks. The dedicated extensions and closure gates cover controls, comparison snapshots, permalinks, exports, stale external results, mobile layout, both KK-comb seeds and the conditional history/bounds. Real PhaseTracer/HiggsTools HTTP calculations, eight earlier exact Sage checks and the twelve study-record checks are recorded separately.
 
 The fixed-light-input extension registers `build/neutrino_research.mjs` as the eleventh browser gate: **31 checks** cover shared inputs, cancellation and unequal-deficit responses, invalid points, actual JSON/SVG downloads, saved comparisons, permalinks and desktop/mobile layout. `_test_neutrino_research.mjs` contributes **1,608 source checks** against independent NumPy/SVD references and original DeepCore tables.
 

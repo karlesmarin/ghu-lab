@@ -27,18 +27,21 @@ try {
   foreach ($chapter in $plan.chapters) {
     foreach ($scene in $chapter.steps) {
       $dest = Join-Path $OutputDirectory ($scene.id + '.wav')
-      $reuse = $false
-      if (Test-Path -LiteralPath ($dest + '.json')) { $reuse = ((Get-Content -LiteralPath ($dest + '.json') -Raw -Encoding UTF8 | ConvertFrom-Json).sampleRate -eq 16000) }
-      if (-not $reuse) {
         if ($Language -eq 'es') {
           $spoken = $scene.textES
           if (-not $spoken) { throw ('Spanish narration missing: ' + $scene.id) }
           $name = 'Microsoft Helena Desktop'
         } else { $spoken = $scene.text; $name = $plan.voice }
-        $spoken = $spoken -replace 'SU\((\d+)\)', 'S U $1' -replace 'GHU','G H U' -replace 'CMS','C M S' -replace 'KK\b','Kaluza Klein'
+        $spoken = $spoken -creplace 'SU\((\d+)\)', 'S U $1' -creplace '\bGHU\b','G H U' -creplace '\bCMS\b','C M S' -creplace '\bKK\b','Kaluza Klein'
         if ($Language -eq 'en') {
-          $spoken = $spoken -replace 'GeV','giga electron volts' -replace 'TeV','tera electron volts' -replace '\u0394','delta ' -replace '\u03b8','theta ' -replace '\u03b7','eta ' -replace '\u03b1','alpha ' -replace '\u03bc','mu ' -replace '\u03c7','chi ' -replace '\u00b2',' squared ' -replace '\u00b3',' cubed ' -replace '\u2260',' not equal to ' -replace '\u2192',' to ' -replace '\u2264',' less than or equal to ' -replace '\u2265',' greater than or equal to ' -replace '\u00d7',' times '
+          $spoken = $spoken -creplace '\bGeV\b','giga electron volts' -creplace '\bTeV\b','tera electron volts' -creplace '\u0394','delta ' -creplace '\u03b8','theta ' -creplace '\u03b7','eta ' -creplace '\u03b1','alpha ' -creplace '\u03bc','mu ' -creplace '\u03c7','chi ' -creplace '\u00b2',' squared ' -creplace '\u00b3',' cubed ' -creplace '\u2260',' not equal to ' -creplace '\u2192',' to ' -creplace '\u2264',' less than or equal to ' -creplace '\u2265',' greater than or equal to ' -creplace '\u00d7',' times '
         }
+      $reuse = $false
+      if ((Test-Path -LiteralPath $dest) -and (Test-Path -LiteralPath ($dest + '.json'))) {
+        $cached = Get-Content -LiteralPath ($dest + '.json') -Raw -Encoding UTF8 | ConvertFrom-Json
+        $reuse = $cached.sampleRate -eq 16000 -and $cached.text -ceq $spoken -and $cached.voice -eq $name -and $cached.rate -eq 1
+      }
+      if (-not $reuse) {
         $words = [VideoNarrator]::Render($name, $spoken, [System.IO.Path]::GetFullPath($dest))
         @{text=$spoken;voice=$name;rate=1;sampleRate=16000;words=$words} | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath ($dest + '.json') -Encoding UTF8
       }

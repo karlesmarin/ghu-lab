@@ -4,9 +4,9 @@
     "Empieza por un modelo o una referencia identificados. Cambia una sola hipótesis cada vez y lee el resultado junto con sus unidades y su alcance. Teorema, verificado, medido y desconocido indican evidencias diferentes. Un valor calculado para un escenario no es, por ello, una medición experimental."
   ],
   "hierarchy": [
-    "Abre Hierarchy, jerarquía. Para un contenido de materia del modelo S U siete, esta sección calcula la escala de compactificación y la masa del Higgs, y su distancia al techo condicionado por las convenciones del modelo.",
+    "Abre Hierarchy, jerarquía. Para un contenido del modelo S U siete, examina la escala de compactificación y la masa del Higgs bajo las convenciones mostradas. El techo pertenece a la aproximación de momentos para ángulos pequeños.",
     "Cambia el acoplamiento de diagnóstico a cero coma siete. Las gráficas separan el cambio de convención del modelo, la propagación de la masa medida del bosón W y la convergencia de la suma. Lee los ejes y los valores centrales conjuntamente.",
-    "Las escalas absolutas heredan la advertencia de normalización situada al principio. El ángulo calculado no reproduce el publicado, con un factor que depende de la fila. El cociente de masas y las leyes aritméticas no heredan esa ambigüedad."
+    "La fase calculada no reproduce la publicada. La discrepancia depende de la fila, y multiplicar todo el potencial por una constante no desplaza sus puntos estacionarios. Las escalas absolutas quedan condicionadas a resolver esta discrepancia. Las identidades aritméticas son afirmaciones separadas."
   ],
   "inverse": [
     "Abre Design a scale. Aquí recorremos el cálculo en sentido inverso: elegimos una escala de compactificación y una ventana de masa del Higgs, y buscamos un contenido que las alcance, o un certificado que descarte la solución bajo las condiciones indicadas.",
@@ -45,8 +45,8 @@
   ],
   "screen": [
     "Abre Screen a table. Esta sección examina una fila publicada mediante restricciones aritméticas, certificados condicionados y comprobaciones numéricas del potencial completo.",
-    "Introduce una resonancia candidata de cuatro mil gigaelectronvoltios. El peine aritmético compara ese punto con las separaciones permitidas. Después examina las cotas y los testigos del vacío por separado. Una coincidencia aritmética no certifica un vacío físico completo.",
-    "Los certificados de intervalos acotan una aproximación de momentos para ángulos pequeños. No certifican el techo del potencial completo. Las comprobaciones del vacío comparan extremos numéricos con errores de truncamiento; un testigo superviviente no demuestra un óptimo exhaustivo."
+    "Introduce una resonancia candidata de cuatro mil gigaelectronvoltios. El peine muestrea dientes cercanos para los peldaños mostrados. Los filtros, la tabla de separaciones y la descarga utilizan la misma comprobación de cotas para las entradas elegidas. Un diente superviviente no prueba que exista un vacío físico que lo alcance.",
+    "Las cotas de intervalos se aplican a la aproximación de momentos para ángulos pequeños, no al potencial completo. La auditoría con Sage excluye un punto estacionario en todo el intervalo de redondeo de cada una de las cinco fases publicadas de S U siete, para la tabla de coeficientes implementada. Su conciliación con el artículo sigue abierta. No demuestra que el artículo sea incorrecto."
   ],
   "collider": [
     "Abre Collider. La sección identifica qué estado restringe una búsqueda de dos chorros e incorpora un escenario independiente de tasas del Higgs, contrastado con conjuntos experimentales fijados.",
@@ -74,9 +74,9 @@
     "En el caso gauge puro la simetría no se rompe. En esta clase de cinco dimensiones, ocho veces D es par. El peldaño impar utilizado en la cota de S U siete requiere la sexta dimensión."
   ],
   "sun5d": [
-    "Abre S U N builder. Las condiciones de contorno y el contenido del volumen son entradas para construir el potencial de Wilson a un lazo de los modelos implementados en cinco dimensiones.",
-    "Carga el ejemplo de la sección cuatro punto tres del artículo. Los bloques de contorno y la materia definen el modelo. El potencial se reconstruye con esas entradas. Spectrum, Anomalies y Simulator permiten examinar el mismo modelo del constructor.",
-    "Las ecuaciones de los cuatro ejemplos desarrollados en la fuente se comprueban frente a esta implementación. Cuando hay una sola fase de Wilson, los términos tienen la estructura que permite aplicar la expresión cerrada utilizada en las secciones anteriores."
+    "Abre S U N builder. Las condiciones de contorno y las representaciones de materia compatibles definen el potencial de Wilson a un lazo implementado en cinco dimensiones. El modelo es la entrada.",
+    "Carga la sección cuatro punto tres del artículo. Este ejemplo gauge puro prefiere el extremo en uno. Lee el grupo superviviente calculado mediante el conmutante común: estar en un extremo no demuestra que sobrevivan los generadores presentes en cero. La gráfica y la energía del mínimo utilizan ahora la misma normalización, V dividido por C.",
+    "Los cuatro ejemplos desarrollados se contrastan con las fórmulas implementadas. Con una fase de Wilson, los cosenos admiten la misma construcción de momentos. Su rama estacionaria cerrada es una aproximación para ángulos pequeños. El mínimo numérico de Fourier es otro cálculo, y una malla finita no certifica el mínimo global."
   ],
   "papers": [
     "Abre Paper models. El panel toma cuatro modelos publicados y evalúa las partes que admite el motor del laboratorio.",
@@ -86,7 +86,7 @@
   "spectrum5d": [
     "Abre Four D spectrum. Aquí vemos qué contiene el modelo del constructor: campos de cuatro dimensiones y sus torres de Kaluza Klein.",
     "Carga el ejemplo S U seis y desplaza la sonda de Wilson. Compara las familias del potencial con los niveles bajos de la torre exacta. Esos niveles pueden requerir una lectura diferente de las familias utilizadas para construir el potencial.",
-    "Las familias son correctas para calcular el potencial. En un vacío roto no describen correctamente el nivel más bajo de algunas representaciones. Por eso la torre exacta aparece en una segunda tabla."
+    "Las familias de cosenos reconstruyen el potencial, pero no determinan por sí solas todos los niveles más bajos de la torre exacta. La sonda desplazada es una fase elegida, no necesariamente un vacío. Lee su grupo superviviente por separado: una coordenada de contorno no determina por sí sola la ruptura de simetría."
   ],
   "anomaly5d": [
     "Abre Anomalies. El registro calcula cada canal de anomalía del grupo no roto con aritmética racional exacta.",
@@ -99,19 +99,19 @@
     "Lee los dos resultados antes y después: anomalías y campos sin masa. La carga que cancela una anomalía no tiene por qué permitir un término de masa. El recuento superviviente es una cota inferior bajo la hipótesis de acoplamientos genéricos."
   ],
   "sweep5d": [
-    "Abre Scan. El barrido recorre un espacio finito de condiciones de contorno y contenidos, aplicando sucesivamente los filtros seleccionados.",
+    "Abre Scan. Recorre el espacio finito mostrado de condiciones de contorno y contenidos de materia con los filtros elegidos. El filtro de ruptura comprueba qué generadores presentes en fase cero sobreviven en el mínimo localizado numéricamente.",
     "Ejecuta el barrido mostrado. Lee el total explorado, cada filtro, los supervivientes y los casos sin resolver. Se cuentan por separado condiciones de contorno y clases equivalentes. Dos filas supervivientes no representan necesariamente teorías distintas.",
     "La transformación de bloques indicada en pantalla conecta descripciones de la misma teoría. Por eso el resultado principal contiene dos recuentos. Un vacío no decidido se contabiliza por separado de un resultado negativo."
   ],
   "dossier": [
     "Abre One model, every verdict. Esta sección distingue qué respuestas pertenecen a la teoría y cuáles dependen del marco con el que la describimos.",
     "Inicia la demostración y selecciona la condición de contorno equivalente que aparece. Compara las etiquetas de teoría y de marco. Cambiar las coordenadas de la descripción puede mover una magnitud mostrada sin cambiar la teoría física.",
-    "Las etiquetas se calculan en la evaluación actual. Las magnitudes en el mínimo pertenecen a la teoría; las del punto simétrico dependen en gran parte del marco. Esa distinción es la pregunta central del panel."
+    "Las etiquetas comparan magnitudes en los marcos evaluados. Lee por separado las coordenadas de contorno y la simetría superviviente. Las energías comparten la normalización del potencial. La concordancia entre mínimos localizados es evidencia de estas evaluaciones, no una certificación exhaustiva del mínimo global."
   ],
   "predict": [
     "Abre Simulator. Elige entre las predicciones del constructor, la referencia de producción del Higgs con modos del top o el anillo de neutrinos. Cada cálculo muestra el alcance de su comparación experimental.",
-    "Carga la demostración del modelo publicado y cambia el acoplamiento gauge a uno. Compara la respuesta del Higgs y la escala de compactificación. El cálculo usa entradas medidas e hipótesis identificadas. No simula sucesos de colisionador.",
-    "La historia térmica pertenece a un ejemplo independiente de S U tres. Su espectro acústico se evalúa únicamente en el régimen compatible indicado. No es una predicción de detección ni la historia térmica del constructor S U siete. Un vacío simétrico no determina una escala de compactificación."
+    "Carga la demostración del modelo publicado y fija el acoplamiento gauge en uno. Las masas del Higgs utilizan ahora derivadas segundas analíticas de Fourier, con una cota explícita del error de truncamiento. La descarga conserva el acoplamiento y la fase utilizados, y distingue una sonda elegida de un mínimo localizado numéricamente.",
+    "La historia térmica pertenece a un ejemplo independiente de S U tres y al régimen compatible indicado. No es una predicción de detección ni la historia térmica de este constructor. En los extremos con paridades conmutativas, el diccionario de masas actual no identifica un candidato W desplazado para fijar la escala. Esa limitación no implica que sobreviva el grupo gauge de fase cero."
   ],
   "bcclass": [
     "Abre Boundary conditions. Recorremos las órbitas para identificar qué condiciones de contorno describen la misma teoría.",

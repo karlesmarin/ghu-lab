@@ -806,7 +806,7 @@ H("one model, every verdict — the class walk, on the built page");
      (await js(tag("Unbroken group at the minimum"))) === "the theory",
      `${vacAtMin0} -> ${vac1} / ${await js(tag("Unbroken group at the minimum"))}`);
   ok("...and the vacuum line says where it stands",
-     /a symmetric point|broken — /.test(await js(row("Where the vacuum stands"))),
+     /commuting parity matrices|rotated parity blocks — /.test(await js(row("Where the vacuum stands"))),
      String(await js(row("Where the vacuum stands"))));
   ok("...and the builder is now holding the other one, so the model really moved",
      (await js(`JSON.stringify([SUN5D_S.blocks.nPP, SUN5D_S.blocks.nPM,` +

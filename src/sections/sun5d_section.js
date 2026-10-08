@@ -263,9 +263,12 @@ const SUN5D_SECTION = {
     if (min) {
       values.theta_min = val(min.theta.map((t) => Number(t.toFixed(6))).join(", "),
         { status: STATUS.MEASURED, source: "browser: grid, then coordinate refinement" });
+      const symmetry = vac5Symmetry(b, min.theta);
+      values.vacuum_symmetry = val(`${symmetry.before} → ${symmetry.after}; ${symmetry.broken ? 'breaks' : 'preserves'} θ = 0 generators`,
+        { status: STATUS.MEASURED, source: "joint commutant of P0 and P1(theta), relative to theta=0" });
       values.at_domain_end = val(min.atEdge,
         { status: STATUS.MEASURED,
-          source: "an end of [0,1] is the OTHER symmetric point, not a broken vacuum" });
+          source: "boundary face of the search domain; does not determine symmetry breaking" });
     } else {
       values.theta_min = unknown(`this model has ${b.phases} Wilson-line phases; the minimiser ` +
                                  `covers one and two, and a grid is not the right instrument past that`);
@@ -389,7 +392,8 @@ const SUN5D_SECTION = {
         `contribution depends on ηη′, not on η and η′ separately — that is the whole content of ` +
         `their (3.4)–(3.5), and it is why the table has two rows per representation and not four.`
       : `Gauge and ghost only, which is <b>−3</b> times one adjoint degree of freedom. That alone ` +
-        `has a definite sign and, on its own, never breaks anything: the bulk is what can.`;
+        `can favour a different boundary frame. Read the surviving group at the located minimum ` +
+        `below; a domain endpoint does not by itself establish preservation of the θ = 0 generators.`;
   },
 
   /* ---------------------------------------------------------------- the formula */
@@ -517,55 +521,32 @@ const SUN5D_SECTION = {
     if (!m) { el.className = "verdict stable"; el.innerHTML = "<b>—</b><span>—</span>"; return; }
     const nm = sun5dNames(b);
     const at = m.theta.map((t, i) => `${nm[i]} = ${t.toFixed(5)}`).join(", ");
-    /* THE TWO ENDS OF THE INTERVAL ARE THE TWO SYMMETRIC POINTS, NOT BROKEN VACUA.  V has period 2
-     * in every phase and is even, so [0, 1] is a fundamental domain and its ends are θ = 0 and
-     * θ = 1 — the same pair Part VII's stability criterion compares.  The first version of this
-     * panel found the minimum at a = 1 on their own §4.3 model and announced "the Hosotani
-     * mechanism", which is a claim about an INTERIOR minimum.  It is now three verdicts, and the
-     * one-phase case gets the criterion by name. */
-    const interior = !m.atEdge;
-    el.className = interior ? "verdict breaks" : "verdict stable";
-    let head, body;
-    if (interior) {
-      head = "The Wilson line takes a vacuum expectation value";
-      body = `Deepest at ${at}, strictly inside the fundamental domain, at V/C = ${m.V.toFixed(5)} ` +
-             `against ${m.symmetric.toFixed(5)} at θ = 0 and ${m.other.toFixed(5)} at θ = 1. So ` +
-             `the gauge symmetry is broken further than the boundary condition broke it — the ` +
-             `Hosotani mechanism, on this content. `;
-    } else if (m.V < m.symmetric - 1e-9) {
-      head = "The OTHER symmetric point is the deeper one";
-      body = `The minimum sits at ${at}, an <b>end</b> of the fundamental domain — and the two ends ` +
-             `are the two symmetric points, not broken vacua. V/C = ${m.V.toFixed(5)} there ` +
-             `against ${m.symmetric.toFixed(5)} at θ = 0. Nothing is broken by the Wilson line; ` +
-             `the theory sits at a different symmetric point, whose unbroken subgroup is the ` +
-             `boundary condition's read with the other sign. `;
-    } else {
-      head = "The symmetric point IS the vacuum";
-      body = `Deepest at ${at}, V/C = ${m.V.toFixed(5)}; the other end gives ` +
-             `${m.other.toFixed(5)}. The boundary condition's breaking is all there is at one ` +
-             `loop for this content. `;
-    }
+    const symmetry = vac5Symmetry(b, m.theta);
+    el.className = symmetry.broken ? "verdict breaks" : "verdict stable";
+    const head = symmetry.broken ? "The Wilson line breaks generators present at θ = 0"
+                                : "The θ = 0 generators survive at this point";
+    const body = `Deepest point found: ${at}, ${m.atEdge ? 'on a boundary face' : 'inside'} of [0,1]<sup>k</sup>. ` +
+      `V/C = ${m.V.toFixed(5)}; θ = 0 gives ${m.symmetric.toFixed(5)}, θ = 1 gives ${m.other.toFixed(5)}. ` +
+      `The joint commutant gives ${symmetry.before} → ${symmetry.after} ` +
+      `(${symmetry.generatorsBefore} → ${symmetry.generatorsAfter} massless generators). `;
     /* and with one phase, the criterion by name: Part VII eq. (34), on somebody else's model */
     let w = "";
     if (b.phases === 1) {
       const tt = sun5dTermTable(terms, { phases: b.phases });
       const W = stabilityW(tt);
-      /* the paper writes V = (C/2)Σ… and the kernel's F has no ½, so the criterion's value is
-       * twice the difference this panel prints in V/C.  The factor is stated and the harness
-       * asserts it, because an unstated convention is how a right formula prints a wrong number. */
+      /* sun5dTermTable already includes the half: F equals V/C. */
       w = `<br><b>The criterion, by name.</b> F(1) − F(0) = (31/16) ζ(5) W with ` +
-          `W = Σ<sub>c odd</sub> m(−s) = ${(+W.toFixed(6))}, which in this panel's V/C units — ` +
-          `the paper carries a ½ that the kernel's F does not — is ` +
-          `${(F1minusF0(W) / 2).toFixed(5)}, the ${m.other.toFixed(5)} − ${m.symmetric.toFixed(5)} ` +
+          `W = Σ<sub>c odd</sub> m(−s) = ${(+W.toFixed(6))}, in the same V/C units (the term table already includes ½): ` +
+          `${F1minusF0(W).toFixed(5)}, the ${m.other.toFixed(5)} − ${m.symmetric.toFixed(5)} ` +
           `measured above. So ` +
           `${W > 0 ? "θ = 0 is the deeper of the two" : W < 0 ? "θ = 1 is the deeper of the two"
                    : "they are degenerate, which for the SU(7) lattice cannot happen and here does"}. ` +
           `That is Part VII eq. (34) applied to a model it was not written for: it compares the ` +
-          `two symmetric points and says nothing about an interior minimum, which is why the ` +
+          `two endpoints and cannot establish a global minimum, which is why the ` +
           `verdict above is measured and not deduced from it. <span class="chip thm">theorem</span>`;
     }
     el.innerHTML = `<b>${head}</b><span>${body}<span class="chip mea">measured</span> a grid and a ` +
-      `coordinate refinement on the exact sum, computed on this render.${w}</span>`;
+      `coordinate refinement on the truncated Fourier sum (600 windings); global optimality is not certified.${w}</span>`;
   },
 
   /* ---------------------------------------------------------------- the bridge */

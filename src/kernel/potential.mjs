@@ -77,8 +77,8 @@ export function moments(terms) {
  *
  *     W = sum over ODD charges of m (-s),
  *
- * so W > 0 means the electroweak point is deeper than the other symmetric point and the vacuum
- * the closed form finds is the true one.  Matter contributes integers to W; the gauge sector's odd
+ * so W > 0 means F(0) < F(1). This compares endpoints only; it does not establish
+ * that a small-phase stationary branch is the global minimum.  Matter contributes integers to W; the gauge sector's odd
  * charges contribute a half-integer, so 2W is an odd integer for every content and the two points
  * never tie -- on either gauge seed, because W reads the DIFFERENCE of the two charge-one weights
  * and the candidate seed moves both by the same amount.  Part VII eqs. (34)-(35). */
@@ -140,7 +140,7 @@ export function alphaMin({ D, A4, G }, { maxIter = 400, tol = 1e-14, x0 = 0.1 } 
   return x / Math.PI;
 }
 
-/* At the stationary point the logarithm and G cancel identically. */
+/* At the small-phase stationary point the logarithm and G cancel within that expansion. */
 export function curvatureAtMin({ D, A4 }, alpha) {
   const x = Math.PI * alpha;
   return Math.PI ** 2 * (2 * Z3 * D - A4 * x * x / 6);
@@ -193,7 +193,7 @@ export function F(terms, alpha, windings = 600) {
  *
  * `curvatureAtMin` is the small-phase curvature written AT THE BRANCH'S STATIONARY POINT: the
  * stationarity condition is used to eliminate the logarithm, which is why its source line says the
- * logarithm cancels there.  That makes it exact where it is meant to be used and MEANINGLESS
+ * logarithm cancels there.  That is an identity within the small-phase expansion, not the exact Fourier curvature, and is invalid
  * anywhere else -- evaluated at small alpha it tends to -2 times the true curvature, which looks
  * exactly like a sign-and-factor bug and is not one (H129F).
  *

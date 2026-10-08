@@ -169,7 +169,7 @@ const SPEC5D_SECTION = {
         { status: STATUS.THEOREM, source: "Haba-Yamashita eq. (5.1), simultaneously diagonal" }),
       unbroken: val(sun5dUnbroken(b),
         { status: STATUS.THEOREM, source: "Haba-Yamashita eq. (5.2)" }),
-      at: val(typed ? "a typed Wilson line" : edge ? "a symmetric point" : "the vacuum",
+      at: val(typed ? "a typed Wilson line" : edge ? "a located minimum on a boundary face" : "a located interior minimum",
         { status: typed ? STATUS.MEASURED : STATUS.MEASURED,
           source: typed ? "the reader typed the phases; this is not a claim about the minimum"
                         : "the deepest point the builder locates, recomputed here" }),
@@ -201,7 +201,7 @@ const SPEC5D_SECTION = {
       mathKeys: ["unbroken"],
       caption: `The four-dimensional content of SU(${b.N}) on $S^1/Z_2$ with blocks ` +
                `$(n_{++}, n_{+-}, n_{-+}, n_{--}) = ${blocks}$, read at ` +
-               `${typed ? "a typed Wilson line" : edge ? "a symmetric point" : "the vacuum"}. ` +
+               `${typed ? "a typed Wilson line" : edge ? "a located minimum on a boundary face" : "a located interior minimum"}. ` +
                `The massless content is the parity rule; the families are the multisets the ` +
                `source papers print.`,
     };
@@ -219,24 +219,15 @@ const SPEC5D_SECTION = {
     $("spTheta").value = theta.map((x) => (+x.toFixed(5))).join(", ");
     $("spAtVac").style.color = SPEC5D_S.atVacuum ? "var(--rust)" : "";
     $("spAtVac").style.fontWeight = SPEC5D_S.atVacuum ? "650" : "";
-    /* AND IF THE DEEPEST POINT IS AN END OF THE DOMAIN, SAY WHAT THAT IS.  The ends are the two
-     * symmetric points; a minimum there is not the Hosotani mechanism, it is the neighbouring
-     * boundary condition — the one the equivalence-class section reaches by its single move —
-     * seen from this side.  Labelling it "the vacuum" and stopping would be the same overclaim
-     * the builder's own verdict was corrected for. */
-    const nb = [SUN5D_S.blocks.nPP - 1, SUN5D_S.blocks.nPM + 1,
-                SUN5D_S.blocks.nMP + 1, SUN5D_S.blocks.nMM - 1];
-    const canMove = nb.every((x) => x >= 0);
+    const symmetry = vac5Symmetry(b, theta);
     $("spThetaNote").innerHTML = b.phases
       ? `${b.phases} phase${b.phases === 1 ? "" : "s"} — ${SPEC5D_S.atVacuum
           ? "showing the deepest point the builder locates, recomputed here"
           : "showing a phase you typed, not the vacuum"}. The massless content on the left is the ` +
         `content at <b>θ = 0</b> and does not move with this; the families on the right do.` +
         (SPEC5D_S.atVacuum && edge
-          ? ` <b style="color:var(--rust)">And that point is an END of the domain</b>, which is the ` +
-            `OTHER symmetric point and not a broken vacuum` +
-            (canMove ? ` — the spectrum here is that of the gauge-equivalent boundary condition ` +
-                       `[${nb.join(", ")}], one class move away.` : ".")
+          ? ` <b>This point lies on a boundary face.</b> The joint commutant gives ` +
+            `${symmetry.before} → ${symmetry.after}; ${symmetry.broken ? 'some θ = 0 generators are broken' : 'the θ = 0 generators survive'}.`
           : "")
       : "this boundary condition leaves no Wilson-line phase at all";
 

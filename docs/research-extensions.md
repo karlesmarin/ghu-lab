@@ -138,5 +138,6 @@ The batch scans are supplied as command-line tools, not extra interactive panels
 profile scans, a resumable candidate queue and plasma/friction dynamics are proposed extensions.
 The report explains their prerequisites. The menu has 29 entries; the full contents are mapped
 in the [laboratory inventory](laboratory-inventory.md). The current
-release validation is 5,503 source checks across 65 harnesses, eleven browser gates and 30 site checks.
-The twelve study-record checks are counted separately.
+release validation is 5,867 source checks across 66 harnesses, eleven browser gates and 30 site checks.
+The formula correction also has 13 independent SageMath checks. The twelve study-record checks
+are counted separately.

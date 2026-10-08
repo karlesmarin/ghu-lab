@@ -54,7 +54,7 @@ MODULES = ["selection.mjs", "calculator.mjs", "hierarchy.mjs", "anomalies.mjs", 
            "yukawa.mjs",
            "predict.mjs", "reading.mjs", "sweep5d.mjs", "dossier.mjs", "papers.mjs", "particles.mjs",
             "robustness.mjs", "gravitygauge.mjs", "neutrino_ring.mjs", "neutrino_limits.mjs", "neutrino_majoron.mjs", "neutrino_decay.mjs", "higgs_diagnostics.mjs", "su6_maru_nago.mjs", "rs_unification.mjs", "neutrino_flavour.mjs", "neutrino_research.mjs", "thermal_ghu.mjs", "rs_anomaly.mjs", "higgstools_reference.mjs", "higgstools_adapter.mjs", "external_reference.mjs",
-            "thermal_history.mjs", "thermal_history_reference.mjs", "candidate_bounds_reference.mjs", "candidate_bounds.mjs", "candidate_vacua_reference.mjs"]
+            "thermal_history.mjs", "thermal_history_reference.mjs", "candidate_bounds_reference.mjs", "candidate_bounds.mjs", "candidate_vacua_reference.mjs", "formula_consistency_reference.mjs"]
 SECTIONS = ["torus_panels.js", "hierarchy_section.js", "inverse_section.js", "census_section.js",
             "atlas_section.js", "samepot_section.js",
             "anomalies_section.js", "escape_section.js", "screen_section.js",
@@ -292,7 +292,8 @@ def source_fingerprint():
         p = ROOT / rel
         if p.exists():
             out[rel] = hashlib.sha256(p.read_bytes()).hexdigest()[:16]
-    out['build/closure.mjs'] = hashlib.sha256((ROOT/'build/closure.mjs').read_bytes()).hexdigest()[:16]
+    for name, _ in BROWSER_GATES:
+        out['build/' + name] = hashlib.sha256((HERE / name).read_bytes()).hexdigest()[:16]
     return out
 
 
@@ -368,7 +369,7 @@ def main(argv=None):
                 ["node", "_test_fived.mjs"], ["node", "_test_collider.mjs"],
                 ["node", "_test_atlas.mjs"],
                 ["node", "_test_inverse.mjs"], ["node", "_test_census.mjs"],
-                ["node", "_test_sun5d.mjs"], ["node", "_test_bcclass.mjs"],
+                ["node", "_test_sun5d.mjs"], ["node", "_test_formula_consistency.mjs"], ["node", "_test_bcclass.mjs"],
                 # NEXT TO ITS SIBLING ON PURPOSE.  `cbclass` is the conjugate half of the same
                 # question, and its section is `ready: false` -- but the MODULE and its harness are
                 # real and must run, or the module is unguarded code sitting in the tree.  A

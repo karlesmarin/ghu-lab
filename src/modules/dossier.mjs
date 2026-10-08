@@ -125,9 +125,9 @@ export const DOSSIER_LINES = [
   { key: "theta", group: "The Wilson line", label: "Where the vacuum sits, θ",
     cite: "the same minimisation",
     get: (c) => (c.min ? c.min.theta.map((x) => x.toFixed(4)).join(", ") + restartsMark(c) : null) },
-  { key: "edge", group: "The Wilson line", label: "At a symmetric point?",
-    cite: "V has period 2 and is even, so [0,1]'s ends are the two symmetric points",
-    get: (c) => (c.min ? (c.min.atEdge ? "yes — no Hosotani breaking" : "no — broken vacuum")
+  { key: "edge", group: "The Wilson line", label: "On a boundary face of [0,1]^k?",
+    cite: "geometric search-domain flag; the vacuum group is computed separately from joint invariants",
+    get: (c) => (c.min ? (c.min.atEdge ? "yes — symmetry evaluated separately" : "no — symmetry evaluated separately")
                          + restartsMark(c) : null) },
 
   { key: "vectors", group: "The massless content", label: "Massless vectors",
@@ -153,7 +153,7 @@ export const DOSSIER_LINES = [
   { key: "W", group: "Part VII", label: "W = Σ_{c odd} m(−s)",
     cite: "Part VII eq. (34) — which symmetric point is deeper",
     get: (c) => (c.bridge ? n6(c.bridge.W) : null) },
-  { key: "alpha", group: "Part VII", label: "α at the minimum, closed form",
+  { key: "alpha", group: "Part VII", label: "α at the small-phase stationary branch",
     cite: "Part VII's closed form, on the term table this boundary condition produces",
     get: (c) => (c.bridge ? (c.bridge.alpha === null ? "no minimum (D ≤ 0)"
                                                      : c.bridge.alpha.toFixed(8)) : null) },

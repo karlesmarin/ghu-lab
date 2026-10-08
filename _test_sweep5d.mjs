@@ -19,6 +19,7 @@
  *   node _test_sweep5d.mjs
  */
 import { sun5dBlocks, sun5dUnbroken, sun5dTerms, sun5dMinimum } from "./src/modules/sun5d.mjs";
+import { vac5Symmetry } from "./src/modules/vacuum5d.mjs";
 import { bcClasses } from "./src/modules/bcclass.mjs";
 import { sp5ZeroModes } from "./src/modules/spectrum5d.mjs";
 import { an5Ledger } from "./src/modules/anomaly5d.mjs";
@@ -198,7 +199,7 @@ H("the breaking verdict is a property of the potential, not of the grid we sampl
       const terms = sun5dTerms(b, { bulk: [{ ...c, kind: "dirac", multiplicity: 1 }] });
       if (!terms.length) continue;
       n++;
-      const v = [144, 360, 900].map((g) => sun5dMinimum(terms, b.phases, { grid: g }).atEdge);
+      const v = [144, 360, 900].map((g) => vac5Symmetry(b, sun5dMinimum(terms, b.phases, { grid: g }).theta).broken);
       if (new Set(v).size > 1) flips++;
     }
   ok(`${n} potentials minimised at three grid resolutions: ${flips} verdicts change`,

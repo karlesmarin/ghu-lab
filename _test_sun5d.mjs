@@ -280,21 +280,15 @@ H("the potential, and the vacuum it has");
   const b = sun5dBlocks({ nPP: 1, nPM: 3, nMP: 0, nMM: 2 });     /* §4.3's SU(6) */
   const terms = sun5dTerms(b, { bulk: [{ rep: "fund", eta: +1, kind: "dirac", multiplicity: 4 }] });
   const m = sun5dMinimum(terms, 1);
-  /* AND WHERE IT LANDS IS PART OF THE ANSWER.  V has period 2 and is even, so [0,1] is a
-   * fundamental domain and its two ends are the two SYMMETRIC points.  This content minimises at
-   * an end — the other symmetric point is deeper — and calling that "the Hosotani mechanism"
-   * would be an overclaim, which the panel made once. */
+  /* A boundary minimum needs a separate commutant test for breaking. */
   ok("§4.3's SU(6) with four fundamentals is deeper at an END of the domain, not inside it",
      m !== null && m.atEdge === true && m.V < m.symmetric - 1e-9, JSON.stringify(m));
   ok("...and the W criterion agrees, by name: W < 0 ⟺ θ = 1 is the deeper symmetric point",
      stabilityW(sun5dTermTable(terms)) < 0);
-  /* AND THE FACTOR BETWEEN THE TWO CONVENTIONS IS CHECKED, NOT ASSUMED.  The paper writes
-   * V = (C/2) Σ…, the kernel's F has no ½, so `F1minusF0` is exactly TWICE the difference this
-   * module reports in V/C.  Writing the two side by side without the 2 is how a convention
-   * becomes a wrong number, so the 2 is an assertion. */
-  ok("F(1) − F(0) = (31/16)ζ(5)W is exactly TWICE the difference in V/C — the paper's ½, checked",
-     Math.abs(F1minusF0(stabilityW(sun5dTermTable(terms))) - 2 * (m.other - m.symmetric)) < 1e-9,
-     `${F1minusF0(stabilityW(sun5dTermTable(terms)))} vs 2×${m.other - m.symmetric}`);
+  /* The term-table bridge already includes the half. */
+  ok("F(1) − F(0) = (31/16)ζ(5)W equals the difference in V/C — the half is already in the term table",
+     Math.abs(F1minusF0(stabilityW(sun5dTermTable(terms))) - (m.other - m.symmetric)) < 1e-9,
+     `${F1minusF0(stabilityW(sun5dTermTable(terms)))} vs ${m.other - m.symmetric}`);
   /* a content that DOES break, so the interior branch is not a dead one */
   {
     const t2 = sun5dTerms(b, { bulk: [{ rep: "adj", eta: +1, kind: "dirac", multiplicity: 2 }] });
@@ -303,7 +297,7 @@ H("the potential, and the vacuum it has");
        m2 !== null && m2.atEdge === false && m2.theta[0] > 1e-3 && m2.theta[0] < 1 - 1e-3,
        JSON.stringify(m2));
   }
-  ok("and V agrees with the kernel's F on the same content, up to the declared ½",
+  ok("and V agrees with the kernel's F on the same content, including the same declared ½",
      Math.abs(sun5dV(terms, [0.23]) - F(sun5dTermTable(terms), 0.23, 600)) < 1e-12);
   /* gauge alone: pure gauge must be a maximum at the symmetric point or the model never breaks */
   const pure = sun5dTerms(b, {});
@@ -382,7 +376,7 @@ H("above two phases the minimum comes from restarts, and the restarts agree with
   const r3 = sun5dMinimumRestarts(t3, 3, { restarts: 32, windings: 200 });
   let coarse = Infinity;
   for (let i = 0; i <= 12; i++) for (let j = 0; j <= 12; j++) for (let k = 0; k <= 12; k++)
-    coarse = Math.min(coarse, sun5dV(t3, [i / 12, j / 12, k / 12], 200) / 2);
+    coarse = Math.min(coarse, sun5dV(t3, [i / 12, j / 12, k / 12], 200));
   ok(`SU(6) [1,2,2,1], three phases: the restart minimum (${r3.V.toFixed(6)}) is no shallower ` +
      `than a 13³ grid (${coarse.toFixed(6)}), and is labelled uncertified`,
      r3.V <= coarse + 1e-12 && r3.certified === false && r3.method === "restarts",

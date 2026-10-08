@@ -33,14 +33,23 @@
  * published α column in six dimensions; the 5D dictionary here reproduces HHKY's, and that is
  * the anchor this file stands on.
  */
-import { sun5dV } from "./sun5d.mjs";
-import { vac5Frame, vac5Ladder, vac5Confront } from "./vacuum5d.mjs";
+import { sun5dV, sun5dHessian } from "./sun5d.mjs";
+import { vac5Frame, vac5Ladder, vac5Confront, vac5Symmetry } from "./vacuum5d.mjs";
 import { smCellNear } from "./smcell.mjs";
 import { EXPERIMENT } from "../kernel/experiment.mjs";
 import { runCouplings } from "../kernel/running.mjs";
 
-/* the Hessian of V/C in the phases, by central differences, and its eigenvalues by Jacobi */
-export function predictHessian(terms, theta, { h = 1e-3, windings = 400 } = {}) {
+/* Analytic term-wise derivatives of the truncated V/C Fourier series. */
+export function predictHessian(terms, theta, { windings = 4000 } = {}) {
+  const H = sun5dHessian(terms, theta, windings);
+  const tail = H.map((r,i) => r.map((_,j) => Math.PI**2 / (4*windings**2) *
+    terms.reduce((a,t) => a + Math.abs(t.m*t.v[i]*t.v[j]), 0)));
+  return { H, eigen: predictEigen(H), method: 'analytic-fourier', windings,
+    truncationErrorBound: tail, roundingCertified: false };
+}
+
+/* Independent finite-difference control, not the production mass estimator. */
+export function predictHessianFiniteDifference(terms, theta, { h = 1e-3, windings = 400 } = {}) {
   const n = theta.length, V = (x) => sun5dV(terms, x, windings);
   const v0 = V(theta), Hm = [];
   for (let i = 0; i < n; i++) Hm.push(new Array(n).fill(0));
@@ -87,7 +96,7 @@ export function predictModel(b, content, theta, terms, { exp = EXPERIMENT } = {}
   const frame = vac5Frame(b, theta);
   const ladder = vac5Ladder(frame, content);
   const X = vac5Confront(ladder, exp);
-  const out = { theta, frame, ladder, confront: X, located: X.located, assumptions: [] };
+  const out = { theta, frame, symmetry: vac5Symmetry(b, theta), ladder, confront: X, located: X.located, assumptions: [] };
   if (!X.located) { out.why = X.why; return out; }
   const invR = X.invRGeV;
   const run = runCouplings(invR, exp);
@@ -97,7 +106,9 @@ export function predictModel(b, content, theta, terms, { exp = EXPERIMENT } = {}
   out.mW = exp.m_W.value;
   /* the curvature at the minimum, and the scalar masses it gives */
   if (theta.length && terms) {
-    const { eigen } = predictHessian(terms, theta);
+    const hessian = predictHessian(terms, theta);
+    const { eigen } = hessian;
+    out.hessian = hessian;
     out.curvature = eigen;
     out.scalarMassesGeV = eigen.map((l) => { const r = predictHiggsOverR(l); return r === null ? null : r * g4 * invR; });
     const light = out.scalarMassesGeV.filter((m) => m !== null);

@@ -410,8 +410,8 @@ const SWEEP5D_SECTION = {
     document.getElementById("swHonesty").innerHTML =
       `<b>An undecided vacuum is not a no.</b> The minimiser handles one Wilson-line phase and two; ` +
       `a boundary condition with three or more gets <em>no answer</em>, and the first version of ` +
-      `this panel threw those away together with the models whose minimum really does sit at a ` +
-      `symmetric point. They are counted separately now` +
+      `this panel threw those away together with the models whose located vacuum preserves ` +
+      `the θ = 0 generators. They are counted separately now` +
       (last && last.undecided ? ` — <b>${last.undecided}</b> in the run above` : "") +
       `, and so is anything the budget cut off before it was ever minimised. ` +
       `<span class="chip bad">unknown</span>` +

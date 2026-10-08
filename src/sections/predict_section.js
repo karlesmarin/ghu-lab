@@ -219,13 +219,19 @@ const PRED_SECTION = {
     $("prAz").value = ((PRED_S.az % 6.28) + 6.28) % 6.28; $("prEl").value = PRED_S.el;
 
     const P = predictModel(b, content, theta, terms);
+    P.evidence = { evaluation: PRED_S.probe ? 'probe' : 'located-minimum', theta: theta.slice(),
+      minimization: PRED_S.probe ? null : min, symmetry: P.symmetry, hessian: P.hessian ?? null,
+      globalMinimumCertified: false };
     if (P.located && PRED_S.g4 !== null) {
       /* the reader's g₄ replaces g₂(1/R): every scalar mass scales with it */
       const k = PRED_S.g4 / P.run.g2;
       P.scalarMassesGeV = (P.scalarMassesGeV || []).map((m) => (m === null ? null : m * k));
       P.mHGeV = P.mHGeV === null ? null : P.mHGeV * k;
+      P.mHOverR = P.mHGeV === null ? null : P.mHGeV / P.invRGeV;
       P.assumptions[0] = `g₄ = ${PRED_S.g4.toFixed(2)} set by hand (g₂(1/R) would be ${P.run.g2.toFixed(4)})`;
     }
+    P.evidence.g4 = P.located ? (PRED_S.g4 ?? P.run.g2) : null;
+    P.evidence.g4Source = PRED_S.g4 === null ? 'SM one-loop running' : 'user input';
     $("prG4").value = P.located ? (PRED_S.g4 ?? P.run.g2) : 0.65;
     $("prG4v").textContent = P.located ? (PRED_S.g4 ?? P.run.g2).toFixed(3) : "—";
     this._P = P; this._b = b; this._theta = theta; this._content_ = content;
@@ -234,8 +240,9 @@ const PRED_SECTION = {
       : (PRED_S.probe ? `<b>Probe:</b> the observables at a phase you chose, not at the minimum — ` +
                         `for seeing how they move.` : `<b>At the minimum</b> the minimiser found` +
                         (min && min.method === "restarts" ? " (restarts, not certified)" : "") + `.`) +
-        (min && min.atEdge && !PRED_S.probe ? ` The minimum is a <b>symmetric point</b>: no Hosotani breaking, ` +
-                                             `no W, no scale — move the probe to see what a broken vacuum would give.` : ``);
+        (min && !PRED_S.probe ? ` Joint commutant: ${P.symmetry.before} → ${P.symmetry.after}; ` +
+          `${P.symmetry.broken ? 'some θ = 0 generators are broken' : 'the θ = 0 generators survive'}. ` +
+          `A boundary coordinate alone does not determine breaking or the W scale.` : ``);
     this._table(P);
     const Y = this._yukawa(b, content, theta);
     /* the reading comes AFTER the two tables are computed, because it reads both */
@@ -364,11 +371,16 @@ const PRED_SECTION = {
     if (P && P.located) {
       values.inverse_radius_GeV = val(+P.invRGeV.toFixed(1), { status: STATUS.MEASURED, source: "1/R = m_W / (m_W R), m_W PDG 2025" });
       values.higgs_mass_GeV = P.mHGeV === null ? unknown("no positive curvature at this point")
-        : val(+P.mHGeV.toFixed(2), { status: STATUS.MEASURED, source: "HHKY hep-ph/0401183 eq. (22), one loop, g4 = g2(1/R)" });
+        : val(+P.mHGeV.toFixed(2), { status: STATUS.MEASURED, source: `HHKY hep-ph/0401183 eq. (22), one loop, analytic Fourier Hessian; g4=${P.evidence.g4} (${P.evidence.g4Source}); ${P.evidence.evaluation}` });
       values.sin2_embedding = P.sin2Embedding === null ? unknown("the cell does not fix Y") : val(P.sin2Embedding, { status: STATUS.THEOREM, source: "the Standard-Model cell at the nearest symmetric point" });
       values.sin2_sm_running_at_invR = val(+P.sin2DataAtInvR.toFixed(5), { status: STATUS.MEASURED, source: "one-loop SM running of PDG 2024 inputs" });
     } else values.scale = unknown(P ? P.why : "not rendered");
-    return { card: makeCard({ group: "su3_hy", section: "predict", N: this._b ? this._b.N : null, blocks: SUN5D_S.blocks, bulk: this._content().bulk }, values, { version: VERSION, build: BUILD, kernelHash: KERNEL_HASH }),
-             mathKeys: [], caption: "The model on the builder at its vacuum, turned into 1/R, the Higgs mass and sin^2 theta_W, each beside the measured number." };
+    const card = makeCard({ group: "su3_hy", section: "predict", N: this._b ? this._b.N : null,
+      blocks: SUN5D_S.blocks, bulk: this._content().bulk,
+      conventions: { m_W: EXPERIMENT.m_W.value, g4: P ? P.evidence.g4 : null },
+      evaluated_phase: P ? P.theta : null, evaluation: P ? P.evidence.evaluation : 'not-rendered' },
+      values, { version: VERSION, build: BUILD, kernelHash: KERNEL_HASH });
+    card.calculationEvidence = P ? P.evidence : null;
+    return { card, mathKeys: [], caption: `The model on the builder at ${PRED_S.probe ? 'the selected probe' : 'the numerically located minimum'}, evaluated for 1/R, the Higgs mass and sin^2 theta_W under the recorded assumptions.` };
   },
 };

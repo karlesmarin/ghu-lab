@@ -15,7 +15,7 @@ def run(args,log):
 def font(size,bold=False):
     base=Path(os.environ['WINDIR'])/'Fonts'
     return ImageFont.truetype(str(base/('arialbd.ttf' if bold else 'arial.ttf')),size)
-def card(dest,chapter,lang,total):
+def card(dest,chapter,lang,total,date):
     im=Image.new('RGB',(1920,1080),'#12242e');d=ImageDraw.Draw(im)
     for i in range(9):
         y=130+i*105;d.line((1320,y,1850,y-60),fill='#26444d',width=2)
@@ -31,7 +31,7 @@ def card(dest,chapter,lang,total):
     for line in lines:d.text((112,yy),line,font=font(64,True),fill='#f2f7f9');yy+=85
     d.text((112,790),'Pregunta  ·  Control  ·  Resultado' if lang=='es' else 'Question  ·  Control  ·  Result',font=font(27),fill='#bbd7df')
     d.text((112,934),f"{chapter['number']:02d} / {total:02d}    ·    {'ESPAÑOL' if lang=='es' else 'ENGLISH'}",font=font(23),fill='#7ed6df')
-    d.text((1470,934),'07 OCT 2026',font=font(21),fill='#abc1c9')
+    d.text((1470,934),date,font=font(21),fill='#abc1c9')
     im.save(dest)
 def captions(meta,duration):
     words=meta['words'];text=meta['text'];result=[];i=0
@@ -62,9 +62,12 @@ def main():
         tmp=rec/'render-v2'/lang;tmp.mkdir(parents=True,exist_ok=True);parts=[];timeline=[];cues=[];clock=0.;report=[]
         for ch in chapters:
             start=clock;chapter_cues=[];chapter_parts=[]
-            cardpng=tmp/(ch['id']+'-title.png');card(cardpng,ch,lang,len(plan['chapters']))
+            cardpng=tmp/(ch['id']+'-title.png');card(cardpng,ch,lang,len(plan['chapters']),plan['date'])
             cardmp4=tmp/(ch['id']+'-title.mp4')
-            if not cardmp4.exists():run([ff,'-y','-loglevel','error','-loop','1','-framerate','15','-i',str(cardpng),'-f','lavfi','-i','anullsrc=r=48000:cl=mono','-t','1.8','-vf','fade=t=in:st=0:d=0.3,fps=15','-fps_mode','cfr','-video_track_timescale','90000','-c:v','libx264','-preset','veryfast','-crf','23','-pix_fmt','yuv420p','-threads','4','-c:a','aac','-b:a','64k',str(cardmp4)],tmp/(ch['id']+'-title.log'))
+            cardhash=hashlib.sha256(cardpng.read_bytes()).hexdigest();cardmarker=cardmp4.with_suffix('.sha256')
+            if not cardmp4.exists() or not cardmarker.exists() or cardmarker.read_text()!=cardhash:
+                run([ff,'-y','-loglevel','error','-loop','1','-framerate','15','-i',str(cardpng),'-f','lavfi','-i','anullsrc=r=48000:cl=mono','-t','1.8','-vf','fade=t=in:st=0:d=0.3,fps=15','-fps_mode','cfr','-video_track_timescale','90000','-c:v','libx264','-preset','veryfast','-crf','23','-pix_fmt','yuv420p','-threads','4','-c:a','aac','-b:a','64k',str(cardmp4)],tmp/(ch['id']+'-title.log'))
+                cardmarker.write_text(cardhash)
             parts.append(cardmp4);chapter_parts.append(cardmp4);clock+=1.8
             for si,scene in enumerate(ch['steps']):
                 name=scene['id'];framepath=rec/'frames'/name;record=json.loads((framepath/'record.json').read_text(encoding='utf-8'))
@@ -88,7 +91,9 @@ def main():
                 vf="setpts=PTS-STARTPTS,fps=15,scale=1920:1080:flags=lanczos,drawbox=x=0:y=0:w=iw:h=78:color=0x12242e:t=fill"
                 for p,x,size,color in [(brandfile,35,21,'0x7ed6df'),(titlefile,350,24,'white'),(countfile,1720,19,'0xabc1c9')]:
                     vf+=f",drawtext=fontfile='{esc(Path(os.environ['WINDIR'])/'Fonts/arial.ttf')}':textfile='{esc(p)}':x={x}:y=25:fontsize={size}:fontcolor={color}"
-                signature=hashlib.sha256(aud.read_bytes()+concat.read_bytes()+vf.encode()).hexdigest()
+                digest=hashlib.sha256(aud.read_bytes()+concat.read_bytes()+vf.encode())
+                for p in [titlefile,brandfile,countfile]+[framepath/f['file'] for f in frames]:digest.update(p.read_bytes())
+                signature=digest.hexdigest()
                 marker=dest.with_suffix('.sha256')
                 if not dest.exists() or not marker.exists() or marker.read_text()!=signature:
                     run([ff,'-y','-loglevel','error','-safe','0','-f','concat','-i',str(concat),'-i',str(aud),'-vf',vf,'-af','loudnorm=I=-16:TP=-1.5:LRA=9,aresample=48000,adelay=450,apad','-t',f'{total:.6f}','-r','15','-fps_mode','cfr','-video_track_timescale','90000','-c:v','libx264','-preset','veryfast','-tune','stillimage','-crf','23','-pix_fmt','yuv420p','-threads','4','-c:a','aac','-b:a','64k','-movflags','+faststart',str(dest)],tmp/(name+'.log'))
@@ -99,7 +104,7 @@ def main():
             title=ch['titleES'] if lang=='es' else ch['title'];timeline.append(dict(id=ch['id'],host=ch['host'],number=ch['number'],title=title,start=round(start,3),end=round(clock,3),text='\n\n'.join(s['textES'] if lang=='es' else s['text'] for s in ch['steps'])))
             print(f'{lang}: rendered chapter {ch["number"]:02d} {ch["id"]}; {clock/60:.1f} min',flush=True)
         lst=tmp/('pilot-concat.txt' if a.pilot else 'full-concat.txt');lst.write_text('\n'.join(f"file '{p.as_posix()}'" for p in parts)+'\n',encoding='utf-8')
-        metadata=tmp/'chapters.ffmeta';ml=[';FFMETADATA1','title=GHU Lab — '+('Guía del laboratorio' if lang=='es' else 'Laboratory walkthrough'),'artist=Carles Marín','comment=Real-interface demonstrations; synthetic narration; recorded 2026-10-07']
+        metadata=tmp/'chapters.ffmeta';ml=[';FFMETADATA1','title=GHU Lab — '+('Guía del laboratorio' if lang=='es' else 'Laboratory walkthrough'),'artist=Carles Marín','comment=Real-interface demonstrations; synthetic narration; recorded '+plan['date']]
         for c in timeline:ml+=['[CHAPTER]','TIMEBASE=1/1000',f'START={round(c["start"]*1000)}',f'END={round(c["end"]*1000)}','title='+c['title'].replace('=','\\=')]
         metadata.write_text('\n'.join(ml)+'\n',encoding='utf-8')
         vtt=output/f'ghu-lab-{lang}.vtt';vtt.write_text('WEBVTT\n\n'+'\n\n'.join(f'{stamp(b)} --> {stamp(e)}\n{t}' for b,e,t in cues)+'\n',encoding='utf-8')
@@ -109,6 +114,6 @@ def main():
         save(output/f'chapters-{lang}.json',timeline)
         save(output/f'render-{lang}.json',dict(language=lang,seconds=clock,width=1920,height=1080,fps=15,voice=plan['voices'][lang],syntheticNarration=True,chapters=len(timeline),scenes=report,subtitles=len(cues),bytes=dest.stat().st_size,sha256=hashlib.sha256(dest.read_bytes()).hexdigest()))
         (output/f'transcript-{lang}.txt').write_text('\n\n'.join(f'{stamp(c["start"])}  {c["number"]:02d}. {c["title"]}\n\n{c["text"]}' for c in timeline)+'\n',encoding='utf-8')
-        poster=output/f'poster-{lang}.png';card(poster,chapters[0],lang,len(plan['chapters']))
+        poster=output/f'poster-{lang}.png';card(poster,chapters[0],lang,len(plan['chapters']),plan['date'])
         print(f'READY {dest} {clock/60:.1f} minutes {dest.stat().st_size/1e6:.1f} MB',flush=True)
 if __name__=='__main__':main()

@@ -10,6 +10,20 @@ The experiment's question, changed input and interpretation form each chapter's 
 
 ## What was recorded
 
+The 8 October revision recaptures all 43 chapters against the corrected laboratory. Twelve
+scenes have revised narration in each language: they explain the common V/C normalization,
+symmetry at boundary points, conditional comb bounds, analytic Hessians, and the still-open
+SU(7) transcription discrepancy. Identical narration is reused only when text, voice, rate and
+sample rate match. Captions and chapter times are rebuilt from the final audio. Unit-name
+expansion is case-sensitive and matches complete tokens, so it cannot turn part of the English
+word "whatever" into "tera electron volts"; that inherited pronunciation is also corrected.
+
+Current assets live in `media/video/2026-10-08/`, selected by `media/video/current.json`.
+The original media and its hash manifest remain unchanged in `media/video/`; the original
+player is archived in `src/site/video-2026-10-07.html` and ships as `video/2026-10-07.html`.
+The player links both versions. The renderer hashes image contents as well as audio and
+overlays before reusing a clip, so changing a capture at the same path invalidates its cache.
+
 `tools/video_guide/storyboard.json` contains the English and Spanish narration and the exact browser
 actions. `record.mjs` drives the real app in Chromium, captures the controls before and after changes,
 checks that values persist, and fails on missing elements or browser exceptions. Results are computed
@@ -37,13 +51,13 @@ powershell -NoProfile -File tools/video_guide/narrate.ps1 -OutputDirectory ../vi
 powershell -NoProfile -File tools/video_guide/narrate.ps1 -OutputDirectory ../video-recording/audio/es -Language es
 python tools/video_guide/render.py ../video-recording --pilot
 python tools/video_guide/render.py ../video-recording
+python tools/video_guide/verify_revision.py ../video-recording
 ```
 
 Inspect the pilot before rendering the whole guide. Use `--vendor` if imageio-ffmpeg is installed
-in a project-local directory. Replacing a narration requires removing its corresponding WAV and
-timing JSON from the chosen capture directory; review the resolved paths before removing files.
-The renderer caches clips using audio and render-input digests. A changed recording must be rendered
-with a fresh render cache. The committed media manifest pins the delivered assets, rather than
+in a project-local directory. A changed narration automatically regenerates its WAV and timing JSON.
+The renderer invalidates clips when audio, frames or overlays change. Use a fresh output directory
+for a new dated revision to preserve the previous release. The committed media manifest pins the delivered assets, rather than
 promising byte-identical encoding on every FFmpeg or voice version.
 
 The site builder copies only manifest-listed assets and verifies their SHA-256 digests. The guide

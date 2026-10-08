@@ -204,9 +204,9 @@ const HELP_TERMS = {
   },
   "alpha-min": {
     term: "α_min, the vacuum",
-    body: "Where the one-loop potential is minimised. In this class of models it is an algebraic "
-      + "function of two moments of the bulk content, <b>so it is computed rather than searched "
-      + "for</b> — and the closed form is checked against direct minimisation on every render.",
+    body: "The closed form locates a stationary branch within the small-phase expansion. "
+      + "It is compared with a numerical search of the Fourier potential; the two can differ. "
+      + "Neither the closed form nor a finite grid alone certifies the global vacuum.",
   },
   chiral: {
     term: "a chiral spectrum",
@@ -318,10 +318,10 @@ const HELP_TERMS = {
   },
   "k-invariant": {
     term: "K, the row-consistency invariant",
-    body: "<code>m_h a / √F'' = 2.2456 g₄</code> for every row. It is invariant under "
-      + "<code>F → λF</code>, so it tests a published row against <i>itself</i> and never against "
-      + "our anchor — which is exactly why it can screen somebody else's table without recomputing "
-      + "their model. Part VI, open problem 3.",
+    body: "<code>m_h a / √F'' = 2.2456 g₄</code> in the registered convention. At fixed input m_h, "
+      + "<code>F → λF</code> changes K by λ^(−½). Invariance requires also recomputing m_h as √λ m_h. "
+      + "This compares the implied coupling; it does not establish stationarity or a global minimum. "
+      + "Part VI, open problem 3.",
   },
   comb: {
     term: "the comb",
@@ -405,9 +405,9 @@ const HELP_TERMS = {
       + "<code>P₁′ = W⁻¹P₁</code>, with W the holonomy round the circle (Hosotani; "
       + "Haba–Hosotani–Kawamura §2). A massless four-dimensional mode is a vector fixed by both P₀ "
       + "and P₁′, so the content at the minimum is a joint eigenspace — linear algebra, not a parity "
-      + "table. When every phase is 0 or 1 it is the parity rule applied to a <b>class-mate</b>; when "
-      + "a phase is strictly inside, the vacuum is broken and no member of the class has that "
-      + "content. The instrument reaches the count by two routes that share no code — the "
+      + "table. When every phase is 0 or 1 it is the parity rule applied to a <b>class-mate</b>. "
+      + "A boundary face alone does not decide breaking: compare the surviving generators "
+      + "with those at θ = 0. The instrument reaches the count by two independent routes — the "
       + "representation theory of the pairs the Wilson line rotates, and the explicit matrices — "
       + "and the harness holds one to the other. The scalars are tree-level flat directions; the "
       + "tolerance for \"at an end\" is 10⁻⁶.",

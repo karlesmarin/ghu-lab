@@ -24,6 +24,8 @@ try{
  await send('Page.navigate',{url:web+'?lang=en'});await until(`document.getElementById('guideVideo')?.readyState>=2`);
  check(await ev(`document.querySelectorAll('#chapterList button').length===43`),'all 43 English chapters available');
  check(await ev(`(()=>{const v=document.getElementById('guideVideo');return v.videoWidth===1920&&v.videoHeight===1080&&v.duration>1600&&!v.error;})()`),'English Full HD video decodes');
+ check(await ev(`document.getElementById('guideVideo').currentSrc.includes('/media/2026-10-08/')&&document.getElementById('downloadVideo').href.includes('/media/2026-10-08/')`),'player and MP4 download select the dated correction');
+ check(await ev(`document.querySelector('[data-copy="revision"]').textContent.includes('SU(7) source discrepancy remains open')&&document.querySelector('#transcriptBody').textContent.includes('an overall multiplication of the potential cannot move its stationary points')`),'revision notice and transcript retain the open scientific issue');
  await ev(`document.getElementById('guideVideo').play()`);await pause(1300);check(await ev(`document.getElementById('guideVideo').currentTime>1`),'playback advances with audio');await ev(`document.getElementById('guideVideo').pause()`);
  await ev(`document.querySelector('#chapterList [data-index="35"]').click()`);await until(`!document.getElementById('guideVideo').seeking&&document.getElementById('guideVideo').readyState>=2`);
  check(await ev(`document.getElementById('chapterNow').textContent.includes('Fixed light inputs')&&location.hash==='#identifiability'`),'chapter selection seeks to the neutrino experiment');
@@ -35,6 +37,7 @@ try{
  check(await ev(`[...document.getElementById('guideVideo').textTracks].filter(t=>t.mode==='showing').length===1&&[...document.getElementById('guideVideo').textTracks].find(t=>t.mode==='showing').language==='es'`),'Spanish captions replace English captions');
  check(await ev(`[...document.getElementById('guideVideo').textTracks].find(t=>t.mode==='showing').activeCues.length===1`),'one caption is visible after the language switch');
  check(await ev(`document.querySelectorAll('#transcriptBody article').length===43&&document.querySelectorAll('#transcriptBody p').length===121`),'Spanish transcript covers all 121 scenes');
+ check(await ev(`document.getElementById('downloadCaptions').href.includes('/media/2026-10-08/ghu-lab-es.vtt')&&document.getElementById('downloadTranscript').href.includes('/media/2026-10-08/transcript-es.txt')&&document.getElementById('videoArchive').href.endsWith('2026-10-07.html?lang=es')`),'Spanish downloads and original archive follow the chosen language');
  await ev(`(()=>{const q=document.getElementById('chapterSearch');q.value='Majoron';q.dispatchEvent(new Event('input'));})()`);
  check(await ev(`document.querySelectorAll('#chapterList button').length===1`),'chapter search filters across the two languages');
  await ev(`(()=>{const q=document.getElementById('chapterSearch');q.value='zzzznotfound';q.dispatchEvent(new Event('input'));})()`);check(await ev(`document.querySelectorAll('#chapterList button').length===0&&document.querySelector('.vg-empty')`),'empty search result is explicit');
@@ -45,6 +48,8 @@ try{
  check(await ev(`document.getElementById('chapterNow').textContent.includes('Guardar entradas')&&document.getElementById('guideVideo').currentTime>1600`),'direct Spanish export chapter link works');
  await send('Page.navigate',{url:pathToFileURL(resolve(site,'video/index.html')).href+'?lang=en#higgstools'});await until(`document.getElementById('guideVideo')?.readyState>=2&&!document.getElementById('guideVideo').seeking`);
  check(await ev(`document.getElementById('chapterNow').textContent.includes('Higgs rates')&&!document.getElementById('guideVideo').error`),'complete site plays from disk');
+ await send('Page.navigate',{url:web.replace('index.html','2026-10-07.html')+'?lang=es#sun5d'});await until(`document.getElementById('guideVideo')?.readyState>=2&&!document.getElementById('guideVideo').seeking`);
+ check(await ev(`document.getElementById('guideVideo').currentSrc.endsWith('/video/media/ghu-lab-es.mp4')&&document.querySelector('[data-copy="method"]').textContent.includes('7 de octubre de 2026')&&document.getElementById('chapterNow').textContent.includes('Constructor')`),'original dated archive still decodes and preserves its chapter links');
  check(errors.length===0,'no browser exceptions');
  check(requests.every(u=>u.startsWith('http://127.0.0.1:')||u.startsWith('file:')||u.startsWith('data:')||u.startsWith('blob:')),'no external media or service requests');
  writeFileSync(resolve(out,'player_verification.json'),JSON.stringify({passed:true,checks,errors,requests:requests.filter(u=>!u.startsWith('data:')).map(u=>u.replace(site,'[site]'))},null,2)+'\n');console.log(checks.length+' player checks passed');

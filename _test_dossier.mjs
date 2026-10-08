@@ -160,11 +160,11 @@ H("what was the frame's at the symmetric point is the theory's at the minimum");
      tag("fermions") === "gauge" && tag("vacFermions") === "invariant" &&
      tag("anomaly") === "gauge" && tag("vacAnomaly") === "invariant");
   ok("...and the vacuum line says where it stands, in words a reader can check",
-     /a symmetric point|broken — /.test(val("vacWhere")), val("vacWhere"));
+     /commuting parity matrices|rotated parity blocks — /.test(val("vacWhere")), val("vacWhere"));
   ok("a zero-phase boundary condition reads its vacuum at the symmetric point and says so",
      (() => { const z = dossierForClass([6, 0, 0, 0], FUND, FAST);
               const w = z.lines.find((l) => l.key === "vacWhere");
-              return w.tag !== "declined" && /\[6, 0, 0, 0\] — a symmetric point/.test(w.value); })());
+              return w.tag !== "declined" && /\[6, 0, 0, 0\] — commuting parity matrices/.test(w.value); })());
 }
 
 /* ---------------------------------------------- 5. the third axis: separating nothing */

@@ -2,7 +2,7 @@
   "schema": "ghu-video-guide-v1",
   "language": "en",
   "voice": "Microsoft Zira Desktop",
-  "date": "2026-10-07",
+  "date": "2026-10-08",
   "scope": "A real-interface walkthrough of all menu sections, three Simulator modes, eight research cards and integrated diagnostics. Representative controls are demonstrated; this is not an exhaustive tour of every numerical input combination.",
   "recordingNotes": "Pointer highlights and chapter captions are tutorial annotations. Computation waits may be shortened; results come from the actual application. Built-in demonstrations may be held between steps for narration.",
   "chapters": [
@@ -44,7 +44,7 @@
       "titleES": "Jerarquía",
       "steps": [
         {
-          "text": "Open Hierarchy. Given a bulk content of the SU(7) model, where the compactification scale and the Higgs mass land — and how far that content sits below the ceiling no content can pass.",
+          "text": "Open Hierarchy. For a bulk content of the S U seven model, inspect the compactification scale and Higgs mass under the displayed conventions. The ceiling belongs to the stated small-angle moment approximation.",
           "actions": [],
           "focus": {
             "selector": "#section",
@@ -52,7 +52,7 @@
           },
           "title": null,
           "id": "02_hierarchy_01",
-          "textES": "Abre Hierarchy, jerarquía. Para un contenido de materia del modelo S U siete, esta sección calcula la escala de compactificación y la masa del Higgs, y su distancia al techo condicionado por las convenciones del modelo."
+          "textES": "Abre Hierarchy, jerarquía. Para un contenido del modelo S U siete, examina la escala de compactificación y la masa del Higgs bajo las convenciones mostradas. El techo pertenece a la aproximación de momentos para ángulos pequeños."
         },
         {
           "text": "Change the diagnostic gauge coupling to zero point seven. The response plots separate a change of model convention from propagation of the measured W input and from winding convergence. Read the axes and the central values together.",
@@ -72,7 +72,7 @@
           "textES": "Cambia el acoplamiento de diagnóstico a cero coma siete. Las gráficas separan el cambio de convención del modelo, la propagación de la masa medida del bosón W y la convergencia de la suma. Lee los ejes y los valores centrales conjuntamente."
         },
         {
-          "text": "Every absolute TeV and GeV inherits the anchor caveat at the top of the page: our α does not reproduce the published α, by a factor that varies from row to row. The mass ratio and the arithmetic laws do not.",
+          "text": "The calculated phase does not reproduce the printed phase. The mismatch varies between rows, and an overall multiplication of the potential cannot move its stationary points. Absolute scales remain conditional on resolving this discrepancy. The arithmetic identities are separate statements.",
           "actions": [],
           "focus": {
             "selector": "#hrPlot_g4",
@@ -80,7 +80,7 @@
           },
           "title": null,
           "id": "02_hierarchy_03",
-          "textES": "Las escalas absolutas heredan la advertencia de normalización situada al principio. El ángulo calculado no reproduce el publicado, con un factor que depende de la fila. El cociente de masas y las leyes aritméticas no heredan esa ambigüedad."
+          "textES": "La fase calculada no reproduce la publicada. La discrepancia depende de la fila, y multiplicar todo el potencial por una constante no desplaza sus puntos estacionarios. Las escalas absolutas quedan condicionadas a resolver esta discrepancia. Las identidades aritméticas son afirmaciones separadas."
         }
       ],
       "number": 2
@@ -447,7 +447,7 @@
           "textES": "Abre Screen a table. Esta sección examina una fila publicada mediante restricciones aritméticas, certificados condicionados y comprobaciones numéricas del potencial completo."
         },
         {
-          "text": "Enter a candidate resonance at four thousand gigaelectronvolts. The arithmetic comb compares the supplied point with its allowed spacings. Then inspect the separate conditional bounds and vacuum witnesses. An arithmetic match is not a full physical-vacuum certificate.",
+          "text": "Enter a candidate resonance at four thousand gigaelectronvolts. The comb samples nearby teeth for the displayed rungs. Its filters, spacing table and download now use the same conditional-bound check for the chosen inputs. A surviving tooth is not proof of an attainable physical vacuum.",
           "actions": [
             {
               "kind": "set",
@@ -456,23 +456,23 @@
             }
           ],
           "focus": {
-            "selector": "#scComb",
+            "selector": "#scHits",
             "index": 0
           },
           "title": null,
           "id": "10_screen_02",
-          "textES": "Introduce una resonancia candidata de cuatro mil gigaelectronvoltios. El peine aritmético compara ese punto con las separaciones permitidas. Después examina las cotas y los testigos del vacío por separado. Una coincidencia aritmética no certifica un vacío físico completo."
+          "textES": "Introduce una resonancia candidata de cuatro mil gigaelectronvoltios. El peine muestrea dientes cercanos para los peldaños mostrados. Los filtros, la tabla de separaciones y la descarga utilizan la misma comprobación de cotas para las entradas elegidas. Un diente superviviente no prueba que exista un vacío físico que lo alcance."
         },
         {
-          "text": "The interval certificates bound a small-angle moment relaxation under the stated conventions. They do not certify a ceiling for the full potential. The separate vacuum checks compare numerically located extrema with Fourier-tail errors; an observed surviving witness is not an exhaustive optimum.",
+          "text": "The interval bounds apply to the small-angle moment relaxation, not the full potential. The Sage audit also excludes a stationary point throughout the rounding interval of each of the five printed S U seven phases, for the implemented coefficient table. Reconciling that table with the paper remains open. This is not a proof that the paper is wrong.",
           "actions": [],
           "focus": {
-            "selector": "#scComb",
+            "selector": "#scFive",
             "index": 0
           },
           "title": null,
           "id": "10_screen_03",
-          "textES": "Los certificados de intervalos acotan una aproximación de momentos para ángulos pequeños. No certifican el techo del potencial completo. Las comprobaciones del vacío comparan extremos numéricos con errores de truncamiento; un testigo superviviente no demuestra un óptimo exhaustivo."
+          "textES": "Las cotas de intervalos se aplican a la aproximación de momentos para ángulos pequeños, no al potencial completo. La auditoría con Sage excluye un punto estacionario en todo el intervalo de redondeo de cada una de las cinco fases publicadas de S U siete, para la tabla de coeficientes implementada. Su conciliación con el artículo sigue abierta. No demuestra que el artículo sea incorrecto."
         }
       ],
       "number": 10
@@ -728,7 +728,7 @@
       "titleES": "Constructor SU(N)",
       "steps": [
         {
-          "text": "Open SU(N) builder. The one-loop Wilson-line potential of ANY 5D SU(N) model on S¹/Z₂ — the model is the input.",
+          "text": "Open the S U N builder. Boundary conditions and supported bulk representations define the implemented one-loop Wilson-line potential in five dimensions. The model is the input.",
           "actions": [],
           "focus": {
             "selector": "#section",
@@ -736,10 +736,10 @@
           },
           "title": null,
           "id": "16_sun5d_01",
-          "textES": "Abre S U N builder. Las condiciones de contorno y el contenido del volumen son entradas para construir el potencial de Wilson a un lazo de los modelos implementados en cinco dimensiones."
+          "textES": "Abre S U N builder. Las condiciones de contorno y las representaciones de materia compatibles definen el potencial de Wilson a un lazo implementado en cinco dimensiones. El modelo es la entrada."
         },
         {
-          "text": "Load the source paper section four point three benchmark. The boundary blocks and bulk content become the model. The potential is reconstructed from these inputs; the Spectrum, Anomalies and Simulator sections can inspect the same builder model.",
+          "text": "Load section four point three of the source paper. This pure-gauge example prefers the endpoint at one. Read the surviving group from the joint commutant: being at an endpoint does not prove that the generators at zero survive. The potential plot and the reported minimum now use the same V over C normalization.",
           "actions": [
             {
               "kind": "button",
@@ -747,23 +747,23 @@
             }
           ],
           "focus": {
-            "selector": "#section canvas",
+            "selector": "#sunVac",
             "index": 0
           },
           "title": null,
           "id": "16_sun5d_02",
-          "textES": "Carga el ejemplo de la sección cuatro punto tres del artículo. Los bloques de contorno y la materia definen el modelo. El potencial se reconstruye con esas entradas. Spectrum, Anomalies y Simulator permiten examinar el mismo modelo del constructor."
+          "textES": "Carga la sección cuatro punto tres del artículo. Este ejemplo gauge puro prefiere el extremo en uno. Lee el grupo superviviente calculado mediante el conmutante común: estar en un extremo no demuestra que sobrevivan los generadores presentes en cero. La gráfica y la energía del mínimo utilizan ahora la misma normalización, V dividido por C."
         },
         {
-          "text": "Every equation of all four worked examples in the source paper is checked against this. With one Wilson-line phase the terms are the same (m, s, c) triples the SU(7) sections run on, so Part VII's closed form applies to somebody else's model.",
+          "text": "The four worked examples are checked against the implemented formulas. With one Wilson phase, the cosine terms admit the same moment construction. Its closed stationary branch is a small-angle approximation. The numerical Fourier minimum is a separate calculation, and a finite grid is not a certificate of the global minimum.",
           "actions": [],
           "focus": {
-            "selector": "#section canvas",
+            "selector": "#sunBridge",
             "index": 0
           },
           "title": null,
           "id": "16_sun5d_03",
-          "textES": "Las ecuaciones de los cuatro ejemplos desarrollados en la fuente se comprueban frente a esta implementación. Cuando hay una sola fase de Wilson, los términos tienen la estructura que permite aplicar la expresión cerrada utilizada en las secciones anteriores."
+          "textES": "Los cuatro ejemplos desarrollados se contrastan con las fórmulas implementadas. Con una fase de Wilson, los cosenos admiten la misma construcción de momentos. Su rama estacionaria cerrada es una aproximación para ángulos pequeños. El mínimo numérico de Fourier es otro cálculo, y una malla finita no certifica el mínimo global."
         }
       ],
       "number": 16
@@ -855,7 +855,7 @@
           "textES": "Carga el ejemplo S U seis y desplaza la sonda de Wilson. Compara las familias del potencial con los niveles bajos de la torre exacta. Esos niveles pueden requerir una lectura diferente de las familias utilizadas para construir el potencial."
         },
         {
-          "text": "The families are the potential's multiset and are right for it; at a broken vacuum they are wrong at the LOWEST level of the adjoint and the symmetric tensor, which is why the exact tower is a second table and not a repetition.",
+          "text": "The cosine families reconstruct the potential, but do not by themselves determine every lowest level of the exact tower. The moved probe is a chosen phase, not necessarily a vacuum. Read its surviving group separately; a boundary coordinate alone does not determine symmetry breaking.",
           "actions": [],
           "focus": {
             "selector": "#section canvas",
@@ -863,7 +863,7 @@
           },
           "title": null,
           "id": "18_spectrum5d_03",
-          "textES": "Las familias son correctas para calcular el potencial. En un vacío roto no describen correctamente el nivel más bajo de algunas representaciones. Por eso la torre exacta aparece en una segunda tabla."
+          "textES": "Las familias de cosenos reconstruyen el potencial, pero no determinan por sí solas todos los niveles más bajos de la torre exacta. La sonda desplazada es una fase elegida, no necesariamente un vacío. Lee su grupo superviviente por separado: una coordenada de contorno no determina por sí sola la ruptura de simetría."
         }
       ],
       "number": 18
@@ -973,7 +973,7 @@
       "titleES": "Barrido de modelos",
       "steps": [
         {
-          "text": "Open Scan. The model-building loop closed: walk the whole space of boundary conditions and contents through filters.",
+          "text": "Open Scan. Walk the displayed finite space of boundary conditions and matter contents through the selected filters. The breaking filter tests which generators at phase zero survive at the numerically located minimum.",
           "actions": [],
           "focus": {
             "selector": "#section",
@@ -981,7 +981,7 @@
           },
           "title": null,
           "id": "21_sweep5d_01",
-          "textES": "Abre Scan. El barrido recorre un espacio finito de condiciones de contorno y contenidos, aplicando sucesivamente los filtros seleccionados."
+          "textES": "Abre Scan. Recorre el espacio finito mostrado de condiciones de contorno y contenidos de materia con los filtros elegidos. El filtro de ruptura comprueba qué generadores presentes en fase cero sobreviven en el mínimo localizado numéricamente."
         },
         {
           "text": "Run the displayed finite sweep. Read the denominator, each filter in the funnel, the survivors and the unresolved cases. The interface counts boundary conditions and equivalence classes separately, so surviving rows are not automatically distinct theories.",
@@ -1050,7 +1050,7 @@
           "textES": "Inicia la demostración y selecciona la condición de contorno equivalente que aparece. Compara las etiquetas de teoría y de marco. Cambiar las coordenadas de la descripción puede mover una magnitud mostrada sin cambiar la teoría física."
         },
         {
-          "text": "The tag is measured on that render, never read off a list. The lines at the minimum are the theory's; the ones at the symmetric point are mostly the frame's — which is the whole point of the section.",
+          "text": "The tags compare quantities in the evaluated frames. Read boundary coordinates and the surviving symmetry separately. Reported energies share the potential normalization. Numerical agreement between the located minima is evidence for these evaluations, not an exhaustive global-minimum certificate.",
           "actions": [],
           "focus": {
             "selector": "#section .card",
@@ -1058,7 +1058,7 @@
           },
           "title": null,
           "id": "22_dossier_03",
-          "textES": "Las etiquetas se calculan en la evaluación actual. Las magnitudes en el mínimo pertenecen a la teoría; las del punto simétrico dependen en gran parte del marco. Esa distinción es la pregunta central del panel."
+          "textES": "Las etiquetas comparan magnitudes en los marcos evaluados. Lee por separado las coordenadas de contorno y la simetría superviviente. Las energías comparten la normalización del potencial. La concordancia entre mínimos localizados es evidencia de estas evaluaciones, no una certificación exhaustiva del mínimo global."
         }
       ],
       "number": 22
@@ -1081,7 +1081,7 @@
           "textES": "Abre Simulator. Elige entre las predicciones del constructor, la referencia de producción del Higgs con modos del top o el anillo de neutrinos. Cada cálculo muestra el alcance de su comparación experimental."
         },
         {
-          "text": "Load the built-in published builder example, then change the gauge coupling to one. Compare the resulting Higgs quantity and compactification reference. This is a model calculation with named measured inputs and comparison hypotheses; no collider events are simulated.",
+          "text": "Load the published builder example and set the gauge coupling to one. Higgs masses now use analytic Fourier second derivatives, with an explicit truncation error bound. The export retains the actual coupling and phase, and distinguishes a chosen probe from a numerically located minimum.",
           "actions": [
             {
               "kind": "demoStart"
@@ -1098,10 +1098,10 @@
           },
           "title": null,
           "id": "23_predict_02",
-          "textES": "Carga la demostración del modelo publicado y cambia el acoplamiento gauge a uno. Compara la respuesta del Higgs y la escala de compactificación. El cálculo usa entradas medidas e hipótesis identificadas. No simula sucesos de colisionador."
+          "textES": "Carga la demostración del modelo publicado y fija el acoplamiento gauge en uno. Las masas del Higgs utilizan ahora derivadas segundas analíticas de Fourier, con una cota explícita del error de truncamiento. La descarga conserva el acoplamiento y la fase utilizados, y distingue una sonda elegida de un mínimo localizado numéricamente."
         },
         {
-          "text": "No collider event is simulated. The thermal history is a separate SU(3) benchmark with supplied wall and efficiency parameters; its acoustic spectrum is evaluated only in the supported completed, weak-transition, fast-wall regime. It is not a detector forecast or the thermal history of the SU(7) builder. A symmetric vacuum sets no compactification scale.",
+          "text": "The thermal history belongs to a separate S U three benchmark and the stated supported regime. It is not a detector forecast or the thermal history of this builder. At commuting endpoints, the present mass dictionary does not identify a shifted W candidate to set the scale. That limitation does not imply that the phase-zero gauge group survives.",
           "actions": [],
           "focus": {
             "selector": "#prG4",
@@ -1109,7 +1109,7 @@
           },
           "title": null,
           "id": "23_predict_03",
-          "textES": "La historia térmica pertenece a un ejemplo independiente de S U tres. Su espectro acústico se evalúa únicamente en el régimen compatible indicado. No es una predicción de detección ni la historia térmica del constructor S U siete. Un vacío simétrico no determina una escala de compactificación."
+          "textES": "La historia térmica pertenece a un ejemplo independiente de S U tres y al régimen compatible indicado. No es una predicción de detección ni la historia térmica de este constructor. En los extremos con paridades conmutativas, el diccionario de masas actual no identifica un candidato W desplazado para fijar la escala. Esa limitación no implica que sobreviva el grupo gauge de fase cero."
         }
       ],
       "number": 23
@@ -2138,5 +2138,6 @@
   "voices": {
     "en": "Microsoft Zira Desktop",
     "es": "Microsoft Helena Desktop"
-  }
+  },
+  "revisionOf": "2026-10-07"
 }

@@ -191,9 +191,9 @@ H("the group at a broken vacuum, named from the irreducibles and not guessed");
   ok("SU(4) [1,1,1,1], A-pair at θ = 0.3 and B-pair at φ = 0.7: the same irreducible, so SU(2)",
      e.unbroken === "SU(2)" && e.zero.vectors === 3, `${e.unbroken} / ${e.zero.vectors}`);
   ok("...which the matrices confirm", vac5Direct(d, [0.3, 0.7], "adj", 1, 1) === 3);
-  ok("a pair strictly inside is reported as a broken vacuum, and a pair at an end as a class-mate",
-     /^broken — 1 pair at t = 0\.3700$/.test(vac5At(b, GAUGE, [0.37]).where) &&
-     /^\[1, 1, 1, 0\] — a symmetric point$/.test(vac5At(b, GAUGE, [1]).where));
+  ok("the coordinate description distinguishes rotated blocks and commuting endpoints",
+     /^rotated parity blocks — 1 pair at t = 0\.3700$/.test(vac5At(b, GAUGE, [0.37]).where) &&
+     /^\[1, 1, 1, 0\] — commuting parity matrices$/.test(vac5At(b, GAUGE, [1]).where));
 }
 
 /* ------------------------------------------------------------------ 6. at the actual minimum */

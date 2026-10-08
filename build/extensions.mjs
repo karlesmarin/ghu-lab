@@ -95,10 +95,10 @@ try{
   check('published seed comb drawn',await combInk()>1000);
   await send('Page.navigate',{url:url+'#s=screen&su7_km25.seed=candidate'});await pause(500);
   check('candidate seed comb no longer blank',await combInk()>1000);
-  check('candidate states missing reachability',await ev(`document.getElementById('scHits').textContent.includes('reachability has not been evaluated')`));
-  check('candidate spacing never borrows odd-seed ceilings',await ev(`document.getElementById('scSpacing').rows.length===10&&document.getElementById('scSpacing').textContent.includes('not evaluated')`));
+  check('candidate bounds do not establish attainability',await ev(`document.getElementById('scHits').textContent.includes('not proof of an attainable mass')`));
+  check('candidate spacing uses its own even-rung certificates',await ev(`document.getElementById('scSpacing').rows.length===10&&SECTIONS.find(s=>s.id==='screen')._lastEvidence.rows.every(r=>r.k8D%2===0&&r.upperGeV!==null)`));
   await change('#sci_MKK',1000);
-  check('low candidate masses have a valid positive window',await ev(`document.getElementById('scHits').textContent.includes('arithmetic')`));
+  check('low candidate masses have a valid conditional screen',await ev(`SECTIONS.find(s=>s.id==='screen')._lastEvidence.valid&&document.getElementById('scHits').textContent.includes('not a theory exclusion')`));
   await change('#sci_MKK',-1);
   check('invalid candidate explains why no calculation',await ev(`document.getElementById('scHits').textContent.includes('Input needs correction')`));
   for(const seed of ['published','candidate']){

@@ -33,9 +33,9 @@ export function readSimulator(P, Y = null, exp = EXPERIMENT) {
   const say = (tone, text) => out.push({ tone, text });
 
   if (!P.located) {
-    say("open", `**No scale is set here.** ${P.why}. The Wilson line has to break something for the ` +
-                `measured W mass to fix 1/R: move the probe off the symmetric point, or give the model a ` +
-                `bulk content whose potential has a minimum inside the domain.`);
+    say("open", `**No scale is set here.** ${P.why}. Symmetry breaking is evaluated by the joint ` +
+                `commutant. Identifying a W candidate at a commuting endpoint needs an additional ` +
+                `embedding prescription; moving the probe changes the question being evaluated.`);
     return out;
   }
 

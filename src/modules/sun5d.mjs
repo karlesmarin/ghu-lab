@@ -321,16 +321,12 @@ export function sun5dMinimum(terms, nPhase, { grid = 400, refine = 30, windings 
       }
     if (!moved) step /= 2;
   }
-  /* WHERE IT LANDED MATTERS AS MUCH AS WHAT IT IS.  V has period 2 in every phase and is even, so
-   * [0, 1] is a fundamental domain and its two ENDS are the two symmetric points — not broken
-   * vacua.  A minimum at an end is the statement "the other symmetric point is deeper", which is
-   * exactly what Part VII's W criterion decides; a minimum strictly inside is the Hosotani
-   * mechanism.  Reporting the first as the second is an overclaim, so the caller is told which. */
+  /* Geometric boundary flag only. Symmetry requires the joint commutant of P0 and P1(theta). */
   const eps = 1e-6;
   const atEdge = at.some((t) => t <= lo + eps || t >= hi - eps);
-  return { theta: at, V: best / 2, atEdge,
-           symmetric: sun5dV(terms, at.map(() => 0), windings) / 2,
-           other: sun5dV(terms, at.map(() => hi), windings) / 2 };
+  return { theta: at, V: best, atEdge, method: "grid-refinement", certified: false, windings,
+           symmetric: sun5dV(terms, at.map(() => 0), windings),
+           other: sun5dV(terms, at.map(() => hi), windings) };
 }
 
 /* THREE PHASES AND MORE: RESTARTS, NOT A GRID — and the line says so.  A grid on a 3-torus at
@@ -344,7 +340,7 @@ export function sun5dMinimum(terms, nPhase, { grid = 400, refine = 30, windings 
  * The control lives where a grid exists: `_test_sun5d.mjs` runs this on every one- and
  * two-phase boundary condition of SU(4)…SU(6) with a content and requires the same depth as the
  * grid to 1e-9 and the same position (or its mirror) to 1e-4.  A heuristic that agrees with the
- * exhaustive method everywhere the exhaustive method can be run is what one has above it. */
+ * finite grid is a useful control; neither search certifies the continuum global minimum. */
 export function sun5dMinimumRestarts(terms, nPhase, { restarts = 48, refine = 44, windings = 300,
                                                        lo = 0, hi = 1, seed = 12345 } = {}) {
   if (nPhase < 1) return null;
@@ -379,13 +375,13 @@ export function sun5dMinimumRestarts(terms, nPhase, { restarts = 48, refine = 44
   const distinct = [];
   for (const f of found)
     if (!distinct.some((d) => d.theta.every((x, i) => Math.abs(x - f.theta[i]) < 1e-4)))
-      distinct.push({ theta: f.theta, V: f.V / 2 });
+      distinct.push({ theta: f.theta, V: f.V });
   const eps = 1e-6;
-  return { theta: top.theta, V: top.V / 2,
+  return { theta: top.theta, V: top.V,
            atEdge: top.theta.some((t) => t <= lo + eps || t >= hi - eps),
-           symmetric: sun5dV(terms, top.theta.map(() => 0), windings) / 2,
-           other: sun5dV(terms, top.theta.map(() => hi), windings) / 2,
-           method: "restarts", certified: false, starts: starts.length,
+           symmetric: sun5dV(terms, top.theta.map(() => 0), windings),
+           other: sun5dV(terms, top.theta.map(() => hi), windings),
+           method: "restarts", certified: false, windings, starts: starts.length,
            hits: found.filter((f) => Math.abs(f.V - top.V) < 1e-9).length,
            distinct: distinct.length, minima: distinct.slice(0, 8) };
 }

@@ -28,6 +28,7 @@
 import { sun5dBlocks, sun5dTerms, sun5dMinimum, sun5dUnbroken } from "./sun5d.mjs";
 import { bcClasses, bcS1Z2All } from "./bcclass.mjs";
 import { sp5ZeroModes } from "./spectrum5d.mjs";
+import { vac5Symmetry } from "./vacuum5d.mjs";
 import { an5Ledger } from "./anomaly5d.mjs";
 
 /* the eight bulk slots a content is built from: four representations, two parity products */
@@ -161,8 +162,9 @@ export function sweep5d({ N = 5, maxMult = 2, want = [], needHiggs = "none", nee
     }
     vacuumChecked++;
     const v = sun5dMinimum(terms, x.b.phases, { grid: x.b.phases === 1 ? 300 : 360 });
-    return { ...x, vac: v, why: v ? (v.atEdge ? "a symmetric point" : "breaks") : "no minimum" };
-  }).filter((x) => !needBreaking || (x.vac && !x.vac.atEdge));
+    const symmetry = v ? vac5Symmetry(x.b, v.theta) : null;
+    return { ...x, vac: v, symmetry, why: v ? (symmetry.broken ? "breaks theta=0 generators" : "preserves theta=0 generators") : "no minimum" };
+  }).filter((x) => !needBreaking || (x.symmetry && x.symmetry.broken));
   if (needBreaking)
     stages.push({ name: "the Wilson line breaks it further", kept: alive.length,
                   checked: vacuumChecked, capped, undecided });

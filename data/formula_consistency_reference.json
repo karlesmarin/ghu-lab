@@ -1,0 +1,185 @@
+{
+  "sage": "10.9",
+  "precision_bits": 192,
+  "checks": [
+    {
+      "name": "KLY curvature at zero has coefficient 18-4Nf",
+      "passed": true,
+      "detail": "-4*Nf + 18"
+    },
+    {
+      "name": "KLY printed 18-2Nf differs when Nf=1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Small-angle curvature after stationarity",
+      "passed": true,
+      "detail": "-1/6*A4*x^2 + 2*D*zeta(3)"
+    },
+    {
+      "name": "Endpoint alpha=1 reduces SU(3) model massless vectors from 4 to 2",
+      "passed": true,
+      "detail": {
+        "at_zero": 4,
+        "at_one": 2
+      }
+    },
+    {
+      "name": "The two surviving generators commute: U(1)^2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "SU7 row (1): no stationary point within rounding interval",
+      "passed": true,
+      "detail": "-0.3?"
+    },
+    {
+      "name": "SU7 row (2): no stationary point within rounding interval",
+      "passed": true,
+      "detail": "-0.1?"
+    },
+    {
+      "name": "SU7 row (3): no stationary point within rounding interval",
+      "passed": true,
+      "detail": "-0.20?"
+    },
+    {
+      "name": "SU7 row (4): no stationary point within rounding interval",
+      "passed": true,
+      "detail": "-0.26?"
+    },
+    {
+      "name": "SU7 row (5): no stationary point within rounding interval",
+      "passed": true,
+      "detail": "-0.3?"
+    },
+    {
+      "name": "Maru-Nago k3=3,Nad=5: printed alpha is not stationary for infinite sum",
+      "passed": true,
+      "detail": "-0.05533?"
+    },
+    {
+      "name": "Direct HY-normalized KLY Nf=1 energy equals -5 zeta(5)/2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Corrected minimizer energy equals -5 zeta(5)/2",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "su7": [
+    {
+      "row": "(1)",
+      "alpha_center": 0.043,
+      "alpha_halfwidth": "0.0005",
+      "Fprime_enclosure": [
+        "-0.305378420271465498364253504576513649342134034756150904536",
+        "-0.284944806656714259391851155467146287433788086797396508588"
+      ],
+      "finite_derivative": [
+        "-0.295161613464089878878052330021829968387961060776773715290",
+        "-0.295161613464089878878052330021829968387961060776773697834"
+      ],
+      "fourier_tail_bound": [
+        "9.01157536828570363527624087454832054984502657323640392030e-7",
+        "9.01157536828570363527624087454832054984502657323640392033e-7"
+      ]
+    },
+    {
+      "row": "(2)",
+      "alpha_center": 0.081,
+      "alpha_halfwidth": "0.0005",
+      "Fprime_enclosure": [
+        "-0.142221917133522112742435528366083254251753843288987953425",
+        "-0.0844176226374967479103972730752640446886885085209926284135"
+      ],
+      "finite_derivative": [
+        "-0.113319769885509430326416400720673649470221175904990308390",
+        "-0.113319769885509430326416400720673649470221175904990273448"
+      ],
+      "fourier_tail_bound": [
+        "9.01157536828570363527624087454832054984502657323640392030e-7",
+        "9.01157536828570363527624087454832054984502657323640392033e-7"
+      ]
+    },
+    {
+      "row": "(3)",
+      "alpha_center": 0.021,
+      "alpha_halfwidth": "0.0005",
+      "Fprime_enclosure": [
+        "-0.197160994696470154592602144310333759304877442708143793293",
+        "-0.191909436668186922520021179091557924643576068364230817728"
+      ],
+      "finite_derivative": [
+        "-0.194535215682328538556311661700945841974226755536187308660",
+        "-0.194535215682328538556311661700945841974226755536187302362"
+      ],
+      "fourier_tail_bound": [
+        "7.29508482194556960950933785082483092130311674976280317357e-7",
+        "7.29508482194556960950933785082483092130311674976280317360e-7"
+      ]
+    },
+    {
+      "row": "(4)",
+      "alpha_center": 0.026,
+      "alpha_halfwidth": "0.0005",
+      "Fprime_enclosure": [
+        "-0.258348252849634173518736004289504439627614294013358518791",
+        "-0.254259533308722223743133399876496990205834349717902948010"
+      ],
+      "finite_derivative": [
+        "-0.256303893079178198630934702083000714916724321865630738110",
+        "-0.256303893079178198630934702083000714916724321865630728691"
+      ],
+      "fourier_tail_bound": [
+        "8.15333009511563662239278936268657573557407166149960354694e-7",
+        "8.15333009511563662239278936268657573557407166149960354696e-7"
+      ]
+    },
+    {
+      "row": "(5)",
+      "alpha_center": 0.043,
+      "alpha_halfwidth": "0.0005",
+      "Fprime_enclosure": [
+        "-0.305888395179651869119438580181474327509022798045439045305",
+        "-0.285544807118136645891151077933818956823876479242346118333"
+      ],
+      "finite_derivative": [
+        "-0.295716601148894257505294829057646642166449638643892590221",
+        "-0.295716601148894257505294829057646642166449638643892573417"
+      ],
+      "fourier_tail_bound": [
+        "8.62146388048112772032921746006570927063095615881058556877e-7",
+        "8.62146388048112772032921746006570927063095615881058556880e-7"
+      ]
+    }
+  ],
+  "maru": {
+    "Fprime_enclosure": [
+      "-0.0553343102800568466758161860151565078569077332336665573388",
+      "-0.0553273049497606250053656880720342875432074385067691520164"
+    ],
+    "finite_derivative": [
+      "-0.0553308076149087358405909370435953977000575858702178659259",
+      "-0.0553308076149087358405909370435953977000575858702178434292"
+    ],
+    "fourier_tail_bound": [
+      "2.26264662926654030669273580399914541944160840366974643886e-6",
+      "2.26264662926654030669273580399914541944160840366974643887e-6"
+    ]
+  },
+  "scope": "Exact algebra and Lie algebra; Arb arithmetic plus analytic infinite Fourier remainder and Taylor bound. This does not certify global minima, all models, or field-content transcription.",
+  "fourier_cutoff": 512,
+  "passed": 13,
+  "inputSHA256": "7c2ed78ce0b76fc4c26f82a8baed8f5154825dac9524a018d10ba72b6f38b8f1",
+  "sources": [
+    "https://arxiv.org/pdf/hep-ph/0401185",
+    "https://arxiv.org/pdf/hep-ph/0111327",
+    "https://arxiv.org/pdf/2405.07463",
+    "https://arxiv.org/html/2503.04090v1"
+  ]
+}

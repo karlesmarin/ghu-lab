@@ -142,8 +142,8 @@ export function vac5Unbroken(frame) {
 
 /* one line saying where the vacuum stands, for a table cell */
 export function vac5Where(frame) {
-  if (frame.symmetric) return `[${frame.rearranged.join(", ")}] — a symmetric point`;
-  return "broken — " + frame.rotated.map((d) =>
+  if (frame.symmetric) return `[${frame.rearranged.join(", ")}] — commuting parity matrices`;
+  return "rotated parity blocks — " + frame.rotated.map((d) =>
     `${d.size} pair${d.size === 1 ? "" : "s"} at t = ${d.t.toFixed(4)}`).join(", ");
 }
 
@@ -300,9 +300,34 @@ export function vac5Pieces(frame, content = {}) {
 export const vac5Ledger = (frame, content = {}) => an5LedgerOnFrame(frame, vac5Pieces(frame, content));
 
 /* everything at once, which is what the dossier reads */
+/* Compare the actual joint commutant with the theta=0 algebra. A boundary
+ * coordinate and even an unchanged group dimension do not decide breaking.
+ * The theta=0 algebra contains all traceless diagonals and the matrix units
+ * within each common-parity block. It survives iff P1(theta) is diagonal and
+ * scalar on each such block (P0 is unchanged). */
+export function vac5Symmetry(b, theta = [], { eps = VAC5_EPS } = {}) {
+  const folded = vac5Pairs(b, theta).map(p => {
+    const t = p.phase;
+    return t < eps ? 0 : t > 1 - eps ? 1 : t;
+  });
+  const before = vac5Frame(b, [], { eps }), after = vac5Frame(b, folded, { eps });
+  const { P1 } = vac5Matrices(b, folded);
+  let broken = false, offset = 0;
+  for (let i = 0; i < b.N; i++) for (let j = 0; j < b.N; j++)
+    if (i !== j && Math.abs(P1[i][j]) > 1e-10) broken = true;
+  for (const size of [b.nPP,b.nPM,b.nMP,b.nMM]) {
+    for (let i = offset + 1; i < offset + size; i++)
+      if (Math.abs(P1[i][i] - P1[offset][offset]) > 1e-10) broken = true;
+    offset += size;
+  }
+  return { broken, reference: 'theta=0', before: vac5Unbroken(before), after: vac5Unbroken(after),
+    generatorsBefore: vac5Count(before,'adj',1,1), generatorsAfter: vac5Count(after,'adj',1,1),
+    tolerance: eps, method: 'joint-commutant', globalMinimumCertified: false };
+}
+
 export function vac5At(b, content, theta = [], opts = {}) {
   const frame = vac5Frame(b, theta, opts);
-  return { frame, unbroken: vac5Unbroken(frame), where: vac5Where(frame),
+  return { frame, symmetry: vac5Symmetry(b, theta, opts), unbroken: vac5Unbroken(frame), where: vac5Where(frame),
            zero: vac5ZeroModes(frame, content), anom: vac5Ledger(frame, content) };
 }
 
@@ -518,10 +543,9 @@ export function vac5Ladder(frame, content = {}) {
     if (kind === "scalar") put(name, f.rep, eta, 1, m);
     else { put(`${name} (L)`, f.rep, eta, 1, m); put(`${name} (R)`, f.rep, -eta, -1, m); }
   }
-  /* THE W IS A WILSON-LINE MASS, NOT A KALUZA-KLEIN LEVEL.  At a symmetric vacuum the lightest
-   * massive vector is the first KK mode at 1/R (or 1/2R), and calling that "the W" would set the
-   * scale from a number the Wilson line had nothing to do with.  So the unit is the lightest
-   * vector strictly inside the tower — a generic angle — and a symmetric vacuum has none. */
+  /* This dictionary identifies a W candidate only on a generic shifted tower.
+   * At commuting endpoints, assigning a half/integer KK level to the measured W
+   * needs an additional embedding prescription; its absence is not absence of breaking. */
   const vec = rows.find((r) => r.field === "A_μ");
   const inside = vec ? vec.families.filter((f) => f.kind === "generic").map((f) => f.x) : [];
   const mW = inside.length ? Math.min(...inside) : null;
@@ -544,8 +568,8 @@ export function vac5Confront(ladder, exp = EXPERIMENT) {
   const mWR = ladder.mWR;
   if (mWR === null)
     return { located: false,
-             why: "no vector gets its mass from the Wilson line (a symmetric vacuum, or no Wilson " +
-                  "line at all), so m_W does not set 1/R here" };
+             why: "no vector in a generic shifted tower is identified as the W by this dictionary; " +
+                  "the scale is unset, independently of the symmetry-breaking verdict" };
   const invR = invRFromW(mWR, exp.m_W.value);
   const rows = ladder.rows.map((r) => ({
     field: r.field, massless: r.massless,

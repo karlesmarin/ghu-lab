@@ -1,12 +1,17 @@
 /* Real browser controls and screenshots; tutorial overlays never change scientific outputs. */
 import {spawn} from 'node:child_process';
-import {mkdirSync,readFileSync,writeFileSync} from 'node:fs';
+import {mkdirSync,readFileSync,writeFileSync,existsSync} from 'node:fs';
+import {createHash} from 'node:crypto';
 import {resolve} from 'node:path';
 import {pathToFileURL,fileURLToPath} from 'node:url';
 import {findChrome} from '../../build/_chrome.mjs';
 const lab=fileURLToPath(new URL('../../',import.meta.url));
 const out=resolve(process.argv[2]||'video-recording'), requested=process.argv.slice(3);
 const plan=JSON.parse(readFileSync(new URL('storyboard.json',import.meta.url),'utf8'));
+const appHash=createHash('sha256').update(readFileSync(resolve(lab,'app/index.html'))).digest('hex');
+const capturePath=resolve(out,'capture.json');
+const capture=existsSync(capturePath)?JSON.parse(readFileSync(capturePath,'utf8')):{schema:'ghu-video-capture-v1',sourceAppSha256:appHash,scenes:[],runs:[]};
+if(capture.sourceAppSha256!==appHash)throw Error('Use a new recording directory for a changed application');
 const chapters=plan.chapters.filter(c=>!requested.length||requested.includes(c.id));
 mkdirSync(out,{recursive:true});mkdirSync(resolve(out,'downloads'),{recursive:true});
 const port=9512,profile=resolve(out,`profile-${Date.now()}`);
@@ -68,4 +73,10 @@ try {
  }
  if(errors.length)throw Error('Browser exceptions: '+errors.join('\n'));
  console.log('Recorded '+records.length+' scenes; browser exceptions: '+errors.length);
-}catch(e){console.error(e);process.exitCode=1;}finally{writeFileSync(resolve(out,'last-run.json'),JSON.stringify({records,errors},null,2)+'\n');if(ws)ws.close();child.kill();}
+}catch(e){errors.push(String(e));console.error(e);process.exitCode=1;}finally{
+ writeFileSync(resolve(out,'last-run.json'),JSON.stringify({records,errors},null,2)+'\n');
+ capture.scenes=[...new Set([...capture.scenes,...records.map(r=>r.id)])];
+ capture.runs.push({chapters:chapters.map(c=>c.id),scenes:records.length,errors});
+ writeFileSync(capturePath,JSON.stringify(capture,null,2)+'\n');
+ if(ws)ws.close();child.kill();
+}

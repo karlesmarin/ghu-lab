@@ -19,11 +19,27 @@ try{
  let seq=0;const pending=new Map();
  ws.onmessage=e=>{const m=JSON.parse(e.data);if(m.id){pending.get(m.id)?.(m);pending.delete(m.id);}else events.push(m);};
  const send=(method,params={})=>new Promise((r,j)=>{const id=++seq,timer=setTimeout(()=>{pending.delete(id);j(Error(`Timeout ${method}`));},60000);pending.set(id,m=>{clearTimeout(timer);m.error?j(Error(JSON.stringify(m.error))):r(m.result);});ws.send(JSON.stringify({id,method,params}));});
- const ev=async expression=>{const r=await send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw Error(r.exceptionDetails.exception?.description||JSON.stringify(r.exceptionDetails));return r.result?.value;};
+ const ev=async expression=>{
+  // registry.js copies the section prototypes; inspect the mounted instances.
+  expression=expression.replaceAll('PRED_SECTION.',"SECTIONS.find(s=>s.id==='predict').").replaceAll('SCREEN_SECTION.',"SECTIONS.find(s=>s.id==='screen').");
+  const r=await send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw Error(r.exceptionDetails.exception?.description||JSON.stringify(r.exceptionDetails));return r.result?.value;
+ };
  const nav=async hash=>{await send('Page.navigate',{url:url+'#'+hash});for(let i=0;i<200;i++){if(await ev(`typeof TH_HISTORY_PANEL!=='undefined'&&!!document.getElementById('section')`))break;await pause(100);}await pause(350);};
  const change=async(selector,value)=>ev(`(()=>{const e=document.querySelector(${JSON.stringify(selector)});e.value=${JSON.stringify(value)};e.dispatchEvent(new Event('change',{bubbles:true}));})()`);
  await send('Runtime.enable');await send('Page.enable');
  await send('Emulation.setDeviceMetricsOverride',{width:1380,height:1000,deviceScaleFactor:1,mobile:false});
+ const boundaryState=encodeURIComponent('b:1,0,0,2~u:fund|1|dirac!2');
+ await nav('s=sun5d&sun5d.s='+boundaryState);
+ check('builder endpoint breaks theta0 group',await ev(`document.getElementById('sunVac').textContent.includes('4 → 2 massless generators')&&document.getElementById('sunVac').textContent.includes('breaks generators')`));
+ check('builder displayed energy equals the potential',await ev(`(()=>{const b=sun5dBlocks(SUN5D_S.blocks),t=sun5dTerms(b,{bulk:SUN5D_SECTION._content()});return document.getElementById('sunVac').textContent.includes('V/C = '+sun5dV(t,[1],600).toFixed(5));})()`));
+ check('builder exported symmetry matches its verdict',await ev(`SUN5D_SECTION.texExport().card.results.vacuum_symmetry.value.includes('breaks')&&SUN5D_SECTION.texExport().card.results.at_domain_end.value===true`));
+ await nav('s=spectrum5d&sun5d.s='+boundaryState);
+ check('spectrum does not infer no breaking from boundary',await ev(`document.getElementById('spThetaNote').textContent.includes('some θ = 0 generators are broken')&&!document.getElementById('spThetaNote').textContent.includes('not a broken vacuum')`));
+ await nav('s=predict&sun5d.s='+boundaryState);
+ check('simulator separates endpoint breaking from W dictionary',await ev(`document.getElementById('prParamNote').textContent.includes('some θ = 0 generators are broken')&&PRED_SECTION._P.symmetry.broken&&!PRED_SECTION._P.located`));
+ await ev(`(()=>{document.getElementById('prProbe').click();const e=document.getElementById('prTheta');e.value=.8;e.dispatchEvent(new Event('input',{bubbles:true}));})()`);
+ await ev(`(()=>{const e=document.getElementById('prG4');e.value=.8;e.dispatchEvent(new Event('input',{bubbles:true}));})()`);
+ check('probe export records actual coupling and analytic Hessian',await ev(`(()=>{const c=PRED_SECTION.texExport().card,e=c.calculationEvidence;return e.evaluation==='probe'&&e.g4===.8&&e.g4Source==='user input'&&e.hessian.method==='analytic-fourier'&&c.results.higgs_mass_GeV.source.includes('user input')&&c.input.model.conventions.g4===e.g4&&c.input.model.conventions.m_W===EXPERIMENT.m_W.value&&JSON.stringify(c.input.model.evaluated_phase)===JSON.stringify(e.theta)&&Math.abs(PRED_SECTION._P.mHOverR-PRED_SECTION._P.mHGeV/PRED_SECTION._P.invRGeV)<1e-12;})()`));
  await nav('s=predict');await change('#prModel','builder');
  check('integrated case 1 percolation visible',await ev(`document.getElementById('rx_thermalhistory_result').textContent.includes('90.341')`));
  check('two history figures',await ev(`document.querySelectorAll('#rx_thermalhistory_result svg').length===2`));
@@ -49,10 +65,17 @@ try{
  check('history hidden in neutrino-ring view',await ev(`document.getElementById('rx_thermalhistory').hidden`));
  for(const seed of ['published','candidate']){
   await nav('s=screen&su7_km25.seed='+seed);await change('#sci_mh',125.2);
+  check(seed+' printed row residuals visible',await ev(`document.getElementById('scFiveNote').textContent.includes('192-bit')&&document.querySelectorAll('#scFive .chip.bad').length>=5`));
   check(seed+' correct rung certificate',await ev(`document.getElementById('scConditionalBounds').textContent.includes('${seed} seed')&&document.querySelectorAll('#scConditionalBounds svg').length===1`));
+  check(seed+' plotted comb and spacing share applicable bounds',await ev(`SCREEN_SECTION._lastEvidence.bounds.applicable&&SCREEN_SECTION._lastCombCertified&&!document.getElementById('scSpacing').textContent.includes('not evaluated')`));
+  await change('#sci_MKK',9000);
+  check(seed+' visible verdict uses shared evidence',await ev(`document.getElementById('scHits').textContent.includes(SCREEN_SECTION._lastEvidence.title)&&document.getElementById('scHits').textContent.includes('not a theory exclusion')`));
+  check(seed+' export uses same comb evidence',await ev(`(()=>{let saved;const original=rxDownload;try{rxDownload=(name,text)=>saved=JSON.parse(text);document.getElementById('scBoundsJSON').click();return JSON.stringify(saved.comb)===JSON.stringify(SCREEN_SECTION._lastEvidence)&&saved.bounds.applicable===saved.comb.bounds.applicable;}finally{rxDownload=original;}})()`));
   if(seed==='candidate')check('false vacua visibly rejected',await ev(`document.getElementById('scConditionalBounds').textContent.includes('deeper minimum elsewhere')`));
   await change('#sci_mh',130);
   check(seed+' out-of-window certificates withdrawn',await ev(`!document.querySelector('#scConditionalBounds svg')&&document.getElementById('scConditionalBounds').textContent.includes('no rescaling')`));
+  check(seed+' bounds withdrawn from actual comb and spacing',await ev(`!SCREEN_SECTION._lastCombCertified&&SCREEN_SECTION._lastEvidence.rows.every(r=>r.upperGeV===null)&&Array.from(document.querySelectorAll('#scSpacing tr')).every(r=>r.textContent.includes('not evaluated'))`));
+  check(seed+' arithmetic-only verdict when mass window changes',await ev(`SCREEN_SECTION._lastEvidence.status==='arithmetic-only'&&document.getElementById('scHits').textContent.includes('bounds not applicable')`));
  }
  await change('#sci_mh',125.2);await ev(`document.getElementById('scBoundDetails').open=true`);
  for(const [name,width,height,mobile] of [['desktop',1380,1000,false],['mobile',390,844,true]]){

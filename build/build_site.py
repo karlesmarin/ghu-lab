@@ -249,6 +249,7 @@ def load_groups():
         "thermal_case1_phasetracer.json", "thermal_case2_phasetracer.json",
         "thermal_history_case1.json", "thermal_history_case2.json",
         "candidate_bounds.json", "candidate_vacua.json",
+        "formula_consistency_probe.json", "formula_consistency_reference.json",
     }
     for p in sorted((ROOT / "data").glob("*.json")):
         if p.name in NOT_A_GROUP:
@@ -676,13 +677,14 @@ def main(argv=None):
 
     # --- Requested video manual. Only this page uses adjacent, hash-pinned media.
     import video_guide
-    video_body = video_guide.render(ROOT, OUT)
-    video_page = page(shell, css, title="Video guide — GHU Lab",
-                      desc="Watch every GHU Lab menu section and research experiment, with English and Spanish narration, subtitles and searchable chapters.",
-                      body=video_body, depth=1, here="VIDEO", build=build)
-    video_page = video_page.replace("and reaches nothing outside itself.",
-                                    "and uses only the video assets shipped alongside it.")
-    write("video/index.html", video_page)
+    for archive,name in [(False,'index.html'),(True,'2026-10-07.html')]:
+        video_body = video_guide.render(ROOT, OUT, archive=archive)
+        video_page = page(shell, css, title="Video guide — GHU Lab",
+                          desc="Watch every GHU Lab menu section and research experiment, with English and Spanish narration, subtitles and searchable chapters.",
+                          body=video_body, depth=1, here="VIDEO", build=build)
+        video_page = video_page.replace("and reaches nothing outside itself.",
+                                        "and uses only the video assets shipped alongside it.")
+        write('video/'+name, video_page)
 
     # --- editions: the frozen copies, and the pages the published records already point at
     frozen, carried = [], []

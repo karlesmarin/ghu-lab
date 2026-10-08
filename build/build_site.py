@@ -694,18 +694,26 @@ def main(argv=None):
     write(".gitattributes", "# Preserve downloaded evidence and its SHA-256 chain across platforms.\n"
                            "data/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol\n"
                            "# External records retain their original whitespace and checksums.\n"
-                           "data/lhc_reference/** -text -whitespace\n")
+                           "data/lhc_reference/** -text -whitespace\n"
+                           "# Preserve the verified video revision, including VTT line endings.\n"
+                           "video/media/2026-10-08-certification/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol\n")
 
     # --- Requested video manual. Only this page uses adjacent, hash-pinned media.
     import video_guide
-    for archive,name in [(False,'index.html'),(True,'2026-10-07.html')]:
-        video_body = video_guide.render(ROOT, OUT, archive=archive)
-        video_page = page(shell, css, title="Video guide — GHU Lab",
-                          desc="Watch every GHU Lab menu section and research experiment, with English and Spanish narration, subtitles and searchable chapters.",
-                          body=video_body, depth=1, here="VIDEO", build=build)
-        video_page = video_page.replace("and reaches nothing outside itself.",
-                                        "and uses only the video assets shipped alongside it.")
-        write('video/'+name, video_page)
+    video_body = video_guide.render(ROOT, OUT)
+    video_page = page(shell, css, title="Video guide — GHU Lab",
+                      desc="Watch the GHU Lab controls, certificates, uncertainty and thermal comparisons in English or Spanish, with subtitles and searchable chapters.",
+                      body=video_body, depth=1, here="VIDEO", build=build)
+    video_page = video_page.replace("and reaches nothing outside itself.",
+                                    "and uses only the video assets shipped alongside it.")
+    write('video/index.html', video_page)
+    # Previously served pages are complete frozen documents, including their
+    # transcripts and original media paths. Do not wrap them in a new page shell.
+    for revision, date in [('', '2026-10-07'), ('2026-10-08', '2026-10-08')]:
+        video_guide.copy_media(ROOT, OUT, revision)
+        rel = f'video/{date}.html'
+        shutil.copyfile(SITE_SRC / f'video-{date}.html', OUT / rel)
+        written.append(rel)
 
     # --- editions: the frozen copies, and the pages the published records already point at
     frozen, carried = [], []
@@ -758,6 +766,23 @@ def main(argv=None):
            f'not this page still looks the way it did. What this page promises is the narrower '
            f'thing the tool can actually keep: a URL a published record points at does not '
            f'break.</p>'
+           '<h2>Current laboratory and verification evidence</h2>'
+           '<p>The <a href="../app/index.html">current instrument</a> and '
+           '<a href="../docs/su7-certification.html">English certification dossier</a> '
+           'include the 8 October certification and uncertainty update. Formal algebra, '
+           'interval proofs, numerical comparisons and open physical assumptions retain '
+           'their separate scope. This living release does not replace a frozen paper.</p>'
+           '<h2>Versioned video guides</h2>'
+           '<ul><li><a href="../video/index.html">Current certification revision · '
+           '8 October 2026</a>: 43 chapters and 139 scenes in each language, including '
+           'the new certificates, uncertainty and experimental/thermal comparisons.</li>'
+           '<li><a href="../video/2026-10-08.html">Earlier 8 October guide</a>: the '
+           'formula-correction walkthrough, preserved with its original media.</li>'
+           '<li><a href="../video/2026-10-07.html">Original 7 October guide</a>: '
+           'the first tutorial, retained as a historical version.</li></ul>'
+           '<p>The tutorials use adjacent versioned media; they are not self-contained '
+           'HTML editions of the scientific instrument. Each player provides English '
+           'and Spanish narration, subtitles, transcripts and downloads.</p>'
            f'<h2>Pages carried over from the earlier tools</h2>'
            f'<p>Five published Zenodo records link to the host these pages were served from. A URL '
            f'in a published record is not ours to break, so they keep working:</p><ul>{car}</ul>'
@@ -779,6 +804,21 @@ def main(argv=None):
                                       desc="Why this instrument is living, which URLs are kept "
                                            "alive, and when a frozen edition is cut.",
                                       body=eds, depth=1, here="EDITIONS", build=build))
+
+    # Only current canonical page candidates belong in the search map. Historical
+    # artifacts remain reachable through Editions. Omit lastmod rather than invent
+    # modification dates for pages whose content has not changed.
+    public_base = "https://karlesmarin.github.io/ghu-explorer/"
+    current_pages = [rel for rel in written if rel.endswith('.html')
+                     and not rel.startswith('tools-')
+                     and (not rel.startswith('editions/') or rel == 'editions/index.html')
+                     and (not rel.startswith('video/') or rel == 'video/index.html')]
+    locations = [public_base + ('' if rel == 'index.html' else rel)
+                 for rel in sorted(set(current_pages))]
+    write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n'
+          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+          + ''.join(f'  <url><loc>{html.escape(url)}</loc></url>\n' for url in locations)
+          + '</urlset>\n')
 
     total = sum((OUT / w).stat().st_size for w in written)
     print(f"built {OUT}  ({len(written)} files, {total / 1024:.1f} kB total)")

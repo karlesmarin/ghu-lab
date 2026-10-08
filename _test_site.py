@@ -32,6 +32,7 @@ import json
 import pathlib
 import re
 import sys
+import xml.etree.ElementTree as ET
 
 ROOT = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "build"))
@@ -63,6 +64,7 @@ def load():
         "app_built": (ROOT / "app" / "index.html").read_bytes(),
         "app_shipped": (SITE / "app" / "index.html").read_bytes(),
         "changes": sorted((ROOT / "changes").glob("*.md")),
+        "sitemap": (SITE / "sitemap.xml").read_text(encoding="utf-8") if (SITE / "sitemap.xml").exists() else "",
     }
 
 
@@ -326,7 +328,33 @@ def check_double_escape(w):
     return bad
 
 
+def check_sitemap(w):
+    try:
+        tree = ET.fromstring(w["sitemap"])
+    except ET.ParseError:
+        return ["missing or invalid XML sitemap"]
+    ns = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
+    if tree.tag != ns + "urlset":
+        return ["sitemap does not use the sitemap namespace"]
+    urls = [node.text or "" for node in tree.findall(ns + "url/" + ns + "loc")]
+    base = "https://karlesmarin.github.io/ghu-explorer/"
+    bad = []
+    if len(urls) != len(set(urls)):
+        bad.append("sitemap repeats a URL")
+    for url in urls:
+        rel = url.removeprefix(base) or "index.html"
+        if not url.startswith(base) or "?" in url or "#" in url or rel not in w["pages"]:
+            bad.append("sitemap URL does not identify a delivered page: " + url)
+    required = ["", "app/index.html", "docs/index.html", "docs/su7-certification.html",
+                "changes/index.html", "editions/index.html", "video/index.html"]
+    bad.extend("sitemap omits " + rel for rel in required if base + rel not in urls)
+    if 'href="sitemap.xml"' not in w["pages"].get("index.html", ""):
+        bad.append("main page does not link the root sitemap")
+    return bad
+
+
 CHECKS = [
+    ("root sitemap lists delivered pages and is linked from home", check_sitemap),
     ("nothing on any page is escaped twice", check_double_escape),
     ("links resolve on disk, so file:// and a server agree", check_links),
     ("no page reaches outside itself", check_assets),
@@ -492,7 +520,13 @@ def break_double_escape(w):
     return b
 
 
-_BREAKS = [break_double_escape,
+def break_sitemap(w):
+    b = _copy(w)
+    b["sitemap"] = w["sitemap"].replace("docs/su7-certification.html", "docs/missing-certificate.html")
+    return b
+
+
+_BREAKS = [break_sitemap, break_double_escape,
            break_links, break_assets, break_dois, break_undeposited, break_dead_links,
            break_app, break_palette, break_coverage, break_head, break_placeholders,
            break_honesty, break_counts, break_entries, break_echo]

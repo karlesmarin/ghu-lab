@@ -18,12 +18,14 @@ def main():
     if a.vendor:sys.path.insert(0,str(a.vendor.resolve()))
     import imageio_ffmpeg
     rec=a.recording.resolve();plan=read(ROOT/'tools/video_guide/storyboard.json');capture=read(rec/'capture.json')
+    scene_count=sum(len(ch['steps']) for ch in plan['chapters'])
+    chapter_count=len(plan['chapters'])
     checks=[]
     def check(ok,label):
         if not ok:raise AssertionError(label)
         checks.append(label)
     check(sha(ROOT/'app/index.html')==capture['sourceAppSha256'],'captures refer to the delivered application')
-    check(set(capture['scenes'])=={s['id'] for ch in plan['chapters'] for s in ch['steps']},'all 121 scenes recorded')
+    check(set(capture['scenes'])=={s['id'] for ch in plan['chapters'] for s in ch['steps']},f'all {scene_count} scenes recorded')
     check(all(not r['errors'] for r in capture['runs']),'capture runs have no browser exceptions')
     inventory={}
     for ch in plan['chapters']:
@@ -44,10 +46,10 @@ def main():
     versions={}
     for lang in ['en','es']:
         output=rec/'published';r=read(output/f'render-{lang}.json');timeline=read(output/f'chapters-{lang}.json')
-        check(len(timeline)==43 and len(r['scenes'])==121,lang+' complete timeline')
+        check(len(timeline)==chapter_count and len(r['scenes'])==scene_count,lang+' complete timeline')
         for c,ch in zip(timeline,plan['chapters']):
             check(c['id']==ch['id'] and c['text']=='\n\n'.join(s['textES' if lang=='es' else 'text'] for s in ch['steps']),lang+' '+ch['id']+' transcript matches final script')
-        check(all(abs(timeline[i]['end']-timeline[i+1]['start'])<.002 for i in range(42)) and abs(timeline[-1]['end']-r['seconds'])<.002,lang+' chapter boundaries synchronized')
+        check(all(abs(timeline[i]['end']-timeline[i+1]['start'])<.002 for i in range(chapter_count-1)) and abs(timeline[-1]['end']-r['seconds'])<.002,lang+' chapter boundaries synchronized')
         blocks=(output/f'ghu-lab-{lang}.vtt').read_text(encoding='utf-8').strip().split('\n\n');last=0
         check(blocks[0]=='WEBVTT' and len(blocks)-1==r['subtitles'],lang+' subtitle count')
         for block in blocks[1:]:

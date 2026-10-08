@@ -4,25 +4,25 @@
 [Ver en español](https://karlesmarin.github.io/ghu-explorer/video/index.html?lang=es)
 
 The guide demonstrates all 29 navigation sections, three Simulator modes, eight research cards,
-integrated diagnostics and exports. There are 43 chapters and 121 narrated scenes per language.
+integrated diagnostics and exports. There are 43 chapters and 139 narrated scenes per language.
 Representative controls are shown; the guide does not enumerate every input combination.
 The experiment's question, changed input and interpretation form each chapter's teaching sequence.
 
 ## What was recorded
 
-The 8 October revision recaptures all 43 chapters against the corrected laboratory. Twelve
-scenes have revised narration in each language: they explain the common V/C normalization,
-symmetry at boundary points, conditional comb bounds, analytic Hessians, and the still-open
-SU(7) transcription discrepancy. Identical narration is reused only when text, voice, rate and
-sample rate match. Captions and chapter times are rebuilt from the final audio. Unit-name
-expansion is case-sensitive and matches complete tokens, so it cannot turn part of the English
-word "whatever" into "tera electron volts"; that inherited pronunciation is also corrected.
+The certification revision of 8 October recaptures all 43 chapters against the current
+laboratory. Eighteen additional scenes demonstrate certificates, full-potential versus moment
+comparisons, the separated uncertainty budget, named experimental references, thermal solver
+diagnostics and withdrawal of unmatched archived evidence. Two existing scenes have revised
+narration in each language. The 139-scene script preserves scientific attribution and separates
+formal proofs, computer-assisted interval results, numerical agreement and open physics.
 
-Current assets live in `media/video/2026-10-08/`, selected by `media/video/current.json`.
-The original media and its hash manifest remain unchanged in `media/video/`; the original
-player is archived in `src/site/video-2026-10-07.html` and ships as `video/2026-10-07.html`.
-The player links both versions. The renderer hashes image contents as well as audio and
-overlays before reusing a clip, so changing a capture at the same path invalidates its cache.
+Current assets live in `media/video/2026-10-08-certification/`, selected by
+`media/video/current.json`. Earlier media remain byte-identical in `media/video/` and
+`media/video/2026-10-08/`. Their complete previously served pages are preserved as
+`video/2026-10-07.html` and `video/2026-10-08.html`; the player and Editions link both.
+Identical audio is reused only when text, voice, rate and sample rate match. Image contents,
+audio and overlays all participate in clip cache keys. Captions and chapter times are rebuilt.
 
 `tools/video_guide/storyboard.json` contains the English and Spanish narration and the exact browser
 actions. `record.mjs` drives the real app in Chromium, captures the controls before and after changes,
@@ -36,7 +36,7 @@ Narration is synthetic: Microsoft Zira Desktop for English and Microsoft Helena 
 format keeps the engine's word positions aligned with the WAV timeline; caption construction refuses
 out-of-range or nonpositive timings. Rendering normalizes narration toward −16 LUFS with a −1.5 dBTP
 target. MP4 chapter metadata and downloadable WebVTT subtitles accompany both versions.
-The browser player uses native caption tracks created from embedded cue data, including from disk.
+The browser player uses native caption tracks created from embedded cue data, including from disk. A visible CC · Subtitles button toggles their display, retains the choice across seeks and language changes, and exposes its state to assistive technology.
 
 ## Reproduce on Windows
 

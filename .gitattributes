@@ -49,3 +49,6 @@ tools/crossvalidation-requirements.txt -text whitespace=blank-at-eol,blank-at-eo
 tools/thermal_bounce.cpp -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 tools/thermal_crossvalidate.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 tools/thermal_run.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve the hashes of the current video assets on every checkout.
+media/video/2026-10-08-certification/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol

@@ -61,7 +61,10 @@ sections**, the **3 Simulator modes**, the **8 research cards**, integrated diag
 Each chapter connects a question, a control change and the result, with the assumptions needed
 to interpret it. Use the searchable chapter list, subtitles, transcript and MP4 download. Changing
 language preserves your position within the chapter. Narration is synthetic; the interface keeps
-its English button labels. Revised and recaptured on **8 October 2026**.
+its English button labels. The certification revision of **8 October 2026** contains
+**139 scenes per language**, with demonstrations of formal and interval certificates,
+moment errors, uncertainty, ATLAS/CMS references and the thermal solver comparison.
+Earlier guides from 7 October and the first 8 October release remain available from the player.
 
 🇪🇸 **Cómo empezar:** abre la guía, elige Español y busca el módulo. Pulsa Reproducir y usa la
 pantalla completa para leer las gráficas. «Probar esta sección» abre el laboratorio. Cambia una

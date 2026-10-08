@@ -3,7 +3,7 @@
   "language": "en",
   "voice": "Microsoft Zira Desktop",
   "date": "2026-10-08",
-  "scope": "A real-interface walkthrough of all menu sections, three Simulator modes, eight research cards and integrated diagnostics. Representative controls are demonstrated; this is not an exhaustive tour of every numerical input combination.",
+  "scope": "A real-interface walkthrough of all menu sections, three Simulator modes, eight research cards and integrated diagnostics. Representative controls are demonstrated; this is not an exhaustive tour of every numerical input combination. Includes certified SU(7) benchmarks, equal-moment counterexample, separated uncertainty budget, named LHC datasets and matched thermal solver diagnostics.",
   "recordingNotes": "Pointer highlights and chapter captions are tutorial annotations. Computation waits may be shortened; results come from the actual application. Built-in demonstrations may be held between steps for narration.",
   "chapters": [
     {
@@ -13,7 +13,7 @@
       "titleES": "Empieza aquí: pregunta, modelo y comparación",
       "steps": [
         {
-          "text": "Welcome to G H U Lab. This walkthrough covers every menu section, the three Simulator modes and the embedded research experiments. We will use real controls and inspect the results. Choose a chapter when you want to revisit one topic.",
+          "text": "Welcome to G H U Lab. This revised walkthrough covers every menu section, the three Simulator modes and the embedded research experiments. It now demonstrates the S U seven certificates, approximation errors, uncertainty budget, thermal solver comparison and named collider references. Choose a chapter to revisit a topic.",
           "actions": [],
           "focus": {
             "selector": "#section",
@@ -21,7 +21,7 @@
           },
           "title": null,
           "id": "01_start_01",
-          "textES": "Bienvenido a G H U Lab. Este recorrido muestra todas las secciones del menú, los tres modos del simulador y los experimentos de investigación. Utilizaremos los controles reales y examinaremos sus resultados. Puedes elegir un capítulo para volver directamente a un tema."
+          "textES": "Bienvenido a G H U Lab. Este recorrido actualizado muestra todas las secciones del menú, los tres modos del simulador y los experimentos integrados. Ahora incluye los certificados S U siete, errores de aproximación, presupuesto de incertidumbre, comparación térmica y referencias experimentales identificadas. Elige un capítulo para volver a un tema."
         },
         {
           "text": "Start with a named model or reference. Change one assumption at a time, and read the result with its units and scope. Theorem, verified, measured and unknown describe different kinds of evidence. A computed scenario value is not automatically an experimental measurement.",
@@ -81,6 +81,72 @@
           "title": null,
           "id": "02_hierarchy_03",
           "textES": "La fase calculada no reproduce la publicada. La discrepancia depende de la fila, y multiplicar todo el potencial por una constante no desplaza sus puntos estacionarios. Las escalas absolutas quedan condicionadas a resolver esta discrepancia. Las identidades aritméticas son afirmaciones separadas."
+        },
+        {
+          "id": "02_hierarchy_04",
+          "text": "Load the first certified benchmark. The table encloses two different stationary points: the quartic logarithmic approximation and the full Fourier minimum. Phase, Higgs mass and compactification scale have separate absolute and relative error intervals. They apply to the displayed matter content, gauge choice and fixed mass inputs.",
+          "textES": "Carga el primer ejemplo certificado. La tabla encierra dos puntos estacionarios diferentes: el de la aproximación cuártica logarítmica y el mínimo completo de Fourier. La fase, la masa del Higgs y la escala de compactificación tienen intervalos propios de error absoluto y relativo. Se aplican al contenido, la elección gauge y las entradas de masa indicados.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#mdBenchmark",
+              "value": "0"
+            }
+          ],
+          "focus": {
+            "selector": "#mdResults > div:first-child",
+            "index": 0
+          },
+          "title": null
+        },
+        {
+          "id": "02_hierarchy_05",
+          "text": "What limits the precision? Read approximation bias, root-location bounds and the Fourier remainder separately from the propagated W-mass uncertainty. The ten percent coupling variation is a chosen scenario, without an assigned probability. Physical theory uncertainty is explicitly not quantified; there is no combined physical error bar.",
+          "textES": "¿Qué limita la precisión? Lee por separado el sesgo de aproximación, las cotas de localización de la raíz y el resto de Fourier, frente a la incertidumbre propagada de la masa W. La variación del diez por ciento del acoplamiento es un escenario elegido, sin probabilidad asignada. La incertidumbre teórica física figura sin cuantificar; no hay una barra de error físico combinada.",
+          "actions": [],
+          "focus": {
+            "selector": "#cvBudget",
+            "index": 0
+          },
+          "title": null
+        },
+        {
+          "id": "02_hierarchy_06",
+          "text": "Save the error certificate. The download keeps the rational enclosures, numerical budget, W input and attribution. The full mass enclosure already includes root and Fourier errors; do not add its half-width again. A different matter content or mass convention needs a matching certificate of its own.",
+          "textES": "Guarda el certificado de error. La descarga conserva los intervalos racionales, el presupuesto numérico, la entrada W y la atribución. El intervalo de masa completo ya incluye los errores de raíz y de Fourier; no sumes otra vez su semianchura. Otro contenido de materia u otra convención de masas necesita su propio certificado compatible.",
+          "actions": [
+            {
+              "kind": "click",
+              "selector": "#mdSave"
+            }
+          ],
+          "focus": {
+            "selector": "#mdSave",
+            "index": 0
+          },
+          "title": null
+        },
+        {
+          "id": "02_hierarchy_07",
+          "text": "The ATLAS and C M S rows are separate published Higgs-mass references. Compare the certified curvature mass with each stated channel and error band. The listed difference is not an exclusion significance. Connecting a one-loop curvature mass to a measured pole mass still requires matching and higher-order uncertainties.",
+          "textES": "Las filas de ATLAS y C M S son referencias publicadas separadas de masa del Higgs. Compara la masa de curvatura certificada con cada canal y banda de error indicados. La diferencia mostrada no es una significación de exclusión. Relacionar una masa de curvatura a un lazo con la masa de polo medida requiere todavía matching e incertidumbres de órdenes superiores.",
+          "actions": [],
+          "focus": {
+            "selector": "#mdExperiment",
+            "index": 0
+          },
+          "title": null
+        },
+        {
+          "id": "02_hierarchy_08",
+          "text": "The dataset links explain the route to a fuller comparison. Channels have not been combined into a likelihood. C E R N hosts the experiments and is not a third independent measurement. Archive the inputs and sources beside the result; a certified numerical calculation alone does not establish agreement with nature.",
+          "textES": "Los enlaces de datos explican el camino hacia una comparación más completa. Los canales no se han combinado en una función de verosimilitud. El CERN alberga los experimentos y no es una tercera medición independiente. Conserva las entradas y las fuentes junto al resultado: certificar el cálculo numérico no establece por sí solo su concordancia con la naturaleza.",
+          "actions": [],
+          "focus": {
+            "selector": "#mdResults > details",
+            "index": 0
+          },
+          "title": null
         }
       ],
       "number": 2
@@ -280,6 +346,60 @@
           "title": null,
           "id": "06_samepot_03",
           "textES": "La igualdad de las cinco coordenadas equivale a la identidad del potencial. Que la curva discontinua se superponga a la continua es la consecuencia que estamos comprobando."
+        },
+        {
+          "id": "06_samepot_04",
+          "text": "Load the equal-moment example and inspect the local range. These two contents have exactly the same D, A four and G through their integer coordinates, while their endpoint coordinate differs. Matching the small-angle expansion is a weaker condition than matching the complete potential.",
+          "textES": "Carga el ejemplo de momentos iguales y examina el intervalo local. Ambos contenidos tienen exactamente los mismos D, A cuatro y G a través de sus coordenadas enteras, mientras difiere la coordenada del extremo. Igualar la expansión para ángulos pequeños es una condición más débil que igualar el potencial completo.",
+          "actions": [
+            {
+              "kind": "click",
+              "selector": "#mmExample"
+            },
+            {
+              "kind": "set",
+              "selector": "#mmScale",
+              "value": "local"
+            }
+          ],
+          "focus": {
+            "selector": "#mmNumbers",
+            "index": 0
+          },
+          "title": null
+        },
+        {
+          "id": "06_samepot_05",
+          "text": "Switch to the full phase interval. The plotted full potentials separate even though the local expansions match. These curves illustrate finite Fourier sums; the exact coordinate statement and the interval proof are recorded separately. Use the full potential when judging a global vacuum.",
+          "textES": "Cambia al intervalo completo de fase. Los potenciales completos se separan aunque coincidan las expansiones locales. Las curvas ilustran sumas finitas de Fourier; la igualdad exacta de coordenadas y la prueba por intervalos se registran por separado. Utiliza el potencial completo para juzgar un vacío global.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#mmScale",
+              "value": "full"
+            }
+          ],
+          "focus": {
+            "selector": "#mmPlot",
+            "index": 0
+          },
+          "title": null
+        },
+        {
+          "id": "06_samepot_06",
+          "text": "For content B, the endpoint at alpha equal to one has certified energy below its local minimum. This rules out that local minimum as global. It does not prove that the endpoint itself is global. Save the comparison to retain the exact inputs and the scope of this mathematical example.",
+          "textES": "Para el contenido B, el extremo alfa igual a uno tiene energía certificada inferior a la de su mínimo local. Esto descarta que ese mínimo local sea global. No demuestra que el propio extremo sea global. Guarda la comparación para conservar las entradas exactas y el alcance de este ejemplo matemático.",
+          "actions": [
+            {
+              "kind": "click",
+              "selector": "#mmSave"
+            }
+          ],
+          "focus": {
+            "selector": "#mmProof",
+            "index": 0
+          },
+          "title": null
         }
       ],
       "number": 6
@@ -464,7 +584,7 @@
           "textES": "Introduce una resonancia candidata de cuatro mil gigaelectronvoltios. El peine muestrea dientes cercanos para los peldaños mostrados. Los filtros, la tabla de separaciones y la descarga utilizan la misma comprobación de cotas para las entradas elegidas. Un diente superviviente no prueba que exista un vacío físico que lo alcance."
         },
         {
-          "text": "The interval bounds apply to the small-angle moment relaxation, not the full potential. The Sage audit also excludes a stationary point throughout the rounding interval of each of the five printed S U seven phases, for the implemented coefficient table. Reconciling that table with the paper remains open. This is not a proof that the paper is wrong.",
+          "text": "The moment ceilings remain conditional on the small-angle approximation. The five printed phase rounding intervals contain no stationary point for the implemented potential. All eight fermion coefficient tables now agree with an independent reconstruction. The physical gauge determinant and the origin of the printed numerical mismatch remain open.",
           "actions": [],
           "focus": {
             "selector": "#scFive",
@@ -472,7 +592,45 @@
           },
           "title": null,
           "id": "10_screen_03",
-          "textES": "Las cotas de intervalos se aplican a la aproximación de momentos para ángulos pequeños, no al potencial completo. La auditoría con Sage excluye un punto estacionario en todo el intervalo de redondeo de cada una de las cinco fases publicadas de S U siete, para la tabla de coeficientes implementada. Su conciliación con el artículo sigue abierta. No demuestra que el artículo sea incorrecto."
+          "textES": "Los techos de momentos siguen condicionados a la aproximación para ángulos pequeños. Los intervalos de redondeo de las cinco fases publicadas no contienen puntos estacionarios del potencial implementado. Las ocho tablas fermiónicas ya coinciden con una reconstrucción independiente. Siguen abiertos el determinante gauge físico y el origen de la discrepancia numérica publicada."
+        },
+        {
+          "id": "10_screen_04",
+          "text": "Expand Certified S U seven benchmarks. Twenty-six Lean theorems verify finite algebraic identities. Separate interval proofs certify ten global minima on the stated one-phase domain: five reference contents under each of two gauge prescriptions. These statements do not certify an arbitrary edited model.",
+          "textES": "Despliega Certified S U seven benchmarks. Veintiséis teoremas de Lean verifican identidades algebraicas finitas. Pruebas de intervalos separadas certifican diez mínimos globales en el dominio indicado de una fase: cinco contenidos de referencia bajo dos prescripciones gauge. Estas afirmaciones no certifican cualquier modelo editado.",
+          "actions": [],
+          "focus": {
+            "selector": "#scCertifiedSU7",
+            "index": 0
+          },
+          "title": null
+        },
+        {
+          "id": "10_screen_05",
+          "text": "Download the certificate bundle. It contains rational enclosures, continuum partitions, checksums and reproduction records. The infinite Fourier analysis is computer-assisted and has not been formalized in Lean. A global-minimum certificate is conditional on its potential and assumptions; it is not a certificate of physical viability.",
+          "textES": "Descarga el conjunto de certificados. Contiene intervalos racionales, particiones continuas, huellas y registros de reproducción. El análisis de Fourier infinito está asistido por ordenador y no se ha formalizado en Lean. Un certificado de mínimo global depende de su potencial e hipótesis; no certifica viabilidad física.",
+          "actions": [
+            {
+              "kind": "click",
+              "selector": "#scCertifiedSU7JSON"
+            }
+          ],
+          "focus": {
+            "selector": "#scCertifiedSU7JSON",
+            "index": 0
+          },
+          "title": null
+        },
+        {
+          "id": "10_screen_06",
+          "text": "The English dossier assigns the model to Komori and Maru, the expansion antecedents to Haba, Takenaga and Yamashita and to Sakamoto and Takenaga, and the S U seven application in Part Seven to Carles Marín. Verification does not establish originality. The dossier keeps the remaining physical questions explicit.",
+          "textES": "El dossier en inglés atribuye el modelo a Komori y Maru, los antecedentes de las expansiones a Haba, Takenaga y Yamashita y a Sakamoto y Takenaga, y la aplicación S U siete de la séptima parte a Carles Marín. La verificación no establece originalidad. El dossier mantiene explícitas las cuestiones físicas pendientes.",
+          "actions": [],
+          "focus": {
+            "selector": "#scCertifiedSU7 p.note",
+            "index": 0
+          },
+          "title": null
         }
       ],
       "number": 10
@@ -521,6 +679,28 @@
           "title": null,
           "id": "11_collider_03",
           "textES": "Los valores de delta chi cuadrado de dos chorros proceden del registro publicado. El experimento del Higgs calcula su propia comparación. Sus ciento cincuenta y nueve observables no son ciento cincuenta y nueve grados de libertad independientes. Las compensaciones entre acoplamientos y anchuras impiden interpretar esto como un ajuste completo de G H U."
+        },
+        {
+          "id": "11_collider_04",
+          "text": "The displayed recast table belongs to the earlier archived calculation. Separately, the dossier now records the C M S angular dataset at one hundred thirty-eight inverse femtobarns: seven distributions and seventy-seven bins. Integrity checks validate the imported tables. Importing them has not produced a new G H U fit.",
+          "textES": "La tabla de reinterpretación mostrada pertenece al cálculo archivado anterior. Por separado, el dossier registra ahora los datos angulares de C M S con ciento treinta y ocho femtobarns inversos: siete distribuciones y setenta y siete intervalos. Las comprobaciones validan la importación de las tablas. Importarlas no ha producido un nuevo ajuste de G H U.",
+          "actions": [],
+          "focus": {
+            "selector": "#clBinsNote",
+            "index": 0
+          },
+          "title": null
+        },
+        {
+          "id": "11_collider_05",
+          "text": "The released correlation matrix describes fitted signal strengths. It cannot automatically be used as the covariance of the normalized unfolded distributions. A new reinterpretation requires the G H U signal, selections and nuisance parameters, with a justified statistical model. The dossier distinguishes reviewed resources from analyses actually executed.",
+          "textES": "La matriz de correlación publicada describe intensidades de señal ajustadas. No puede utilizarse automáticamente como covarianza de las distribuciones normalizadas y corregidas por efectos del detector. Una nueva reinterpretación requiere la señal G H U, selecciones y parámetros de incertidumbre, con un modelo estadístico justificado. El dossier distingue recursos revisados de análisis realmente ejecutados.",
+          "actions": [],
+          "focus": {
+            "selector": "#clTeeth",
+            "index": 0
+          },
+          "title": null
         }
       ],
       "number": 11
@@ -1929,6 +2109,76 @@
           "title": null,
           "id": "39_thermal_02",
           "textES": "Carga el caso dos y compara el potencial y la evolución de fases. La coexistencia y un indicador aproximado de nucleación son preguntas diferentes. Un punto nuevo necesita su cálculo compatible de la transición. Cambiar el constructor no convierte este ejemplo en la historia térmica del modelo construido."
+        },
+        {
+          "id": "39_thermal_03",
+          "text": "The new comparison runs PhaseTracer and CosmoTransitions on the same S U three potential and canonical field. Nine matched temperatures compare the bounce action. The programs share shooting-method ancestry, so agreement is a numerical cross-check, not an independent interval proof or an experimental validation.",
+          "textES": "La nueva comparación utiliza PhaseTracer y CosmoTransitions con el mismo potencial S U tres y campo canónico. Nueve temperaturas comunes comparan la acción de la transición. Los programas comparten antecedentes del método de disparo: la concordancia es una comprobación numérica, no una prueba independiente por intervalos ni una validación experimental.",
+          "actions": [],
+          "focus": {
+            "selector": "#cvThermal",
+            "index": 0
+          },
+          "title": null
+        },
+        {
+          "id": "39_thermal_04",
+          "text": "The table changes the spatial and thermal Fourier cutoffs together. T one-forty solves S three over T equal to one hundred forty. It is a proxy, separate from the integrated nucleation and percolation results. The older displayed proxy used a looser shooting tolerance; compare like settings before interpreting a difference.",
+          "textES": "La tabla cambia conjuntamente los cortes espaciales y térmicos de Fourier. T ciento cuarenta resuelve S tres dividido por T igual a ciento cuarenta. Es un indicador aproximado, separado de los resultados integrados de nucleación y percolación. El indicador anterior utilizaba una tolerancia de disparo más laxa; compara configuraciones iguales antes de interpretar una diferencia.",
+          "actions": [],
+          "focus": {
+            "selector": "#cvThermal table",
+            "index": 0
+          },
+          "title": null
+        },
+        {
+          "id": "39_thermal_05",
+          "text": "Open the numerical diagnostics. Tolerance shifts, profile sampling and the virial residual test different aspects of the calculation. The targets are numerical criteria, not confidence levels. Higher loops, thermal resummation and plasma dynamics remain unquantified. These S U three examples are separate from the S U seven mass certificates.",
+          "textES": "Abre los diagnósticos numéricos. Los cambios de tolerancia, el muestreo del perfil y el residuo virial examinan aspectos distintos del cálculo. Los objetivos son criterios numéricos, no niveles de confianza. Siguen sin cuantificar los órdenes superiores, la resumación térmica y la dinámica del plasma. Estos ejemplos S U tres son independientes de los certificados de masa S U siete.",
+          "actions": [],
+          "focus": {
+            "selector": "#cvThermal > details:last-of-type",
+            "index": 0
+          },
+          "title": null
+        },
+        {
+          "id": "39_thermal_06",
+          "text": "Change the coupling away from the reference. The archived solver comparison disappears because all thermal inputs must match. A stale certificate must not follow an edited point. Load a named paper case again to recover its evidence; a new point needs a new calculation.",
+          "textES": "Cambia el acoplamiento respecto a la referencia. La comparación archivada desaparece porque deben coincidir todas las entradas térmicas. Un certificado antiguo no debe acompañar a un punto editado. Carga de nuevo un caso identificado para recuperar su evidencia; un punto nuevo necesita otro cálculo.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#rx_thermal_controls [data-rx=\"g4\"]",
+              "value": 1.1
+            }
+          ],
+          "focus": {
+            "selector": "#cvThermal",
+            "index": 0
+          },
+          "title": null
+        },
+        {
+          "id": "39_thermal_07",
+          "text": "Reload case two and save the experiment JSON. It retains both solver versions, tolerances, cutoffs and sources. The thermal potential is credited to Hirose and Shibuya, CosmoTransitions to Carroll Wainwright, and PhaseTracer to Athron and collaborators. Keep this provenance with every exported result.",
+          "textES": "Recarga el caso dos y guarda el archivo JSON del experimento. Conserva las versiones de ambos programas, tolerancias, cortes y fuentes. El potencial térmico se atribuye a Hirose y Shibuya, CosmoTransitions a Carroll Wainwright y PhaseTracer a Athron y colaboradores. Conserva esta procedencia con cada resultado exportado.",
+          "actions": [
+            {
+              "kind": "button",
+              "text": "Thermal paper · case 2"
+            },
+            {
+              "kind": "click",
+              "selector": "#rx_thermal_json"
+            }
+          ],
+          "focus": {
+            "selector": "#rx_thermal_json",
+            "index": 0
+          },
+          "title": null
         }
       ],
       "number": 39
@@ -2139,5 +2389,6 @@
     "en": "Microsoft Zira Desktop",
     "es": "Microsoft Helena Desktop"
   },
-  "revisionOf": "2026-10-07"
+  "revisionOf": "2026-10-08",
+  "revision": "2026-10-08-certification"
 }

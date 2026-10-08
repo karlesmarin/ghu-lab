@@ -39,7 +39,9 @@ ROOT = pathlib.Path(__file__).resolve().parent
 PRIVADO = "proy" + "ectos"
 
 PATRONES = [
-    ("absolute Windows path", re.compile(r"(?<![A-Za-z0-9])[A-Za-z]:[\\/]{1,4}[A-Za-z0-9_.]")),
+    # A drive letter starts a token, including after Unicode prose. Without this
+    # boundary the last letter of "después:" plus an escaped newline looks like a path.
+    ("absolute Windows path", re.compile(r"(?<!\w)[A-Za-z]:[\\/]{1,4}[A-Za-z0-9_.]")),
     ("POSIX home path", re.compile(r"/(?:home|Users)/[A-Za-z0-9_.-]+/")),
     ("the private tree by name", re.compile(re.escape(PRIVADO))),
 ]
@@ -103,6 +105,8 @@ def main():
         ("the placeholder that exists to avoid naming it", "set GHU_SOURCES or build/sources.local",
          False),
         ("ordinary prose with a colon", "See section 4: the ceiling is 10034 GeV", False),
+        ("Spanish caption with an escaped newline", r"antes y después:\nanomalías y campos", False),
+        ("a real Windows path after Unicode prose", r"Después: E:\notes\file.txt", True),
     ]
     fallos = 0
     for etq, texto, debe in pruebas:

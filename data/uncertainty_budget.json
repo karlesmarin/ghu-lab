@@ -1,0 +1,1694 @@
+{
+  "schema": "ghu-uncertainty-budget-v1",
+  "date": "2026-10-08",
+  "arithmetic": "SageMath 10.9 / Arb 192 bits",
+  "conventions": {
+    "mWGeV": 80.4,
+    "g4": 0.63
+  },
+  "benchmarks": [
+    {
+      "row": "(1)",
+      "seed": "published",
+      "full": {
+        "alpha": [
+          "55302979294254073/1000000000000000000",
+          "55304979294254073/1000000000000000000"
+        ],
+        "higgsGeV": [
+          "605017555/4194304",
+          "302682545/2097152"
+        ],
+        "compactificationGeV": [
+          "190546835/65536",
+          "381107455/131072"
+        ],
+        "curvature": [
+          "876635625859820617718371381569/27569552992502436245957111810",
+          "443432083269232810789469590733/13930616840253628864912535535"
+        ]
+      },
+      "momentApproximation": {
+        "alpha": {
+          "fullMinusApproximate": [
+            "-1108892534044433563018214677/9255088296488926714256842969299",
+            "-905886557656873281937896685/7689101133341138411928246989308"
+          ],
+          "absolute": [
+            "905886557656873281937896685/7689101133341138411928246989308",
+            "1108892534044433563018214677/9255088296488926714256842969299"
+          ],
+          "relativePercent": [
+            "58556211199/274877906944",
+            "59552614401/274877906944"
+          ]
+        },
+        "higgsGeV": {
+          "fullMinusApproximate": [
+            "25250365795528829/36028797018963968",
+            "28235668982395005/36028797018963968"
+          ],
+          "absolute": [
+            "25250365795528829/36028797018963968",
+            "28235668982395005/36028797018963968"
+          ],
+          "relativePercent": [
+            "8346977599/17179869184",
+            "9328484801/17179869184"
+          ]
+        },
+        "compactificationGeV": {
+          "fullMinusApproximate": [
+            "55669935306006315/9007199254740992",
+            "56617234237579051/9007199254740992"
+          ],
+          "absolute": [
+            "55669935306006315/9007199254740992",
+            "56617234237579051/9007199254740992"
+          ],
+          "relativePercent": [
+            "58431667199/274877906944",
+            "59424051201/274877906944"
+          ]
+        }
+      },
+      "numerical": {
+        "fourierTerms": 2048,
+        "rootRadius": "1/1000000",
+        "curvatureTailUpper": "987904902221923429661733601/4677791307047111965567601148877",
+        "thirdDerivativeUpper": "10810237349050294040870959782667/639371956235373051137018727",
+        "curvatureFloor": "132498154104466048781593217127/4166998277595589408258172993",
+        "rootLocationMassUpperGeV": "15903625626681539850144401969/388255317646268193989137472462",
+        "fourierTailMassUpperGeV": "1547684352490634486641013574/3230800283923093179065247332477",
+        "rootPlusTailMassUpperGeV": "13209965237579099695084676373/318767045471180589016993675453",
+        "rootLocationScaleUpperGeV": "923257127948345070382322303/17560688307695176086175546064",
+        "fullMassEnclosureHalfWidthGeV": "347535/8388608",
+        "scope": "Bounds relative to the exact N-term curvature mass at the rational root-interval midpoint. Root and Fourier bounds may be added as worst-case absolute bounds; they are not independent statistical errors. The full enclosure already includes both effects and Arb rounding; do not add its half-width again."
+      },
+      "measuredW": {
+        "higgsGeV": {
+          "atMeasuredCentral": [
+            "24312388440653/168611020800",
+            "12163176997807/84305510400"
+          ],
+          "centralShift": [
+            "-4661311193/84305510400",
+            "-9317270347/168611020800"
+          ],
+          "propagatedOneSigma": [
+            "16093466963/674444083200",
+            "8051355697/337222041600"
+          ],
+          "inputBand": [
+            "32411153431883/224814694400",
+            "1946430373877/13488881664"
+          ]
+        },
+        "compactificationGeV": {
+          "atMeasuredCentral": [
+            "7657048345741/2634547200",
+            "15314650636193/5269094400"
+          ],
+          "centralShift": [
+            "-5869054807/5269094400",
+            "-2934421259/2634547200"
+          ],
+          "propagatedOneSigma": [
+            "5068545811/10538188800",
+            "10137458303/21076377600"
+          ],
+          "inputBand": [
+            "10207708279051/3512729600",
+            "2450749600123/843055104"
+          ]
+        }
+      },
+      "couplingScenario": {
+        "fraction": "1/10",
+        "range": [
+          "567/1000",
+          "693/1000"
+        ],
+        "massHalfSpanGeV": [
+          "121003511/8388608",
+          "60536509/4194304"
+        ],
+        "scaleChangeGeV": [
+          "0",
+          "0"
+        ],
+        "scope": "Chosen g4 +/-10% scenario at fixed potential and W input; not a measured uncertainty."
+      },
+      "theoryUncertainty": {
+        "status": "not-quantified",
+        "massGeV": null,
+        "missing": [
+          "Curvature-to-pole mass matching, with a specified renormalization scheme",
+          "Higher-loop corrections and perturbative control",
+          "Model completion, boundary terms and physical parameter matching"
+        ]
+      },
+      "totalPhysicalUncertaintyGeV": null
+    },
+    {
+      "row": "(1)",
+      "seed": "candidate",
+      "full": {
+        "alpha": [
+          "76117548958558681/1000000000000000000",
+          "76119548958558681/1000000000000000000"
+        ],
+        "higgsGeV": [
+          "133557123/1048576",
+          "534438997/4194304"
+        ],
+        "compactificationGeV": [
+          "276885213/131072",
+          "276892491/131072"
+        ],
+        "curvature": [
+          "491754441027537263475067634863/10470726465068597163685608464",
+          "763996645447938066691153351051/16255510612983625815174350518"
+        ]
+      },
+      "momentApproximation": {
+        "alpha": {
+          "fullMinusApproximate": [
+            "-1701337499768519010469334400/4198251768852792637063152827881",
+            "-1302444828240394445148906212/3229877085742343430843678853391"
+          ],
+          "absolute": [
+            "1302444828240394445148906212/3229877085742343430843678853391",
+            "1701337499768519010469334400/4198251768852792637063152827881"
+          ],
+          "relativePercent": [
+            "291237068799/549755813888",
+            "292689715201/549755813888"
+          ]
+        },
+        "higgsGeV": {
+          "fullMinusApproximate": [
+            "962121970215050501/576460752303423488",
+            "991053560068463877/576460752303423488"
+          ],
+          "absolute": [
+            "962121970215050501/576460752303423488",
+            "991053560068463877/576460752303423488"
+          ],
+          "relativePercent": [
+            "45023887999/34359738368",
+            "46359539201/34359738368"
+          ]
+        },
+        "compactificationGeV": {
+          "fullMinusApproximate": [
+            "3133371168146985/281474976710656",
+            "3149000569620009/281474976710656"
+          ],
+          "absolute": [
+            "3133371168146985/281474976710656",
+            "3149000569620009/281474976710656"
+          ],
+          "relativePercent": [
+            "289702092799/549755813888",
+            "291140147201/549755813888"
+          ]
+        }
+      },
+      "numerical": {
+        "fourierTerms": 2048,
+        "rootRadius": "1/1000000",
+        "curvatureTailUpper": "1605041487109086075269041657/7516225271843225060821961105626",
+        "thirdDerivativeUpper": "6791638824063426632726715376417/398089155623754509864847892",
+        "curvatureFloor": "261321982787035738036128239672/5564247547557176072336428009",
+        "rootLocationMassUpperGeV": "8394730642385951807541082405/338372424788075243617567704014",
+        "fourierTailMassUpperGeV": "242886454970571348932149101/838773029093743392615311852041",
+        "rootPlusTailMassUpperGeV": "15204381991809421861287304110/605783192391896026116524250623",
+        "rootLocationScaleUpperGeV": "20046065610360270447499906343/722301304248283394123156077930",
+        "fullMassEnclosureHalfWidthGeV": "210505/8388608",
+        "scope": "Bounds relative to the exact N-term curvature mass at the rational root-interval midpoint. Root and Fourier bounds may be added as worst-case absolute bounds; they are not independent statistical errors. The full enclosure already includes both effects and Arb rounding; do not add its half-width again."
+      },
+      "measuredW": {
+        "higgsGeV": {
+          "atMeasuredCentral": [
+            "8944899274843/70254592000",
+            "107381086594231/843055104000"
+          ],
+          "centralShift": [
+            "-41151802769/843055104000",
+            "-3427966157/70254592000"
+          ],
+          "propagatedOneSigma": [
+            "5921032453/281018368000",
+            "71080386601/3372220416000"
+          ],
+          "inputBand": [
+            "35773676066919/281018368000",
+            "17183817070541/134888816640"
+          ]
+        },
+        "compactificationGeV": {
+          "atMeasuredCentral": [
+            "18544202550533/8781824000",
+            "18544689989731/8781824000"
+          ],
+          "centralShift": [
+            "-7106907269/8781824000",
+            "-7106720467/8781824000"
+          ],
+          "propagatedOneSigma": [
+            "12275244443/35127296000",
+            "12275567101/35127296000"
+          ],
+          "inputBand": [
+            "74164534957689/35127296000",
+            "2967641421041/1405091840"
+          ]
+        }
+      },
+      "couplingScenario": {
+        "fraction": "1/10",
+        "range": [
+          "567/1000",
+          "693/1000"
+        ],
+        "massHalfSpanGeV": [
+          "133557123/10485760",
+          "534438997/41943040"
+        ],
+        "scaleChangeGeV": [
+          "0",
+          "0"
+        ],
+        "scope": "Chosen g4 +/-10% scenario at fixed potential and W input; not a measured uncertainty."
+      },
+      "theoryUncertainty": {
+        "status": "not-quantified",
+        "massGeV": null,
+        "missing": [
+          "Curvature-to-pole mass matching, with a specified renormalization scheme",
+          "Higher-loop corrections and perturbative control",
+          "Model completion, boundary terms and physical parameter matching"
+        ]
+      },
+      "totalPhysicalUncertaintyGeV": null
+    },
+    {
+      "row": "(2)",
+      "seed": "published",
+      "full": {
+        "alpha": [
+          "16612152252888741/200000000000000000",
+          "16612552252888741/200000000000000000"
+        ],
+        "higgsGeV": [
+          "536169121/4194304",
+          "1072689915/8388608"
+        ],
+        "compactificationGeV": [
+          "1014961565/524288",
+          "1014986011/524288"
+        ],
+        "curvature": [
+          "927386919100394221185272767278/16463405218318847767672271461",
+          "728817540548297249555338633966/12930449835475560437823427891"
+        ]
+      },
+      "momentApproximation": {
+        "alpha": {
+          "fullMinusApproximate": [
+            "-1413050538928621180665963596/2726624404524652214458469708825",
+            "-800550797689823867517376653/1550728582571599625345216886352"
+          ],
+          "absolute": [
+            "800550797689823867517376653/1550728582571599625345216886352",
+            "1413050538928621180665963596/2726624404524652214458469708825"
+          ],
+          "relativePercent": [
+            "341677363199/549755813888",
+            "343009792001/549755813888"
+          ]
+        },
+        "higgsGeV": {
+          "fullMinusApproximate": [
+            "1141556148472104427/576460752303423488",
+            "1165722935765747179/576460752303423488"
+          ],
+          "absolute": [
+            "1141556148472104427/576460752303423488",
+            "1165722935765747179/576460752303423488"
+          ],
+          "relativePercent": [
+            "53227420799/34359738368",
+            "54336444801/34359738368"
+          ]
+        },
+        "compactificationGeV": {
+          "fullMinusApproximate": [
+            "430809392600324893/36028797018963968",
+            "432489310589557533/36028797018963968"
+          ],
+          "absolute": [
+            "430809392600324893/36028797018963968",
+            "432489310589557533/36028797018963968"
+          ],
+          "relativePercent": [
+            "339566899199/549755813888",
+            "340883148801/549755813888"
+          ]
+        }
+      },
+      "numerical": {
+        "fourierTerms": 2048,
+        "rootRadius": "1/1000000",
+        "curvatureTailUpper": "1512310897926474023593856018/7160886392973788466870557968587",
+        "thirdDerivativeUpper": "10810237349050294040870959782667/639371956235373051137018727",
+        "curvatureFloor": "798411208352130736255319390088/14173821373139775953724911057",
+        "rootLocationMassUpperGeV": "24236788584901042567658881000/1169469009846961661230361783051",
+        "fourierTailMassUpperGeV": "850326542718142874974140041/3548418151790455428879008823194",
+        "rootPlusTailMassUpperGeV": "9238285262959724754133048247/440668638528211330839417960534",
+        "rootLocationScaleUpperGeV": "25846179751994366608132355680/1108938237976330609441542694409",
+        "fullMassEnclosureHalfWidthGeV": "351673/16777216",
+        "scope": "Bounds relative to the exact N-term curvature mass at the rational root-interval midpoint. Root and Fourier bounds may be added as worst-case absolute bounds; they are not independent statistical errors. The full enclosure already includes both effects and Arb rounding; do not add its half-width again."
+      },
+      "measuredW": {
+        "higgsGeV": {
+          "atMeasuredCentral": [
+            "107728708298683/843055104000",
+            "14368538386103/112407347200"
+          ],
+          "centralShift": [
+            "-5506474897/112407347200",
+            "-41285022317/843055104000"
+          ],
+          "propagatedOneSigma": [
+            "71310493093/3372220416000",
+            "9511183913/449629388800"
+          ],
+          "inputBand": [
+            "143614507567213/1124073472000",
+            "2299346589133/17985175552"
+          ]
+        },
+        "compactificationGeV": {
+          "atMeasuredCentral": [
+            "40785824504899/21076377600",
+            "203934034288153/105381888000"
+          ],
+          "centralShift": [
+            "-78153922847/105381888000",
+            "-15630408101/21076377600"
+          ],
+          "propagatedOneSigma": [
+            "26997977629/84305510400",
+            "134993139463/421527552000"
+          ],
+          "inputBand": [
+            "54372100013989/28101836800",
+            "32634845211683/16861102080"
+          ]
+        }
+      },
+      "couplingScenario": {
+        "fraction": "1/10",
+        "range": [
+          "567/1000",
+          "693/1000"
+        ],
+        "massHalfSpanGeV": [
+          "536169121/41943040",
+          "214537983/16777216"
+        ],
+        "scaleChangeGeV": [
+          "0",
+          "0"
+        ],
+        "scope": "Chosen g4 +/-10% scenario at fixed potential and W input; not a measured uncertainty."
+      },
+      "theoryUncertainty": {
+        "status": "not-quantified",
+        "massGeV": null,
+        "missing": [
+          "Curvature-to-pole mass matching, with a specified renormalization scheme",
+          "Higher-loop corrections and perturbative control",
+          "Model completion, boundary terms and physical parameter matching"
+        ]
+      },
+      "totalPhysicalUncertaintyGeV": null
+    },
+    {
+      "row": "(2)",
+      "seed": "candidate",
+      "full": {
+        "alpha": [
+          "10040333486091359/100000000000000000",
+          "10040533486091359/100000000000000000"
+        ],
+        "higgsGeV": [
+          "61400571/524288",
+          "982674343/8388608"
+        ],
+        "compactificationGeV": [
+          "209912925/131072",
+          "52479277/32768"
+        ],
+        "curvature": [
+          "858222300967913140547803907600/12423285123151070246115884903",
+          "2334547085456402333032874817028/33777084110024555526236765841"
+        ]
+      },
+      "momentApproximation": {
+        "alpha": {
+          "fullMinusApproximate": [
+            "-3665005941867640315282081360/3279677221720006612704729157059",
+            "-2633296202559357931096088395/2360663572025264971282189768398"
+          ],
+          "absolute": [
+            "2633296202559357931096088395/2360663572025264971282189768398",
+            "3665005941867640315282081360/3279677221720006612704729157059"
+          ],
+          "relativePercent": [
+            "610771148799/549755813888",
+            "611878809601/549755813888"
+          ]
+        },
+        "higgsGeV": {
+          "fullMinusApproximate": [
+            "486970343180692159/144115188075855872",
+            "491526565309409983/144115188075855872"
+          ],
+          "absolute": [
+            "486970343180692159/144115188075855872",
+            "491526565309409983/144115188075855872"
+          ],
+          "relativePercent": [
+            "99137980799/34359738368",
+            "100038556801/34359738368"
+          ]
+        },
+        "compactificationGeV": {
+          "fullMinusApproximate": [
+            "634000143514788411/36028797018963968",
+            "635149958927802939/36028797018963968"
+          ],
+          "absolute": [
+            "634000143514788411/36028797018963968",
+            "635149958927802939/36028797018963968"
+          ],
+          "relativePercent": [
+            "604059955199/549755813888",
+            "605143859201/549755813888"
+          ]
+        }
+      },
+      "numerical": {
+        "fourierTerms": 2048,
+        "rootRadius": "1/1000000",
+        "curvatureTailUpper": "1605041487109086075269041657/7516225271843225060821961105626",
+        "thirdDerivativeUpper": "6791638824063426632726715376417/398089155623754509864847892",
+        "curvatureFloor": "669609198317575746810116512205/9693026733466610817564771832",
+        "rootLocationMassUpperGeV": "6111840104514858025077681389/391077320578254297459677800484",
+        "fourierTailMassUpperGeV": "1584101669292979680226518332/8751498538725979496626547251715",
+        "rootPlusTailMassUpperGeV": "5736909259597303744320668807/362883687947533945521299231011",
+        "rootLocationScaleUpperGeV": "12502973217467712321876208717/783840786560472614074152364794",
+        "fullMassEnclosureHalfWidthGeV": "265207/16777216",
+        "scope": "Bounds relative to the exact N-term curvature mass at the rational root-interval midpoint. Root and Fourier bounds may be added as worst-case absolute bounds; they are not independent statistical errors. The full enclosure already includes both effects and Arb rounding; do not add its half-width again."
+      },
+      "measuredW": {
+        "higgsGeV": {
+          "atMeasuredCentral": [
+            "4112262309011/35127296000",
+            "197441877018589/1686110208000"
+          ],
+          "centralShift": [
+            "-75665924411/1686110208000",
+            "-1575947989/35127296000"
+          ],
+          "propagatedOneSigma": [
+            "2722091981/140509184000",
+            "130695687619/6744440832000"
+          ],
+          "inputBand": [
+            "16446327144063/140509184000",
+            "31595928150479/269777633280"
+          ]
+        },
+        "compactificationGeV": {
+          "atMeasuredCentral": [
+            "562351128397/351272960",
+            "10544293772671/6586368000"
+          ],
+          "centralShift": [
+            "-4040904329/6586368000",
+            "-215510603/351272960"
+          ],
+          "propagatedOneSigma": [
+            "372245587/1405091840",
+            "6979743841/26345472000"
+          ],
+          "inputBand": [
+            "2249032268001/1405091840",
+            "1687366193381/1053818880"
+          ]
+        }
+      },
+      "couplingScenario": {
+        "fraction": "1/10",
+        "range": [
+          "567/1000",
+          "693/1000"
+        ],
+        "massHalfSpanGeV": [
+          "61400571/5242880",
+          "982674343/83886080"
+        ],
+        "scaleChangeGeV": [
+          "0",
+          "0"
+        ],
+        "scope": "Chosen g4 +/-10% scenario at fixed potential and W input; not a measured uncertainty."
+      },
+      "theoryUncertainty": {
+        "status": "not-quantified",
+        "massGeV": null,
+        "missing": [
+          "Curvature-to-pole mass matching, with a specified renormalization scheme",
+          "Higher-loop corrections and perturbative control",
+          "Model completion, boundary terms and physical parameter matching"
+        ]
+      },
+      "totalPhysicalUncertaintyGeV": null
+    },
+    {
+      "row": "(3)",
+      "seed": "published",
+      "full": {
+        "alpha": [
+          "10897915907714853/250000000000000000",
+          "10898415907714853/250000000000000000"
+        ],
+        "higgsGeV": [
+          "621962415/4194304",
+          "19447781/131072"
+        ],
+        "compactificationGeV": [
+          "966946835/262144",
+          "483495603/131072"
+        ],
+        "curvature": [
+          "150496284898801709619379145684/7208182715958518476661908903",
+          "597615828540277537297797252162/28592371347160358681172426947"
+        ]
+      },
+      "momentApproximation": {
+        "alpha": {
+          "fullMinusApproximate": [
+            "-188631583093466118203923433/6417269191927296834615703901435",
+            "-658821690162590909190154728/24049530820015953414655914029389"
+          ],
+          "absolute": [
+            "658821690162590909190154728/24049530820015953414655914029389",
+            "188631583093466118203923433/6417269191927296834615703901435"
+          ],
+          "relativePercent": [
+            "17273292799/274877906944",
+            "18535475201/274877906944"
+          ]
+        },
+        "higgsGeV": {
+          "fullMinusApproximate": [
+            "25412827751342589/144115188075855872",
+            "38008318838137341/144115188075855872"
+          ],
+          "absolute": [
+            "25412827751342589/144115188075855872",
+            "38008318838137341/144115188075855872"
+          ],
+          "relativePercent": [
+            "2042947199/17179869184",
+            "3053723201/17179869184"
+          ]
+        },
+        "compactificationGeV": {
+          "fullMinusApproximate": [
+            "2608107428156035/1125899906842624",
+            "2798679612625539/1125899906842624"
+          ],
+          "absolute": [
+            "2608107428156035/1125899906842624",
+            "2798679612625539/1125899906842624"
+          ],
+          "relativePercent": [
+            "17262387199/274877906944",
+            "18523059201/274877906944"
+          ]
+        }
+      },
+      "numerical": {
+        "fourierTerms": 2048,
+        "rootRadius": "1/1000000",
+        "curvatureTailUpper": "1447156302297413989076205715/9353622585554847972275814677498",
+        "thirdDerivativeUpper": "1131259454178836152890935671279/101048433218023271647312122",
+        "curvatureFloor": "380015437239987488827046908227/18201386213244626956449393524",
+        "rootLocationMassUpperGeV": "20039811156928175692703529441/464291724709045905234681039325",
+        "fourierTailMassUpperGeV": "1632532639016123092846530431/2971258603189690655116576519218",
+        "rootPlusTailMassUpperGeV": "20938370332623253735653844021/479012273723639620777978523093",
+        "rootLocationScaleUpperGeV": "44280060651573509081903741994/523285875926446684600398039625",
+        "fullMassEnclosureHalfWidthGeV": "366577/8388608",
+        "scope": "Bounds relative to the exact N-term curvature mass at the rational root-interval midpoint. Root and Fourier bounds may be added as worst-case absolute bounds; they are not independent statistical errors. The full enclosure already includes both effects and Arb rounding; do not add its half-width again."
+      },
+      "measuredW": {
+        "higgsGeV": {
+          "atMeasuredCentral": [
+            "8331103620603/56203673600",
+            "3907506501863/26345472000"
+          ],
+          "centralShift": [
+            "-1497479137/26345472000",
+            "-3192740397/56203673600"
+          ],
+          "propagatedOneSigma": [
+            "5514733413/224814694400",
+            "2586554873/105381888000"
+          ],
+          "inputBand": [
+            "33318899748999/224814694400",
+            "625304502493/4215275520"
+          ]
+        },
+        "compactificationGeV": {
+          "atMeasuredCentral": [
+            "38856371785741/10538188800",
+            "32381795680523/8781824000"
+          ],
+          "centralShift": [
+            "-12409720477/8781824000",
+            "-14890981259/10538188800"
+          ],
+          "propagatedOneSigma": [
+            "25720785811/42152755200",
+            "21434971733/35127296000"
+          ],
+          "inputBand": [
+            "51799922119051/14050918400",
+            "5181944707753/1405091840"
+          ]
+        }
+      },
+      "couplingScenario": {
+        "fraction": "1/10",
+        "range": [
+          "567/1000",
+          "693/1000"
+        ],
+        "massHalfSpanGeV": [
+          "124392483/8388608",
+          "19447781/1310720"
+        ],
+        "scaleChangeGeV": [
+          "0",
+          "0"
+        ],
+        "scope": "Chosen g4 +/-10% scenario at fixed potential and W input; not a measured uncertainty."
+      },
+      "theoryUncertainty": {
+        "status": "not-quantified",
+        "massGeV": null,
+        "missing": [
+          "Curvature-to-pole mass matching, with a specified renormalization scheme",
+          "Higher-loop corrections and perturbative control",
+          "Model completion, boundary terms and physical parameter matching"
+        ]
+      },
+      "totalPhysicalUncertaintyGeV": null
+    },
+    {
+      "row": "(3)",
+      "seed": "candidate",
+      "full": {
+        "alpha": [
+          "67266627267184463/1000000000000000000",
+          "67268627267184463/1000000000000000000"
+        ],
+        "higgsGeV": [
+          "553109511/4194304",
+          "553287803/4194304"
+        ],
+        "compactificationGeV": [
+          "313316599/131072",
+          "626651835/262144"
+        ],
+        "curvature": [
+          "447047223663039194410655761826/11370538831012381980304492523",
+          "484763435419757220106248160240/12322629570502445668640524881"
+        ]
+      },
+      "momentApproximation": {
+        "alpha": {
+          "fullMinusApproximate": [
+            "-1815146314207689453453333038/13508101874657952286164549288985",
+            "-1757634954161212815865453935/13277731995092354152618685056633"
+          ],
+          "absolute": [
+            "1757634954161212815865453935/13277731995092354152618685056633",
+            "1815146314207689453453333038/13508101874657952286164549288985"
+          ],
+          "relativePercent": [
+            "108183449599/549755813888",
+            "109821747201/549755813888"
+          ]
+        },
+        "higgsGeV": {
+          "fullMinusApproximate": [
+            "171405632917732851/288230376151711744",
+            "183657767424228851/288230376151711744"
+          ],
+          "absolute": [
+            "171405632917732851/288230376151711744",
+            "183657767424228851/288230376151711744"
+          ],
+          "relativePercent": [
+            "15494713599/34359738368",
+            "16596972801/34359738368"
+          ]
+        },
+        "compactificationGeV": {
+          "fullMinusApproximate": [
+            "5285800870633461/1125899906842624",
+            "5365846256082933/1125899906842624"
+          ],
+          "absolute": [
+            "5285800870633461/1125899906842624",
+            "5365846256082933/1125899906842624"
+          ],
+          "relativePercent": [
+            "107970815999/549755813888",
+            "109603123201/549755813888"
+          ]
+        }
+      },
+      "numerical": {
+        "fourierTerms": 2048,
+        "rootRadius": "1/1000000",
+        "curvatureTailUpper": "1740951741051592445545465813/11083977152145780038708638904287",
+        "thirdDerivativeUpper": "17855138988464238024667912804306/1573385367051733171859331043",
+        "curvatureFloor": "470510522791520613383167483491/11967370022413334042992764865",
+        "rootLocationMassUpperGeV": "6659505150747060653343074711/317219817742186498909925047212",
+        "fourierTailMassUpperGeV": "2008745771284559657070102014/7625664047905344063047058067969",
+        "rootPlusTailMassUpperGeV": "2708188034564593865357151923/127403587289112307850305207253",
+        "rootLocationScaleUpperGeV": "12028476268300064687884621630/338477911917184633544465623173",
+        "fullMassEnclosureHalfWidthGeV": "44573/2097152",
+        "scope": "Bounds relative to the exact N-term curvature mass at the rational root-interval midpoint. Root and Fourier bounds may be added as worst-case absolute bounds; they are not independent statistical errors. The full enclosure already includes both effects and Arb rounding; do not add its half-width again."
+      },
+      "measuredW": {
+        "higgsGeV": {
+          "atMeasuredCentral": [
+            "37044140759551/281018368000",
+            "111168245242169/843055104000"
+          ],
+          "centralShift": [
+            "-42603160831/843055104000",
+            "-14196477449/281018368000"
+          ],
+          "propagatedOneSigma": [
+            "24521188321/1124073472000",
+            "73587277799/3372220416000"
+          ],
+          "inputBand": [
+            "148152041849883/1124073472000",
+            "17789862729859/134888816640"
+          ]
+        },
+        "compactificationGeV": {
+          "atMeasuredCentral": [
+            "62952511020877/26345472000",
+            "8393917776247/3512729600"
+          ],
+          "centralShift": [
+            "-3216812753/3512729600",
+            "-24125378123/26345472000"
+          ],
+          "propagatedOneSigma": [
+            "41671107667/105381888000",
+            "5556312937/14050918400"
+          ],
+          "inputBand": [
+            "83922790991947/35127296000",
+            "1343249096717/562036736"
+          ]
+        }
+      },
+      "couplingScenario": {
+        "fraction": "1/10",
+        "range": [
+          "567/1000",
+          "693/1000"
+        ],
+        "massHalfSpanGeV": [
+          "553109511/41943040",
+          "553287803/41943040"
+        ],
+        "scaleChangeGeV": [
+          "0",
+          "0"
+        ],
+        "scope": "Chosen g4 +/-10% scenario at fixed potential and W input; not a measured uncertainty."
+      },
+      "theoryUncertainty": {
+        "status": "not-quantified",
+        "massGeV": null,
+        "missing": [
+          "Curvature-to-pole mass matching, with a specified renormalization scheme",
+          "Higher-loop corrections and perturbative control",
+          "Model completion, boundary terms and physical parameter matching"
+        ]
+      },
+      "totalPhysicalUncertaintyGeV": null
+    },
+    {
+      "row": "(4)",
+      "seed": "published",
+      "full": {
+        "alpha": [
+          "46877945147011857/1000000000000000000",
+          "46879945147011857/1000000000000000000"
+        ],
+        "higgsGeV": [
+          "314584725/2097152",
+          "157388689/1048576"
+        ],
+        "compactificationGeV": [
+          "224790979/65536",
+          "224800571/65536"
+        ],
+        "curvature": [
+          "453258843930536333371830444047/18344753064006183716349335426",
+          "296875481130974520995989467411/12001767682253901191129898746"
+        ]
+      },
+      "momentApproximation": {
+        "alpha": {
+          "fullMinusApproximate": [
+            "-741709401925112758123484633/14541067966533800450163209467978",
+            "-24240401263997688414620062953/494622299150237327048819341919660"
+          ],
+          "absolute": [
+            "24240401263997688414620062953/494622299150237327048819341919660",
+            "741709401925112758123484633/14541067966533800450163209467978"
+          ],
+          "relativePercent": [
+            "28735385599/274877906944",
+            "29909606401/274877906944"
+          ]
+        },
+        "higgsGeV": {
+          "fullMinusApproximate": [
+            "46860159175582737/144115188075855872",
+            "60099173768717329/144115188075855872"
+          ],
+          "absolute": [
+            "46860159175582737/144115188075855872",
+            "60099173768717329/144115188075855872"
+          ],
+          "relativePercent": [
+            "3723963199/17179869184",
+            "4773160001/17179869184"
+          ]
+        },
+        "compactificationGeV": {
+          "fullMinusApproximate": [
+            "32263582437987433/9007199254740992",
+            "33581898198799465/9007199254740992"
+          ],
+          "absolute": [
+            "32263582437987433/9007199254740992",
+            "33581898198799465/9007199254740992"
+          ],
+          "relativePercent": [
+            "28705305599/274877906944",
+            "29877171201/274877906944"
+          ]
+        }
+      },
+      "numerical": {
+        "fourierTerms": 2048,
+        "rootRadius": "1/1000000",
+        "curvatureTailUpper": "1185030324142982403433303012/6519152417118834992131905438535",
+        "thirdDerivativeUpper": "9340077339694894012627635154141/672025654766130491237438210",
+        "curvatureFloor": "822452199267589489441864369815/33287367044816889936417191399",
+        "rootLocationMassUpperGeV": "17823200271426602475137767715/392636056651052988770552314997",
+        "fourierTailMassUpperGeV": "2452390249709624335577965137/4444235634243077737601356156985",
+        "rootPlusTailMassUpperGeV": "15490875279866770447423834717/337157573786808431507188648545",
+        "rootLocationScaleUpperGeV": "23214153833391553693879293628/317258459374944729352024172799",
+        "fullMassEnclosureHalfWidthGeV": "192653/4194304",
+        "scope": "Bounds relative to the exact N-term curvature mass at the rational root-interval midpoint. Root and Fourier bounds may be added as worst-case absolute bounds; they are not independent statistical errors. The full enclosure already includes both effects and Arb rounding; do not add its half-width again."
+      },
+      "measuredW": {
+        "higgsGeV": {
+          "atMeasuredCentral": [
+            "842764089349/5620367360",
+            "31623007559947/210763776000"
+          ],
+          "centralShift": [
+            "-12118929053/210763776000",
+            "-322973651/5620367360"
+          ],
+          "propagatedOneSigma": [
+            "557863579/22481469440",
+            "20932695637/843055104000"
+          ],
+          "inputBand": [
+            "3370498493817/22481469440",
+            "5060518517417/33722204160"
+          ]
+        },
+        "compactificationGeV": {
+          "atMeasuredCentral": [
+            "45165677873617/13172736000",
+            "45167605127033/13172736000"
+          ],
+          "centralShift": [
+            "-17309643967/13172736000",
+            "-17308905383/13172736000"
+          ],
+          "propagatedOneSigma": [
+            "29897200207/52690944000",
+            "29898475943/52690944000"
+          ],
+          "inputBand": [
+            "60210938098087/17563648000",
+            "7228012759363/2107637760"
+          ]
+        }
+      },
+      "couplingScenario": {
+        "fraction": "1/10",
+        "range": [
+          "567/1000",
+          "693/1000"
+        ],
+        "massHalfSpanGeV": [
+          "62916945/4194304",
+          "157388689/10485760"
+        ],
+        "scaleChangeGeV": [
+          "0",
+          "0"
+        ],
+        "scope": "Chosen g4 +/-10% scenario at fixed potential and W input; not a measured uncertainty."
+      },
+      "theoryUncertainty": {
+        "status": "not-quantified",
+        "massGeV": null,
+        "missing": [
+          "Curvature-to-pole mass matching, with a specified renormalization scheme",
+          "Higher-loop corrections and perturbative control",
+          "Model completion, boundary terms and physical parameter matching"
+        ]
+      },
+      "totalPhysicalUncertaintyGeV": null
+    },
+    {
+      "row": "(4)",
+      "seed": "candidate",
+      "full": {
+        "alpha": [
+          "68976942144450459/1000000000000000000",
+          "68978942144450459/1000000000000000000"
+        ],
+        "higgsGeV": [
+          "557369179/4194304",
+          "557574325/4194304"
+        ],
+        "compactificationGeV": [
+          "611095991/262144",
+          "152778429/65536"
+        ],
+        "curvature": [
+          "1202125525192467610266726320946/28635573601076663374939518415",
+          "599596128299141084011741543407/14273170310957951239055073344"
+        ]
+      },
+      "momentApproximation": {
+        "alpha": {
+          "fullMinusApproximate": [
+            "-2366789562853305012714643111/11460435192849797886905567439948",
+            "-308263102728701826413559819/1507264189854801231364830735590"
+          ],
+          "absolute": [
+            "308263102728701826413559819/1507264189854801231364830735590",
+            "2366789562853305012714643111/11460435192849797886905567439948"
+          ],
+          "relativePercent": [
+            "162998988799/549755813888",
+            "164598272001/549755813888"
+          ]
+        },
+        "higgsGeV": {
+          "fullMinusApproximate": [
+            "267758810773547005/288230376151711744",
+            "281856338141865981/288230376151711744"
+          ],
+          "absolute": [
+            "267758810773547005/288230376151711744",
+            "281856338141865981/288230376151711744"
+          ],
+          "relativePercent": [
+            "24019862399/34359738368",
+            "25275248001/34359738368"
+          ]
+        },
+        "compactificationGeV": {
+          "fullMinusApproximate": [
+            "124141930379019585/18014398509481984",
+            "125359984318416193/18014398509481984"
+          ],
+          "absolute": [
+            "124141930379019585/18014398509481984",
+            "125359984318416193/18014398509481984"
+          ],
+          "relativePercent": [
+            "162516787199/549755813888",
+            "164107110401/549755813888"
+          ]
+        }
+      },
+      "numerical": {
+        "fourierTerms": 2048,
+        "rootRadius": "1/1000000",
+        "curvatureTailUpper": "573802880731580904359752528/3116294816235075750691403816249",
+        "thirdDerivativeUpper": "187862892531404406251639053756/13369688495672639646886543",
+        "curvatureFloor": "666726452583919491923621747935/15882017098203452695847254328",
+        "rootLocationMassUpperGeV": "24669764090759120959637687815/1020776407812947095953908044178",
+        "fourierTailMassUpperGeV": "1269445659661654373264120825/4355856452124676685537482311213",
+        "rootPlusTailMassUpperGeV": "7768799469456469831242396166/317624334894463778873893670867",
+        "rootLocationScaleUpperGeV": "16567921982228443245725940515/490225804146849980562859106606",
+        "fullMassEnclosureHalfWidthGeV": "102573/4194304",
+        "scope": "Bounds relative to the exact N-term curvature mass at the rational root-interval midpoint. Root and Fourier bounds may be added as worst-case absolute bounds; they are not independent statistical errors. The full enclosure already includes both effects and Arb rounding; do not add its half-width again."
+      },
+      "measuredW": {
+        "higgsGeV": {
+          "atMeasuredCentral": [
+            "111988287552217/843055104000",
+            "4481180244079/33722204160"
+          ],
+          "centralShift": [
+            "-1717328921/33722204160",
+            "-42917426783/843055104000"
+          ],
+          "propagatedOneSigma": [
+            "74130100807/3372220416000",
+            "2966295409/134888816640"
+          ],
+          "inputBand": [
+            "149293006702687/1124073472000",
+            "3585537454345/26977763328"
+          ]
+        },
+        "compactificationGeV": {
+          "atMeasuredCentral": [
+            "122783239799693/52690944000",
+            "10232233429989/4390912000"
+          ],
+          "centralShift": [
+            "-3921313011/4390912000",
+            "-47054391307/52690944000"
+          ],
+          "propagatedOneSigma": [
+            "81275766803/210763776000",
+            "6773177019/17563648000"
+          ],
+          "inputBand": [
+            "163683894477323/70254592000",
+            "1637428275879/702545920"
+          ]
+        }
+      },
+      "couplingScenario": {
+        "fraction": "1/10",
+        "range": [
+          "567/1000",
+          "693/1000"
+        ],
+        "massHalfSpanGeV": [
+          "557369179/41943040",
+          "111514865/8388608"
+        ],
+        "scaleChangeGeV": [
+          "0",
+          "0"
+        ],
+        "scope": "Chosen g4 +/-10% scenario at fixed potential and W input; not a measured uncertainty."
+      },
+      "theoryUncertainty": {
+        "status": "not-quantified",
+        "massGeV": null,
+        "missing": [
+          "Curvature-to-pole mass matching, with a specified renormalization scheme",
+          "Higher-loop corrections and perturbative control",
+          "Model completion, boundary terms and physical parameter matching"
+        ]
+      },
+      "totalPhysicalUncertaintyGeV": null
+    },
+    {
+      "row": "(5)",
+      "seed": "published",
+      "full": {
+        "alpha": [
+          "55275917588735019/1000000000000000000",
+          "55277917588735019/1000000000000000000"
+        ],
+        "higgsGeV": [
+          "606827341/4194304",
+          "303581747/2097152"
+        ],
+        "compactificationGeV": [
+          "381280237/131072",
+          "762588071/262144"
+        ],
+        "curvature": [
+          "222248187262488867057700618229/6954719645897945201592491545",
+          "915690093711276855536419222859/28624659340401819352352178533"
+        ]
+      },
+      "momentApproximation": {
+        "alpha": {
+          "fullMinusApproximate": [
+            "-1266144817381622607830080455/10841431084311961011051443577812",
+            "-2185453924411239659076411093/19039110376129080181312389090346"
+          ],
+          "absolute": [
+            "2185453924411239659076411093/19039110376129080181312389090346",
+            "1266144817381622607830080455/10841431084311961011051443577812"
+          ],
+          "relativePercent": [
+            "57079807999/274877906944",
+            "58076620801/274877906944"
+          ]
+        },
+        "higgsGeV": {
+          "fullMinusApproximate": [
+            "98539056952012205/144115188075855872",
+            "110089187157372333/144115188075855872"
+          ],
+          "absolute": [
+            "98539056952012205/144115188075855872",
+            "110089187157372333/144115188075855872"
+          ],
+          "relativePercent": [
+            "8119193599/17179869184",
+            "9065868801/17179869184"
+          ]
+        },
+        "compactificationGeV": {
+          "fullMinusApproximate": [
+            "54295740940840575/9007199254740992",
+            "55243967586397823/9007199254740992"
+          ],
+          "absolute": [
+            "54295740940840575/9007199254740992",
+            "55243967586397823/9007199254740992"
+          ],
+          "relativePercent": [
+            "56961407999/274877906944",
+            "57954304001/274877906944"
+          ]
+        }
+      },
+      "numerical": {
+        "fourierTerms": 2048,
+        "rootRadius": "1/1000000",
+        "curvatureTailUpper": "577742308382088335382257576/2846657567658752200554333863967",
+        "thirdDerivativeUpper": "8270049370372203590453219714007/505920124656951552542403212",
+        "curvatureFloor": "2474697856627802693428420997729/77440177665290534691364530901",
+        "rootLocationMassUpperGeV": "20542032859170997039577997463/518426514564950113487917094090",
+        "fourierTailMassUpperGeV": "189051233058234568599589609/411485647593143505717409476160",
+        "rootPlusTailMassUpperGeV": "11752988821025510051357542041/293214510755050637171384183981",
+        "rootLocationScaleUpperGeV": "23456666392664586742135351095/445717847923323593099499217564",
+        "fullMassEnclosureHalfWidthGeV": "336153/8388608",
+        "scope": "Bounds relative to the exact N-term curvature mass at the rational root-interval midpoint. Root and Fourier bounds may be added as worst-case absolute bounds; they are not independent statistical errors. The full enclosure already includes both effects and Arb rounding; do not add its half-width again."
+      },
+      "measuredW": {
+        "higgsGeV": {
+          "atMeasuredCentral": [
+            "121925569835743/843055104000",
+            "60996555352481/421527552000"
+          ],
+          "centralShift": [
+            "-23375794519/421527552000",
+            "-46725705257/843055104000"
+          ],
+          "propagatedOneSigma": [
+            "80708036353/3372220416000",
+            "40376372351/1686110208000"
+          ],
+          "inputBand": [
+            "162540523768873/1124073472000",
+            "9761063911291/67444408320"
+          ]
+        },
+        "compactificationGeV": {
+          "atMeasuredCentral": [
+            "76607969058751/26345472000",
+            "153221482989533/52690944000"
+          ],
+          "centralShift": [
+            "-58719281467/52690944000",
+            "-29358578249/26345472000"
+          ],
+          "propagatedOneSigma": [
+            "50710271521/105381888000",
+            "101424213443/210763776000"
+          ],
+          "inputBand": [
+            "102127055321161/35127296000",
+            "24519494246863/8430551040"
+          ]
+        }
+      },
+      "couplingScenario": {
+        "fraction": "1/10",
+        "range": [
+          "567/1000",
+          "693/1000"
+        ],
+        "massHalfSpanGeV": [
+          "606827341/41943040",
+          "303581747/20971520"
+        ],
+        "scaleChangeGeV": [
+          "0",
+          "0"
+        ],
+        "scope": "Chosen g4 +/-10% scenario at fixed potential and W input; not a measured uncertainty."
+      },
+      "theoryUncertainty": {
+        "status": "not-quantified",
+        "massGeV": null,
+        "missing": [
+          "Curvature-to-pole mass matching, with a specified renormalization scheme",
+          "Higher-loop corrections and perturbative control",
+          "Model completion, boundary terms and physical parameter matching"
+        ]
+      },
+      "totalPhysicalUncertaintyGeV": null
+    },
+    {
+      "row": "(5)",
+      "seed": "candidate",
+      "full": {
+        "alpha": [
+          "37964424623905347/500000000000000000",
+          "37965424623905347/500000000000000000"
+        ],
+        "higgsGeV": [
+          "134443885/1048576",
+          "537979389/4194304"
+        ],
+        "compactificationGeV": [
+          "277573315/131072",
+          "277580629/131072"
+        ],
+        "curvature": [
+          "419572324713489862619055102843/8860194553962694624129672760",
+          "204797115158148360263443827989/4321693505008778902497005999"
+        ]
+      },
+      "momentApproximation": {
+        "alpha": {
+          "fullMinusApproximate": [
+            "-1896372650925628183146779542/4868227436901941757760602386947",
+            "-3219042325704265246275603379/8306333931570326102010603949311"
+          ],
+          "absolute": [
+            "3219042325704265246275603379/8306333931570326102010603949311",
+            "1896372650925628183146779542/4868227436901941757760602386947"
+          ],
+          "relativePercent": [
+            "280587673599/549755813888",
+            "282043596801/549755813888"
+          ]
+        },
+        "higgsGeV": {
+          "fullMinusApproximate": [
+            "928724373975866239/576460752303423488",
+            "956741170154969983/576460752303423488"
+          ],
+          "absolute": [
+            "928724373975866239/576460752303423488",
+            "956741170154969983/576460752303423488"
+          ],
+          "relativePercent": [
+            "43174335999/34359738368",
+            "44459948801/34359738368"
+          ]
+        },
+        "compactificationGeV": {
+          "fullMinusApproximate": [
+            "48430104342696511/4503599627370496",
+            "48681411718156863/4503599627370496"
+          ],
+          "absolute": [
+            "48430104342696511/4503599627370496",
+            "48681411718156863/4503599627370496"
+          ],
+          "relativePercent": [
+            "279162675199/549755813888",
+            "280604518401/549755813888"
+          ]
+        }
+      },
+      "numerical": {
+        "fourierTerms": 2048,
+        "rootRadius": "1/1000000",
+        "curvatureTailUpper": "285916583453163594424250002/1392624621491738266982795845551",
+        "thirdDerivativeUpper": "7751363781672497240890417388912/469792112825289392935967879",
+        "curvatureFloor": "3186334736034659688055409649307/67286773725403613756851241771",
+        "rootLocationMassUpperGeV": "13154084145011689861384210157/547478702588007350548060734132",
+        "fourierTailMassUpperGeV": "4119539324398436341413002215/14821397141392895226896203610127",
+        "rootPlusTailMassUpperGeV": "10360670306853357121765654535/426284258489510310450342551964",
+        "rootLocationScaleUpperGeV": "13077830967316778552379362399/468887905695929429563546310328",
+        "fullMassEnclosureHalfWidthGeV": "203849/8388608",
+        "scope": "Bounds relative to the exact N-term curvature mass at the rational root-interval midpoint. Root and Fourier bounds may be added as worst-case absolute bounds; they are not independent statistical errors. The full enclosure already includes both effects and Arb rounding; do not add its half-width again."
+      },
+      "measuredW": {
+        "higgsGeV": {
+          "atMeasuredCentral": [
+            "5402573741171/42152755200",
+            "36030810925349/281018368000"
+          ],
+          "centralShift": [
+            "-13808137651/281018368000",
+            "-2070435829/42152755200"
+          ],
+          "propagatedOneSigma": [
+            "3576207341/168611020800",
+            "23850419579/1124073472000"
+          ],
+          "inputBand": [
+            "7202239585781/56203673600",
+            "5765883764839/44962938880"
+          ]
+        },
+        "compactificationGeV": {
+          "atMeasuredCentral": [
+            "11154172633949/5269094400",
+            "55772332720567/26345472000"
+          ],
+          "centralShift": [
+            "-21373708433/26345472000",
+            "-4274629051/5269094400"
+          ],
+          "propagatedOneSigma": [
+            "7383450179/21076377600",
+            "36918223657/105381888000"
+          ],
+          "inputBand": [
+            "14869769028539/7025459200",
+            "8925049964237/4215275520"
+          ]
+        }
+      },
+      "couplingScenario": {
+        "fraction": "1/10",
+        "range": [
+          "567/1000",
+          "693/1000"
+        ],
+        "massHalfSpanGeV": [
+          "26888777/2097152",
+          "537979389/41943040"
+        ],
+        "scaleChangeGeV": [
+          "0",
+          "0"
+        ],
+        "scope": "Chosen g4 +/-10% scenario at fixed potential and W input; not a measured uncertainty."
+      },
+      "theoryUncertainty": {
+        "status": "not-quantified",
+        "massGeV": null,
+        "missing": [
+          "Curvature-to-pole mass matching, with a specified renormalization scheme",
+          "Higher-loop corrections and perturbative control",
+          "Model completion, boundary terms and physical parameter matching"
+        ]
+      },
+      "totalPhysicalUncertaintyGeV": null
+    }
+  ],
+  "measuredW": {
+    "value": "200923/2500",
+    "sigma": "133/10000",
+    "unit": "GeV",
+    "source": "PDG 2025, Mass and Width of the W Boson; LHC-TeV W-mass Working Group average",
+    "url": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-w-mass.pdf",
+    "scope": "Pinned input used in the laboratory; not a combination with the excluded CDF 2022 measurement."
+  },
+  "identities": [
+    "At fixed potential geometry, m_h is proportional to g4*mW; 1/R5 is proportional to mW and independent of g4.",
+    "F double-prime tail <= sum |multiplicity| (pi charge)^2 / (2 N^2).",
+    "sup |F triple-prime| <= zeta(2) sum |multiplicity| (pi charge)^3.",
+    "A certified enclosure is a mathematical inclusion, not a probability interval."
+  ],
+  "inputs": {
+    "data/moment_diagnostics.json": "c4c158591e7fe53d18a1faa90831dbf81733e1f34705c1548dcd71766580b29a",
+    "proof/moments/certify.py": "875736294a801c245fa1187eb472f1478363f5a547e4b67f1ce4ea7e4f69f4e8",
+    "proof/uncertainty/certify.py": "65f9ee0bfce1eac6abc625eb7fc27277e9522390b074cf2266f222bbae455143",
+    "src/kernel/experiment.mjs": "4ab108aafe480733b2fa8adaf855b6b8837781ef3a9d6c83feb239021cb57529"
+  },
+  "checks": [
+    {
+      "name": "source proof script unchanged",
+      "passed": true
+    },
+    {
+      "name": "source interval checks passed",
+      "passed": true
+    },
+    {
+      "name": "fixed mass inputs",
+      "passed": true
+    },
+    {
+      "name": "model data unchanged",
+      "passed": true
+    },
+    {
+      "name": "source certificate reconstruction.json",
+      "passed": true
+    },
+    {
+      "name": "source certificate global_certificates.json",
+      "passed": true
+    },
+    {
+      "name": "source certificate sage_verification.json",
+      "passed": true
+    },
+    {
+      "name": "(1) published: positive full/finite curvature floor",
+      "passed": true
+    },
+    {
+      "name": "(1) published: positive W response higgsGeV",
+      "passed": true
+    },
+    {
+      "name": "(1) published: positive W response compactificationGeV",
+      "passed": true
+    },
+    {
+      "name": "(1) published: positive numerical bounds",
+      "passed": true
+    },
+    {
+      "name": "(1) published: measured input band encloses central",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: positive full/finite curvature floor",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: positive W response higgsGeV",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: positive W response compactificationGeV",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: positive numerical bounds",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: measured input band encloses central",
+      "passed": true
+    },
+    {
+      "name": "(2) published: positive full/finite curvature floor",
+      "passed": true
+    },
+    {
+      "name": "(2) published: positive W response higgsGeV",
+      "passed": true
+    },
+    {
+      "name": "(2) published: positive W response compactificationGeV",
+      "passed": true
+    },
+    {
+      "name": "(2) published: positive numerical bounds",
+      "passed": true
+    },
+    {
+      "name": "(2) published: measured input band encloses central",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: positive full/finite curvature floor",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: positive W response higgsGeV",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: positive W response compactificationGeV",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: positive numerical bounds",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: measured input band encloses central",
+      "passed": true
+    },
+    {
+      "name": "(3) published: positive full/finite curvature floor",
+      "passed": true
+    },
+    {
+      "name": "(3) published: positive W response higgsGeV",
+      "passed": true
+    },
+    {
+      "name": "(3) published: positive W response compactificationGeV",
+      "passed": true
+    },
+    {
+      "name": "(3) published: positive numerical bounds",
+      "passed": true
+    },
+    {
+      "name": "(3) published: measured input band encloses central",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: positive full/finite curvature floor",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: positive W response higgsGeV",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: positive W response compactificationGeV",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: positive numerical bounds",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: measured input band encloses central",
+      "passed": true
+    },
+    {
+      "name": "(4) published: positive full/finite curvature floor",
+      "passed": true
+    },
+    {
+      "name": "(4) published: positive W response higgsGeV",
+      "passed": true
+    },
+    {
+      "name": "(4) published: positive W response compactificationGeV",
+      "passed": true
+    },
+    {
+      "name": "(4) published: positive numerical bounds",
+      "passed": true
+    },
+    {
+      "name": "(4) published: measured input band encloses central",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: positive full/finite curvature floor",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: positive W response higgsGeV",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: positive W response compactificationGeV",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: positive numerical bounds",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: measured input band encloses central",
+      "passed": true
+    },
+    {
+      "name": "(5) published: positive full/finite curvature floor",
+      "passed": true
+    },
+    {
+      "name": "(5) published: positive W response higgsGeV",
+      "passed": true
+    },
+    {
+      "name": "(5) published: positive W response compactificationGeV",
+      "passed": true
+    },
+    {
+      "name": "(5) published: positive numerical bounds",
+      "passed": true
+    },
+    {
+      "name": "(5) published: measured input band encloses central",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: positive full/finite curvature floor",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: positive W response higgsGeV",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: positive W response compactificationGeV",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: positive numerical bounds",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: measured input band encloses central",
+      "passed": true
+    }
+  ],
+  "passed": 57,
+  "attribution": "Komori\u2013Maru model; Haba\u2013Takenaga\u2013Yamashita and Sakamoto\u2013Takenaga expansions; Carles Marin, Part VII SU(7) moment application. Verification and uncertainty bookkeeping make no priority claim.",
+  "scope": "Conditional one-loop budget. Gauge prescriptions remain separate hypotheses. Approximation bias, numerical enclosure, measured-input propagation and chosen parameter scenarios are not combined in quadrature. No total physical error or exclusion significance is available."
+}

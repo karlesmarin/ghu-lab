@@ -1,0 +1,120 @@
+{
+  "date": "2026-10-08",
+  "policy": "A theorem has explicit hypotheses and a proof. Formal verification and originality are separate statuses. No theorem here is advertised as new to the literature.",
+  "entries": [
+    {
+      "id": "SU7-T1",
+      "statement": "The 7, Sym2(7), adjoint and Sym3(7) characters imply the eight implemented fermionic coefficient tables.",
+      "proof": "Lean exact weights plus independent matrix diagonalization and Newton identities.",
+      "status": "formal-algebra",
+      "novelty": "reconstruction of published representation content"
+    },
+    {
+      "id": "SU7-T2",
+      "statement": "Changing periodic gauge weight 4 to 3 with the odd-sector weight fixed at 1 changes 8D by 9 and A4 by 9/2, preserving W and 8D-2A4, for every fixed matter content.",
+      "proof": "Lean, including universal integer matter shifts.",
+      "status": "formal-algebra",
+      "novelty": "formalization of the pre-existing Part VII seed relation"
+    },
+    {
+      "id": "SU7-T3",
+      "statement": "Each of the five Table 1 rounding boxes contains no stationary point for the explicitly transcribed infinite potential.",
+      "proof": "Integer interval arithmetic, analytic Fourier remainder and independent Arb replay.",
+      "status": "computer-assisted-theorem",
+      "novelty": "specific reproducibility result; priority not established"
+    },
+    {
+      "id": "SU7-T4",
+      "statement": "No common positive integer winding cutoff or common multiplicative fermionic normalization restores stationarity in all five rounding boxes.",
+      "proof": "Finite exact interval exclusions, uniform infinite-tail bound and disjoint normalization intervals.",
+      "status": "computer-assisted-theorem",
+      "novelty": "candidate methodological result; literature review incomplete"
+    },
+    {
+      "id": "SU7-T5",
+      "statement": "For each of five listed matter contents and each of two fixed gauge seeds, the enclosed positive small-phase root is the unique global minimum on [0,1].",
+      "proof": "Exhaustive continuum cover, strict convexity at the root, positive exterior energy gaps; independently checked with Arb.",
+      "status": "computer-assisted-theorem",
+      "novelty": "specific certified benchmarks; no priority claim"
+    },
+    {
+      "id": "SU7-T6",
+      "statement": "Within the printed massless determinant, restoring the sixth-direction terms at k=R5/R6>=10 cannot reconcile the printed phases.",
+      "proof": "Exact exponential bound and a uniform derivative-error enclosure.",
+      "status": "computer-assisted-theorem",
+      "novelty": "bounded alternative explanation; no priority claim"
+    },
+    {
+      "id": "GHU-L1",
+      "statement": "The printed KLY harmonic differentiates to curvature coefficient 18-4Nf.",
+      "proof": "Exact symbolic differentiation in Sage.",
+      "status": "symbolic-identity",
+      "novelty": "consistency check on an existing formula"
+    },
+    {
+      "id": "GHU-L2",
+      "statement": "At a stationary point of the stated small-angle expansion, f_xx=2*zeta(3)*D-A4*x^2/6.",
+      "proof": "Exact symbolic substitution in Sage.",
+      "status": "conditional-symbolic-identity",
+      "novelty": "existing small-angle identity"
+    },
+    {
+      "id": "SU7-T7",
+      "statement": "For every nonnegative integer combination of the eight matter generators, 8D-2A4 is congruent to 3 modulo 6 for either gauge seed; 8D is odd for the printed seed and even for the 3+1 seed.",
+      "proof": "Lean: exact generator moments followed by universal integer congruence proofs.",
+      "status": "formal-algebra",
+      "novelty": "formalization of the existing Part VII lattice laws"
+    },
+    {
+      "id": "SU7-T8",
+      "statement": "The ten certified roots give enclosed Higgs masses and compactification scales at fixed mW=80.4 GeV and g4=0.63.",
+      "proof": "Arb propagation of root and curvature intervals through the stated positive mass formulas.",
+      "status": "conditional-computer-assisted-result",
+      "novelty": "certified evaluation of known mass formulas"
+    }
+  ],
+  "open": [
+    {
+      "area": "Physical gauge determinant",
+      "required": "Complete written gauge-fixed boundary problem and literature/author comparison; algebraic 3+1 counting alone does not settle every physical assumption."
+    },
+    {
+      "area": "Other model contents and multiple Wilson phases",
+      "required": "An individual continuum certificate; ten benchmarks do not certify arbitrary scans."
+    },
+    {
+      "area": "Moment upper bounds",
+      "required": "Keep small-angle hypotheses. A certified full-Fourier benchmark does not promote the moment ceiling into a full-potential theorem."
+    },
+    {
+      "area": "Neutrinos and collider comparisons",
+      "required": "Algebraic identities may be formalized; numerical diagonalization, experimental inputs and phenomenological viability require their own checks."
+    },
+    {
+      "area": "Thermal bounce and cosmological history",
+      "required": "Validated differential-equation solutions and full error propagation before claiming interval-certified transition predictions."
+    },
+    {
+      "area": "Originality",
+      "required": "Targeted primary-source review followed by expert scrutiny; lack of a search result is not evidence of nonexistence."
+    },
+    {
+      "area": "Real analysis in Lean",
+      "required": "Formalize convergence, derivative interchange, tail estimates, convexity and the certificate checker. Present analytic proofs are computer-assisted, not Lean-certified."
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://arxiv.org/pdf/2503.04090v1",
+      "role": "Input model and printed benchmark table; PDF equation numbering used."
+    },
+    {
+      "url": "https://arxiv.org/abs/hep-ph/0401185",
+      "role": "Earlier general one-loop GHU potential; no renewed missing-absolute-value allegation."
+    },
+    {
+      "url": "https://arxiv.org/abs/hep-ph/0411250",
+      "role": "Earlier Higgs-potential expansion work; relevant prior art."
+    }
+  ]
+}

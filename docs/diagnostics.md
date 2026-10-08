@@ -69,3 +69,28 @@ Hover or tap to inspect a point, or focus a chart and use arrows, Home or End.
 The readout gives both absolute masses and relative changes. Each figure can be
 downloaded as a standalone SVG with its model, settings, measured W source, units
 and actual plotted values embedded in metadata. JSON/LaTeX exports remain available.
+
+## Conditional SU(7) uncertainty budget
+
+Hierarchy → How accurate is the moment approximation? now includes a budget for each of the
+ten certified configurations. It separates the moment approximation bias, root-location and
+Fourier-remainder bounds, exact propagation of the registered W-mass input, and the chosen
+g4 variation. The central W-input update from 80.4 to 80.3692 GeV is displayed separately from
+its 0.0133 GeV uncertainty. The original fixed-input certificate and LHC comparison retain
+their original conventions.
+
+The Fourier remainder bound at N=2048 is below 0.001 GeV in all ten cases. The current root
+interval gives a larger conservative mass bound; this is an enclosure limitation, not a
+measurement of the actual root-finding error. Changing g4 by an assumed ±10% is a scenario,
+not an experimental uncertainty. Gauge prescriptions remain separate hypotheses.
+
+Missing pole-mass matching, higher loops and model-completion effects remain **not quantified**;
+the JSON stores the total physical uncertainty as null. These categories cannot be combined
+in quadrature. The full numerical enclosure already includes the root and Fourier effects;
+its half-width must not be counted again.
+
+See the [derivation and bounds](su7-certification.html#uncertainty-budget) and
+[machine-readable budget](../data/uncertainty_budget.json). Reproduce its 57 exact/Arb checks
+with `sage -python proof/uncertainty/certify.py`, then regenerate the browser references with
+`python tools/build_crossvalidation_reference.py`. The existing certificate's JSON export
+includes this budget. Editing the model or mass conventions withdraws unmatched evidence.

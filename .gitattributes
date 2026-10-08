@@ -1,2 +1,51 @@
 # Preserve the bytes of the original published experimental tables and their hashes.
 data/icecube_deepcore_2018/* -text -whitespace
+
+# Preserve certificate inputs and proof bytes across platform checkouts.
+# External records retain their original whitespace as part of the archived bytes.
+data/lhc_higgs_mass_reference.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+data/lhc_reference/audit.json -text -whitespace
+data/lhc_reference/cms_combine_record.json -text -whitespace
+data/lhc_reference/cms_dijet_1912114.json -text -whitespace
+data/lhc_reference/cms_dijet_1912115.json -text -whitespace
+data/lhc_reference/cms_dijet_1912116.json -text -whitespace
+data/lhc_reference/cms_dijet_1912117.json -text -whitespace
+data/lhc_reference/cms_dijet_1912118.json -text -whitespace
+data/lhc_reference/cms_dijet_1912119.json -text -whitespace
+data/lhc_reference/cms_dijet_1912120.json -text -whitespace
+data/lhc_reference/cms_dijet_1912121.json -text -whitespace
+data/lhc_reference/cms_dijet_record.json -text -whitespace
+data/lhc_reference/cms_higgs_record.json -text -whitespace
+data/lhc_reference/resource_catalog.json -text -whitespace
+data/moment_diagnostics.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+data/su7_certification/bounds_sage_verification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+data/su7_certification/candidate_bounds.input.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+data/su7_certification/certificate_bundle.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+data/su7_certification/formula_attribution.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+data/su7_certification/global_certificates.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+data/su7_certification/lean.log -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+data/su7_certification/lean_verification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+data/su7_certification/literature_audit.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+data/su7_certification/reconstruction.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+data/su7_certification/sage_verification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+data/su7_certification/theorem_registry.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+data/su7_km25.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+data/thermal_crossvalidation.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+data/thermal_history_case1.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+data/thermal_history_case2.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+data/uncertainty_budget.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+proof/moments/certify.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+proof/moments/check_datasets.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+proof/su7/2503.04090v1.pdf -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+proof/su7/SU7Certificates.lean -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+proof/su7/global_certificates.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+proof/su7/reconstruct.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+proof/su7/su7_km25.input.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+proof/su7/verify_bounds_sage.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+proof/su7/verify_sage.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+proof/uncertainty/certify.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+src/kernel/experiment.mjs -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+tools/crossvalidation-requirements.txt -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+tools/thermal_bounce.cpp -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+tools/thermal_crossvalidate.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+tools/thermal_run.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

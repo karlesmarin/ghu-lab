@@ -1,0 +1,26 @@
+'GHU.fundamental_dimension' does not depend on any axioms
+'GHU.symmetric2_dimension' does not depend on any axioms
+'GHU.symmetric3_dimension' does not depend on any axioms
+'GHU.adjoint_dimension' does not depend on any axioms
+'GHU.fundamental_coefficients' does not depend on any axioms
+'GHU.symmetric2_coefficients' does not depend on any axioms
+'GHU.adjoint_coefficients' does not depend on any axioms
+'GHU.symmetric3_coefficients' does not depend on any axioms
+'GHU.adjoint_parity_resolution' does not depend on any axioms
+'GHU.printed_gauge_coefficients' does not depend on any axioms
+'GHU.background_gauge_coefficients' does not depend on any axioms
+'GHU.seed_shift_d8' does not depend on any axioms
+'GHU.seed_shift_a4' does not depend on any axioms
+'GHU.seed_shift_w' does not depend on any axioms
+'GHU.seed_shift_preserves_law_combination' does not depend on any axioms
+'GHU.quartet_lower_weight_is_required' does not depend on any axioms
+'GHU.same_matter_preserves_d8_shift' depends on axioms: [propext, Quot.sound]
+'GHU.same_matter_preserves_a4_shift' depends on axioms: [propext, Quot.sound]
+'GHU.same_matter_preserves_w' does not depend on any axioms
+'GHU.dirac_chirality_trace_cancels_parity' depends on axioms: [propext, Quot.sound]
+'GHU.eight_generator_moments' does not depend on any axioms
+'GHU.universal_matter_congruence' depends on axioms: [propext, Quot.sound]
+'GHU.published_seed_congruence' depends on axioms: [propext, Quot.sound]
+'GHU.candidate_seed_congruence' depends on axioms: [propext, Quot.sound]
+'GHU.published_seed_odd' depends on axioms: [propext, Quot.sound]
+'GHU.candidate_seed_even' depends on axioms: [propext, Quot.sound]

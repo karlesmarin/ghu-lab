@@ -1,0 +1,49 @@
+{
+  "schema": "ghu-lhc-higgs-mass-v1",
+  "checkedDate": "2026-10-08",
+  "unit": "GeV",
+  "attribution": "Measurements belong to the ATLAS and CMS Collaborations. Transcription and conditional comparison are laboratory work.",
+  "combinationPolicy": "Compare separately. No combined likelihood or significance is constructed; inter-channel and inter-experiment correlations have not been supplied.",
+  "scope": "Reported total-error bands are experimental uncertainty summaries. Certified numerical enclosures at fixed one-loop inputs are not theory uncertainty bands or model exclusion tests.",
+  "measurements": [
+    {
+      "id": "ATLAS-2308.04775",
+      "collaboration": "ATLAS",
+      "channel": "diphoton + four-lepton",
+      "runs": "Run 1 + Run 2",
+      "central": "12511/100",
+      "totalError": "11/100",
+      "statError": "9/100",
+      "systError": "6/100",
+      "publication": "Phys. Rev. Lett. 131 (2023) 251802",
+      "url": "https://arxiv.org/abs/2308.04775"
+    },
+    {
+      "id": "CMS-HIG-21-019",
+      "collaboration": "CMS",
+      "channel": "four-lepton",
+      "runs": "Run 1 + Run 2",
+      "central": "12508/100",
+      "totalError": "12/100",
+      "statError": "10/100",
+      "systError": "5/100",
+      "publication": "Phys. Rev. D 111 (2025) 092014",
+      "url": "https://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-21-019/",
+      "hepdata": "https://www.hepdata.net/record/ins2839209",
+      "selectionNote": "Uses the published Run 1 + Run 2 combination. The Run 2-only result is 125.04 +/- 0.12 GeV."
+    },
+    {
+      "id": "CMS-HIG-24-007",
+      "collaboration": "CMS",
+      "channel": "diphoton",
+      "runs": "Run 1 + Run 2",
+      "central": "12506/100",
+      "totalError": "14/100",
+      "statError": "9/100",
+      "systError": "11/100",
+      "publication": "Submitted to Physics Letters B, 30 July 2026; arXiv:2607.28396",
+      "url": "https://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-24-007/",
+      "selectionNote": "Uses the Run 1 + Run 2 diphoton combination. The Run 2-only result is 125.13 +/- 0.15 GeV. This is not a CMS combination of the diphoton and four-lepton channels."
+    }
+  ]
+}

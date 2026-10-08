@@ -236,7 +236,7 @@ const COLLIDER_SECTION = {
     $("clTeeth").innerHTML =
       `<b>The recast, read at the teeth: Δχ² = ${t.min_dchi2} at the top tooth — against a ` +
       `threshold of ${t.threshold}</b>` +
-      `<span>CMS's dijet angular data at 137 fb⁻¹, recast through this dictionary and read at ` +
+      `<span>CMS's dijet angular data at 138 fb⁻¹, recast through this dictionary and read at ` +
       `the per-rung ceilings: the least-constrained tooth (8D = 1, ${t.at_TeV} TeV) returns ` +
       `Δχ² = ${t.min_dchi2}; the next tooth ${t.next_tooth_dchi2}; the escape branch's best, ` +
       `3.97 TeV, ${t.escape_dchi2}. <b>And the margin is not ${t.min_dchi2} against ` +

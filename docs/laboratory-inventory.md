@@ -103,3 +103,21 @@ comparisons belong in the JSON archive. See [the export guide](result-card.md).
 ## 🎬 Video guide
 
 Watch this inventory in action: [English](https://karlesmarin.github.io/ghu-explorer/video/index.html?lang=en) · [Español](https://karlesmarin.github.io/ghu-explorer/video/index.html?lang=es). The tutorial covers every menu entry, Simulator mode and research card, with chapters, narration, subtitles and downloads.
+
+## Certified reference contents
+
+Screen a table now includes ten continuum-certified SU(7) minima (five published contents under two fixed gauge seeds), eight independently reconstructed fermion tables, and a bundle with 26 formal Lean algebraic theorems. The [certificate dossier](su7-certification.html) distinguishes these reference results from arbitrary model scans, moment ceilings, physical validation and claims of novelty.
+
+## Certified moment diagnostics and LHC reference review · 8 October 2026
+
+Hierarchy now compares the moment approximation with ten certified full-Fourier minima and three separately pinned ATLAS/CMS mass references. Same potential? includes an exact equal-moment example with a certified lower competitor. Both export their evidence as JSON. These two dedicated cards are separate from the eight `rxAttach` research cards. The SU(7) certification dossier records the proof, eight archived CMS dijet tables, the released Combine statistical model and a source-level comparison with other public implementations. Numerical certificates do not certify physical-model viability.
+
+## Matched solver comparison and precision budget · 8 October 2026
+
+The existing thermal card now compares PhaseTracer with CosmoTransitions for two matching
+SU(3) benchmarks, retaining shared algorithm ancestry, action/tolerance/cutoff diagnostics and
+the S3/T=140 proxy's scope. Hierarchy now separates approximation bias, numerical bounds,
+measured W propagation and unquantified physical corrections for its ten SU(7) certificates.
+These additions extend existing cards; they are not two new menu sections or a joint model fit.
+See [thermal reproduction](research-extensions.md#matched-thermal-solvers-and-separate-numerical-diagnostics--8-october-2026)
+and [the precision budget](su7-certification.html#uncertainty-budget).

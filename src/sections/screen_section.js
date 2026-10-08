@@ -74,6 +74,7 @@ const SCREEN_SECTION = {
           <th class="num">F&prime;/F&Prime;</th><th>verdict</th></tr></thead>
           <tbody id="scFive"></tbody></table>
         <div class="note" style="margin-top:9px" id="scFiveNote">—</div>
+        <details style="margin-top:16px"><summary>Certified SU(7) benchmarks · exact algebra and global minima</summary><div id="scCertifiedSU7"></div><button class="ghost" id="scCertifiedSU7JSON">Save reproducible SU(7) certificates (JSON)</button></details>
       </div>
     </div>
 
@@ -209,6 +210,12 @@ const SCREEN_SECTION = {
           `<span class="chip mea">measured</span> the derivative; the identity is exact.</span>`;
 
     this._five(v);
+    const cert=SU7_CERTIFICATION;
+    $('scCertifiedSU7').innerHTML=`<p><b>${cert.summary.formalTheorems} Lean algebraic theorems · ${cert.summary.globalMinima} certified global minima.</b> Native integer intervals and an independent Arb replay certify the five listed contents under each fixed gauge seed. These are benchmark certificates, not a certificate for an arbitrary edited model.</p>`+
+      `<table><thead><tr><th>Table 1 row</th><th>printed α</th><th>minimum: printed gauge</th><th>minimum: 3+1 gauge</th></tr></thead><tbody>`+
+      cert.reconstruction.rows.map(q=>`<tr><td>${q.row}</td><td>${Number(q.published_alpha.includes('/')?q.published_alpha.split('/').reduce((a,b)=>a/b):q.published_alpha).toFixed(3)}</td><td>${Number(q.printed_local_minimum.numerical_alpha).toFixed(6)} ± 0.000002</td><td>${Number(q.candidate_local_minimum.numerical_alpha).toFixed(6)} ± 0.000002</td></tr>`).join('')+
+      `</tbody></table><p class="note">Displayed intervals are widened for decimal rounding. Full rational enclosures, the continuum covers and provenance are in the download. All eight fermionic coefficient tables match the independent tensor reconstruction. No common integer Fourier cutoff or common fermion normalization reconciles all five printed rounding boxes. Gauge assumptions and scientific novelty remain separate questions; real analysis has not been formalized in Lean.</p>`;
+    $('scCertifiedSU7JSON').onclick=()=>rxDownload('ghu-su7-certificates.json',JSON.stringify(cert,null,2));
     const comb=cbCombEvidence({mh,mW,g4,seed:seed.parity_of_8D==='odd'?'published':'candidate',
       MKK:this._num(SCREEN_ROW.MKK),tol:this._num(SCREEN_ROW.tol)??50});
     const bounds=comb.bounds;
@@ -264,7 +271,7 @@ const SCREEN_SECTION = {
         " — <b style='color:var(--rust)'>and they disagree: the page is broken</b>"}. Rows (1), ` +
       `(2), (5) agree on g₄ ≈ 0.6; row (4) would need g₄ = 1.87; row (3)'s α has F″ &lt; 0. ` +
       `All five printed phases have nonzero F′ throughout their rounding intervals under the implemented potential. ` +
-      `The potential transcription and conventions remain the open anchor question; this does not prove the paper wrong. ` +
+      `The fermionic coefficient transcription now agrees with an independent tensor reconstruction. The gauge determinant and the origin of the printed numerical table remain open; the certified minima and exclusions are shown below. ` +
       `<span class="chip ver">verified</span> coupling calculation: su7_anchor_mh.py, archived. ` +
       `Stationarity: Sage 10.9, 192-bit Arb intervals plus analytic Fourier tail and rounding-radius bound; ` +
       `download the certificate JSON for enclosures and sources.`;

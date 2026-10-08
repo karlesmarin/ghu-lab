@@ -1,0 +1,82 @@
+{
+  "checkedDate": "2026-10-08",
+  "scope": "Targeted GitHub/API and primary-source review, not an exhaustive census. No literature-priority inference.",
+  "resources": [
+    {
+      "name": "CMS Combine",
+      "url": "https://github.com/cms-analysis/HiggsAnalysis-CombinedLimit",
+      "role": "Preferred statistical engine for the released CMS dijet workspace. Need GHU signal templates and nuisance treatment; existing cards implement other models."
+    },
+    {
+      "name": "pyhf",
+      "url": "https://github.com/scikit-hep/pyhf",
+      "commit": "e6049238e25862ce41326584f016d90b5529af91",
+      "role": "HistFactory JSON likelihoods. It is not a direct reader of arbitrary Combine ROOT workspaces."
+    },
+    {
+      "name": "Lilith-2",
+      "url": "https://github.com/sabinekraml/Lilith-2",
+      "commit": "025455fae7dfc0833d60a73ea7ced1d304a8deaa",
+      "role": "Higgs signal-strength likelihoods from couplings or rates. README names a 2019 database and a 2022 beta; these must not be described as all current LHC data."
+    },
+    {
+      "name": "HiggsTools",
+      "url": "https://gitlab.com/higgsbounds/higgstools",
+      "role": "Already integrated in this laboratory through matching input/result records. Hosted on GitLab. Extend model-specific predictions before treating a generic scalar scenario as a GHU fit."
+    },
+    {
+      "name": "CMS H to four-lepton outreach analysis",
+      "url": "https://github.com/cms-opendata-analyses/HiggsToFourLeptonsNanoAODOutreachAnalysis",
+      "role": "ROOT RDataFrame reconstruction on reduced CMS Open Data. Useful for an educational event display or histogram; not a replacement for the precision mass measurement."
+    },
+    {
+      "name": "CMS candidate event dataset",
+      "url": "https://opendata.cern.ch/record/cms-5200",
+      "role": "Education/outreach subset; the source explicitly says it is unsuitable for a full physics analysis."
+    },
+    {
+      "name": "ATLAS outreach framework",
+      "url": "https://github.com/atlas-outreach-data-tools/atlas-outreach-data-tools-framework",
+      "role": "Reproducible examples of data and simulation distributions; educational input must retain its scope."
+    }
+  ],
+  "laboratoryComparison": [
+    {
+      "name": "Jongmin Yoon: HiggsBoson",
+      "url": "https://github.com/jongminyoon/HiggsBoson",
+      "commit": "f3b6a947678ee55c10176a6b61ebc8353e72eeb9",
+      "review": "Static source review, not executed.",
+      "files": [
+        "README.md",
+        "solve.jl",
+        "SO5/so5.jl",
+        "RGE/running params.ipynb"
+      ],
+      "model": "SO(5) x U(1) GHU; associated papers by Jongmin Yoon and Michael E. Peskin.",
+      "observed": "Momentum quadrature, analytic potential derivatives, fitted Higgs mass, KK spectra and running-coupling notebooks.",
+      "improvement": "Reproduce an SO(5) reference point with explicit conventions. Separate fitting the Higgs mass from predicting it, and introduce pole-mass/running-parameter matching before precision comparisons.",
+      "limits": "The inspected minimizer and quadrature use numerical tolerances; they do not supply a full-domain interval certificate. No license file was found in the inspected tree; link and reimplement from cited equations rather than copying code."
+    },
+    {
+      "name": "hlammiv: gauge_higgs",
+      "url": "https://github.com/hlammiv/gauge_higgs",
+      "review": "README and conventions inspected; validation claims not rerun.",
+      "model": "SU(N) lattice gauge theory coupled to a scalar field; this is not automatically an orbifold GHU realization.",
+      "observed": "Explicit conventions, representation-independent HMC, force checks and finite-volume diagnostics.",
+      "improvement": "Borrow the validation discipline: record conventions and convergence tests separately from physical claims. A nonperturbative GHU extension would require a new orbifold action and matching.",
+      "limits": "Its listed HMC checks and scalar model do not independently certify our Wilson-line potential.",
+      "commit": "c0b318fc0a246ab691cde5926df7a530a067c50a"
+    }
+  ],
+  "priorities": [
+    "Complete the GHU-to-observable matching, including mass definition and theory uncertainty.",
+    "Reproduce one published CMS workspace point, then introduce the GHU signal and validate it.",
+    "Reproduce an external SO(5) numerical benchmark with explicit tolerances and conventions."
+  ],
+  "implementedNow": [
+    "Ten certified approximation-error comparisons",
+    "Exact equal-moment counterexample",
+    "Separate pinned ATLAS/CMS mass bands",
+    "Eight archived CMS dijet tables with integrity and normalization checks"
+  ]
+}

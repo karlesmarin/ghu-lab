@@ -31,12 +31,12 @@ const SAMEPOT_SECTION = {
     <div class="note" style="margin-top:9px">
       Part VII, Theorem 3: two bulk contents have the same one-loop potential, as a function of
       the phase, <b>if and only if</b> they agree on the five coordinates
-      <span style="font-family:var(--mono)">(A₄, 8D, 2U, V, 2W)</span>. Same five, same physics —
-      same vacuum, same Higgs mass, same hierarchy — however different the multiplets look.
+      <span style="font-family:var(--mono)">(A₄, 8D, 2U, V, 2W)</span>. Matching these five fixes the phase potential and, at fixed mass inputs, its vacua, Higgs mass and compactification scale. Other physical properties can differ.
       Build a second content below and the verdict recomputes.
     </div>
   </div>
 
+  ${momentPairHTML()}
   <div class="grid two">
     <div>
       <div class="card">
@@ -103,6 +103,7 @@ const SAMEPOT_SECTION = {
       const a = countsOf(ctx.model().bulk);
       SAMEPOT_B = Object.keys(a).length ? canonicalCounts(a, rels) : {};
     }
+    this._momentPairView=momentPairMount(ctx);
     $("spCopy").onclick = () => { SAMEPOT_B = countsOf(ctx.model().bulk); ctx.refresh(); };
     $("spCanon").onclick = () => {
       SAMEPOT_B = canonicalCounts(countsOf(ctx.model().bulk), kernelRelations(ctx.DATA));
@@ -125,6 +126,7 @@ const SAMEPOT_SECTION = {
     const conv = r.model.conventions || {};
     const bulkA = r.model.bulk || [];
     const bulkB = bulkOfCounts(SAMEPOT_B || {});
+    this._momentPairView.render(r.model,bulkB);
     const fiveA = can.five;
     const fiveB = fiveOf(ctx.DATA, bulkB, conv);
     const same = sameFive(fiveA, fiveB);
@@ -172,10 +174,10 @@ const SAMEPOT_SECTION = {
     /* ---- the five, side by side ------------------------------------------------------------ */
     const DECIDES = [
       "the quartic: m_h through F″, and 25/12·A₄ inside G",
-      "the curvature at α = 0: whether electroweak symmetry breaks at all",
+      "the curvature at α = 0: local stability of the origin",
       "the ln 2 part of G",
       "the ln 3 part of G — only 84(+,−) supplies it, V = 81·n",
-      "F(1) − F(0): which symmetric point is the true vacuum",
+      "F(1) − F(0): endpoint ordering; an interior vacuum can lie lower",
     ];
     $("spCoordT").innerHTML = FIVE_NAMES.map((nm, i) => {
       const d = fiveB[i] - fiveA[i];

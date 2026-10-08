@@ -252,7 +252,7 @@ capabilities implemented in this release.
 The deployed page is a build artifact. This is where it comes from, and why it says what it says.
 
 ```
-🏗️  python build/build_app.py    # inline → collision guard → edition gate → 66 harnesses → app/index.html
+🏗️  python build/build_app.py    # inline → collision guard → edition gate → 69 harnesses → app/index.html
 🌐  python build/build_site.py --legacy ../ghu-explorer/tools-2026-07     # → site/, then gates itself
 📸  node   build/shoot.mjs       # headless screenshots of every section + console + which model
 🖱️  node   build/drive.mjs       # USES the panels: a real mouse through the DevTools Input domain
@@ -273,7 +273,7 @@ The deployed page is a build artifact. This is where it comes from, and why it s
 
 ## 🧪 What is checked, and against what
 
-Verified for the October 8 correction: **5,867 source checks across 66 harnesses**, plus all eleven browser gates and **30 site checks**. The formula audit adds 13 independent SageMath checks. The dedicated extensions and closure gates cover controls, comparison snapshots, permalinks, exports, stale external results, mobile layout, both KK-comb seeds and the conditional history/bounds. Real PhaseTracer/HiggsTools HTTP calculations, eight earlier exact Sage checks and the twelve study-record checks are recorded separately.
+The certification update passes **7,805 source checks across 69 harnesses** and all thirteen browser gates. Its mathematical dossier contains 26 Lean theorems, 53 native exact/interval checks, 1,347 independent Sage/Arb checks and 235 checks of 21 conditional moment ceilings. The earlier formula/video release separately passed 30 site checks and 13 SageMath checks. The dedicated extensions and closure gates cover controls, comparison snapshots, permalinks, exports, stale external results, mobile layout, both KK-comb seeds and the conditional history/bounds. Real PhaseTracer/HiggsTools HTTP calculations, eight earlier exact Sage checks and the twelve study-record checks are recorded separately.
 
 The fixed-light-input extension registers `build/neutrino_research.mjs` as the eleventh browser gate: **31 checks** cover shared inputs, cancellation and unequal-deficit responses, invalid points, actual JSON/SVG downloads, saved comparisons, permalinks and desktop/mobile layout. `_test_neutrino_research.mjs` contributes **1,608 source checks** against independent NumPy/SVD references and original DeepCore tables.
 
@@ -619,3 +619,20 @@ sources](docs/neutrino-decays.md). The new numerical harness contains 213 checks
 20 independent SageMath checks audit spin traces, normalization and units.
 
 Historical decay-extension checkpoint (6 October 2026): **2,924 checks across 54 harnesses**; all eight then-registered browser gates passed, including 41 decay-browser checks. That checkpoint was local; the decay extension is included in the current October release.
+
+### Certified SU(7) benchmarks · 8 October 2026
+
+The [certificate dossier](docs/su7-certification.html) reconstructs all eight fermionic tables, isolates the five printed-phase discrepancies, and proves ten global minima over the full one-phase domain with integer intervals and an independent Sage/Arb replay. [Twenty-six Lean theorems](proof/su7/SU7Certificates.lean) formalize the exact weight and seed-shift algebra. Proof status and novelty are recorded separately; the physical gauge choice and a full real-analysis formalization remain open. Screen a table includes the numerical enclosures and a complete JSON export.
+
+## Certified moment diagnostics and LHC reference review · 8 October 2026
+
+Hierarchy now compares the moment approximation with ten certified full-Fourier minima and three separately pinned ATLAS/CMS mass references. Same potential? includes an exact equal-moment example with a certified lower competitor. Both export their evidence as JSON. These two dedicated cards are separate from the eight `rxAttach` research cards. The SU(7) certification dossier records the proof, eight archived CMS dijet tables, the released Combine statistical model and a source-level comparison with other public implementations. Numerical certificates do not certify physical-model viability.
+
+The moment/LHC update adds 309 source checks and the `build/moments.mjs` browser gate. Its separate certificates contain 110 Arb checks and 175 CMS dataset integrity checks. The [comparison with other implementations](docs/su7-certification.html#other-laboratories) records inspected sources and concrete next steps.
+
+The thermal/uncertainty update adds 289 source checks and `build/crossvalidation.mjs`.
+The matched CosmoTransitions/PhaseTracer comparison and the conditional SU(7) budget appear
+inside the existing thermal and Hierarchy cards. Their shared-method and physical limits,
+attribution and reproduction commands are in the [research guide](docs/research-extensions.md)
+and [certification dossier](docs/su7-certification.html#uncertainty-budget). The budget has
+57 additional exact/Arb checks; unknown physical corrections remain unquantified.

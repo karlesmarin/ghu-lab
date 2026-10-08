@@ -45,7 +45,7 @@ KERNEL = ["meta.mjs", "status.mjs", "experiment.mjs", "observables.mjs", "sensit
           "cite.mjs", "latex.mjs", "blkt.mjs", "alphabet.mjs", "fibres.mjs", "moves.mjs", "rotations.mjs",
           # rank.mjs before unbroken.mjs: the second calls the first, and one scope means order is the import.
           "rank.mjs", "unbroken.mjs", "tripod.mjs"]
-VIEW = ["fibre_panels.js", "tower3d.js", "demo.js", "howto.js", "help.js", "neutrino_panel.js", "neutrino_decay_panel.js", "diagnostics_panels.js", "research_panels.js", "neutrino_research_panel.js"]
+VIEW = ["fibre_panels.js", "tower3d.js", "demo.js", "howto.js", "help.js", "neutrino_panel.js", "neutrino_decay_panel.js", "diagnostics_panels.js", "research_panels.js", "neutrino_research_panel.js", "moment_panels.js", "crossvalidation_panels.js"]
 MODULES = ["selection.mjs", "calculator.mjs", "hierarchy.mjs", "anomalies.mjs", "escape.mjs",
            "samepot.mjs", "screen.mjs", "collider.mjs", "atlas.mjs", "eta.mjs", "fived.mjs",
            "spectrum.mjs", "inverse.mjs", "census.mjs", "sun5d.mjs", "bcclass.mjs",
@@ -54,7 +54,7 @@ MODULES = ["selection.mjs", "calculator.mjs", "hierarchy.mjs", "anomalies.mjs", 
            "yukawa.mjs",
            "predict.mjs", "reading.mjs", "sweep5d.mjs", "dossier.mjs", "papers.mjs", "particles.mjs",
             "robustness.mjs", "gravitygauge.mjs", "neutrino_ring.mjs", "neutrino_limits.mjs", "neutrino_majoron.mjs", "neutrino_decay.mjs", "higgs_diagnostics.mjs", "su6_maru_nago.mjs", "rs_unification.mjs", "neutrino_flavour.mjs", "neutrino_research.mjs", "thermal_ghu.mjs", "rs_anomaly.mjs", "higgstools_reference.mjs", "higgstools_adapter.mjs", "external_reference.mjs",
-            "thermal_history.mjs", "thermal_history_reference.mjs", "candidate_bounds_reference.mjs", "candidate_bounds.mjs", "candidate_vacua_reference.mjs", "formula_consistency_reference.mjs"]
+            "thermal_history.mjs", "thermal_history_reference.mjs", "candidate_bounds_reference.mjs", "candidate_bounds.mjs", "candidate_vacua_reference.mjs", "formula_consistency_reference.mjs", "su7_certification_reference.mjs", "moment_diagnostics.mjs", "moment_diagnostics_reference.mjs", "crossvalidation.mjs", "crossvalidation_reference.mjs"]
 SECTIONS = ["torus_panels.js", "hierarchy_section.js", "inverse_section.js", "census_section.js",
             "atlas_section.js", "samepot_section.js",
             "anomalies_section.js", "escape_section.js", "screen_section.js",
@@ -272,7 +272,7 @@ def build(edition=False, home=None, out_path=None):
 # week: the header above this list says the failure mode was never "too slow to run", it was
 # "I forgot".  It costs about two minutes.
 BROWSER_GATES = [("leaks.mjs", []), ("layout.mjs", ["--quiet"]), ("extremes.mjs", []),
-                 ("lifecycle.mjs", []), ("drive.mjs", []), ("neutrino.mjs", []), ("diagnostics.mjs", []), ("neutrino_decay.mjs", []), ("extensions.mjs", []), ("closure.mjs", []), ("neutrino_research.mjs", [])]
+                 ("lifecycle.mjs", []), ("drive.mjs", []), ("neutrino.mjs", []), ("diagnostics.mjs", []), ("neutrino_decay.mjs", []), ("extensions.mjs", []), ("closure.mjs", []), ("neutrino_research.mjs", []), ("moments.mjs", []), ("crossvalidation.mjs", [])]
 STAMP = HERE / ".browser_gate.json"
 
 
@@ -369,7 +369,7 @@ def main(argv=None):
                 ["node", "_test_fived.mjs"], ["node", "_test_collider.mjs"],
                 ["node", "_test_atlas.mjs"],
                 ["node", "_test_inverse.mjs"], ["node", "_test_census.mjs"],
-                ["node", "_test_sun5d.mjs"], ["node", "_test_formula_consistency.mjs"], ["node", "_test_bcclass.mjs"],
+                ["node", "_test_sun5d.mjs"], ["node", "_test_formula_consistency.mjs"], ["node", "_test_su7_certification.mjs"], ["node", "_test_moment_diagnostics.mjs"], ["node", "_test_crossvalidation.mjs"], ["node", "_test_bcclass.mjs"],
                 # NEXT TO ITS SIBLING ON PURPOSE.  `cbclass` is the conjugate half of the same
                 # question, and its section is `ready: false` -- but the MODULE and its harness are
                 # real and must run, or the module is unguarded code sitting in the tree.  A

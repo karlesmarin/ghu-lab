@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-08",
+  "conclusion": "No claim of literature-wide originality is established. Existing observations and new rigorous certificates are distinguished.",
+  "inspire_query": "https://inspirehep.net/api/literature/?q=refersto%3Arecid%3A2897420&size=100",
+  "inspire_indexed_citations": 2,
+  "inspire_snapshot_sha256": "04887bfabd5595be72055d64e9f1b284bf33cf25a5769dd0c16f6279f680a90f",
+  "citing_papers_checked": [
+    {
+      "url": "https://arxiv.org/html/2505.19829",
+      "finding": "Spherical compactification and KK spectra; the SU(7) paper appears as background, not as a numerical-table correction."
+    },
+    {
+      "url": "https://arxiv.org/html/2512.22094",
+      "finding": "Gauge coupling unification; no identified treatment of the five SU(7) rounding boxes."
+    }
+  ],
+  "prior_work": [
+    {
+      "url": "https://arxiv.org/abs/2503.04090",
+      "finding": "arXiv history currently lists v1 only, 6 March 2025; this does not rule out corrections elsewhere."
+    },
+    {
+      "url": "https://arxiv.org/abs/hep-ph/0401185",
+      "finding": "General one-loop orbifold potential and representation method are prior work."
+    },
+    {
+      "url": "https://arxiv.org/abs/hep-ph/0411250",
+      "finding": "Small-angle potential expansions and Higgs-mass analysis are prior work."
+    },
+    {
+      "url": "https://github.com/karlesmarin/su7-proton-row",
+      "local_source_sha256": "844a657633b719dd372715fb7ba4527e38262efc5b8b1f86ec471d2cac362240",
+      "finding": "Part VI, section The instrument, and where it fails, already records all five discrepant roots, tensor reconstruction, the apparent 84-index typo, finite-k suppression, and nonuniform fitted fermion factors. These observations are not discoveries of this audit."
+    },
+    {
+      "url": "https://github.com/karlesmarin/su7-compactification-bound",
+      "local_source_sha256": "3840c8f4842ce3c48ff141210ac74079c7d13d5707ff9709d1130737234bef78",
+      "finding": "Part VII already contains the moment identities, lattice laws, 3+1 candidate and the printed-seed numerical roots."
+    }
+  ],
+  "candidate_contributions": [
+    {
+      "result": "Universal common-integer-Fourier-cutoff exclusion, including all N>=64 by a uniform tail estimate.",
+      "status": "No equivalent located in this limited review; priority remains unestablished."
+    },
+    {
+      "result": "Continuous rounding-box derivative exclusions, disjoint normalization enclosures and explicit k>=10 bound.",
+      "status": "Rigorous strengthening of previously documented diagnostics; not a newly noticed discrepancy."
+    },
+    {
+      "result": "Ten full-domain global-minimum certificates checked independently using integer intervals and Arb.",
+      "status": "Reproducible proof artifacts for benchmark minima; no claim of a novel certification method."
+    },
+    {
+      "result": "26 Lean algebraic declarations.",
+      "status": "Formal verification of known model algebra; not 26 new mathematical discoveries."
+    }
+  ],
+  "limits": [
+    "A citation index and targeted searches are not an exhaustive literature proof.",
+    "No author correspondence or external expert review has been performed.",
+    "The physical gauge determinant remains open; these certificates assume explicitly fixed potentials."
+  ]
+}

@@ -141,3 +141,61 @@ in the [laboratory inventory](laboratory-inventory.md). The current
 release validation is 5,867 source checks across 66 harnesses, eleven browser gates and 30 site checks.
 The formula correction also has 13 independent SageMath checks. The twelve study-record checks
 are counted separately.
+
+## Matched thermal solvers and separate numerical diagnostics · 8 October 2026
+
+The existing thermal card now includes a PhaseTracer/CosmoTransitions comparison for each
+stored paper case. Every input must match, including the displayed temperature and base
+cutoffs; edited inputs withdraw the evidence and its JSON export. The comparison uses the
+same one-loop SU(3) potential and canonical field phi = alpha/(g4 R), with
+C4 = 3/(64 pi^6 R^4). It does not attach the thermal model to the SU(7) action.
+
+For O(3), S3 = 4 pi integral dr r^2 [0.5 (dphi/dr)^2 + V(phi,T) - V(0,T)].
+We supply analytic first and second field derivatives. Direct term-sum checks and finite
+differences verify the field-normalization factors. Near a stationary point, roundoff is
+scaled to the absolute term sum, because the final derivative can cancel to zero.
+
+| Case | PhaseTracer T140 (GeV) | CosmoTransitions T140 (GeV) | Max relative action difference | Max action shift on tightening tolerance |
+|---|---:|---:|---:|---:|
+| 1 | 93.174864 | 93.174864 | 2.294e-08 | 0.09479% |
+| 2 | 25.171554 | 25.171554 | 1.924e-08 | 0.111% |
+
+The table uses 800 spatial / 960 thermal terms and shooting tolerance 2e-6. T140 is the
+S3/T=140 proxy, not the integrated nucleation or percolation temperature. The archived original
+proxy used tolerance 1e-4; the integrated-history tables use 2e-5. This comparison does not
+replace those history tables or silently update the gravitational-wave calculation.
+
+Nine temperatures per case compare tolerance 2e-5 against 2e-6. The crossing is also solved
+at 100/120, 200/240, 400/480 and 800/960 cutoffs for each solver. A separate 500/2000/4000-point
+profile check measures action quadrature sensitivity at one temperature per case. The O(3)
+virial diagnostic is |K + 3U|/K, with the finite starting-radius core included in U.
+The maximum virial residual is below 0.000326. Numerical targets were 1% for relative action
+differences, 0.1% for relative crossing differences, 0.2% for tolerance shifts and 0.5% for
+the virial residual. Both cases meet those targets; they are not confidence levels.
+
+**The implementations share algorithmic ancestry.** PhaseTracer2 documents its improvements
+to the shooting/path-deformation methods used by CosmoTransitions. Agreement between these
+implementations does not bound their shared numerical errors. The tolerance response is
+much larger than their mutual difference; both are retained. No rigorous thermal remainder,
+interval bounce proof, higher-loop uncertainty or thermal resummation error is inferred.
+
+Attribution: thermal potential, [Hirose and Shibuya](https://arxiv.org/abs/2303.14192);
+CosmoTransitions, [Carroll L. Wainwright](https://arxiv.org/abs/1109.4189);
+PhaseTracer2, [Peter Athron et al.](https://arxiv.org/abs/2412.04881).
+CosmoTransitions 2.0.7 is pinned by its published wheel SHA-256; the output records actual
+Python/NumPy/SciPy versions, the PhaseTracer commit, executable/source hashes and input hashes.
+
+Starting from the existing scientific image, reproduce from the repository root:
+
+```text
+docker build -f tools/crossvalidation.Dockerfile -t ghu-lab-crossvalidation:20261008 tools
+docker run --rm --mount "type=bind,source=<absolute repository path>,target=/work" ghu-lab-crossvalidation:20261008 python tools/thermal_crossvalidate.py data/thermal_crossvalidation.json
+python tools/build_crossvalidation_reference.py
+node _test_crossvalidation.mjs
+```
+
+`--pilot` is an optional two-point diagnostic; a pilot file cannot activate archived evidence
+in the browser. The full [comparison JSON](../data/thermal_crossvalidation.json) retains the
+individual actions and diagnostics. Higher loops, resummation, perturbative validity, O(4)
+tunnelling and plasma dynamics remain outside this calculation. This is numerical validation,
+not a new physical prediction or a claim of scientific originality.

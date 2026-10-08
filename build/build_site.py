@@ -248,6 +248,8 @@ def load_groups():
         "neutrino_research_reference.json", "icecube_deepcore_reference.json",
         "thermal_case1_phasetracer.json", "thermal_case2_phasetracer.json",
         "thermal_history_case1.json", "thermal_history_case2.json",
+        "thermal_crossvalidation.json", "uncertainty_budget.json",
+        "moment_diagnostics.json", "lhc_higgs_mass_reference.json",
         "candidate_bounds.json", "candidate_vacua.json",
         "formula_consistency_probe.json", "formula_consistency_reference.json",
     }
@@ -674,6 +676,25 @@ def main(argv=None):
                                   desc="Conventions, glossary, how to reproduce every number "
                                        "without the tool, and how to cite it.",
                                   body=docs, depth=1, here="DOCS", build=build))
+
+    # Ship the reviewed dossier and evidence byte for byte. Explicit paths keep
+    # private or unrelated data out of the publication.
+    evidence = [ROOT / "docs" / "su7-certification.html"]
+    evidence += [ROOT / "data" / name for name in (
+        "moment_diagnostics.json", "lhc_higgs_mass_reference.json",
+        "thermal_crossvalidation.json", "uncertainty_budget.json")]
+    for folder in ("su7_certification", "lhc_reference"):
+        evidence.extend(sorted((ROOT / "data" / folder).glob("*.json")))
+    evidence.append(ROOT / "data" / "su7_certification" / "lean.log")
+    for source in evidence:
+        rel = source.relative_to(ROOT).as_posix()
+        (OUT / rel).parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source, OUT / rel)
+        written.append(rel)
+    write(".gitattributes", "# Preserve downloaded evidence and its SHA-256 chain across platforms.\n"
+                           "data/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol\n"
+                           "# External records retain their original whitespace and checksums.\n"
+                           "data/lhc_reference/** -text -whitespace\n")
 
     # --- Requested video manual. Only this page uses adjacent, hash-pinned media.
     import video_guide

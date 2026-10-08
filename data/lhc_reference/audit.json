@@ -1,0 +1,165 @@
+{
+  "date": "2026-10-08",
+  "collaboration": "CMS",
+  "paper": "EXO-24-011 / arXiv:2603.25458",
+  "hepdata": "10.17182/hepdata.167852.v1",
+  "luminosityInverseFb": 138,
+  "tables": [
+    {
+      "name": "Fig. 5: Particle level CHI distribution (3.0 < M(JJ) < 3.6 TeV)",
+      "url": "https://www.hepdata.net/record/data/167852/1912114/1",
+      "file": "data/lhc_reference/cms_dijet_1912114.json",
+      "sha256": "aa37f95de7989a47efcc17f9292b0004c69a49fac5663faf6b7d0e66461bcb2b",
+      "entries": 12,
+      "description": "Normalized CHI = exp(|Y1-Y2|) distributions (1/SIG)*D(SIG)/DCHI in 3.0 &lt; M(JJ) &lt; 3.6 TeV with |Y1+Y2|/2&lt; 1.1 for 138 fb$^{-1}$ of integrated luminosity at $\\sqrt{s} = 13$ TeV. The data distributions corrected for detector effects are compared to NNLO predictions with central scale choices $\\mu_{F}$ = $\\mu_{R}$ = $m_{jj}$ and $\\mu_{F}$ = $\\mu_{R}$ = $&lt;p_{T}&gt;$. Prediction with the alternative CT14 PDF set, and a comparison with the NLO prediction used in the previous publication are also given. Theoretical uncertainties with the central scale $\\mu_{F}$ = $\\mu_{R}$ = $m_{jj}$ and using NNPDF3.1 are provided. We also provide prediction without EW corrections applied.",
+      "doi": "10.17182/hepdata.167852.v1/t12"
+    },
+    {
+      "name": "Fig. 5: Particle level CHI distribution (3.6 < M(JJ) < 4.2 TeV)",
+      "url": "https://www.hepdata.net/record/data/167852/1912115/1",
+      "file": "data/lhc_reference/cms_dijet_1912115.json",
+      "sha256": "e058c5682e5c5a3b26db3eaf0a9f1d0a25c29a800e01c8e558298dce539922be",
+      "entries": 12,
+      "description": "Normalized CHI = exp(|Y1-Y2|) distributions (1/SIG)*D(SIG)/DCHI in 3.6 &lt; M(JJ) &lt; 4.2 TeV with |Y1+Y2|/2&lt; 1.1 for 138 fb$^{-1}$ of integrated luminosity at $\\sqrt{s} = 13$ TeV. The data distributions corrected for detector effects are compared to NNLO predictions with central scale choices $\\mu_{F}$ = $\\mu_{R}$ = $m_{jj}$ and $\\mu_{F}$ = $\\mu_{R}$ = $&lt;p_{T}&gt;$. Prediction with the alternative CT14 PDF set, and a comparison with the NLO prediction used in the previous publication are also given. Theoretical uncertainties with the central scale $\\mu_{F}$ = $\\mu_{R}$ = $m_{jj}$ and using NNPDF3.1 are provided. We also provide prediction without EW corrections applied.",
+      "doi": "10.17182/hepdata.167852.v1/t13"
+    },
+    {
+      "name": "Fig. 5: Particle level CHI distribution (4.2 < M(JJ) < 4.8 TeV)",
+      "url": "https://www.hepdata.net/record/data/167852/1912116/1",
+      "file": "data/lhc_reference/cms_dijet_1912116.json",
+      "sha256": "e7339f3e8219c7566969a8faaf5a76a14ae3883c803659a0373d451385908d23",
+      "entries": 12,
+      "description": "Normalized CHI = exp(|Y1-Y2|) distributions (1/SIG)*D(SIG)/DCHI in 4.2 &lt; M(JJ) &lt; 4.8 TeV with |Y1+Y2|/2&lt; 1.1 for 138 fb$^{-1}$ of integrated luminosity at $\\sqrt{s} = 13$ TeV. The data distributions corrected for detector effects are compared to NNLO predictions with central scale choices $\\mu_{F}$ = $\\mu_{R}$ = $m_{jj}$ and $\\mu_{F}$ = $\\mu_{R}$ = $&lt;p_{T}&gt;$. Prediction with the alternative CT14 PDF set, and a comparison with the NLO prediction used in the previous publication are also given. Theoretical uncertainties with the central scale $\\mu_{F}$ = $\\mu_{R}$ = $m_{jj}$ and using NNPDF3.1 are provided. We also provide prediction without EW corrections applied.",
+      "doi": "10.17182/hepdata.167852.v1/t14"
+    },
+    {
+      "name": "Fig. 5: Particle level CHI distribution (4.8 < M(JJ) < 5.4 TeV)",
+      "url": "https://www.hepdata.net/record/data/167852/1912117/1",
+      "file": "data/lhc_reference/cms_dijet_1912117.json",
+      "sha256": "378d1293440bbe79b182731b3416648a8cc7d3a7cf26fe2e6c75705b902ba29b",
+      "entries": 12,
+      "description": "Normalized CHI = exp(|Y1-Y2|) distributions (1/SIG)*D(SIG)/DCHI in 4.8 &lt; M(JJ) &lt; 5.4 TeV with |Y1+Y2|/2&lt; 1.1 for 138 fb$^{-1}$ of integrated luminosity at $\\sqrt{s} = 13$ TeV. The data distributions corrected for detector effects are compared to NNLO predictions with central scale choices $\\mu_{F}$ = $\\mu_{R}$ = $m_{jj}$ and $\\mu_{F}$ = $\\mu_{R}$ = $&lt;p_{T}&gt;$. Prediction with the alternative CT14 PDF set, and a comparison with the NLO prediction used in the previous publication are also given. Theoretical uncertainties with the central scale $\\mu_{F}$ = $\\mu_{R}$ = $m_{jj}$ and using NNPDF3.1 are provided. We also provide prediction without EW corrections applied.",
+      "doi": "10.17182/hepdata.167852.v1/t15"
+    },
+    {
+      "name": "Fig. 5: Particle level CHI distribution (5.4 < M(JJ) < 6.0 TeV)",
+      "url": "https://www.hepdata.net/record/data/167852/1912118/1",
+      "file": "data/lhc_reference/cms_dijet_1912118.json",
+      "sha256": "ab4350cfe7b47f3c9a9cc55b556a19d32b355be7fa32448dd7a8a39c6ffb5822",
+      "entries": 12,
+      "description": "Normalized CHI = exp(|Y1-Y2|) distributions (1/SIG)*D(SIG)/DCHI in 5.4 &lt; M(JJ) &lt; 6.0 TeV with |Y1+Y2|/2&lt; 1.1 for 138 fb$^{-1}$ of integrated luminosity at $\\sqrt{s} = 13$ TeV. The data distributions corrected for detector effects are compared to NNLO predictions with central scale choices $\\mu_{F}$ = $\\mu_{R}$ = $m_{jj}$ and $\\mu_{F}$ = $\\mu_{R}$ = $&lt;p_{T}&gt;$. Prediction with the alternative CT14 PDF set, and a comparison with the NLO prediction used in the previous publication are also given. Theoretical uncertainties with the central scale $\\mu_{F}$ = $\\mu_{R}$ = $m_{jj}$ and using NNPDF3.1 are provided. We also provide prediction without EW corrections applied.",
+      "doi": "10.17182/hepdata.167852.v1/t16"
+    },
+    {
+      "name": "Fig. 5: Particle level CHI distribution (6.0 < M(JJ) < 7.0 TeV)",
+      "url": "https://www.hepdata.net/record/data/167852/1912119/1",
+      "file": "data/lhc_reference/cms_dijet_1912119.json",
+      "sha256": "bbe4c31652b355fe787df149af12dd09db750c736c7bf3e98b420e544f4a1067",
+      "entries": 12,
+      "description": "Normalized CHI = exp(|Y1-Y2|) distributions (1/SIG)*D(SIG)/DCHI in 6.0 &lt; M(JJ) &lt; 7.0 TeV with |Y1+Y2|/2&lt; 1.1 for 138 fb$^{-1}$ of integrated luminosity at $\\sqrt{s} = 13$ TeV. The data distributions corrected for detector effects are compared to NNLO predictions with central scale choices $\\mu_{F}$ = $\\mu_{R}$ = $m_{jj}$ and $\\mu_{F}$ = $\\mu_{R}$ = $&lt;p_{T}&gt;$. Prediction with the alternative CT14 PDF set, and a comparison with the NLO prediction used in the previous publication are also given. Theoretical uncertainties with the central scale $\\mu_{F}$ = $\\mu_{R}$ = $m_{jj}$ and using NNPDF3.1 are provided. We also provide prediction without EW corrections applied.",
+      "doi": "10.17182/hepdata.167852.v1/t17"
+    },
+    {
+      "name": "Fig. 5: Particle level CHI distribution (M(JJ) > 7.0 TeV)",
+      "url": "https://www.hepdata.net/record/data/167852/1912120/1",
+      "file": "data/lhc_reference/cms_dijet_1912120.json",
+      "sha256": "3a6e10cb8dd1365682cef1e3aaa0b783522dcde6293df1ee47e480f629b33424",
+      "entries": 5,
+      "description": "Normalized CHI = exp(|Y1-Y2|) distributions (1/SIG)*D(SIG)/DCHI in M(JJ) &gt; 7.0 TeV with |Y1+Y2|/2&lt; 1.1 for 138 fb$^{-1}$ of integrated luminosity at $\\sqrt{s} = 13$ TeV. The data distributions corrected for detector effects are compared to NNLO predictions with central scale choices $\\mu_{F}$ = $\\mu_{R}$ = $m_{jj}$ and $\\mu_{F}$ = $\\mu_{R}$ = $&lt;p_{T}&gt;$. Prediction with the alternative CT14 PDF set, and a comparison with the NLO prediction used in the previous publication are also given. Theoretical uncertainties with the central scale $\\mu_{F}$ = $\\mu_{R}$ = $m_{jj}$ and using NNPDF3.1 are provided. We also provide prediction without EW corrections applied.",
+      "doi": "10.17182/hepdata.167852.v1/t18"
+    },
+    {
+      "name": "Correlation matrix",
+      "url": "https://www.hepdata.net/record/data/167852/1912121/1",
+      "file": "data/lhc_reference/cms_dijet_1912121.json",
+      "sha256": "da5fb50a3b95c27d716ca46e61b70d81137dd7ad9b5d561cd94090bf79f31b6e",
+      "entries": 5929,
+      "description": "Correlation matrix of the maximum likelihood estimators of the signal strength modifiers. The matrix is obtained after the fit to the data. The bin numbers correspond to 11 times the index (starting at 0) of the $m_{jj}$ (3.0,3.6,4.2,4.8,5.4,6.0,7.0) bin plus the index (starting at 0) of the CHI bin (1,2,3,4,5,6,7,8,9,10,12,14).",
+      "doi": "10.17182/hepdata.167852.v1/t19"
+    }
+  ],
+  "metadataSnapshots": [
+    {
+      "file": "data/lhc_reference/cms_dijet_record.json",
+      "sha256": "ffcc8c3005a8cff50942c81ce127f7cb63d051a2168aeeb0191c25935a8a6e03"
+    },
+    {
+      "file": "data/lhc_reference/cms_higgs_record.json",
+      "sha256": "16083a6297c194bdf630e582b16385d20c1d2f9cd1e15f0669f910bd2039785e"
+    },
+    {
+      "file": "data/lhc_reference/cms_combine_record.json",
+      "sha256": "3c2561d7618025df80d56f61ebd4cc11810b51b3b482055ab5d95a9cf751cc42"
+    }
+  ],
+  "normalization": [
+    {
+      "table": "10.17182/hepdata.167852.v1/t12",
+      "bins": 12,
+      "area": "49999/50000",
+      "roundingHalfWidth": "3/25000",
+      "unitAreaWithinRounding": true
+    },
+    {
+      "table": "10.17182/hepdata.167852.v1/t13",
+      "bins": 12,
+      "area": "100001/100000",
+      "roundingHalfWidth": "57/100000",
+      "unitAreaWithinRounding": true
+    },
+    {
+      "table": "10.17182/hepdata.167852.v1/t14",
+      "bins": 12,
+      "area": "99999/100000",
+      "roundingHalfWidth": "3/25000",
+      "unitAreaWithinRounding": true
+    },
+    {
+      "table": "10.17182/hepdata.167852.v1/t15",
+      "bins": 12,
+      "area": "1",
+      "roundingHalfWidth": "3/10000",
+      "unitAreaWithinRounding": true
+    },
+    {
+      "table": "10.17182/hepdata.167852.v1/t16",
+      "bins": 12,
+      "area": "1",
+      "roundingHalfWidth": "21/100000",
+      "unitAreaWithinRounding": true
+    },
+    {
+      "table": "10.17182/hepdata.167852.v1/t17",
+      "bins": 12,
+      "area": "50001/50000",
+      "roundingHalfWidth": "21/100000",
+      "unitAreaWithinRounding": true
+    },
+    {
+      "table": "10.17182/hepdata.167852.v1/t18",
+      "bins": 5,
+      "area": "99999/100000",
+      "roundingHalfWidth": "3/40000",
+      "unitAreaWithinRounding": true
+    }
+  ],
+  "matrixChecks": {
+    "dimension": 77,
+    "symmetric": true,
+    "unitDiagonal": true,
+    "coefficientsWithinUnitInterval": true
+  },
+  "matrixScope": "Correlations of fitted signal-strength estimators, as described by CMS. No automatic identification with the covariance of normalized unfolded points is made.",
+  "combine": {
+    "doi": "10.17181/wqfww-n3j76",
+    "url": "https://repository.cern/records/wqfww-n3j76",
+    "license": "CC-BY-4.0",
+    "author": "CMS Collaboration",
+    "metadataReviewed": true,
+    "archiveDownloaded": false,
+    "archiveBytes": 1026118161,
+    "workspaceExecuted": false,
+    "ghuReinterpretationComplete": false,
+    "technicalIssue": "The prose names HiggsJPC:twoHypothesisHiggs, while the example command names HiggsJPCmodified:twoHypothesisHiggs. Resolve against the archive and pinned Combine version before execution."
+  }
+}

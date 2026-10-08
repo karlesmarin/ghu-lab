@@ -212,10 +212,11 @@ const HIERARCHY_SECTION = {
       </div>
 
     </div>
-  </div>${hierarchyRobustnessHTML()}`,
+  </div>${momentErrorHTML()}${hierarchyRobustnessHTML()}`,
 
   init(ctx) {
     this._robustnessView=hierarchyRobustnessMount(ctx);
+    this._momentErrorView=momentErrorMount(ctx);
     const $ = (id) => document.getElementById(id);
     $("slots").innerHTML = ctx.SLOTS.map((s, i) => {
       const ch = ctx.DATA.reps[s.rep][s.key].map((t) => (t[1] > 0 ? "+" : "−") + t[2]).join(" ");
@@ -364,6 +365,7 @@ const HIERARCHY_SECTION = {
     this._surface(v, r.model, ctx.DATA);
     this._sweep();
     this._robustnessView.render(r.model,ctx.DATA);
+    this._momentErrorView.render(r.model,ctx.DATA);
   },
 
   /* THE SEED, SAID OUT LOUD.  The radio reflects the model; the note says what standing on that

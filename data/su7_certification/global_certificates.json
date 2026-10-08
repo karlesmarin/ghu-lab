@@ -1,0 +1,6096 @@
+{
+  "method": "Exhaustive interval cover with exact outward integer arithmetic, Taylor bounds and infinite Fourier tails.",
+  "arithmetic_script_sha256": "3e80629f1bc70d9a7f3469818cec82c900420d7094b9e4dd89d896c5c6144698",
+  "rows": [
+    {
+      "row": "(1)",
+      "seed": "printed",
+      "certified": true,
+      "domain": [
+        "0",
+        "1"
+      ],
+      "period": "2",
+      "reflection": "F(-alpha)=F(alpha)",
+      "claim": "Unique global minimum on [0,1]; equivalent minima at +/-alpha+2Z on the real line.",
+      "root_interval": [
+        "55302979294254073/1000000000000000000",
+        "55304979294254073/1000000000000000000"
+      ],
+      "convex_basin": [
+        "9191501176112490907467361893090399318650422664454525858836865385835345038813581/169075875843868002927664573798998172580366140412101586900000000000000000000000000",
+        "9509636297541805853624865208227222696515060601491043358836865385835345038813581/169075875843868002927664573798998172580366140412101586900000000000000000000000000"
+      ],
+      "convex_basin_curvature": [
+        "15.90675607146574730787516575684116889323189685173534",
+        "47.72195773808460034101449033457845145158517575237816"
+      ],
+      "reference_alpha": "5530397929425407273244049/100000000000000000000000000",
+      "reference_energy": [
+        "-18.77648895695737040613696497026832971170650763866950",
+        "-18.77648895695488350656180461961778077676998419934336"
+      ],
+      "cover": [
+        {
+          "interval": [
+            "0",
+            "1/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01022442393489042931150955507886074678858690069832",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/256",
+            "1/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00972698854287592585102699245503972609493770415841",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/128",
+            "3/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00892824992318945891362723013570118817565642417290",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/256",
+            "1/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00786746666001890339004915944387958278790445873267",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/64",
+            "5/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00659161729042073530327715187663176193154144917398",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/256",
+            "3/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00515429232032267088982603481771694176493587733511",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/128",
+            "7/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00361514899651263731970316072398761987598179464409",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/256",
+            "1/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00203834302840026832190910549276083128164300415765",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/32",
+            "9/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00049114277705792517963007135323245644214817829488",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "9/256",
+            "19/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00292885947375460993748815192167569693577211837503",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "19/512",
+            "5/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00222545862590278486136830871163385789078946237559",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/128",
+            "21/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00156516387297335810589423430022220143476180884958",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "21/512",
+            "11/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00095721959346879338309924215761284362802559116139",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "11/256",
+            "23/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00041094341068138072831552890174871937606750155998",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "23/512",
+            "47/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00096280441485788576357156615784051226395014424307",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "47/1024",
+            "3/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00073509256436235554131719235058755228017656176862",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/64",
+            "49/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00052749241597947681433128801830489939827305356543",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "49/1024",
+            "25/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00034118332085708998200941283182047336778982831387",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "25/512",
+            "51/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00017734685755442728141624763478014906919641866079",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "51/1024",
+            "13/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00003716679815047590772702197422395894703462027330",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "13/256",
+            "105/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00017676344642844089208691309950479336508326039356",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "105/2048",
+            "53/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00012232964575718129697082064684108687126015729403",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "53/1024",
+            "107/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00007440329748971675242557052643849775573693225970",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "107/2048",
+            "27/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00003313296254645681508551003873419573278254364992",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "27/512",
+            "109/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000012864318715022317443151004097166729618279710",
+          "cutoff": 256
+        },
+        {
+          "interval": [
+            "109/2048",
+            "219/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00003424009070342079414599873927657697930201636798",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "219/4096",
+            "55/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00002136928897544973565577781894845757136167058261",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "55/1024",
+            "221/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00001027396628588434580833642755568978944210926957",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "221/4096",
+            "111/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000097270144618873794999161475405424604486304109",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "111/2048",
+            "445/8192"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000957337615858692370269076755264992885333833365",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "445/8192",
+            "223/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000605767172414744397989807074660332404614999307",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "223/4096",
+            "7/128"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "7/128",
+            "57/1024"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "57/1024",
+            "115/2048"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "115/2048",
+            "461/8192"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000596252839130004845985327512869108265345275227",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "461/8192",
+            "231/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000955742223132912771615479274506443030214005791",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "231/4096",
+            "29/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000105603342982246086218873547125136611582690101",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "29/512",
+            "233/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00001071624272969239115351077741841461653808752363",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "233/4096",
+            "117/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00002237453757462276874127621028548950662489714376",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "117/2048",
+            "235/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00003604941540304498674493565928636465951241937465",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "235/4096",
+            "59/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00005175936254173626487313747510217691688224547497",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "59/1024",
+            "119/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00001918638298166497339290253163304200840908317313",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "119/2048",
+            "15/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00006093401085694537656804348678224628859269951850",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "15/256",
+            "121/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00011111722703665521808016298734480388611101946643",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "121/2048",
+            "61/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00016988338136142783113883846419597374190664992284",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "61/1024",
+            "31/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00003590423871827306746031547050641396190781933757",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "31/512",
+            "63/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00019756460894827033204438726769585362630865138286",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "63/1024",
+            "1/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00039590602955395666529345928303286808137384979184",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/16",
+            "65/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00063209813321149753640415602825723484262532935295",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "65/1024",
+            "33/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00090730737359709943628770235893952265134176037786",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "33/512",
+            "17/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00041466741543481067027838262835773390948252388782",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "17/256",
+            "35/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00116976138386947858545095420854266555530160353226",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "35/512",
+            "9/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00209945931667652932796052562129099829606643320632",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "9/128",
+            "37/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00321293511438276934949208404400463440332382436163",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "37/512",
+            "19/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00451928300814508765212007541115497177222887811785",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "19/256",
+            "5/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00277759758712218507780265378400289585810244483866",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/64",
+            "21/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00642865131364130992111465480012289670198541889149",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "21/256",
+            "11/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01099253926604154804867540803557311424534086085105",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "11/128",
+            "3/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00345387694773710405724446888194358111419459982926",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/32",
+            "13/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01769985570392860946517295687430321732083518668319",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "13/128",
+            "7/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.03662658421421137617294080373103791271685664496962",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/64",
+            "1/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00782027573093951281570897050129927415863924851416",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/8",
+            "9/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.07267737671075301326862376285716236416418870455221",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "9/64",
+            "5/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.16225547750744251734069592986983416493216477005546",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/32",
+            "3/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.06542241374954322033949800851332904749375366224619",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/16",
+            "7/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.37891818428993212333606839906253620785261006272129",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/32",
+            "1/4"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.79326084302266920309181084714026280040329916340626",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/4",
+            "5/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.46910903911302314960416462973325481788793501942231",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/16",
+            "3/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "1.56188831142856817574205149812941269728343084315367",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/8",
+            "7/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "2.53623048345225921308416622214579888586259661816758",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/16",
+            "1/2"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "3.78759540031635004006636978199317928320841786018081",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/2",
+            "5/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "2.04196390717764765730051290692407842007400153507099",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/8",
+            "3/4"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "11.89123857727069049228417830530091818843913805218120",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/4",
+            "1"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "20.17841883062621353031733238280269713620545576469314",
+          "cutoff": 64
+        }
+      ],
+      "cover_count": 74
+    },
+    {
+      "row": "(1)",
+      "seed": "candidate",
+      "certified": true,
+      "domain": [
+        "0",
+        "1"
+      ],
+      "period": "2",
+      "reflection": "F(-alpha)=F(alpha)",
+      "claim": "Unique global minimum on [0,1]; equivalent minima at +/-alpha+2Z on the real line.",
+      "root_interval": [
+        "76117548958558681/1000000000000000000",
+        "76119548958558681/1000000000000000000"
+      ],
+      "convex_basin": [
+        "637568682396382575628979337463129972728783416347500361490610771257966280125009/8530298713389720509698914017460767530638382197262138900000000000000000000000000",
+        "661059238096188557314279871219723463441358486284956401490610771257966280125009/8530298713389720509698914017460767530638382197262138900000000000000000000000000"
+      ],
+      "convex_basin_curvature": [
+        "23.49055569980598168530053375659349071257506993734185",
+        "70.47337544788176429131164161031513774272766977479605"
+      ],
+      "reference_alpha": "7611854895855868098882581/100000000000000000000000000",
+      "reference_energy": [
+        "-18.51300675543177129352636360769756775785518076387168",
+        "-18.51300675542924886681441525203772526670527841826768"
+      ],
+      "cover": [
+        {
+          "interval": [
+            "0",
+            "1/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.02483586902716621702860813930953007855711589275705",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/128",
+            "1/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.02173120982150185285067790285467295510137088709915",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/64",
+            "3/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01695852603741080540762185064850151238645960524098",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/128",
+            "1/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01098505361107781567599462600984758446894858937932",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/32",
+            "5/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00435408926575817928083479870742066504536890955770",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/128",
+            "11/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01378859217660954384786218584990979642303659396045",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "11/256",
+            "3/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01049796085973081913109517364417691602367728976955",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/64",
+            "13/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00734543487902641646492517049199087398409173975689",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "13/256",
+            "7/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00440949100020975182503583327921617628095157413419",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/128",
+            "15/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00176910496519466449843350528046422171876670334160",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "15/256",
+            "31/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00382392539506370185364093565898755565293229097795",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "31/512",
+            "1/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00274628008888645365150109118828098541346313737560",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/16",
+            "33/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00178174568795122637063496472066570188339098175354",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "33/512",
+            "17/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00094001370559111660767011847013941777958414515707",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "17/256",
+            "35/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00023072722564679987513049915561861888485743668237",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "35/512",
+            "71/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00074317960441732219554298861728449220285065971667",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "71/1024",
+            "9/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00047834711285008982648036030098409199104554328576",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "9/128",
+            "73/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00025139877093666232708522501604003001340526416855",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "73/1024",
+            "37/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00006351517098468501779744339935313407132394370709",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "37/512",
+            "149/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00018868577874250704474848729332274302087845372519",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "149/2048",
+            "75/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00012002156997922061335980775098682143984510047594",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "75/1024",
+            "151/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00006170922751177119386223518862906341973761964787",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "151/2048",
+            "19/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00001389415756475939096989418045042917271627539823",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "19/256",
+            "305/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00004507396264585973939042432462636878156035415144",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "305/4096",
+            "153/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00002783365263185391235923163313043955426923034738",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "153/2048",
+            "307/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00001329003311486556543027965855373160589858197991",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "307/4096",
+            "77/1024"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "77/1024",
+            "39/512"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "39/512",
+            "79/1024"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "79/1024",
+            "317/4096"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "317/4096",
+            "159/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00002012134452753769978821017358848361846707914222",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "159/2048",
+            "319/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00003642454153178567199948157974886202637301093629",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "319/4096",
+            "5/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00005563879820480447453657314019113813725755472102",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/64",
+            "161/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00002656543351638500830295989283979621722021801668",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "161/2048",
+            "81/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00007969496926921168793752234132409128131030454538",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "81/1024",
+            "163/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00014475081239068960191078221031390809787213597281",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "163/2048",
+            "41/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00022187328442140914676626161643713829609439151008",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "41/512",
+            "83/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00010622081814824401718910879696929200473771097313",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "83/1024",
+            "21/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00032195152414746253273000776961679623806614228169",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "21/256",
+            "85/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00058817551434033076784551729832824201282330003281",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "85/1024",
+            "43/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00090599489866065542955397161300094528917745078921",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "43/512",
+            "11/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00045500690300507007984540588495965718711136795501",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "11/128",
+            "45/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00135763297415990516393071400678158076482136945275",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "45/512",
+            "23/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00248395883732904096321554953912080299394180924038",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "23/256",
+            "3/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00054629361826655536544556097140098587813647106942",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/32",
+            "25/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00398661734651555944261706331961845132927832547857",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "25/256",
+            "13/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00845279659275855150618279476122378918095195806111",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "13/128",
+            "7/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00074675561388730370916787756765499199516578669093",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/64",
+            "15/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01530928291712369099609150056340268477154482686881",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "15/128",
+            "1/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.03489054755843160091583562758266961233031275615932",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/8",
+            "9/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00639450686517554238631527128179160903076416654617",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "9/64",
+            "5/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.07364753839199131329420300359091905339891814609042",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/32",
+            "11/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.16569995374993181374054468694141360970554809947196",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "11/64",
+            "3/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.28343000557815023331471642701527958114754978557236",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/16",
+            "7/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.21313873063370195720810075252891305349286256716940",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/32",
+            "1/4"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.57312922910681679933349274070126917018462176299407",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/4",
+            "5/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.18379316583061826701170643017894839147197723557001",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/16",
+            "3/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "1.17063235800638731171504826211848168210311993302948",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/8",
+            "7/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "2.05833814886429631539390935714704901370593091467610",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/16",
+            "1/2"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "3.25325936050996611082861809874693110821799985094634",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/2",
+            "5/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "1.43790794329459099313907285193458813511656444221946",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/8",
+            "3/4"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "11.36975776652244324115030584406091394351926933422636",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/4",
+            "1"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "19.74841891639244101921974809126355055166970877491677",
+          "cutoff": 64
+        }
+      ],
+      "cover_count": 63
+    },
+    {
+      "row": "(2)",
+      "seed": "printed",
+      "certified": true,
+      "domain": [
+        "0",
+        "1"
+      ],
+      "period": "2",
+      "reflection": "F(-alpha)=F(alpha)",
+      "claim": "Unique global minimum on [0,1]; equivalent minima at +/-alpha+2Z on the real line.",
+      "root_interval": [
+        "16612152252888741/200000000000000000",
+        "16612552252888741/200000000000000000"
+      ],
+      "convex_basin": [
+        "13762007661917377884385838638656297872157379999329191708349470536863956380867559/169075875843868002927664573798998172580366140412101586900000000000000000000000000",
+        "14325472407922798871717146131033496913022625587583484908349470536863956380867559/169075875843868002927664573798998172580366140412101586900000000000000000000000000"
+      ],
+      "convex_basin_curvature": [
+        "28.17323730027104936656537461885995204326227941259281",
+        "84.52140142450050651708511692063480090167632343524385"
+      ],
+      "reference_alpha": "8306176126444370481697011/100000000000000000000000000",
+      "reference_energy": [
+        "-22.84129312819184319834252274572028220819507736256058",
+        "-22.84129312818935629876736239506973327325855392323241"
+      ],
+      "cover": [
+        {
+          "interval": [
+            "0",
+            "1/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.04341009464327114262042769628651993266992887599616",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/128",
+            "1/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.03963441233161910532630740811064015846195010015471",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/64",
+            "3/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.03376639922359565575667738422207395097894158139750",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/128",
+            "1/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.02630323520437794593051566836603525992435770130205",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/32",
+            "5/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01782692160375753106266824512284539275322160471814",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/128",
+            "3/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00897334392264241405241046078627522810384304476234",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/64",
+            "7/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00041481524334778934213518609918032866622808292611",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/128",
+            "15/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00923307947407241251479308168033375424132347274172",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "15/256",
+            "1/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00564493517114573772831047400798744187598421232949",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/16",
+            "17/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00247619239208060563148510560693991896699583991178",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "17/256",
+            "35/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00429255246009841724712825624825020424456553447734",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "35/512",
+            "9/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00303338705462160958774496257939678316511820118116",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "9/128",
+            "37/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00192188861033366277349709911643620700627667389628",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "37/512",
+            "19/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00096862572471715843905486521252089334323071333252",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "19/256",
+            "39/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00018408350231046433664733779367612325360778703910",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "39/512",
+            "79/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00066742173735065251819213607944472211589780204752",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "79/1024",
+            "5/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00038822288706509927808814178438316268831433233798",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/64",
+            "81/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00015637266273341914086037167591600466424209613916",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "81/1024",
+            "163/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00026127786404507739597271948596595849218512387787",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "163/2048",
+            "41/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00017588235987108483076795440867425422071499201657",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "41/512",
+            "165/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00010296048275342874992491921182105717667566071323",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "165/2048",
+            "83/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00004267037546476982504193055164894588738937819015",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "83/1024",
+            "333/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00006806629108624113105175089785982548563560156596",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "333/4096",
+            "167/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00004593190972518115711319682232811983280016742734",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "167/2048",
+            "21/256"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "21/256",
+            "43/512"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "43/512",
+            "173/2048"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "173/2048",
+            "347/4096"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "347/4096",
+            "87/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00005984478754862703343305023338325838075282815475",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "87/1024",
+            "175/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00003392585257077818047407463266413452756961565732",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "175/2048",
+            "11/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00009437155502584513367153069862261059783299841386",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "11/128",
+            "177/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00016900773158530971895152812455466101468897594548",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "177/2048",
+            "89/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00025798770820233308409749346831184372274715442999",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "89/1024",
+            "45/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00015782301490173565829200938138795218081669344124",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "45/512",
+            "91/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00040876115211538053847793205492071794519255834775",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "91/1024",
+            "23/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00071950608912729521254198120117433425472133054106",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "23/256",
+            "47/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00027539975904089624651922351894676508521137537926",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "47/512",
+            "3/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00120581353497488431847186107124719951475197943942",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/32",
+            "49/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00239445685465087490937027554431458962608163774008",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "49/512",
+            "25/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00385060207465853793257827046267479843465539504501",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "25/256",
+            "13/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00230539331013784706318085328862938912216194784443",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "13/128",
+            "27/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00663010782848606737198717333899618509265663595257",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "27/256",
+            "7/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01216717290243753997616110242477255785120973153056",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/64",
+            "15/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00578972043817013933062707550867496558742353562699",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "15/128",
+            "1/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.02347108559107354277552529373020022824231344410145",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/8",
+            "17/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.04700295895800006973272336778807851916612035274028",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "17/128",
+            "9/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.07680708886679401715827294376820830743965512800771",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "9/64",
+            "5/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.05988431539787279460569074683750557438285551316402",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/32",
+            "11/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.15373056184949403843200941643137843798121374181917",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "11/64",
+            "3/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.27713266357772521479061835762054120044505040832953",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/16",
+            "7/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.21713648871871169088620310706268238923118597394292",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/32",
+            "1/4"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.61530242040187867381388166624972194311280482641842",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/4",
+            "5/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.28704305059907053063556216285760698444977877931468",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/16",
+            "3/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "1.52706843126919725789948989413852844807081147052587",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/8",
+            "7/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "2.87975686206764047694308894984900203055439965123370",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/16",
+            "1/2"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "4.80209342917614634109134403117746289714586497264761",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/2",
+            "5/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "3.95939526645247698872153054786687223003171125358606",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/8",
+            "3/4"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "16.80504665660664348543163086185501004786352173051331",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/4",
+            "1"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "29.14837531300087603595266875843317365584394030392639",
+          "cutoff": 64
+        }
+      ],
+      "cover_count": 59
+    },
+    {
+      "row": "(2)",
+      "seed": "candidate",
+      "certified": true,
+      "domain": [
+        "0",
+        "1"
+      ],
+      "period": "2",
+      "reflection": "F(-alpha)=F(alpha)",
+      "claim": "Unique global minimum on [0,1]; equivalent minima at +/-alpha+2Z on the real line.",
+      "root_interval": [
+        "10040333486091359/100000000000000000",
+        "10040533486091359/100000000000000000"
+      ],
+      "convex_basin": [
+        "41960221268277918581816584879911193618005213659186111118603895402333025921083/426514935669486025484945700873038376531919109863106945000000000000000000000000",
+        "43687675580002269218914660788732850035427384388263140368603895402333025921083/426514935669486025484945700873038376531919109863106945000000000000000000000000"
+      ],
+      "convex_basin_curvature": [
+        "34.54908623448701274196151817643312834844341458140039",
+        "103.64896705192485746129459486983405065033270370726635"
+      ],
+      "reference_alpha": "502021674304567960942247/5000000000000000000000000",
+      "reference_energy": [
+        "-22.60260554305500136176424760674980695751399872850028",
+        "-22.60260554305247893505229925108996446636409638289374"
+      ],
+      "cover": [
+        {
+          "interval": [
+            "0",
+            "1/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.04081663523371392585929185767605599952507382313747",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/64",
+            "1/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.02230054675259053766646532566102172597867125434809",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/32",
+            "5/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.06064772973390817315407648474705702492006708953405",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/128",
+            "3/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.04745439599407442182941459133472387259694322033180",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/64",
+            "7/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.03382143030266854377317717426218004021714766473718",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/128",
+            "1/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.02046077062608155894563019104279564900297559973060",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/16",
+            "9/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00809032121961998832854351719518165260448091153490",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "9/128",
+            "19/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01547947834481825490891175346176552207069215521183",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "19/256",
+            "5/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01043440518465584712862526663872506466046288438826",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/64",
+            "21/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00598848880193460065966028014512206359647467784788",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "21/256",
+            "11/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00222633637896376334237556460370549687020248683609",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "11/128",
+            "45/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00390400975485334126422700455342782243071769196956",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "45/512",
+            "23/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00251105704580471276372086030902206553876864855988",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "23/256",
+            "47/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00132999496368253876424240241896417839621861393406",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "47/512",
+            "3/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00037071000914327869297651011717240841546694440591",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/32",
+            "97/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00080010449776496488604645453653851654950527950054",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "97/1024",
+            "49/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00046621388058761046539652203608252154885469251217",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "49/512",
+            "99/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00019260029284052050698632970797171540972913862805",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "99/1024",
+            "199/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00028485389914559169361868200781311674390455320993",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "199/2048",
+            "25/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00018659031269048620745790290538416650747030033125",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "25/256",
+            "201/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00010398644262028974244307755709801222347587457493",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "201/2048",
+            "101/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00003718842393349398517400258305872433450043094449",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "101/1024",
+            "51/512"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "51/512",
+            "13/128"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "13/128",
+            "209/2048"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "209/2048",
+            "105/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00002429792428196273013211771567676249931038117587",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "105/1024",
+            "211/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00008913174853528099806885781349554990118938111551",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "211/2048",
+            "53/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00017105784609909891514879997425500033559457845095",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "53/512",
+            "107/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00006335026584908859269065052141869731098316339925",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "107/1024",
+            "27/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00031381370226903869323443766737649390108400884480",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "27/256",
+            "109/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00063486321805949897246855644227514963609851130900",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "109/1024",
+            "55/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00102758996578164552808034400923294598788358512665",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "55/512",
+            "7/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00066406475231520499043957940890734282326217570476",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/64",
+            "57/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00181677913009339989348590730334848462249543686288",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "57/512",
+            "29/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00327319122512654851587711400907148392885375330724",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "29/256",
+            "15/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00171563954587200316931046864980625909672175226650",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "15/128",
+            "31/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00621418443919417933648730872204050640749067888513",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "31/256",
+            "1/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01205438386003647732651019162988431517478044324468",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/8",
+            "17/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00592040443689065022692455821195499103746347303493",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "17/128",
+            "9/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.02478290766162322155947271049405310831997539903302",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "9/64",
+            "19/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.04986724684251232771369689305372825782951824789118",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "19/128",
+            "5/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.08151450024162560519984719111204565170162240867301",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/32",
+            "11/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.06605757164773526234544417100454368830202885050689",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "11/64",
+            "3/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.16433390804352939657354884783012935704985628813015",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/16",
+            "7/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.07615165145123880079056168412934593804168671912804",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/32",
+            "1/4"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.41996542287478354608788978341101501606437566674324",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/4",
+            "5/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.02652179370542292407543018690358726120406923619939",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/16",
+            "3/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "1.16060709423577366990481288172788413606074880113869",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/8",
+            "7/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "2.42665914386843485528515830845053886156798218847923",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/16",
+            "1/2"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "4.29255200575851968788591857153150142532569520415015",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/2",
+            "5/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "3.38013391895817760059241671647766864824452240147153",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/8",
+            "3/4"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "16.30836046224715351033008462421529250611390125329547",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/4",
+            "1"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "28.74317001515586080088741069049431377447844155488704",
+          "cutoff": 64
+        }
+      ],
+      "cover_count": 53
+    },
+    {
+      "row": "(3)",
+      "seed": "printed",
+      "certified": true,
+      "domain": [
+        "0",
+        "1"
+      ],
+      "period": "2",
+      "reflection": "F(-alpha)=F(alpha)",
+      "claim": "Unique global minimum on [0,1]; equivalent minima at +/-alpha+2Z on the real line.",
+      "root_interval": [
+        "10897915907714853/250000000000000000",
+        "10898415907714853/250000000000000000"
+      ],
+      "convex_basin": [
+        "149245260311302471178103739449076504822183098329383860458567823129526058189441/3498506292206733280790193622631985188668021099213452300000000000000000000000000",
+        "155773155701924076619507592262331344508795188623640082333567823129526058189441/3498506292206733280790193622631985188668021099213452300000000000000000000000000"
+      ],
+      "convex_basin_curvature": [
+        "10.44463262499456870624616450120774349857934447070045",
+        "31.33513560403600490362235193216487527291612423911379"
+      ],
+      "reference_alpha": "4359266363085941236546867/100000000000000000000000000",
+      "reference_energy": [
+        "-26.15567223904730985377287744560739844773573623981143",
+        "-26.15567223904513559300145153903863280747694717571543"
+      ],
+      "cover": [
+        {
+          "interval": [
+            "0",
+            "1/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00247812172974350370722252452173411075376297814559",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/256",
+            "1/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00218185753457700404441364272938183237146490405321",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/128",
+            "3/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00171252915746203561894474326519819681933536578976",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/256",
+            "1/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00110230590341264419787589765756645289484296276353",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/64",
+            "5/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00039036053340972478082782594663462697493310555335",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/256",
+            "11/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00232654240370271004947999627007164665495200905072",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "11/512",
+            "3/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00194078817085393098545343295794343731255406133386",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/128",
+            "13/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00155378599857027286844809768593353140162774174694",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "13/512",
+            "7/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00117238270627412479042334185950279932325848140857",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/256",
+            "15/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00080367284128765051414558994861459807400547593854",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "15/512",
+            "1/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00045497498536286734381485489883254199035324694731",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/32",
+            "17/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00013382401720085519337471398741662987755694122249",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "17/512",
+            "35/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00056975229498860986185844996023663671485857495174",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "35/1024",
+            "9/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00043210272321360034199705839061614383013319679541",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "9/256",
+            "37/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00030527021633920678965744298476818832699089581646",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "37/1024",
+            "19/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00019026929860287930107644809816767818930272320143",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "19/512",
+            "39/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00008812646724464651413499427058978791909766188465",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "39/1024",
+            "5/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000111897021462449823612166563045356691857963410",
+          "cutoff": 256
+        },
+        {
+          "interval": [
+            "5/128",
+            "81/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00010784381312548390617954322237856432539817664125",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "81/2048",
+            "41/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00007317593428548794442853106202566045297398222815",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "41/1024",
+            "83/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00004250873512519264583329984070383708125248170008",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "83/2048",
+            "21/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00001597534994554681052666870088010574174289611357",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "21/512",
+            "169/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00004100925592843387888882732803700442006415299625",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "169/4096",
+            "85/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00003042441269678338794216043228874953758087125128",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "85/2048",
+            "171/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00002094000077351585430959600645791557302138025386",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "171/4096",
+            "43/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00001257284470415875942662038605600744474262311201",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "43/1024",
+            "173/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000533980041618173326051809991584749282429315358",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "173/4096",
+            "87/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000041422129761439081337002909484968488987538047",
+          "cutoff": 256
+        },
+        {
+          "interval": [
+            "87/2048",
+            "349/8192"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000585150587640226068373490235411038744013681910",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "349/8192",
+            "175/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000354228309147854279289833741193435476090577939",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "175/4096",
+            "11/256"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "11/256",
+            "45/1024"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "45/1024",
+            "91/2048"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "91/2048",
+            "365/8192"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000328325952918250744818897339339728783360370580",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "365/8192",
+            "183/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000564081721601641786828107379674123103889887244",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "183/4096",
+            "23/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000028951330499948531665057772841739250666894884",
+          "cutoff": 256
+        },
+        {
+          "interval": [
+            "23/512",
+            "185/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000547708436453723260678517112900706609181572530",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "185/4096",
+            "93/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00001317895824255194811761383597229473929629567155",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "93/2048",
+            "187/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00002223673526556978515501047084254535434401641680",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "187/4096",
+            "47/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00003266767062520552944495972823250181187293636037",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "47/1024",
+            "95/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000764889701221751318731322181954819532537466012",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "95/2048",
+            "3/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00003551920396378311691433430757472739869841723442",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/64",
+            "97/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00006915928331873698054125154025542167725939627522",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "97/2048",
+            "49/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00010870834947734103336351784092738947782087779765",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "49/1024",
+            "25/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000680675186955426678490568830770544826283465934",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "25/512",
+            "51/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00011660291579647233753455691468994101451167631161",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "51/1024",
+            "13/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00025227919709584342201277237370412128693272366432",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "13/256",
+            "53/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00041496788829824992642534893589802009942926377770",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "53/1024",
+            "27/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00060580785646148664296217650738124404679813058542",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "27/512",
+            "7/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00023382135362005924547854879540181514720460815221",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/128",
+            "29/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00076572150589871238730367414457012543401626363071",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "29/512",
+            "15/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00142868129819878142247866851979854835305012924647",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "15/256",
+            "31/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00223203880113090336224964142416650165145013100304",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "31/512",
+            "1/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00318518244775998344900503116118322022362189855434",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/16",
+            "17/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00191040363190376837121150366215920532593732348492",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "17/256",
+            "9/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00464353352993481290956934803821349213322035031321",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "9/128",
+            "19/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00812768431103338626867183197829670411003036333591",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "19/256",
+            "5/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01243963245637686592726666183288187613233055329134",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/64",
+            "11/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00798220860332251249866422227812257540094480571755",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "11/128",
+            "3/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.02137960511277752328594470109615175082465743726033",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/32",
+            "7/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00008236476552153111106248660091753976799418045807",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/64",
+            "1/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.05153708145058281429309606284625561966579783591702",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/8",
+            "9/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.12820064137158763290657097477710688850253262478934",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "9/64",
+            "5/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.23436669907299778134077227653114143642983894385585",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/32",
+            "3/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.21076867603178629351297645717423864343558397306131",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/16",
+            "7/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.60120915825949421747090627710637610595005639185474",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/32",
+            "1/4"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "1.15894814490054344814966270243127200185709190895571",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/4",
+            "5/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "1.23326218388278473237203189516256759215238076456318",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/16",
+            "3/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "3.24476852441137849282193914584192146808995804458339",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/8",
+            "1/2"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "3.12247283668890763332196819884578153291893618393960",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/2",
+            "3/4"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.03495524313504918673085982580859465027684021410618",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/4",
+            "1"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "40.08792282184283427048483781097462903636719961225316",
+          "cutoff": 64
+        }
+      ],
+      "cover_count": 72
+    },
+    {
+      "row": "(3)",
+      "seed": "candidate",
+      "certified": true,
+      "domain": [
+        "0",
+        "1"
+      ],
+      "period": "2",
+      "reflection": "F(-alpha)=F(alpha)",
+      "claim": "Unique global minimum on [0,1]; equivalent minima at +/-alpha+2Z on the real line.",
+      "root_interval": [
+        "67266627267184463/1000000000000000000",
+        "67268627267184463/1000000000000000000"
+      ],
+      "convex_basin": [
+        "92963116047368750984561868047270789971272551635076237317450837601926554291427/1418528747181773403144998780930508800872227233849645810000000000000000000000000",
+        "97879010019050601692537192491066515856335371440253724817450837601926554291427/1418528747181773403144998780930508800872227233849645810000000000000000000000000"
+      ],
+      "convex_basin_curvature": [
+        "19.66357588672740283190129777518290354025127922065186",
+        "58.99198421401096809860879903057007623104490325428166"
+      ],
+      "reference_alpha": "672676272671844632054567/10000000000000000000000000",
+      "reference_energy": [
+        "-25.88459176311783997331626179411624803268130069226189",
+        "-25.88459176311563018540804788253818883620913272188864"
+      ],
+      "cover": [
+        {
+          "interval": [
+            "0",
+            "1/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01303144411293140228096824583376868797698096637691",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/128",
+            "1/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01071163166194711236767436453172840750426811379852",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/64",
+            "3/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00717794530522287760771748428987768523658808253604",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/128",
+            "1/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00283035947585439450895706502563267505775148093981",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/32",
+            "9/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00989751864544656129180083325594315475234340780199",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "9/256",
+            "5/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00757073120762804070181229612691995896367049101907",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/128",
+            "11/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00529408333496709156063983142602055300143382585306",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "11/256",
+            "3/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00313869247948920037916239900318602213578125004756",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/64",
+            "13/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00117774801651311265583717524057795701528029553745",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "13/256",
+            "27/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00267604415254456865321021602575859557625009753479",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "27/512",
+            "7/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00187234542169338113086799384560164563611143856829",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/128",
+            "29/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00115521467376491158489577474876353726453335065263",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "29/512",
+            "15/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00053436380806021994434505106336324643175407259393",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "15/256",
+            "31/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00001956167727397839862716149326325457802139059504",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "31/512",
+            "63/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00040515490104368144747827848350735974168488386261",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "63/1024",
+            "1/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00022124729203184032490774138695329417654927666134",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/16",
+            "65/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00006877240081938906358317842078538878254010922304",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "65/1024",
+            "131/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00015512961796107039404880381570958434588216255566",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "131/2048",
+            "33/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00009944662110373077536171666606345217801096758144",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "33/512",
+            "133/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00005224130193033719441342978103140314141376454030",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "133/2048",
+            "67/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00001366898451407780215360965959929059630279345390",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "67/1024",
+            "269/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00003535375700041907292670527530102511990545822596",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "269/4096",
+            "135/2048"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "135/2048",
+            "17/256"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "17/256",
+            "35/512"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "35/512",
+            "141/2048"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "141/2048",
+            "283/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00003624674448023109239901598582132954137105778844",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "283/4096",
+            "71/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00005306033601468416833063733000892796400823203841",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "71/1024",
+            "143/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00003455760275379507669509603204944634227895511288",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "143/2048",
+            "9/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00008069759223780076242434360364376352606470350165",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "9/128",
+            "145/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00013703185771244595525602603964948139334650672472",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "145/2048",
+            "73/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00020371709976316574995667330831273602706606798743",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "73/1024",
+            "37/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00012952007599693486714630191340714522478732938637",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "37/512",
+            "75/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00031593884501342160941072444318456024012096257914",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "75/1024",
+            "19/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00054627062098133698815990466891787395559880924170",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "19/256",
+            "39/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00021480094487857277510454272687459791731501844445",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "39/512",
+            "5/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00090538423124868352729397699868685374660317662033",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/64",
+            "41/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00179169620550408646413484082644023900408481482821",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "41/512",
+            "21/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00288376340442687453380663782094901771713859539452",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "21/256",
+            "11/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00174761165001758722362820958316984259030571036450",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "11/128",
+            "23/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00504314946597479940302490619556222401454164420450",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "23/256",
+            "3/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00932168415555195657901192886720151622100456134779",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/32",
+            "13/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00478710654797134211615743249532601396435409016703",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "13/128",
+            "7/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01891158052916032971805048039076279359546728672882",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/64",
+            "15/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.03821893045753694183230937302766713323182662703865",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "15/128",
+            "1/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.06331079643335288447383929511186296173940510925180",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/8",
+            "9/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.05431949712213939417824819428134767216599941403219",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "9/64",
+            "5/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.13816048555367580944826506133183786369348364713970",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/32",
+            "3/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.08883983288084958574830327241869543975584792443684",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/16",
+            "7/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.42783143019939328349692434165236449038720022355174",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/32",
+            "1/4"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.93121825658082027654533030707188991043530583579241",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/4",
+            "5/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.94034803619650908193355940668787270453331430795977",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/16",
+            "3/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "2.84591429658532686094892162091060199170653846170810",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/8",
+            "1/2"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "2.58748144888226753360947569861848864807260198720408",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/2",
+            "5/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "11.05508295254283027219651533761331101336478664628059",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/8",
+            "3/4"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "25.94894590371517962336603822216623420051905391775018",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/4",
+            "1"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "39.65032463320519099154123923051509399062834394972568",
+          "cutoff": 64
+        }
+      ],
+      "cover_count": 57
+    },
+    {
+      "row": "(4)",
+      "seed": "printed",
+      "certified": true,
+      "domain": [
+        "0",
+        "1"
+      ],
+      "period": "2",
+      "reflection": "F(-alpha)=F(alpha)",
+      "claim": "Unique global minimum on [0,1]; equivalent minima at +/-alpha+2Z on the real line.",
+      "root_interval": [
+        "46877945147011857/1000000000000000000",
+        "46879945147011857/1000000000000000000"
+      ],
+      "convex_basin": [
+        "1065302441496679364004297779852782055608247217421979938944919523745032508222441/23163990028885887781693613051898945212744984043387473350000000000000000000000000",
+        "1106504394403462902232758812489030297918799269398882588944919523745032508222441/23163990028885887781693613051898945212744984043387473350000000000000000000000000"
+      ],
+      "convex_basin_curvature": [
+        "12.36058587203506146853830979087447269316561559299431",
+        "37.08321183008678259774083148068185243747414740824772"
+      ],
+      "reference_alpha": "2343947257350592847514123/50000000000000000000000000",
+      "reference_energy": [
+        "-23.95442472629613837331837160370139527720439758089058",
+        "-23.95442472629379358229036327308802056712138976666931"
+      ],
+      "cover": [
+        {
+          "interval": [
+            "0",
+            "1/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00414376724077602191025181747396675533588992275373",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/256",
+            "1/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00378086970489301332709059524085363928037744018519",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/128",
+            "3/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00320350424385187865155517161916469234391196179959",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/256",
+            "1/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00244751499416009766625589657259395598478789836043",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/64",
+            "5/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00155616857807811807154603713159360080656876806771",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/256",
+            "3/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00057920322358691908291789662667254752773479336385",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/128",
+            "13/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00280072365104567056787957714803994040863956515801",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "13/512",
+            "7/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00230005383548072406214465980751951119170466886613",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/256",
+            "15/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00180704699117587417696254816886865224626823318962",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "15/512",
+            "1/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00132957605633280467073600181450919243634273691341",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/32",
+            "17/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00087571739665217382093727355631893722155528893585",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "17/512",
+            "9/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00045375090681551193680153599660045489200028480503",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "9/256",
+            "19/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00007215586064459684403656576749286522665164348725",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "19/512",
+            "39/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00058575419512264640445169622237432644872319163908",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "39/1024",
+            "5/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00042656459306231869862676075102367099942285368396",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/128",
+            "41/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00028184140155147984206164745647040006302734705489",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "41/1024",
+            "21/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00015270064171947202624008815682853393879472175967",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "21/512",
+            "43/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00004026589341181027022081721852130725480606359906",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "43/1024",
+            "87/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00016286789318576303352906468049558419209537979629",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "87/2048",
+            "11/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00011792240503582902227053871106398855450957110360",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "11/256",
+            "89/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00007772020453704666450145019239273378518639037233",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "89/2048",
+            "45/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00004240389316944098204057197684616195381691759093",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "45/1024",
+            "91/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00001211641044005899122824184597561700429567001131",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "91/2048",
+            "183/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00004204450103484384805721127865266462910988530183",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "183/4096",
+            "23/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00003014901408895408296607370318454582931910285442",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "23/512",
+            "185/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00001958244937121309610358676548060933294750598653",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "185/4096",
+            "93/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00001036278408714048544824727835471797116908340800",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "93/2048",
+            "187/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000250801470092829064760119044146204539926654365",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "187/4096",
+            "375/8192"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000990439136647381572423176193016580138182746878",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "375/8192",
+            "47/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000684329831633585980699365543637944252754852094",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "47/1024",
+            "377/8192"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000413244193478855231623812016602191781931400931",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "377/8192",
+            "189/4096"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "189/4096",
+            "95/2048"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "95/2048",
+            "3/64"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "3/64",
+            "97/2048"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "97/2048",
+            "195/4096"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "195/4096",
+            "391/8192"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "391/8192",
+            "49/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000422067250751592897284419386807432601350406266",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "49/1024",
+            "393/8192"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000703475710712900279489772383167591182394992784",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "393/8192",
+            "197/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00001023531709444167182553649815261103939152804877",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "197/4096",
+            "99/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000300086783645409433933930119569291607484022641",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "99/2048",
+            "199/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00001135313562686714592233807260466533099834998522",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "199/4096",
+            "25/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00002128773085794927617565751034956726738764384725",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "25/512",
+            "201/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00003282289486671360389595977774993959773256238731",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "201/4096",
+            "101/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00004597688766993572746678464000390222797628681753",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "101/2048",
+            "51/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00001748698582913579861277436732433449346315740739",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "51/1024",
+            "103/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00005203996147890738927694883220997056213121193621",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "103/2048",
+            "13/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00009336114419197608711155201976795205481806016984",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "13/256",
+            "105/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00014159742072488071043043608568686657402361198569",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "105/2048",
+            "53/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00019689595900918729564948118569303333487203163428",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "53/1024",
+            "27/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00008608441124701872003066971235682988801483352978",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "27/512",
+            "55/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00023320985417368198127693141544092589096399141577",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "55/1024",
+            "7/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00041094920360700223286905588163550891297898360625",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/128",
+            "57/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00062049011841229227886641389673185077918658605063",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "57/1024",
+            "29/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00086302277583411088106696686047228424640525040347",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "29/512",
+            "15/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00044425810152899415619748561568771069867513671251",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "15/256",
+            "31/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00110411927552435642345343462805402576118510483087",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "31/512",
+            "1/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00191503651748998735605194132484063766845801357502",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/16",
+            "17/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00009290725673772826353726078508979740821210249200",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "17/256",
+            "9/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00254880375585235964909369403352849405164872170842",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "9/128",
+            "19/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00576171671194661719544570874391025582148924044958",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "19/256",
+            "5/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00980783815171966449051886274695492484220407372068",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/64",
+            "11/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00346505117199819911124219257234232392141068824807",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "11/128",
+            "3/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01634489239908255335273071553087051184419388902352",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/32",
+            "13/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.03374431037788010377962964187447333092829602558785",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "13/128",
+            "7/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.05622508444986354944110131737393922677809580275501",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/64",
+            "1/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.03826312080628435728978623372992344467128652049110",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/8",
+            "9/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.11296570335702627230619277020629059010751966328808",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "9/64",
+            "5/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.21573368898139138992895179927777924299180184013183",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/32",
+            "3/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.16211470098033601554100384307307399553376676078068",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/16",
+            "7/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.53005438991296965477785092715471217625474733402447",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/32",
+            "1/4"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "1.03896303574615322888807952503073461748161903824818",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/4",
+            "5/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.94547082134141670933973115935287661185181254029352",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/16",
+            "3/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "2.59464551202730879459844480234154389214018866933770",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/8",
+            "1/2"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "1.38724628804579961468496823812873327074103036616576",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/2",
+            "5/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "7.77810082890220899896942348088752862738625312843436",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/8",
+            "3/4"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "21.08309431196967455133220557535285383610117545791597",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/4",
+            "1"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "33.35680832129513113113042950058301686582126177940172",
+          "cutoff": 64
+        }
+      ],
+      "cover_count": 78
+    },
+    {
+      "row": "(4)",
+      "seed": "candidate",
+      "certified": true,
+      "domain": [
+        "0",
+        "1"
+      ],
+      "period": "2",
+      "reflection": "F(-alpha)=F(alpha)",
+      "claim": "Unique global minimum on [0,1]; equivalent minima at +/-alpha+2Z on the real line.",
+      "root_interval": [
+        "68976942144450459/1000000000000000000",
+        "68978942144450459/1000000000000000000"
+      ],
+      "convex_basin": [
+        "4741200501766084939002687071378482252031046007346825343260661251310930977060419/70257019298620866978237692430805424654435703896733015650000000000000000000000000",
+        "4951168723077534079157928260007196821630810879360087793260661251310930977060419/70257019298620866978237692430805424654435703896733015650000000000000000000000000"
+      ],
+      "convex_basin_curvature": [
+        "20.99682213114491401552411886287145695997648720129703",
+        "62.99193943219280105671930597315252607101973699849206"
+      ],
+      "reference_alpha": "3448897107222522936483963/50000000000000000000000000",
+      "reference_energy": [
+        "-23.68501751261283071919208995552602546157418318458258",
+        "-23.68501751261045040102729361990335719527779646408356"
+      ],
+      "cover": [
+        {
+          "interval": [
+            "0",
+            "1/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01469632521216702971360875537470294830777732307648",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/128",
+            "1/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01212018515354838118194220859326094306891698203725",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/64",
+            "3/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00819521638772246783468274781255869172086507965729",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/128",
+            "1/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00335735627136427843014713910999858114941964594147",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/32",
+            "9/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01177184271920919013864789196118397353841844521944",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "9/256",
+            "5/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00916428018727526735236937120519557151390907125828",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/128",
+            "11/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00659922196762212393649263861495583422620434721006",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "11/256",
+            "3/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00415133653256594299373747551609157222197499445293",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/64",
+            "13/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00189689941579697366417754494493270435472165696846",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "13/256",
+            "27/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00365502320575516358215774439854625524655955569453",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "27/512",
+            "7/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00270580859810308072648475972006002438352495935866",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/128",
+            "29/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00184406886214550533897553760144273080761914690702",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "29/512",
+            "15/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00107971814708495143718559630581834101556898825841",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "15/256",
+            "31/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00042268609217337063895321923909026374787623527521",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "31/512",
+            "63/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00083930889715695492768434935263235795702728316481",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "63/1024",
+            "1/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00058516353031970475991397587691844199545280375809",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/16",
+            "65/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00036281669304304868680900264353184309703674462548",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "65/1024",
+            "33/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00017351153521836338126189933859255025456593167161",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "33/512",
+            "67/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00001849159165221136965295856407584481316135464337",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "67/1024",
+            "135/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00013029615744623386719735084217642153016979873973",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "135/2048",
+            "17/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00007512783769489095476375536274483695386944658761",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "17/256",
+            "137/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00002915269871161256189409134065460388240619635403",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "137/2048",
+            "275/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00005374632181940624305829578200317713130650249922",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "275/4096",
+            "69/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00003661863793375385794437919594277496323335416408",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "69/1024",
+            "277/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00002186695968683087881170536231097816730021028393",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "277/4096",
+            "139/2048"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "139/2048",
+            "35/512"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "35/512",
+            "9/128"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "9/128",
+            "289/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00002196486588898078239402225632875571511438236297",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "289/4096",
+            "145/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00003723888293481215787672896265621070197573462250",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "145/2048",
+            "73/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00001093545054303195125117555054528141892523141605",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "73/1024",
+            "147/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00005468691465714670722485838662289108305433809430",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "147/2048",
+            "37/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00010918288002958589139551087818230356649928025400",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "37/512",
+            "149/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00017457787054487300154554104633967431398890372790",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "149/2048",
+            "75/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00025102624998700949396534560015526991109386006994",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "75/1024",
+            "19/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00016165163957512291067815793503750219000514469753",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "19/256",
+            "77/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00037108698279632680574064227154799971711689377970",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "77/1024",
+            "39/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00062719852059430568822567528527485679446016444599",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "39/512",
+            "5/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00022174135525514994378400957081903046204643941247",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/64",
+            "41/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00097745367919360156423271240252081287442764317931",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "41/512",
+            "21/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00193940558646676530930966849000506412487601649385",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "21/256",
+            "11/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00026755003270171371374477240323136282695067436024",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "11/128",
+            "23/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00330234918054835852895396569878911840112264861526",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "23/256",
+            "3/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00731547580913318852728946904326927118306443946242",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/32",
+            "13/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00088986203955606858019560707932292000227540623094",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "13/128",
+            "7/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01442024369183093546164810560594844427751742296626",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/64",
+            "15/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.03302125399568158882287501662703718737607453677240",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "15/128",
+            "1/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.05722620677284539022015201172375085046571443355596",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/8",
+            "9/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.04075782135374025990820399302631197319520760377197",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "9/64",
+            "5/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.12120073770823164436677858739425626967966769465672",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/32",
+            "3/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.04185912007556153410666466163331139127825186339725",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/16",
+            "7/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.35834992409903094713420299501648116011611231696251",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/32",
+            "1/4"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.81290640967259228361408113298713312548405411632592",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/4",
+            "5/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.65422993590130328523159267419396232365696723493115",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/16",
+            "3/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "2.19746454644741938905576128072600501518099023770345",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/8",
+            "1/2"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.85392816248532174130280974121722098531891732067128",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/2",
+            "5/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "7.16811985286144379329230314029343048064992851407275",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/8",
+            "3/4"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "20.55568848906371875868265282850824172940241921845105",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/4",
+            "1"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "32.92088339490365007851716492343926241950662726811528",
+          "cutoff": 64
+        }
+      ],
+      "cover_count": 59
+    },
+    {
+      "row": "(5)",
+      "seed": "printed",
+      "certified": true,
+      "domain": [
+        "0",
+        "1"
+      ],
+      "period": "2",
+      "reflection": "F(-alpha)=F(alpha)",
+      "claim": "Unique global minimum on [0,1]; equivalent minima at +/-alpha+2Z on the real line.",
+      "root_interval": [
+        "55275917588735019/1000000000000000000",
+        "55277917588735019/1000000000000000000"
+      ],
+      "convex_basin": [
+        "277375275981718488052848377442655350402522720978983411344000485732719396047987/5108297342379307592224405722339641243590436274705746450000000000000000000000000",
+        "287366586445191715899923952166410112477448149799291120719000485732719396047987/5108297342379307592224405722339641243590436274705746450000000000000000000000000"
+      ],
+      "convex_basin_curvature": [
+        "15.98609674155716455532091955800761931988068611238464",
+        "47.95991386164123922027808627039877981563613185544229"
+      ],
+      "reference_alpha": "2763845879436750957440803/50000000000000000000000000",
+      "reference_energy": [
+        "-20.91516865895009981242393468067632604588977124789045",
+        "-20.91516865894772659968649594605551649083606030864790"
+      ],
+      "cover": [
+        {
+          "interval": [
+            "0",
+            "1/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01040546833142685596182707594331713467353270734562",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/256",
+            "1/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00990791897871411563764518851606670184612266432884",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/128",
+            "3/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00910888467019565509442594395646433248471880554910",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/256",
+            "1/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00804749753904986369801959818389882812369279869135",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/64",
+            "5/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00677061393702087091428510331902962689335397853941",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/256",
+            "3/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00533174067693655488849658039438750484273754168430",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/128",
+            "7/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00379052057250501830433223483185246158689705453400",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/256",
+            "1/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00221118340338231586735689695231686237243199269813",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/32",
+            "9/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00066116413146358724567002488905076335549584294556",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "9/256",
+            "19/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00297388384230693447248547355929606266260343620912",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "19/512",
+            "5/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00226908990950504181833253906837744704996195788434",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/128",
+            "21/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00160748290017703529718746432956853567916435577977",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "21/512",
+            "11/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00099836037797711926476439659724196675719529142717",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "11/256",
+            "23/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00045109960225042155060458915763387390022287881170",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "23/512",
+            "47/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00097169234135268505514993662787702260683624081412",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "47/1024",
+            "3/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00074365842218417337555413049782237357312161433941",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/64",
+            "49/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00053581950809462419971111085341765856222255754011",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "49/1024",
+            "25/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00034936475164223091332276558980851087368493816123",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "25/512",
+            "51/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00018548599052420216219523623840270212623864015088",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "51/1024",
+            "13/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00004537772629671372136570462124513800372730683248",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "13/256",
+            "105/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00017734243475279434846908052903815931336609804244",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "105/2048",
+            "53/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00012302411337077539024592493358513327165791934015",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "53/1024",
+            "107/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00007524750182570112011464516501287349175446882735",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "107/2048",
+            "27/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00003416267203359215548262716628938422362157995845",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "27/512",
+            "109/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000130490750424407256467859070053248890220275787",
+          "cutoff": 256
+        },
+        {
+          "interval": [
+            "109/2048",
+            "219/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00003368945710246377958233335901019922957090989048",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "219/4096",
+            "55/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00002095454274935426972578777817593156603996773422",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "55/1024",
+            "221/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00001000523132425997860834287795784564522767726652",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "221/4096",
+            "111/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000086030568142329885913996517992676607953277443",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "111/2048",
+            "445/8192"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000906028919190252761332181324226038645378083725",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "445/8192",
+            "223/4096"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "223/4096",
+            "7/128"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "7/128",
+            "57/1024"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "57/1024",
+            "115/2048"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "115/2048",
+            "461/8192"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000701516602755495859381591524778095021469312938",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "461/8192",
+            "231/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00001073793019233748625060976409407653542829696283",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "231/4096",
+            "29/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000285011341887137979737775517069488290238309212",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "29/512",
+            "233/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00001278161614520333556197819794443603595277630732",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "233/4096",
+            "117/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00002472391278465922155616994550255863372682770374",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "117/2048",
+            "235/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00003869572957041832008252396480833130859897117033",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "235/4096",
+            "59/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00005471578368559524179006242331060706893263839154",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "59/1024",
+            "119/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00002439384259329723947894995331687595071511321929",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "119/2048",
+            "15/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00006682945130178677354271015292023021409855172995",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "15/256",
+            "121/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00011775709531326115743121959765254113355646760170",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "121/2048",
+            "61/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00017732606159509630709257527883343476709563079493",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "61/1024",
+            "31/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00005191208436877490780009799702797951822153798569",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "31/512",
+            "63/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00021548633218590295526444305132091062760797503395",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "63/1024",
+            "1/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00041600744393801129557085932669027291129545626051",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/16",
+            "65/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00065466197156204682796982055422122862088463471594",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "65/1024",
+            "33/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00093263379945121101086290092313590401431266586066",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "33/512",
+            "17/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00047383695083587158902587321758494904264271065063",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "17/256",
+            "35/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00123610622112593952933029906779025614976311078267",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "35/512",
+            "9/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00217447922573280618790036370717070647556550026454",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "9/128",
+            "19/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00017784893930874071471925993486349415603829500019",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "19/256",
+            "5/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00301198055166013417009691617412375139413895085179",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/64",
+            "21/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00669803743009839613064481543555854952676977042196",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "21/256",
+            "11/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01130733068464434223570242721907595452329246418319",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "11/128",
+            "3/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00431454787232664029724072821149326456150624096080",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/32",
+            "13/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01871817039704673345777102687233985997036620158104",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "13/128",
+            "7/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.03787573177111202974166502462559550229094483634598",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/64",
+            "1/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01131954367562082599801695230494864891007559186484",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/8",
+            "9/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.07717095954910783115138948522783966112402937104374",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "9/64",
+            "5/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.16840595948919317115957502034436540054148443662162",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/32",
+            "3/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.08150191241326279644822602589591446654984059678180",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/16",
+            "7/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.40376026160576948737226346150044543240576059891751",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/32",
+            "1/4"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.83440346691678178164703780708604819266999392902308",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/4",
+            "5/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.56227059989582706391672833766720908381677541543964",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/16",
+            "3/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "1.75481126505932547181201144605453546330862445695838",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/8",
+            "7/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "2.92450964832080027635623136320646348238515596908925",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/16",
+            "1/2"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "4.50540770899404147951146042457876623092776090898541",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/2",
+            "5/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "3.33206382122271632202762348125351997769290859229656",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/8",
+            "3/4"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "14.69903703038665454127295734535734093257360950189385",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/4",
+            "1"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "25.48510158963336324110013858683159075670341454358654",
+          "cutoff": 64
+        }
+      ],
+      "cover_count": 73
+    },
+    {
+      "row": "(5)",
+      "seed": "candidate",
+      "certified": true,
+      "domain": [
+        "0",
+        "1"
+      ],
+      "period": "2",
+      "reflection": "F(-alpha)=F(alpha)",
+      "claim": "Unique global minimum on [0,1]; equivalent minima at +/-alpha+2Z on the real line.",
+      "root_interval": [
+        "37964424623905347/500000000000000000",
+        "37965424623905347/500000000000000000"
+      ],
+      "convex_basin": [
+        "1536404857609808429358273619488280940497532177704520434905024222457788246615557/20624451672508031277186836208135712228411933040465634700000000000000000000000000",
+        "1595618155014775461693436330158028363473252735774309784905024222457788246615557/20624451672508031277186836208135712228411933040465634700000000000000000000000000"
+      ],
+      "convex_basin_curvature": [
+        "23.68531896198681293406508426789896919028822322787024",
+        "71.05759934770664517453162767655255025997171796714474"
+      ],
+      "reference_alpha": "7592984924781069385590431/100000000000000000000000000",
+      "reference_energy": [
+        "-20.65160063580922956019776164051691861765090247219626",
+        "-20.65160063580682082032353490088681550638381262667685"
+      ],
+      "cover": [
+        {
+          "interval": [
+            "0",
+            "1/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.02542520718262634185033489469597906458175093542938",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/128",
+            "1/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.02231973512775105764301043666179453286058236069715",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/64",
+            "3/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01754453770849095265040188581994486877596872757527",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/128",
+            "1/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01156641947271764355890783772171053290946108834187",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/32",
+            "5/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00492961243404433037165264484282443821208377629643",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/128",
+            "11/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01386741331021027181967167729042627050396906349569",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "11/256",
+            "3/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01057502439000295514191385234007077391112352734218",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/64",
+            "13/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00742206956438286145457376873204103920592571508490",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "13/256",
+            "7/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00448769730095231862460658444879063454760159575586",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/128",
+            "15/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00185168136905997399170824020796166479973727987994",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "15/256",
+            "31/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00378682615482488465832597292647110459321243198676",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "31/512",
+            "1/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00271381046676462024865531656569646679212511883527",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/16",
+            "33/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00175510608126792049586898076319413566333835684478",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "33/512",
+            "17/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00092055009145542271591915617035339081649348166753",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "17/256",
+            "35/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00021993938628186825648328901217150006100832231394",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "35/512",
+            "71/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00070660584428697067774140429205970463692380052646",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "71/1024",
+            "9/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00044716836558064695890276619058218872861477378589",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "9/128",
+            "73/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00022607325572201493929232012955039270747331271615",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "73/1024",
+            "37/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00004452324691472757125081064965545344334350744194",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "37/512",
+            "149/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00016536927658524365173239255829318362581444060179",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "149/2048",
+            "75/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00010018878617449015308421580420758533751065649677",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "75/1024",
+            "151/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00004549173107398732263143497959381744531973922676",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "151/2048",
+            "19/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000142647077649973793554079663928189568335566515",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "19/256",
+            "305/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00003261276851436271694164290458334882385618827801",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "305/4096",
+            "153/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00001733363609178771884663171646328582858718376408",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "153/2048",
+            "77/1024"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "77/1024",
+            "39/512"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "39/512",
+            "79/1024"
+          ],
+          "reason": "strictly-convex-basin"
+        },
+        {
+          "interval": [
+            "79/1024",
+            "317/4096"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00001781906912766586185210357179910367434640878927",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "317/4096",
+            "159/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00003359784156553099006667795351604398253972236543",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "159/2048",
+            "5/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00000302393607340433553575367536121639113598390660",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/64",
+            "161/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00004930432632325980991418762948633225636430267153",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "161/2048",
+            "81/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00010753286292711308047283121491970672408125482314",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "81/1024",
+            "163/2048"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00017785363164482904528812258634303393886237355699",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "163/2048",
+            "41/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00026041028362214258696933991347777480976872163327",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "41/512",
+            "83/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00015802358360900546015812440391129005931349273219",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "83/1024",
+            "21/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00038549677018809025619585619841185027821789758898",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "21/256",
+            "85/1024"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00066419493101452970509604124375953425888420030839",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "85/1024",
+            "43/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00099524838703246539179317128736812598640843446720",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "43/512",
+            "11/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00058886178748869902581794752215106679354647261849",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "11/128",
+            "45/512"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00152199461313958007562289813151476567544718054815",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "45/512",
+            "23/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00268234172872603176606379557501742711598936817977",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "23/256",
+            "3/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00090443183624761218965548431354005324173784901135",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/32",
+            "25/256"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00443247538674613291907037904139409523058091157372",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "25/256",
+            "13/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00900469110639359488346508660055399171187722087666",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "13/128",
+            "7/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.00191008155551681766232042087356710718171207717192",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/64",
+            "15/128"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01679609681346960185502581439952837469307384989904",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "15/128",
+            "1/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.03681541179457383780151207123292261956229946511085",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/8",
+            "9/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.01080226808825922065350931606382343160306293214233",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "9/64",
+            "5/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.07971219875847082749751041647680481462069591176120",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/32",
+            "11/64"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.17433023911364002098402653178569551516462033996064",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "11/64",
+            "3/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.29582151118616545597313365843792355929774398513996",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/16",
+            "7/32"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.23789498633426818162872413737817680365847120247024",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/32",
+            "1/4"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.61418603138565823827314802305840908806377462771551",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/4",
+            "5/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "0.27686890499815104170869846052425718301327573069197",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/16",
+            "3/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "1.36346949002187346816943653245495897374077164593882",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/8",
+            "7/16"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "2.44653149211756623905040282061906813584094836470239",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "7/16",
+            "1/2"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "3.97098584757238641065813706374387258154980099885556",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "1/2",
+            "5/8"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "2.72792203572438851825061174867538421834792959854966",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "5/8",
+            "3/4"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "14.17747039802313615052351320652869121326619888304363",
+          "cutoff": 64
+        },
+        {
+          "interval": [
+            "3/4",
+            "1"
+          ],
+          "reason": "energy-above-reference",
+          "gap_lower": "25.05501585378431959038698261770379869778012565291479",
+          "cutoff": 64
+        }
+      ],
+      "cover_count": 61
+    }
+  ],
+  "elapsed_seconds": 294.60574029997224,
+  "certified": 10,
+  "script_sha256": "608e9a65a1e7b7496ca4ee2d8dc106ff5405504d978d15cf2353f9cfd57b5b6d"
+}

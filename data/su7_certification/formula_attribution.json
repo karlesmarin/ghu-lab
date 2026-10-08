@@ -1,0 +1,267 @@
+{
+  "date": "2026-10-08",
+  "policy": "Attribute established formulas to checked sources. Reserve the provisional description “possible new contribution” for specified model-specific results from Carles Marín’s papers; it does not assert priority.",
+  "sources": [
+    {
+      "id": "km25",
+      "label": "KM25",
+      "authors": "Yuzuho Komori and Nobuhito Maru",
+      "title": "SU(7) Grand Gauge-Higgs Unification",
+      "year": "2025",
+      "url": "https://arxiv.org/abs/2503.04090v1",
+      "locator": "PDF equations (11–13), (68), (72–76), (80–82), and Table 1."
+    },
+    {
+      "id": "hy04",
+      "label": "HY04",
+      "authors": "Naoyuki Haba and Toshifumi Yamashita",
+      "title": "A general formula of the effective potential in 5D SU(N) gauge theory on orbifold",
+      "year": "2004",
+      "url": "https://arxiv.org/abs/hep-ph/0401185",
+      "locator": "Section 5, especially equations (5.9–5.10); JHEP 02 (2004) 059."
+    },
+    {
+      "id": "hty05",
+      "label": "HTY05",
+      "authors": "Naoyuki Haba, Kazunori Takenaga and Toshifumi Yamashita",
+      "title": "Higgs mass in the gauge-Higgs unification",
+      "year": "2004 preprint; 2005 publication",
+      "url": "https://arxiv.org/abs/hep-ph/0411250",
+      "locator": "Equations (10–11); Physics Letters B 615 (2005), 247–256."
+    },
+    {
+      "id": "st07",
+      "label": "ST07",
+      "authors": "Makoto Sakamoto and Kazunori Takenaga",
+      "title": "Large Gauge Hierarchy in Gauge-Higgs Unification",
+      "year": "2006 preprint; 2007 publication",
+      "url": "https://arxiv.org/abs/hep-th/0609067",
+      "locator": "Equations (13–18) and (37); Physical Review D 75 (2007), 045015."
+    },
+    {
+      "id": "ccd24",
+      "label": "CCD24",
+      "authors": "Giacomo Cacciapaglia, Alan S. Cornell, Aldo Deandrea, Wanda Isnard, Roman Pasechnik, Anca Preda and Zhi-Wei Wang",
+      "title": "General vacuum stability of orbifold gauge breaking and application to asymptotic grand unification",
+      "year": "2024",
+      "url": "https://arxiv.org/abs/2409.16137",
+      "locator": "PDF equations (2.11–2.13), HTML equations (11–13)."
+    },
+    {
+      "id": "corless96",
+      "label": "Corless96",
+      "authors": "R. M. Corless, G. H. Gonnet, D. E. G. Hare, D. J. Jeffrey and D. E. Knuth",
+      "title": "On the Lambert W function",
+      "year": "1996",
+      "url": "https://doi.org/10.1007/BF02124750",
+      "locator": "Advances in Computational Mathematics 5, 329–359. Modern reference for the classical function and its branches."
+    },
+    {
+      "id": "kly02",
+      "label": "KLY02",
+      "authors": "Masahiro Kubo, C. S. Lim and Hiroyuki Yamashita",
+      "title": "The Hosotani Mechanism in Bulk Gauge Theories with an Orbifold Extra Space S¹/Z₂",
+      "year": "2001 preprint; 2002 publication",
+      "url": "https://arxiv.org/abs/hep-ph/0111327",
+      "locator": "Equations (33) and (35). Hiroyuki Yamashita is distinct from Toshifumi Yamashita in HY04 and HTY05."
+    },
+    {
+      "id": "marin6",
+      "label": "Marín VI",
+      "authors": "Carles Marín",
+      "title": "Part VI: Proton decay in SU(7) grand gauge-Higgs unification",
+      "year": "local source reviewed 8 October 2026",
+      "url": "https://github.com/karlesmarin/su7-proton-row",
+      "locator": "The section “The instrument, and where it fails” documents the numerical diagnostics."
+    },
+    {
+      "id": "marin7",
+      "label": "Marín VII",
+      "authors": "Carles Marín",
+      "title": "Part VII: An Upper Bound on the Compactification Scale of SU(7) Grand Gauge-Higgs Unification, and the Dijet Angular Distribution That Tests It",
+      "year": "local source reviewed 8 October 2026",
+      "url": "https://github.com/karlesmarin/su7-compactification-bound",
+      "locator": "Source for the SU(7) moment reduction, congruences, generator classification and conditional bounds."
+    }
+  ],
+  "entries": [
+    {
+      "id": "model",
+      "formula": "SU(7) matter content and coefficient tables",
+      "credit": "Komori–Maru; reconstruction documented in Marín VI.",
+      "sources": [
+        "km25",
+        "marin6"
+      ],
+      "classification": "Published model; independent reconstruction and formal verification."
+    },
+    {
+      "id": "orbifold",
+      "formula": "Parity-resolved one-loop Fourier potential",
+      "credit": "Haba–Yamashita provide the general 5D construction.",
+      "sources": [
+        "hy04"
+      ],
+      "classification": "Established method. Its −3 gauge factor does not settle the full 6D determinant."
+    },
+    {
+      "id": "expansions",
+      "formula": "S± small-angle expansions and the x⁴ ln|x| term",
+      "credit": "Haba–Takenaga–Toshifumi Yamashita, equations (10–11).",
+      "sources": [
+        "hty05"
+      ],
+      "classification": "Direct match after ln(x²) = 2 ln x for x > 0."
+    },
+    {
+      "id": "three_coefficients",
+      "formula": "f = −ζ(3)Dx²/2 + x⁴(G−A4 ln x)/24",
+      "credit": "Sakamoto–Takenaga, equation (15); SU(7) application in Marín VII.",
+      "sources": [
+        "st07",
+        "marin7"
+      ],
+      "classification": "Same analytic form after a coefficient change; different matter dictionaries.",
+      "mapping": {
+        "D": "C^(2)",
+        "A4": "C^(3)",
+        "G": "25 C^(3)/12 + C^(4) ln 2"
+      }
+    },
+    {
+      "id": "curvature",
+      "formula": "f″(x*) = 2ζ(3)D − A4 x*²/6 and fixed-mass elimination",
+      "credit": "Algebraic consequence of the established potential; applied in Marín VII.",
+      "sources": [
+        "st07",
+        "hty05",
+        "marin7"
+      ],
+      "classification": "Exact within the quartic-logarithmic truncation. ST07 equation (37) covers the C^(2)=0 special case."
+    },
+    {
+      "id": "lambert",
+      "formula": "y = −d/Wj(−d exp(−b))",
+      "credit": "Classical Lambert inversion; modern reference Corless et al.; application in Marín VII.",
+      "sources": [
+        "corless96",
+        "marin7"
+      ],
+      "classification": "Standard inversion. The minimum/maximum assignment requires D>0 and A4>0; it concerns f."
+    },
+    {
+      "id": "duplication",
+      "formula": "S−(x) = S+(2x)/16 − S+(x); endpoint factor 31/16",
+      "credit": "Elementary series identity explicitly used by Cacciapaglia et al.; SU(7) endpoint application in Marín VII.",
+      "sources": [
+        "ccd24",
+        "marin7"
+      ],
+      "classification": "Established identity and direct deductions; finite frequency reduction follows by substitution."
+    },
+    {
+      "id": "lattice",
+      "formula": "8D−2A4 ≡ 3 (mod 6) and SU(7) generator relations",
+      "credit": "Carles Marín, Part VII, using the model of Komori–Maru.",
+      "sources": [
+        "marin7",
+        "km25"
+      ],
+      "classification": "Model-specific arithmetic with stated representation and gauge assumptions; verified in Lean."
+    },
+    {
+      "id": "mass",
+      "formula": "mh α/√F″ = √3 mW g4/(2π³)",
+      "credit": "Direct consequence of Komori–Maru mass relations; diagnostic in Marín VI.",
+      "sources": [
+        "km25",
+        "marin6"
+      ],
+      "classification": "Algebraic consistency identity. No separate dynamical mass law."
+    },
+    {
+      "id": "kly",
+      "formula": "KLY curvature coefficient 18−4Nf",
+      "credit": "Potential by Kubo, Lim and Hiroyuki Yamashita, equation (33).",
+      "sources": [
+        "kly02"
+      ],
+      "classification": "Direct differentiation of their harmonic. The lab verifies the coefficient and compares it with equation (35)."
+    },
+    {
+      "id": "certificates",
+      "formula": "Rounding-box exclusions, all-integer cutoff exclusion and ten global minima",
+      "credit": "GHU Lab verification artifacts; earlier SU(7) diagnostics in Carles Marín’s Parts VI and VII.",
+      "sources": [
+        "marin6",
+        "marin7"
+      ],
+      "classification": "Computer-assisted proofs for fixed inputs. Standard interval and tail methods; no claim of originality."
+    }
+  ],
+  "symbolic_verification": {
+    "engine": "SymPy 1.14.0",
+    "scope": "Finite symbolic identities only; no certification of omitted Fourier terms or scientific priority.",
+    "checks": [
+      {
+        "name": "Sakamoto–Takenaga coefficient map",
+        "passed": true
+      },
+      {
+        "name": "Haba–Takenaga–Yamashita periodic quartic convention",
+        "passed": true
+      },
+      {
+        "name": "Stationary curvature identity: fpp−3fp/x",
+        "passed": true
+      },
+      {
+        "name": "Fixed-mass logarithm elimination",
+        "passed": true
+      },
+      {
+        "name": "Lambert stationarity reduction",
+        "passed": true
+      },
+      {
+        "name": "Lambert branch curvature using y=−d/w",
+        "passed": true
+      },
+      {
+        "name": "Parity curvature rearrangement",
+        "passed": true
+      },
+      {
+        "name": "Endpoint coefficient",
+        "passed": true
+      },
+      {
+        "name": "Mass convention x=pi*alpha",
+        "passed": true
+      }
+    ],
+    "passed": 9
+  },
+  "pending_assessment": {
+    "author": "Carles Marín",
+    "source": "marin7",
+    "label": "Possible new contribution — assessment pending",
+    "scope": "The specific SU(7) nonnegative-integer matter classification and resulting conditional moment ceilings, with their full representation, gauge and small-angle hypotheses.",
+    "excludes": [
+      "Established Fourier expansions",
+      "Three-coefficient analytic form",
+      "Lambert inversion",
+      "Elementary duplication identity"
+    ],
+    "priority_established": false
+  },
+  "source_snapshots": {
+    "marin6": "844a657633b719dd372715fb7ba4527e38262efc5b8b1f86ec471d2cac362240",
+    "marin7": "3840c8f4842ce3c48ff141210ac74079c7d13d5707ff9709d1130737234bef78"
+  },
+  "limits": [
+    "Equivalent analytic structure does not establish physical model equivalence.",
+    "The literature search is bounded, not exhaustive.",
+    "Proof artifacts and prior scientific authorship are distinct."
+  ]
+}

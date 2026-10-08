@@ -1,0 +1,57 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {MOMENT_DIAGNOSTICS as cert,MD_HIGGS_REFERENCES as refs} from './src/modules/moment_diagnostics_reference.mjs';
+import {mdRational as q,mdFindCertificate,mdCompareContents,mdPeriodicSignature,mdOutwardInterval,mdHiggsComparison,mdPairCurve} from './src/modules/moment_diagnostics.mjs';
+import {termTable,moments,alphaMin,F} from './src/kernel/potential.mjs';
+const data=JSON.parse(readFileSync(new URL('./data/su7_km25.json',import.meta.url)));
+let count=0;const ok=(v,m)=>{assert.ok(v,m);count++;};
+const hash=p=>createHash('sha256').update(readFileSync(new URL(p,import.meta.url))).digest('hex');
+const model=(b,seed='published')=>({bulk:b,conventions:{m_W:80.4,g4:.63,gauge_seed:seed}});
+ok(hash('./proof/moments/certify.py')===cert.scriptSHA256,'interval proof source is the checked source');
+ok(hash('./data/su7_km25.json')===cert.modelSHA256,'same model input');
+for(const [name,digest] of Object.entries(cert.inputs))ok(hash('./data/su7_certification/'+name)===digest,'same prior proof '+name);
+ok(cert.passed===110&&cert.checks.every(c=>c.passed),'all Arb checks passed');
+ok(JSON.stringify(JSON.parse(readFileSync(new URL('./data/moment_diagnostics.json',import.meta.url))))===JSON.stringify(cert),'generated reference matches archived proof');
+ok(JSON.stringify(JSON.parse(readFileSync(new URL('./data/lhc_higgs_mass_reference.json',import.meta.url))))===JSON.stringify(refs),'generated experimental reference matches source');
+for(const r of cert.benchmarks){
+ const m=model(r.bulk,r.seed),found=mdFindCertificate(data,m,cert);
+ ok(found.record===r,'select intended benchmark');
+ const numeric=alphaMin(moments(termTable(m,data)));
+ ok(numeric>=q(r.approximate.alpha[0])&&numeric<=q(r.approximate.alpha[1]),'kernel approximation inside certified enclosure');
+ ok(mdFindCertificate(data,{...m,conventions:{...m.conventions,g4:.64}},cert).record===null,'changed coupling invalidates certificate');
+ ok(mdFindCertificate(data,{...m,conventions:{...m.conventions,m_W:80.3}},cert).record===null,'changed mass input invalidates certificate');
+ ok(mdFindCertificate(data,{...m,bulk:[...r.bulk,{rep:'7',parities:[1,1],multiplicity:1}]},cert).record===null,'changed content invalidates certificate');
+ const proof=r.residualProof,cover=proof.convexCover;
+ ok(q(proof.curvatureFloor)>0&&q(proof.absoluteAlphaErrorUpper)>0,'residual bound is conditional on positive curvature');
+ for(let i=1;i<cover.length;i++)ok(cover[i-1].interval[1]===cover[i].interval[0],'convex cover has no gap');
+ for(const ref of refs.measurements){
+  const c=mdHiggsComparison(r.full.higgsGeV,ref);
+  ok(c.relation!=='overlap'&&c.scope.includes('not a statistical exclusion'),'fixed benchmark misses reported band, without exclusion claim');
+  ok(q(r.errors.higgsGeV.absolute[0])>q(ref.totalError),'certified approximation error exceeds reported experimental precision');
+ }
+}
+ok(mdFindCertificate({...data,id:'other'},model(cert.benchmarks[0].bulk),cert).record===null,'different model gets no certificate');
+const [a,b]=cert.momentWitness.contents,comp=mdCompareContents(data,model(a.bulk),b.bulk,cert);
+ok(comp.equalLocal&&!comp.samePotential,'same moments do not imply same potential');
+ok(comp.coordsA.W2===19&&comp.coordsB.W2===-13,'opposite endpoint ordering');
+ok(comp.witnessB.lowerEndpointCertified&&q(b.endpointMinusLocalEnergy[1])<0,'lower competitor is interval certified');
+ok(mdCompareContents(data,model(a.bulk),a.bulk,cert).samePotential,'self equality');
+const curve=mdPairCurve(comp,true);
+ok(curve.appA.every((v,i)=>v===curve.appB[i]),'local expansion curves coincide');
+ok(curve.a.some((v,i)=>Math.abs(v-curve.b[i])>1e-5),'full curves separate');
+ok(mdPeriodicSignature([[-1,1,1],[1/16,1,2]])===null,'coefficient contract rejects sub-quarter inputs');
+ok(mdPeriodicSignature([[4,-1,1]])===mdPeriodicSignature([[-4,1,1],[.25,1,2]]),'duplication signature preserves equivalent potentials');
+for(const x of [.031,.2,.51])ok(Math.abs(F([[4,-1,1]],x,768)-F([[-4,1,1],[.25,1,2]],x,768))<1e-8,'duplication numerical control');
+ok(mdPeriodicSignature([[1,1,5]])===null,'unsupported harmonics cannot inherit certificate');
+ok(mdOutwardInterval(['-1/3','2/3'],2)==='[-0.34, 0.67]','outward rounding both signs');
+ok(mdOutwardInterval(['-1/1000000','1/1000000'],3)==='[-0.001, 0.001]','outward rounding near zero');
+const ref={id:'edge',central:'1',totalError:'1/10'};
+ok(mdHiggsComparison(['11/10','6/5'],ref).relation==='overlap','touching band counts as overlap');
+ok(mdHiggsComparison(['110000000000000000001/100000000000000000000','6/5'],ref).relation==='above','exact decision beyond binary precision');
+ok(mdHiggsComparison(['0','8/10'],ref).relation==='below','below-band decision');
+const audit=JSON.parse(readFileSync(new URL('./data/lhc_reference/audit.json',import.meta.url)));
+for(const item of [...audit.tables,...audit.metadataSnapshots])ok(hash('./'+item.file)===item.sha256,'archived experimental file matches reviewed bytes: '+item.file);
+ok(audit.luminosityInverseFb===138&&audit.tables.length===8&&audit.normalization.reduce((n,r)=>n+r.bins,0)===77,'correct CMS angular dataset, distinct from 137 fb-1 resonance search');
+ok(audit.combine.metadataReviewed&&!audit.combine.workspaceExecuted&&!audit.combine.ghuReinterpretationComplete,'published workspace review does not pretend a completed GHU fit');
+console.log(`${count} checks pass`);

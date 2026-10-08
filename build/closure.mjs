@@ -66,6 +66,8 @@ try{
  for(const seed of ['published','candidate']){
   await nav('s=screen&su7_km25.seed='+seed);await change('#sci_mh',125.2);
   check(seed+' printed row residuals visible',await ev(`document.getElementById('scFiveNote').textContent.includes('192-bit')&&document.querySelectorAll('#scFive .chip.bad').length>=5`));
+  check(seed+' certified benchmarks have explicit scope',await ev(`document.getElementById('scCertifiedSU7').textContent.includes('26 Lean algebraic theorems')&&document.getElementById('scCertifiedSU7').textContent.includes('not a certificate for an arbitrary edited model')&&document.querySelectorAll('#scCertifiedSU7 tbody tr').length===5`));
+  check(seed+' downloadable certificate retains continuum proof and formal scope',await ev(`(()=>{let saved;const original=rxDownload;try{rxDownload=(name,text)=>saved=JSON.parse(text);document.getElementById('scCertifiedSU7JSON').click();return saved.globalProof.rows.length===10&&saved.globalProof.rows.every(p=>p.certified&&p.cover.length>0)&&saved.summary.formalTheorems===26&&!saved.summary.noveltyEstablished&&saved.independentVerification.sage.conditional_mass_intervals.length===10;}finally{rxDownload=original;}})()`));
   check(seed+' correct rung certificate',await ev(`document.getElementById('scConditionalBounds').textContent.includes('${seed} seed')&&document.querySelectorAll('#scConditionalBounds svg').length===1`));
   check(seed+' plotted comb and spacing share applicable bounds',await ev(`SCREEN_SECTION._lastEvidence.bounds.applicable&&SCREEN_SECTION._lastCombCertified&&!document.getElementById('scSpacing').textContent.includes('not evaluated')`));
   await change('#sci_MKK',9000);
@@ -78,6 +80,7 @@ try{
   check(seed+' arithmetic-only verdict when mass window changes',await ev(`SCREEN_SECTION._lastEvidence.status==='arithmetic-only'&&document.getElementById('scHits').textContent.includes('bounds not applicable')`));
  }
  await change('#sci_mh',125.2);await ev(`document.getElementById('scBoundDetails').open=true`);
+ await ev(`document.getElementById('scCertifiedSU7').closest('details').open=true`);
  for(const [name,width,height,mobile] of [['desktop',1380,1000,false],['mobile',390,844,true]]){
   await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile});await pause(150);
   check('certificate '+name+' no page overflow',await ev('document.documentElement.scrollWidth<=window.innerWidth+2'));

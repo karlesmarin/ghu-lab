@@ -1,0 +1,1008 @@
+{
+  "schema": "ghu-thermal-crossvalidation-v1",
+  "date": "2026-10-08",
+  "mode": "full",
+  "normalization": {
+    "phi": "alpha/(g4 R)",
+    "C4": "3/(64 pi^6 R^4)",
+    "action": "4 pi integral dr r^2 [0.5 (dphi/dr)^2 + V(phi,T)-V(0,T)]",
+    "dimensions": 3
+  },
+  "criterion": "S3/T=140 proxy, not integrated nucleation or percolation",
+  "methodScope": "Separate Python/C++ implementations with shared shooting-method ancestry and shared Fourier coefficients; no claim of algorithmic independence or interval certification.",
+  "targets": {
+    "actionRelative": 0.01,
+    "crossingRelative": 0.001,
+    "toleranceShiftRelative": 0.002,
+    "virialRelative": 0.005
+  },
+  "tolerances": [
+    2e-05,
+    2e-06
+  ],
+  "backend": {
+    "python": "3.12.3",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "cosmoTransitions": "2.0.7",
+    "cosmoSourceSHA256": "d80f67772f979eedf5502f04b4947c4ee0f5531b3be5764a890f2721b0eea18f",
+    "phaseTracer": {
+      "repository": "https://github.com/PhaseTracer/PhaseTracer.git",
+      "commit": "dc5aed31f922622e262d232a68ab3e229d705d82",
+      "version": "2.1.0"
+    },
+    "phaseExecutableSHA256": "7f43ae31060f3b3ae114b82c6e266c20d2a27c589b3373c43188353d7ae2944f",
+    "phaseShootingSHA256": "5d246f9a1a48a465b87d61b87e3c3260f98b252fa92f431b91a7adb0f8de23cf"
+  },
+  "inputs": {
+    "tools/thermal_run.py": "9801f1975db44cdee3387d058819b0e7398014cab59580b80865401a70749612",
+    "tools/thermal_bounce.cpp": "6fc8458e8403d21eecdada0bfaa0670923a4ff19b34a5747b8776649833901a1",
+    "tools/thermal_crossvalidate.py": "c64d007a03590c92026b776d1a6a8957ca771c8a407ef082ae4a5e5cf36107ae",
+    "tools/crossvalidation-requirements.txt": "1c1c029188592677d290963f9cab2d22070a544743df4345fa0707cba56959a9"
+  },
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2303.14192",
+      "role": "Thermal SU(3) potential: Hirose and Shibuya"
+    },
+    {
+      "url": "https://arxiv.org/abs/1109.4189",
+      "role": "CosmoTransitions: Carroll L. Wainwright"
+    },
+    {
+      "url": "https://arxiv.org/abs/2412.04881",
+      "role": "PhaseTracer2 and shooting-method ancestry: Athron et al."
+    }
+  ],
+  "physicalUnknowns": [
+    "Higher loops and thermal resummation",
+    "Validity at the chosen gauge couplings",
+    "O(4) tunnelling and competing paths outside the selected one-field branch",
+    "Wall velocity and plasma dynamics"
+  ],
+  "scope": "Fixed one-loop SU(3) thermal benchmarks; separate from SU(7). Numerical differences are diagnostics, not statistical uncertainties or validation against experimental data.",
+  "cases": [
+    {
+      "case": 1,
+      "parameters": {
+        "nfPlus": 3,
+        "nfMinus": 0,
+        "adjPlus": 0,
+        "adjMinus": 0,
+        "scalarPlus": 0,
+        "scalarMinus": 0,
+        "invRGeV": 1000,
+        "g4": 3,
+        "RT": 0.093,
+        "windings": 100,
+        "thermalTerms": 120
+      },
+      "source": "data/thermal_history_case1.json",
+      "sourceSHA256": "ce667cd0d46986c5bcd86c9e2909972b83cc53e0f8f6748c3f0c31257ba2d73f",
+      "samples": [
+        {
+          "RT": 0.07354791599401905,
+          "temperatureGeV": 73.54791599401905,
+          "multiplier": 8,
+          "phaseTracer": {
+            "S3overT": 111.56244734469766,
+            "alpha": 1.0
+          },
+          "cosmoTransitions": {
+            "S3overT": 111.56244556623159,
+            "virialRelative": 0.001975311060616776,
+            "actionIntegralRelative": 3.325316834117576e-16,
+            "falseVacuumEndpointRelative": 2.5972185014634665e-17,
+            "profilePoints": 2001,
+            "npoints": 2000,
+            "alpha": 1.0
+          },
+          "phaseTracerTight": {
+            "S3overT": 111.58176607859264,
+            "alpha": 1.0
+          },
+          "cosmoTransitionsTight": {
+            "S3overT": 111.58176785150627,
+            "virialRelative": 0.00022379863787095025,
+            "actionIntegralRelative": 1.1082469996066587e-16,
+            "falseVacuumEndpointRelative": 9.554531645028509e-22,
+            "profilePoints": 2001,
+            "npoints": 2000,
+            "alpha": 1.0
+          },
+          "relativeDifference": 1.5888918847295486e-08,
+          "phaseToleranceShift": 0.0001731652034782094,
+          "cosmoToleranceShift": 0.00017319703934970399,
+          "archivedPhaseTracer": 111.56244734469766
+        },
+        {
+          "RT": 0.07806686956426216,
+          "temperatureGeV": 78.06686956426216,
+          "multiplier": 8,
+          "phaseTracer": {
+            "S3overT": 114.77794152727289,
+            "alpha": 1.0
+          },
+          "cosmoTransitions": {
+            "S3overT": 114.77793924994738,
+            "virialRelative": 0.0015793777775271486,
+            "actionIntegralRelative": 3.045062705978807e-16,
+            "falseVacuumEndpointRelative": 0.00017259521770102498,
+            "profilePoints": 2001,
+            "npoints": 2000,
+            "alpha": 1.0
+          },
+          "phaseTracerTight": {
+            "S3overT": 114.76090697307825,
+            "alpha": 1.0
+          },
+          "cosmoTransitionsTight": {
+            "S3overT": 114.76090866524474,
+            "virialRelative": 0.0002653840561842915,
+            "actionIntegralRelative": 1.0151715316772716e-16,
+            "falseVacuumEndpointRelative": 6.167182905483398e-05,
+            "profilePoints": 2001,
+            "npoints": 2000,
+            "alpha": 1.0
+          },
+          "relativeDifference": 1.4745147325356811e-08,
+          "phaseToleranceShift": -0.0001484131355552476,
+          "cosmoToleranceShift": -0.00014837855439753245,
+          "archivedPhaseTracer": 114.77794152727289
+        },
+        {
+          "RT": 0.08258582313450527,
+          "temperatureGeV": 82.58582313450528,
+          "multiplier": 8,
+          "phaseTracer": {
+            "S3overT": 119.78432418724343,
+            "alpha": 1.0
+          },
+          "cosmoTransitions": {
+            "S3overT": 119.7843259705051,
+            "virialRelative": 0.001823519403447737,
+            "actionIntegralRelative": 0.0,
+            "falseVacuumEndpointRelative": 0.00016736512632722558,
+            "profilePoints": 2001,
+            "npoints": 2000,
+            "alpha": 1.0
+          },
+          "phaseTracerTight": {
+            "S3overT": 119.69528973696825,
+            "alpha": 1.0
+          },
+          "cosmoTransitionsTight": {
+            "S3overT": 119.69528964651724,
+            "virialRelative": 0.0002487459310032086,
+            "actionIntegralRelative": 9.200630966266892e-17,
+            "falseVacuumEndpointRelative": 6.570862179184592e-05,
+            "profilePoints": 2001,
+            "npoints": 2000,
+            "alpha": 1.0
+          },
+          "relativeDifference": -7.556772985140014e-10,
+          "phaseToleranceShift": -0.0007432896656494048,
+          "cosmoToleranceShift": -0.000743305296969976,
+          "archivedPhaseTracer": 119.78432418724343
+        },
+        {
+          "RT": 0.08710477670474838,
+          "temperatureGeV": 87.10477670474837,
+          "multiplier": 8,
+          "phaseTracer": {
+            "S3overT": 126.79053959053915,
+            "alpha": 1.0
+          },
+          "cosmoTransitions": {
+            "S3overT": 126.79054248151014,
+            "virialRelative": 0.0020246881347095957,
+            "actionIntegralRelative": 1.64702934615701e-16,
+            "falseVacuumEndpointRelative": 0.0001169513209068993,
+            "profilePoints": 2001,
+            "npoints": 2000,
+            "alpha": 1.0
+          },
+          "phaseTracerTight": {
+            "S3overT": 126.67035371698033,
+            "alpha": 1.0
+          },
+          "cosmoTransitionsTight": {
+            "S3overT": 126.67035161061673,
+            "virialRelative": 0.00025027121329286047,
+            "actionIntegralRelative": 0.0,
+            "falseVacuumEndpointRelative": 3.957177761238541e-05,
+            "profilePoints": 2001,
+            "npoints": 2000,
+            "alpha": 1.0
+          },
+          "relativeDifference": -1.6628702192988953e-08,
+          "phaseToleranceShift": -0.00094790884199214,
+          "cosmoToleranceShift": -0.0009479482344745271,
+          "archivedPhaseTracer": 126.79053959053915
+        },
+        {
+          "RT": 0.09162373027499149,
+          "temperatureGeV": 91.62373027499149,
+          "multiplier": 8,
+          "phaseTracer": {
+            "S3overT": 136.17064065387362,
+            "alpha": 1.0
+          },
+          "cosmoTransitions": {
+            "S3overT": 136.17063643661731,
+            "virialRelative": 0.0019700072097321294,
+            "actionIntegralRelative": 1.4579369155271536e-16,
+            "falseVacuumEndpointRelative": 9.18891516730211e-20,
+            "profilePoints": 2141,
+            "npoints": 2000,
+            "alpha": 1.0
+          },
+          "phaseTracerTight": {
+            "S3overT": 136.09921916229806,
+            "alpha": 1.0
+          },
+          "cosmoTransitionsTight": {
+            "S3overT": 136.09921632924434,
+            "virialRelative": 0.00025939965617659375,
+            "actionIntegralRelative": 2.1880529847229454e-16,
+            "falseVacuumEndpointRelative": 3.694651236307571e-05,
+            "profilePoints": 2130,
+            "npoints": 2000,
+            "alpha": 1.0
+          },
+          "relativeDifference": -2.081609085102798e-08,
+          "phaseToleranceShift": -0.0005244999306208697,
+          "cosmoToleranceShift": -0.0005244897816587546,
+          "archivedPhaseTracer": 136.17064065387362
+        },
+        {
+          "RT": 0.09569078848821029,
+          "temperatureGeV": 95.69078848821029,
+          "multiplier": 8,
+          "phaseTracer": {
+            "S3overT": 147.30069318391443,
+            "alpha": 1.0
+          },
+          "cosmoTransitions": {
+            "S3overT": 147.30069130345186,
+            "virialRelative": 0.0019035113746514265,
+            "actionIntegralRelative": 2.5809836093640027e-16,
+            "falseVacuumEndpointRelative": 6.662951745515459e-20,
+            "profilePoints": 2246,
+            "npoints": 2000,
+            "alpha": 1.0
+          },
+          "phaseTracerTight": {
+            "S3overT": 147.19152540014377,
+            "alpha": 1.0
+          },
+          "cosmoTransitionsTight": {
+            "S3overT": 147.19152202414364,
+            "virialRelative": 0.0002626577689797387,
+            "actionIntegralRelative": 3.228622347554734e-16,
+            "falseVacuumEndpointRelative": 1.1346514548239707e-18,
+            "profilePoints": 2231,
+            "npoints": 2000,
+            "alpha": 1.0
+          },
+          "relativeDifference": -2.2936104016046954e-08,
+          "phaseToleranceShift": -0.0007411219961765969,
+          "cosmoToleranceShift": -0.0007411321585947261,
+          "archivedPhaseTracer": 147.30069318391443
+        },
+        {
+          "RT": 0.1002097420584534,
+          "temperatureGeV": 100.2097420584534,
+          "multiplier": 8,
+          "phaseTracer": {
+            "S3overT": 163.2697903975881,
+            "alpha": 1.0
+          },
+          "cosmoTransitions": {
+            "S3overT": 163.26978602578401,
+            "virialRelative": 0.0017383148445920308,
+            "actionIntegralRelative": 3.335305779249112e-16,
+            "falseVacuumEndpointRelative": 1.4032509629019097e-05,
+            "profilePoints": 2350,
+            "npoints": 2000,
+            "alpha": 1.0
+          },
+          "phaseTracerTight": {
+            "S3overT": 163.21102912803318,
+            "alpha": 1.0
+          },
+          "cosmoTransitionsTight": {
+            "S3overT": 163.21102812155945,
+            "virialRelative": 0.0002841407543306366,
+            "actionIntegralRelative": 5.560844214756733e-17,
+            "falseVacuumEndpointRelative": 2.207767660095811e-18,
+            "profilePoints": 2334,
+            "npoints": 2000,
+            "alpha": 1.0
+          },
+          "relativeDifference": -6.16670170483502e-09,
+          "phaseToleranceShift": -0.0003599028908645163,
+          "cosmoToleranceShift": -0.00035988228841854486,
+          "archivedPhaseTracer": 163.2697903975881
+        },
+        {
+          "RT": 0.10472869562869652,
+          "temperatureGeV": 104.72869562869653,
+          "multiplier": 8,
+          "phaseTracer": {
+            "S3overT": 184.41853312588154,
+            "alpha": 1.0
+          },
+          "cosmoTransitions": {
+            "S3overT": 184.4185228341038,
+            "virialRelative": 0.0017281144465425538,
+            "actionIntegralRelative": 0.0,
+            "falseVacuumEndpointRelative": 2.1601200779095825e-05,
+            "profilePoints": 2465,
+            "npoints": 2000,
+            "alpha": 1.0
+          },
+          "phaseTracerTight": {
+            "S3overT": 184.3710085372255,
+            "alpha": 1.0
+          },
+          "cosmoTransitionsTight": {
+            "S3overT": 184.3710064090659,
+            "virialRelative": 0.0003180816641116529,
+            "actionIntegralRelative": 1.8840908650051183e-16,
+            "falseVacuumEndpointRelative": 2.699528936051206e-05,
+            "profilePoints": 2444,
+            "npoints": 2000,
+            "alpha": 1.0
+          },
+          "relativeDifference": -1.1542810374187695e-08,
+          "phaseToleranceShift": -0.00025769963490385184,
+          "cosmoToleranceShift": -0.00025765538248379016,
+          "archivedPhaseTracer": 184.41853312588154
+        },
+        {
+          "RT": 0.10969954455596394,
+          "temperatureGeV": 109.69954455596394,
+          "multiplier": 8,
+          "phaseTracer": {
+            "S3overT": 216.04376858431925,
+            "alpha": 1.0
+          },
+          "cosmoTransitions": {
+            "S3overT": 216.04376157172888,
+            "virialRelative": 0.0017784486353766768,
+            "actionIntegralRelative": 1.5350184861249e-16,
+            "falseVacuumEndpointRelative": 3.239797273731672e-05,
+            "profilePoints": 2611,
+            "npoints": 2000,
+            "alpha": 1.0
+          },
+          "phaseTracerTight": {
+            "S3overT": 216.0093300832278,
+            "alpha": 1.0
+          },
+          "cosmoTransitionsTight": {
+            "S3overT": 216.0093281457055,
+            "virialRelative": 0.0003238533461957966,
+            "actionIntegralRelative": 2.3028947685134313e-16,
+            "falseVacuumEndpointRelative": 4.566265106143987e-05,
+            "profilePoints": 2607,
+            "npoints": 2000,
+            "alpha": 1.0
+          },
+          "relativeDifference": -8.969623266352755e-09,
+          "phaseToleranceShift": -0.00015940520440427264,
+          "cosmoToleranceShift": -0.00015938171865215178,
+          "archivedPhaseTracer": 216.04376858431925
+        }
+      ],
+      "crossings": [
+        {
+          "multiplier": 1,
+          "windings": 100,
+          "thermalTerms": 120,
+          "phaseTracer": {
+            "RT": 0.09317494188820888,
+            "temperatureGeV": 93.17494188820888,
+            "S3overT": 139.99999999807324,
+            "alpha": 1.0
+          },
+          "cosmoTransitions": {
+            "RT": 0.09317494292946302,
+            "temperatureGeV": 93.17494292946301,
+            "S3overT": 139.99999963966823,
+            "virialRelative": 0.00024180004792679138,
+            "actionIntegralRelative": 0.0,
+            "falseVacuumEndpointRelative": 4.893694938968491e-05,
+            "profilePoints": 2174,
+            "npoints": 2000,
+            "alpha": 1.0
+          },
+          "relativeDifference": 1.1175259384543779e-08
+        },
+        {
+          "multiplier": 2,
+          "windings": 200,
+          "thermalTerms": 240,
+          "phaseTracer": {
+            "RT": 0.0931748206130359,
+            "temperatureGeV": 93.1748206130359,
+            "S3overT": 140.00000011813447,
+            "alpha": 1.0
+          },
+          "cosmoTransitions": {
+            "RT": 0.09317482141010336,
+            "temperatureGeV": 93.17482141010336,
+            "S3overT": 140.000000037656,
+            "virialRelative": 0.00024145453329253648,
+            "actionIntegralRelative": 6.972259916237104e-17,
+            "falseVacuumEndpointRelative": 1.2685165418080403e-20,
+            "profilePoints": 2159,
+            "npoints": 2000,
+            "alpha": 1.0
+          },
+          "relativeDifference": 8.55453707870879e-09
+        },
+        {
+          "multiplier": 4,
+          "windings": 400,
+          "thermalTerms": 480,
+          "phaseTracer": {
+            "RT": 0.09317488933921926,
+            "temperatureGeV": 93.17488933921926,
+            "S3overT": 140.00000000347967,
+            "alpha": 1.0
+          },
+          "cosmoTransitions": {
+            "RT": 0.09317488991248707,
+            "temperatureGeV": 93.17488991248707,
+            "S3overT": 140.00000000362945,
+            "virialRelative": 0.00024016487101471032,
+            "actionIntegralRelative": 1.3944509583821766e-16,
+            "falseVacuumEndpointRelative": 3.2881819012411943e-19,
+            "profilePoints": 2172,
+            "npoints": 2000,
+            "alpha": 1.0
+          },
+          "relativeDifference": 6.152599762998534e-09
+        },
+        {
+          "multiplier": 8,
+          "windings": 800,
+          "thermalTerms": 960,
+          "phaseTracer": {
+            "RT": 0.09317486390078122,
+            "temperatureGeV": 93.17486390078122,
+            "S3overT": 139.9999989488438,
+            "alpha": 1.0
+          },
+          "cosmoTransitions": {
+            "RT": 0.09317486375483477,
+            "temperatureGeV": 93.17486375483477,
+            "S3overT": 139.9999999917438,
+            "virialRelative": 0.00024233276676250535,
+            "actionIntegralRelative": 4.1833540499245464e-16,
+            "falseVacuumEndpointRelative": 4.863938072261317e-05,
+            "profilePoints": 2174,
+            "npoints": 2000,
+            "alpha": 1.0
+          },
+          "relativeDifference": -1.5663714769686976e-09
+        }
+      ],
+      "diagnostics": {
+        "maxActionRelative": 2.2936104016046954e-08,
+        "maxVirialRelative": 0.0003238533461957966,
+        "maxPhaseToleranceShift": 0.00094790884199214,
+        "maxCosmoToleranceShift": 0.0009479482344745271,
+        "maxCrossingRelative": 1.1175259384543779e-08,
+        "profileSampling": {
+          "RT": 0.09162373027499149,
+          "multiplier": 8,
+          "points500": {
+            "S3overT": 136.09921600243135,
+            "virialRelative": 0.0002593977243469848,
+            "actionIntegralRelative": 2.1880529899770842e-16,
+            "falseVacuumEndpointRelative": 3.694651236307571e-05,
+            "profilePoints": 533,
+            "npoints": 500,
+            "alpha": 1.0
+          },
+          "points2000": {
+            "S3overT": 136.09921632924434,
+            "virialRelative": 0.00025939965617659375,
+            "actionIntegralRelative": 2.1880529847229454e-16,
+            "falseVacuumEndpointRelative": 3.694651236307571e-05,
+            "profilePoints": 2130,
+            "npoints": 2000,
+            "alpha": 1.0
+          },
+          "points4000": {
+            "S3overT": 136.099216413805,
+            "virialRelative": 0.0002593998881634607,
+            "actionIntegralRelative": 2.1880529833634723e-16,
+            "falseVacuumEndpointRelative": 3.694651236307571e-05,
+            "profilePoints": 4260,
+            "npoints": 4000,
+            "alpha": 1.0
+          },
+          "relative2000to4000": 6.213163317170256e-10
+        }
+      },
+      "normalizationChecks": 2324,
+      "evaluations": 166,
+      "withinDeclaredTargets": true
+    },
+    {
+      "case": 2,
+      "parameters": {
+        "nfPlus": 0,
+        "nfMinus": 8,
+        "adjPlus": 2,
+        "adjMinus": 0,
+        "scalarPlus": 4,
+        "scalarMinus": 2,
+        "invRGeV": 1000,
+        "g4": 1,
+        "RT": 0.0246,
+        "windings": 100,
+        "thermalTerms": 120
+      },
+      "source": "data/thermal_history_case2.json",
+      "sourceSHA256": "cc0c19947ef2eb699433f418660b8a8341084f29f52fef736112cf4b2ff03cac",
+      "samples": [
+        {
+          "RT": 0.025,
+          "temperatureGeV": 25.0,
+          "multiplier": 8,
+          "phaseTracer": {
+            "S3overT": 59.473236687789985,
+            "alpha": 0.03438440012153824
+          },
+          "cosmoTransitions": {
+            "S3overT": 59.47323754317583,
+            "virialRelative": 0.0021312305363927544,
+            "actionIntegralRelative": 0.0,
+            "falseVacuumEndpointRelative": 5.045088673483019e-20,
+            "profilePoints": 2001,
+            "npoints": 2000,
+            "alpha": 0.03438440012153824
+          },
+          "phaseTracerTight": {
+            "S3overT": 59.40719880167539,
+            "alpha": 0.03438440012153824
+          },
+          "cosmoTransitionsTight": {
+            "S3overT": 59.40719861630582,
+            "virialRelative": 0.0001612437145284143,
+            "actionIntegralRelative": 1.530950327496665e-16,
+            "falseVacuumEndpointRelative": 2.5225443367415094e-20,
+            "profilePoints": 2001,
+            "npoints": 2000,
+            "alpha": 0.03438440012153824
+          },
+          "relativeDifference": -3.1203216677155865e-09,
+          "phaseToleranceShift": -0.001110379891736235,
+          "cosmoToleranceShift": -0.001110397375324701,
+          "archivedPhaseTracer": 59.473236687789985
+        },
+        {
+          "RT": 0.025041666666666667,
+          "temperatureGeV": 25.041666666666668,
+          "multiplier": 8,
+          "phaseTracer": {
+            "S3overT": 70.58145522084939,
+            "alpha": 0.03404873557581643
+          },
+          "cosmoTransitions": {
+            "S3overT": 70.58145536180803,
+            "virialRelative": 0.0018806916535187026,
+            "actionIntegralRelative": 1.9296458144411697e-16,
+            "falseVacuumEndpointRelative": 7.008493943449347e-20,
+            "profilePoints": 2001,
+            "npoints": 2000,
+            "alpha": 0.03404873557581643
+          },
+          "phaseTracerTight": {
+            "S3overT": 70.50726548217617,
+            "alpha": 0.03404873557581643
+          },
+          "cosmoTransitionsTight": {
+            "S3overT": 70.50726589471458,
+            "virialRelative": 0.00018589353153232135,
+            "actionIntegralRelative": 3.219460391487795e-16,
+            "falseVacuumEndpointRelative": 3.104746256603083e-05,
+            "profilePoints": 2001,
+            "npoints": 2000,
+            "alpha": 0.03404873557581643
+          },
+          "relativeDifference": 5.851005679957666e-09,
+          "phaseToleranceShift": -0.0010511222592547442,
+          "cosmoToleranceShift": -0.001051118409405749,
+          "archivedPhaseTracer": 70.58145522084939
+        },
+        {
+          "RT": 0.025083333333333332,
+          "temperatureGeV": 25.083333333333332,
+          "multiplier": 8,
+          "phaseTracer": {
+            "S3overT": 85.1866164519378,
+            "alpha": 0.03370022007544484
+          },
+          "cosmoTransitions": {
+            "S3overT": 85.18661506834883,
+            "virialRelative": 0.0015317178498413218,
+            "actionIntegralRelative": 1.0641027630494819e-16,
+            "falseVacuumEndpointRelative": 0.00010415925638342482,
+            "profilePoints": 2001,
+            "npoints": 2000,
+            "alpha": 0.03370022007544484
+          },
+          "phaseTracerTight": {
+            "S3overT": 85.25364769952559,
+            "alpha": 0.03370022007544484
+          },
+          "cosmoTransitionsTight": {
+            "S3overT": 85.25364717868261,
+            "virialRelative": 0.00021535644367666574,
+            "actionIntegralRelative": 1.0632660944003424e-16,
+            "falseVacuumEndpointRelative": 4.784111503850715e-05,
+            "profilePoints": 2001,
+            "npoints": 2000,
+            "alpha": 0.03370022007544484
+          },
+          "relativeDifference": -6.1093335945727745e-09,
+          "phaseToleranceShift": 0.000786875337695836,
+          "cosmoToleranceShift": 0.0007868854781940549,
+          "archivedPhaseTracer": 85.1866164519378
+        },
+        {
+          "RT": 0.025125,
+          "temperatureGeV": 25.125,
+          "multiplier": 8,
+          "phaseTracer": {
+            "S3overT": 105.76455552087617,
+            "alpha": 0.03333749598989006
+          },
+          "cosmoTransitions": {
+            "S3overT": 105.7645559393338,
+            "virialRelative": 0.0017907401020886703,
+            "actionIntegralRelative": 4.2782283935908734e-16,
+            "falseVacuumEndpointRelative": 1.098788421623026e-16,
+            "profilePoints": 2001,
+            "npoints": 2000,
+            "alpha": 0.03333749598989006
+          },
+          "phaseTracerTight": {
+            "S3overT": 105.71660702703171,
+            "alpha": 0.03333749598989006
+          },
+          "cosmoTransitionsTight": {
+            "S3overT": 105.71660771028115,
+            "virialRelative": 0.00020480388449026105,
+            "actionIntegralRelative": 8.560337605520482e-17,
+            "falseVacuumEndpointRelative": 1.3642980609449458e-18,
+            "profilePoints": 2001,
+            "npoints": 2000,
+            "alpha": 0.03333749598989006
+          },
+          "relativeDifference": 6.463028556780159e-09,
+          "phaseToleranceShift": -0.0004533512537193696,
+          "cosmoToleranceShift": -0.0004533487483288079,
+          "archivedPhaseTracer": 105.76455552087617
+        },
+        {
+          "RT": 0.025166666666666667,
+          "temperatureGeV": 25.166666666666668,
+          "multiplier": 8,
+          "phaseTracer": {
+            "S3overT": 135.67557234492426,
+            "alpha": 0.03295899149731462
+          },
+          "cosmoTransitions": {
+            "S3overT": 135.67557242536853,
+            "virialRelative": 0.0018370838348503078,
+            "actionIntegralRelative": 1.9977175151766242e-16,
+            "falseVacuumEndpointRelative": 0.00011695471394657712,
+            "profilePoints": 2161,
+            "npoints": 2000,
+            "alpha": 0.03295899149731462
+          },
+          "phaseTracerTight": {
+            "S3overT": 135.58018772725868,
+            "alpha": 0.03295899149731462
+          },
+          "cosmoTransitionsTight": {
+            "S3overT": 135.580189634604,
+            "virialRelative": 0.00022665856819368757,
+            "actionIntegralRelative": 0.0,
+            "falseVacuumEndpointRelative": 2.2708784673997552e-17,
+            "profilePoints": 2151,
+            "npoints": 2000,
+            "alpha": 0.03295899149731462
+          },
+          "relativeDifference": 1.4068024078994767e-08,
+          "phaseToleranceShift": -0.0007030345700189677,
+          "cosmoToleranceShift": -0.0007030211043848045,
+          "archivedPhaseTracer": 135.67557234492426
+        },
+        {
+          "RT": 0.025204166666666666,
+          "temperatureGeV": 25.204166666666666,
+          "multiplier": 8,
+          "phaseTracer": {
+            "S3overT": 176.62478521401636,
+            "alpha": 0.03260323503404484
+          },
+          "cosmoTransitions": {
+            "S3overT": 176.62478283465484,
+            "virialRelative": 0.0018748233729693469,
+            "actionIntegralRelative": 1.0215184008848445e-16,
+            "falseVacuumEndpointRelative": 1.1763049857479198e-16,
+            "profilePoints": 2369,
+            "npoints": 2000,
+            "alpha": 0.03260323503404484
+          },
+          "phaseTracerTight": {
+            "S3overT": 176.56666086756974,
+            "alpha": 0.03260323503404484
+          },
+          "cosmoTransitionsTight": {
+            "S3overT": 176.56666426416277,
+            "virialRelative": 0.0002717722764573667,
+            "actionIntegralRelative": 2.04370928645912e-16,
+            "falseVacuumEndpointRelative": 4.15680442198973e-21,
+            "profilePoints": 2334,
+            "npoints": 2000,
+            "alpha": 0.03260323503404484
+          },
+          "relativeDifference": 1.923688763838527e-08,
+          "phaseToleranceShift": -0.0003290837487852638,
+          "cosmoToleranceShift": -0.0003290510513831446,
+          "archivedPhaseTracer": 176.62478521401636
+        },
+        {
+          "RT": 0.025245833333333332,
+          "temperatureGeV": 25.245833333333334,
+          "multiplier": 8,
+          "phaseTracer": {
+            "S3overT": 252.9449888038671,
+            "alpha": 0.032188910426523915
+          },
+          "cosmoTransitions": {
+            "S3overT": 252.94499380947428,
+            "virialRelative": 0.002462210999779882,
+            "actionIntegralRelative": 1.424243920187533e-16,
+            "falseVacuumEndpointRelative": 6.342702507828002e-05,
+            "profilePoints": 2585,
+            "npoints": 2000,
+            "alpha": 0.032188910426523915
+          },
+          "phaseTracerTight": {
+            "S3overT": 252.95720352371114,
+            "alpha": 0.032188910426523915
+          },
+          "cosmoTransitionsTight": {
+            "S3overT": 252.95720048569373,
+            "virialRelative": 0.0003083601509964307,
+            "actionIntegralRelative": 3.5604379800545707e-16,
+            "falseVacuumEndpointRelative": 2.7179380159914262e-05,
+            "profilePoints": 2554,
+            "npoints": 2000,
+            "alpha": 0.032188910426523915
+          },
+          "relativeDifference": -1.2010005545626257e-08,
+          "phaseToleranceShift": 4.829002504380675e-05,
+          "cosmoToleranceShift": 4.825822419185499e-05,
+          "archivedPhaseTracer": 252.9449888038671
+        },
+        {
+          "RT": 0.0252875,
+          "temperatureGeV": 25.2875,
+          "multiplier": 8,
+          "phaseTracer": {
+            "S3overT": 404.31230776177256,
+            "alpha": 0.031751770610683336
+          },
+          "cosmoTransitions": {
+            "S3overT": 404.3122972155299,
+            "virialRelative": 0.0025814042695043184,
+            "actionIntegralRelative": 1.0674771145783387e-15,
+            "falseVacuumEndpointRelative": 9.083977603214261e-05,
+            "profilePoints": 2972,
+            "npoints": 2000,
+            "alpha": 0.031751770610683336
+          },
+          "phaseTracerTight": {
+            "S3overT": 404.33225955053484,
+            "alpha": 0.031751770610683336
+          },
+          "cosmoTransitionsTight": {
+            "S3overT": 404.3322597203695,
+            "virialRelative": 0.00026989925284371573,
+            "actionIntegralRelative": 7.116162743954818e-16,
+            "falseVacuumEndpointRelative": 8.280452452603446e-20,
+            "profilePoints": 2922,
+            "npoints": 2000,
+            "alpha": 0.031751770610683336
+          },
+          "relativeDifference": 4.200373382445832e-10,
+          "phaseToleranceShift": 4.934746822993219e-05,
+          "cosmoToleranceShift": 4.9373973972866025e-05,
+          "archivedPhaseTracer": 404.31230776177256
+        },
+        {
+          "RT": 0.025333333333333333,
+          "temperatureGeV": 25.333333333333332,
+          "multiplier": 8,
+          "phaseTracer": {
+            "S3overT": 859.4200384634812,
+            "alpha": 0.031240305859009304
+          },
+          "cosmoTransitions": {
+            "S3overT": 859.4200149122377,
+            "virialRelative": 0.002995929516347098,
+            "actionIntegralRelative": 5.012837405598128e-16,
+            "falseVacuumEndpointRelative": 3.8175759069596876e-20,
+            "profilePoints": 3000,
+            "npoints": 2000,
+            "alpha": 0.031240305859009304
+          },
+          "phaseTracerTight": {
+            "S3overT": 859.464094485102,
+            "alpha": 0.031240305859009304
+          },
+          "cosmoTransitionsTight": {
+            "S3overT": 859.4641062420408,
+            "virialRelative": 0.00032578894988598766,
+            "actionIntegralRelative": 8.354300403749723e-16,
+            "falseVacuumEndpointRelative": 2.0697817876280206e-05,
+            "profilePoints": 3000,
+            "npoints": 2000,
+            "alpha": 0.031240305859009304
+          },
+          "relativeDifference": 1.3679383181752769e-08,
+          "phaseToleranceShift": 5.126250220977013e-05,
+          "cosmoToleranceShift": 5.130358734728446e-05,
+          "archivedPhaseTracer": 859.4200384634812
+        }
+      ],
+      "crossings": [
+        {
+          "multiplier": 1,
+          "windings": 100,
+          "thermalTerms": 120,
+          "phaseTracer": {
+            "RT": 0.025182373550356553,
+            "temperatureGeV": 25.18237355035655,
+            "S3overT": 140.00000837920882,
+            "alpha": 0.03278664030763528
+          },
+          "cosmoTransitions": {
+            "RT": 0.0251823735516418,
+            "temperatureGeV": 25.1823735516418,
+            "S3overT": 140.00001038861078,
+            "virialRelative": 0.00024126568192663503,
+            "actionIntegralRelative": 3.8696055982769634e-16,
+            "falseVacuumEndpointRelative": 1.2091672006063392e-18,
+            "profilePoints": 2173,
+            "npoints": 2000,
+            "alpha": 0.03278664029541196
+          },
+          "relativeDifference": 5.103761857583322e-11
+        },
+        {
+          "multiplier": 2,
+          "windings": 200,
+          "thermalTerms": 240,
+          "phaseTracer": {
+            "RT": 0.025173149555800186,
+            "temperatureGeV": 25.173149555800187,
+            "S3overT": 140.0000044664843,
+            "alpha": 0.03289708849839451
+          },
+          "cosmoTransitions": {
+            "RT": 0.025173149555144592,
+            "temperatureGeV": 25.173149555144594,
+            "S3overT": 140.00000233030494,
+            "virialRelative": 0.00018163229353660812,
+            "actionIntegralRelative": 3.225853108182673e-16,
+            "falseVacuumEndpointRelative": 4.402027304084221e-05,
+            "profilePoints": 2174,
+            "npoints": 2000,
+            "alpha": 0.03289708850451904
+          },
+          "relativeDifference": -2.6043389667051997e-11
+        },
+        {
+          "multiplier": 4,
+          "windings": 400,
+          "thermalTerms": 480,
+          "phaseTracer": {
+            "RT": 0.02517176340183298,
+            "temperatureGeV": 25.17176340183298,
+            "S3overT": 139.99999961291934,
+            "alpha": 0.032911102733248515
+          },
+          "cosmoTransitions": {
+            "RT": 0.025171763404091198,
+            "temperatureGeV": 25.171763404091198,
+            "S3overT": 140.00000281028866,
+            "virialRelative": 0.00030083936916582016,
+            "actionIntegralRelative": 1.2904122949702416e-16,
+            "falseVacuumEndpointRelative": 1.8530637741226213e-21,
+            "profilePoints": 2162,
+            "npoints": 2000,
+            "alpha": 0.03291110271214768
+          },
+          "relativeDifference": 8.971223763865055e-11
+        },
+        {
+          "multiplier": 8,
+          "windings": 800,
+          "thermalTerms": 960,
+          "phaseTracer": {
+            "RT": 0.025171553928268274,
+            "temperatureGeV": 25.171553928268274,
+            "S3overT": 140.00000454591927,
+            "alpha": 0.03291347584362431
+          },
+          "cosmoTransitions": {
+            "RT": 0.025171553928046167,
+            "temperatureGeV": 25.171553928046166,
+            "S3overT": 140.000003993156,
+            "virialRelative": 0.00029739733333838665,
+            "actionIntegralRelative": 2.580846045590227e-16,
+            "falseVacuumEndpointRelative": 2.6863369757936946e-18,
+            "profilePoints": 2178,
+            "npoints": 2000,
+            "alpha": 0.032913475845698634
+          },
+          "relativeDifference": -8.823719532813357e-12
+        }
+      ],
+      "diagnostics": {
+        "maxActionRelative": 1.923688763838527e-08,
+        "maxVirialRelative": 0.00032578894988598766,
+        "maxPhaseToleranceShift": 0.001110379891736235,
+        "maxCosmoToleranceShift": 0.001110397375324701,
+        "maxCrossingRelative": 8.971223763865055e-11,
+        "profileSampling": {
+          "RT": 0.025166666666666667,
+          "multiplier": 8,
+          "points500": {
+            "S3overT": 135.5801830177612,
+            "virialRelative": 0.00022661420029745696,
+            "actionIntegralRelative": 3.3318717305987915e-16,
+            "falseVacuumEndpointRelative": 2.2708784673997552e-17,
+            "profilePoints": 538,
+            "npoints": 500,
+            "alpha": 0.03295899149731462
+          },
+          "points2000": {
+            "S3overT": 135.580189634604,
+            "virialRelative": 0.00022665856819368757,
+            "actionIntegralRelative": 0.0,
+            "falseVacuumEndpointRelative": 2.2708784673997552e-17,
+            "profilePoints": 2151,
+            "npoints": 2000,
+            "alpha": 0.03295899149731462
+          },
+          "points4000": {
+            "S3overT": 135.58018964985044,
+            "virialRelative": 0.0002266587531951035,
+            "actionIntegralRelative": 3.998245881138909e-16,
+            "falseVacuumEndpointRelative": 2.2708784673997552e-17,
+            "profilePoints": 4301,
+            "npoints": 4000,
+            "alpha": 0.03295899149731462
+          },
+          "relative2000to4000": 1.1245315789665256e-10
+        }
+      },
+      "normalizationChecks": 1568,
+      "evaluations": 112,
+      "withinDeclaredTargets": true
+    }
+  ]
+}

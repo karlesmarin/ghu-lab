@@ -1,0 +1,1 @@
+cosmoTransitions==2.0.7 --hash=sha256:8e223e2fb24f8d924859e2666493abc891b5edb1c52ceb013ecc84fc92241a83

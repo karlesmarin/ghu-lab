@@ -1,0 +1,5650 @@
+{
+  "sage": "10.9",
+  "arithmetic": "Arb, 192 bits",
+  "checked_global_minima": 10,
+  "passed": 1347,
+  "checks": [
+    {
+      "name": "(1): printed rounding box excludes stationarity",
+      "passed": true
+    },
+    {
+      "name": "(2): printed rounding box excludes stationarity",
+      "passed": true
+    },
+    {
+      "name": "(3): printed rounding box excludes stationarity",
+      "passed": true
+    },
+    {
+      "name": "(4): printed rounding box excludes stationarity",
+      "passed": true
+    },
+    {
+      "name": "(5): printed rounding box excludes stationarity",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: derivative signs isolate a stationary point",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: strictly convex basin contains the root bracket",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: positive conditional mass enclosures",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 0 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 0 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 1 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 1 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 2 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 2 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 3 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 3 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 4 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 4 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 5 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 5 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 6 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 6 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 7 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 7 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 8 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 8 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 9 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 9 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 10 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 10 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 11 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 11 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 12 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 12 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 13 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 13 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 14 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 14 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 15 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 15 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 16 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 16 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 17 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 17 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 18 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 18 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 19 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 19 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 20 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 20 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 21 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 21 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 22 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 22 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 23 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 23 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 24 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 24 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 25 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 25 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 26 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 26 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 27 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 27 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 28 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 28 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 29 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 29 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 30 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 30 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 31 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 31 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 32 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 32 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 33 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 33 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 34 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 34 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 35 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 35 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 36 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 36 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 37 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 37 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 38 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 38 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 39 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 39 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 40 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 40 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 41 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 41 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 42 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 42 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 43 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 43 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 44 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 44 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 45 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 45 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 46 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 46 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 47 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 47 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 48 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 48 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 49 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 49 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 50 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 50 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 51 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 51 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 52 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 52 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 53 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 53 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 54 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 54 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 55 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 55 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 56 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 56 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 57 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 57 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 58 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 58 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 59 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 59 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 60 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 60 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 61 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 61 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 62 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 62 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 63 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 63 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 64 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 64 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 65 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 65 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 66 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 66 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 67 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 67 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 68 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 68 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 69 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 69 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 70 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 70 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 71 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 71 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 72 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 72 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 73 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: cover 73 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) printed: whole domain covered",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: derivative signs isolate a stationary point",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: strictly convex basin contains the root bracket",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: positive conditional mass enclosures",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 0 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 0 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 1 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 1 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 2 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 2 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 3 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 3 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 4 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 4 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 5 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 5 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 6 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 6 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 7 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 7 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 8 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 8 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 9 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 9 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 10 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 10 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 11 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 11 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 12 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 12 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 13 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 13 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 14 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 14 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 15 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 15 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 16 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 16 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 17 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 17 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 18 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 18 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 19 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 19 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 20 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 20 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 21 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 21 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 22 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 22 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 23 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 23 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 24 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 24 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 25 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 25 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 26 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 26 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 27 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 27 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 28 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 28 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 29 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 29 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 30 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 30 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 31 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 31 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 32 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 32 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 33 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 33 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 34 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 34 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 35 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 35 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 36 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 36 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 37 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 37 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 38 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 38 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 39 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 39 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 40 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 40 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 41 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 41 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 42 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 42 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 43 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 43 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 44 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 44 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 45 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 45 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 46 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 46 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 47 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 47 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 48 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 48 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 49 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 49 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 50 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 50 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 51 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 51 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 52 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 52 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 53 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 53 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 54 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 54 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 55 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 55 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 56 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 56 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 57 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 57 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 58 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 58 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 59 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 59 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 60 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 60 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 61 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 61 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 62 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: cover 62 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(1) candidate: whole domain covered",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: derivative signs isolate a stationary point",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: strictly convex basin contains the root bracket",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: positive conditional mass enclosures",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 0 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 0 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 1 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 1 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 2 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 2 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 3 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 3 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 4 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 4 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 5 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 5 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 6 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 6 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 7 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 7 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 8 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 8 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 9 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 9 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 10 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 10 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 11 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 11 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 12 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 12 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 13 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 13 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 14 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 14 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 15 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 15 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 16 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 16 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 17 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 17 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 18 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 18 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 19 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 19 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 20 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 20 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 21 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 21 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 22 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 22 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 23 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 23 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 24 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 24 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 25 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 25 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 26 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 26 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 27 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 27 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 28 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 28 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 29 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 29 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 30 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 30 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 31 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 31 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 32 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 32 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 33 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 33 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 34 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 34 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 35 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 35 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 36 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 36 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 37 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 37 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 38 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 38 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 39 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 39 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 40 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 40 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 41 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 41 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 42 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 42 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 43 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 43 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 44 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 44 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 45 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 45 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 46 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 46 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 47 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 47 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 48 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 48 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 49 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 49 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 50 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 50 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 51 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 51 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 52 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 52 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 53 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 53 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 54 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 54 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 55 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 55 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 56 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 56 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 57 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 57 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 58 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: cover 58 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) printed: whole domain covered",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: derivative signs isolate a stationary point",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: strictly convex basin contains the root bracket",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: positive conditional mass enclosures",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 0 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 0 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 1 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 1 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 2 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 2 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 3 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 3 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 4 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 4 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 5 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 5 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 6 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 6 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 7 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 7 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 8 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 8 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 9 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 9 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 10 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 10 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 11 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 11 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 12 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 12 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 13 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 13 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 14 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 14 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 15 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 15 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 16 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 16 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 17 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 17 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 18 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 18 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 19 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 19 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 20 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 20 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 21 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 21 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 22 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 22 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 23 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 23 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 24 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 24 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 25 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 25 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 26 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 26 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 27 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 27 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 28 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 28 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 29 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 29 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 30 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 30 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 31 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 31 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 32 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 32 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 33 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 33 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 34 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 34 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 35 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 35 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 36 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 36 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 37 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 37 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 38 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 38 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 39 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 39 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 40 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 40 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 41 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 41 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 42 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 42 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 43 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 43 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 44 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 44 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 45 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 45 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 46 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 46 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 47 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 47 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 48 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 48 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 49 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 49 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 50 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 50 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 51 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 51 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 52 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: cover 52 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(2) candidate: whole domain covered",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: derivative signs isolate a stationary point",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: strictly convex basin contains the root bracket",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: positive conditional mass enclosures",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 0 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 0 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 1 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 1 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 2 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 2 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 3 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 3 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 4 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 4 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 5 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 5 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 6 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 6 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 7 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 7 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 8 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 8 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 9 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 9 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 10 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 10 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 11 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 11 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 12 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 12 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 13 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 13 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 14 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 14 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 15 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 15 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 16 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 16 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 17 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 17 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 18 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 18 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 19 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 19 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 20 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 20 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 21 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 21 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 22 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 22 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 23 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 23 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 24 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 24 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 25 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 25 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 26 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 26 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 27 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 27 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 28 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 28 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 29 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 29 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 30 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 30 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 31 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 31 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 32 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 32 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 33 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 33 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 34 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 34 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 35 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 35 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 36 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 36 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 37 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 37 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 38 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 38 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 39 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 39 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 40 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 40 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 41 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 41 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 42 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 42 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 43 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 43 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 44 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 44 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 45 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 45 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 46 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 46 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 47 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 47 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 48 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 48 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 49 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 49 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 50 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 50 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 51 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 51 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 52 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 52 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 53 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 53 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 54 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 54 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 55 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 55 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 56 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 56 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 57 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 57 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 58 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 58 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 59 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 59 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 60 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 60 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 61 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 61 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 62 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 62 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 63 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 63 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 64 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 64 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 65 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 65 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 66 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 66 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 67 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 67 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 68 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 68 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 69 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 69 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 70 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 70 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 71 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: cover 71 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) printed: whole domain covered",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: derivative signs isolate a stationary point",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: strictly convex basin contains the root bracket",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: positive conditional mass enclosures",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 0 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 0 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 1 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 1 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 2 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 2 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 3 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 3 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 4 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 4 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 5 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 5 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 6 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 6 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 7 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 7 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 8 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 8 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 9 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 9 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 10 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 10 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 11 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 11 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 12 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 12 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 13 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 13 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 14 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 14 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 15 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 15 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 16 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 16 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 17 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 17 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 18 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 18 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 19 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 19 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 20 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 20 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 21 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 21 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 22 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 22 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 23 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 23 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 24 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 24 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 25 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 25 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 26 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 26 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 27 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 27 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 28 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 28 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 29 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 29 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 30 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 30 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 31 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 31 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 32 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 32 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 33 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 33 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 34 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 34 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 35 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 35 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 36 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 36 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 37 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 37 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 38 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 38 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 39 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 39 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 40 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 40 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 41 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 41 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 42 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 42 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 43 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 43 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 44 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 44 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 45 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 45 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 46 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 46 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 47 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 47 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 48 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 48 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 49 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 49 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 50 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 50 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 51 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 51 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 52 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 52 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 53 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 53 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 54 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 54 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 55 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 55 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 56 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: cover 56 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(3) candidate: whole domain covered",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: derivative signs isolate a stationary point",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: strictly convex basin contains the root bracket",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: positive conditional mass enclosures",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 0 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 0 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 1 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 1 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 2 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 2 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 3 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 3 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 4 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 4 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 5 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 5 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 6 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 6 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 7 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 7 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 8 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 8 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 9 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 9 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 10 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 10 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 11 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 11 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 12 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 12 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 13 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 13 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 14 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 14 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 15 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 15 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 16 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 16 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 17 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 17 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 18 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 18 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 19 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 19 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 20 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 20 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 21 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 21 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 22 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 22 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 23 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 23 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 24 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 24 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 25 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 25 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 26 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 26 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 27 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 27 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 28 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 28 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 29 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 29 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 30 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 30 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 31 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 31 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 32 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 32 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 33 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 33 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 34 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 34 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 35 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 35 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 36 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 36 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 37 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 37 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 38 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 38 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 39 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 39 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 40 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 40 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 41 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 41 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 42 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 42 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 43 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 43 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 44 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 44 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 45 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 45 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 46 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 46 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 47 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 47 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 48 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 48 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 49 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 49 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 50 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 50 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 51 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 51 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 52 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 52 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 53 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 53 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 54 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 54 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 55 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 55 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 56 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 56 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 57 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 57 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 58 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 58 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 59 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 59 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 60 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 60 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 61 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 61 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 62 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 62 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 63 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 63 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 64 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 64 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 65 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 65 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 66 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 66 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 67 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 67 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 68 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 68 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 69 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 69 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 70 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 70 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 71 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 71 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 72 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 72 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 73 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 73 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 74 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 74 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 75 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 75 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 76 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 76 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 77 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: cover 77 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) printed: whole domain covered",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: derivative signs isolate a stationary point",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: strictly convex basin contains the root bracket",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: positive conditional mass enclosures",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 0 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 0 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 1 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 1 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 2 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 2 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 3 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 3 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 4 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 4 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 5 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 5 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 6 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 6 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 7 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 7 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 8 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 8 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 9 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 9 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 10 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 10 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 11 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 11 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 12 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 12 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 13 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 13 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 14 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 14 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 15 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 15 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 16 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 16 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 17 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 17 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 18 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 18 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 19 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 19 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 20 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 20 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 21 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 21 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 22 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 22 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 23 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 23 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 24 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 24 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 25 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 25 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 26 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 26 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 27 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 27 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 28 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 28 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 29 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 29 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 30 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 30 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 31 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 31 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 32 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 32 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 33 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 33 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 34 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 34 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 35 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 35 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 36 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 36 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 37 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 37 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 38 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 38 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 39 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 39 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 40 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 40 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 41 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 41 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 42 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 42 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 43 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 43 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 44 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 44 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 45 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 45 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 46 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 46 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 47 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 47 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 48 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 48 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 49 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 49 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 50 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 50 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 51 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 51 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 52 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 52 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 53 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 53 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 54 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 54 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 55 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 55 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 56 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 56 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 57 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 57 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 58 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: cover 58 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(4) candidate: whole domain covered",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: derivative signs isolate a stationary point",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: strictly convex basin contains the root bracket",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: positive conditional mass enclosures",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 0 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 0 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 1 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 1 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 2 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 2 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 3 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 3 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 4 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 4 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 5 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 5 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 6 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 6 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 7 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 7 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 8 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 8 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 9 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 9 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 10 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 10 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 11 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 11 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 12 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 12 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 13 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 13 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 14 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 14 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 15 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 15 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 16 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 16 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 17 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 17 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 18 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 18 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 19 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 19 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 20 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 20 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 21 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 21 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 22 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 22 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 23 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 23 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 24 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 24 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 25 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 25 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 26 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 26 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 27 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 27 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 28 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 28 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 29 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 29 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 30 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 30 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 31 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 31 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 32 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 32 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 33 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 33 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 34 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 34 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 35 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 35 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 36 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 36 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 37 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 37 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 38 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 38 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 39 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 39 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 40 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 40 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 41 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 41 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 42 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 42 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 43 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 43 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 44 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 44 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 45 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 45 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 46 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 46 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 47 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 47 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 48 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 48 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 49 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 49 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 50 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 50 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 51 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 51 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 52 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 52 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 53 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 53 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 54 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 54 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 55 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 55 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 56 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 56 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 57 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 57 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 58 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 58 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 59 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 59 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 60 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 60 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 61 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 61 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 62 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 62 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 63 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 63 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 64 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 64 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 65 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 65 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 66 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 66 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 67 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 67 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 68 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 68 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 69 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 69 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 70 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 70 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 71 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 71 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 72 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: cover 72 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) printed: whole domain covered",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: derivative signs isolate a stationary point",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: strictly convex basin contains the root bracket",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: positive conditional mass enclosures",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 0 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 0 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 1 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 1 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 2 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 2 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 3 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 3 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 4 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 4 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 5 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 5 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 6 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 6 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 7 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 7 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 8 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 8 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 9 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 9 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 10 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 10 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 11 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 11 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 12 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 12 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 13 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 13 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 14 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 14 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 15 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 15 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 16 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 16 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 17 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 17 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 18 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 18 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 19 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 19 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 20 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 20 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 21 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 21 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 22 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 22 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 23 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 23 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 24 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 24 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 25 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 25 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 26 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 26 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 27 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 27 within convex basin",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 28 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 28 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 29 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 29 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 30 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 30 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 31 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 31 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 32 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 32 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 33 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 33 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 34 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 34 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 35 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 35 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 36 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 36 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 37 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 37 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 38 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 38 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 39 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 39 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 40 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 40 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 41 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 41 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 42 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 42 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 43 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 43 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 44 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 44 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 45 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 45 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 46 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 46 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 47 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 47 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 48 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 48 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 49 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 49 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 50 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 50 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 51 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 51 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 52 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 52 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 53 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 53 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 54 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 54 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 55 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 55 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 56 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 56 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 57 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 57 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 58 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 58 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 59 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 59 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 60 has no gap",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: cover 60 energy exceeds reference",
+      "passed": true
+    },
+    {
+      "name": "(5) candidate: whole domain covered",
+      "passed": true
+    },
+    {
+      "name": "KLY curvature coefficient is 18-4Nf",
+      "passed": true
+    },
+    {
+      "name": "Small-angle stationary curvature identity",
+      "passed": true
+    },
+    {
+      "name": "Odd-winding endpoint factor",
+      "passed": true
+    },
+    {
+      "name": "Flat background gauge plus ghost bookkeeping",
+      "passed": true
+    }
+  ],
+  "rounding_intervals": [
+    {
+      "row": "(1)",
+      "Fprime": [
+        "-0.305378420290155173322613334660501843387961060776773706583",
+        "-0.284944806638024584433491325383158093387961060776773706582"
+      ]
+    },
+    {
+      "row": "(2)",
+      "Fprime": [
+        "-0.142221917170916839398338702966767399470221175904990290966",
+        "-0.0844176226001020212544940984745798994702211759049902909651"
+      ]
+    },
+    {
+      "row": "(3)",
+      "Fprime": [
+        "-0.197160994698271946568701798419695841974226755536187305514",
+        "-0.191909436666385130543921524982195841974226755536187305513"
+      ]
+    },
+    {
+      "row": "(4)",
+      "Fprime": [
+        "-0.258348252854205458815222726985344464916724321865630733404",
+        "-0.254259533304150938446646677180656964916724321865630733403"
+      ]
+    },
+    {
+      "row": "(5)",
+      "Fprime": [
+        "-0.305888395204971745272037535356474767166449638643892581830",
+        "-0.285544807092816769738552122758818517166449638643892581829"
+      ]
+    }
+  ],
+  "conditional_mass_intervals": [
+    {
+      "row": "(1)",
+      "seed": "printed",
+      "conventions": {
+        "mWGeV": "80.4",
+        "g4": "0.63"
+      },
+      "compactification_GeV": [
+        "2907.51396179199218750000000000000000000000000000000000000",
+        "2907.61913299560546875000000000000000000000000000000000000"
+      ],
+      "higgs_mass_GeV": [
+        "144.247425556182861328125000000000000000000000000000000000",
+        "144.330284595489501953125000000000000000000000000000000000"
+      ],
+      "curvature_at_certified_root": [
+        "31.7972375576137354678556934641336097561167562417320763898",
+        "31.8314751137150241143152729319070472561167562417320763899"
+      ],
+      "scope": "Conditional one-loop benchmark with fixed mW and g4; not a fit or a physical validity certificate."
+    },
+    {
+      "row": "(1)",
+      "seed": "candidate",
+      "conventions": {
+        "mWGeV": "80.4",
+        "g4": "0.63"
+      },
+      "compactification_GeV": [
+        "2112.46652984619140625000000000000000000000000000000000000",
+        "2112.52205657958984375000000000000000000000000000000000000"
+      ],
+      "higgs_mass_GeV": [
+        "127.369997859001159667968750000000000000000000000000000000",
+        "127.420186519622802734375000000000000000000000000000000000"
+      ],
+      "curvature_at_certified_root": [
+        "46.9646917688165984217942201929255390956578518467909211320",
+        "46.9992400507996051673710787134333515956578518467909211321"
+      ],
+      "scope": "Conditional one-loop benchmark with fixed mW and g4; not a fit or a physical validity certificate."
+    },
+    {
+      "row": "(2)",
+      "seed": "printed",
+      "conventions": {
+        "mWGeV": "80.4",
+        "g4": "0.63"
+      },
+      "compactification_GeV": [
+        "1935.88555335998535156250000000000000000000000000000000000",
+        "1935.93218040466308593750000000000000000000000000000000000"
+      ],
+      "higgs_mass_GeV": [
+        "127.832680106163024902343750000000000000000000000000000000",
+        "127.874603033065795898437500000000000000000000000000000000"
+      ],
+      "curvature_at_certified_root": [
+        "56.3302006360439850566969733350381768245277416557799762660",
+        "56.3644381921452737031565528028116143245277416557799762661"
+      ],
+      "scope": "Conditional one-loop benchmark with fixed mW and g4; not a fit or a physical validity certificate."
+    },
+    {
+      "row": "(2)",
+      "seed": "candidate",
+      "conventions": {
+        "mWGeV": "80.4",
+        "g4": "0.63"
+      },
+      "compactification_GeV": [
+        "1601.50852203369140625000000000000000000000000000000000000",
+        "1601.54043579101562500000000000000000000000000000000000000"
+      ],
+      "higgs_mass_GeV": [
+        "117.112295031547546386718750000000000000000000000000000000",
+        "117.143910169601440429687500000000000000000000000000000000"
+      ],
+      "curvature_at_certified_root": [
+        "69.0817519247462693272049104434200479523446213966965782987",
+        "69.1163002067292760727817689639278604523446213966965782988"
+      ],
+      "scope": "Conditional one-loop benchmark with fixed mW and g4; not a fit or a physical validity certificate."
+    },
+    {
+      "row": "(3)",
+      "seed": "printed",
+      "conventions": {
+        "mWGeV": "80.4",
+        "g4": "0.63"
+      },
+      "compactification_GeV": [
+        "3688.60944747924804687500000000000000000000000000000000000",
+        "3688.77870941162109375000000000000000000000000000000000000"
+      ],
+      "higgs_mass_GeV": [
+        "148.287395000457763671875000000000000000000000000000000000",
+        "148.374793767929077148437500000000000000000000000000000000"
+      ],
+      "curvature_at_certified_root": [
+        "20.8785335817877154652050847800131303395742218932031423836",
+        "20.9012334543433923129013891013021928395742218932031423837"
+      ],
+      "scope": "Conditional one-loop benchmark with fixed mW and g4; not a fit or a physical validity certificate."
+    },
+    {
+      "row": "(3)",
+      "seed": "candidate",
+      "conventions": {
+        "mWGeV": "80.4",
+        "g4": "0.63"
+      },
+      "compactification_GeV": [
+        "2390.41594696044921875000000000000000000000000000000000000",
+        "2390.48704147338867187500000000000000000000000000000000000"
+      ],
+      "higgs_mass_GeV": [
+        "131.871583700180053710937500000000000000000000000000000000",
+        "131.914092063903808593750000000000000000000000000000000000"
+      ],
+      "curvature_at_certified_root": [
+        "39.3162743038832845507899091327247515514438546756694992158",
+        "39.3392849023206794976034925067481890514438546756694992159"
+      ],
+      "scope": "Conditional one-loop benchmark with fixed mW and g4; not a fit or a physical validity certificate."
+    },
+    {
+      "row": "(4)",
+      "seed": "printed",
+      "conventions": {
+        "mWGeV": "80.4",
+        "g4": "0.63"
+      },
+      "compactification_GeV": [
+        "3430.03813171386718750000000000000000000000000000000000000",
+        "3430.18449401855468750000000000000000000000000000000000000"
+      ],
+      "higgs_mass_GeV": [
+        "150.005686044692993164062500000000000000000000000000000000",
+        "150.097550392150878906250000000000000000000000000000000000"
+      ],
+      "curvature_at_certified_root": [
+        "24.7078193066476889386395886153710897566514424572097880695",
+        "24.7359796482264575048903897017968710066514424572097880696"
+      ],
+      "scope": "Conditional one-loop benchmark with fixed mW and g4; not a fit or a physical validity certificate."
+    },
+    {
+      "row": "(4)",
+      "seed": "candidate",
+      "conventions": {
+        "mWGeV": "80.4",
+        "g4": "0.63"
+      },
+      "compactification_GeV": [
+        "2331.14620590209960937500000000000000000000000000000000000",
+        "2331.21382141113281250000000000000000000000000000000000000"
+      ],
+      "higgs_mass_GeV": [
+        "132.887167692184448242187500000000000000000000000000000000",
+        "132.936078310012817382812500000000000000000000000000000000"
+      ],
+      "curvature_at_certified_root": [
+        "41.9801447646667404603325519941959813721835317681951945017",
+        "42.0086158320981232952438984297428563721835317681951945018"
+      ],
+      "scope": "Conditional one-loop benchmark with fixed mW and g4; not a fit or a physical validity certificate."
+    },
+    {
+      "row": "(5)",
+      "seed": "printed",
+      "conventions": {
+        "mWGeV": "80.4",
+        "g4": "0.63"
+      },
+      "compactification_GeV": [
+        "2908.93735504150390625000000000000000000000000000000000000",
+        "2909.04262924194335937500000000000000000000000000000000000"
+      ],
+      "higgs_mass_GeV": [
+        "144.678912401199340820312500000000000000000000000000000000",
+        "144.759057760238647460937500000000000000000000000000000000"
+      ],
+      "curvature_at_certified_root": [
+        "31.9564552675500007722164614234205908107969645085046130137",
+        "31.9895542798247615251327974829909033107969645085046130138"
+      ],
+      "scope": "Conditional one-loop benchmark with fixed mW and g4; not a fit or a physical validity certificate."
+    },
+    {
+      "row": "(5)",
+      "seed": "candidate",
+      "conventions": {
+        "mWGeV": "80.4",
+        "g4": "0.63"
+      },
+      "compactification_GeV": [
+        "2117.71633148193359375000000000000000000000000000000000000",
+        "2117.77213287353515625000000000000000000000000000000000000"
+      ],
+      "higgs_mass_GeV": [
+        "128.215679883956909179687500000000000000000000000000000000",
+        "128.264281749725341796875000000000000000000000000000000000"
+      ],
+      "curvature_at_certified_root": [
+        "47.3547530088757969139396083133001288773269476476681628448",
+        "47.3881627470322757659732234256048163773269476476681628449"
+      ],
+      "scope": "Conditional one-loop benchmark with fixed mW and g4; not a fit or a physical validity certificate."
+    }
+  ],
+  "inputs": {
+    "reconstruction.json": "2c6163f34c39da8e85cd756f1faf89d852671d16ab1440f4e19dac0442247c69",
+    "global_certificates.json": "7bd87afde56f0e6a818c6961c98a83fda743d182fd8c2ac68e2d9e16792c05d8"
+  },
+  "scope": "Independent analytic/interval replay. This is computer-assisted certification, not a Lean proof of real analysis or validation of the physical model."
+}

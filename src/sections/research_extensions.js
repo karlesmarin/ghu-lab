@@ -108,12 +108,12 @@ const TH_PANEL={
     {key:'invRGeV',label:'1/R [GeV]',min:100,max:1e6},{key:'g4',label:'Gauge coupling g₄',min:.3,max:6},{key:'RT',label:'Temperature R T',min:0,max:.6},
     {key:'windings',label:'Spatial winding cutoff',min:20,max:300,step:1},{key:'thermalTerms',label:'Thermal winding cutoff',min:20,max:400,step:1}],
   source:'Source: <a href="https://arxiv.org/abs/2303.14192" target="_blank" rel="noopener">Hirose–Shibuya, eqs. (2.30), (2.33), cases 1 and 2</a>. C₄ = 3/(64π⁶R⁴), α = g₄Rφ.',
-  present(r){return `<p><b>T = ${rxNumber(r.temperatureGeV)} GeV; preferred α = ${rxNumber(r.minima[0]?.a)}.</b> ${r.critical?`Coexistence candidate: Tc = ${rxNumber(r.critical.temperatureGeV)} GeV (RTc = ${rxNumber(r.critical.RT)}), broken α = ${rxNumber(r.critical.aBroken)}.`:'No first-order coexistence candidate certified in 0 ≤ RT ≤ 0.6 with these cutoffs.'}</p>`+
+  present(r){return `<p><b>T = ${rxNumber(r.temperatureGeV)} GeV; preferred α = ${rxNumber(r.minima[0]?.a)}.</b> ${r.critical?`Coexistence candidate: Tc = ${rxNumber(r.critical.temperatureGeV)} GeV (RTc = ${rxNumber(r.critical.RT)}), broken α = ${rxNumber(r.critical.aBroken)}.`:'No first-order coexistence candidate resolved in 0 ≤ RT ≤ 0.6 with these cutoffs.'}</p>`+
     rxPlot('Thermal Wilson potential and doubled-cutoff check',rxCompared('thermal',[{name:'Selected truncation',points:r.curve.map(s=>[s.a,s.potentialOverC])},{name:'Doubled cutoffs',points:r.curve.map(s=>[s.a,s.fineOverC])}],b=>b.curve.map(s=>[s.a,s.potentialOverC])),'α','[V(α,T) − V(0,T)] / C₄',r.parameters)+
     rxPlot('Thermal preferred Wilson phase',[{name:'Preferred minimum',points:r.phases.flow.filter(x=>x.minima.length).map(x=>[x.RT,x.minima[0].a])}],'R T','Preferred α',r.parameters)+
     rxTable(['Minimum α','Potential / C₄','Curvature / C₄','φ [GeV]'],r.minima.map(m=>[m.a,m.v,m.curvature,m.a*r.parameters.invRGeV/r.parameters.g4]))+
     `<p>Doubling both cutoffs changes the preferred α by ${rxNumber(r.convergence.minimumShift)} and the plotted potential by at most ${rxNumber(r.convergence.maxPotentialShiftOverC)} C₄.</p><p class="note">${rxEscape(r.convergence.comparison)}. ${rxEscape(r.scope)}. Nucleation and gravitational waves require the external bounce calculation and its hypotheses; they are not inferred from this plot.</p>`;},
-  tex:r=>`Flat SU(3) thermal potential at RT=${r.parameters.RT}; coexistence RT=${r.critical?.RT?.toPrecision(6)||'not certified'}. Canonical field alpha=g4 R phi. Nucleation and gravitational waves require an independent bounce calculation.`
+  tex:r=>`Flat SU(3) thermal potential at RT=${r.parameters.RT}; coexistence RT=${r.critical?.RT?.toPrecision(6)||'not resolved'}. Canonical field alpha=g4 R phi. Nucleation and gravitational waves require an independent bounce calculation.`
 };
 rxAttach(PRED_SECTION,TH_PANEL);
 

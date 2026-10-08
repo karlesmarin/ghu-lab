@@ -1,0 +1,1119 @@
+{
+  "sage": "10.9",
+  "passed": 235,
+  "checks": [
+    {
+      "name": "published: positive denominator throughout mass window",
+      "passed": true
+    },
+    {
+      "name": "published 1: dual generator 0",
+      "passed": true
+    },
+    {
+      "name": "published 1: dual generator 1",
+      "passed": true
+    },
+    {
+      "name": "published 1: dual generator 2",
+      "passed": true
+    },
+    {
+      "name": "published 1: dual generator 3",
+      "passed": true
+    },
+    {
+      "name": "published 1: dual generator 4",
+      "passed": true
+    },
+    {
+      "name": "published 1: dual generator 5",
+      "passed": true
+    },
+    {
+      "name": "published 1: dual generator 6",
+      "passed": true
+    },
+    {
+      "name": "published 1: dual generator 7",
+      "passed": true
+    },
+    {
+      "name": "published 1: concave tail excluded",
+      "passed": true
+    },
+    {
+      "name": "published 1: lattice predecessor",
+      "passed": true
+    },
+    {
+      "name": "published 1: upper mass bound",
+      "passed": true
+    },
+    {
+      "name": "published 3: dual generator 0",
+      "passed": true
+    },
+    {
+      "name": "published 3: dual generator 1",
+      "passed": true
+    },
+    {
+      "name": "published 3: dual generator 2",
+      "passed": true
+    },
+    {
+      "name": "published 3: dual generator 3",
+      "passed": true
+    },
+    {
+      "name": "published 3: dual generator 4",
+      "passed": true
+    },
+    {
+      "name": "published 3: dual generator 5",
+      "passed": true
+    },
+    {
+      "name": "published 3: dual generator 6",
+      "passed": true
+    },
+    {
+      "name": "published 3: dual generator 7",
+      "passed": true
+    },
+    {
+      "name": "published 3: concave tail excluded",
+      "passed": true
+    },
+    {
+      "name": "published 3: lattice predecessor",
+      "passed": true
+    },
+    {
+      "name": "published 3: upper mass bound",
+      "passed": true
+    },
+    {
+      "name": "published 5: dual generator 0",
+      "passed": true
+    },
+    {
+      "name": "published 5: dual generator 1",
+      "passed": true
+    },
+    {
+      "name": "published 5: dual generator 2",
+      "passed": true
+    },
+    {
+      "name": "published 5: dual generator 3",
+      "passed": true
+    },
+    {
+      "name": "published 5: dual generator 4",
+      "passed": true
+    },
+    {
+      "name": "published 5: dual generator 5",
+      "passed": true
+    },
+    {
+      "name": "published 5: dual generator 6",
+      "passed": true
+    },
+    {
+      "name": "published 5: dual generator 7",
+      "passed": true
+    },
+    {
+      "name": "published 5: concave tail excluded",
+      "passed": true
+    },
+    {
+      "name": "published 5: lattice predecessor",
+      "passed": true
+    },
+    {
+      "name": "published 5: upper mass bound",
+      "passed": true
+    },
+    {
+      "name": "published 7: dual generator 0",
+      "passed": true
+    },
+    {
+      "name": "published 7: dual generator 1",
+      "passed": true
+    },
+    {
+      "name": "published 7: dual generator 2",
+      "passed": true
+    },
+    {
+      "name": "published 7: dual generator 3",
+      "passed": true
+    },
+    {
+      "name": "published 7: dual generator 4",
+      "passed": true
+    },
+    {
+      "name": "published 7: dual generator 5",
+      "passed": true
+    },
+    {
+      "name": "published 7: dual generator 6",
+      "passed": true
+    },
+    {
+      "name": "published 7: dual generator 7",
+      "passed": true
+    },
+    {
+      "name": "published 7: concave tail excluded",
+      "passed": true
+    },
+    {
+      "name": "published 7: lattice predecessor",
+      "passed": true
+    },
+    {
+      "name": "published 7: upper mass bound",
+      "passed": true
+    },
+    {
+      "name": "published 9: dual generator 0",
+      "passed": true
+    },
+    {
+      "name": "published 9: dual generator 1",
+      "passed": true
+    },
+    {
+      "name": "published 9: dual generator 2",
+      "passed": true
+    },
+    {
+      "name": "published 9: dual generator 3",
+      "passed": true
+    },
+    {
+      "name": "published 9: dual generator 4",
+      "passed": true
+    },
+    {
+      "name": "published 9: dual generator 5",
+      "passed": true
+    },
+    {
+      "name": "published 9: dual generator 6",
+      "passed": true
+    },
+    {
+      "name": "published 9: dual generator 7",
+      "passed": true
+    },
+    {
+      "name": "published 9: concave tail excluded",
+      "passed": true
+    },
+    {
+      "name": "published 9: lattice predecessor",
+      "passed": true
+    },
+    {
+      "name": "published 9: upper mass bound",
+      "passed": true
+    },
+    {
+      "name": "published 11: dual generator 0",
+      "passed": true
+    },
+    {
+      "name": "published 11: dual generator 1",
+      "passed": true
+    },
+    {
+      "name": "published 11: dual generator 2",
+      "passed": true
+    },
+    {
+      "name": "published 11: dual generator 3",
+      "passed": true
+    },
+    {
+      "name": "published 11: dual generator 4",
+      "passed": true
+    },
+    {
+      "name": "published 11: dual generator 5",
+      "passed": true
+    },
+    {
+      "name": "published 11: dual generator 6",
+      "passed": true
+    },
+    {
+      "name": "published 11: dual generator 7",
+      "passed": true
+    },
+    {
+      "name": "published 11: concave tail excluded",
+      "passed": true
+    },
+    {
+      "name": "published 11: lattice predecessor",
+      "passed": true
+    },
+    {
+      "name": "published 11: upper mass bound",
+      "passed": true
+    },
+    {
+      "name": "published 13: dual generator 0",
+      "passed": true
+    },
+    {
+      "name": "published 13: dual generator 1",
+      "passed": true
+    },
+    {
+      "name": "published 13: dual generator 2",
+      "passed": true
+    },
+    {
+      "name": "published 13: dual generator 3",
+      "passed": true
+    },
+    {
+      "name": "published 13: dual generator 4",
+      "passed": true
+    },
+    {
+      "name": "published 13: dual generator 5",
+      "passed": true
+    },
+    {
+      "name": "published 13: dual generator 6",
+      "passed": true
+    },
+    {
+      "name": "published 13: dual generator 7",
+      "passed": true
+    },
+    {
+      "name": "published 13: concave tail excluded",
+      "passed": true
+    },
+    {
+      "name": "published 13: lattice predecessor",
+      "passed": true
+    },
+    {
+      "name": "published 13: upper mass bound",
+      "passed": true
+    },
+    {
+      "name": "published 15: dual generator 0",
+      "passed": true
+    },
+    {
+      "name": "published 15: dual generator 1",
+      "passed": true
+    },
+    {
+      "name": "published 15: dual generator 2",
+      "passed": true
+    },
+    {
+      "name": "published 15: dual generator 3",
+      "passed": true
+    },
+    {
+      "name": "published 15: dual generator 4",
+      "passed": true
+    },
+    {
+      "name": "published 15: dual generator 5",
+      "passed": true
+    },
+    {
+      "name": "published 15: dual generator 6",
+      "passed": true
+    },
+    {
+      "name": "published 15: dual generator 7",
+      "passed": true
+    },
+    {
+      "name": "published 15: concave tail excluded",
+      "passed": true
+    },
+    {
+      "name": "published 15: lattice predecessor",
+      "passed": true
+    },
+    {
+      "name": "published 15: upper mass bound",
+      "passed": true
+    },
+    {
+      "name": "published 17: dual generator 0",
+      "passed": true
+    },
+    {
+      "name": "published 17: dual generator 1",
+      "passed": true
+    },
+    {
+      "name": "published 17: dual generator 2",
+      "passed": true
+    },
+    {
+      "name": "published 17: dual generator 3",
+      "passed": true
+    },
+    {
+      "name": "published 17: dual generator 4",
+      "passed": true
+    },
+    {
+      "name": "published 17: dual generator 5",
+      "passed": true
+    },
+    {
+      "name": "published 17: dual generator 6",
+      "passed": true
+    },
+    {
+      "name": "published 17: dual generator 7",
+      "passed": true
+    },
+    {
+      "name": "published 17: concave tail excluded",
+      "passed": true
+    },
+    {
+      "name": "published 17: lattice predecessor",
+      "passed": true
+    },
+    {
+      "name": "published 17: upper mass bound",
+      "passed": true
+    },
+    {
+      "name": "published 19: dual generator 0",
+      "passed": true
+    },
+    {
+      "name": "published 19: dual generator 1",
+      "passed": true
+    },
+    {
+      "name": "published 19: dual generator 2",
+      "passed": true
+    },
+    {
+      "name": "published 19: dual generator 3",
+      "passed": true
+    },
+    {
+      "name": "published 19: dual generator 4",
+      "passed": true
+    },
+    {
+      "name": "published 19: dual generator 5",
+      "passed": true
+    },
+    {
+      "name": "published 19: dual generator 6",
+      "passed": true
+    },
+    {
+      "name": "published 19: dual generator 7",
+      "passed": true
+    },
+    {
+      "name": "published 19: concave tail excluded",
+      "passed": true
+    },
+    {
+      "name": "published 19: lattice predecessor",
+      "passed": true
+    },
+    {
+      "name": "published 19: upper mass bound",
+      "passed": true
+    },
+    {
+      "name": "published 21: dual generator 0",
+      "passed": true
+    },
+    {
+      "name": "published 21: dual generator 1",
+      "passed": true
+    },
+    {
+      "name": "published 21: dual generator 2",
+      "passed": true
+    },
+    {
+      "name": "published 21: dual generator 3",
+      "passed": true
+    },
+    {
+      "name": "published 21: dual generator 4",
+      "passed": true
+    },
+    {
+      "name": "published 21: dual generator 5",
+      "passed": true
+    },
+    {
+      "name": "published 21: dual generator 6",
+      "passed": true
+    },
+    {
+      "name": "published 21: dual generator 7",
+      "passed": true
+    },
+    {
+      "name": "published 21: concave tail excluded",
+      "passed": true
+    },
+    {
+      "name": "published 21: lattice predecessor",
+      "passed": true
+    },
+    {
+      "name": "published 21: upper mass bound",
+      "passed": true
+    },
+    {
+      "name": "candidate: positive denominator throughout mass window",
+      "passed": true
+    },
+    {
+      "name": "candidate 2: dual generator 0",
+      "passed": true
+    },
+    {
+      "name": "candidate 2: dual generator 1",
+      "passed": true
+    },
+    {
+      "name": "candidate 2: dual generator 2",
+      "passed": true
+    },
+    {
+      "name": "candidate 2: dual generator 3",
+      "passed": true
+    },
+    {
+      "name": "candidate 2: dual generator 4",
+      "passed": true
+    },
+    {
+      "name": "candidate 2: dual generator 5",
+      "passed": true
+    },
+    {
+      "name": "candidate 2: dual generator 6",
+      "passed": true
+    },
+    {
+      "name": "candidate 2: dual generator 7",
+      "passed": true
+    },
+    {
+      "name": "candidate 2: concave tail excluded",
+      "passed": true
+    },
+    {
+      "name": "candidate 2: lattice predecessor",
+      "passed": true
+    },
+    {
+      "name": "candidate 2: upper mass bound",
+      "passed": true
+    },
+    {
+      "name": "candidate 4: dual generator 0",
+      "passed": true
+    },
+    {
+      "name": "candidate 4: dual generator 1",
+      "passed": true
+    },
+    {
+      "name": "candidate 4: dual generator 2",
+      "passed": true
+    },
+    {
+      "name": "candidate 4: dual generator 3",
+      "passed": true
+    },
+    {
+      "name": "candidate 4: dual generator 4",
+      "passed": true
+    },
+    {
+      "name": "candidate 4: dual generator 5",
+      "passed": true
+    },
+    {
+      "name": "candidate 4: dual generator 6",
+      "passed": true
+    },
+    {
+      "name": "candidate 4: dual generator 7",
+      "passed": true
+    },
+    {
+      "name": "candidate 4: concave tail excluded",
+      "passed": true
+    },
+    {
+      "name": "candidate 4: lattice predecessor",
+      "passed": true
+    },
+    {
+      "name": "candidate 4: upper mass bound",
+      "passed": true
+    },
+    {
+      "name": "candidate 6: dual generator 0",
+      "passed": true
+    },
+    {
+      "name": "candidate 6: dual generator 1",
+      "passed": true
+    },
+    {
+      "name": "candidate 6: dual generator 2",
+      "passed": true
+    },
+    {
+      "name": "candidate 6: dual generator 3",
+      "passed": true
+    },
+    {
+      "name": "candidate 6: dual generator 4",
+      "passed": true
+    },
+    {
+      "name": "candidate 6: dual generator 5",
+      "passed": true
+    },
+    {
+      "name": "candidate 6: dual generator 6",
+      "passed": true
+    },
+    {
+      "name": "candidate 6: dual generator 7",
+      "passed": true
+    },
+    {
+      "name": "candidate 6: concave tail excluded",
+      "passed": true
+    },
+    {
+      "name": "candidate 6: lattice predecessor",
+      "passed": true
+    },
+    {
+      "name": "candidate 6: upper mass bound",
+      "passed": true
+    },
+    {
+      "name": "candidate 8: dual generator 0",
+      "passed": true
+    },
+    {
+      "name": "candidate 8: dual generator 1",
+      "passed": true
+    },
+    {
+      "name": "candidate 8: dual generator 2",
+      "passed": true
+    },
+    {
+      "name": "candidate 8: dual generator 3",
+      "passed": true
+    },
+    {
+      "name": "candidate 8: dual generator 4",
+      "passed": true
+    },
+    {
+      "name": "candidate 8: dual generator 5",
+      "passed": true
+    },
+    {
+      "name": "candidate 8: dual generator 6",
+      "passed": true
+    },
+    {
+      "name": "candidate 8: dual generator 7",
+      "passed": true
+    },
+    {
+      "name": "candidate 8: concave tail excluded",
+      "passed": true
+    },
+    {
+      "name": "candidate 8: lattice predecessor",
+      "passed": true
+    },
+    {
+      "name": "candidate 8: upper mass bound",
+      "passed": true
+    },
+    {
+      "name": "candidate 10: dual generator 0",
+      "passed": true
+    },
+    {
+      "name": "candidate 10: dual generator 1",
+      "passed": true
+    },
+    {
+      "name": "candidate 10: dual generator 2",
+      "passed": true
+    },
+    {
+      "name": "candidate 10: dual generator 3",
+      "passed": true
+    },
+    {
+      "name": "candidate 10: dual generator 4",
+      "passed": true
+    },
+    {
+      "name": "candidate 10: dual generator 5",
+      "passed": true
+    },
+    {
+      "name": "candidate 10: dual generator 6",
+      "passed": true
+    },
+    {
+      "name": "candidate 10: dual generator 7",
+      "passed": true
+    },
+    {
+      "name": "candidate 10: concave tail excluded",
+      "passed": true
+    },
+    {
+      "name": "candidate 10: lattice predecessor",
+      "passed": true
+    },
+    {
+      "name": "candidate 10: upper mass bound",
+      "passed": true
+    },
+    {
+      "name": "candidate 12: dual generator 0",
+      "passed": true
+    },
+    {
+      "name": "candidate 12: dual generator 1",
+      "passed": true
+    },
+    {
+      "name": "candidate 12: dual generator 2",
+      "passed": true
+    },
+    {
+      "name": "candidate 12: dual generator 3",
+      "passed": true
+    },
+    {
+      "name": "candidate 12: dual generator 4",
+      "passed": true
+    },
+    {
+      "name": "candidate 12: dual generator 5",
+      "passed": true
+    },
+    {
+      "name": "candidate 12: dual generator 6",
+      "passed": true
+    },
+    {
+      "name": "candidate 12: dual generator 7",
+      "passed": true
+    },
+    {
+      "name": "candidate 12: concave tail excluded",
+      "passed": true
+    },
+    {
+      "name": "candidate 12: lattice predecessor",
+      "passed": true
+    },
+    {
+      "name": "candidate 12: upper mass bound",
+      "passed": true
+    },
+    {
+      "name": "candidate 14: dual generator 0",
+      "passed": true
+    },
+    {
+      "name": "candidate 14: dual generator 1",
+      "passed": true
+    },
+    {
+      "name": "candidate 14: dual generator 2",
+      "passed": true
+    },
+    {
+      "name": "candidate 14: dual generator 3",
+      "passed": true
+    },
+    {
+      "name": "candidate 14: dual generator 4",
+      "passed": true
+    },
+    {
+      "name": "candidate 14: dual generator 5",
+      "passed": true
+    },
+    {
+      "name": "candidate 14: dual generator 6",
+      "passed": true
+    },
+    {
+      "name": "candidate 14: dual generator 7",
+      "passed": true
+    },
+    {
+      "name": "candidate 14: concave tail excluded",
+      "passed": true
+    },
+    {
+      "name": "candidate 14: lattice predecessor",
+      "passed": true
+    },
+    {
+      "name": "candidate 14: upper mass bound",
+      "passed": true
+    },
+    {
+      "name": "candidate 16: dual generator 0",
+      "passed": true
+    },
+    {
+      "name": "candidate 16: dual generator 1",
+      "passed": true
+    },
+    {
+      "name": "candidate 16: dual generator 2",
+      "passed": true
+    },
+    {
+      "name": "candidate 16: dual generator 3",
+      "passed": true
+    },
+    {
+      "name": "candidate 16: dual generator 4",
+      "passed": true
+    },
+    {
+      "name": "candidate 16: dual generator 5",
+      "passed": true
+    },
+    {
+      "name": "candidate 16: dual generator 6",
+      "passed": true
+    },
+    {
+      "name": "candidate 16: dual generator 7",
+      "passed": true
+    },
+    {
+      "name": "candidate 16: concave tail excluded",
+      "passed": true
+    },
+    {
+      "name": "candidate 16: lattice predecessor",
+      "passed": true
+    },
+    {
+      "name": "candidate 16: upper mass bound",
+      "passed": true
+    },
+    {
+      "name": "candidate 18: dual generator 0",
+      "passed": true
+    },
+    {
+      "name": "candidate 18: dual generator 1",
+      "passed": true
+    },
+    {
+      "name": "candidate 18: dual generator 2",
+      "passed": true
+    },
+    {
+      "name": "candidate 18: dual generator 3",
+      "passed": true
+    },
+    {
+      "name": "candidate 18: dual generator 4",
+      "passed": true
+    },
+    {
+      "name": "candidate 18: dual generator 5",
+      "passed": true
+    },
+    {
+      "name": "candidate 18: dual generator 6",
+      "passed": true
+    },
+    {
+      "name": "candidate 18: dual generator 7",
+      "passed": true
+    },
+    {
+      "name": "candidate 18: concave tail excluded",
+      "passed": true
+    },
+    {
+      "name": "candidate 18: lattice predecessor",
+      "passed": true
+    },
+    {
+      "name": "candidate 18: upper mass bound",
+      "passed": true
+    },
+    {
+      "name": "candidate 20: dual generator 0",
+      "passed": true
+    },
+    {
+      "name": "candidate 20: dual generator 1",
+      "passed": true
+    },
+    {
+      "name": "candidate 20: dual generator 2",
+      "passed": true
+    },
+    {
+      "name": "candidate 20: dual generator 3",
+      "passed": true
+    },
+    {
+      "name": "candidate 20: dual generator 4",
+      "passed": true
+    },
+    {
+      "name": "candidate 20: dual generator 5",
+      "passed": true
+    },
+    {
+      "name": "candidate 20: dual generator 6",
+      "passed": true
+    },
+    {
+      "name": "candidate 20: dual generator 7",
+      "passed": true
+    },
+    {
+      "name": "candidate 20: concave tail excluded",
+      "passed": true
+    },
+    {
+      "name": "candidate 20: lattice predecessor",
+      "passed": true
+    },
+    {
+      "name": "candidate 20: upper mass bound",
+      "passed": true
+    },
+    {
+      "name": "Exact second derivative proves concavity when mu>0 and 6mu+a>0",
+      "passed": true
+    },
+    {
+      "name": "Exact mass-window monotonicity",
+      "passed": true
+    }
+  ],
+  "certified_rungs": 21,
+  "rows": [
+    {
+      "seed": "published",
+      "k8D": 1,
+      "mass_interval": [
+        "10034.0210390197855867216668517242066346533121345688396268",
+        "10034.0210390197855867216668517242066346533121345688396270"
+      ]
+    },
+    {
+      "seed": "published",
+      "k8D": 3,
+      "mass_interval": [
+        "6266.49784914276090996590499763409489665283162169567817038",
+        "6266.49784914276090996590499763409489665283162169567817041"
+      ]
+    },
+    {
+      "seed": "published",
+      "k8D": 5,
+      "mass_interval": [
+        "5137.31866556831052954948691135250328785521663289028821921",
+        "5137.31866556831052954948691135250328785521663289028821924"
+      ]
+    },
+    {
+      "seed": "published",
+      "k8D": 7,
+      "mass_interval": [
+        "4562.09300261704149153916015751146405572426602532937587180",
+        "4562.09300261704149153916015751146405572426602532937587183"
+      ]
+    },
+    {
+      "seed": "published",
+      "k8D": 9,
+      "mass_interval": [
+        "4208.68784705320916933372073060123469103039881483827895473",
+        "4208.68784705320916933372073060123469103039881483827895476"
+      ]
+    },
+    {
+      "seed": "published",
+      "k8D": 11,
+      "mass_interval": [
+        "3967.43692324389899086477708575485909590108065643918883416",
+        "3967.43692324389899086477708575485909590108065643918883418"
+      ]
+    },
+    {
+      "seed": "published",
+      "k8D": 13,
+      "mass_interval": [
+        "3787.12544579533245876600237414326164508921847406338195308",
+        "3787.12544579533245876600237414326164508921847406338195310"
+      ]
+    },
+    {
+      "seed": "published",
+      "k8D": 15,
+      "mass_interval": [
+        "3653.11539595256715274009287217836370192183689721325390557",
+        "3653.11539595256715274009287217836370192183689721325390559"
+      ]
+    },
+    {
+      "seed": "published",
+      "k8D": 17,
+      "mass_interval": [
+        "3547.22272502516273495137608296671505389695109485568149340",
+        "3547.22272502516273495137608296671505389695109485568149342"
+      ]
+    },
+    {
+      "seed": "published",
+      "k8D": 19,
+      "mass_interval": [
+        "3461.33566119392384345342275471535960533196713977567133897",
+        "3461.33566119392384345342275471535960533196713977567133900"
+      ]
+    },
+    {
+      "seed": "published",
+      "k8D": 21,
+      "mass_interval": [
+        "3390.21476509837451446609096300272806085562868083239540230",
+        "3390.21476509837451446609096300272806085562868083239540232"
+      ]
+    },
+    {
+      "seed": "candidate",
+      "k8D": 2,
+      "mass_interval": [
+        "7376.30277176074887833931107984717349375107366658312040140",
+        "7376.30277176074887833931107984717349375107366658312040143"
+      ]
+    },
+    {
+      "seed": "candidate",
+      "k8D": 4,
+      "mass_interval": [
+        "5554.22162691952745647592391325581135344331945314279955044",
+        "5554.22162691952745647592391325581135344331945314279955047"
+      ]
+    },
+    {
+      "seed": "candidate",
+      "k8D": 6,
+      "mass_interval": [
+        "4788.01874477347010948041493072131121457415924066925328250",
+        "4788.01874477347010948041493072131121457415924066925328253"
+      ]
+    },
+    {
+      "seed": "candidate",
+      "k8D": 8,
+      "mass_interval": [
+        "4342.44713138772664415524254831509560177297067479358068379",
+        "4342.44713138772664415524254831509560177297067479358068382"
+      ]
+    },
+    {
+      "seed": "candidate",
+      "k8D": 10,
+      "mass_interval": [
+        "4051.65166840076763386501754221505758907111318837170185291",
+        "4051.65166840076763386501754221505758907111318837170185294"
+      ]
+    },
+    {
+      "seed": "candidate",
+      "k8D": 12,
+      "mass_interval": [
+        "3850.18879422658981324367770063679684365291918202590246107",
+        "3850.18879422658981324367770063679684365291918202590246110"
+      ]
+    },
+    {
+      "seed": "candidate",
+      "k8D": 14,
+      "mass_interval": [
+        "3695.47484599769174631639443086314376460023666281707991066",
+        "3695.47484599769174631639443086314376460023666281707991068"
+      ]
+    },
+    {
+      "seed": "candidate",
+      "k8D": 16,
+      "mass_interval": [
+        "3578.75775686665530129592936453545974454645898086821393932",
+        "3578.75775686665530129592936453545974454645898086821393934"
+      ]
+    },
+    {
+      "seed": "candidate",
+      "k8D": 18,
+      "mass_interval": [
+        "3485.27653861402803520458232644968123510568367186044421893",
+        "3485.27653861402803520458232644968123510568367186044421896"
+      ]
+    },
+    {
+      "seed": "candidate",
+      "k8D": 20,
+      "mass_interval": [
+        "3408.64620124140800767949120408359656981684321515127569149",
+        "3408.64620124140800767949120408359656981684321515127569151"
+      ]
+    }
+  ],
+  "inputSHA256": "87eefaf76d3ecddbf07bce4ef2e91aa1ea44cdae63449554d164d48f9dcf72fa",
+  "scope": "Conditional small-angle moment ceilings only; no promotion to a full-Fourier ceiling or attainment claim."
+}

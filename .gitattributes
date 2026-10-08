@@ -58,3 +58,6 @@ docs/user-guides*.json -text
 docs/manual/** -text
 docs/manual/*.pdf binary
 build/guide_manual.py text eol=lf
+
+# Preserve original Google ownership verification files.
+src/site/verification/** -text

@@ -9,6 +9,14 @@ URLs, and lists current English/Spanish HTML in the root sitemap. No hash-only a
 listed as a separate indexable page. Historical video pages and frozen artifacts are preserved.
 The current full build reports its measured check count; dated counts below describe earlier work.
 
+Google Search Console uses the URL-prefix property `https://karlesmarin.github.io/ghu-explorer/`.
+Its original HTML verification file lives in `src/site/verification/`; the site build copies it
+byte-for-byte to the property root and checks its content. Keep this file after verification,
+because Google periodically checks ownership. Verification responses are excluded from page
+metadata and the sitemap. Publishing the file does not submit the sitemap or confirm the
+owner-account action in Search Console.
+
+
 
 Carles Marín + Claude (AI assistant). 2026-08-08.
 Follows the decisions in [`DESIGN.md`](DESIGN.md). One repository, GitHub Pages, no server, no cost.

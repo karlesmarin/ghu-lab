@@ -580,6 +580,17 @@ def main(argv=None):
 
     written = []
 
+    # Google requires the original filename and body at the property root.
+    # Copy bytes, bypassing the page template and canonical metadata.
+    from search_index import VERIFICATION_FILES
+    for name in VERIFICATION_FILES:
+        source = SITE_SRC / "verification" / name
+        expected = ("google-site-verification: " + name).encode("ascii")
+        if source.read_bytes().rstrip(b"\r\n") != expected:
+            raise ValueError("Invalid Google verification file: " + name)
+        shutil.copyfile(source, OUT / name)
+        written.append(name)
+
     def write(rel, text):
         p = OUT / rel
         p.parent.mkdir(parents=True, exist_ok=True)
@@ -704,7 +715,9 @@ def main(argv=None):
                            "video/media/2026-10-08-certification/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol\n"
                            "# Preserve downloadable manual hashes across checkouts.\n"
                            "guide/manual/** -text\n"
-                           "guide/manual/*.pdf binary\n")
+                           "guide/manual/*.pdf binary\n"
+                           "# Preserve original ownership verification responses.\n"
+                           "google*.html -text\n")
 
     # --- Requested video manual. Only this page uses adjacent, hash-pinned media.
     import video_guide

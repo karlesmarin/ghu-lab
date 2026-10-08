@@ -38,6 +38,7 @@ ROOT = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "build"))
 from editiongate import check as edition_check                             # noqa: E402
 import build_site                                                          # noqa: E402
+from search_index import VERIFICATION_FILES
 from build_site import ROMAN, SLUG, SEVERITIES, APP_HOME                   # noqa: E402
 from build_app import HOME_PLAIN, HOME_LINKED, SITE_HEAD                              # noqa: E402
 
@@ -53,10 +54,11 @@ def load():
     if not SITE.exists():
         sys.exit("FATAL: site/ does not exist. Run python build/build_site.py first.")
     pages = {str(p.relative_to(SITE)).replace("\\", "/"): p.read_text(encoding="utf-8")
-             for p in SITE.rglob("*.html")}
+             for p in SITE.rglob("*.html") if p.relative_to(SITE).as_posix() not in VERIFICATION_FILES}
     series = json.loads((ROOT / "data" / "series.json").read_text(encoding="utf-8"))
     return {
         "pages": pages,
+        "verification": {name: (SITE / name).read_bytes() for name in VERIFICATION_FILES if (SITE / name).is_file()},
         "files": {str(p.relative_to(SITE)).replace("\\", "/") for p in SITE.rglob("*") if p.is_file()},
         "series": series,
         "site_css": (ROOT / "src" / "site" / "site.css").read_text(encoding="utf-8"),
@@ -330,6 +332,13 @@ def check_double_escape(w):
 
 
 def check_sitemap(w):
+    for name in VERIFICATION_FILES:
+        source = ROOT / "src" / "site" / "verification" / name
+        raw = source.read_bytes()
+        if raw.rstrip(b"\r\n") != ("google-site-verification: " + name).encode("ascii"):
+            return ["invalid source verification file: " + name]
+        if w["verification"].get(name) != raw:
+            return ["missing or altered root verification file: " + name]
     try:
         tree = ET.fromstring(w["sitemap"])
     except ET.ParseError:

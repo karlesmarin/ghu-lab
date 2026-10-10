@@ -1,0 +1,398 @@
+[
+  {
+    "id": "start",
+    "host": "hierarchy",
+    "number": 1,
+    "title": "Start here: question, model, comparison",
+    "start": 0.0,
+    "end": 43.267,
+    "text": "Welcome to G H U Lab. This revised walkthrough covers every menu section, the three Simulator modes and the embedded research experiments. It now demonstrates the S U seven certificates, approximation errors, uncertainty budget, thermal solver comparison, named collider references and the first Kaluza Klein gluon against L H C data. Choose a chapter to revisit a topic.\n\nStart with a named model or reference. Change one assumption at a time, and read the result with its units and scope. Theorem, verified, measured and unknown describe different kinds of evidence. A computed scenario value is not automatically an experimental measurement."
+  },
+  {
+    "id": "hierarchy",
+    "host": "hierarchy",
+    "number": 2,
+    "title": "Hierarchy",
+    "start": 43.267,
+    "end": 188.0,
+    "text": "Open Hierarchy. For a bulk content of the S U seven model, inspect the compactification scale and Higgs mass under the displayed conventions. The ceiling belongs to the stated small-angle moment approximation.\n\nChange the diagnostic gauge coupling to zero point seven. The response plots separate a change of model convention from propagation of the measured W input and from winding convergence. Read the axes and the central values together.\n\nThe calculated phase does not reproduce the printed phase. The mismatch varies between rows, and an overall multiplication of the potential cannot move its stationary points. Absolute scales remain conditional on resolving this discrepancy. The arithmetic identities are separate statements.\n\nLoad the first certified benchmark. The table encloses two different stationary points: the quartic logarithmic approximation and the full Fourier minimum. Phase, Higgs mass and compactification scale have separate absolute and relative error intervals. They apply to the displayed matter content, gauge choice and fixed mass inputs.\n\nWhat limits the precision? Read approximation bias, root-location bounds and the Fourier remainder separately from the propagated W-mass uncertainty. The ten percent coupling variation is a chosen scenario, without an assigned probability. Physical theory uncertainty is explicitly not quantified; there is no combined physical error bar.\n\nSave the error certificate. The download keeps the rational enclosures, numerical budget, W input and attribution. The full mass enclosure already includes root and Fourier errors; do not add its half-width again. A different matter content or mass convention needs a matching certificate of its own.\n\nThe ATLAS and C M S rows are separate published Higgs-mass references. Compare the certified curvature mass with each stated channel and error band. The listed difference is not an exclusion significance. Connecting a one-loop curvature mass to a measured pole mass still requires matching and higher-order uncertainties.\n\nThe dataset links explain the route to a fuller comparison. Channels have not been combined into a likelihood. C E R N hosts the experiments and is not a third independent measurement. Archive the inputs and sources beside the result; a certified numerical calculation alone does not establish agreement with nature."
+  },
+  {
+    "id": "inverse",
+    "host": "inverse",
+    "number": 3,
+    "title": "Design a scale",
+    "start": 188.0,
+    "end": 227.0,
+    "text": "Open Design a scale. The map run backwards: name a compactification scale and a Higgs-mass window, and get a bulk content that lands there — or a named certificate that none exists.\n\nEnter a target compactification scale of two teraelectronvolts and run the design. Inspect the returned content or the named certificate. A search budget is a stopping condition, not evidence that no solution exists.\n\n`budget` means the search stopped, not that the rung is empty; the page keeps the two apart on purpose. The reachable-set panel resolves each cluster into the finite set of points it really is."
+  },
+  {
+    "id": "census",
+    "host": "census",
+    "number": 4,
+    "title": "Count a rung",
+    "start": 227.0,
+    "end": 265.267,
+    "text": "Open Count a rung. How many bulk contents sit on a rung — counted, not built.\n\nThe counting graph is generated when the section opens. Click a different horizontal position to move the moment probe and compare counts across the rungs. These are counts of contents, not a list of experimentally viable models.\n\nThe four published-seed totals reproduce an independent enumeration of 69 022 464 contents. The candidate uses even rungs and half-integral A₄; its counts are computed separately, without transferring the published measured-mass fibre."
+  },
+  {
+    "id": "atlas7",
+    "host": "atlas7",
+    "number": 5,
+    "title": "Atlas",
+    "start": 265.267,
+    "end": 302.867,
+    "text": "Open Atlas. Every bulk content of at most five multiplets — 1 286 of them — with its potential drawn as one tile.\n\nDraw the lattice of one thousand two hundred and eighty-six contents. Each tile is a different potential. Inspect its colour and shape; a flat or blank potential is itself a result. Clicking a tile transfers that content to the model.\n\nOne tile is green in the Higgs window, and it is the published row (2). A blank tile is a content whose potential is flat, and the harness predicts which tiles blank before they are drawn."
+  },
+  {
+    "id": "samepot",
+    "host": "samepot",
+    "number": 6,
+    "title": "Same potential?",
+    "start": 302.867,
+    "end": 387.067,
+    "text": "Open Same potential?. Whether two bulk contents are the same one-loop potential, by Part VII's Theorem 3.\n\nCopy the first content and construct its canonical representative. Compare the potential curves and the five coordinates. Different lists of matter can produce exactly the same one-loop potential under the stated theorem.\n\nSame five coordinates ⟺ identically the same potential. The dashed curve riding exactly on the solid one is the theorem, not a coincidence.\n\nLoad the equal-moment example and inspect the local range. These two contents have exactly the same D, A four and G through their integer coordinates, while their endpoint coordinate differs. Matching the small-angle expansion is a weaker condition than matching the complete potential.\n\nSwitch to the full phase interval. The plotted full potentials separate even though the local expansions match. These curves illustrate finite Fourier sums; the exact coordinate statement and the interval proof are recorded separately. Use the full potential when judging a global vacuum.\n\nFor content B, the endpoint at alpha equal to one has certified energy below its local minimum. This rules out that local minimum as global. It does not prove that the endpoint itself is global. Save the comparison to retain the exact inputs and the scope of this mathematical example."
+  },
+  {
+    "id": "anomalies",
+    "host": "anomalies",
+    "number": 7,
+    "title": "Anomalies & proton",
+    "start": 387.067,
+    "end": 424.4,
+    "text": "Open Anomalies & proton. What each multiplet contributes to the anomaly bill, in eighths, and what the proton-decay escape costs.\n\nRead the signed contributions to the anomaly bill and the rung ladder. A nonzero bulk bill does not, by itself, make the theory inconsistent: possible brane matter must be considered separately. The research card later in this section studies a different warped model.\n\nA non-zero bill is not an inconsistency: brane fermions pay into the same channels with the opposite sign. What the ladder forbids is a rung, not a model."
+  },
+  {
+    "id": "escape",
+    "host": "escape",
+    "number": 8,
+    "title": "Escape from proton decay",
+    "start": 424.4,
+    "end": 463.6,
+    "text": "Open Escape from proton decay. The escape from proton decay, constructed: type a brane content and watch the six channels, the assignments and the selection rule recompute.\n\nChoose the scalar charge associated with the eighty-four representation. The rational anomaly channels and charge assignments update together. Inspect which assignments meet the displayed proton-protection rule; the calculation does not supply a measured proton lifetime.\n\nEvery assignment that protects the proton can also cancel all six channels — protection never costs an anomaly. That is an enumeration, not an argument."
+  },
+  {
+    "id": "multiplets",
+    "host": "multiplets",
+    "number": 9,
+    "title": "Multiplets & parities",
+    "start": 463.6,
+    "end": 498.8,
+    "text": "Open Multiplets & parities. The layer under the term tables: every representation broken into multiplets with their three Z₂ parities.\n\nSelect the eighty-four representation and change its parity assignment. The decomposition and parity picture update from the representation data. Use the table to connect a surviving zero mode with the sign of its potential contribution.\n\nThe term tables here are DERIVED and then checked against the ones the rest of the page computes with. If the two ever disagreed, this panel is where it would show."
+  },
+  {
+    "id": "screen",
+    "host": "screen",
+    "number": 10,
+    "title": "Screen a table",
+    "start": 498.8,
+    "end": 607.667,
+    "text": "Open Screen a table. Arithmetic screens for a published row, with conditional rung certificates and independent full-potential witness checks.\n\nEnter a candidate resonance at four thousand gigaelectronvolts. The comb samples nearby teeth for the displayed rungs. Its filters, spacing table and download now use the same conditional-bound check for the chosen inputs. A surviving tooth is not proof of an attainable physical vacuum.\n\nThe moment ceilings remain conditional on the small-angle approximation. The five printed phase rounding intervals contain no stationary point for the implemented potential. All eight fermion coefficient tables now agree with an independent reconstruction. The physical gauge determinant and the origin of the printed numerical mismatch remain open.\n\nExpand Certified S U seven benchmarks. Twenty-six Lean theorems verify finite algebraic identities. Separate interval proofs certify ten global minima on the stated one-phase domain: five reference contents under each of two gauge prescriptions. These statements do not certify an arbitrary edited model.\n\nDownload the certificate bundle. It contains rational enclosures, continuum partitions, checksums and reproduction records. The infinite Fourier analysis is computer-assisted and has not been formalized in Lean. A global-minimum certificate is conditional on its potential and assumptions; it is not a certificate of physical viability.\n\nThe English dossier assigns the model to Komori and Maru, the expansion antecedents to Haba, Takenaga and Yamashita and to Sakamoto and Takenaga, and the S U seven application in Part Seven to Carles Marín. Verification does not establish originality. The dossier keeps the remaining physical questions explicit."
+  },
+  {
+    "id": "collider",
+    "host": "collider",
+    "number": 11,
+    "title": "Collider",
+    "start": 607.667,
+    "end": 696.067,
+    "text": "Open Collider. Which state a dijet search bounds, plus a separate Higgs-rate scenario checked against pinned experimental datasets.\n\nMove the dijet mass probe to five point two. Read the selected state, mass scale and published comparison under its colour hypothesis. The separate Higgs experiment below uses another explicitly supplied scalar scenario.\n\nThe dijet Δχ² values are quoted from the published record; the Higgs experiment computes its own comparison. Its 159 HiggsSignals observables are not 159 independent degrees of freedom. Coupling and width assumptions can compensate in visible rates, so this scalar comparison is not a complete GHU fit.\n\nThe displayed recast table belongs to the earlier archived calculation. Separately, the dossier now records the C M S angular dataset at one hundred thirty-eight inverse femtobarns: seven distributions and seventy-seven bins. Integrity checks validate the imported tables. Importing them has not produced a new G H U fit.\n\nThe released correlation matrix describes fitted signal strengths. It cannot automatically be used as the covariance of the normalized unfolded distributions. A new reinterpretation requires the G H U signal, selections and nuisance parameters, with a justified statistical model. The dossier distinguishes reviewed resources from analyses actually executed."
+  },
+  {
+    "id": "selection",
+    "host": "selection",
+    "number": 12,
+    "title": "Selection rule",
+    "start": 696.067,
+    "end": 731.467,
+    "text": "Open Selection rule. Which α-domain a search may legally use, and which SU(4) representations can hold a quark generation.\n\nSelect the representation with Dynkin labels one, zero, one. The centre-charge and chiral-projection results determine which search domain is permitted and which content can host a generation. The domain is computed from the representation, not chosen for convenience.\n\nThe centre-charge gate is classical and is credited as such. What is ours is the chiral projection that gives the closed count."
+  },
+  {
+    "id": "calculator",
+    "host": "calculator",
+    "number": 13,
+    "title": "Model calculator",
+    "start": 731.467,
+    "end": 765.0,
+    "text": "Open Model calculator. A matter content in, the Higgs out — the AHMN model recomputed in front of you.\n\nLoad the named A H M N reference model. Its terms, potential and derived quantities are recalculated by the browser. Start with this anchored content before changing multiplicities or boundary signs, and retain the stated normalization caveat for absolute scales.\n\nThe mass ratio carries no normalisation and no caveat. Absolute scales do."
+  },
+  {
+    "id": "eta",
+    "host": "eta",
+    "number": 14,
+    "title": "eta-meter",
+    "start": 765.0,
+    "end": 797.8,
+    "text": "Open eta-meter. What the boundary sign η does to a multiplet's contribution — in closed form, from one integer.\n\nLoad the supplied example made from a blind multiplet, then flip every eta sign. In this example the potential is insensitive to that change. The eta-difference view exposes the cancellation; it is not evidence that boundary signs never matter.\n\nIn difference mode every blind multiplet goes blank. That is Part V's theorem seen without reading a number."
+  },
+  {
+    "id": "fived",
+    "host": "fived",
+    "number": 15,
+    "title": "Five dimensions",
+    "start": 797.8,
+    "end": 834.667,
+    "text": "Open Five dimensions. Haba–Yamashita's own 5D SU(3) model, with the vacuum their paper leaves undone.\n\nCompare the pure-gauge case with the supplied marginal trio. Read the potential and vacuum together. This panel uses the five-dimensional S U three reference, so its arithmetic and assumptions must not be borrowed from the six-dimensional S U seven benchmark.\n\nPure gauge never breaks the symmetry (D = −9). In this whole 5D class 8D is even: the odd rung the SU(7) ceiling stands on needs the sixth dimension."
+  },
+  {
+    "id": "sun5d",
+    "host": "sun5d",
+    "number": 16,
+    "title": "SU(N) builder",
+    "start": 834.667,
+    "end": 886.333,
+    "text": "Open the S U N builder. Boundary conditions and supported bulk representations define the implemented one-loop Wilson-line potential in five dimensions. The model is the input.\n\nLoad section four point three of the source paper. This pure-gauge example prefers the endpoint at one. Read the surviving group from the joint commutant: being at an endpoint does not prove that the generators at zero survive. The potential plot and the reported minimum now use the same V over C normalization.\n\nThe four worked examples are checked against the implemented formulas. With one Wilson phase, the cosine terms admit the same moment construction. Its closed stationary branch is a small-angle approximation. The numerical Fourier minimum is a separate calculation, and a finite grid is not a certificate of the global minimum."
+  },
+  {
+    "id": "papers",
+    "host": "papers",
+    "number": 17,
+    "title": "Paper models",
+    "start": 886.333,
+    "end": 926.533,
+    "text": "Open Paper models. Four models somebody else published, taken off their pages and run through this instrument's engine.\n\nChange the triplet Dirac-fermion count to five in the supported reference. Inspect which outputs are actually computed and which remain structural statements. Where offered, the load button transfers the supported content into the general builder.\n\nThree of the four are supersymmetric and this engine's potential is not, so their rows are boundary-condition and zero-mode statements only. An amber row disagrees with one printed equation, not with a paper, and names which of that paper's own equations agrees with which."
+  },
+  {
+    "id": "spectrum5d",
+    "host": "spectrum5d",
+    "number": 18,
+    "title": "4D spectrum",
+    "start": 926.533,
+    "end": 967.133,
+    "text": "Open 4D spectrum. What the model on the builder CONTAINS: the four-dimensional fields and their Kaluza–Klein towers.\n\nLoad the S U six example and move the Wilson-line probe. Compare the potential families with the exact low-lying tower. The lowest levels can require a different reading from the families used to construct the potential.\n\nThe cosine families reconstruct the potential, but do not by themselves determine every lowest level of the exact tower. The moved probe is a chosen phase, not necessarily a vacuum. Read its surviving group separately; a boundary coordinate alone does not determine symmetry breaking."
+  },
+  {
+    "id": "anomaly5d",
+    "host": "anomaly5d",
+    "number": 19,
+    "title": "Anomalies",
+    "start": 967.133,
+    "end": 1007.133,
+    "text": "Open Anomalies. What that content owes: every anomaly channel of the unbroken group, in exact rationals.\n\nLoad the S U six example. The ledger evaluates each anomaly channel of the unbroken group in exact rational arithmetic. Distinguish a vanishing bill from a case with no massless fermions to test. Brane cancellation is a separate calculation.\n\nA non-zero row is a BILL, not an inconsistency: the brane fermions such a model needs pay into the same channels with the opposite sign. And a model with no massless fermion has nothing to cancel — that is `no subject`, not `cancels`."
+  },
+  {
+    "id": "brane",
+    "host": "brane",
+    "number": 20,
+    "title": "Brane matter",
+    "start": 1007.133,
+    "end": 1052.4,
+    "text": "Open Brane matter. Who pays that bill, and what it costs: matter on the two fixed points, held at once to the anomaly ledger and to Part I's boundary-mass gate.\n\nLoad the supplied S U five brane example and solve its supported linear charge channels. Compare the anomaly ledger with the surviving massless fields. Paying an anomaly bill and giving a field a mass are different requirements.\n\nTwo verdicts, kept apart on purpose: the bill before and after, and the massless count before and after. The same field can pay one and not the other, because the charge that cancels an anomaly is not in general the charge a mass term needs. The surviving count is a lower bound — the rank test assumes generic couplings."
+  },
+  {
+    "id": "sweep5d",
+    "host": "sweep5d",
+    "number": 21,
+    "title": "Scan",
+    "start": 1052.4,
+    "end": 1097.0,
+    "text": "Open Scan. Walk the displayed finite space of boundary conditions and matter contents through the selected filters. The breaking filter tests which generators at phase zero survive at the numerically located minimum.\n\nRun the displayed finite sweep. Read the denominator, each filter in the funnel, the survivors and the unresolved cases. The interface counts boundary conditions and equivalence classes separately, so surviving rows are not automatically distinct theories.\n\nSurviving boundary conditions are not surviving theories: [p,q,r,s] ~ [p−1,q+1,r+1,s−1] is the same theory, so the headline is a pair of numbers. An undecided vacuum is counted apart from a no."
+  },
+  {
+    "id": "dossier",
+    "host": "dossier",
+    "number": 22,
+    "title": "One model, every verdict",
+    "start": 1097.0,
+    "end": 1142.267,
+    "text": "Open One model, every verdict. Which of the instrument's answers about this model are about the THEORY, and which only about the frame you are standing in.\n\nStart the built-in example, then choose its displayed equivalent boundary condition. Compare the tags identifying properties of the theory and properties of the chosen frame. A changed coordinate description can move a displayed quantity without changing the physical theory.\n\nThe tags compare quantities in the evaluated frames. Read boundary coordinates and the surviving symmetry separately. Reported energies share the potential normalization. Numerical agreement between the located minima is evidence for these evaluations, not an exhaustive global-minimum certificate."
+  },
+  {
+    "id": "predict",
+    "host": "predict",
+    "number": 23,
+    "title": "Simulator",
+    "start": 1142.267,
+    "end": 1194.0,
+    "text": "Open Simulator. Choose builder predictions, a top-KK Higgs-rate reference or the neutrino ring; compare calculated responses with their explicitly scoped experimental references.\n\nLoad the published builder example and set the gauge coupling to one. Higgs masses now use analytic Fourier second derivatives, with an explicit truncation error bound. The export retains the actual coupling and phase, and distinguishes a chosen probe from a numerically located minimum.\n\nThe thermal history belongs to a separate S U three benchmark and the stated supported regime. It is not a detector forecast or the thermal history of this builder. At commuting endpoints, the present mass dictionary does not identify a shifted W candidate to set the scale. That limitation does not imply that the phase-zero gauge group survives."
+  },
+  {
+    "id": "bcclass",
+    "host": "bcclass",
+    "number": 24,
+    "title": "Boundary conditions",
+    "start": 1194.0,
+    "end": 1231.6,
+    "text": "Open Boundary conditions. Which boundary conditions are the same theory, walked as orbits rather than quoted as a theorem.\n\nSwitch from the interval orbifold to the two-dimensional Z three example. The orbit structure and class count change with the specified boundary problem. Equivalence classes identify descriptions connected by the allowed transformations.\n\nThe counts come out (N+1)² at every N on S¹/Z₂, which is Haba–Hosotani–Kawamura's theorem as a measurement. Press T²/Z₃ and the answer changes."
+  },
+  {
+    "id": "orbifold",
+    "host": "orbifold",
+    "number": 25,
+    "title": "Classify an orbifold",
+    "start": 1231.6,
+    "end": 1269.333,
+    "text": "Open Classify an orbifold. The alphabet of an orbifold, derived from its rotation matrix and nothing else.\n\nSelect the two-dimensional Z four rotation and classify it. The group-theoretic alphabet is derived from the matrix. You can enter another supported matrix, but an invalid finite-order hypothesis must be refused rather than silently classified.\n\nNothing is entered but the matrix. A matrix of infinite order, or one whose characteristic polynomial is not a power of the m-th cyclotomic, comes back REFUSED rather than classified."
+  },
+  {
+    "id": "relations",
+    "host": "relations",
+    "number": 26,
+    "title": "Name the relations",
+    "start": 1269.333,
+    "end": 1302.267,
+    "text": "Open Name the relations. Which equivalence relation on boundary conditions the literature already owns, and whether a proposed move set connects a class.\n\nSwitch to the Z four boundary problem and judge the displayed proposed move. Read the local and global qualifications and the source attribution. A useful move in one boundary problem is not automatically a complete equivalence relation in another.\n\nThe local/global distinction is the one that gets misquoted, and the page carries it explicitly."
+  },
+  {
+    "id": "cbclass",
+    "host": "cbclass",
+    "number": 27,
+    "title": "Conjugate boundary conditions",
+    "start": 1302.267,
+    "end": 1360.267,
+    "text": "Open Conjugate boundary conditions. How many inequivalent CONJUGATE boundary conditions there are on S¹/Z₂ — and, because that count rests on a hypothesis nobody has settled, what each of the two answers would be.\n\nIncrease the group rank and compare the two hypotheses printed in the table. Conjugate twists transform by congruence. Independent boundary transformations and one linked transformation lead to different classification questions, so the hypothesis travels with the count.\n\nWhat the panel puts on screen is the disagreement, not a number, and that is the point: the twists move by congruence rather than similarity, and independence decides between four classes flat in N and no finite count at all. What the label leaves unbroken is not a property of the label — the same verdict the ordinary panel reaches by another route. The exported card carries the hypothesis beside the count, so a number never travels without the condition it rests on."
+  },
+  {
+    "id": "blkt",
+    "host": "blkt",
+    "number": 28,
+    "title": "Brane kinetic terms",
+    "start": 1360.267,
+    "end": 1397.467,
+    "text": "Open Brane kinetic terms. What happens to the tower when brane-localised kinetic terms make the masses stop being n/R.\n\nIncrease the brane kinetic coefficient to twelve. The spectrum responds because the roots are no longer a simple integer tower. Compare the root conditions and normalization, then use the separate warped-unification card for coupling-running questions.\n\nThe special functions are checked against mpmath at forty digits, and the c → 0 limit is computed in closed form by code that shares nothing with the solver. That limit found three real defects."
+  },
+  {
+    "id": "gravitygauge",
+    "host": "gravitygauge",
+    "number": 29,
+    "title": "Gravity–gauge · 3D",
+    "start": 1397.467,
+    "end": 1446.733,
+    "text": "Open Gravity–gauge · 3D. Which physical information a complete tower of masses leaves undetermined in a controlled gravity-gauge example.\n\nSelect eta equal to minus zero point nine, then display the gauge kinetic function. The paired masses and the source response carry different information. The Wilson quantity here is a kinetic normalization, not a Higgs-mass prediction.\n\nThe positive paired tensor NN and vector DD masses are protected by their common canonical operator. The gauge NN control has different boundaries and moves. The source position is in the extra dimension, not a laboratory location; the Wilson kinetic scale is not a Higgs mass. For p=1.1 a canonical bulk scalar realizes the family, with stability and cutoff still open."
+  },
+  {
+    "id": "litcensus",
+    "host": "litcensus",
+    "number": 30,
+    "title": "The literature",
+    "start": 1446.733,
+    "end": 1483.667,
+    "text": "Open The literature. The reading list behind the series: what each paper publishes, and which ones a person has actually read.\n\nFilter the reading list to the complete-triple selection. Inspect the recorded sources and what each paper actually supplies. Keyword signals help navigate this corpus; they are not proofs, and this reading list is not an exhaustive map of the field.\n\nA signal is a keyword, and a keyword sweep misses whatever is phrased differently. Nothing is asserted from a signal alone, and the corpus is our reading list rather than the field."
+  },
+  {
+    "id": "higgs-production",
+    "host": "predict",
+    "number": 31,
+    "title": "Simulator: top-KK Higgs production",
+    "start": 1483.667,
+    "end": 1510.333,
+    "text": "The second Simulator mode is the top Kaluza Klein Higgs-production reference. Its leading rate, finite tower and resummed comparison answer one specified model question.\n\nMove the Kaluza Klein scale to fifteen hundred gigaelectronvolts. Inspect the rate curve and the separate convergence display. The chosen comparison window is conditional, and a custom window is a user-supplied scenario."
+  },
+  {
+    "id": "neutrino-ring",
+    "host": "predict",
+    "number": 32,
+    "title": "Simulator: the neutrino ring",
+    "start": 1510.333,
+    "end": 1537.467,
+    "text": "Select the four-dimensional neutrino ring. Calibration can hold the light mass and active-current deficit fixed while the required couplings are reconstructed. Six heavy pairs belong to this base model.\n\nCompare mu B equal to zero with five thousand kilo electron volts. The leading light mass and the heavy pair splittings carry different information. Read the approximation indicators alongside the spectrum."
+  },
+  {
+    "id": "cms-hnl",
+    "host": "predict",
+    "number": 33,
+    "title": "CMS heavy-neutral-lepton references",
+    "start": 1537.467,
+    "end": 1565.2,
+    "text": "The CMS comparison uses published observed and expected curves with their bands. The overlay keeps the selected flavour and Dirac or Majorana hypothesis visible.\n\nChoose muon flavour and the Majorana reference. Inspect the per-component convention, mass domain and reference ratios. The ring overlay is not a likelihood that includes its complete flavour structure, decay acceptance and multi-state interference."
+  },
+  {
+    "id": "decays",
+    "host": "predict",
+    "number": 34,
+    "title": "Decays, Majoron channels, flight and coherence",
+    "start": 1565.2,
+    "end": 1603.467,
+    "text": "The decay card starts from the weak-channel scenario. Select a heavy pair and inspect where its width goes, its lifetime and the fixed-boost flight estimate.\n\nInclude the calculated Majoron channels. The width and the derived lifetime respond together. An extra width is a separate user hypothesis. Read the isolated-pair and overlap diagnostics before interpreting the same-sign over opposite-sign ratio.\n\nChange the fixed boost to ten and inspect the flight curve. This illustrates the supplied kinematic scenario; it does not integrate a detector acceptance or a production spectrum."
+  },
+  {
+    "id": "flavour",
+    "host": "predict",
+    "number": 35,
+    "title": "Three active flavours and vacuum oscillations",
+    "start": 1603.467,
+    "end": 1634.333,
+    "text": "Three sterile copies reconstruct the chosen light masses and mixing orientation. The mass ordering, phases and active deficits are inputs. The card also displays eighteen heavy-pair flavour weights.\n\nChange the Dirac phase to ninety degrees. Compare neutrino and antineutrino appearance in the unitary vacuum limit, then inspect the flavour fractions. Majorana phases cancel from these oscillation curves but can affect the displayed light-sector double-beta quantity."
+  },
+  {
+    "id": "identifiability",
+    "host": "predict",
+    "number": 36,
+    "title": "Fixed light inputs: what can distinguish the ring?",
+    "start": 1634.333,
+    "end": 1729.733,
+    "text": "This experiment holds the chosen light masses and mixing orientation fixed while reconstructing a parameter path. The green strip tells you what is fixed. The five figures separate heavy masses, splitting, current factors, small differences and reference data.\n\nMove the selected position from one tenth to eight tenths along the mu B path. The mass stays fixed while the pair splitting changes. The open circle tracks the selected point. Equal light inputs therefore do not determine every heavy-sector response.\n\nNow choose the common active deficit and its upper endpoint. The raw vacuum current factor is suppressed, but the specified near normalization cancels the common factor. The difference figure labels numerical coincidence rather than amplifying roundoff.\n\nChoose deficit direction three. Unequal deficits can leave a shape response. The fourth graph magnifies an absolute difference that is difficult to see in the overlapping curves. Its scale is explicit, and the exported samples retain their original precision.\n\nThe DeepCore map uses the archived twenty-eighteen standard-three-neutrino tables. The cross stays fixed along the ring path because these light inputs stay fixed. The map is not a nonunitary ring likelihood and is not added to NuFIT.\n\nTo move the cross, change sine squared theta twenty-three in the flavour card. Here it is set to zero point six. The reference updates for the new light input. Outside its published grid the laboratory withholds a value instead of extrapolating."
+  },
+  {
+    "id": "su6mn",
+    "host": "papers",
+    "number": 37,
+    "title": "Maru–Nago SU(6): content and convergence",
+    "start": 1729.733,
+    "end": 1758.533,
+    "text": "This paper-model experiment reconstructs the stated flat S U six potential. Matter content and the winding cutoff are explicit controls. A small Wilson minimum must be read with its convergence check.\n\nSet the winding cutoff to ten and inspect the shifted minimum and comparison. A finite truncation can change the apparent result. The supported potential can be transferred to the builder; this does not certify a complete flavour model."
+  },
+  {
+    "id": "rsrunning",
+    "host": "blkt",
+    "number": 38,
+    "title": "Warped SU(6): differential gauge running",
+    "start": 1758.533,
+    "end": 1786.933,
+    "text": "The warped-unification card compares differential gauge running under the selected matter assignment. Required ultraviolet boundary terms and their residuals are outputs of that stated approximation.\n\nSwitch the matter assignment to C two. The running differences and required boundary terms respond. The naive-dimensional-analysis reference is a scale estimate. The separate localization probe is not a complete fermion-spectrum calculation."
+  },
+  {
+    "id": "thermal",
+    "host": "predict",
+    "number": 39,
+    "title": "Thermal potential and phase coexistence",
+    "start": 1786.933,
+    "end": 1914.467,
+    "text": "The thermal card is its own S U three benchmark. It uses named paper cases and compares potential cutoffs. A stored matching PhaseTracer result is available offline for the recorded inputs.\n\nLoad paper case two and compare the potential and phase flow. Coexistence and a nucleation proxy are different questions. A new point needs a matching bounce calculation; changing the builder model does not turn this benchmark into its thermal history.\n\nThe new comparison runs PhaseTracer and CosmoTransitions on the same S U three potential and canonical field. Nine matched temperatures compare the bounce action. The programs share shooting-method ancestry, so agreement is a numerical cross-check, not an independent interval proof or an experimental validation.\n\nThe table changes the spatial and thermal Fourier cutoffs together. T one-forty solves S three over T equal to one hundred forty. It is a proxy, separate from the integrated nucleation and percolation results. The older displayed proxy used a looser shooting tolerance; compare like settings before interpreting a difference.\n\nOpen the numerical diagnostics. Tolerance shifts, profile sampling and the virial residual test different aspects of the calculation. The targets are numerical criteria, not confidence levels. Higher loops, thermal resummation and plasma dynamics remain unquantified. These S U three examples are separate from the S U seven mass certificates.\n\nChange the coupling away from the reference. The archived solver comparison disappears because all thermal inputs must match. A stale certificate must not follow an edited point. Load a named paper case again to recover its evidence; a new point needs a new calculation.\n\nReload case two and save the experiment JSON. It retains both solver versions, tolerances, cutoffs and sources. The thermal potential is credited to Hirose and Shibuya, CosmoTransitions to Carroll Wainwright, and PhaseTracer to Athron and collaborators. Keep this provenance with every exported result."
+  },
+  {
+    "id": "thermalhistory",
+    "host": "predict",
+    "number": 40,
+    "title": "Nucleation, percolation and conditional waves",
+    "start": 1914.467,
+    "end": 1944.067,
+    "text": "Integrated transition history uses refined action tables. Read nucleation, percolation and completion separately. The false-vacuum fraction and physical-volume condition make those distinctions visible.\n\nSet the assumed wall speed to zero point eight and the fluid efficiency to zero point one. Compare the history and conditional acoustic spectrum. Wall friction, plasma evolution and detector significance are not calculated by these controls."
+  },
+  {
+    "id": "rsanomaly",
+    "host": "anomalies",
+    "number": 41,
+    "title": "RS anomaly flow and baryon current",
+    "start": 1944.067,
+    "end": 1973.4,
+    "text": "This warped-model experiment separates ultraviolet and infrared anomaly factors, gauge cancellation and the baryon-current matrix. Its sources and approximation are distinct from the base S U seven ledger.\n\nRemove the lepton generations in this test configuration. The imbalance exposes a gauge anomaly that needs completion. A nonzero baryon-current anomaly is a separate statement; it is not a computed proton lifetime or baryogenesis yield."
+  },
+  {
+    "id": "higgstools",
+    "host": "collider",
+    "number": 42,
+    "title": "Higgs rates and matching experimental tests",
+    "start": 1973.4,
+    "end": 2005.0,
+    "text": "Begin with the stored Standard Model-like scalar reference. Local couplings determine production rates, partial widths and branching fractions. Matching HiggsBounds and HiggsSignals calculations use pinned experimental datasets.\n\nAdd one mega electron volt of invisible width. The local predictions update, and the old experimental result is withdrawn because its inputs no longer match. Run the optional engine or import a matching result before assigning a new experimental verdict."
+  },
+  {
+    "id": "kkgluon",
+    "host": "collider",
+    "number": 43,
+    "title": "First KK gluon at the LHC",
+    "start": 2005.0,
+    "end": 2098.0,
+    "text": "Open the first Kaluza Klein gluon card in Collider and load the published R S point of Casagrande and collaborators. The card computes the couplings of a warped Kaluza Klein gluon to zero-mode quarks, its width and branching fractions, and compares its leading-order rates with the ATLAS top-pair limit and the C M S dijet limit as r, prediction over limit.\n\nAt three point seven five tera electron volts, r for the top pair is close to one: the two thousand eight reference point sits at the edge of the ATLAS comparison. That is a comparison with ATLAS's thirty percent width benchmark, not a validated exclusion at this width.\n\nBelow the plots, the top-pair mass spectrum is computed with the interference between the Kaluza Klein gluon and the Q C D gluon, in the fifteen bins of the C M S parton-level measurement. For this point the light-quark and top couplings have opposite signs, so the interference is constructive below the pole.\n\nNow load the flat G H U coloron at four point five tera electron volts. Every quark couples equally, the couplings share one sign, and the interference turns destructive: the low bins go down instead of up.\n\nThe last plot is the expected delta chi squared against the measured covariance, with ten percent S M theory uncertainty per bin. Set that uncertainty to zero and the reach moves from about three point eight to about five tera electron volts. It is a sensitivity if the data equal the S M, not an exclusion, and the open certificates show the independent Dirac-trace and L H A P D F check."
+  },
+  {
+    "id": "exports",
+    "host": "predict",
+    "number": 44,
+    "title": "Keep the inputs, figures and scope",
+    "start": 2098.0,
+    "end": 2151.533,
+    "text": "Use a comparison snapshot before changing a point. Save the experiment JSON to retain the inputs, calculated arrays, assumptions, provenance and optional saved reference. The global result card and LaTeX exports provide another view of the selected calculation.\n\nChoose a figure and save its vector SVG. The new neutrino figures carry sampled data and provenance in their metadata. The link button preserves controls in the address; archive external results and comparisons in JSON as well.\n\nThe browser calculations and stored references run offline. New HiggsTools and PhaseTracer points use the optional local engine. The source repository contains the reproduction commands, independent checks and archived studies. Return to a chapter, vary one assumption, and keep the scope beside every result."
+  }
+]

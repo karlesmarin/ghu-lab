@@ -363,6 +363,15 @@
         "en": "guide/higgstools/index.html",
         "es": "guide/es/higgstools/index.html"
       }
+    },
+    {
+      "id": "kkgluon",
+      "title": "First KK gluon at the LHC: couplings, widths, tt̄ / dijet limits and the m(tt̄) spectrum",
+      "host": "collider",
+      "guides": {
+        "en": "guide/kkgluon/index.html",
+        "es": "guide/es/kkgluon/index.html"
+      }
     }
   ],
   "simulatorModes": [
@@ -405,7 +414,7 @@
   ],
   "countingRule": "Menu sections, embedded cards, model modes and batch studies are overlapping levels of organization, not quantities to add into a panel total.",
   "userGuides": {
-    "guidesPerLanguage": 42,
+    "guidesPerLanguage": 43,
     "glossaryTerms": 59,
     "languages": [
       "en",

@@ -1,0 +1,1625 @@
+{
+  "schema": "ghu-kkgluon-fourtop-study-v2",
+  "date": "2026-10-10",
+  "question": "Where do the flat and warped GHU vector colour octets sit relative to a four-top search (open spin-1 question of arXiv:2609.39381)?",
+  "provenance": {
+    "sourceHashConvention": "UTF-8 with CRLF normalised to LF",
+    "files": {
+      "tools/kkgluon_fourtop.mjs": "bb986ec159b3bdccb8a0106fc77a88ef25e3999dde68d6eeee9d82dffdb5c80c",
+      "src/modules/rs_fermions.mjs": "711100eaaf88bae6b7aa8f8118939fa5d0d311deca0537719db46b28a61ff5fe",
+      "src/modules/collider.mjs": "d19d554318b105681a68c1ac88e3657ef3c70cb945ccd463f9d7bf72f4b8bc08",
+      "data/rs_fermions_reference.json": "2f27a6e8c762d8b34d4150148913720d85acb0b7b0fe775c9fa1a00240b3e72b"
+    }
+  },
+  "cases": [
+    {
+      "realisation": "flat GHU (Part VII coloron)",
+      "M_GeV_for_running_and_phase_space": 2000,
+      "alphas": 0.08392887036002983,
+      "g_top_over_gs": 1.4142135623730951,
+      "BR_tt": 0.16662008245872692,
+      "BR_4t_pair": 0.027762251878552958,
+      "GoverM": 0.16784835782069596,
+      "status": {
+        "couplings": "theorem",
+        "width": "theorem x measured alpha_s",
+        "BR": "measured"
+      },
+      "certificate": {
+        "claim": "universal sqrt2 g_s and Gamma/M = 2 alpha_s",
+        "check": "collider.mjs coloronOf; _test_collider.mjs"
+      }
+    },
+    {
+      "realisation": "flat GHU (Part VII coloron)",
+      "M_GeV_for_running_and_phase_space": 4000,
+      "alphas": 0.07882036943271106,
+      "g_top_over_gs": 1.4142135623730951,
+      "BR_tt": 0.16666377720597098,
+      "BR_4t_pair": 0.02777681463256153,
+      "GoverM": 0.15764019227125456,
+      "status": {
+        "couplings": "theorem",
+        "width": "theorem x measured alpha_s",
+        "BR": "measured"
+      },
+      "certificate": {
+        "claim": "universal sqrt2 g_s and Gamma/M = 2 alpha_s",
+        "check": "collider.mjs coloronOf; _test_collider.mjs"
+      }
+    },
+    {
+      "realisation": "flat GHU (Part VII coloron)",
+      "M_GeV_for_running_and_phase_space": 6600,
+      "alphas": 0.07550029239797046,
+      "g_top_over_gs": 1.4142135623730951,
+      "BR_tt": 0.16666627744626034,
+      "BR_4t_pair": 0.027777648037793826,
+      "GoverM": 0.1510005142689631,
+      "status": {
+        "couplings": "theorem",
+        "width": "theorem x measured alpha_s",
+        "BR": "measured"
+      },
+      "certificate": {
+        "claim": "universal sqrt2 g_s and Gamma/M = 2 alpha_s",
+        "check": "collider.mjs coloronOf; _test_collider.mjs"
+      }
+    },
+    {
+      "realisation": "warped KK gluon",
+      "kL": 26.67,
+      "c": {
+        "kL": 26.67,
+        "modes": 1,
+        "cL": {
+          "light": 0.6,
+          "Q3": 0.3
+        },
+        "cR": {
+          "light": -0.6,
+          "tR": 0,
+          "bR": -0.6
+        },
+        "MGeV": 3000,
+        "mTopGeV": 172.5
+      },
+      "M_GeV_for_running_and_phase_space": 3000,
+      "alphas": 0.0808631421525081,
+      "values": {
+        "x1": {
+          "value": 2.4643827274008583,
+          "status": "verified"
+        },
+        "g_light_L": {
+          "value": -0.21649818850167998,
+          "status": "verified"
+        },
+        "g_light_R": {
+          "value": -0.21649818850167998,
+          "status": "verified"
+        },
+        "g_Q3": {
+          "value": 1.690360638734907,
+          "status": "verified"
+        },
+        "g_tR": {
+          "value": 3.4361158023290193,
+          "status": "verified"
+        },
+        "g_bR": {
+          "value": -0.21649818850167998,
+          "status": "verified"
+        },
+        "F_Q3": {
+          "value": 0.6324628933257448,
+          "status": "theorem"
+        },
+        "F_tR": {
+          "value": 1.0000000000013072,
+          "status": "theorem"
+        },
+        "BR_tt": {
+          "value": 0.817239556586536,
+          "status": "measured"
+        },
+        "BR_4t_pair": {
+          "value": 0.667880492849758,
+          "status": "measured"
+        },
+        "GoverM": {
+          "value": 0.12090661806803217,
+          "status": "measured"
+        },
+        "production": {
+          "unknown": "no cross section is computed here: needs parton luminosities (planned) or a matrix-element generator"
+        },
+        "quark_masses": {
+          "unknown": "the c values are inputs, not fitted: the zero-mode Yukawa map m ∝ F(c_L)F(−c_R) is not inverted here"
+        }
+      },
+      "certificates": {
+        "gauge_root": {
+          "claim": "x_1 = m_1 R' = 2.4643827274008583 at kL = 26.67",
+          "witness": {
+            "bracket": [
+              2.4599999999999915,
+              2.4699999999999913
+            ],
+            "residual": -2.55351295663786e-15,
+            "wronskianAtRoot": 2.220446049250313e-16
+          },
+          "method": "sign change of J0(x e^{-kL}) Y0(x) − J0(x) Y0(x e^{-kL}) on a 0.01 grid, 80 bisections",
+          "check": "data/rs_fermions_reference.json gives the same root at 40 digits (tools/rs_fermions_sage_control.py)"
+        },
+        "integrals": {
+          "claim": "every coupling and the mode normalisation are converged quadratures",
+          "witness": {
+            "rule": "Simpson in u = ln z",
+            "panels": 8000,
+            "worstCouplingShift_gs": 3.157442307610836e-9,
+            "normRelativeShift": 1.001528146666299e-9
+          },
+          "method": "each value is recomputed with half the panels; the shift is the witness",
+          "check": "40-digit mpmath quadrature in the reference file"
+        },
+        "orthogonality": {
+          "claim": "a c = 1/2 quark (flat profile) does not couple to the KK gluon",
+          "witness": {
+            "coupling_c_half": -4.566145387722523e-12
+          },
+          "method": "the same quadrature at c = 1/2",
+          "check": "∫ du f_1 f_0 = 0 by the Sturm–Liouville orthogonality of the Neumann tower"
+        },
+        "width_convention": {
+          "claim": "the width formula reduces to the flat theorem Γ/M = 2α_s",
+          "witness": {
+            "fromConvention": 0.1617262843050162,
+            "theorem": 0.1617262843050162,
+            "difference": 0
+          },
+          "method": "universal √2 g_s couplings to six massless quarks inserted in the same formula",
+          "check": "collider.mjs coloronOf: Γ/M = 2α_s (Part VII, DMN01, Simmons)"
+        },
+        "conventions": {
+          "claim": "c has the meaning of ruFermion in rs_unification.mjs",
+          "witness": {
+            "LH_UV_for": "c > 1/2",
+            "RH_UV_for": "c < -1/2"
+          },
+          "check": "_test_rs_fermions.mjs compares localisation with ruFermion on a grid"
+        }
+      },
+      "BR_tt": 0.817239556586536,
+      "BR_4t_pair": 0.667880492849758,
+      "GoverM": 0.12090661806803217,
+      "g_tR_over_gs": 3.4361158023290193
+    },
+    {
+      "realisation": "warped KK gluon",
+      "kL": 26.67,
+      "c": {
+        "kL": 26.67,
+        "modes": 1,
+        "cL": {
+          "light": 0.6,
+          "Q3": 0.3
+        },
+        "cR": {
+          "light": -0.6,
+          "tR": 0,
+          "bR": -0.6
+        },
+        "MGeV": 5000,
+        "mTopGeV": 172.5
+      },
+      "M_GeV_for_running_and_phase_space": 5000,
+      "alphas": 0.07730558152432522,
+      "values": {
+        "x1": {
+          "value": 2.4643827274008583,
+          "status": "verified"
+        },
+        "g_light_L": {
+          "value": -0.21649818850167998,
+          "status": "verified"
+        },
+        "g_light_R": {
+          "value": -0.21649818850167998,
+          "status": "verified"
+        },
+        "g_Q3": {
+          "value": 1.690360638734907,
+          "status": "verified"
+        },
+        "g_tR": {
+          "value": 3.4361158023290193,
+          "status": "verified"
+        },
+        "g_bR": {
+          "value": -0.21649818850167998,
+          "status": "verified"
+        },
+        "F_Q3": {
+          "value": 0.6324628933257448,
+          "status": "theorem"
+        },
+        "F_tR": {
+          "value": 1.0000000000013072,
+          "status": "theorem"
+        },
+        "BR_tt": {
+          "value": 0.8172481247828771,
+          "status": "measured"
+        },
+        "BR_4t_pair": {
+          "value": 0.667894497461129,
+          "status": "measured"
+        },
+        "GoverM": {
+          "value": 0.11559277054216816,
+          "status": "measured"
+        },
+        "production": {
+          "unknown": "no cross section is computed here: needs parton luminosities (planned) or a matrix-element generator"
+        },
+        "quark_masses": {
+          "unknown": "the c values are inputs, not fitted: the zero-mode Yukawa map m ∝ F(c_L)F(−c_R) is not inverted here"
+        }
+      },
+      "certificates": {
+        "gauge_root": {
+          "claim": "x_1 = m_1 R' = 2.4643827274008583 at kL = 26.67",
+          "witness": {
+            "bracket": [
+              2.4599999999999915,
+              2.4699999999999913
+            ],
+            "residual": -2.55351295663786e-15,
+            "wronskianAtRoot": 2.220446049250313e-16
+          },
+          "method": "sign change of J0(x e^{-kL}) Y0(x) − J0(x) Y0(x e^{-kL}) on a 0.01 grid, 80 bisections",
+          "check": "data/rs_fermions_reference.json gives the same root at 40 digits (tools/rs_fermions_sage_control.py)"
+        },
+        "integrals": {
+          "claim": "every coupling and the mode normalisation are converged quadratures",
+          "witness": {
+            "rule": "Simpson in u = ln z",
+            "panels": 8000,
+            "worstCouplingShift_gs": 3.157442307610836e-9,
+            "normRelativeShift": 1.001528146666299e-9
+          },
+          "method": "each value is recomputed with half the panels; the shift is the witness",
+          "check": "40-digit mpmath quadrature in the reference file"
+        },
+        "orthogonality": {
+          "claim": "a c = 1/2 quark (flat profile) does not couple to the KK gluon",
+          "witness": {
+            "coupling_c_half": -4.566145387722523e-12
+          },
+          "method": "the same quadrature at c = 1/2",
+          "check": "∫ du f_1 f_0 = 0 by the Sturm–Liouville orthogonality of the Neumann tower"
+        },
+        "width_convention": {
+          "claim": "the width formula reduces to the flat theorem Γ/M = 2α_s",
+          "witness": {
+            "fromConvention": 0.15461116304865044,
+            "theorem": 0.15461116304865044,
+            "difference": 0
+          },
+          "method": "universal √2 g_s couplings to six massless quarks inserted in the same formula",
+          "check": "collider.mjs coloronOf: Γ/M = 2α_s (Part VII, DMN01, Simmons)"
+        },
+        "conventions": {
+          "claim": "c has the meaning of ruFermion in rs_unification.mjs",
+          "witness": {
+            "LH_UV_for": "c > 1/2",
+            "RH_UV_for": "c < -1/2"
+          },
+          "check": "_test_rs_fermions.mjs compares localisation with ruFermion on a grid"
+        }
+      },
+      "BR_tt": 0.8172481247828771,
+      "BR_4t_pair": 0.667894497461129,
+      "GoverM": 0.11559277054216816,
+      "g_tR_over_gs": 3.4361158023290193
+    },
+    {
+      "realisation": "warped KK gluon",
+      "kL": 26.67,
+      "c": {
+        "kL": 26.67,
+        "modes": 1,
+        "cL": {
+          "light": 0.6,
+          "Q3": 0.3
+        },
+        "cR": {
+          "light": -0.6,
+          "tR": 0.3,
+          "bR": -0.6
+        },
+        "MGeV": 3000,
+        "mTopGeV": 172.5
+      },
+      "M_GeV_for_running_and_phase_space": 3000,
+      "alphas": 0.0808631421525081,
+      "values": {
+        "x1": {
+          "value": 2.4643827274008583,
+          "status": "verified"
+        },
+        "g_light_L": {
+          "value": -0.21649818850167998,
+          "status": "verified"
+        },
+        "g_light_R": {
+          "value": -0.21649818850167998,
+          "status": "verified"
+        },
+        "g_Q3": {
+          "value": 1.690360638734907,
+          "status": "verified"
+        },
+        "g_tR": {
+          "value": 4.480551671654589,
+          "status": "verified"
+        },
+        "g_bR": {
+          "value": -0.21649818850167998,
+          "status": "verified"
+        },
+        "F_Q3": {
+          "value": 0.6324628933257448,
+          "status": "theorem"
+        },
+        "F_tR": {
+          "value": 1.2649110640673518,
+          "status": "theorem"
+        },
+        "BR_tt": {
+          "value": 0.8748903849086354,
+          "status": "measured"
+        },
+        "BR_4t_pair": {
+          "value": 0.7654331856055802,
+          "status": "measured"
+        },
+        "GoverM": {
+          "value": 0.1766206946892052,
+          "status": "measured"
+        },
+        "production": {
+          "unknown": "no cross section is computed here: needs parton luminosities (planned) or a matrix-element generator"
+        },
+        "quark_masses": {
+          "unknown": "the c values are inputs, not fitted: the zero-mode Yukawa map m ∝ F(c_L)F(−c_R) is not inverted here"
+        }
+      },
+      "certificates": {
+        "gauge_root": {
+          "claim": "x_1 = m_1 R' = 2.4643827274008583 at kL = 26.67",
+          "witness": {
+            "bracket": [
+              2.4599999999999915,
+              2.4699999999999913
+            ],
+            "residual": -2.55351295663786e-15,
+            "wronskianAtRoot": 2.220446049250313e-16
+          },
+          "method": "sign change of J0(x e^{-kL}) Y0(x) − J0(x) Y0(x e^{-kL}) on a 0.01 grid, 80 bisections",
+          "check": "data/rs_fermions_reference.json gives the same root at 40 digits (tools/rs_fermions_sage_control.py)"
+        },
+        "integrals": {
+          "claim": "every coupling and the mode normalisation are converged quadratures",
+          "witness": {
+            "rule": "Simpson in u = ln z",
+            "panels": 8000,
+            "worstCouplingShift_gs": 6.240032490723024e-9,
+            "normRelativeShift": 1.001528146666299e-9
+          },
+          "method": "each value is recomputed with half the panels; the shift is the witness",
+          "check": "40-digit mpmath quadrature in the reference file"
+        },
+        "orthogonality": {
+          "claim": "a c = 1/2 quark (flat profile) does not couple to the KK gluon",
+          "witness": {
+            "coupling_c_half": -4.566145387722523e-12
+          },
+          "method": "the same quadrature at c = 1/2",
+          "check": "∫ du f_1 f_0 = 0 by the Sturm–Liouville orthogonality of the Neumann tower"
+        },
+        "width_convention": {
+          "claim": "the width formula reduces to the flat theorem Γ/M = 2α_s",
+          "witness": {
+            "fromConvention": 0.1617262843050162,
+            "theorem": 0.1617262843050162,
+            "difference": 0
+          },
+          "method": "universal √2 g_s couplings to six massless quarks inserted in the same formula",
+          "check": "collider.mjs coloronOf: Γ/M = 2α_s (Part VII, DMN01, Simmons)"
+        },
+        "conventions": {
+          "claim": "c has the meaning of ruFermion in rs_unification.mjs",
+          "witness": {
+            "LH_UV_for": "c > 1/2",
+            "RH_UV_for": "c < -1/2"
+          },
+          "check": "_test_rs_fermions.mjs compares localisation with ruFermion on a grid"
+        }
+      },
+      "BR_tt": 0.8748903849086354,
+      "BR_4t_pair": 0.7654331856055802,
+      "GoverM": 0.1766206946892052,
+      "g_tR_over_gs": 4.480551671654589
+    },
+    {
+      "realisation": "warped KK gluon",
+      "kL": 26.67,
+      "c": {
+        "kL": 26.67,
+        "modes": 1,
+        "cL": {
+          "light": 0.6,
+          "Q3": 0.3
+        },
+        "cR": {
+          "light": -0.6,
+          "tR": 0.3,
+          "bR": -0.6
+        },
+        "MGeV": 5000,
+        "mTopGeV": 172.5
+      },
+      "M_GeV_for_running_and_phase_space": 5000,
+      "alphas": 0.07730558152432522,
+      "values": {
+        "x1": {
+          "value": 2.4643827274008583,
+          "status": "verified"
+        },
+        "g_light_L": {
+          "value": -0.21649818850167998,
+          "status": "verified"
+        },
+        "g_light_R": {
+          "value": -0.21649818850167998,
+          "status": "verified"
+        },
+        "g_Q3": {
+          "value": 1.690360638734907,
+          "status": "verified"
+        },
+        "g_tR": {
+          "value": 4.480551671654589,
+          "status": "verified"
+        },
+        "g_bR": {
+          "value": -0.21649818850167998,
+          "status": "verified"
+        },
+        "F_Q3": {
+          "value": 0.6324628933257448,
+          "status": "theorem"
+        },
+        "F_tR": {
+          "value": 1.2649110640673518,
+          "status": "theorem"
+        },
+        "BR_tt": {
+          "value": 0.8748966640566792,
+          "status": "measured"
+        },
+        "BR_4t_pair": {
+          "value": 0.7654441727775058,
+          "status": "measured"
+        },
+        "GoverM": {
+          "value": 0.16885877118172626,
+          "status": "measured"
+        },
+        "production": {
+          "unknown": "no cross section is computed here: needs parton luminosities (planned) or a matrix-element generator"
+        },
+        "quark_masses": {
+          "unknown": "the c values are inputs, not fitted: the zero-mode Yukawa map m ∝ F(c_L)F(−c_R) is not inverted here"
+        }
+      },
+      "certificates": {
+        "gauge_root": {
+          "claim": "x_1 = m_1 R' = 2.4643827274008583 at kL = 26.67",
+          "witness": {
+            "bracket": [
+              2.4599999999999915,
+              2.4699999999999913
+            ],
+            "residual": -2.55351295663786e-15,
+            "wronskianAtRoot": 2.220446049250313e-16
+          },
+          "method": "sign change of J0(x e^{-kL}) Y0(x) − J0(x) Y0(x e^{-kL}) on a 0.01 grid, 80 bisections",
+          "check": "data/rs_fermions_reference.json gives the same root at 40 digits (tools/rs_fermions_sage_control.py)"
+        },
+        "integrals": {
+          "claim": "every coupling and the mode normalisation are converged quadratures",
+          "witness": {
+            "rule": "Simpson in u = ln z",
+            "panels": 8000,
+            "worstCouplingShift_gs": 6.240032490723024e-9,
+            "normRelativeShift": 1.001528146666299e-9
+          },
+          "method": "each value is recomputed with half the panels; the shift is the witness",
+          "check": "40-digit mpmath quadrature in the reference file"
+        },
+        "orthogonality": {
+          "claim": "a c = 1/2 quark (flat profile) does not couple to the KK gluon",
+          "witness": {
+            "coupling_c_half": -4.566145387722523e-12
+          },
+          "method": "the same quadrature at c = 1/2",
+          "check": "∫ du f_1 f_0 = 0 by the Sturm–Liouville orthogonality of the Neumann tower"
+        },
+        "width_convention": {
+          "claim": "the width formula reduces to the flat theorem Γ/M = 2α_s",
+          "witness": {
+            "fromConvention": 0.15461116304865044,
+            "theorem": 0.15461116304865044,
+            "difference": 0
+          },
+          "method": "universal √2 g_s couplings to six massless quarks inserted in the same formula",
+          "check": "collider.mjs coloronOf: Γ/M = 2α_s (Part VII, DMN01, Simmons)"
+        },
+        "conventions": {
+          "claim": "c has the meaning of ruFermion in rs_unification.mjs",
+          "witness": {
+            "LH_UV_for": "c > 1/2",
+            "RH_UV_for": "c < -1/2"
+          },
+          "check": "_test_rs_fermions.mjs compares localisation with ruFermion on a grid"
+        }
+      },
+      "BR_tt": 0.8748966640566792,
+      "BR_4t_pair": 0.7654441727775058,
+      "GoverM": 0.16885877118172626,
+      "g_tR_over_gs": 4.480551671654589
+    },
+    {
+      "realisation": "warped KK gluon",
+      "kL": 26.67,
+      "c": {
+        "kL": 26.67,
+        "modes": 1,
+        "cL": {
+          "light": 0.6,
+          "Q3": 0.3
+        },
+        "cR": {
+          "light": -0.6,
+          "tR": 0.5,
+          "bR": -0.6
+        },
+        "MGeV": 3000,
+        "mTopGeV": 172.5
+      },
+      "M_GeV_for_running_and_phase_space": 3000,
+      "alphas": 0.0808631421525081,
+      "values": {
+        "x1": {
+          "value": 2.4643827274008583,
+          "status": "verified"
+        },
+        "g_light_L": {
+          "value": -0.21649818850167998,
+          "status": "verified"
+        },
+        "g_light_R": {
+          "value": -0.21649818850167998,
+          "status": "verified"
+        },
+        "g_Q3": {
+          "value": 1.690360638734907,
+          "status": "verified"
+        },
+        "g_tR": {
+          "value": 4.959419152189691,
+          "status": "verified"
+        },
+        "g_bR": {
+          "value": -0.21649818850167998,
+          "status": "verified"
+        },
+        "F_Q3": {
+          "value": 0.6324628933257448,
+          "status": "theorem"
+        },
+        "F_tR": {
+          "value": 1.4142135623730951,
+          "status": "theorem"
+        },
+        "BR_tt": {
+          "value": 0.8932929469325296,
+          "status": "measured"
+        },
+        "BR_4t_pair": {
+          "value": 0.7979722890394031,
+          "status": "measured"
+        },
+        "GoverM": {
+          "value": 0.20708047401294172,
+          "status": "measured"
+        },
+        "production": {
+          "unknown": "no cross section is computed here: needs parton luminosities (planned) or a matrix-element generator"
+        },
+        "quark_masses": {
+          "unknown": "the c values are inputs, not fitted: the zero-mode Yukawa map m ∝ F(c_L)F(−c_R) is not inverted here"
+        }
+      },
+      "certificates": {
+        "gauge_root": {
+          "claim": "x_1 = m_1 R' = 2.4643827274008583 at kL = 26.67",
+          "witness": {
+            "bracket": [
+              2.4599999999999915,
+              2.4699999999999913
+            ],
+            "residual": -2.55351295663786e-15,
+            "wronskianAtRoot": 2.220446049250313e-16
+          },
+          "method": "sign change of J0(x e^{-kL}) Y0(x) − J0(x) Y0(x e^{-kL}) on a 0.01 grid, 80 bisections",
+          "check": "data/rs_fermions_reference.json gives the same root at 40 digits (tools/rs_fermions_sage_control.py)"
+        },
+        "integrals": {
+          "claim": "every coupling and the mode normalisation are converged quadratures",
+          "witness": {
+            "rule": "Simpson in u = ln z",
+            "panels": 8000,
+            "worstCouplingShift_gs": 8.747468527303681e-9,
+            "normRelativeShift": 1.001528146666299e-9
+          },
+          "method": "each value is recomputed with half the panels; the shift is the witness",
+          "check": "40-digit mpmath quadrature in the reference file"
+        },
+        "orthogonality": {
+          "claim": "a c = 1/2 quark (flat profile) does not couple to the KK gluon",
+          "witness": {
+            "coupling_c_half": -4.566145387722523e-12
+          },
+          "method": "the same quadrature at c = 1/2",
+          "check": "∫ du f_1 f_0 = 0 by the Sturm–Liouville orthogonality of the Neumann tower"
+        },
+        "width_convention": {
+          "claim": "the width formula reduces to the flat theorem Γ/M = 2α_s",
+          "witness": {
+            "fromConvention": 0.1617262843050162,
+            "theorem": 0.1617262843050162,
+            "difference": 0
+          },
+          "method": "universal √2 g_s couplings to six massless quarks inserted in the same formula",
+          "check": "collider.mjs coloronOf: Γ/M = 2α_s (Part VII, DMN01, Simmons)"
+        },
+        "conventions": {
+          "claim": "c has the meaning of ruFermion in rs_unification.mjs",
+          "witness": {
+            "LH_UV_for": "c > 1/2",
+            "RH_UV_for": "c < -1/2"
+          },
+          "check": "_test_rs_fermions.mjs compares localisation with ruFermion on a grid"
+        }
+      },
+      "BR_tt": 0.8932929469325296,
+      "BR_4t_pair": 0.7979722890394031,
+      "GoverM": 0.20708047401294172,
+      "g_tR_over_gs": 4.959419152189691
+    },
+    {
+      "realisation": "warped KK gluon",
+      "kL": 26.67,
+      "c": {
+        "kL": 26.67,
+        "modes": 1,
+        "cL": {
+          "light": 0.6,
+          "Q3": 0.3
+        },
+        "cR": {
+          "light": -0.6,
+          "tR": 0.5,
+          "bR": -0.6
+        },
+        "MGeV": 5000,
+        "mTopGeV": 172.5
+      },
+      "M_GeV_for_running_and_phase_space": 5000,
+      "alphas": 0.07730558152432522,
+      "values": {
+        "x1": {
+          "value": 2.4643827274008583,
+          "status": "verified"
+        },
+        "g_light_L": {
+          "value": -0.21649818850167998,
+          "status": "verified"
+        },
+        "g_light_R": {
+          "value": -0.21649818850167998,
+          "status": "verified"
+        },
+        "g_Q3": {
+          "value": 1.690360638734907,
+          "status": "verified"
+        },
+        "g_tR": {
+          "value": 4.959419152189691,
+          "status": "verified"
+        },
+        "g_bR": {
+          "value": -0.21649818850167998,
+          "status": "verified"
+        },
+        "F_Q3": {
+          "value": 0.6324628933257448,
+          "status": "theorem"
+        },
+        "F_tR": {
+          "value": 1.4142135623730951,
+          "status": "theorem"
+        },
+        "BR_tt": {
+          "value": 0.8932984151145633,
+          "status": "measured"
+        },
+        "BR_4t_pair": {
+          "value": 0.7979820584461906,
+          "status": "measured"
+        },
+        "GoverM": {
+          "value": 0.1979801481000034,
+          "status": "measured"
+        },
+        "production": {
+          "unknown": "no cross section is computed here: needs parton luminosities (planned) or a matrix-element generator"
+        },
+        "quark_masses": {
+          "unknown": "the c values are inputs, not fitted: the zero-mode Yukawa map m ∝ F(c_L)F(−c_R) is not inverted here"
+        }
+      },
+      "certificates": {
+        "gauge_root": {
+          "claim": "x_1 = m_1 R' = 2.4643827274008583 at kL = 26.67",
+          "witness": {
+            "bracket": [
+              2.4599999999999915,
+              2.4699999999999913
+            ],
+            "residual": -2.55351295663786e-15,
+            "wronskianAtRoot": 2.220446049250313e-16
+          },
+          "method": "sign change of J0(x e^{-kL}) Y0(x) − J0(x) Y0(x e^{-kL}) on a 0.01 grid, 80 bisections",
+          "check": "data/rs_fermions_reference.json gives the same root at 40 digits (tools/rs_fermions_sage_control.py)"
+        },
+        "integrals": {
+          "claim": "every coupling and the mode normalisation are converged quadratures",
+          "witness": {
+            "rule": "Simpson in u = ln z",
+            "panels": 8000,
+            "worstCouplingShift_gs": 8.747468527303681e-9,
+            "normRelativeShift": 1.001528146666299e-9
+          },
+          "method": "each value is recomputed with half the panels; the shift is the witness",
+          "check": "40-digit mpmath quadrature in the reference file"
+        },
+        "orthogonality": {
+          "claim": "a c = 1/2 quark (flat profile) does not couple to the KK gluon",
+          "witness": {
+            "coupling_c_half": -4.566145387722523e-12
+          },
+          "method": "the same quadrature at c = 1/2",
+          "check": "∫ du f_1 f_0 = 0 by the Sturm–Liouville orthogonality of the Neumann tower"
+        },
+        "width_convention": {
+          "claim": "the width formula reduces to the flat theorem Γ/M = 2α_s",
+          "witness": {
+            "fromConvention": 0.15461116304865044,
+            "theorem": 0.15461116304865044,
+            "difference": 0
+          },
+          "method": "universal √2 g_s couplings to six massless quarks inserted in the same formula",
+          "check": "collider.mjs coloronOf: Γ/M = 2α_s (Part VII, DMN01, Simmons)"
+        },
+        "conventions": {
+          "claim": "c has the meaning of ruFermion in rs_unification.mjs",
+          "witness": {
+            "LH_UV_for": "c > 1/2",
+            "RH_UV_for": "c < -1/2"
+          },
+          "check": "_test_rs_fermions.mjs compares localisation with ruFermion on a grid"
+        }
+      },
+      "BR_tt": 0.8932984151145633,
+      "BR_4t_pair": 0.7979820584461906,
+      "GoverM": 0.1979801481000034,
+      "g_tR_over_gs": 4.959419152189691
+    },
+    {
+      "realisation": "warped KK gluon",
+      "kL": 35,
+      "c": {
+        "kL": 35,
+        "modes": 1,
+        "cL": {
+          "light": 0.6,
+          "Q3": 0.3
+        },
+        "cR": {
+          "light": -0.6,
+          "tR": 0,
+          "bR": -0.6
+        },
+        "MGeV": 3000,
+        "mTopGeV": 172.5
+      },
+      "M_GeV_for_running_and_phase_space": 3000,
+      "alphas": 0.0808631421525081,
+      "values": {
+        "x1": {
+          "value": 2.4498942846949827,
+          "status": "verified"
+        },
+        "g_light_L": {
+          "value": -0.19252560932019122,
+          "status": "verified"
+        },
+        "g_light_R": {
+          "value": -0.19252560932019122,
+          "status": "verified"
+        },
+        "g_Q3": {
+          "value": 1.987671699289156,
+          "status": "verified"
+        },
+        "g_tR": {
+          "value": 3.975128543732247,
+          "status": "verified"
+        },
+        "g_bR": {
+          "value": -0.19252560932019122,
+          "status": "verified"
+        },
+        "F_Q3": {
+          "value": 0.6324557949863091,
+          "status": "theorem"
+        },
+        "F_tR": {
+          "value": 1.0000000000000002,
+          "status": "theorem"
+        },
+        "BR_tt": {
+          "value": 0.8217464707480635,
+          "status": "measured"
+        },
+        "BR_4t_pair": {
+          "value": 0.675267262186898,
+          "status": "measured"
+        },
+        "GoverM": {
+          "value": 0.16196630110405807,
+          "status": "measured"
+        },
+        "production": {
+          "unknown": "no cross section is computed here: needs parton luminosities (planned) or a matrix-element generator"
+        },
+        "quark_masses": {
+          "unknown": "the c values are inputs, not fitted: the zero-mode Yukawa map m ∝ F(c_L)F(−c_R) is not inverted here"
+        }
+      },
+      "certificates": {
+        "gauge_root": {
+          "claim": "x_1 = m_1 R' = 2.4498942846949827 at kL = 35",
+          "witness": {
+            "bracket": [
+              2.439999999999992,
+              2.4499999999999917
+            ],
+            "residual": 1.6653345369377348e-15,
+            "wronskianAtRoot": -2.220446049250313e-16
+          },
+          "method": "sign change of J0(x e^{-kL}) Y0(x) − J0(x) Y0(x e^{-kL}) on a 0.01 grid, 80 bisections",
+          "check": "data/rs_fermions_reference.json gives the same root at 40 digits (tools/rs_fermions_sage_control.py)"
+        },
+        "integrals": {
+          "claim": "every coupling and the mode normalisation are converged quadratures",
+          "witness": {
+            "rule": "Simpson in u = ln z",
+            "panels": 8000,
+            "worstCouplingShift_gs": 1.0599952915413269e-8,
+            "normRelativeShift": 2.935417503078379e-9
+          },
+          "method": "each value is recomputed with half the panels; the shift is the witness",
+          "check": "40-digit mpmath quadrature in the reference file"
+        },
+        "orthogonality": {
+          "claim": "a c = 1/2 quark (flat profile) does not couple to the KK gluon",
+          "witness": {
+            "coupling_c_half": -1.1675153880711755e-11
+          },
+          "method": "the same quadrature at c = 1/2",
+          "check": "∫ du f_1 f_0 = 0 by the Sturm–Liouville orthogonality of the Neumann tower"
+        },
+        "width_convention": {
+          "claim": "the width formula reduces to the flat theorem Γ/M = 2α_s",
+          "witness": {
+            "fromConvention": 0.1617262843050162,
+            "theorem": 0.1617262843050162,
+            "difference": 0
+          },
+          "method": "universal √2 g_s couplings to six massless quarks inserted in the same formula",
+          "check": "collider.mjs coloronOf: Γ/M = 2α_s (Part VII, DMN01, Simmons)"
+        },
+        "conventions": {
+          "claim": "c has the meaning of ruFermion in rs_unification.mjs",
+          "witness": {
+            "LH_UV_for": "c > 1/2",
+            "RH_UV_for": "c < -1/2"
+          },
+          "check": "_test_rs_fermions.mjs compares localisation with ruFermion on a grid"
+        }
+      },
+      "BR_tt": 0.8217464707480635,
+      "BR_4t_pair": 0.675267262186898,
+      "GoverM": 0.16196630110405807,
+      "g_tR_over_gs": 3.975128543732247
+    },
+    {
+      "realisation": "warped KK gluon",
+      "kL": 35,
+      "c": {
+        "kL": 35,
+        "modes": 1,
+        "cL": {
+          "light": 0.6,
+          "Q3": 0.3
+        },
+        "cR": {
+          "light": -0.6,
+          "tR": 0,
+          "bR": -0.6
+        },
+        "MGeV": 5000,
+        "mTopGeV": 172.5
+      },
+      "M_GeV_for_running_and_phase_space": 5000,
+      "alphas": 0.07730558152432522,
+      "values": {
+        "x1": {
+          "value": 2.4498942846949827,
+          "status": "verified"
+        },
+        "g_light_L": {
+          "value": -0.19252560932019122,
+          "status": "verified"
+        },
+        "g_light_R": {
+          "value": -0.19252560932019122,
+          "status": "verified"
+        },
+        "g_Q3": {
+          "value": 1.987671699289156,
+          "status": "verified"
+        },
+        "g_tR": {
+          "value": 3.975128543732247,
+          "status": "verified"
+        },
+        "g_bR": {
+          "value": -0.19252560932019122,
+          "status": "verified"
+        },
+        "F_Q3": {
+          "value": 0.6324557949863091,
+          "status": "theorem"
+        },
+        "F_tR": {
+          "value": 1.0000000000000002,
+          "status": "theorem"
+        },
+        "BR_tt": {
+          "value": 0.8217548737352204,
+          "status": "measured"
+        },
+        "BR_4t_pair": {
+          "value": 0.675281072507588,
+          "status": "measured"
+        },
+        "GoverM": {
+          "value": 0.1548479199796597,
+          "status": "measured"
+        },
+        "production": {
+          "unknown": "no cross section is computed here: needs parton luminosities (planned) or a matrix-element generator"
+        },
+        "quark_masses": {
+          "unknown": "the c values are inputs, not fitted: the zero-mode Yukawa map m ∝ F(c_L)F(−c_R) is not inverted here"
+        }
+      },
+      "certificates": {
+        "gauge_root": {
+          "claim": "x_1 = m_1 R' = 2.4498942846949827 at kL = 35",
+          "witness": {
+            "bracket": [
+              2.439999999999992,
+              2.4499999999999917
+            ],
+            "residual": 1.6653345369377348e-15,
+            "wronskianAtRoot": -2.220446049250313e-16
+          },
+          "method": "sign change of J0(x e^{-kL}) Y0(x) − J0(x) Y0(x e^{-kL}) on a 0.01 grid, 80 bisections",
+          "check": "data/rs_fermions_reference.json gives the same root at 40 digits (tools/rs_fermions_sage_control.py)"
+        },
+        "integrals": {
+          "claim": "every coupling and the mode normalisation are converged quadratures",
+          "witness": {
+            "rule": "Simpson in u = ln z",
+            "panels": 8000,
+            "worstCouplingShift_gs": 1.0599952915413269e-8,
+            "normRelativeShift": 2.935417503078379e-9
+          },
+          "method": "each value is recomputed with half the panels; the shift is the witness",
+          "check": "40-digit mpmath quadrature in the reference file"
+        },
+        "orthogonality": {
+          "claim": "a c = 1/2 quark (flat profile) does not couple to the KK gluon",
+          "witness": {
+            "coupling_c_half": -1.1675153880711755e-11
+          },
+          "method": "the same quadrature at c = 1/2",
+          "check": "∫ du f_1 f_0 = 0 by the Sturm–Liouville orthogonality of the Neumann tower"
+        },
+        "width_convention": {
+          "claim": "the width formula reduces to the flat theorem Γ/M = 2α_s",
+          "witness": {
+            "fromConvention": 0.15461116304865044,
+            "theorem": 0.15461116304865044,
+            "difference": 0
+          },
+          "method": "universal √2 g_s couplings to six massless quarks inserted in the same formula",
+          "check": "collider.mjs coloronOf: Γ/M = 2α_s (Part VII, DMN01, Simmons)"
+        },
+        "conventions": {
+          "claim": "c has the meaning of ruFermion in rs_unification.mjs",
+          "witness": {
+            "LH_UV_for": "c > 1/2",
+            "RH_UV_for": "c < -1/2"
+          },
+          "check": "_test_rs_fermions.mjs compares localisation with ruFermion on a grid"
+        }
+      },
+      "BR_tt": 0.8217548737352204,
+      "BR_4t_pair": 0.675281072507588,
+      "GoverM": 0.1548479199796597,
+      "g_tR_over_gs": 3.975128543732247
+    },
+    {
+      "realisation": "warped KK gluon",
+      "kL": 35,
+      "c": {
+        "kL": 35,
+        "modes": 1,
+        "cL": {
+          "light": 0.6,
+          "Q3": 0.3
+        },
+        "cR": {
+          "light": -0.6,
+          "tR": 0.3,
+          "bR": -0.6
+        },
+        "MGeV": 3000,
+        "mTopGeV": 172.5
+      },
+      "M_GeV_for_running_and_phase_space": 3000,
+      "alphas": 0.0808631421525081,
+      "values": {
+        "x1": {
+          "value": 2.4498942846949827,
+          "status": "verified"
+        },
+        "g_light_L": {
+          "value": -0.19252560932019122,
+          "status": "verified"
+        },
+        "g_light_R": {
+          "value": -0.19252560932019122,
+          "status": "verified"
+        },
+        "g_Q3": {
+          "value": 1.987671699289156,
+          "status": "verified"
+        },
+        "g_tR": {
+          "value": 5.162602370669762,
+          "status": "verified"
+        },
+        "g_bR": {
+          "value": -0.19252560932019122,
+          "status": "verified"
+        },
+        "F_Q3": {
+          "value": 0.6324557949863091,
+          "status": "theorem"
+        },
+        "F_tR": {
+          "value": 1.2649110640673518,
+          "status": "theorem"
+        },
+        "BR_tt": {
+          "value": 0.8771866019851065,
+          "status": "measured"
+        },
+        "BR_4t_pair": {
+          "value": 0.7694563347021776,
+          "status": "measured"
+        },
+        "GoverM": {
+          "value": 0.23508074247875638,
+          "status": "measured"
+        },
+        "production": {
+          "unknown": "no cross section is computed here: needs parton luminosities (planned) or a matrix-element generator"
+        },
+        "quark_masses": {
+          "unknown": "the c values are inputs, not fitted: the zero-mode Yukawa map m ∝ F(c_L)F(−c_R) is not inverted here"
+        }
+      },
+      "certificates": {
+        "gauge_root": {
+          "claim": "x_1 = m_1 R' = 2.4498942846949827 at kL = 35",
+          "witness": {
+            "bracket": [
+              2.439999999999992,
+              2.4499999999999917
+            ],
+            "residual": 1.6653345369377348e-15,
+            "wronskianAtRoot": -2.220446049250313e-16
+          },
+          "method": "sign change of J0(x e^{-kL}) Y0(x) − J0(x) Y0(x e^{-kL}) on a 0.01 grid, 80 bisections",
+          "check": "data/rs_fermions_reference.json gives the same root at 40 digits (tools/rs_fermions_sage_control.py)"
+        },
+        "integrals": {
+          "claim": "every coupling and the mode normalisation are converged quadratures",
+          "witness": {
+            "rule": "Simpson in u = ln z",
+            "panels": 8000,
+            "worstCouplingShift_gs": 2.0947002354887445e-8,
+            "normRelativeShift": 2.935417503078379e-9
+          },
+          "method": "each value is recomputed with half the panels; the shift is the witness",
+          "check": "40-digit mpmath quadrature in the reference file"
+        },
+        "orthogonality": {
+          "claim": "a c = 1/2 quark (flat profile) does not couple to the KK gluon",
+          "witness": {
+            "coupling_c_half": -1.1675153880711755e-11
+          },
+          "method": "the same quadrature at c = 1/2",
+          "check": "∫ du f_1 f_0 = 0 by the Sturm–Liouville orthogonality of the Neumann tower"
+        },
+        "width_convention": {
+          "claim": "the width formula reduces to the flat theorem Γ/M = 2α_s",
+          "witness": {
+            "fromConvention": 0.1617262843050162,
+            "theorem": 0.1617262843050162,
+            "difference": 0
+          },
+          "method": "universal √2 g_s couplings to six massless quarks inserted in the same formula",
+          "check": "collider.mjs coloronOf: Γ/M = 2α_s (Part VII, DMN01, Simmons)"
+        },
+        "conventions": {
+          "claim": "c has the meaning of ruFermion in rs_unification.mjs",
+          "witness": {
+            "LH_UV_for": "c > 1/2",
+            "RH_UV_for": "c < -1/2"
+          },
+          "check": "_test_rs_fermions.mjs compares localisation with ruFermion on a grid"
+        }
+      },
+      "BR_tt": 0.8771866019851065,
+      "BR_4t_pair": 0.7694563347021776,
+      "GoverM": 0.23508074247875638,
+      "g_tR_over_gs": 5.162602370669762
+    },
+    {
+      "realisation": "warped KK gluon",
+      "kL": 35,
+      "c": {
+        "kL": 35,
+        "modes": 1,
+        "cL": {
+          "light": 0.6,
+          "Q3": 0.3
+        },
+        "cR": {
+          "light": -0.6,
+          "tR": 0.3,
+          "bR": -0.6
+        },
+        "MGeV": 5000,
+        "mTopGeV": 172.5
+      },
+      "M_GeV_for_running_and_phase_space": 5000,
+      "alphas": 0.07730558152432522,
+      "values": {
+        "x1": {
+          "value": 2.4498942846949827,
+          "status": "verified"
+        },
+        "g_light_L": {
+          "value": -0.19252560932019122,
+          "status": "verified"
+        },
+        "g_light_R": {
+          "value": -0.19252560932019122,
+          "status": "verified"
+        },
+        "g_Q3": {
+          "value": 1.987671699289156,
+          "status": "verified"
+        },
+        "g_tR": {
+          "value": 5.162602370669762,
+          "status": "verified"
+        },
+        "g_bR": {
+          "value": -0.19252560932019122,
+          "status": "verified"
+        },
+        "F_Q3": {
+          "value": 0.6324557949863091,
+          "status": "theorem"
+        },
+        "F_tR": {
+          "value": 1.2649110640673518,
+          "status": "theorem"
+        },
+        "BR_tt": {
+          "value": 0.8771927820647384,
+          "status": "measured"
+        },
+        "BR_4t_pair": {
+          "value": 0.7694671769064756,
+          "status": "measured"
+        },
+        "GoverM": {
+          "value": 0.22474971351572237,
+          "status": "measured"
+        },
+        "production": {
+          "unknown": "no cross section is computed here: needs parton luminosities (planned) or a matrix-element generator"
+        },
+        "quark_masses": {
+          "unknown": "the c values are inputs, not fitted: the zero-mode Yukawa map m ∝ F(c_L)F(−c_R) is not inverted here"
+        }
+      },
+      "certificates": {
+        "gauge_root": {
+          "claim": "x_1 = m_1 R' = 2.4498942846949827 at kL = 35",
+          "witness": {
+            "bracket": [
+              2.439999999999992,
+              2.4499999999999917
+            ],
+            "residual": 1.6653345369377348e-15,
+            "wronskianAtRoot": -2.220446049250313e-16
+          },
+          "method": "sign change of J0(x e^{-kL}) Y0(x) − J0(x) Y0(x e^{-kL}) on a 0.01 grid, 80 bisections",
+          "check": "data/rs_fermions_reference.json gives the same root at 40 digits (tools/rs_fermions_sage_control.py)"
+        },
+        "integrals": {
+          "claim": "every coupling and the mode normalisation are converged quadratures",
+          "witness": {
+            "rule": "Simpson in u = ln z",
+            "panels": 8000,
+            "worstCouplingShift_gs": 2.0947002354887445e-8,
+            "normRelativeShift": 2.935417503078379e-9
+          },
+          "method": "each value is recomputed with half the panels; the shift is the witness",
+          "check": "40-digit mpmath quadrature in the reference file"
+        },
+        "orthogonality": {
+          "claim": "a c = 1/2 quark (flat profile) does not couple to the KK gluon",
+          "witness": {
+            "coupling_c_half": -1.1675153880711755e-11
+          },
+          "method": "the same quadrature at c = 1/2",
+          "check": "∫ du f_1 f_0 = 0 by the Sturm–Liouville orthogonality of the Neumann tower"
+        },
+        "width_convention": {
+          "claim": "the width formula reduces to the flat theorem Γ/M = 2α_s",
+          "witness": {
+            "fromConvention": 0.15461116304865044,
+            "theorem": 0.15461116304865044,
+            "difference": 0
+          },
+          "method": "universal √2 g_s couplings to six massless quarks inserted in the same formula",
+          "check": "collider.mjs coloronOf: Γ/M = 2α_s (Part VII, DMN01, Simmons)"
+        },
+        "conventions": {
+          "claim": "c has the meaning of ruFermion in rs_unification.mjs",
+          "witness": {
+            "LH_UV_for": "c > 1/2",
+            "RH_UV_for": "c < -1/2"
+          },
+          "check": "_test_rs_fermions.mjs compares localisation with ruFermion on a grid"
+        }
+      },
+      "BR_tt": 0.8771927820647384,
+      "BR_4t_pair": 0.7694671769064756,
+      "GoverM": 0.22474971351572237,
+      "g_tR_over_gs": 5.162602370669762
+    },
+    {
+      "realisation": "warped KK gluon",
+      "kL": 35,
+      "c": {
+        "kL": 35,
+        "modes": 1,
+        "cL": {
+          "light": 0.6,
+          "Q3": 0.3
+        },
+        "cR": {
+          "light": -0.6,
+          "tR": 0.5,
+          "bR": -0.6
+        },
+        "MGeV": 3000,
+        "mTopGeV": 172.5
+      },
+      "M_GeV_for_running_and_phase_space": 3000,
+      "alphas": 0.0808631421525081,
+      "values": {
+        "x1": {
+          "value": 2.4498942846949827,
+          "status": "verified"
+        },
+        "g_light_L": {
+          "value": -0.19252560932019122,
+          "status": "verified"
+        },
+        "g_light_R": {
+          "value": -0.19252560932019122,
+          "status": "verified"
+        },
+        "g_Q3": {
+          "value": 1.987671699289156,
+          "status": "verified"
+        },
+        "g_tR": {
+          "value": 5.70663372446801,
+          "status": "verified"
+        },
+        "g_bR": {
+          "value": -0.19252560932019122,
+          "status": "verified"
+        },
+        "F_Q3": {
+          "value": 0.6324557949863091,
+          "status": "theorem"
+        },
+        "F_tR": {
+          "value": 1.4142135623730951,
+          "status": "theorem"
+        },
+        "BR_tt": {
+          "value": 0.8949855983985988,
+          "status": "measured"
+        },
+        "BR_4t_pair": {
+          "value": 0.800999221340898,
+          "status": "measured"
+        },
+        "GoverM": {
+          "value": 0.27492481365808147,
+          "status": "measured"
+        },
+        "production": {
+          "unknown": "no cross section is computed here: needs parton luminosities (planned) or a matrix-element generator"
+        },
+        "quark_masses": {
+          "unknown": "the c values are inputs, not fitted: the zero-mode Yukawa map m ∝ F(c_L)F(−c_R) is not inverted here"
+        }
+      },
+      "certificates": {
+        "gauge_root": {
+          "claim": "x_1 = m_1 R' = 2.4498942846949827 at kL = 35",
+          "witness": {
+            "bracket": [
+              2.439999999999992,
+              2.4499999999999917
+            ],
+            "residual": 1.6653345369377348e-15,
+            "wronskianAtRoot": -2.220446049250313e-16
+          },
+          "method": "sign change of J0(x e^{-kL}) Y0(x) − J0(x) Y0(x e^{-kL}) on a 0.01 grid, 80 bisections",
+          "check": "data/rs_fermions_reference.json gives the same root at 40 digits (tools/rs_fermions_sage_control.py)"
+        },
+        "integrals": {
+          "claim": "every coupling and the mode normalisation are converged quadratures",
+          "witness": {
+            "rule": "Simpson in u = ln z",
+            "panels": 8000,
+            "worstCouplingShift_gs": 2.936250087515191e-8,
+            "normRelativeShift": 2.935417503078379e-9
+          },
+          "method": "each value is recomputed with half the panels; the shift is the witness",
+          "check": "40-digit mpmath quadrature in the reference file"
+        },
+        "orthogonality": {
+          "claim": "a c = 1/2 quark (flat profile) does not couple to the KK gluon",
+          "witness": {
+            "coupling_c_half": -1.1675153880711755e-11
+          },
+          "method": "the same quadrature at c = 1/2",
+          "check": "∫ du f_1 f_0 = 0 by the Sturm–Liouville orthogonality of the Neumann tower"
+        },
+        "width_convention": {
+          "claim": "the width formula reduces to the flat theorem Γ/M = 2α_s",
+          "witness": {
+            "fromConvention": 0.1617262843050162,
+            "theorem": 0.1617262843050162,
+            "difference": 0
+          },
+          "method": "universal √2 g_s couplings to six massless quarks inserted in the same formula",
+          "check": "collider.mjs coloronOf: Γ/M = 2α_s (Part VII, DMN01, Simmons)"
+        },
+        "conventions": {
+          "claim": "c has the meaning of ruFermion in rs_unification.mjs",
+          "witness": {
+            "LH_UV_for": "c > 1/2",
+            "RH_UV_for": "c < -1/2"
+          },
+          "check": "_test_rs_fermions.mjs compares localisation with ruFermion on a grid"
+        }
+      },
+      "BR_tt": 0.8949855983985988,
+      "BR_4t_pair": 0.800999221340898,
+      "GoverM": 0.27492481365808147,
+      "g_tR_over_gs": 5.70663372446801
+    },
+    {
+      "realisation": "warped KK gluon",
+      "kL": 35,
+      "c": {
+        "kL": 35,
+        "modes": 1,
+        "cL": {
+          "light": 0.6,
+          "Q3": 0.3
+        },
+        "cR": {
+          "light": -0.6,
+          "tR": 0.5,
+          "bR": -0.6
+        },
+        "MGeV": 5000,
+        "mTopGeV": 172.5
+      },
+      "M_GeV_for_running_and_phase_space": 5000,
+      "alphas": 0.07730558152432522,
+      "values": {
+        "x1": {
+          "value": 2.4498942846949827,
+          "status": "verified"
+        },
+        "g_light_L": {
+          "value": -0.19252560932019122,
+          "status": "verified"
+        },
+        "g_light_R": {
+          "value": -0.19252560932019122,
+          "status": "verified"
+        },
+        "g_Q3": {
+          "value": 1.987671699289156,
+          "status": "verified"
+        },
+        "g_tR": {
+          "value": 5.70663372446801,
+          "status": "verified"
+        },
+        "g_bR": {
+          "value": -0.19252560932019122,
+          "status": "verified"
+        },
+        "F_Q3": {
+          "value": 0.6324557949863091,
+          "status": "theorem"
+        },
+        "F_tR": {
+          "value": 1.4142135623730951,
+          "status": "theorem"
+        },
+        "BR_tt": {
+          "value": 0.8949909900375141,
+          "status": "measured"
+        },
+        "BR_4t_pair": {
+          "value": 0.8010088722483297,
+          "status": "measured"
+        },
+        "GoverM": {
+          "value": 0.26284303659727165,
+          "status": "measured"
+        },
+        "production": {
+          "unknown": "no cross section is computed here: needs parton luminosities (planned) or a matrix-element generator"
+        },
+        "quark_masses": {
+          "unknown": "the c values are inputs, not fitted: the zero-mode Yukawa map m ∝ F(c_L)F(−c_R) is not inverted here"
+        }
+      },
+      "certificates": {
+        "gauge_root": {
+          "claim": "x_1 = m_1 R' = 2.4498942846949827 at kL = 35",
+          "witness": {
+            "bracket": [
+              2.439999999999992,
+              2.4499999999999917
+            ],
+            "residual": 1.6653345369377348e-15,
+            "wronskianAtRoot": -2.220446049250313e-16
+          },
+          "method": "sign change of J0(x e^{-kL}) Y0(x) − J0(x) Y0(x e^{-kL}) on a 0.01 grid, 80 bisections",
+          "check": "data/rs_fermions_reference.json gives the same root at 40 digits (tools/rs_fermions_sage_control.py)"
+        },
+        "integrals": {
+          "claim": "every coupling and the mode normalisation are converged quadratures",
+          "witness": {
+            "rule": "Simpson in u = ln z",
+            "panels": 8000,
+            "worstCouplingShift_gs": 2.936250087515191e-8,
+            "normRelativeShift": 2.935417503078379e-9
+          },
+          "method": "each value is recomputed with half the panels; the shift is the witness",
+          "check": "40-digit mpmath quadrature in the reference file"
+        },
+        "orthogonality": {
+          "claim": "a c = 1/2 quark (flat profile) does not couple to the KK gluon",
+          "witness": {
+            "coupling_c_half": -1.1675153880711755e-11
+          },
+          "method": "the same quadrature at c = 1/2",
+          "check": "∫ du f_1 f_0 = 0 by the Sturm–Liouville orthogonality of the Neumann tower"
+        },
+        "width_convention": {
+          "claim": "the width formula reduces to the flat theorem Γ/M = 2α_s",
+          "witness": {
+            "fromConvention": 0.15461116304865044,
+            "theorem": 0.15461116304865044,
+            "difference": 0
+          },
+          "method": "universal √2 g_s couplings to six massless quarks inserted in the same formula",
+          "check": "collider.mjs coloronOf: Γ/M = 2α_s (Part VII, DMN01, Simmons)"
+        },
+        "conventions": {
+          "claim": "c has the meaning of ruFermion in rs_unification.mjs",
+          "witness": {
+            "LH_UV_for": "c > 1/2",
+            "RH_UV_for": "c < -1/2"
+          },
+          "check": "_test_rs_fermions.mjs compares localisation with ruFermion on a grid"
+        }
+      },
+      "BR_tt": 0.8949909900375141,
+      "BR_4t_pair": 0.8010088722483297,
+      "GoverM": 0.26284303659727165,
+      "g_tR_over_gs": 5.70663372446801
+    }
+  ],
+  "scope": "Leading-order partial widths to quark pairs only; no production cross section, no interference, no detector. Ratios only.",
+  "unknown": [
+    "production cross sections (planned: parton luminosities)",
+    "fit of c to quark masses",
+    "fermion KK towers"
+  ],
+  "interpretation": "Flat: democratic couplings, BR(tt) about 1/6, four tops by pair decay under 3%; the dijet bound applies. Warped: top-philic (BR(tt) above 0.8) and broad (Gamma/M 0.12-0.28). Known qualitatively in the RS literature; reproduced here with certified numerics."
+}

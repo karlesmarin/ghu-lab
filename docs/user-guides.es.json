@@ -3653,6 +3653,146 @@
           "url": "https://karlesmarin.github.io/ghu-explorer/docs/su7-certification.html"
         }
       ]
+    },
+    {
+      "id": "kkgluon",
+      "kind": "experiment",
+      "title": "Primer gluón KK en el LHC: acoplos, anchuras, límites tt̄ / dijets y espectro m(tt̄)",
+      "host": "collider",
+      "route": "s=collider&help=kkgluon",
+      "video": "kkgluon",
+      "source": "src/modules/kk_gluon_lhc.mjs",
+      "what": "Calcula el primer gluón KK de GHU plana (√2 g_s a todos los quarks) o de una dimensión extra curvada (quarks de modo cero con masa de bulk c), sus anchuras y fracciones de desintegración, y compara su σ × BR a primer orden con los límites de ATLAS (tt̄) y CMS (dijets) como r = predicción / límite. Después calcula el espectro m(tt̄) con la interferencia entre el gluón KK y el gluón de QCD, en los intervalos de la medida de CMS a nivel de partones, y el Δχ² esperado frente a su covarianza.",
+      "steps": [
+        "Elige un preajuste: el coloron de GHU plana, el punto RS publicado de arXiv:0807.4937 o valores curvados ilustrativos.",
+        "Cambia una entrada: la masa, kL o uno de los c.",
+        "Lee Γ/M, BR(tt̄) y los dos r a la masa elegida, y después los dos barridos en masa.",
+        "Lee el párrafo de m(tt̄): el signo de la interferencia bajo el polo, el mayor cambio del espectro, el Δχ² y la masa a la que baja a 3,84; después, las dos figuras del espectro.",
+        "Abre los certificados y la sistemática de PDF antes de citar una masa de cruce."
+      ],
+      "read": "r ≥ 1 significa que la predicción a primer orden supera el límite observado publicado para el benchmark de ese experimento. Un cruce es una comparación con ese benchmark, no una exclusión validada a otra anchura; la fracción de cola baja indica cuándo el resultado es sobre todo intercambio fuera de capa.",
+      "purpose": "Sirve para ver qué canal del LHC acota cada realización: el coloron plano acopla por igual a todos los quarks (BR(tt̄) ≈ 1/6) y lo exploran los dijets y, por su gran producción desde quarks ligeros, el tt̄; el gluón KK curvado es top-fílico (BR(tt̄) > 0,8) y ancho, así que su canal son las búsquedas de resonancias tt̄.",
+      "controls": [
+        {
+          "name": "Realización",
+          "meaning": "GHU plana (coloron de la Parte VII) o quarks de modo cero en la dimensión curvada.",
+          "try": "Cambia a masa fija y compara BR(tt̄)."
+        },
+        {
+          "name": "Masa del gluón KK [TeV]",
+          "meaning": "La masa a la que se leen los valores de r.",
+          "try": "Muévela a través del cruce y mira cómo r pasa por 1."
+        },
+        {
+          "name": "kL y los c",
+          "meaning": "Factor de curvatura y masas de bulk (levógiro localizado en la UV si c > 1/2, dextrógiro si c < −1/2), como en la sonda de localización RS.",
+          "try": "Sube el c de t_R y mira crecer el acoplo del top y la anchura."
+        },
+        {
+          "name": "α_s(M_Z)",
+          "meaning": "0,130 como usan los generadores con este conjunto de PDF, o el 0,118 de este laboratorio.",
+          "try": "Compara los dos; la producción escala con el acoplo."
+        },
+        {
+          "name": "Incertidumbre teórica del SM por intervalo de m(tt̄)",
+          "meaning": "Una fracción no correlacionada de cada intervalo medido que se suma a la covarianza de CMS, en lugar de los errores de escala y de PDF de la predicción del SM.",
+          "try": "Ponla a 0 y a 0,2: el Δχ² y la masa a la que llega a 3,84 se mueven mucho; ese es el tamaño honesto de esta comparación."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Acoplos g₁/g_s",
+          "meaning": "Acoplos de los modos cero al primer gluón KK, certificados contra una referencia de 40 dígitos."
+        },
+        {
+          "name": "Γ/M, BR(tt̄), BR(dijets)",
+          "meaning": "Anchuras a pares de quarks a primer orden; el umbral del top depende de la quiralidad."
+        },
+        {
+          "name": "r(tt̄) y r(dijets)",
+          "meaning": "Predicción entre el límite observado de ATLAS (plantilla Γ/M = 30 %) y entre el límite de espín 1 de CMS interpolado a esta anchura."
+        },
+        {
+          "name": "Fracciones de cola baja y de polo",
+          "meaning": "De dónde sale σ(tt̄); una cola baja grande significa que importa la interferencia con QCD (calculada en el espectro)."
+        },
+        {
+          "name": "Interferencia bajo el polo",
+          "meaning": "Su signo es −signo(v_u v_t), v = (c_L + c_R)/2: destructiva con acoplos del mismo signo (GHU plana), constructiva en el punto de referencia curvado."
+        },
+        {
+          "name": "Δχ² del espectro m(tt̄)",
+          "meaning": "Separación entre el SM y el SM + gluón KK en unidades de la covarianza de CMS, si los datos son el SM: una sensibilidad, no una exclusión. El cambio se aplica como R × datos porque la forma del SM a primer orden no es la medida."
+        }
+      ],
+      "example": {
+        "title": "El punto RS publicado en el borde del límite de ATLAS",
+        "steps": [
+          "Carga el preajuste del punto RS publicado.",
+          "Lee r(tt̄) a 3,75 TeV.",
+          "Lleva la masa a 3,67 TeV, el primer gluón KK del propio punto.",
+          "Abre los certificados."
+        ],
+        "expect": "r(tt̄) queda cerca de 1: el punto de referencia de 2008 está en el borde de la comparación con ATLAS de 2025, dentro del ±15 % del control."
+      },
+      "limits": [
+        "Primer orden; sin factor K para tt̄. La interferencia entra solo en el espectro m(tt̄); la comparación con las búsquedas de resonancias usa solo la Breit–Wigner, como las plantillas de los experimentos.",
+        "El Δχ² del espectro supone que el factor K del gluón KK y el de la interferencia son los del SM, y depende mucho de la incertidumbre teórica del SM elegida.",
+        "Un límite obtenido con una plantilla de anchura no es necesariamente conservador para otra anchura.",
+        "Por encima de unos 6 TeV la luminosidad q q̄ difiere más de un 20 % entre conjuntos de PDF.",
+        "No se calculan la producción de cuatro tops ni los modos KK de los fermiones."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "Un valor de r dice «not evaluated».",
+          "action": "La masa o la anchura caen fuera de la malla publicada (ATLAS 0,5–5 TeV; la interpolación de CMS necesita 10–30 % y 2,1–6 TeV)."
+        }
+      ],
+      "terms": [],
+      "related": [
+        "collider",
+        "higgstools",
+        "rsanomaly",
+        "rsrunning"
+      ],
+      "references": [
+        {
+          "label": "ATLAS tt̄ resonances, arXiv:2512.17856",
+          "url": "https://arxiv.org/abs/2512.17856"
+        },
+        {
+          "label": "HEPData: ATLAS Fig. 10c (KK gluon limits)",
+          "url": "https://doi.org/10.17182/hepdata.168229.v1/t15"
+        },
+        {
+          "label": "CMS dijet resonances, arXiv:1911.03947",
+          "url": "https://arxiv.org/abs/1911.03947"
+        },
+        {
+          "label": "HEPData: CMS spin-1 qq limits by width",
+          "url": "https://doi.org/10.17182/hepdata.91059.v1/t10"
+        },
+        {
+          "label": "Casagrande et al., RS reference point, arXiv:0807.4937",
+          "url": "https://arxiv.org/abs/0807.4937"
+        },
+        {
+          "label": "Atre et al., colour-octet widths, arXiv:1206.1661",
+          "url": "https://arxiv.org/abs/1206.1661"
+        },
+        {
+          "label": "CMS differential tt̄ (TOP-20-001), arXiv:2108.02803",
+          "url": "https://arxiv.org/abs/2108.02803"
+        },
+        {
+          "label": "HEPData: CMS parton-level dσ/dm(tt̄)",
+          "url": "https://doi.org/10.17182/hepdata.102956.v1/t37"
+        },
+        {
+          "label": "HEPData: its covariance matrix",
+          "url": "https://doi.org/10.17182/hepdata.102956.v1/t38"
+        }
+      ]
     }
   ],
   "glossary": {

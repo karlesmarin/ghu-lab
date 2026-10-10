@@ -2049,6 +2049,76 @@ La producción puede mantenerse mientras disminuyen fracciones e intensidades vi
 \item \href{https://gitlab.com/higgsbounds/hsdataset}{Official HiggsSignals dataset}
 \item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/higgstools_adapter.mjs}{Implementación y atribución de fuentes}
 \end{itemize}
+\section{Primer gluón KK en el LHC: acoplos, anchuras, límites t\ensuremath{\overline{t}} / dijets y espectro m(t\ensuremath{\overline{t}})}
+Calcula el primer gluón KK de GHU plana (\ensuremath{\surd}2 g\_s a todos los quarks) o de una dimensión extra curvada (quarks de modo cero con masa de bulk c), sus anchuras y fracciones de desintegración, y compara su \ensuremath{\sigma} \ensuremath{\times} BR a primer orden con los límites de ATLAS (t\ensuremath{\overline{t}}) y CMS (dijets) como r = predicción / límite. Después calcula el espectro m(t\ensuremath{\overline{t}}) con la interferencia entre el gluón KK y el gluón de QCD, en los intervalos de la medida de CMS a nivel de partones, y el \ensuremath{\Delta}\ensuremath{\chi}\ensuremath{{}^{2}} esperado frente a su covarianza.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/kkgluon/index.html}{Abrir guía web}
+
+Sirve para ver qué canal del LHC acota cada realización: el coloron plano acopla por igual a todos los quarks (BR(t\ensuremath{\overline{t}}) \ensuremath{\approx} 1/6) y lo exploran los dijets y, por su gran producción desde quarks ligeros, el t\ensuremath{\overline{t}}; el gluón KK curvado es top-fílico (BR(t\ensuremath{\overline{t}}) > 0,8) y ancho, así que su canal son las búsquedas de resonancias t\ensuremath{\overline{t}}.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Elige un preajuste: el coloron de GHU plana, el punto RS publicado de arXiv:0807.4937 o valores curvados ilustrativos.
+\item Cambia una entrada: la masa, kL o uno de los c.
+\item Lee \ensuremath{\Gamma}/M, BR(t\ensuremath{\overline{t}}) y los dos r a la masa elegida, y después los dos barridos en masa.
+\item Lee el párrafo de m(t\ensuremath{\overline{t}}): el signo de la interferencia bajo el polo, el mayor cambio del espectro, el \ensuremath{\Delta}\ensuremath{\chi}\ensuremath{{}^{2}} y la masa a la que baja a 3,84; después, las dos figuras del espectro.
+\item Abre los certificados y la sistemática de PDF antes de citar una masa de cruce.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Realización}. GHU plana (coloron de la Parte VII) o quarks de modo cero en la dimensión curvada. Cambia a masa fija y compara BR(t\ensuremath{\overline{t}}).
+
+\textbf{Masa del gluón KK [TeV]}. La masa a la que se leen los valores de r. Muévela a través del cruce y mira cómo r pasa por 1.
+
+\textbf{kL y los c}. Factor de curvatura y masas de bulk (levógiro localizado en la UV si c > 1/2, dextrógiro si c < \ensuremath{-}1/2), como en la sonda de localización RS. Sube el c de t\_R y mira crecer el acoplo del top y la anchura.
+
+\textbf{\ensuremath{\alpha}\_s(M\_Z)}. 0,130 como usan los generadores con este conjunto de PDF, o el 0,118 de este laboratorio. Compara los dos; la producción escala con el acoplo.
+
+\textbf{Incertidumbre teórica del SM por intervalo de m(t\ensuremath{\overline{t}})}. Una fracción no correlacionada de cada intervalo medido que se suma a la covarianza de CMS, en lugar de los errores de escala y de PDF de la predicción del SM. Ponla a 0 y a 0,2: el \ensuremath{\Delta}\ensuremath{\chi}\ensuremath{{}^{2}} y la masa a la que llega a 3,84 se mueven mucho; ese es el tamaño honesto de esta comparación.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Acoplos g\ensuremath{{}_{1}}/g\_s}. Acoplos de los modos cero al primer gluón KK, certificados contra una referencia de 40 dígitos.
+
+\textbf{\ensuremath{\Gamma}/M, BR(t\ensuremath{\overline{t}}), BR(dijets)}. Anchuras a pares de quarks a primer orden; el umbral del top depende de la quiralidad.
+
+\textbf{r(t\ensuremath{\overline{t}}) y r(dijets)}. Predicción entre el límite observado de ATLAS (plantilla \ensuremath{\Gamma}/M = 30 \%) y entre el límite de espín 1 de CMS interpolado a esta anchura.
+
+\textbf{Fracciones de cola baja y de polo}. De dónde sale \ensuremath{\sigma}(t\ensuremath{\overline{t}}); una cola baja grande significa que importa la interferencia con QCD (calculada en el espectro).
+
+\textbf{Interferencia bajo el polo}. Su signo es \ensuremath{-}signo(v\_u v\_t), v = (c\_L + c\_R)/2: destructiva con acoplos del mismo signo (GHU plana), constructiva en el punto de referencia curvado.
+
+\textbf{\ensuremath{\Delta}\ensuremath{\chi}\ensuremath{{}^{2}} del espectro m(t\ensuremath{\overline{t}})}. Separación entre el SM y el SM + gluón KK en unidades de la covarianza de CMS, si los datos son el SM: una sensibilidad, no una exclusión. El cambio se aplica como R \ensuremath{\times} datos porque la forma del SM a primer orden no es la medida.
+
+r \ensuremath{\geq} 1 significa que la predicción a primer orden supera el límite observado publicado para el benchmark de ese experimento. Un cruce es una comparación con ese benchmark, no una exclusión validada a otra anchura; la fracción de cola baja indica cuándo el resultado es sobre todo intercambio fuera de capa.
+\subsection*{Ejemplo guiado: El punto RS publicado en el borde del límite de ATLAS}
+\begin{enumerate}
+\item Carga el preajuste del punto RS publicado.
+\item Lee r(t\ensuremath{\overline{t}}) a 3,75 TeV.
+\item Lleva la masa a 3,67 TeV, el primer gluón KK del propio punto.
+\item Abre los certificados.
+\end{enumerate}
+r(t\ensuremath{\overline{t}}) queda cerca de 1: el punto de referencia de 2008 está en el borde de la comparación con ATLAS de 2025, dentro del \ensuremath{\pm}15 \% del control.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item Primer orden; sin factor K para t\ensuremath{\overline{t}}. La interferencia entra solo en el espectro m(t\ensuremath{\overline{t}}); la comparación con las búsquedas de resonancias usa solo la Breit--Wigner, como las plantillas de los experimentos.
+\item El \ensuremath{\Delta}\ensuremath{\chi}\ensuremath{{}^{2}} del espectro supone que el factor K del gluón KK y el de la interferencia son los del SM, y depende mucho de la incertidumbre teórica del SM elegida.
+\item Un límite obtenido con una plantilla de anchura no es necesariamente conservador para otra anchura.
+\item Por encima de unos 6 TeV la luminosidad q \ensuremath{\overline{q}} difiere más de un 20 \% entre conjuntos de PDF.
+\item No se calculan la producción de cuatro tops ni los modos KK de los fermiones.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{Un valor de r dice «not evaluated».} La masa o la anchura caen fuera de la malla publicada (ATLAS 0,5--5 TeV; la interpolación de CMS necesita 10--30 \% y 2,1--6 TeV).
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2512.17856}{ATLAS t\ensuremath{\overline{t}} resonances, arXiv:2512.17856}
+\item \href{https://doi.org/10.17182/hepdata.168229.v1/t15}{HEPData: ATLAS Fig. 10c (KK gluon limits)}
+\item \href{https://arxiv.org/abs/1911.03947}{CMS dijet resonances, arXiv:1911.03947}
+\item \href{https://doi.org/10.17182/hepdata.91059.v1/t10}{HEPData: CMS spin-1 qq limits by width}
+\item \href{https://arxiv.org/abs/0807.4937}{Casagrande et al., RS reference point, arXiv:0807.4937}
+\item \href{https://arxiv.org/abs/1206.1661}{Atre et al., colour-octet widths, arXiv:1206.1661}
+\item \href{https://arxiv.org/abs/2108.02803}{CMS differential t\ensuremath{\overline{t}} (TOP-20-001), arXiv:2108.02803}
+\item \href{https://doi.org/10.17182/hepdata.102956.v1/t37}{HEPData: CMS parton-level d\ensuremath{\sigma}/dm(t\ensuremath{\overline{t}})}
+\item \href{https://doi.org/10.17182/hepdata.102956.v1/t38}{HEPData: its covariance matrix}
+\end{itemize}
 \section{Glosario}
 \subsection*{Alfabeto}
 Las condiciones admitidas se construyen con representaciones irreducibles del grupo espacial \ensuremath{\Gamma} = \ensuremath{\Lambda} \ensuremath{\rtimes} Z\_m. La Parte IX-A obtiene estas letras mediante inversión de Möbius sobre puntos fijos; la teoría de Clifford proporciona sus pesos. Los datos posteriores se derivan de ese alfabeto bajo las hipótesis de clasificación.

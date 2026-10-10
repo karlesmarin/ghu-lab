@@ -52,6 +52,7 @@ tools/thermal_run.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab
 
 # Preserve the hashes of the current video assets on every checkout.
 media/video/2026-10-08-certification/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol
+media/video/2026-10-10-kkgluon/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol
 
 # The manual manifest hashes its catalogues, generator and rendered artifacts.
 docs/user-guides*.json -text
@@ -61,3 +62,13 @@ build/guide_manual.py text eol=lf
 
 # Preserve original Google ownership verification files.
 src/site/verification/** -text
+
+# 10 October: hashed raw HEPData tables and the pinned files whose sha256 the reference modules record.
+data/hepdata_atlas_ins3094414_* -text -whitespace
+data/hepdata_cms_ins1764471* -text -whitespace
+data/hepdata_cms_ins1901295* -text -whitespace
+data/parton_lumi_13TeV.json -text -whitespace
+data/pdf_systematic_cteq6l1.json -text -whitespace
+data/rs_benchmark_cghnp2008.json -text -whitespace
+data/rs_fermions_reference.json -text -whitespace
+data/tt_spectrum_reference.json -text -whitespace

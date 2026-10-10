@@ -90,6 +90,29 @@ try{
     for(let i=0;i<120;i++){if(await ev(`!document.querySelector('#rx_higgstools [data-run]').disabled`))break;await pause(500);}
     check('real browser button obtains matching HiggsTools result',await ev(`!!rxExternal(HT_PANEL,RX_STATE.higgstools)&&RX_EXTERNAL.higgstools.parameters.kg===.94`));
   }
+  /* First KK gluon at the LHC (kk_gluon_lhc.mjs): mounted in Collider, finite figures, live recomputation, the published
+   * RS point at the ATLAS edge, honest wording, and cross-links that land on their sections. */
+  await navigate('collider','rx_kkgluon_result');
+  check('KK gluon card has two finite figures',await ev(`document.querySelectorAll('#rx_kkgluon_result svg').length>=2&&!/NaN|Infinity/.test(document.getElementById('rx_kkgluon_result').innerHTML)`));
+  const kkFirst=await ev(`kkgModel(RX_STATE.kkgluon).here.GoverM`);
+  await change('#rx_kkgluon_controls [data-rx="cTR"]',.5);
+  check('raising c(t_R) widens the warped KK gluon',await ev(`kkgModel(RX_STATE.kkgluon).here.GoverM>${kkFirst}`));
+  await ev(`[...document.querySelectorAll('#rx_kkgluon button')].find(b=>b.textContent.includes('Published RS point')).click()`);await pause(300);
+  check('published RS point is at the ATLAS edge',await ev(`(()=>{const r=kkgModel(RX_STATE.kkgluon).values.r_tt_observed.value;return r>.85&&r<1.25;})()`));
+  check('card says comparison, not validated exclusion',await ev(`document.getElementById('rx_kkgluon_result').textContent.includes('not a validated exclusion')`));
+  check('KK gluon card shows the m(tt̄) spectrum figures (four finite plots)',await ev(`document.querySelectorAll('#rx_kkgluon_result svg').length>=4&&!/NaN|Infinity/.test(document.getElementById('rx_kkgluon_result').innerHTML)`));
+  check('published RS point: interference constructive below the pole, Δχ² labelled a sensitivity',await ev(`(()=>{const t=document.getElementById('rx_kkgluon_result').textContent;return t.includes('below the pole is constructive')&&t.includes('a sensitivity, not an exclusion');})()`));
+  check('the spectrum links to the CMS measurement and its covariance',await ev(`['hepdata.102956.v1/t37','hepdata.102956.v1/t38'].every(d=>document.querySelector('#rx_kkgluon a[href*="'+d+'"]'))`));
+  await change('#rx_kkgluon_controls [data-rx="ttTheory"]',0);
+  check('ttTheory = 0 gives the experimental-only Δχ²',await ev(`(()=>{const v=kkgModel(RX_STATE.kkgluon).values;return Math.abs(v.tt_spectrum_dchi2.value-v.tt_spectrum_dchi2_experimental.value)<1e-9;})()`));
+  check('the live independent-reference certificate holds in the page',await ev(`(()=>{const w=kkgModel(RX_STATE.kkgluon).certificates.tt_spectrum_reference.witness;return w.partonic<1e-9&&w.gg<1e-6&&w.sm<1e-3&&w.octet<1e-4;})()`));
+  check('cross-links point to their sections',await ev(`(()=>{const hs=[...document.querySelectorAll('#rx_kkgluon_result a[href^="#s="]')].map(a=>a.getAttribute('href'));return ['#s=collider','#s=anomalies','#s=blkt','#s=predict'].every(h=>hs.includes(h));})()`));
+  check('the dijet panel links to the KK gluon card',await ev(`(()=>{const a=document.querySelector('a[href="#rx_kkgluon"]');if(!a)return false;window.scrollTo(0,0);a.click();return true;})()`));
+  await pause(800);
+  check('the link brings the card into view',await ev(`(()=>{const r=document.getElementById('rx_kkgluon').getBoundingClientRect();return r.top<window.innerHeight&&r.bottom>0;})()`));
+  await ev(`document.querySelector('#rx_kkgluon_result a[href="#s=anomalies"]').click()`);
+  for(let i=0;i<100;i++){if(await ev(`!!document.getElementById('rx_rsanomaly_result')`))break;await pause(100);}
+  check('the RS anomaly link opens the RS anomaly card',await ev(`!!document.getElementById('rx_rsanomaly_result')`));
   await navigate('screen','scComb');
   const combInk=()=>ev(`(()=>{const c=document.getElementById('scComb'),d=c.getContext('2d').getImageData(0,0,c.width,c.height).data;let n=0;for(let i=0;i<d.length;i+=4)if(d[i]<240||d[i+1]<240||d[i+2]<240)n++;return n;})()`);
   check('published seed comb drawn',await combInk()>1000);
@@ -113,7 +136,7 @@ try{
       check('candidate extended range rebuilds automatically',await ev(`CEN_C.tMax===900&&!document.getElementById('cnGo').disabled&&document.getElementById('cnCurveNote').textContent.includes('half-integral')`));
     }
   }
-  for(const [section,id] of [['papers','rx_su6mn'],['blkt','rx_rsrunning'],['predict','ndCard'],['predict','rx_flavour'],['predict','rx_thermal'],['anomalies','rx_rsanomaly'],['collider','rx_higgstools']]){
+  for(const [section,id] of [['papers','rx_su6mn'],['blkt','rx_rsrunning'],['predict','ndCard'],['predict','rx_flavour'],['predict','rx_thermal'],['anomalies','rx_rsanomaly'],['collider','rx_higgstools'],['collider','rx_kkgluon']]){
     await navigate(section,id);if(section==='predict')await change('#prModel','neutrino');
     if(id==='rx_thermal')await change('#prModel','builder');
     for(const [name,width,height,mobile] of [['desktop',1380,1000,false],['mobile',390,844,true]]){

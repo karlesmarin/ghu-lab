@@ -6,8 +6,8 @@ Spanish uses the Babel options used by the series; Babel typesets, it does not t
 import argparse,hashlib,html,json,os,pathlib,re,shutil,subprocess,tempfile
 from user_guides import load,validate,LABELS,BASE,relpath
 ROOT=pathlib.Path(__file__).resolve().parents[1]
-GREEK=dict(zip('ΓΔΛΣαβγδηθκλμπτφχ',['Gamma','Delta','Lambda','Sigma','alpha','beta','gamma','delta','eta','theta','kappa','lambda','mu','pi','tau','phi','chi']))
-MATH={'±':r'\pm','×':r'\times','½':r'\frac{1}{2}','ℏ':r'\hbar','ℓ':r'\ell','→':r'\rightarrow','∏':r'\prod','−':'-','√':r'\surd','≤':r'\leq','⋊':r'\rtimes','⌊':r'\lfloor','⌋':r'\rfloor','′':r'\prime'}
+GREEK=dict(zip('ΓΔΛΣαβγδηθκλμπστφχ',['Gamma','Delta','Lambda','Sigma','alpha','beta','gamma','delta','eta','theta','kappa','lambda','mu','pi','sigma','tau','phi','chi']))
+MATH={'±':r'\pm','≈':r'\approx','≥':r'\geq','×':r'\times','½':r'\frac{1}{2}','ℏ':r'\hbar','ℓ':r'\ell','→':r'\rightarrow','∏':r'\prod','−':'-','√':r'\surd','≤':r'\leq','⋊':r'\rtimes','⌊':r'\lfloor','⌋':r'\rfloor','′':r'\prime'}
 SUP=dict(zip('⁰¹²³⁴⁶⁻ʳᶜ','012346-rc'));SUB=dict(zip('₀₁₂₃₄₅₊₋ᵢ','012345+-i'))
 
 def tex(s):

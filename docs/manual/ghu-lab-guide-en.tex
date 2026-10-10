@@ -2277,6 +2277,76 @@ Production can remain unchanged while the extra width reduces visible branching 
 \item \href{https://gitlab.com/higgsbounds/hsdataset}{Official HiggsSignals dataset}
 \item \href{https://github.com/karlesmarin/ghu-lab/blob/main/src/modules/higgstools_adapter.mjs}{Implementation and source attribution}
 \end{itemize}
+\section{First KK gluon at the LHC: couplings, widths, t\ensuremath{\overline{t}} / dijet limits and the m(t\ensuremath{\overline{t}}) spectrum}
+Compute the first KK gluon of flat GHU (\ensuremath{\surd}2 g\_s to every quark) or of a warped extra dimension (zero-mode quarks of bulk mass c), its widths and branching fractions, and compare its leading-order \ensuremath{\sigma} \ensuremath{\times} BR with the ATLAS t\ensuremath{\overline{t}} and CMS dijet limits as r = prediction / limit. Then compute the m(t\ensuremath{\overline{t}}) spectrum with the interference between the KK gluon and the QCD gluon, in the bins of the CMS parton-level measurement, and the expected \ensuremath{\Delta}\ensuremath{\chi}\ensuremath{{}^{2}} against its covariance.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/kkgluon/index.html}{Open web guide}
+
+Use this to see which LHC channel constrains which realisation: the flat coloron couples democratically (BR(t\ensuremath{\overline{t}}) \ensuremath{\approx} 1/6) and is probed by dijets and, through its large light-quark production, by t\ensuremath{\overline{t}}; a warped KK gluon is top-philic (BR(t\ensuremath{\overline{t}}) > 0.8) and broad, so t\ensuremath{\overline{t}} resonance searches are its channel.
+\subsection*{First steps}
+\begin{enumerate}
+\item Choose a preset: the flat GHU coloron, the published RS point of arXiv:0807.4937, or illustrative warped values.
+\item Change one input: the mass, kL or one of the c values.
+\item Read \ensuremath{\Gamma}/M, BR(t\ensuremath{\overline{t}}) and the two r values at the chosen mass, then the two mass scans.
+\item Read the m(t\ensuremath{\overline{t}}) paragraph: the sign of the interference below the pole, the largest change of the spectrum, \ensuremath{\Delta}\ensuremath{\chi}\ensuremath{{}^{2}} and the mass where it falls to 3.84; then the two spectrum figures.
+\item Open the certificates and the PDF systematic before quoting a crossing mass.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Realisation}. Flat GHU (Part VII coloron) or warped zero-mode quarks. Switch at fixed mass and compare BR(t\ensuremath{\overline{t}}).
+
+\textbf{KK-gluon mass [TeV]}. The resonance mass at which the r values are read. Move it across the crossing and watch r pass 1.
+
+\textbf{kL and the c values}. Warp factor and bulk masses (left-handed UV-localised for c > 1/2, right-handed for c < \ensuremath{-}1/2), as in the RS localisation probe. Raise c of t\_R and watch the top coupling and the width grow.
+
+\textbf{\ensuremath{\alpha}\_s(M\_Z)}. 0.130 as the generators use with this PDF set, or this laboratory's 0.118. Compare the two; the production scales with the coupling.
+
+\textbf{SM theory uncertainty per m(t\ensuremath{\overline{t}}) bin}. An uncorrelated fraction of each measured bin added to the CMS covariance, standing for the scale and PDF errors of the SM prediction. Set it to 0 and to 0.2: the \ensuremath{\Delta}\ensuremath{\chi}\ensuremath{{}^{2}} and the mass where it reaches 3.84 move a lot, which is the honest size of this comparison.
+
+\subsection*{Reading the results}
+\textbf{Couplings g\ensuremath{{}_{1}}/g\_s}. Zero-mode couplings to the first KK gluon, certified against a 40-digit reference.
+
+\textbf{\ensuremath{\Gamma}/M, BR(t\ensuremath{\overline{t}}), BR(dijet)}. Leading-order widths to quark pairs; the top threshold depends on chirality.
+
+\textbf{r(t\ensuremath{\overline{t}}) and r(dijet)}. Prediction over the ATLAS observed limit (\ensuremath{\Gamma}/M = 30\% template) and over the CMS spin-1 limit interpolated to this width.
+
+\textbf{Low-tail and pole shares}. Where \ensuremath{\sigma}(t\ensuremath{\overline{t}}) comes from; a large low-tail share means the interference with QCD matters (computed in the spectrum).
+
+\textbf{Interference below the pole}. Its sign is \ensuremath{-}sign(v\_u v\_t), v = (c\_L + c\_R)/2: destructive for same-sign couplings (flat GHU), constructive for the warped reference point.
+
+\textbf{\ensuremath{\Delta}\ensuremath{\chi}\ensuremath{{}^{2}} of the m(t\ensuremath{\overline{t}}) spectrum}. Separation of SM and SM + KK gluon in units of the CMS covariance, if the data equal the SM: a sensitivity, not an exclusion. The shift is applied as R \ensuremath{\times} data because the LO SM shape is not the measured one.
+
+r \ensuremath{\geq} 1 means the LO prediction exceeds the published observed limit of that experiment's benchmark. A crossing is a comparison with that benchmark, not a validated exclusion at another width; the low-tail share tells you when the result is mostly off-shell exchange.
+\subsection*{Worked example: The published RS point at the edge of the ATLAS limit}
+\begin{enumerate}
+\item Load the published RS point preset.
+\item Read r(t\ensuremath{\overline{t}}) at 3.75 TeV.
+\item Move the mass to 3.67 TeV, the point's own first KK gluon.
+\item Open the certificates.
+\end{enumerate}
+r(t\ensuremath{\overline{t}}) is close to 1: the 2008 reference point sits at the edge of the 2025 ATLAS comparison, within the \ensuremath{\pm}15\% of the control.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item Leading order; no K-factor for t\ensuremath{\overline{t}}. The interference enters the m(t\ensuremath{\overline{t}}) spectrum only; the resonance-search comparison uses the Breit--Wigner alone, as the experiments' templates do.
+\item The spectrum's \ensuremath{\Delta}\ensuremath{\chi}\ensuremath{{}^{2}} assumes the K-factor of the KK gluon and of the interference equals the SM's, and depends strongly on the SM theory uncertainty chosen.
+\item A limit set with one width template is not guaranteed conservative for another width.
+\item Above about 6 TeV the q \ensuremath{\overline{q}} luminosity differs between PDF sets by more than 20\%.
+\item Four-top production and fermion KK modes are not computed.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{An r value reads 'not evaluated'.} The mass or width lies outside the published grid (ATLAS 0.5--5 TeV; CMS width interpolation needs 10--30\% and 2.1--6 TeV).
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/2512.17856}{ATLAS t\ensuremath{\overline{t}} resonances, arXiv:2512.17856}
+\item \href{https://doi.org/10.17182/hepdata.168229.v1/t15}{HEPData: ATLAS Fig. 10c (KK gluon limits)}
+\item \href{https://arxiv.org/abs/1911.03947}{CMS dijet resonances, arXiv:1911.03947}
+\item \href{https://doi.org/10.17182/hepdata.91059.v1/t10}{HEPData: CMS spin-1 qq limits by width}
+\item \href{https://arxiv.org/abs/0807.4937}{Casagrande et al., RS reference point, arXiv:0807.4937}
+\item \href{https://arxiv.org/abs/1206.1661}{Atre et al., colour-octet widths, arXiv:1206.1661}
+\item \href{https://arxiv.org/abs/2108.02803}{CMS differential t\ensuremath{\overline{t}} (TOP-20-001), arXiv:2108.02803}
+\item \href{https://doi.org/10.17182/hepdata.102956.v1/t37}{HEPData: CMS parton-level d\ensuremath{\sigma}/dm(t\ensuremath{\overline{t}})}
+\item \href{https://doi.org/10.17182/hepdata.102956.v1/t38}{HEPData: its covariance matrix}
+\end{itemize}
 \section{Glossary}
 \subsection*{the alphabet}
 A boundary condition on an orbifold is a representation of the space group \ensuremath{\Gamma} = \ensuremath{\Lambda} \ensuremath{\rtimes} Z\_m, so the possible conditions are built out of Irr(\ensuremath{\Gamma}) --- the letters. Part IX-A gets them by Möbius inversion over the fixed points of the rotation, with Clifford theory supplying the weights. Everything else on the orbifold page is derived from this list; nothing is entered.

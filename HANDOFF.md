@@ -1,5 +1,48 @@
 # HANDOFF — GHU Lab
 
+## 2026-10-10 — the first KK gluon against ATLAS and CMS data (ninth experiment card)
+
+**Collider → First KK gluon at the LHC.** Flat GHU coloron or warped zero-mode quarks; couplings, Γ/M, BR, LO
+σ × BR(tt̄) versus the ATLAS 2025 observed limit and σ × B × A(dijet) versus CMS spin-1 limits interpolated to the
+width, stated as r; low-tail and pole shares of σ(tt̄); links to RS anomaly flow, warped SU(6) and the top-KK Higgs
+reference. Methods, data and controls: `docs/research-extensions.md` (section of 10 October); study:
+`research/2026-10-10-kkgluon-fourtop/`.
+
+New modules (all DOM-free, one scope-safe prefix each): `rs_fermions.mjs` (rf…), `resonance_xsec.mjs` (xs…,
+including the shared chirality-aware `xsTopThreshold`), `kk_gluon_lhc.mjs` (kkg…), and three generated reference
+modules (`xs_lumi_reference`, `xs_limits_reference`, `rf_benchmark_reference`; regenerate with
+`node tools/make_xs_references.mjs` after changing anything in `data/`). Harnesses `_test_rs_fermions` (323),
+`_test_resonance_xsec` (43), `_test_kk_gluon_lhc` (35); browser checks in `build/extensions.mjs`; guide `kkgluon` in
+both catalogues (`tools/add_guide_kkgluon.py`, writes bytes to keep LF).
+
+**Same day, m(tt̄) spectrum with interference.** `tt_spectrum.mjs` (tts…): LO q q̄ / g g → tt̄, the octet and its
+interference with QCD, averaged over the 15 bins of CMS TOP-20-001 (`tt_cms_reference.mjs`, pinned by
+`tools/pin_hepdata_cms_ttbar.py`; HEPData covariance bins are numbered from 1). Δχ² = Δᵀ(C + diag(δ_th d)²)⁻¹Δ with
+Δ = R × data (a sensitivity, not a limit; δ_th = card field `ttTheory`, default 10%). Independent reference
+`tools/tt_spectrum_reference.py` (Dirac traces, differential Combridge, LHAPDF directly) → `data/tt_spectrum_reference.json`
+→ `tts_reference.mjs`, recomputed live in the card's certificate `tt_spectrum_reference`; harness `_test_tt_spectrum`
+(85, with three formula mutants caught outside it). The interference sign below the pole is −sign(v_q v_t): the earlier
+"constructive below the pole" text held for the warped reference point only and has been corrected everywhere.
+
+**Same day, video revision `2026-10-10-kkgluon`.** Chapter 43 *First KK gluon at the LHC* (five scenes) inserted by
+`tools/video_guide/add_chapter_kkgluon.py`; all 44 chapters recaptured, narrated (Zira/Helena), rendered and verified
+outside the tree (`../video-rec-2026-10-10`; imageio-ffmpeg 0.6.0 from `--vendor ../video-vendor`).
+`tools/video_guide/publish_revision.py` copies a verified recording into `media/video/<revision>/` with its manifest
+and switches `current.json`; it refuses if the storyboard or `app/index.html` changed after verification. The 8 October
+certification page is frozen as `src/site/video-2026-10-08-certification.html`; `build/video_guide.mjs` now takes its
+chapter counts from the storyboard and checks the new chapter link and the frozen page.
+
+External engines used offline (outputs pinned): SageMath image for the 40-digit reference; `tools/pdf.Dockerfile`
+(LHAPDF 6.5.6 from conda-forge) for luminosities and the CTEQ6L1 systematic. HEPData downloads are a documented curl
+step (urllib gets 403).
+
+Findings worth knowing before touching it: the ATLAS benchmark's "Γ/M = 30%" and "BR = 92.5%" are inconsistent at first
+order; CMS's coloron curve above 6 TeV differs from ours by the PDF luminosity ratio, not by an error; the flat-GHU KK
+gluon (Γ/M ≈ 0.16) crosses the CMS width-interpolated dijet limit near 4.6 TeV, while the narrow-limit reading (and the
+6.6 TeV quoted in `experiment.mjs`) does not apply to a 16%-wide state — exactly what the Collider dijet card already
+said in words; it now links to this card, which computes that reading. Open: α<sub>s</sub>(Q) from the PDF set instead of one-loop
+running; QCD interference; differential tt̄ against CMS TOP-20-001; ΔF = 2 flavour; KK-tower coherence; a video chapter.
+
 ## 2026-10-07 — neutrino identifiability and descriptive figures
 
 Current inventory: **29 menu sections, three Simulator modes, eight experiment cards and four

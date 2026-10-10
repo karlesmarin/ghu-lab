@@ -2,7 +2,7 @@
 
 
 Current guide architecture (9 October 2026): `docs/user-guides[.es].json` supplies
-42 guides and 59 glossary terms in each language. `build/user_guides.py` generates inline help
+43 guides and 59 glossary terms in each language. `build/user_guides.py` generates inline help
 and 88 HTML guide/index/glossary pages; `build/guide_manual.py` generates both PDF manuals with
 Babel. The site build links these from Home, Docs and Editions, gives current pages canonical
 URLs, and lists current English/Spanish HTML in the root sitemap. No hash-only app state is
@@ -24,7 +24,7 @@ Follows the decisions in [`DESIGN.md`](DESIGN.md). One repository, GitHub Pages,
 ## Current implementation — 7 October 2026
 
 The site is generated from the source repository and published in `karlesmarin/ghu-explorer`.
-The navigation has **29 menu sections**, containing **three Simulator modes**, **eight embedded
+The navigation has **29 menu sections**, containing **three Simulator modes**, **nine embedded
 experiment cards**, integrated diagnostics and links to **four archived batch studies**.
 The [complete laboratory map](docs/laboratory-inventory.md) explains these overlapping counts;
 [README.md](README.md) lists every section in actual menu order and describes the available tools.

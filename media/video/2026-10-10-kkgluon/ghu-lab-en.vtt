@@ -1,0 +1,2085 @@
+WEBVTT
+
+00:00:02.335 --> 00:00:07.120
+Welcome to G H U Lab. This revised
+walkthrough covers every menu section,
+
+00:00:07.120 --> 00:00:10.720
+the three Simulator modes and the embedded
+research experiments.
+
+00:00:10.720 --> 00:00:15.575
+It now demonstrates the S U seven
+certificates, approximation errors,
+uncertainty
+
+00:00:15.575 --> 00:00:19.600
+budget, thermal solver comparison, named
+collider references and the first
+
+00:00:19.600 --> 00:00:22.730
+Kaluza Klein gluon against L H C data.
+
+00:00:22.730 --> 00:00:25.035
+Choose a chapter to revisit a topic.
+
+00:00:26.335 --> 00:00:28.880
+Start with a named model or reference.
+
+00:00:28.880 --> 00:00:33.300
+Change one assumption at a time, and read
+the result with its units and scope.
+
+00:00:33.300 --> 00:00:38.290
+Theorem, verified, measured and unknown
+describe different kinds of evidence.
+
+00:00:38.290 --> 00:00:42.460
+A computed scenario value is not
+automatically an experimental measurement.
+
+00:00:45.602 --> 00:00:50.177
+Open Hierarchy. For a bulk content of the S
+U seven model, inspect the
+
+00:00:50.177 --> 00:00:54.202
+compactification scale and Higgs mass under
+the displayed conventions.
+
+00:00:54.202 --> 00:00:57.847
+The ceiling belongs to the stated small-
+angle moment approximation.
+
+00:00:59.135 --> 00:01:02.655
+Change the diagnostic gauge coupling to
+zero point seven.
+
+00:01:02.655 --> 00:01:06.080
+The response plots separate a change of
+model convention from propagation
+
+00:01:06.080 --> 00:01:09.390
+of the measured W input and from winding
+convergence.
+
+00:01:09.390 --> 00:01:12.055
+Read the axes and the central values
+together.
+
+00:01:13.402 --> 00:01:16.887
+The calculated phase does not reproduce the
+printed phase.
+
+00:01:16.887 --> 00:01:20.707
+The mismatch varies between rows, and an
+overall multiplication of the potential
+
+00:01:20.707 --> 00:01:23.177
+cannot move its stationary points.
+
+00:01:23.177 --> 00:01:27.037
+Absolute scales remain conditional on
+resolving this discrepancy.
+
+00:01:27.037 --> 00:01:29.837
+The arithmetic identities are separate
+statements.
+
+00:01:31.135 --> 00:01:33.560
+Load the first certified benchmark.
+
+00:01:33.560 --> 00:01:37.405
+The table encloses two different stationary
+points: the quartic logarithmic
+
+00:01:37.405 --> 00:01:40.095
+approximation and the full Fourier minimum.
+
+00:01:40.095 --> 00:01:44.175
+Phase, Higgs mass and compactification
+scale have separate absolute and relative
+
+00:01:44.175 --> 00:01:48.425
+error intervals. They apply to the
+displayed matter content, gauge choice
+
+00:01:48.425 --> 00:01:50.185
+and fixed mass inputs.
+
+00:01:51.535 --> 00:01:53.415
+What limits the precision?
+
+00:01:53.415 --> 00:01:57.455
+Read approximation bias, root-location
+bounds and the Fourier remainder separately
+
+00:01:57.455 --> 00:02:00.325
+from the propagated W-mass uncertainty.
+
+00:02:00.325 --> 00:02:04.085
+The ten percent coupling variation is a
+chosen scenario, without an assigned
+
+00:02:04.085 --> 00:02:08.725
+probability. Physical theory uncertainty is
+explicitly not quantified;
+
+00:02:08.725 --> 00:02:11.150
+there is no combined physical error bar.
+
+00:02:12.468 --> 00:02:14.488
+Save the error certificate.
+
+00:02:14.488 --> 00:02:18.548
+The download keeps the rational enclosures,
+numerical budget, W input and
+
+00:02:18.548 --> 00:02:23.383
+attribution. The full mass enclosure
+already includes root and Fourier errors;
+
+00:02:23.383 --> 00:02:25.553
+do not add its half-width again.
+
+00:02:25.553 --> 00:02:28.693
+A different matter content or mass
+convention needs a matching certificate
+
+00:02:28.693 --> 00:02:29.753
+of its own.
+
+00:02:31.068 --> 00:02:35.303
+The ATLAS and C M S rows are separate
+published Higgs-mass references.
+
+00:02:35.303 --> 00:02:39.428
+Compare the certified curvature mass with
+each stated channel and error band.
+
+00:02:39.428 --> 00:02:42.613
+The listed difference is not an exclusion
+significance.
+
+00:02:42.613 --> 00:02:45.883
+Connecting a one-loop curvature mass to a
+measured pole mass still requires
+
+00:02:45.883 --> 00:02:48.303
+matching and higher-order uncertainties.
+
+00:02:49.602 --> 00:02:53.062
+The dataset links explain the route to a
+fuller comparison.
+
+00:02:53.062 --> 00:02:55.887
+Channels have not been combined into a
+likelihood.
+
+00:02:55.887 --> 00:03:00.132
+C E R N hosts the experiments and is not a
+third independent measurement.
+
+00:03:00.132 --> 00:03:04.487
+Archive the inputs and sources beside the
+result; a certified numerical calculation
+
+00:03:04.487 --> 00:03:07.192
+alone does not establish agreement with
+nature.
+
+00:03:10.335 --> 00:03:15.060
+Open Design a scale. The map run backwards:
+name a compactification scale
+
+00:03:15.060 --> 00:03:18.590
+and a Higgs-mass window, and get a bulk
+content that lands there — or a named
+
+00:03:18.590 --> 00:03:20.580
+certificate that none exists.
+
+00:03:21.868 --> 00:03:25.478
+Enter a target compactification scale of
+two teraelectronvolts and run the
+
+00:03:25.478 --> 00:03:29.773
+design. Inspect the returned content or the
+named certificate.
+
+00:03:29.773 --> 00:03:34.333
+A search budget is a stopping condition,
+not evidence that no solution exists.
+
+00:03:35.668 --> 00:03:39.583
+budget means the search stopped, not that
+the rung is empty; the page keeps
+
+00:03:39.583 --> 00:03:43.793
+the two apart on purpose. The reachable-set
+panel resolves each cluster into
+
+00:03:43.793 --> 00:03:46.213
+the finite set of points it really is.
+
+00:03:49.335 --> 00:03:54.590
+Open Count a rung. How many bulk contents
+sit on a rung — counted, not built.
+
+00:03:55.935 --> 00:03:59.115
+The counting graph is generated when the
+section opens.
+
+00:03:59.115 --> 00:04:02.160
+Click a different horizontal position to
+move the moment probe and compare
+
+00:04:02.160 --> 00:04:07.050
+counts across the rungs. These are counts
+of contents, not a list of experimentally
+
+00:04:07.050 --> 00:04:08.465
+viable models.
+
+00:04:09.802 --> 00:04:13.552
+The four published-seed totals reproduce an
+independent enumeration of 69
+
+00:04:13.552 --> 00:04:18.172
+022 464 contents. The candidate uses even
+
+00:04:18.172 --> 00:04:22.442
+rungs and half-integral A₄; its counts are
+computed separately, without transferring
+
+00:04:22.442 --> 00:04:24.452
+the published measured-mass fibre.
+
+00:04:27.602 --> 00:04:32.207
+Open Atlas. Every bulk content of at most
+five multiplets — 1
+
+00:04:32.207 --> 00:04:35.207
+286 of them — with its potential drawn as
+one tile.
+
+00:04:36.535 --> 00:04:40.365
+Draw the lattice of one thousand two
+hundred and eighty-six contents.
+
+00:04:40.365 --> 00:04:42.695
+Each tile is a different potential.
+
+00:04:42.695 --> 00:04:47.390
+Inspect its colour and shape; a flat or
+blank potential is itself a result.
+
+00:04:47.390 --> 00:04:50.235
+Clicking a tile transfers that content to
+the model.
+
+00:04:51.535 --> 00:04:56.020
+One tile is green in the Higgs window, and
+it is the published row (2).
+
+00:04:56.020 --> 00:04:59.715
+A blank tile is a content whose potential
+is flat, and the harness predicts
+
+00:04:59.715 --> 00:05:02.080
+which tiles blank before they are drawn.
+
+00:05:05.202 --> 00:05:10.007
+Open Same potential?. Whether two bulk
+contents are the same one-loop potential,
+
+00:05:10.007 --> 00:05:12.127
+by Part VII's Theorem 3.
+
+00:05:13.468 --> 00:05:17.248
+Copy the first content and construct its
+canonical representative.
+
+00:05:17.248 --> 00:05:20.388
+Compare the potential curves and the five
+coordinates.
+
+00:05:20.388 --> 00:05:23.618
+Different lists of matter can produce
+exactly the same one-loop potential
+
+00:05:23.618 --> 00:05:25.273
+under the stated theorem.
+
+00:05:26.602 --> 00:05:29.987
+Same five coordinates ⟺ identically the
+same potential.
+
+00:05:29.987 --> 00:05:34.772
+The dashed curve riding exactly on the
+solid one is the theorem, not a
+coincidence.
+
+00:05:36.068 --> 00:05:39.568
+Load the equal-moment example and inspect
+the local range.
+
+00:05:39.568 --> 00:05:43.418
+These two contents have exactly the same D,
+A four and G through their integer
+
+00:05:43.418 --> 00:05:47.188
+coordinates, while their endpoint
+coordinate differs.
+
+00:05:47.188 --> 00:05:50.148
+Matching the small-angle expansion is a
+weaker condition than matching the
+
+00:05:50.148 --> 00:05:51.663
+complete potential.
+
+00:05:53.002 --> 00:05:55.232
+Switch to the full phase interval.
+
+00:05:55.232 --> 00:05:59.182
+The plotted full potentials separate even
+though the local expansions match.
+
+00:05:59.182 --> 00:06:03.147
+These curves illustrate finite Fourier
+sums; the exact coordinate statement
+
+00:06:03.147 --> 00:06:05.822
+and the interval proof are recorded
+separately.
+
+00:06:05.822 --> 00:06:08.797
+Use the full potential when judging a
+global vacuum.
+
+00:06:10.135 --> 00:06:14.245
+For content B, the endpoint at alpha equal
+to one has certified energy below
+
+00:06:14.245 --> 00:06:18.490
+its local minimum. This rules out that
+local minimum as global.
+
+00:06:18.490 --> 00:06:21.625
+It does not prove that the endpoint itself
+is global.
+
+00:06:21.625 --> 00:06:25.225
+Save the comparison to retain the exact
+inputs and the scope of this mathematical
+
+00:06:25.225 --> 00:06:26.290
+example.
+
+00:06:29.402 --> 00:06:33.992
+Open Anomalies & proton. What each
+multiplet contributes to the anomaly bill,
+
+00:06:33.992 --> 00:06:37.167
+in eighths, and what the proton-decay
+escape costs.
+
+00:06:38.468 --> 00:06:42.163
+Read the signed contributions to the
+anomaly bill and the rung ladder.
+
+00:06:42.163 --> 00:06:46.753
+A nonzero bulk bill does not, by itself,
+make the theory inconsistent:
+
+00:06:46.753 --> 00:06:49.768
+possible brane matter must be considered
+separately.
+
+00:06:49.768 --> 00:06:53.378
+The research card later in this section
+studies a different warped model.
+
+00:06:54.668 --> 00:06:58.603
+A non-zero bill is not an inconsistency:
+brane fermions pay into the same
+
+00:06:58.603 --> 00:07:00.723
+channels with the opposite sign.
+
+00:07:00.723 --> 00:07:03.638
+What the ladder forbids is a rung, not a
+model.
+
+00:07:06.735 --> 00:07:09.030
+Open Escape from proton decay.
+
+00:07:09.030 --> 00:07:13.200
+The escape from proton decay, constructed:
+type a brane content and watch
+
+00:07:13.200 --> 00:07:17.050
+the six channels, the assignments and the
+selection rule recompute.
+
+00:07:18.335 --> 00:07:22.225
+Choose the scalar charge associated with
+the eighty-four representation.
+
+00:07:22.225 --> 00:07:26.020
+The rational anomaly channels and charge
+assignments update together.
+
+00:07:26.020 --> 00:07:29.430
+Inspect which assignments meet the
+displayed proton-protection rule; the
+
+00:07:29.430 --> 00:07:32.830
+calculation does not supply a measured
+proton lifetime.
+
+00:07:34.135 --> 00:07:37.635
+Every assignment that protects the proton
+can also cancel all six channels —
+
+00:07:37.635 --> 00:07:40.070
+protection never costs an anomaly.
+
+00:07:40.070 --> 00:07:42.790
+That is an enumeration, not an argument.
+
+00:07:45.935 --> 00:07:48.290
+Open Multiplets & parities.
+
+00:07:48.290 --> 00:07:52.235
+The layer under the term tables: every
+representation broken into multiplets
+
+00:07:52.235 --> 00:07:54.030
+with their three Z₂ parities.
+
+00:07:55.335 --> 00:07:59.275
+Select the eighty-four representation and
+change its parity assignment.
+
+00:07:59.275 --> 00:08:03.505
+The decomposition and parity picture update
+from the representation data.
+
+00:08:03.505 --> 00:08:06.800
+Use the table to connect a surviving zero
+mode with the sign of its potential
+
+00:08:06.800 --> 00:08:08.125
+contribution.
+
+00:08:09.468 --> 00:08:12.558
+The term tables here are DERIVED and then
+checked against the ones the rest
+
+00:08:12.558 --> 00:08:14.483
+of the page computes with.
+
+00:08:14.483 --> 00:08:18.013
+If the two ever disagreed, this panel is
+where it would show.
+
+00:08:21.135 --> 00:08:25.660
+Open Screen a table. Arithmetic screens for
+a published row, with conditional
+
+00:08:25.660 --> 00:08:29.115
+rung certificates and independent full-
+potential witness checks.
+
+00:08:30.402 --> 00:08:34.277
+Enter a candidate resonance at four
+thousand gigaelectronvolts.
+
+00:08:34.277 --> 00:08:37.502
+The comb samples nearby teeth for the
+displayed rungs.
+
+00:08:37.502 --> 00:08:41.442
+Its filters, spacing table and download now
+use the same conditional-bound
+
+00:08:41.442 --> 00:08:43.557
+check for the chosen inputs.
+
+00:08:43.557 --> 00:08:47.102
+A surviving tooth is not proof of an
+attainable physical vacuum.
+
+00:08:48.402 --> 00:08:52.412
+The moment ceilings remain conditional on
+the small-angle approximation.
+
+00:08:52.412 --> 00:08:55.767
+The five printed phase rounding intervals
+contain no stationary point for
+
+00:08:55.767 --> 00:08:57.737
+the implemented potential.
+
+00:08:57.737 --> 00:09:02.157
+All eight fermion coefficient tables now
+agree with an independent reconstruction.
+
+00:09:02.157 --> 00:09:05.487
+The physical gauge determinant and the
+origin of the printed numerical mismatch
+
+00:09:05.487 --> 00:09:06.697
+remain open.
+
+00:09:08.002 --> 00:09:11.057
+Expand Certified S U seven benchmarks.
+
+00:09:11.057 --> 00:09:15.202
+Twenty-six Lean theorems verify finite
+algebraic identities.
+
+00:09:15.202 --> 00:09:18.602
+Separate interval proofs certify ten global
+minima on the stated one-phase
+
+00:09:18.602 --> 00:09:23.017
+domain: five reference contents under each
+of two gauge prescriptions.
+
+00:09:23.017 --> 00:09:26.372
+These statements do not certify an
+arbitrary edited model.
+
+00:09:27.668 --> 00:09:29.873
+Download the certificate bundle.
+
+00:09:29.873 --> 00:09:34.578
+It contains rational enclosures, continuum
+partitions, checksums and reproduction
+
+00:09:34.578 --> 00:09:38.793
+records. The infinite Fourier analysis is
+computer-assisted and has not been
+
+00:09:38.793 --> 00:09:43.193
+formalized in Lean. A global-minimum
+certificate is conditional on its potential
+
+00:09:43.193 --> 00:09:46.918
+and assumptions; it is not a certificate of
+physical viability.
+
+00:09:48.268 --> 00:09:52.633
+The English dossier assigns the model to
+Komori and Maru, the expansion antecedents
+
+00:09:52.633 --> 00:09:57.233
+to Haba, Takenaga and Yamashita and to
+Sakamoto and Takenaga, and the S U
+
+00:09:57.233 --> 00:10:00.448
+seven application in Part Seven to Carles
+Marín.
+
+00:10:00.448 --> 00:10:03.518
+Verification does not establish
+originality.
+
+00:10:03.518 --> 00:10:06.908
+The dossier keeps the remaining physical
+questions explicit.
+
+00:10:10.002 --> 00:10:14.562
+Open Collider. Which state a dijet search
+bounds, plus a separate Higgs-rate
+
+00:10:14.562 --> 00:10:17.702
+scenario checked against pinned
+experimental datasets.
+
+00:10:19.002 --> 00:10:21.952
+Move the dijet mass probe to five point
+two.
+
+00:10:21.952 --> 00:10:25.612
+Read the selected state, mass scale and
+published comparison under its colour
+
+00:10:25.612 --> 00:10:30.177
+hypothesis. The separate Higgs experiment
+below uses another explicitly supplied
+
+00:10:30.177 --> 00:10:31.662
+scalar scenario.
+
+00:10:33.002 --> 00:10:36.567
+The dijet delta chi  squared  values are
+quoted from the published record;
+
+00:10:36.567 --> 00:10:39.467
+the Higgs experiment computes its own
+comparison.
+
+00:10:39.467 --> 00:10:44.287
+Its 159 HiggsSignals observables are not
+159 independent degrees
+
+00:10:44.287 --> 00:10:48.712
+of freedom. Coupling and width assumptions
+can compensate in visible rates,
+
+00:10:48.712 --> 00:10:52.202
+so this scalar comparison is not a complete
+G H U fit.
+
+00:10:53.535 --> 00:10:57.715
+The displayed recast table belongs to the
+earlier archived calculation.
+
+00:10:57.715 --> 00:11:02.110
+Separately, the dossier now records the C M
+S angular dataset at one hundred
+
+00:11:02.110 --> 00:11:07.080
+thirty-eight inverse femtobarns: seven
+distributions and seventy-seven bins.
+
+00:11:07.080 --> 00:11:10.080
+Integrity checks validate the imported
+tables.
+
+00:11:10.080 --> 00:11:13.130
+Importing them has not produced a new G H U
+fit.
+
+00:11:14.468 --> 00:11:18.308
+The released correlation matrix describes
+fitted signal strengths.
+
+00:11:18.308 --> 00:11:21.738
+It cannot automatically be used as the
+covariance of the normalized unfolded
+
+00:11:21.738 --> 00:11:26.923
+distributions. A new reinterpretation
+requires the G H U signal, selections
+
+00:11:26.923 --> 00:11:30.833
+and nuisance parameters, with a justified
+statistical model.
+
+00:11:30.833 --> 00:11:35.283
+The dossier distinguishes reviewed
+resources from analyses actually executed.
+
+00:11:38.402 --> 00:11:42.797
+Open Selection rule. Which alpha -domain a
+search may legally use, and which
+
+00:11:42.797 --> 00:11:46.222
+S U 4 representations can hold a quark
+generation.
+
+00:11:47.535 --> 00:11:52.030
+Select the representation with Dynkin
+labels one, zero, one.
+
+00:11:52.030 --> 00:11:55.255
+The centre-charge and chiral-projection
+results determine which search domain
+
+00:11:55.255 --> 00:11:58.260
+is permitted and which content can host a
+generation.
+
+00:11:58.260 --> 00:12:02.580
+The domain is computed from the
+representation, not chosen for convenience.
+
+00:12:03.868 --> 00:12:07.328
+The centre-charge gate is classical and is
+credited as such.
+
+00:12:07.328 --> 00:12:10.708
+What is ours is the chiral projection that
+gives the closed count.
+
+00:12:13.802 --> 00:12:18.457
+Open Model calculator. A matter content in,
+the Higgs out — the AHMN
+
+00:12:18.457 --> 00:12:20.657
+model recomputed in front of you.
+
+00:12:22.002 --> 00:12:24.742
+Load the named A H M N reference model.
+
+00:12:24.742 --> 00:12:29.592
+Its terms, potential and derived quantities
+are recalculated by the browser.
+
+00:12:29.592 --> 00:12:33.012
+Start with this anchored content before
+changing multiplicities or boundary
+
+00:12:33.012 --> 00:12:37.607
+signs, and retain the stated normalization
+caveat for absolute scales.
+
+00:12:38.935 --> 00:12:42.535
+The mass ratio carries no normalisation and
+no caveat.
+
+00:12:42.535 --> 00:12:44.185
+Absolute scales do.
+
+00:12:47.335 --> 00:12:51.615
+Open eta-meter. What the boundary sign eta
+does to a multiplet's contribution —
+
+00:12:51.615 --> 00:12:54.265
+in closed form, from one integer.
+
+00:12:55.602 --> 00:12:59.287
+Load the supplied example made from a blind
+multiplet, then flip every eta
+
+00:12:59.287 --> 00:13:03.907
+sign. In this example the potential is
+insensitive to that change.
+
+00:13:03.907 --> 00:13:07.447
+The eta-difference view exposes the
+cancellation; it is not evidence that
+
+00:13:07.447 --> 00:13:09.407
+boundary signs never matter.
+
+00:13:10.735 --> 00:13:13.945
+In difference mode every blind multiplet
+goes blank.
+
+00:13:13.945 --> 00:13:17.020
+That is Part V's theorem seen without
+reading a number.
+
+00:13:20.135 --> 00:13:24.905
+Open Five dimensions. Haba–Yamashita's own
+5D S U 3 model,
+
+00:13:24.905 --> 00:13:27.300
+with the vacuum their paper leaves undone.
+
+00:13:28.602 --> 00:13:31.917
+Compare the pure-gauge case with the
+supplied marginal trio.
+
+00:13:31.917 --> 00:13:34.382
+Read the potential and vacuum together.
+
+00:13:34.382 --> 00:13:38.287
+This panel uses the five-dimensional S U
+three reference, so its arithmetic
+
+00:13:38.287 --> 00:13:42.532
+and assumptions must not be borrowed from
+the six-dimensional S U seven benchmark.
+
+00:13:43.868 --> 00:13:47.558
+Pure gauge never breaks the symmetry (D =
+−9).
+
+00:13:47.558 --> 00:13:51.953
+In this whole 5D class 8D is even: the odd
+rung the S U 7 ceiling stands
+
+00:13:51.953 --> 00:13:53.898
+on needs the sixth dimension.
+
+00:13:57.002 --> 00:14:01.582
+Open the S U N builder. Boundary conditions
+and supported bulk representations
+
+00:14:01.582 --> 00:14:05.857
+define the implemented one-loop Wilson-line
+potential in five dimensions.
+
+00:14:05.857 --> 00:14:07.527
+The model is the input.
+
+00:14:08.868 --> 00:14:11.818
+Load section four point three of the source
+paper.
+
+00:14:11.818 --> 00:14:15.053
+This pure-gauge example prefers the
+endpoint at one.
+
+00:14:15.053 --> 00:14:18.733
+Read the surviving group from the joint
+commutant: being at an endpoint does
+
+00:14:18.733 --> 00:14:21.608
+not prove that the generators at zero
+survive.
+
+00:14:21.608 --> 00:14:26.048
+The potential plot and the reported minimum
+now use the same V over C normalization.
+
+00:14:27.335 --> 00:14:31.155
+The four worked examples are checked
+against the implemented formulas.
+
+00:14:31.155 --> 00:14:35.765
+With one Wilson phase, the cosine terms
+admit the same moment construction.
+
+00:14:35.765 --> 00:14:39.520
+Its closed stationary branch is a small-
+angle approximation.
+
+00:14:39.520 --> 00:14:43.150
+The numerical Fourier minimum is a separate
+calculation, and a finite grid
+
+00:14:43.150 --> 00:14:45.530
+is not a certificate of the global minimum.
+
+00:14:48.668 --> 00:14:53.198
+Open Paper models. Four models somebody
+else published, taken off their
+
+00:14:53.198 --> 00:14:55.768
+pages and run through this instrument's
+engine.
+
+00:14:57.068 --> 00:15:01.208
+Change the triplet Dirac-fermion count to
+five in the supported reference.
+
+00:15:01.208 --> 00:15:05.728
+Inspect which outputs are actually computed
+and which remain structural statements.
+
+00:15:05.728 --> 00:15:09.388
+Where offered, the load button transfers
+the supported content into the general
+
+00:15:09.388 --> 00:15:10.333
+builder.
+
+00:15:11.668 --> 00:15:15.053
+Three of the four are supersymmetric and
+this engine's potential is not,
+
+00:15:15.053 --> 00:15:18.813
+so their rows are boundary-condition and
+zero-mode statements only.
+
+00:15:18.813 --> 00:15:22.918
+An amber row disagrees with one printed
+equation, not with a paper, and names
+
+00:15:22.918 --> 00:15:25.733
+which of that paper's own equations agrees
+with which.
+
+00:15:28.868 --> 00:15:33.513
+Open 4D spectrum. What the model on the
+builder CONTAINS: the four-dimensional
+
+00:15:33.513 --> 00:15:35.878
+fields and their Kaluza–Klein towers.
+
+00:15:37.202 --> 00:15:40.742
+Load the S U six example and move the
+Wilson-line probe.
+
+00:15:40.742 --> 00:15:44.132
+Compare the potential families with the
+exact low-lying tower.
+
+00:15:44.132 --> 00:15:47.022
+The lowest levels can require a different
+reading from the families used
+
+00:15:47.022 --> 00:15:48.767
+to construct the potential.
+
+00:15:50.068 --> 00:15:54.168
+The cosine families reconstruct the
+potential, but do not by themselves
+determine
+
+00:15:54.168 --> 00:15:56.708
+every lowest level of the exact tower.
+
+00:15:56.708 --> 00:16:00.868
+The moved probe is a chosen phase, not
+necessarily a vacuum.
+
+00:16:00.868 --> 00:16:04.518
+Read its surviving group separately; a
+boundary coordinate alone does not
+
+00:16:04.518 --> 00:16:06.383
+determine symmetry breaking.
+
+00:16:09.468 --> 00:16:14.043
+Open Anomalies. What that content owes:
+every anomaly channel of the unbroken
+
+00:16:14.043 --> 00:16:16.358
+group, in exact rationals.
+
+00:16:17.668 --> 00:16:22.013
+Load the S U six example. The ledger
+evaluates each anomaly channel of the
+
+00:16:22.013 --> 00:16:25.013
+unbroken group in exact rational
+arithmetic.
+
+00:16:25.013 --> 00:16:29.323
+Distinguish a vanishing bill from a case
+with no massless fermions to test.
+
+00:16:29.323 --> 00:16:32.078
+Brane cancellation is a separate
+calculation.
+
+00:16:33.402 --> 00:16:37.632
+A non-zero row is a BILL, not an
+inconsistency: the brane fermions such a
+
+00:16:37.632 --> 00:16:41.112
+model needs pay into the same channels with
+the opposite sign.
+
+00:16:41.112 --> 00:16:44.162
+And a model with no massless fermion has
+nothing to cancel — that is no
+
+00:16:44.162 --> 00:16:46.382
+subject, not cancels.
+
+00:16:49.468 --> 00:16:54.038
+Open Brane matter. Who pays that bill, and
+what it costs: matter on the
+
+00:16:54.038 --> 00:16:58.238
+two fixed points, held at once to the
+anomaly ledger and to Part I's boundary-
+mass
+
+00:16:58.238 --> 00:16:59.133
+gate.
+
+00:17:00.468 --> 00:17:04.193
+Load the supplied S U five brane example
+and solve its supported linear charge
+
+00:17:04.193 --> 00:17:08.908
+channels. Compare the anomaly ledger with
+the surviving massless fields.
+
+00:17:08.908 --> 00:17:12.568
+Paying an anomaly bill and giving a field a
+mass are different requirements.
+
+00:17:13.868 --> 00:17:18.453
+Two verdicts, kept apart on purpose: the
+bill before and after, and the massless
+
+00:17:18.453 --> 00:17:22.998
+count before and after. The same field can
+pay one and not the other, because
+
+00:17:22.998 --> 00:17:26.288
+the charge that cancels an anomaly is not
+in general the charge a mass term
+
+00:17:26.288 --> 00:17:30.418
+needs. The surviving count is a lower bound
+— the rank test assumes generic
+
+00:17:30.418 --> 00:17:31.593
+couplings.
+
+00:17:34.735 --> 00:17:39.005
+Open Scan. Walk the displayed finite space
+of boundary conditions and matter
+
+00:17:39.005 --> 00:17:41.480
+contents through the selected filters.
+
+00:17:41.480 --> 00:17:45.110
+The breaking filter tests which generators
+at phase zero survive at the numerically
+
+00:17:45.110 --> 00:17:46.475
+located minimum.
+
+00:17:47.802 --> 00:17:50.042
+Run the displayed finite sweep.
+
+00:17:50.042 --> 00:17:54.012
+Read the denominator, each filter in the
+funnel, the survivors and the unresolved
+
+00:17:54.012 --> 00:17:59.027
+cases. The interface counts boundary
+conditions and equivalence classes
+separately,
+
+00:17:59.027 --> 00:18:02.372
+so surviving rows are not automatically
+distinct theories.
+
+00:18:03.668 --> 00:18:07.638
+Surviving boundary conditions are not
+surviving theories: [p,q,r,s] ~ [p−
+
+00:18:07.638 --> 00:18:13.318
+1,q+1,r+1,s−1] is the same theory, so the
+headline is a pair of numbers.
+
+00:18:13.318 --> 00:18:16.238
+An undecided vacuum is counted apart from a
+no.
+
+00:18:19.335 --> 00:18:21.900
+Open One model, every verdict.
+
+00:18:21.900 --> 00:18:25.055
+Which of the instrument's answers about
+this model are about the THEORY,
+
+00:18:25.055 --> 00:18:27.730
+and which only about the frame you are
+standing in.
+
+00:18:29.068 --> 00:18:32.518
+Start the built-in example, then choose its
+displayed equivalent boundary
+
+00:18:32.518 --> 00:18:36.863
+condition. Compare the tags identifying
+properties of the theory and properties
+
+00:18:36.863 --> 00:18:40.953
+of the chosen frame. A changed coordinate
+description can move a displayed
+
+00:18:40.953 --> 00:18:43.493
+quantity without changing the physical
+theory.
+
+00:18:44.802 --> 00:18:48.132
+The tags compare quantities in the
+evaluated frames.
+
+00:18:48.132 --> 00:18:51.762
+Read boundary coordinates and the surviving
+symmetry separately.
+
+00:18:51.762 --> 00:18:54.892
+Reported energies share the potential
+normalization.
+
+00:18:54.892 --> 00:18:58.912
+Numerical agreement between the located
+minima is evidence for these evaluations,
+
+00:18:58.912 --> 00:19:01.492
+not an exhaustive global-minimum
+certificate.
+
+00:19:04.602 --> 00:19:09.297
+Open Simulator. Choose builder predictions,
+a top-Kaluza Klein Higgs-rate
+
+00:19:09.297 --> 00:19:13.302
+reference or the neutrino ring; compare
+calculated responses with their explicitly
+
+00:19:13.302 --> 00:19:15.532
+scoped experimental references.
+
+00:19:16.868 --> 00:19:20.518
+Load the published builder example and set
+the gauge coupling to one.
+
+00:19:20.518 --> 00:19:24.463
+Higgs masses now use analytic Fourier
+second derivatives, with an explicit
+
+00:19:24.463 --> 00:19:29.133
+truncation error bound. The export retains
+the actual coupling and phase,
+
+00:19:29.133 --> 00:19:32.718
+and distinguishes a chosen probe from a
+numerically located minimum.
+
+00:19:34.068 --> 00:19:37.343
+The thermal history belongs to a separate S
+U three benchmark and the stated
+
+00:19:37.343 --> 00:19:41.323
+supported regime. It is not a detector
+forecast or the thermal history of
+
+00:19:41.323 --> 00:19:45.763
+this builder. At commuting endpoints, the
+present mass dictionary does not
+
+00:19:45.763 --> 00:19:49.153
+identify a shifted W candidate to set the
+scale.
+
+00:19:49.153 --> 00:19:53.218
+That limitation does not imply that the
+phase-zero gauge group survives.
+
+00:19:56.335 --> 00:20:00.675
+Open Boundary conditions. Which boundary
+conditions are the same theory,
+
+00:20:00.675 --> 00:20:03.395
+walked as orbits rather than quoted as a
+theorem.
+
+00:20:04.735 --> 00:20:08.680
+Switch from the interval orbifold to the
+two-dimensional Z three example.
+
+00:20:08.680 --> 00:20:13.020
+The orbit structure and class count change
+with the specified boundary problem.
+
+00:20:13.020 --> 00:20:17.555
+Equivalence classes identify descriptions
+connected by the allowed transformations.
+
+00:20:18.868 --> 00:20:23.548
+The counts come out (N+1) squared  at every
+N on S¹/
+
+00:20:23.548 --> 00:20:27.743
+Z₂, which is Haba–Hosotani–Kawamura's
+theorem as a measurement.
+
+00:20:27.743 --> 00:20:30.788
+Press T squared /Z₃ and the answer changes.
+
+00:20:33.935 --> 00:20:36.195
+Open Classify an orbifold.
+
+00:20:36.195 --> 00:20:39.910
+The alphabet of an orbifold, derived from
+its rotation matrix and nothing
+
+00:20:39.910 --> 00:20:40.865
+else.
+
+00:20:42.202 --> 00:20:45.872
+Select the two-dimensional Z four rotation
+and classify it.
+
+00:20:45.872 --> 00:20:49.187
+The group-theoretic alphabet is derived
+from the matrix.
+
+00:20:49.187 --> 00:20:53.242
+You can enter another supported matrix, but
+an invalid finite-order hypothesis
+
+00:20:53.242 --> 00:20:56.127
+must be refused rather than silently
+classified.
+
+00:20:57.468 --> 00:20:59.768
+Nothing is entered but the matrix.
+
+00:20:59.768 --> 00:21:03.663
+A matrix of infinite order, or one whose
+characteristic polynomial is not
+
+00:21:03.663 --> 00:21:08.538
+a power of the m-th cyclotomic, comes back
+REFUSED rather than classified.
+
+00:21:11.668 --> 00:21:15.743
+Open Name the relations. Which equivalence
+relation on boundary conditions
+
+00:21:15.743 --> 00:21:20.263
+the literature already owns, and whether a
+proposed move set connects a class.
+
+00:21:21.602 --> 00:21:25.872
+Switch to the Z four boundary problem and
+judge the displayed proposed move.
+
+00:21:25.872 --> 00:21:29.567
+Read the local and global qualifications
+and the source attribution.
+
+00:21:29.567 --> 00:21:33.327
+A useful move in one boundary problem is
+not automatically a complete equivalence
+
+00:21:33.327 --> 00:21:34.772
+relation in another.
+
+00:21:36.068 --> 00:21:39.808
+The local/global distinction is the one
+that gets misquoted, and the page
+
+00:21:39.808 --> 00:21:41.453
+carries it explicitly.
+
+00:21:44.602 --> 00:21:47.132
+Open Conjugate boundary conditions.
+
+00:21:47.132 --> 00:21:51.522
+How many inequivalent CONJUGATE boundary
+conditions there are on S¹/Z₂ —
+
+00:21:51.522 --> 00:21:55.702
+and, because that count rests on a
+hypothesis nobody has settled, what each
+
+00:21:55.702 --> 00:21:57.417
+of the two answers would be.
+
+00:21:58.735 --> 00:22:02.900
+Increase the group rank and compare the two
+hypotheses printed in the table.
+
+00:22:02.900 --> 00:22:05.845
+Conjugate twists transform by congruence.
+
+00:22:05.845 --> 00:22:09.240
+Independent boundary transformations and
+one linked transformation lead to
+
+00:22:09.240 --> 00:22:13.885
+different classification questions, so the
+hypothesis travels with the count.
+
+00:22:15.202 --> 00:22:18.782
+What the panel puts on screen is the
+disagreement, not a number, and that
+
+00:22:18.782 --> 00:22:23.157
+is the point: the twists move by congruence
+rather than similarity, and independence
+
+00:22:23.157 --> 00:22:27.187
+decides between four classes flat in N and
+no finite count at all.
+
+00:22:27.187 --> 00:22:30.162
+What the label leaves unbroken is not a
+property of the label — the same
+
+00:22:30.162 --> 00:22:33.127
+verdict the ordinary panel reaches by
+another route.
+
+00:22:33.127 --> 00:22:37.012
+The exported card carries the hypothesis
+beside the count, so a number never
+
+00:22:37.012 --> 00:22:39.472
+travels without the condition it rests on.
+
+00:22:42.602 --> 00:22:46.737
+Open Brane kinetic terms. What happens to
+the tower when brane-localised
+
+00:22:46.737 --> 00:22:50.022
+kinetic terms make the masses stop being
+n/R.
+
+00:22:51.335 --> 00:22:54.310
+Increase the brane kinetic coefficient to
+twelve.
+
+00:22:54.310 --> 00:22:58.600
+The spectrum responds because the roots are
+no longer a simple integer tower.
+
+00:22:58.600 --> 00:23:02.740
+Compare the root conditions and
+normalization, then use the separate
+warped-unification
+
+00:23:02.740 --> 00:23:04.960
+card for coupling-running questions.
+
+00:23:06.268 --> 00:23:09.493
+The special functions are checked against
+mpmath at forty digits, and the
+
+00:23:09.493 --> 00:23:13.088
+c  to  0 limit is computed in closed form
+by code that shares nothing with
+
+00:23:13.088 --> 00:23:16.658
+the solver. That limit found three real
+defects.
+
+00:23:19.802 --> 00:23:24.367
+Open Gravity–gauge · 3D. Which physical
+information a complete tower of masses
+
+00:23:24.367 --> 00:23:27.497
+leaves undetermined in a controlled
+gravity-gauge example.
+
+00:23:28.802 --> 00:23:32.767
+Select eta equal to minus zero point nine,
+then display the gauge kinetic
+
+00:23:32.767 --> 00:23:37.722
+function. The paired masses and the source
+response carry different information.
+
+00:23:37.722 --> 00:23:42.452
+The Wilson quantity here is a kinetic
+normalization, not a Higgs-mass prediction.
+
+00:23:43.802 --> 00:23:47.187
+The positive paired tensor NN and vector DD
+masses are protected by their
+
+00:23:47.187 --> 00:23:49.277
+common canonical operator.
+
+00:23:49.277 --> 00:23:52.687
+The gauge NN control has different
+boundaries and moves.
+
+00:23:52.687 --> 00:23:56.762
+The source position is in the extra
+dimension, not a laboratory location;
+
+00:23:56.762 --> 00:23:59.732
+the Wilson kinetic scale is not a Higgs
+mass.
+
+00:23:59.732 --> 00:24:04.302
+For p=1.1 a canonical bulk scalar realizes
+the family, with stability
+
+00:24:04.302 --> 00:24:05.962
+and cutoff still open.
+
+00:24:09.068 --> 00:24:13.273
+Open The literature. The reading list
+behind the series: what each paper
+
+00:24:13.273 --> 00:24:16.663
+publishes, and which ones a person has
+actually read.
+
+00:24:18.002 --> 00:24:21.132
+Filter the reading list to the complete-
+triple selection.
+
+00:24:21.132 --> 00:24:25.042
+Inspect the recorded sources and what each
+paper actually supplies.
+
+00:24:25.042 --> 00:24:29.022
+Keyword signals help navigate this corpus;
+they are not proofs, and this
+
+00:24:29.022 --> 00:24:31.817
+reading list is not an exhaustive map of
+the field.
+
+00:24:33.135 --> 00:24:38.005
+A signal is a keyword, and a keyword sweep
+misses whatever is phrased differently.
+
+00:24:38.005 --> 00:24:41.475
+Nothing is asserted from a signal alone,
+and the corpus is our reading list
+
+00:24:41.475 --> 00:24:42.865
+rather than the field.
+
+00:24:46.002 --> 00:24:50.427
+The second Simulator mode is the top Kaluza
+Klein Higgs-production reference.
+
+00:24:50.427 --> 00:24:54.332
+Its leading rate, finite tower and resummed
+comparison answer one specified
+
+00:24:54.332 --> 00:24:55.697
+model question.
+
+00:24:57.002 --> 00:25:01.157
+Move the Kaluza Klein scale to fifteen
+hundred gigaelectronvolts.
+
+00:25:01.157 --> 00:25:04.372
+Inspect the rate curve and the separate
+convergence display.
+
+00:25:04.372 --> 00:25:08.452
+The chosen comparison window is
+conditional, and a custom window is a user-
+supplied
+
+00:25:08.452 --> 00:25:09.562
+scenario.
+
+00:25:12.668 --> 00:25:15.293
+Select the four-dimensional neutrino ring.
+
+00:25:15.293 --> 00:25:18.618
+Calibration can hold the light mass and
+active-current deficit fixed while
+
+00:25:18.618 --> 00:25:21.193
+the required couplings are reconstructed.
+
+00:25:21.193 --> 00:25:23.768
+Six heavy pairs belong to this base model.
+
+00:25:25.068 --> 00:25:29.333
+Compare mu B equal to zero with five
+thousand kilo electron volts.
+
+00:25:29.333 --> 00:25:33.328
+The leading light mass and the heavy pair
+splittings carry different information.
+
+00:25:33.328 --> 00:25:36.663
+Read the approximation indicators alongside
+the spectrum.
+
+00:25:39.802 --> 00:25:43.212
+The C M S comparison uses published
+observed and expected curves with their
+
+00:25:43.212 --> 00:25:47.972
+bands. The overlay keeps the selected
+flavour and Dirac or Majorana hypothesis
+
+00:25:47.972 --> 00:25:48.972
+visible.
+
+00:25:50.268 --> 00:25:53.308
+Choose muon flavour and the Majorana
+reference.
+
+00:25:53.308 --> 00:25:57.713
+Inspect the per-component convention, mass
+domain and reference ratios.
+
+00:25:57.713 --> 00:26:01.408
+The ring overlay is not a likelihood that
+includes its complete flavour structure,
+
+00:26:01.408 --> 00:26:04.388
+decay acceptance and multi-state
+interference.
+
+00:26:07.535 --> 00:26:10.590
+The decay card starts from the weak-channel
+scenario.
+
+00:26:10.590 --> 00:26:14.110
+Select a heavy pair and inspect where its
+width goes, its lifetime and the
+
+00:26:14.110 --> 00:26:16.015
+fixed-boost flight estimate.
+
+00:26:17.335 --> 00:26:20.110
+Include the calculated Majoron channels.
+
+00:26:20.110 --> 00:26:23.090
+The width and the derived lifetime respond
+together.
+
+00:26:23.090 --> 00:26:26.135
+An extra width is a separate user
+hypothesis.
+
+00:26:26.135 --> 00:26:30.035
+Read the isolated-pair and overlap
+diagnostics before interpreting the same-
+sign
+
+00:26:30.035 --> 00:26:31.910
+over opposite-sign ratio.
+
+00:26:33.202 --> 00:26:36.482
+Change the fixed boost to ten and inspect
+the flight curve.
+
+00:26:36.482 --> 00:26:39.962
+This illustrates the supplied kinematic
+scenario; it does not integrate a
+
+00:26:39.962 --> 00:26:42.707
+detector acceptance or a production
+spectrum.
+
+00:26:45.802 --> 00:26:50.432
+Three sterile copies reconstruct the chosen
+light masses and mixing orientation.
+
+00:26:50.432 --> 00:26:54.352
+The mass ordering, phases and active
+deficits are inputs.
+
+00:26:54.352 --> 00:26:57.597
+The card also displays eighteen heavy-pair
+flavour weights.
+
+00:26:58.935 --> 00:27:01.745
+Change the Dirac phase to ninety degrees.
+
+00:27:01.745 --> 00:27:05.455
+Compare neutrino and antineutrino
+appearance in the unitary vacuum limit,
+
+00:27:05.455 --> 00:27:07.795
+then inspect the flavour fractions.
+
+00:27:07.795 --> 00:27:11.480
+Majorana phases cancel from these
+oscillation curves but can affect the
+displayed
+
+00:27:11.480 --> 00:27:13.570
+light-sector double-beta quantity.
+
+00:27:16.668 --> 00:27:20.233
+This experiment holds the chosen light
+masses and mixing orientation fixed
+
+00:27:20.233 --> 00:27:22.803
+while reconstructing a parameter path.
+
+00:27:22.803 --> 00:27:25.293
+The green strip tells you what is fixed.
+
+00:27:25.293 --> 00:27:29.793
+The five figures separate heavy masses,
+splitting, current factors, small
+
+00:27:29.793 --> 00:27:31.788
+differences and reference data.
+
+00:27:33.135 --> 00:27:36.300
+Move the selected position from one tenth
+to eight tenths along the mu B
+
+00:27:36.300 --> 00:27:40.585
+path. The mass stays fixed while the pair
+splitting changes.
+
+00:27:40.585 --> 00:27:43.325
+The open circle tracks the selected point.
+
+00:27:43.325 --> 00:27:47.390
+Equal light inputs therefore do not
+determine every heavy-sector response.
+
+00:27:48.735 --> 00:27:52.165
+Now choose the common active deficit and
+its upper endpoint.
+
+00:27:52.165 --> 00:27:56.335
+The raw vacuum current factor is
+suppressed, but the specified near
+normalization
+
+00:27:56.335 --> 00:27:58.395
+cancels the common factor.
+
+00:27:58.395 --> 00:28:01.625
+The difference figure labels numerical
+coincidence rather than amplifying
+
+00:28:01.625 --> 00:28:02.720
+roundoff.
+
+00:28:04.068 --> 00:28:06.298
+Choose deficit direction three.
+
+00:28:06.298 --> 00:28:09.213
+Unequal deficits can leave a shape
+response.
+
+00:28:09.213 --> 00:28:12.373
+The fourth graph magnifies an absolute
+difference that is difficult to see
+
+00:28:12.373 --> 00:28:14.363
+in the overlapping curves.
+
+00:28:14.363 --> 00:28:18.863
+Its scale is explicit, and the exported
+samples retain their original precision.
+
+00:28:20.202 --> 00:28:23.607
+The DeepCore map uses the archived twenty-
+eighteen standard-three-neutrino
+
+00:28:23.607 --> 00:28:28.032
+tables. The cross stays fixed along the
+ring path because these light inputs
+
+00:28:28.032 --> 00:28:32.147
+stay fixed. The map is not a nonunitary
+ring likelihood and is not added
+
+00:28:32.147 --> 00:28:33.532
+to NuFIT.
+
+00:28:34.868 --> 00:28:38.363
+To move the cross, change sine squared
+theta twenty-three in the flavour
+
+00:28:38.363 --> 00:28:41.923
+card. Here it is set to zero point six.
+
+00:28:41.923 --> 00:28:44.578
+The reference updates for the new light
+input.
+
+00:28:44.578 --> 00:28:48.953
+Outside its published grid the laboratory
+withholds a value instead of extrapolating.
+
+00:28:52.068 --> 00:28:56.603
+This paper-model experiment reconstructs
+the stated flat S U six potential.
+
+00:28:56.603 --> 00:29:00.228
+Matter content and the winding cutoff are
+explicit controls.
+
+00:29:00.228 --> 00:29:03.468
+A small Wilson minimum must be read with
+its convergence check.
+
+00:29:04.802 --> 00:29:08.897
+Set the winding cutoff to ten and inspect
+the shifted minimum and comparison.
+
+00:29:08.897 --> 00:29:12.157
+A finite truncation can change the apparent
+result.
+
+00:29:12.157 --> 00:29:15.517
+The supported potential can be transferred
+to the builder; this does not
+
+00:29:15.517 --> 00:29:17.762
+certify a complete flavour model.
+
+00:29:20.868 --> 00:29:23.913
+The warped-unification card compares
+differential gauge running under the
+
+00:29:23.913 --> 00:29:25.933
+selected matter assignment.
+
+00:29:25.933 --> 00:29:29.373
+Required ultraviolet boundary terms and
+their residuals are outputs of that
+
+00:29:29.373 --> 00:29:31.073
+stated approximation.
+
+00:29:32.402 --> 00:29:34.937
+Switch the matter assignment to C two.
+
+00:29:34.937 --> 00:29:38.487
+The running differences and required
+boundary terms respond.
+
+00:29:38.487 --> 00:29:41.837
+The naive-dimensional-analysis reference is
+a scale estimate.
+
+00:29:41.837 --> 00:29:46.152
+The separate localization probe is not a
+complete fermion-spectrum calculation.
+
+00:29:49.268 --> 00:29:52.213
+The thermal card is its own S U three
+benchmark.
+
+00:29:52.213 --> 00:29:56.023
+It uses named paper cases and compares
+potential cutoffs.
+
+00:29:56.023 --> 00:29:59.408
+A stored matching PhaseTracer result is
+available offline for the recorded
+
+00:29:59.408 --> 00:30:00.508
+inputs.
+
+00:30:01.802 --> 00:30:05.332
+Load paper case two and compare the
+potential and phase flow.
+
+00:30:05.332 --> 00:30:08.997
+Coexistence and a nucleation proxy are
+different questions.
+
+00:30:08.997 --> 00:30:12.632
+A new point needs a matching bounce
+calculation; changing the builder model
+
+00:30:12.632 --> 00:30:15.642
+does not turn this benchmark into its
+thermal history.
+
+00:30:16.935 --> 00:30:20.625
+The new comparison runs PhaseTracer and
+CosmoTransitions on the same S U
+
+00:30:20.625 --> 00:30:23.020
+three potential and canonical field.
+
+00:30:23.020 --> 00:30:26.055
+Nine matched temperatures compare the
+bounce action.
+
+00:30:26.055 --> 00:30:29.730
+The programs share shooting-method
+ancestry, so agreement is a numerical
+
+00:30:29.730 --> 00:30:34.270
+cross-check, not an independent interval
+proof or an experimental validation.
+
+00:30:35.602 --> 00:30:39.372
+The table changes the spatial and thermal
+Fourier cutoffs together.
+
+00:30:39.372 --> 00:30:43.312
+T one-forty solves S three over T equal to
+one hundred forty.
+
+00:30:43.312 --> 00:30:48.232
+It is a proxy, separate from the integrated
+nucleation and percolation results.
+
+00:30:48.232 --> 00:30:51.852
+The older displayed proxy used a looser
+shooting tolerance; compare like
+
+00:30:51.852 --> 00:30:54.242
+settings before interpreting a difference.
+
+00:30:55.535 --> 00:30:57.900
+Open the numerical diagnostics.
+
+00:30:57.900 --> 00:31:01.565
+Tolerance shifts, profile sampling and the
+virial residual test different
+
+00:31:01.565 --> 00:31:03.700
+aspects of the calculation.
+
+00:31:03.700 --> 00:31:07.730
+The targets are numerical criteria, not
+confidence levels.
+
+00:31:07.730 --> 00:31:12.600
+Higher loops, thermal resummation and
+plasma dynamics remain unquantified.
+
+00:31:12.600 --> 00:31:16.850
+These S U three examples are separate from
+the S U seven mass certificates.
+
+00:31:18.135 --> 00:31:20.770
+Change the coupling away from the
+reference.
+
+00:31:20.770 --> 00:31:24.270
+The archived solver comparison disappears
+because all thermal inputs must
+
+00:31:24.270 --> 00:31:28.620
+match. A stale certificate must not follow
+an edited point.
+
+00:31:28.620 --> 00:31:32.185
+Load a named paper case again to recover
+its evidence; a new point needs
+
+00:31:32.185 --> 00:31:33.720
+a new calculation.
+
+00:31:35.068 --> 00:31:38.383
+Reload case two and save the experiment
+JSON.
+
+00:31:38.383 --> 00:31:42.913
+It retains both solver versions,
+tolerances, cutoffs and sources.
+
+00:31:42.913 --> 00:31:46.818
+The thermal potential is credited to Hirose
+and Shibuya, CosmoTransitions
+
+00:31:46.818 --> 00:31:51.008
+to Carroll Wainwright, and PhaseTracer to
+Athron and collaborators.
+
+00:31:51.008 --> 00:31:53.713
+Keep this provenance with every exported
+result.
+
+00:31:56.802 --> 00:32:00.422
+Integrated transition history uses refined
+action tables.
+
+00:32:00.422 --> 00:32:04.052
+Read nucleation, percolation and completion
+separately.
+
+00:32:04.052 --> 00:32:07.587
+The false-vacuum fraction and physical-
+volume condition make those distinctions
+
+00:32:07.587 --> 00:32:08.582
+visible.
+
+00:32:09.868 --> 00:32:13.133
+Set the assumed wall speed to zero point
+eight and the fluid efficiency to
+
+00:32:13.133 --> 00:32:17.923
+zero point one. Compare the history and
+conditional acoustic spectrum.
+
+00:32:17.923 --> 00:32:21.728
+Wall friction, plasma evolution and
+detector significance are not calculated
+
+00:32:21.728 --> 00:32:23.258
+by these controls.
+
+00:32:26.402 --> 00:32:30.337
+This warped-model experiment separates
+ultraviolet and infrared anomaly factors,
+
+00:32:30.337 --> 00:32:33.597
+gauge cancellation and the baryon-current
+matrix.
+
+00:32:33.597 --> 00:32:37.637
+Its sources and approximation are distinct
+from the base S U seven ledger.
+
+00:32:38.935 --> 00:32:42.425
+Remove the lepton generations in this test
+configuration.
+
+00:32:42.425 --> 00:32:45.885
+The imbalance exposes a gauge anomaly that
+needs completion.
+
+00:32:45.885 --> 00:32:49.860
+A nonzero baryon-current anomaly is a
+separate statement; it is not a computed
+
+00:32:49.860 --> 00:32:52.630
+proton lifetime or baryogenesis yield.
+
+00:32:55.735 --> 00:32:59.125
+Begin with the stored Standard Model-like
+scalar reference.
+
+00:32:59.125 --> 00:33:02.725
+Local couplings determine production rates,
+partial widths and branching
+
+00:33:02.725 --> 00:33:06.945
+fractions. Matching HiggsBounds and
+HiggsSignals calculations use pinned
+
+00:33:06.945 --> 00:33:08.820
+experimental datasets.
+
+00:33:10.135 --> 00:33:13.175
+Add one mega electron volt of invisible
+width.
+
+00:33:13.175 --> 00:33:16.835
+The local predictions update, and the old
+experimental result is withdrawn
+
+00:33:16.835 --> 00:33:19.390
+because its inputs no longer match.
+
+00:33:19.390 --> 00:33:22.595
+Run the optional engine or import a
+matching result before assigning a new
+
+00:33:22.595 --> 00:33:24.235
+experimental verdict.
+
+00:33:27.335 --> 00:33:30.680
+Open the first Kaluza Klein gluon card in
+Collider and load the published
+
+00:33:30.680 --> 00:33:33.880
+R S point of Casagrande and collaborators.
+
+00:33:33.880 --> 00:33:37.300
+The card computes the couplings of a warped
+Kaluza Klein gluon to zero-mode
+
+00:33:37.300 --> 00:33:41.270
+quarks, its width and branching fractions,
+and compares its leading-order
+
+00:33:41.270 --> 00:33:45.490
+rates with the ATLAS top-pair limit and the
+C M S dijet limit as r, prediction
+
+00:33:45.490 --> 00:33:46.635
+over limit.
+
+00:33:47.935 --> 00:33:52.015
+At three point seven five tera electron
+volts, r for the top pair is close
+
+00:33:52.015 --> 00:33:55.585
+to one: the two thousand eight reference
+point sits at the edge of the ATLAS
+
+00:33:55.585 --> 00:34:00.205
+comparison. That is a comparison with
+ATLAS's thirty percent width benchmark,
+
+00:34:00.205 --> 00:34:02.705
+not a validated exclusion at this width.
+
+00:34:04.002 --> 00:34:07.777
+Below the plots, the top-pair mass spectrum
+is computed with the interference
+
+00:34:07.777 --> 00:34:11.822
+between the Kaluza Klein gluon and the Q C
+D gluon, in the fifteen bins of
+
+00:34:11.822 --> 00:34:14.347
+the C M S parton-level measurement.
+
+00:34:14.347 --> 00:34:18.012
+For this point the light-quark and top
+couplings have opposite signs, so
+
+00:34:18.012 --> 00:34:20.627
+the interference is constructive below the
+pole.
+
+00:34:21.935 --> 00:34:26.740
+Now load the flat G H U coloron at four
+point five tera electron volts.
+
+00:34:26.740 --> 00:34:30.920
+Every quark couples equally, the couplings
+share one sign, and the interference
+
+00:34:30.920 --> 00:34:34.380
+turns destructive: the low bins go down
+instead of up.
+
+00:34:35.668 --> 00:34:39.678
+The last plot is the expected delta chi
+squared against the measured covariance,
+
+00:34:39.678 --> 00:34:42.823
+with ten percent S M theory uncertainty per
+bin.
+
+00:34:42.823 --> 00:34:46.003
+Set that uncertainty to zero and the reach
+moves from about three point eight
+
+00:34:46.003 --> 00:34:48.663
+to about five tera electron volts.
+
+00:34:48.663 --> 00:34:52.698
+It is a sensitivity if the data equal the S
+M, not an exclusion, and the
+
+00:34:52.698 --> 00:34:57.228
+open certificates show the independent
+Dirac-trace and L H A P D F check.
+
+00:35:00.335 --> 00:35:03.595
+Use a comparison snapshot before changing a
+point.
+
+00:35:03.595 --> 00:35:08.985
+Save the experiment JSON to retain the
+inputs, calculated arrays, assumptions,
+
+00:35:08.985 --> 00:35:11.570
+provenance and optional saved reference.
+
+00:35:11.570 --> 00:35:15.020
+The global result card and LaTeX exports
+provide another view of the selected
+
+00:35:15.020 --> 00:35:16.330
+calculation.
+
+00:35:17.668 --> 00:35:20.463
+Choose a figure and save its vector SVG.
+
+00:35:20.463 --> 00:35:24.643
+The new neutrino figures carry sampled data
+and provenance in their metadata.
+
+00:35:24.643 --> 00:35:28.333
+The link button preserves controls in the
+address; archive external results
+
+00:35:28.333 --> 00:35:30.913
+and comparisons in JSON as well.
+
+00:35:32.202 --> 00:35:35.897
+The browser calculations and stored
+references run offline.
+
+00:35:35.897 --> 00:35:39.922
+New HiggsTools and PhaseTracer points use
+the optional local engine.
+
+00:35:39.922 --> 00:35:43.927
+The source repository contains the
+reproduction commands, independent checks
+
+00:35:43.927 --> 00:35:48.507
+and archived studies. Return to a chapter,
+vary one assumption, and
+
+00:35:48.507 --> 00:35:50.762
+keep the scope beside every result.

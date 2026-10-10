@@ -58,7 +58,10 @@ const COLLIDER_SECTION = {
         <div class="note" style="margin-top:9px">Γ/M ≈ 0.16 is <b>not narrow</b>: the narrow
         axigluon/coloron benchmark (CMS, 6.6 TeV at 137 fb⁻¹) is a limit on a different
         particle. What applies is the model-independent σ·B·A limit read at this width — and the
-        angular distribution, which needs no branching ratio at all.
+        angular distribution, which needs no branching ratio at all. That reading is computed in
+        <a href="#rx_kkgluon" onclick="document.getElementById('rx_kkgluon')?.scrollIntoView({behavior:'smooth',block:'start'});return false;">First
+        KK gluon at the LHC</a> below (flat preset): r against the CMS spin-1 limit interpolated to Γ/M, and the
+        ATLAS tt̄ comparison.
         <span class="chip ver">verified</span> collider_dictionary.py, archived.</div>
       </div>
 

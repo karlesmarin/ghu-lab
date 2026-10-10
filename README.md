@@ -14,8 +14,8 @@ Outputs retain their inputs, provenance and status: `theorem`, `verified`, `meas
 · [Getting started](https://karlesmarin.github.io/ghu-explorer/guide/getting-started/index.html)
 · [Spanish manual (PDF)](https://karlesmarin.github.io/ghu-explorer/guide/manual/ghu-lab-guide-es.pdf).
 
-The searchable guide index organizes tasks and model families. **42 guides** cover the 29 menu
-sections, three Simulator modes, eight embedded experiments, neutrino decays and getting started;
+The searchable guide index organizes tasks and model families. **43 guides** cover the 29 menu
+sections, three Simulator modes, nine embedded experiments, neutrino decays and getting started;
 these overlap and are not a count of independent panels. Each guide explains controls, outputs,
 an example, assumptions, troubleshooting and source attribution. The 59-term glossary and inline
 help share the English/Spanish catalogues, so scope corrections reach both places.
@@ -84,8 +84,9 @@ read; no event is ever simulated.
 
 **[English video guide](https://karlesmarin.github.io/ghu-explorer/video/index.html?lang=en) · [Guía en español](https://karlesmarin.github.io/ghu-explorer/video/index.html?lang=es)**
 
-Two narrated Full HD versions demonstrate the real interface in **43 chapters**: all **29 menu
-sections**, the **3 Simulator modes**, the **8 research cards**, integrated diagnostics and exports.
+Two narrated Full HD versions demonstrate the real interface in **44 chapters**: all **29 menu
+sections**, the **3 Simulator modes**, the **9 research cards** (the 10 October revision adds the first KK gluon at the
+LHC, with its m(tt̄) spectrum against CMS), integrated diagnostics and exports.
 Each chapter connects a question, a control change and the result, with the assumptions needed
 to interpret it. Use the searchable chapter list, subtitles, transcript and MP4 download. Changing
 language preserves your position within the chapter. Narration is synthetic; the interface keeps
@@ -111,7 +112,7 @@ models. Representative controls are demonstrated, rather than every possible inp
 |---|---|---|
 | 🗂️ Navigation | **29 menu sections**, covering model construction, spectra, anomalies, vacua, orbifolds, collider comparisons and research diagnostics | The complete section catalog below, in the actual menu order |
 | 🔮 Simulator models | **3 modes:** the 5D SU(N) builder, Higgs production from a top KK tower, and the 4D neutrino ring | [Simulator](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=predict) → model selector |
-| 🧪 Embedded experiments | **8 dedicated experiment cards:** Maru–Nago SU(6), warped SU(6) running, three active flavours, fixed-light-input neutrino paths, thermal potential, integrated transition history, RS anomaly flow and HiggsTools | Inside Paper models, Brane kinetic terms, Simulator, Anomalies & proton and Collider |
+| 🧪 Embedded experiments | **9 dedicated experiment cards:** Maru–Nago SU(6), warped SU(6) running, three active flavours, fixed-light-input neutrino paths, thermal potential, integrated transition history, RS anomaly flow, HiggsTools and the first KK gluon against ATLAS/CMS limits | Inside Paper models, Brane kinetic terms, Simulator, Anomalies & proton and Collider |
 | 📊 Integrated analyses | SU(7) robustness; CMS HNL comparisons; neutrino decays, lifetime, flight and coherence with optional computed Majoron channels; conditional rung certificates and full-potential witnesses | Hierarchy, Simulator → Neutrino ring, and Screen a table |
 | 🔬 Reproducible studies | **4 archived batch studies:** Higgs coupling/width assumptions, thermal assumptions, candidate vacuum screening and fixed-light-input neutrino paths | [Higgs/thermal/vacuum studies](docs/research-exploration-2026-10-07.md) · [Neutrino study](research/2026-10-07-neutrinos/README.md) |
 | ⚙️ Scientific engines | **PhaseTracer** for bounce actions and **HiggsTools** for scalar-rate tests with pinned HiggsBounds/HiggsSignals datasets | Optional local engine; saved benchmark results remain available offline |
@@ -119,7 +120,7 @@ models. Representative controls are demonstrated, rather than every possible inp
 
 **How the counts work:** 29 counts navigation entries. The three Simulator modes and eight
 experiment cards describe what is available inside those entries. The ten October additions
-below comprise those eight cards plus the Majoron and conditional-bound extensions. These
+below comprise those nine cards plus the Majoron and conditional-bound extensions. These
 overlapping inventories are not added into an artificial total of independent panels.
 
 [📋 Full laboratory map and first experiments](docs/laboratory-inventory.md)
@@ -130,7 +131,7 @@ overlapping inventories are not added into an artificial total of independent pa
 
 ## 🔬 Research experiments added in October 2026
 
-**Eight experiment cards and two extensions to existing analyses.** The section links below open the
+**Nine experiment cards and two extensions to existing analyses.** The section links below open the
 public app; the route names tell you which experiment to select inside that panel. These cover
 separate flat, warped, neutrino and scalar scenarios. Each calculation states its own action,
 inputs and limits; sharing the instrument does not make them a combined GHU fit.
@@ -146,6 +147,7 @@ inputs and limits; sharing the instrument does not make them a combined GHU fit.
 | **🌡️ Finite-temperature GHU: Wilson potential and phase coexistence** · [Simulator](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=predict) → **SU(N) builder** → **Finite-temperature GHU** | Load either Hirose–Shibuya SU(3) case; vary matter content, temperature, coupling and compactification scale. Inspect the potential, its minima, phase flow, coexistence temperature and doubled-cutoff comparison. A matching **PhaseTracer** calculation supplies an actual O(3) bounce. | Compare cases 1 and 2 and distinguish coexistence from the S₃/T=140 nucleation proxy. This thermal SU(3) benchmark has its own inputs; it is not the thermal history of whichever SU(N) model is loaded in the builder. |
 | **🫧 Integrated nucleation, percolation and conditional gravitational waves** · [Simulator](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=predict) → **SU(N) builder** → the integrated-history experiment | Refined PhaseTracer actions feed the bubble-growth integral, false-vacuum fraction, separate nucleation/percolation/completion temperatures and mean bubble separation. Vary g*, wall speed, fluid efficiency and expansion background; inspect the conditional acoustic spectrum and convergence diagnostics. | Load case 1 and change efficiency or wall speed. Completion must reduce the physical false-vacuum volume. The acoustic fit is evaluated only in its supported completed, weak-transition, fast-wall regime; wall dynamics and detector significance are not calculated. |
 | **💥 Higgs rates, total width and experimental tests** · [Collider](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=collider) → **Higgs rates** | Set κV, κF, κg, κγ, κZγ and an invisible width for a 125.2 GeV CP-even scalar. Compute all partial widths, branching fractions, signal strengths and production rates at 8, 13, 13.6 and 14 TeV. Matching **HiggsBounds/HiggsSignals** evaluations retain the selected limit, χ² and dataset provenance, including ATLAS/CMS results. | Save the SM reference, load the top-tower scenario, then add invisible width. A top-tower correction alone is not a complete GHU fit. The 159-observable reference is not 159 independent degrees of freedom, and χ² is not automatically a confidence level. |
+| **🎯 First KK gluon at the LHC: couplings, widths, tt̄ / dijet limits and the m(tt̄) spectrum** · [Collider](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=collider) → **First KK gluon at the LHC** | Choose the flat GHU coloron (√2 g<sub>s</sub> to every quark, Γ/M = 2α<sub>s</sub>) or a warped KK gluon with zero-mode quarks of bulk mass c; presets include the published RS point of [Casagrande et al. 2008](https://arxiv.org/abs/0807.4937). Read the couplings (certified against a 40-digit mpmath reference), Γ/M and BR(tt̄), the LO σ × BR(tt̄) against the [ATLAS 2025 observed limit](https://doi.org/10.17182/hepdata.168229.v1/t15) and σ × B × A(dijet) against the [CMS spin-1 limits interpolated to this width](https://doi.org/10.17182/hepdata.91059.v1/t10), as r = prediction / limit, with the low-tail and pole shares of σ(tt̄); then the m(tt̄) spectrum with the KK–QCD interference in the bins of the [CMS parton-level measurement](https://doi.org/10.17182/hepdata.102956.v1/t37) and the expected Δχ² against its covariance. Links lead to the RS anomaly flow, warped SU(6) and top-KK Higgs tools that share its tower. | Load the published RS point: r(tt̄) ≈ 1 at its own 3.67 TeV KK gluon. Controls: ATLAS's and CMS's own theory curves reproduced (15% and 4%), the high-mass drift equal to the PDF luminosity ratio. A crossing is a comparison with each experiment's benchmark, **not** a validated exclusion at another width; the spectrum Δχ² is a sensitivity, not a limit, certified against an independent Dirac-trace + LHAPDF computation; four-top production is not computed. [Study and reproduction](research/2026-10-10-kkgluon-fourtop/README.md). |
 | **🔎 Conditional rung bounds and full-potential witness checks** · [Screen a table](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=screen) → **Conditional rung bounds** | Select the seed and read interval certificates for the listed even candidate or odd published rungs, with their coupling and mass-window conventions. Inspect independent full-Fourier witness checks, competing vacua, tail errors and the certificate JSON. | Compare a candidate stationary example with one marked **deeper minimum elsewhere**. The certificates bound the small-angle moment relaxation; they neither prove a universal full-potential ceiling nor guarantee an attainable model. |
 
 **🎛️ Working with the experiment cards.** Read **What this tests**, choose a reference and press
@@ -283,7 +285,7 @@ capabilities implemented in this release.
 The deployed page is a build artifact. This is where it comes from, and why it says what it says.
 
 ```
-🏗️  python build/build_app.py    # inline → collision guard → edition gate → 70 harnesses → app/index.html
+🏗️  python build/build_app.py    # inline → collision guard → edition gate → 74 harnesses → app/index.html
 🌐  python build/build_site.py --legacy ../ghu-explorer/tools-2026-07     # → site/, then gates itself
 📸  node   build/shoot.mjs       # headless screenshots of every section + console + which model
 🖱️  node   build/drive.mjs       # USES the panels: a real mouse through the DevTools Input domain
@@ -304,7 +306,7 @@ The deployed page is a build artifact. This is where it comes from, and why it s
 
 ## 🧪 What is checked, and against what
 
-The current build passes **8,023 source checks across 70 harnesses** and all fourteen browser gates. The generated site passes 32 site checks and 118 guide, link, language and manual checks; the guide pages also pass 190 desktop/mobile browser checks. The certification dossier contains 26 Lean theorems, 53 native exact/interval checks, 1,347 independent Sage/Arb checks and 235 checks of 21 conditional moment ceilings. The earlier formula/video release separately passed 30 site checks and 13 SageMath checks. The dedicated extensions and closure gates cover controls, comparison snapshots, permalinks, exports, stale external results, mobile layout, both KK-comb seeds and the conditional history/bounds. Real PhaseTracer/HiggsTools HTTP calculations, eight earlier exact Sage checks and the twelve study-record checks are recorded separately.
+The current build passes **8,511 source checks across 74 harnesses** and all fourteen browser gates (10 October: +488 checks and four harnesses for the first KK gluon at the LHC and its m(tt̄) spectrum against CMS; the extensions browser gate now has 69 checks). The generated site passes 32 site checks and 120 guide, link, language and manual checks; the guide pages also pass 194 desktop/mobile browser checks. The certification dossier contains 26 Lean theorems, 53 native exact/interval checks, 1,347 independent Sage/Arb checks and 235 checks of 21 conditional moment ceilings. The earlier formula/video release separately passed 30 site checks and 13 SageMath checks. The dedicated extensions and closure gates cover controls, comparison snapshots, permalinks, exports, stale external results, mobile layout, both KK-comb seeds and the conditional history/bounds. Real PhaseTracer/HiggsTools HTTP calculations, eight earlier exact Sage checks and the twelve study-record checks are recorded separately.
 
 The fixed-light-input extension registers `build/neutrino_research.mjs` as the eleventh browser gate: **31 checks** cover shared inputs, cancellation and unequal-deficit responses, invalid points, actual JSON/SVG downloads, saved comparisons, permalinks and desktop/mobile layout. `_test_neutrino_research.mjs` contributes **1,608 source checks** against independent NumPy/SVD references and original DeepCore tables.
 

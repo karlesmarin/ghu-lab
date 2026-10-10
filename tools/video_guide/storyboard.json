@@ -2,8 +2,8 @@
   "schema": "ghu-video-guide-v1",
   "language": "en",
   "voice": "Microsoft Zira Desktop",
-  "date": "2026-10-08",
-  "scope": "A real-interface walkthrough of all menu sections, three Simulator modes, eight research cards and integrated diagnostics. Representative controls are demonstrated; this is not an exhaustive tour of every numerical input combination. Includes certified SU(7) benchmarks, equal-moment counterexample, separated uncertainty budget, named LHC datasets and matched thermal solver diagnostics.",
+  "date": "2026-10-10",
+  "scope": "A real-interface walkthrough of all menu sections, three Simulator modes, nine research cards and integrated diagnostics. Representative controls are demonstrated; this is not an exhaustive tour of every numerical input combination. Includes certified SU(7) benchmarks, equal-moment counterexample, separated uncertainty budget, named LHC datasets, matched thermal solver diagnostics and the first KK gluon against ATLAS and CMS data.",
   "recordingNotes": "Pointer highlights and chapter captions are tutorial annotations. Computation waits may be shortened; results come from the actual application. Built-in demonstrations may be held between steps for narration.",
   "chapters": [
     {
@@ -13,7 +13,7 @@
       "titleES": "Empieza aquí: pregunta, modelo y comparación",
       "steps": [
         {
-          "text": "Welcome to G H U Lab. This revised walkthrough covers every menu section, the three Simulator modes and the embedded research experiments. It now demonstrates the S U seven certificates, approximation errors, uncertainty budget, thermal solver comparison and named collider references. Choose a chapter to revisit a topic.",
+          "text": "Welcome to G H U Lab. This revised walkthrough covers every menu section, the three Simulator modes and the embedded research experiments. It now demonstrates the S U seven certificates, approximation errors, uncertainty budget, thermal solver comparison, named collider references and the first Kaluza Klein gluon against L H C data. Choose a chapter to revisit a topic.",
           "actions": [],
           "focus": {
             "selector": "#section",
@@ -21,7 +21,7 @@
           },
           "title": null,
           "id": "01_start_01",
-          "textES": "Bienvenido a G H U Lab. Este recorrido actualizado muestra todas las secciones del menú, los tres modos del simulador y los experimentos integrados. Ahora incluye los certificados S U siete, errores de aproximación, presupuesto de incertidumbre, comparación térmica y referencias experimentales identificadas. Elige un capítulo para volver a un tema."
+          "textES": "Bienvenido a G H U Lab. Este recorrido actualizado muestra todas las secciones del menú, los tres modos del simulador y los experimentos integrados. Ahora incluye los certificados S U siete, errores de aproximación, presupuesto de incertidumbre, comparación térmica, referencias experimentales identificadas y el primer gluón de Kaluza Klein frente a datos del L H C. Elige un capítulo para volver a un tema."
         },
         {
           "text": "Start with a named model or reference. Change one assumption at a time, and read the result with its units and scope. Theorem, verified, measured and unknown describe different kinds of evidence. A computed scenario value is not automatically an experimental measurement.",
@@ -2309,6 +2309,99 @@
       "number": 42
     },
     {
+      "id": "kkgluon",
+      "title": "First KK gluon at the LHC",
+      "titleES": "Primer gluón KK en el LHC",
+      "host": "collider",
+      "setup": [],
+      "steps": [
+        {
+          "text": "Open the first Kaluza Klein gluon card in Collider and load the published R S point of Casagrande and collaborators. The card computes the couplings of a warped Kaluza Klein gluon to zero-mode quarks, its width and branching fractions, and compares its leading-order rates with the ATLAS top-pair limit and the C M S dijet limit as r, prediction over limit.",
+          "actions": [
+            {
+              "kind": "button",
+              "text": "Published RS point (arXiv:0807.4937)"
+            }
+          ],
+          "focus": {
+            "selector": "#rx_kkgluon_result",
+            "index": 0
+          },
+          "title": null,
+          "id": "43_kkgluon_01",
+          "textES": "Abre la tarjeta del primer gluón de Kaluza Klein en Collider y carga el punto R S publicado por Casagrande y colaboradores. La tarjeta calcula los acoplos de un gluón de Kaluza Klein curvado a los quarks de modo cero, su anchura y sus fracciones de desintegración, y compara sus tasas a primer orden con el límite de ATLAS en pares de top y el límite de dijets de C M S como r, predicción entre límite."
+        },
+        {
+          "text": "At three point seven five tera electron volts, r for the top pair is close to one: the two thousand eight reference point sits at the edge of the ATLAS comparison. That is a comparison with ATLAS's thirty percent width benchmark, not a validated exclusion at this width.",
+          "actions": [
+            {
+              "kind": "scroll",
+              "selector": "#rx_kkgluon_result svg",
+              "index": 0
+            }
+          ],
+          "focus": {
+            "selector": "#rx_kkgluon_result svg",
+            "index": 0
+          },
+          "title": null,
+          "id": "43_kkgluon_02",
+          "textES": "A tres coma siete cinco teraelectronvoltios, r para el par de top queda cerca de uno: el punto de referencia de dos mil ocho está en el borde de la comparación con ATLAS. Es una comparación con la plantilla de anchura del treinta por ciento de ATLAS, no una exclusión validada a esta anchura."
+        },
+        {
+          "text": "Below the plots, the top-pair mass spectrum is computed with the interference between the Kaluza Klein gluon and the Q C D gluon, in the fifteen bins of the C M S parton-level measurement. For this point the light-quark and top couplings have opposite signs, so the interference is constructive below the pole.",
+          "actions": [
+            {
+              "kind": "scroll",
+              "selector": "#rx_kkgluon_result svg",
+              "index": 2
+            }
+          ],
+          "focus": {
+            "selector": "#rx_kkgluon_result svg",
+            "index": 2
+          },
+          "title": null,
+          "id": "43_kkgluon_03",
+          "textES": "Debajo, el espectro de masa del par de top se calcula con la interferencia entre el gluón de Kaluza Klein y el gluón de Q C D, en los quince intervalos de la medida de C M S a nivel de partones. En este punto los acoplos del quark ligero y del top tienen signos opuestos, así que la interferencia es constructiva por debajo del polo."
+        },
+        {
+          "text": "Now load the flat G H U coloron at four point five tera electron volts. Every quark couples equally, the couplings share one sign, and the interference turns destructive: the low bins go down instead of up.",
+          "actions": [
+            {
+              "kind": "button",
+              "text": "Flat GHU coloron · 4.5 TeV"
+            }
+          ],
+          "focus": {
+            "selector": "#rx_kkgluon_result svg",
+            "index": 2
+          },
+          "title": null,
+          "id": "43_kkgluon_04",
+          "textES": "Carga ahora el coloron de G H U plana a cuatro coma cinco teraelectronvoltios. Todos los quarks acoplan igual, los acoplos tienen el mismo signo y la interferencia se vuelve destructiva: los intervalos bajos bajan en lugar de subir."
+        },
+        {
+          "text": "The last plot is the expected delta chi squared against the measured covariance, with ten percent S M theory uncertainty per bin. Set that uncertainty to zero and the reach moves from about three point eight to about five tera electron volts. It is a sensitivity if the data equal the S M, not an exclusion, and the open certificates show the independent Dirac-trace and L H A P D F check.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#rx_kkgluon_controls [data-rx=\"ttTheory\"]",
+              "value": 0
+            }
+          ],
+          "focus": {
+            "selector": "#rx_kkgluon_result svg",
+            "index": 3
+          },
+          "title": null,
+          "id": "43_kkgluon_05",
+          "textES": "La última gráfica es el delta chi cuadrado esperado frente a la covarianza medida, con un diez por ciento de incertidumbre teórica del S M por intervalo. Pon esa incertidumbre a cero y el alcance pasa de unos tres coma ocho a unos cinco teraelectronvoltios. Es una sensibilidad si los datos son el S M, no una exclusión, y los certificados muestran la comprobación independiente con trazas de Dirac y L H A P D F."
+        }
+      ],
+      "number": 43
+    },
+    {
       "id": "exports",
       "title": "Keep the inputs, figures and scope",
       "titleES": "Guardar entradas, figuras y alcance",
@@ -2378,7 +2471,7 @@
           "textES": "Los cálculos del navegador y las referencias archivadas funcionan sin conexión. Los puntos nuevos de HiggsTools y PhaseTracer requieren el motor local opcional. El repositorio incluye instrucciones de reproducción, comprobaciones independientes y estudios archivados. Vuelve al capítulo que necesites, modifica una hipótesis y conserva el alcance junto a cada resultado."
         }
       ],
-      "number": 43
+      "number": 44
     }
   ],
   "languages": [
@@ -2389,6 +2482,6 @@
     "en": "Microsoft Zira Desktop",
     "es": "Microsoft Helena Desktop"
   },
-  "revisionOf": "2026-10-08",
-  "revision": "2026-10-08-certification"
+  "revisionOf": "2026-10-08-certification",
+  "revision": "2026-10-10-kkgluon"
 }

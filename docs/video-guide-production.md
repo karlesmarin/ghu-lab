@@ -3,12 +3,20 @@
 [Watch in English](https://karlesmarin.github.io/ghu-explorer/video/index.html?lang=en) ·
 [Ver en español](https://karlesmarin.github.io/ghu-explorer/video/index.html?lang=es)
 
-The guide demonstrates all 29 navigation sections, three Simulator modes, eight research cards,
-integrated diagnostics and exports. There are 43 chapters and 139 narrated scenes per language.
+The guide demonstrates all 29 navigation sections, three Simulator modes, nine research cards,
+integrated diagnostics and exports. There are 44 chapters and 144 narrated scenes per language.
 Representative controls are shown; the guide does not enumerate every input combination.
 The experiment's question, changed input and interpretation form each chapter's teaching sequence.
 
 ## What was recorded
+
+The revision of 10 October (`2026-10-10-kkgluon`) recaptures all 44 chapters against the current laboratory
+and adds chapter 43, *First KK gluon at the LHC*: five scenes that load the published warped reference point,
+read r against the ATLAS tt̄ limit, show the m(tt̄) spectrum with constructive interference, switch to the flat
+GHU coloron where it turns destructive, and set the SM theory uncertainty to zero to show how the expected Δχ²
+moves. The opening scene mentions the new chapter. `tools/video_guide/add_chapter_kkgluon.py` inserts it;
+`tools/video_guide/publish_revision.py` copies a verified recording into `media/video/<revision>/` with its
+hash manifest and selects it.
 
 The certification revision of 8 October recaptures all 43 chapters against the current
 laboratory. Eighteen additional scenes demonstrate certificates, full-potential versus moment
@@ -17,10 +25,11 @@ diagnostics and withdrawal of unmatched archived evidence. Two existing scenes h
 narration in each language. The 139-scene script preserves scientific attribution and separates
 formal proofs, computer-assisted interval results, numerical agreement and open physics.
 
-Current assets live in `media/video/2026-10-08-certification/`, selected by
-`media/video/current.json`. Earlier media remain byte-identical in `media/video/` and
-`media/video/2026-10-08/`. Their complete previously served pages are preserved as
-`video/2026-10-07.html` and `video/2026-10-08.html`; the player and Editions link both.
+Current assets live in `media/video/2026-10-10-kkgluon/`, selected by
+`media/video/current.json`. Earlier media remain byte-identical in `media/video/`,
+`media/video/2026-10-08/` and `media/video/2026-10-08-certification/`. Their complete previously served pages
+are preserved as `video/2026-10-07.html`, `video/2026-10-08.html` and `video/2026-10-08-certification.html`;
+Editions links all three.
 Identical audio is reused only when text, voice, rate and sample rate match. Image contents,
 audio and overlays all participate in clip cache keys. Captions and chapter times are rebuilt.
 

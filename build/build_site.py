@@ -252,6 +252,14 @@ def load_groups():
         "moment_diagnostics.json", "lhc_higgs_mass_reference.json",
         "candidate_bounds.json", "candidate_vacua.json",
         "formula_consistency_probe.json", "formula_consistency_reference.json",
+        # 10 October: KK gluon at the LHC (pinned HEPData tables, luminosities, references)
+        "hepdata_atlas_ins3094414_fig10c.json", "hepdata_atlas_ins3094414_fig10c.meta.json",
+        "hepdata_cms_ins1764471.meta.json", "hepdata_cms_ins1764471_narrow_qq.json",
+        "hepdata_cms_ins1764471_spin1_qq.json", "hepdata_cms_ins1901295.meta.json",
+        "hepdata_cms_ins1901295_parton_abs_ttm.json", "hepdata_cms_ins1901295_parton_abs_ttm_covariance.json",
+        "hepdata_cms_ins1901295_parton_norm_ttm.json", "hepdata_cms_ins1901295_parton_norm_ttm_covariance.json",
+        "parton_lumi_13TeV.json", "pdf_systematic_cteq6l1.json", "rs_benchmark_cghnp2008.json",
+        "rs_fermions_reference.json", "tt_spectrum_reference.json",
     }
     for p in sorted((ROOT / "data").glob("*.json")):
         if p.name in NOT_A_GROUP:
@@ -713,6 +721,7 @@ def main(argv=None):
                            "data/lhc_reference/** -text -whitespace\n"
                            "# Preserve the verified video revision, including VTT line endings.\n"
                            "video/media/2026-10-08-certification/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol\n"
+                           "video/media/2026-10-10-kkgluon/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol\n"
                            "# Preserve downloadable manual hashes across checkouts.\n"
                            "guide/manual/** -text\n"
                            "guide/manual/*.pdf binary\n"
@@ -730,7 +739,8 @@ def main(argv=None):
     write('video/index.html', video_page)
     # Previously served pages are complete frozen documents, including their
     # transcripts and original media paths. Do not wrap them in a new page shell.
-    for revision, date in [('', '2026-10-07'), ('2026-10-08', '2026-10-08')]:
+    for revision, date in [('', '2026-10-07'), ('2026-10-08', '2026-10-08'),
+                           ('2026-10-08-certification', '2026-10-08-certification')]:
         video_guide.copy_media(ROOT, OUT, revision)
         rel = f'video/{date}.html'
         shutil.copyfile(SITE_SRC / f'video-{date}.html', OUT / rel)
@@ -800,9 +810,12 @@ def main(argv=None):
            'in-app help, the glossary and downloadable manuals. Current guidance does not '
            'rewrite frozen evidence or archived tutorials.</p>'
            '<h2>Versioned video guides</h2>'
-           '<ul><li><a href="../video/index.html">Current certification revision · '
-           '8 October 2026</a>: 43 chapters and 139 scenes in each language, including '
-           'the new certificates, uncertainty and experimental/thermal comparisons.</li>'
+           '<ul><li><a href="../video/index.html">Current revision · 10 October 2026</a>: '
+           '44 chapters and 144 scenes in each language, adding the first KK gluon against '
+           'ATLAS and CMS data.</li>'
+           '<li><a href="../video/2026-10-08-certification.html">Certification revision · '
+           '8 October 2026</a>: 43 chapters and 139 scenes, with the certificates, uncertainty '
+           'and experimental/thermal comparisons, preserved with its original media.</li>'
            '<li><a href="../video/2026-10-08.html">Earlier 8 October guide</a>: the '
            'formula-correction walkthrough, preserved with its original media.</li>'
            '<li><a href="../video/2026-10-07.html">Original 7 October guide</a>: '

@@ -19,6 +19,7 @@ Each new experiment stays in an existing section. Start with its **What this tes
 | Do the bubbles percolate and complete the transition? | Simulator → SU(N) builder → Integrated nucleation, percolation and conditional gravitational waves | Load case 1, save a comparison, then change wall speed and fluid efficiency; inspect convergence and the acoustic-domain gate |
 | Does a conditional rung bound survive a full-potential check? | Screen a table → Conditional rung bounds and full-potential witness checks | Read the selected seed and conventions; compare the interval bound with the archived competing-vacuum examples |
 | What Higgs rates do the assumptions imply? | Collider → Higgs rates | Save the SM reference, load the top-tower scenario, add invisible width and run HiggsTools |
+| How does a first KK gluon compare with the LHC limits? | Collider → First KK gluon at the LHC | Load the published RS point; read r(tt̄) at 3.67 TeV and the m(tt̄) Δχ², then switch to the flat coloron and compare the dijet r and the sign of the interference |
 
 Each experiment provides a shortcut near the top of its section. **Save research summary** exports a readable text note. JSON retains full matrices, rates, assumptions and provenance. The figure selector lets you export any plot as SVG. The main permalink retains the controls; external calculations and comparison snapshots are saved in JSON, not encoded into the URL.
 
@@ -33,6 +34,56 @@ The panels implement distinct actions. They do not silently combine flat SU(6), 
 - **RS anomalies:** Bessel eigenmodes and normalized gauge profiles reproduce the [June anomaly-flow paper](https://arxiv.org/abs/2606.01829) and the neutral matrix in the [September baryon-current paper](https://arxiv.org/abs/2609.29135). Published finite fermion-KK sums are a fixed comparison table; they are not recalculated when controls change. Gauge cancellation and baryon-current violation are separate outputs. No proton lifetime or baryogenesis yield is inferred.
 - **Thermal GHU:** the one-loop four-dimensional potential of [Hirose–Shibuya](https://arxiv.org/abs/2303.14192), C4=3/(64π⁶R⁴) and canonical α=g4 R φ. The browser scans broken/origin coexistence and compares cutoffs. PhaseTracer solves an actual O(3) bounce. The original S3/T=140 result remains labelled a proxy. The integrated-history panel adds nucleation, percolation, completion and a conditional acoustic spectrum using refined action tables; assumptions and reproduction are below. No daisy resummation or predicted wall velocity is supplied.
 - **Higgs:** a single CP-even 125.2 GeV scalar with explicit real κV, universal κF, effective κg/κγ/κZγ, and invisible width. Every SM partial width is included. Cross sections at 8, 13, 13.6 and 14 TeV retain the HiggsPredictions coupling interference. [HiggsTools for Run 3](https://arxiv.org/abs/2608.05401) and the official HB/HS datasets evaluate that complete scalar scenario. A top-tower ggH modification alone is not a complete GHU fit. HiggsBounds uses its selected most sensitive expected limit; all applied limits remain in the JSON. HiggsSignals χ² and Δχ² relative to the same SM point are not converted into a confidence level. Di-Higgs production is not evaluated by this adapter.
+
+## First KK gluon against the LHC · 10 October 2026
+
+**Where.** Collider → *First KK gluon at the LHC: couplings, widths and tt̄ / dijet limits*. Engine:
+`src/modules/kk_gluon_lhc.mjs`, built from `rs_fermions.mjs` (warped zero-mode couplings), `resonance_xsec.mjs`
+(cross sections) and three pinned reference modules (`xs_lumi_reference.mjs`, `xs_limits_reference.mjs`,
+`rf_benchmark_reference.mjs`), generated from `data/` by `tools/make_xs_references.mjs`.
+
+**Equations.** Zero-mode quark of bulk mass c (ruFermion convention: LH UV-localised for c > 1/2, RH for c < −1/2):
+F(c)² = (1−2c)/(1−e^{−(1−2c)kL}); coupling to the first Neumann–Neumann gauge mode g₁(c)/g<sub>s</sub> = ∫|χ_c|² f₁/f₀.
+Widths Γ_q/M = (α<sub>s</sub>/12)(c_L² + c_R²), with the top threshold F_t = β[(c_L²+c_R²)(1−r) + 6c_Lc_R r]
+(Atre et al. 1206.1661 eq. 5). Narrow width σ = Σ_q (32π²/3)(Γ_q/M) BR (1/s) dL/dτ; Breit–Wigner integrated in
+θ = arctan((ŝ−M²)/(MΓ)) over the whole luminosity grid. Dijet acceptance (3/8)∫(1+cos²θ*) over |cos θ*| < tanh(0.55).
+
+**Data.** ATLAS arXiv:2512.17856 (HEPData 10.17182/hepdata.168229.v1/t15), CMS arXiv:1911.03947 (t4 narrow with
+the coloron prediction, t10 spin-1 by width), raw bytes pinned with sha256 (`tools/pin_hepdata_*.py`). Luminosities:
+LHAPDF 6.5.6, NNPDF23_lo_as_0130_qed, `tools/make_parton_lumi.py` in `tools/pdf.Dockerfile`. Reference point:
+arXiv:0807.4937 Sec. 6.3, extracted from its LaTeX by `tools/make_rs_benchmark.py`.
+
+**Controls (harnesses `_test_rs_fermions.mjs`, `_test_resonance_xsec.mjs`, `_test_kk_gluon_lhc.mjs`).**
+40-digit mpmath reference in SageMath for roots and couplings (`tools/rs_fermions_sage_control.py`), with a mutation
+test; the published point's six ZMA masses inside the rounding band of the printed inputs and against a 40-digit SVD
+in the paper's own convention; Breit–Wigner → narrow width within 1%; ATLAS's own theory curve reproduced within 15%
+from 1 to 5 TeV; CMS's own coloron curve within 5% from 2 to 5 TeV and its 6.6 TeV limit read back from its table; the
+high-mass drift equal to the q q̄ luminosity ratio NNPDF2.3lo / CTEQ6L1 (`tools/pdf_systematic.py`).
+
+**What it does not claim.** A crossing is a comparison with each experiment's benchmark limit (ATLAS: Γ/M = 30%
+template); a limit set with one width template is not guaranteed conservative for another. NLO, four-top production
+and fermion KK modes are not computed; the card shows the low-tail share of σ(tt̄) so a reader sees when the result is
+mostly off-shell exchange. The interference with QCD is computed in the m(tt̄) spectrum (next block), not in the
+resonance-search comparison, which uses the Breit–Wigner alone as the experiments' templates do.
+
+**m(tt̄) spectrum with interference (same card; `src/modules/tt_spectrum.mjs`, harness `_test_tt_spectrum.mjs`).**
+LO partonic pieces, r = m_t²/ŝ, β = √(1−4r), ρ = 4r, D = (ŝ−M²)² + M²Γ²: q q̄ → tt̄ (8πα_s²/27ŝ)β(1+2r);
+g g → tt̄ (Combridge) (πα_s²/3ŝ)[(1+ρ+ρ²/16) ln((1+β)/(1−β)) − β(7/4+31ρ/16)]; octet (2πα_V²/27) ŝ S_q F_t/D;
+interference (16πα_sα_V/27) β(1+2r) v_q v_t (ŝ−M²)/D, v = (c_L+c_R)/2 (the axial couplings interfere only in the
+forward–backward asymmetry). Below the pole the interference has the sign of −v_q v_t: **destructive for same-sign
+couplings (flat GHU), constructive for the warped reference point (v_u < 0 < v_t)**. Hadronic dσ/dm =
+(2m/s) Σ dL/dτ σ̂, averaged over the 15 bins of CMS TOP-20-001 (arXiv:2108.02803, HEPData 10.17182/hepdata.102956.v1
+t37 absolute, t38 covariance, t39 normalised; pinned by `tools/pin_hepdata_cms_ttbar.py`). Against the data the shift
+is multiplicative, Δ_i = R_i d_i with R the LO ratio (V + interference)/SM, and Δχ² = Δᵀ(C + diag(δ_th d)²)⁻¹Δ is an
+expected sensitivity if the data equal the SM, not an exclusion; δ_th (default 10 %) stands for the SM theory error.
+Controls: a massless octet with c = 1 reproduces q q̄ → tt̄ of QCD and twice it in the interference; σ_V integrated
+equals `xsSigmaBW`; an independent computation (`tools/tt_spectrum_reference.py`: Dirac-matrix traces with chiral
+couplings and a massive top, the differential Combridge |M|², LHAPDF called directly) agrees to 6e-16 partonic,
+1.9e-4 on the SM bins and 1.8e-6 (of the SM) on the octet terms, recomputed live in the card; three mutants of the
+formulas are caught. The LO SM shape differs from CMS's normalised spectrum by up to 38 % (data/LO rising with m),
+which is why the comparison is multiplicative. Result: the published RS point reaches Δχ² = 3.84 at about 3.7 TeV
+(the ATLAS crossing is 3.73 TeV); flat GHU at about 3.8 TeV with 10 % theory error, 5.05 TeV with the experimental
+covariance alone — the spectrum does not beat the dijet comparison (4.6 TeV) once the SM theory error is included.
 
 ## Run the scientific engine locally
 

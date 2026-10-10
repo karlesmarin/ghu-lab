@@ -12,8 +12,8 @@ the capabilities inside those entries and the tools that run outside the browser
 · [Getting started](https://karlesmarin.github.io/ghu-explorer/guide/getting-started/index.html)
 · [Spanish manual (PDF)](https://karlesmarin.github.io/ghu-explorer/guide/manual/ghu-lab-guide-es.pdf).
 
-The searchable guide index organizes tasks and model families. **42 guides** cover the 29 menu
-sections, three Simulator modes, eight embedded experiments, neutrino decays and getting started;
+The searchable guide index organizes tasks and model families. **43 guides** cover the 29 menu
+sections, three Simulator modes, nine embedded experiments, neutrino decays and getting started;
 these overlap and are not a count of independent panels. Each guide explains controls, outputs,
 an example, assumptions, troubleshooting and source attribution. The 59-term glossary and inline
 help share the English/Spanish catalogues, so scope corrections reach both places.
@@ -30,12 +30,13 @@ including both guide languages; archived artifacts remain accessible through Edi
 |---|---:|---|
 | 🗂️ Menu sections | 29 | Active section registrations in `src/sections/registry.js` |
 | 🔮 Simulator model modes | 3 | The builder, top-KK Higgs production and neutrino-ring options in `predict_section.js` |
-| 🧪 Embedded experiment cards | 8 | The `rxAttach` registrations in `research_extensions.js` |
+| 🧪 Embedded experiment cards | 9 | The `rxAttach` registrations in `research_extensions.js` |
 | 🔬 Archived batch studies | 4 | Higgs, thermal and vacuum studies under `research/2026-10-07/`; neutrino paths under `research/2026-10-07-neutrinos/` |
 
 These counts describe different levels. A mode or experiment lives inside a menu section, and
 one study may use several engines. They do not add up to a total of independent panels.
-The ten October research additions are the eight experiment cards plus computed Majoron
+The October research additions are the nine experiment cards (the ninth, the first KK gluon at the LHC, added on
+10 October) plus computed Majoron
 channels inside Decays and conditional certificates inside Screen a table. The original
 neutrino-ring mode, Higgs-production mode and robustness/decay diagnostics remain part of the
 laboratory as well.
@@ -50,7 +51,7 @@ The script derives section order, labels, experiment hosts and Simulator options
 their registrations. The named analysis areas and batch-study categories are documented groupings;
 they are not a count of every control, plot or numerical function.
 
-## 🧪 The eight embedded experiment cards
+## 🧪 The nine embedded experiment cards
 
 | Card | Host section | Main controls and results |
 |---|---|---|
@@ -62,6 +63,7 @@ they are not a count of every control, plot or numerical function.
 | 🫧 Integrated transition history | Simulator → SU(N) builder | Refined actions, nucleation, percolation, completion, false-vacuum fraction, bubble separation and a conditional acoustic spectrum |
 | ⚖️ RS anomaly flow | Anomalies & proton | Z-mode profiles and masses, UV/IR anomaly factors, gauge cancellation and baryon-current matrix |
 | 💥 Higgs rates and experimental tests | Collider | Scalar couplings, invisible width, complete rate/width tables and matching HiggsBounds/HiggsSignals results |
+| 🎯 First KK gluon at the LHC | Collider | Flat GHU or warped zero-mode couplings, widths and branching fractions; LO σ × BR against the ATLAS tt̄ and CMS dijet limits as r; m(tt̄) spectrum with KK–QCD interference against CMS TOP-20-001 and its expected Δχ² (a sensitivity) |
 
 Use each section's **Go to experiment** shortcut. The flavour and fixed-input cards appear in the neutrino mode;
 the two thermal cards appear in the builder mode and use their own thermal inputs.

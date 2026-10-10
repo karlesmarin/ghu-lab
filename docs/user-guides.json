@@ -3980,6 +3980,7 @@
       "video": "start",
       "what": "Choose a laboratory task, run a reference example and understand what its result does and does not establish.",
       "steps": [
+        "Not sure where to start? Every menu section, Simulator mode and experiment card has a 🎬 Demo button (in \"How to use this section\" or in the card heading): it presses the real controls for you, explains each step and ends with how to read the result.",
         "Choose a task in the guide index or select a family in the application menu.",
         "Start from a reference or preset before changing one input at a time.",
         "Read the units, assumptions and result status with the plot.",

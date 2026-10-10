@@ -3560,6 +3560,7 @@
       "video": "start",
       "what": "Elige una tarea del laboratorio, ejecuta un ejemplo de referencia y entiende qué establece su resultado y qué queda abierto.",
       "steps": [
+        "¿No sabes por dónde empezar? Cada sección del menú, modo del simulador y tarjeta de experimento tiene un botón 🎬 Demo (en «Cómo utilizar esta sección» o en el título de la tarjeta): pulsa los controles reales por ti, explica cada paso y termina con cómo leer el resultado.",
         "Elige una tarea en el índice o una familia en el menú.",
         "Empieza con una referencia y cambia un parámetro cada vez.",
         "Lee unidades, hipótesis y estado del resultado junto a la figura.",

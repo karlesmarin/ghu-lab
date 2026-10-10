@@ -24,6 +24,16 @@ interference with QCD, averaged over the 15 bins of CMS TOP-20-001 (`tt_cms_refe
 (85, with three formula mutants caught outside it). The interference sign below the pole is −sign(v_q v_t): the earlier
 "constructive below the pole" text held for the warped reference point only and has been corrected everywhere.
 
+**Same day, 🎬 demos everywhere.** `tools/make_demo_scripts.mjs` turns the video storyboard + user guides into
+`src/view/demo_scripts.mjs` (44 demos, 144 steps; TTS spellings undone: "C M S"→CMS, "S U siete"→SU(7),
+"zero point seven"→0.7; video-only sentences rewritten, each rewrite asserted). `card_demo.js` runs them with the
+recorder's action semantics (set/click/canvasClick/scroll/button/demoStart, value persistence, busy wait); section
+buttons come from `howToBlock` (`cdmSectionButton`, a menu when a section has several), card buttons from `rxMount`.
+**After editing the storyboard or a guide, run `node tools/make_demo_scripts.mjs`** — `_test_demo_scripts.mjs`
+fails otherwise. `build/demos.mjs` (browser gate 15) runs all 44 to their panel, plus two negative controls.
+The nine cards have hand-written scripts in `src/view/card_demos_cards.js` (presets, live numbers, wording chosen
+from the value; panels are thunks because sections load after views); sections use the storyboard scripts.
+
 **Same day, 🎬 card demo.** `src/view/card_demo.js` (cdm…, after tafagent's demos): a Demo button in a card's
 heading runs scripted steps through the card's real presets and inputs, with a top banner (numbers read live from the
 model), highlights, a ✕ stop, and a closing "How to read" panel; `#s=<section>&demo=<card>` autostarts, `lang=es`

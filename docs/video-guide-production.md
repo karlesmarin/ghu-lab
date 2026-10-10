@@ -47,6 +47,13 @@ out-of-range or nonpositive timings. Rendering normalizes narration toward −16
 target. MP4 chapter metadata and downloadable WebVTT subtitles accompany both versions.
 The browser player uses native caption tracks created from embedded cue data, including from disk. A visible CC · Subtitles button toggles their display, retains the choice across seeks and language changes, and exposes its state to assistive technology.
 
+## The same script drives the in-app demos
+
+`tools/make_demo_scripts.mjs` turns this storyboard (and the user guides' "how to read it") into the 🎬 Demo of every
+section, Simulator mode and card (`src/view/demo_scripts.mjs`, run by `src/view/card_demo.js`). After
+editing the storyboard, regenerate it: `_test_demo_scripts.mjs` fails when the demos are stale, and `build/demos.mjs`
+runs all of them in a browser.
+
 ## Reproduce on Windows
 
 Prerequisites: the tested standalone app, Node with WebSocket support, Chromium, Python with Pillow

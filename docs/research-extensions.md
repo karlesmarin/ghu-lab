@@ -66,6 +66,12 @@ and fermion KK modes are not computed; the card shows the low-tail share of σ(t
 mostly off-shell exchange. The interference with QCD is computed in the m(tt̄) spectrum (next block), not in the
 resonance-search comparison, which uses the Breit–Wigner alone as the experiments' templates do.
 
+**🎬 Guided simulation.** The card heading has a **Demo** button (`src/view/card_demo.js`, after tafagent's demos):
+ten steps press the card's own presets and controls, a banner says what each step shows with the numbers read live
+from the model, and a closing panel says how to read r, the spectrum, Δχ² and the certificates. A link starts it:
+`app/index.html#s=collider&demo=kkgluon` (add `&lang=es` for Spanish). `build/extensions.mjs` runs it at high speed
+and checks the final state, the panel, the stop button and the link.
+
 **m(tt̄) spectrum with interference (same card; `src/modules/tt_spectrum.mjs`, harness `_test_tt_spectrum.mjs`).**
 LO partonic pieces, r = m_t²/ŝ, β = √(1−4r), ρ = 4r, D = (ŝ−M²)² + M²Γ²: q q̄ → tt̄ (8πα_s²/27ŝ)β(1+2r);
 g g → tt̄ (Combridge) (πα_s²/3ŝ)[(1+ρ+ρ²/16) ln((1+β)/(1−β)) − β(7/4+31ρ/16)]; octet (2πα_V²/27) ŝ S_q F_t/D;

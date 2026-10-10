@@ -4089,6 +4089,7 @@
       "source": "src/modules/kk_gluon_lhc.mjs",
       "what": "Compute the first KK gluon of flat GHU (√2 g_s to every quark) or of a warped extra dimension (zero-mode quarks of bulk mass c), its widths and branching fractions, and compare its leading-order σ × BR with the ATLAS tt̄ and CMS dijet limits as r = prediction / limit. Then compute the m(tt̄) spectrum with the interference between the KK gluon and the QCD gluon, in the bins of the CMS parton-level measurement, and the expected Δχ² against its covariance.",
       "steps": [
+        "New here? Press 🎬 Demo in the card heading: a forty-second guided simulation presses the buttons for you and ends with how to read the result.",
         "Choose a preset: the flat GHU coloron, the published RS point of arXiv:0807.4937, or illustrative warped values.",
         "Change one input: the mass, kL or one of the c values.",
         "Read Γ/M, BR(tt̄) and the two r values at the chosen mass, then the two mass scans.",

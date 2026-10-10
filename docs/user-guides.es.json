@@ -3664,6 +3664,7 @@
       "source": "src/modules/kk_gluon_lhc.mjs",
       "what": "Calcula el primer gluón KK de GHU plana (√2 g_s a todos los quarks) o de una dimensión extra curvada (quarks de modo cero con masa de bulk c), sus anchuras y fracciones de desintegración, y compara su σ × BR a primer orden con los límites de ATLAS (tt̄) y CMS (dijets) como r = predicción / límite. Después calcula el espectro m(tt̄) con la interferencia entre el gluón KK y el gluón de QCD, en los intervalos de la medida de CMS a nivel de partones, y el Δχ² esperado frente a su covarianza.",
       "steps": [
+        "¿Primera vez? Pulsa 🎬 Demo en el título de la tarjeta: una simulación guiada de cuarenta segundos pulsa los botones por ti y termina explicando cómo leer el resultado.",
         "Elige un preajuste: el coloron de GHU plana, el punto RS publicado de arXiv:0807.4937 o valores curvados ilustrativos.",
         "Cambia una entrada: la masa, kL o uno de los c.",
         "Lee Γ/M, BR(tt̄) y los dos r a la masa elegida, y después los dos barridos en masa.",

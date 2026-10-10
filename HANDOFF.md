@@ -24,6 +24,13 @@ interference with QCD, averaged over the 15 bins of CMS TOP-20-001 (`tt_cms_refe
 (85, with three formula mutants caught outside it). The interference sign below the pole is −sign(v_q v_t): the earlier
 "constructive below the pole" text held for the warped reference point only and has been corrected everywhere.
 
+**Same day, 🎬 card demo.** `src/view/card_demo.js` (cdm…, after tafagent's demos): a Demo button in a card's
+heading runs scripted steps through the card's real presets and inputs, with a top banner (numbers read live from the
+model), highlights, a ✕ stop, and a closing "How to read" panel; `#s=<section>&demo=<card>` autostarts, `lang=es`
+switches language, `demoSpeed` scales pauses (tests). Wired from `rxMount` (`cdmButton`). Only `kkgluon` has a script
+so far; adding a card = one entry in `CDM_DEMOS`. Five browser checks in `build/extensions.mjs`. The guide manual
+generator now drops pictographs (pdfLaTeX has no emoji glyphs).
+
 **Same day, video revision `2026-10-10-kkgluon`.** Chapter 43 *First KK gluon at the LHC* (five scenes) inserted by
 `tools/video_guide/add_chapter_kkgluon.py`; all 44 chapters recaptured, narrated (Zira/Helena), rendered and verified
 outside the tree (`../video-rec-2026-10-10`; imageio-ffmpeg 0.6.0 from `--vendor ../video-vendor`).

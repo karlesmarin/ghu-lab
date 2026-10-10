@@ -23,7 +23,7 @@ META = {"id": "kkgluon", "kind": "experiment", "host": "collider", "route": "s=c
 EN = {
     "title": "First KK gluon at the LHC: couplings, widths, tt̄ / dijet limits and the m(tt̄) spectrum",
     "what": "Compute the first KK gluon of flat GHU (√2 g_s to every quark) or of a warped extra dimension (zero-mode quarks of bulk mass c), its widths and branching fractions, and compare its leading-order σ × BR with the ATLAS tt̄ and CMS dijet limits as r = prediction / limit. Then compute the m(tt̄) spectrum with the interference between the KK gluon and the QCD gluon, in the bins of the CMS parton-level measurement, and the expected Δχ² against its covariance.",
-    "steps": ["Choose a preset: the flat GHU coloron, the published RS point of arXiv:0807.4937, or illustrative warped values.",
+    "steps": ["New here? Press 🎬 Demo in the card heading: a forty-second guided simulation presses the buttons for you and ends with how to read the result.", "Choose a preset: the flat GHU coloron, the published RS point of arXiv:0807.4937, or illustrative warped values.",
               "Change one input: the mass, kL or one of the c values.",
               "Read Γ/M, BR(tt̄) and the two r values at the chosen mass, then the two mass scans.",
               "Read the m(tt̄) paragraph: the sign of the interference below the pole, the largest change of the spectrum, Δχ² and the mass where it falls to 3.84; then the two spectrum figures.",
@@ -56,7 +56,7 @@ EN = {
 ES = {
     "title": "Primer gluón KK en el LHC: acoplos, anchuras, límites tt̄ / dijets y espectro m(tt̄)",
     "what": "Calcula el primer gluón KK de GHU plana (√2 g_s a todos los quarks) o de una dimensión extra curvada (quarks de modo cero con masa de bulk c), sus anchuras y fracciones de desintegración, y compara su σ × BR a primer orden con los límites de ATLAS (tt̄) y CMS (dijets) como r = predicción / límite. Después calcula el espectro m(tt̄) con la interferencia entre el gluón KK y el gluón de QCD, en los intervalos de la medida de CMS a nivel de partones, y el Δχ² esperado frente a su covarianza.",
-    "steps": ["Elige un preajuste: el coloron de GHU plana, el punto RS publicado de arXiv:0807.4937 o valores curvados ilustrativos.",
+    "steps": ["¿Primera vez? Pulsa 🎬 Demo en el título de la tarjeta: una simulación guiada de cuarenta segundos pulsa los botones por ti y termina explicando cómo leer el resultado.", "Elige un preajuste: el coloron de GHU plana, el punto RS publicado de arXiv:0807.4937 o valores curvados ilustrativos.",
               "Cambia una entrada: la masa, kL o uno de los c.",
               "Lee Γ/M, BR(tt̄) y los dos r a la masa elegida, y después los dos barridos en masa.",
               "Lee el párrafo de m(tt̄): el signo de la interferencia bajo el polo, el mayor cambio del espectro, el Δχ² y la masa a la que baja a 3,84; después, las dos figuras del espectro.",

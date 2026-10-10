@@ -26,6 +26,7 @@ def tex(s):
         elif c=='^':result.append(r'\textasciicircum{}')
         elif c=='~':result.append(r'\textasciitilde{}')
         elif c=='ł':result.append(r'\l{}')
+        elif ord(c)>=0x1F000 or c=='️':pass   # pictographs (🎬) are decoration; the words around them carry the meaning
         else:result.append({'–':'--','—':'---','’':"'",'“':'``','”':"''"}.get(c,c))
         i+=1
     return ''.join(result)

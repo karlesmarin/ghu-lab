@@ -133,6 +133,7 @@ function rxMount(def,ctx){
   const figures=document.createElement('select');figures.setAttribute('aria-label','Figure to save');figures.style.maxWidth='100%';$('svg').before(figures);
   $('svg').onclick=()=>{const svg=$('result').querySelectorAll('svg')[+figures.value||0];if(svg)rxDownload(`ghu-${def.id}-${+figures.value+1}.svg`,svg.outerHTML,'image/svg+xml');};
   if(def.load)$('load').onclick=()=>def.load(last,ctx);
+  if(typeof cdmButton==='function')cdmButton(def.id);   // 🎬 guided simulation, when the card has one (card_demo.js)
   return {dispose(){active=false;if(pending)pending.abort();},render(){
     const visible=!def.visible||def.visible();document.getElementById(`rx_${def.id}`).hidden=!visible;if(jump)jump.hidden=!visible;if(!visible)return null;
     const p=RX_STATE[def.id];try{last=rxResult(def,p);}catch(e){last=null;$('error').textContent=e.message;$('result').textContent='No result is valid for the current combined inputs.';$('json').disabled=true;$('svg').disabled=true;return null;}

@@ -105,6 +105,18 @@ try{
   check('the spectrum links to the CMS measurement and its covariance',await ev(`['hepdata.102956.v1/t37','hepdata.102956.v1/t38'].every(d=>document.querySelector('#rx_kkgluon a[href*="'+d+'"]'))`));
   await change('#rx_kkgluon_controls [data-rx="ttTheory"]',0);
   check('ttTheory = 0 gives the experimental-only Δχ²',await ev(`(()=>{const v=kkgModel(RX_STATE.kkgluon).values;return Math.abs(v.tt_spectrum_dchi2.value-v.tt_spectrum_dchi2_experimental.value)<1e-9;})()`));
+  /* 🎬 guided simulation (card_demo.js): real clicks, a step banner, a closing explanation, and a link that starts it */
+  check('the KK gluon card has a 🎬 Demo button',await ev(`!!document.querySelector('#rx_kkgluon h2 .cdm-btn')`));
+  await ev(`(()=>{CDM_URL.speed=0.03;CDM_URL.lang='en';document.querySelector('#rx_kkgluon h2 .cdm-btn').click();})()`);
+  for(let i=0;i<300&&!(await ev(`!!document.getElementById('cdm_explain')&&!CDM_STATE.running`));i++)await pause(100);
+  check('the demo runs to its explanation panel through the real controls',await ev(`(()=>{const s=RX_STATE.kkgluon;return !!document.getElementById('cdm_explain')&&s.realisation===0&&s.MTeV===4.5&&s.ttTheory===0&&document.getElementById('cdm_explain').textContent.includes('How to read this card');})()`));
+  check('the demo banner says it is done and can be closed',await ev(`(()=>{const b=document.getElementById('cdm_banner');return !!b&&b.textContent.includes('Done')&&!!b.querySelector('button');})()`));
+  await ev(`document.querySelector('#cdm_banner button').click()`);
+  check('closing the banner removes it and its highlights',await ev(`!document.getElementById('cdm_banner')&&!document.querySelector('.cdm-hl')`));
+  await send('Page.navigate',{url:'about:blank'});await send('Page.navigate',{url:url+'#s=collider&demo=kkgluon&lang=es&demoSpeed=0.03'});
+  for(let i=0;i<400&&!(await ev(`!!document.getElementById('cdm_explain')`));i++)await pause(100);
+  check('a link with demo=kkgluon starts the demo by itself, in Spanish with lang=es',await ev(`!!document.getElementById('cdm_explain')&&document.getElementById('cdm_explain').textContent.includes('Cómo leer esta tarjeta')`));
+  await navigate('collider','rx_kkgluon_result');await pause(300);
   check('the live independent-reference certificate holds in the page',await ev(`(()=>{const w=kkgModel(RX_STATE.kkgluon).certificates.tt_spectrum_reference.witness;return w.partonic<1e-9&&w.gg<1e-6&&w.sm<1e-3&&w.octet<1e-4;})()`));
   check('cross-links point to their sections',await ev(`(()=>{const hs=[...document.querySelectorAll('#rx_kkgluon_result a[href^="#s="]')].map(a=>a.getAttribute('href'));return ['#s=collider','#s=anomalies','#s=blkt','#s=predict'].every(h=>hs.includes(h));})()`));
   check('the dijet panel links to the KK gluon card',await ev(`(()=>{const a=document.querySelector('a[href="#rx_kkgluon"]');if(!a)return false;window.scrollTo(0,0);a.click();return true;})()`));

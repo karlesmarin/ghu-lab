@@ -428,7 +428,11 @@ def main(argv=None):
                              f"broken capture, not a passing harness, and this build refuses to "
                              f"call it either.")
         tail = [ln for ln in r.stdout.strip().split("\n") if ln.strip()][-1:] or ["(no output)"]
-        print(f"  {cmd[-1]:<24} {tail[0].strip()}")
+        # a harness that dies on an assertion writes to stderr only: it printed "(no output)" beside
+        # the passing ones, and only the final exit status said otherwise (10 October)
+        print(f"  {cmd[-1]:<24} {('FAILED (exit %d) ' % r.returncode) if r.returncode else ''}{tail[0].strip()}")
+        if r.returncode and r.stderr:
+            print(r.stderr[-1800:])
         # THE TOTAL, MEASURED RATHER THAN REMEMBERED.  README.md quotes a count of checks and of
         # harnesses, and quoted "1 805 across 35" for weeks after it was neither -- the same defect
         # the home page had, in the one file a reader opens first.  The build now prints what it

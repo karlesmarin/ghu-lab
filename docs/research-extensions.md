@@ -19,7 +19,7 @@ Each new experiment stays in an existing section. Start with its **What this tes
 | Do the bubbles percolate and complete the transition? | Simulator → SU(N) builder → Integrated nucleation, percolation and conditional gravitational waves | Load case 1, save a comparison, then change wall speed and fluid efficiency; inspect convergence and the acoustic-domain gate |
 | Does a conditional rung bound survive a full-potential check? | Screen a table → Conditional rung bounds and full-potential witness checks | Read the selected seed and conventions; compare the interval bound with the archived competing-vacuum examples |
 | What Higgs rates do the assumptions imply? | Collider → Higgs rates | Save the SM reference, load the top-tower scenario, add invisible width and run HiggsTools |
-| How does a first KK gluon compare with the LHC limits? | Collider → First KK gluon at the LHC | Load the published RS point; read r(tt̄) at 3.67 TeV and the m(tt̄) Δχ², then switch to the flat coloron and compare the dijet r and the sign of the interference |
+| How does a first KK gluon compare with the LHC limits? | Collider → First KK gluon at the LHC | Load the published RS point (all nine bulk masses); move the mass to 3.67 TeV, its own first KK gluon (the preset loads 3.75), and read r(tt̄) and the m(tt̄) Δχ², then switch to the flat coloron and compare the dijet r and the sign of the interference |
 
 Each experiment provides a shortcut near the top of its section. **Save research summary** exports a readable text note. JSON retains full matrices, rates, assumptions and provenance. The figure selector lets you export any plot as SVG. The main permalink retains the controls; external calculations and comparison snapshots are saved in JSON, not encoded into the URL.
 
@@ -56,8 +56,9 @@ arXiv:0807.4937 Sec. 6.3, extracted from its LaTeX by `tools/make_rs_benchmark.p
 **Controls (harnesses `_test_rs_fermions.mjs`, `_test_resonance_xsec.mjs`, `_test_kk_gluon_lhc.mjs`).**
 40-digit mpmath reference in SageMath for roots and couplings (`tools/rs_fermions_sage_control.py`), with a mutation
 test; the published point's six ZMA masses inside the rounding band of the printed inputs and against a 40-digit SVD
-in the paper's own convention; Breit–Wigner → narrow width within 1%; ATLAS's own theory curve reproduced within 15%
-from 1 to 5 TeV; CMS's own coloron curve within 5% from 2 to 5 TeV and its 6.6 TeV limit read back from its table; the
+in the paper's own convention; Breit–Wigner → narrow width within 1%; ATLAS's own theory curve, with its chiral top
+couplings (g_tL = g_s, g_tR ≈ 4 g_s), reproduced within 15% from 1 to 4 TeV and 15–18% low at 4.5–5 TeV (an unexplained
+mass slope); CMS's own coloron curve within 4% from 2 to 5 TeV and its 6.6 TeV limit read back from its table; the
 high-mass drift equal to the q q̄ luminosity ratio NNPDF2.3lo / CTEQ6L1 (`tools/pdf_systematic.py`).
 
 **What it does not claim.** A crossing is a comparison with each experiment's benchmark limit (ATLAS: Γ/M = 30%

@@ -107,6 +107,11 @@ export function ttsCholesky(C) {
 
 /* x = C⁻¹ b through the Cholesky factor, with the residual max|C x − b| / max|b| as witness. */
 export function ttsSolve(C, b) {
+  /* the factor reads only the lower triangle, so a corrupted upper triangle would pass unseen (consultation T133) */
+  const n0 = b.length;
+  if (C.length !== n0 || C.some((row) => row.length !== n0)) throw new Error(`ttsSolve: matrix is not ${n0}×${n0}`);
+  for (let i = 0; i < n0; i++) for (let j = 0; j < i; j++)
+    if (Math.abs(C[i][j] - C[j][i]) > 1e-12 * Math.sqrt(Math.abs(C[i][i] * C[j][j]))) throw new Error(`ttsSolve: matrix not symmetric at (${i},${j})`);
   const L = ttsCholesky(C), n = b.length, y = new Array(n), x = new Array(n);
   for (let i = 0; i < n; i++) { let s = b[i]; for (let k = 0; k < i; k++) s -= L[i][k] * y[k]; y[i] = s / L[i][i]; }
   for (let i = n - 1; i >= 0; i--) { let s = y[i]; for (let k = i + 1; k < n; k++) s -= L[k][i] * x[k]; x[i] = s / L[i][i]; }
@@ -123,27 +128,35 @@ export function ttsSensitivity(R, data, cov) {
   return { delta, chi2, pull, residual };
 }
 
+/* the tolerances of _test_tt_spectrum.mjs, so the card judges the live check by the same rule as the harness */
+export const TTS_REFERENCE_TOLERANCE = { partonic: 1e-9, gg: 1e-6, sm: 1e-3, octet: 1e-4 };
+
 /* The independent reference (tools/tt_spectrum_reference.py, pinned as TTS_REFERENCE): partonic pieces from Dirac-matrix
  * traces, gg from the differential Combridge |M|², hadronic bins with LHAPDF called directly.  Returns the worst
- * relative differences; used by the harness and live by the KK-gluon card. */
+ * relative differences and how many comparisons each one rests on; used by the harness and live by the KK-gluon card.
+ * A first version started every maximum at 0, so an empty reference returned perfect agreement having compared
+ * nothing (consultation T133): now a block with no comparison, or a non-finite difference, reads as Infinity. */
 export function ttsReferenceCheck(lumi, ref) {
-  let partonic = 0, gg = 0, sm = 0, octet = 0;
-  for (const k of ref.partonic) {
+  const checked = { partonic: 0, gg: 0, sm: 0, octet: 0 }, worst = { partonic: 0, gg: 0, sm: 0, octet: 0 };
+  const note = (key, d) => { checked[key]++; worst[key] = Number.isFinite(d) ? Math.max(worst[key], d) : Infinity; };
+  for (const k of ref.partonic || []) {
     const [qL, qR] = k.cq, [tL, tR] = k.ct;
     const x = ttsPartonic(k.shat, { mt: k.mt, aS: k.alpha, aV: k.alphaV, M: k.M, G: k.Gam, Sq: qL * qL + qR * qR, vq: (qL + qR) / 2, cTL: tL, cTR: tR });
-    for (const t of ["qq", "V", "int"]) partonic = Math.max(partonic, Math.abs(x[t] / k["sigma_" + t] - 1));
+    for (const t of ["qq", "V", "int"]) note("partonic", Math.abs(x[t] / k["sigma_" + t] - 1));
   }
-  for (const k of ref.gg_textbook)
-    gg = Math.max(gg, Math.abs(ttsPartonic(k.shat, { mt: k.mt, aS: k.alpha, aV: 0, M: 0, G: 0, Sq: 0, vq: 0, cTL: 0, cTR: 0 }).gg / k.sigma_gg_textbook - 1));
+  for (const k of ref.gg_textbook || [])
+    note("gg", Math.abs(ttsPartonic(k.shat, { mt: k.mt, aS: k.alpha, aV: 0, M: 0, G: 0, Sq: 0, vq: 0, cTL: 0, cTR: 0 }).gg / k.sigma_gg_textbook - 1));
   const aS = (mu) => ref.alpha_s.aZ / (1 + ref.alpha_s.aZ * ((33 - 2 * ref.alpha_s.nf) / (12 * Math.PI)) * 2 * Math.log(mu / ref.alpha_s.MZ));
-  const bins = ref.bins.map((b) => [b.lo, b.hi]);
-  for (const [name, o] of Object.entries(ref.octets)) {
+  const bins = (ref.bins || []).map((b) => [b.lo, b.hi]);
+  if (bins.length) for (const [name, o] of Object.entries(ref.octets || {})) {
     const s = ttsSpectrum(lumi, { mt: ref.mt, MGeV: o.M, GammaGeV: o.GoverM * o.M, gq: o.cq, top: o.ct, aS, aV: aS(o.M), bins });
     ref.bins.forEach((b, i) => { const smRef = b.qq + b.gg, j = s.bins[i];
-      sm = Math.max(sm, Math.abs(j.sm / smRef - 1));
-      octet = Math.max(octet, Math.abs((j.V + j.int) - (b[name + "_V"] + b[name + "_int"])) / smRef); });
+      note("sm", Math.abs(j.sm / smRef - 1));
+      note("octet", Math.abs((j.V + j.int) - (b[name + "_V"] + b[name + "_int"])) / smRef); });
   }
-  return { partonic, gg, sm, octet };
+  for (const key of Object.keys(worst)) if (!checked[key]) worst[key] = Infinity;
+  const failures = Object.keys(worst).filter((key) => !(worst[key] < TTS_REFERENCE_TOLERANCE[key]));
+  return { ...worst, checked, tolerance: TTS_REFERENCE_TOLERANCE, passed: failures.length === 0, failures };
 }
 
 /* Shape control: the LO SM spectrum, normalised over the measured range, against CMS's normalised spectrum.  The

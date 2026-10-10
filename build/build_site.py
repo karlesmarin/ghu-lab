@@ -722,6 +722,7 @@ def main(argv=None):
                            "# Preserve the verified video revision, including VTT line endings.\n"
                            "video/media/2026-10-08-certification/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol\n"
                            "video/media/2026-10-10-kkgluon/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol\n"
+                           "video/media/2026-10-10-demos/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol\n"
                            "# Preserve downloadable manual hashes across checkouts.\n"
                            "guide/manual/** -text\n"
                            "guide/manual/*.pdf binary\n"
@@ -740,7 +741,8 @@ def main(argv=None):
     # Previously served pages are complete frozen documents, including their
     # transcripts and original media paths. Do not wrap them in a new page shell.
     for revision, date in [('', '2026-10-07'), ('2026-10-08', '2026-10-08'),
-                           ('2026-10-08-certification', '2026-10-08-certification')]:
+                           ('2026-10-08-certification', '2026-10-08-certification'),
+                           ('2026-10-10-kkgluon', '2026-10-10-kkgluon')]:
         video_guide.copy_media(ROOT, OUT, revision)
         rel = f'video/{date}.html'
         shutil.copyfile(SITE_SRC / f'video-{date}.html', OUT / rel)
@@ -811,8 +813,12 @@ def main(argv=None):
            'rewrite frozen evidence or archived tutorials.</p>'
            '<h2>Versioned video guides</h2>'
            '<ul><li><a href="../video/index.html">Current revision · 10 October 2026</a>: '
-           '44 chapters and 144 scenes in each language, adding the first KK gluon against '
-           'ATLAS and CMS data.</li>'
+           '44 chapters and 145 scenes in each language, every one captured afresh on the current '
+           'laboratory, with the guided 🎬 Demo buttons and the KK-gluon card as revised after an '
+           'external review.</li>'
+           '<li><a href="../video/2026-10-10-kkgluon.html">KK-gluon revision · 10 October 2026</a>: '
+           '44 chapters and 144 scenes, adding the first KK gluon against ATLAS and CMS data, captured '
+           'before the 🎬 Demo buttons existed. Preserved with its original media.</li>'
            '<li><a href="../video/2026-10-08-certification.html">Certification revision · '
            '8 October 2026</a>: 43 chapters and 139 scenes, with the certificates, uncertainty '
            'and experimental/thermal comparisons, preserved with its original media.</li>'

@@ -48,12 +48,21 @@ const REWRITE = [
   ['start', 0, 'es', ' Elige un capítulo para volver a un tema.', ''],
   ['exports', 2, 'en', 'Return to a chapter, vary one assumption,', 'Return to any section, vary one assumption,'],
   ['exports', 2, 'es', 'Vuelve al capítulo que necesites, modifica una hipótesis', 'Vuelve a la sección que necesites, modifica una hipótesis'],
+  ['start', 0, 'en', ' Every section and card also has a Demo button that runs a guided simulation.', ''],
+  ['start', 0, 'es', ' Cada sección y cada tarjeta tiene además un botón Demo con una simulación guiada.', ''],
+  ['kkgluon', 1, 'en', 'Stop the demo and take over: load', 'Load'],
+  ['kkgluon', 1, 'es', 'Para la demo y toma el control: carga', 'Carga'],
 ];
 for (const [id, k, lang, from, to] of REWRITE) {
   const step = plan.chapters.find(c => c.id === id).steps[k], key = lang === 'es' ? 'textES' : 'text';
   if (!step[key].includes(from)) { console.error('rewrite target not found:', id, k, lang, from); process.exit(1); }
   step[key] = step[key].replace(from, to);
 }
+// the video starts a card's own 🎬 Demo and stops it; inside a demo those two actions would call the demo from itself,
+// so the step that starts it is dropped and the stop is removed (after the rewrites, whose indices are the storyboard's)
+const STARTS_DEMO = (a) => /\.cdm-btn\b/.test(a.selector || ''), STOPS_DEMO = (a) => /\[data-cdm-stop\]/.test(a.selector || '');
+for (const c of plan.chapters)
+  c.steps = c.steps.filter(s => !s.actions.some(STARTS_DEMO)).map(s => ({...s, actions: s.actions.filter(a => !STOPS_DEMO(a))}));
 
 const chapters = plan.chapters.map(c => {
   const card = c.steps.some(s => (s.focus?.selector || '').startsWith(`#rx_${c.id}`)) ? `rx_${c.id}` : null;

@@ -11,9 +11,14 @@ const plan = JSON.parse(raw('./tools/video_guide/storyboard.json'));
 check('demo scripts were generated from the current storyboard (run node tools/make_demo_scripts.mjs)', CDM_SCRIPTS.source.storyboardSha256 === sha('./tools/video_guide/storyboard.json'));
 check('demo scripts were generated from the current guides', CDM_SCRIPTS.source.guidesSha256[0] === sha('./docs/user-guides.json') && CDM_SCRIPTS.source.guidesSha256[1] === sha('./docs/user-guides.es.json'));
 check(`one demo per storyboard chapter (${plan.chapters.length})`, CDM_SCRIPTS.chapters.length === plan.chapters.length);
+/* the video may start a card's own 🎬 Demo and stop it; a demo never does (it would call itself) */
+const startsDemo = (a) => /\.cdm-btn\b/.test(a.selector || ''), stopsDemo = (a) => /\[data-cdm-stop\]/.test(a.selector || '');
+const demoActions = (c) => c.steps.filter(s => !s.actions.some(startsDemo)).map(s => s.actions.filter(a => !stopsDemo(a)));
+check('the video starts at least one card demo (the KK gluon), and no demo contains a start or stop of a demo',
+  plan.chapters.some(c => c.steps.some(s => s.actions.some(startsDemo))) && !CDM_SCRIPTS.chapters.some(c => c.steps.some(s => s.actions.some(a => startsDemo(a) || stopsDemo(a)))));
 for (const [i, c] of plan.chapters.entries()) {
   const d = CDM_SCRIPTS.chapters[i];
-  check(`${c.id}: same host and actions as the video`, d.id === c.id && d.host === c.host && JSON.stringify(d.steps.map(s => s.actions)) === JSON.stringify(c.steps.map(s => s.actions)) && JSON.stringify(d.setup) === JSON.stringify(c.setup || []));
+  check(`${c.id}: same host and actions as the video`, d.id === c.id && d.host === c.host && JSON.stringify(d.steps.map(s => s.actions)) === JSON.stringify(demoActions(c)) && JSON.stringify(d.setup) === JSON.stringify(c.setup || []));
   check(`${c.id}: a closing "how to read it" in both languages`, !!(d.close.en?.read && d.close.es?.read));
 }
 /* the display transform: what the voice needed is not what a reader should see */

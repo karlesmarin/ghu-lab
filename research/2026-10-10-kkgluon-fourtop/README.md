@@ -61,8 +61,10 @@ The c values follow the ruFermion convention of rs_unification.mjs (LH UV-locali
   40-digit mpmath SVD in the paper's own convention.
 
 **Control — ATLAS's own theory curve for its benchmark** (g_q = −0.2 g_s, g_bL = g_tL = g_s, BR 0.925, Γ/M = 30 %):
-ratio ours/ATLAS = 1.14 (1 TeV), 1.04 (2), 0.99 (3), 0.93 (4), 0.86 (5); 1.28 at 0.5 TeV (top threshold of a 30 %-wide
-resonance). Within 15 % from 1 to 5 TeV; a residual mass slope is NOT explained (candidates: MadGraph's dynamic
+with the benchmark's chiral top couplings (g_tR ≈ 4 g_s from its BR), ratio ours/ATLAS = 1.11 (1 TeV), 1.01 (2),
+0.95 (3), 0.88 (4), 0.82 (5). Within 15 % from 1 to 4 TeV, 15–18 % low at 4.5–5 TeV. (Revised 10-oct after consultation
+T133: the first version ran the vector threshold, which inflates the low tail and read 1.14 … 0.86, inside 15 % up to
+5 TeV.) The mass slope is NOT explained (candidates: MadGraph's dynamic
 scale, two-loop α_s, fixed versus running width) — consultation T132. The benchmark's "Γ/M = 30 %" and "BR = 92.5 %"
 cannot both follow from a first-order width with its couplings; the couplings give BR = 92.6 % at Γ/M ≈ 15 %, so the
 30 % is read as imposed in the generation.
@@ -70,11 +72,13 @@ cannot both follow from a first-order width with its couplings; the couplings gi
 **Result (observed limit, Γ/M = 30 % template).**
 | point | Γ/M | BR(tt̄) | r = σ×BR/limit at 3.75 TeV | r = 1 crossing |
 |---|---|---|---|---|
-| arXiv:0807.4937 reference point | 0.20 | 0.99 | 1.00 | ≈ 3.75 TeV |
+| arXiv:0807.4937 reference point (nine c, zero-mode) | 0.21 | 0.99 | 0.96 | ≈ 3.72 TeV |
 | illustrative, c_R(t_R) = 0.3, kL = 35 | 0.23 | 0.88 | 1.36 | ≈ 4.0 TeV |
 
 The reference point's own first KK gluon sits at 2.4476 × 1.5 TeV = 3.67 TeV: **at the edge of the ATLAS comparison**
-(r ≈ 1.07), which within the ±15 % of the control is not a verdict either way. A crossing is a comparison with the
+(r ≈ 1.08), which within the ±15 % of the control is not a verdict either way. (Revised 10-oct, T133: the first table
+set Q₂ = Q₁ and d₁ = d₂ = u₁; with all nine c of the paper σ × BR(tt̄) moves 1.2 % and the dijet σ × B 19 %. Still the
+flavour-diagonal zero-mode approximation, without the mass-basis rotations.) A crossing is a comparison with the
 experiment's Γ/M = 30 % benchmark, not a validated exclusion at Γ/M ≈ 0.2: a limit set with one width template is
 **not guaranteed conservative** for another (an earlier version of this note said "conservative"; that was wrong —
 consultation T132 §5). Scope: LO, no K-factor; the interference with QCD tt̄ matters exactly where the low tail

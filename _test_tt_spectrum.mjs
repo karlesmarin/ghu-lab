@@ -119,6 +119,16 @@ for(const k of ref.gg_textbook){const x=ttsPartonic(k.shat,{mt:k.mt,aS:k.alpha,a
   check('generated tts_reference.mjs carries the reference file',JSON.stringify(TTS_REFERENCE.bins)===JSON.stringify(ref.bins)&&TTS_REFERENCE.source.sha256===createHash('sha256').update(raw('./data/tt_spectrum_reference.json')).digest('hex'));
   check('ttsReferenceCheck = the harness loop',Math.abs(live.partonic-worstP)<1e-15&&Math.abs(live.sm-worstSM)<1e-12&&Math.abs(live.octet-worstBSM)<1e-12);
   const card=kkgModel(kkgBenchmarkInputs()).certificates.tt_spectrum_reference;
-  check('the KK-gluon card shows the live reference check',card.witness.partonic===live.partonic&&card.witness.sm===live.sm);}
+  check('the KK-gluon card shows the live reference check',card.witness.partonic===live.partonic&&card.witness.sm===live.sm);
+  check(`live check passes by the harness tolerances, on ${live.checked.partonic}+${live.checked.gg}+${live.checked.sm}+${live.checked.octet} comparisons`,live.passed&&live.checked.partonic===3*ref.partonic.length&&live.checked.sm>0&&live.checked.octet>0);
+  /* negative controls (consultation T133): an empty reference once returned perfect agreement having compared nothing */
+  const empty=ttsReferenceCheck(XS_LUMI,{...TTS_REFERENCE,partonic:[],gg_textbook:[],bins:[],octets:{}});
+  check('empty reference fails, every block at Infinity',!empty.passed&&empty.failures.length===4&&[empty.partonic,empty.gg,empty.sm,empty.octet].every(v=>v===Infinity));
+  const bad=ttsReferenceCheck(XS_LUMI,{...TTS_REFERENCE,partonic:TTS_REFERENCE.partonic.map((k,i)=>i?k:{...k,sigma_int:k.sigma_int*1.01})});
+  check('one corrupted partonic value fails the partonic block only',!bad.passed&&bad.failures.join()==='partonic');
+  const nan=ttsReferenceCheck(XS_LUMI,{...TTS_REFERENCE,gg_textbook:TTS_REFERENCE.gg_textbook.map(k=>({...k,sigma_gg_textbook:NaN}))});
+  check('a NaN reference value fails instead of being skipped by Math.max',!nan.passed&&nan.gg===Infinity);}
+assert.throws(()=>ttsSolve([[1,.9],[0,1]],[1,1]),/not symmetric/);passed++;
+assert.throws(()=>ttsSolve([[1,0],[0,1]],[1,1,1]),/not 3×3/);passed++;
 
 console.log(`${passed} passed, 0 failed (σ̂_V = QCD and σ̂_int = 2 QCD for a massless octet, σ_V = xsSigmaBW, Dirac-trace and LHAPDF-direct references, pinned CMS m(tt̄) bytes, Cholesky, LO SM shape control, sensitivity through the KK gluon card)`);

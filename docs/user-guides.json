@@ -4117,7 +4117,7 @@
         },
         {
           "name": "α_s(M_Z)",
-          "meaning": "0.130 as the generators use with this PDF set, or this laboratory's 0.118.",
+          "meaning": "0.130, the PDF set's value at M_Z, or this laboratory's 0.118; either is run to the mass at one loop with six flavours (the PDF set's own α_s table differs by about 0.6% at 1.8 TeV).",
           "try": "Compare the two; the production scales with the coupling."
         },
         {

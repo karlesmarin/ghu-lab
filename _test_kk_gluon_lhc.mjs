@@ -27,7 +27,7 @@ check('PDF systematic module = data file',XS_LIMITS.pdf_systematic.source.sha256
 const D=XS_LIMITS.cms_dijet,A=xsAcceptance(1.1,'vector'),K=m=>1.1+.2*(m-600)/7500,ps=M=>{const r=4*172.5**2/(M*M);return Math.sqrt(1-r)*(1+r/2);};
 const colOurs=M=>xsSigmaNWA(XS_LUMI,{MGeV:M,alphas:alphasRun(M,{aZ:XS_LUMI.pdf.alphas_MZ}),gq:{uu:[1,1],dd:[1,1],ss:[1,1],cc:[1,1],bb:[1,1]},BRX:5/(5+ps(M))})*A*K(M);
 const P=XS_LIMITS.pdf_systematic,pdfR=M=>{const i=P.M_GeV.indexOf(M);return P.ratio_NNPDF_over_CTEQ6L1[i];};
-for(const M of [2000,3000,4000,5000]){const i=D.mass_GeV.indexOf(M),r=colOurs(M)/D.coloron_theory_pb[i];check(`coloron σBA vs CMS within 5% at ${M} GeV (×${r.toFixed(3)})`,Math.abs(r-1)<.05);}
+for(const M of [2000,3000,4000,5000]){const i=D.mass_GeV.indexOf(M),r=colOurs(M)/D.coloron_theory_pb[i];check(`coloron σBA vs CMS within 4% at ${M} GeV (×${r.toFixed(3)}), the tolerance the certificate claims`,Math.abs(r-1)<.04);}
 for(const M of [6000,7000,8000]){const i=D.mass_GeV.indexOf(M),r=colOurs(M)/D.coloron_theory_pb[i];
   check(`high-mass drift explained by the PDF luminosity ratio at ${M} GeV (residual ${(r/pdfR(M)).toFixed(3)})`,Math.abs(r/pdfR(M)-1)<.12);}
 {let cms=null;for(let i=0;i+1<D.mass_GeV.length;i++){const a=D.coloron_theory_pb[i]/D.observed_narrow_pb[i],b=D.coloron_theory_pb[i+1]/D.observed_narrow_pb[i+1];
@@ -48,6 +48,17 @@ check('benchmark inputs mapped from arXiv:0807.4937',Math.abs(bi.cQ3-.473)<1e-12
 check('benchmark: top-philic, BR(tt̄) > 0.98',bench.here.BRtt>.98);
 check('benchmark: at the edge of the ATLAS exclusion (r within 0.85–1.25 at 3.75 TeV)',bench.values.r_tt_observed.value>.85&&bench.values.r_tt_observed.value<1.25);
 check('benchmark: tt̄ crossing between 3.5 and 4.1 TeV',bench.values.crossing_tt_GeV.value>3500&&bench.values.crossing_tt_GeV.value<4100);
+/* all nine bulk masses of the paper (consultation T133: a first version set Q₂ = Q₁ and d₁ = d₂ = u₁) */
+{const cp=Object.fromEntries(Object.entries(RF_BENCHMARK.c_paper).map(([k,v])=>[k,Number(v)]));
+ check('benchmark carries all nine c of arXiv:0807.4937',[bi.cLightL,bi.cQ2,bi.cQ3,bi.cLightR,bi.cU2,bi.cTR,bi.cD1,bi.cD2,bi.cBR].join()===[-cp.Q_1,-cp.Q_2,-cp.Q_3,cp.u_1,cp.u_2,cp.u_3,cp.d_1,cp.d_2,cp.d_3].join());
+ const red=kkgModel({...bi,cQ2:null,cU2:null,cD1:null,cD2:null});
+ check('the generation split is live: Q₂ and d₁ couplings move, the top does not',Math.abs(bench.couplings.gQ[1]-red.couplings.gQ[1])>.05&&bench.couplings.gU[2]===red.couplings.gU[2]);
+ check('null second-generation c = the light value (the illustrative preset is unchanged)',JSON.stringify(kkgModel({}).values.r_tt_observed)===JSON.stringify(kkgModel({cQ2:null,cU2:null,cD1:null,cD2:null}).values.r_tt_observed));}
+for(const bad of [{cQ2:2},{cD1:-1.5},{cU2:NaN}]){assert.throws(()=>kkgValidate(bad));passed++;}
+/* the two SM-theory models (consultation T133): with no theory error both equal the experimental Δχ²; with it, both lie below */
+{const z=kkgModel({...bi,ttTheory:0}).values,v=bench.values,e=v.tt_spectrum_dchi2_experimental.value;
+ check('ttTheory = 0: diagonal = normalisation = experimental Δχ²',Math.abs(z.tt_spectrum_dchi2.value-z.tt_spectrum_dchi2_experimental.value)<1e-9*e&&Math.abs(z.tt_spectrum_dchi2_normalisation.value-z.tt_spectrum_dchi2_experimental.value)<1e-9*e);
+ check(`benchmark: diagonal ${v.tt_spectrum_dchi2.value.toFixed(2)} ≤ normalisation ${v.tt_spectrum_dchi2_normalisation.value.toFixed(2)} ≤ experimental ${e.toFixed(2)}`,v.tt_spectrum_dchi2.value<=v.tt_spectrum_dchi2_normalisation.value&&v.tt_spectrum_dchi2_normalisation.value<=e);}
 
 /* 5. Honesty and refusals. */
 for(const r of [flat,bench]){

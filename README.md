@@ -66,9 +66,11 @@ the local Docker image is `sagemath/sagemath`). The normal build includes the ne
 regressions and browser checks. These checks cover the stated identities and cases;
 they do not certify every model or the global optimum of a numerical search.
 
-The bilingual video revision of 8 October includes new captures and corrected explanations,
-with synchronized captions and chapter times. The original 7 October guide remains available
-from the video page as a historical version; frozen editions retain their original checkpoint.
+The bilingual video revision of 10 October re-records all 44 chapters (145 scenes) on the current
+laboratory: every screen shows the guided 🎬 Demo buttons, and the KK-gluon chapter follows the card
+after its external review. Captions and chapter times are synchronized. Earlier revisions (7, 8 and
+10 October) remain available from the video page as historical versions; frozen editions retain
+their original checkpoint.
 
 The 5D family goes from a boundary condition to numbers a detector measures: the Wilson-line
 potential of **any** SU(N) model, its vacuum, the four-dimensional spectrum there, the anomaly
@@ -314,7 +316,7 @@ The deployed page is a build artifact. This is where it comes from, and why it s
 
 ## 🧪 What is checked, and against what
 
-The current build passes **8,608 source checks across 75 harnesses** and all fifteen browser gates (10 October: +585 checks and five harnesses for the first KK gluon at the LHC, its m(tt̄) spectrum against CMS and the guided demos; the extensions browser gate now has 74 checks, including the guided demo). The generated site passes 32 site checks and 120 guide, link, language and manual checks; the guide pages also pass 194 desktop/mobile browser checks. The certification dossier contains 26 Lean theorems, 53 native exact/interval checks, 1,347 independent Sage/Arb checks and 235 checks of 21 conditional moment ceilings. The earlier formula/video release separately passed 30 site checks and 13 SageMath checks. The dedicated extensions and closure gates cover controls, comparison snapshots, permalinks, exports, stale external results, mobile layout, both KK-comb seeds and the conditional history/bounds. Real PhaseTracer/HiggsTools HTTP calculations, eight earlier exact Sage checks and the twelve study-record checks are recorded separately.
+The current build passes **8,626 source checks across 75 harnesses** and all fifteen browser gates (10 October: +585 checks and five harnesses for the first KK gluon at the LHC, its m(tt̄) spectrum against CMS and the guided demos, then +18 negative controls and corrections after an external review; the extensions browser gate now has 74 checks, including the guided demo). The generated site passes 32 site checks and 120 guide, link, language and manual checks; the guide pages also pass 194 desktop/mobile browser checks. The certification dossier contains 26 Lean theorems, 53 native exact/interval checks, 1,347 independent Sage/Arb checks and 235 checks of 21 conditional moment ceilings. The earlier formula/video release separately passed 30 site checks and 13 SageMath checks. The dedicated extensions and closure gates cover controls, comparison snapshots, permalinks, exports, stale external results, mobile layout, both KK-comb seeds and the conditional history/bounds. Real PhaseTracer/HiggsTools HTTP calculations, eight earlier exact Sage checks and the twelve study-record checks are recorded separately.
 
 The fixed-light-input extension registers `build/neutrino_research.mjs` as the eleventh browser gate: **31 checks** cover shared inputs, cancellation and unequal-deficit responses, invalid points, actual JSON/SVG downloads, saved comparisons, permalinks and desktop/mobile layout. `_test_neutrino_research.mjs` contributes **1,608 source checks** against independent NumPy/SVD references and original DeepCore tables.
 

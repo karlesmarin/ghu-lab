@@ -1,0 +1,10 @@
+LHAPDF 6.5.6 loading /opt/lhapdf/NNPDF23_lo_as_0130_qed/NNPDF23_lo_as_0130_qed_0000.dat
+NNPDF23_lo_as_0130_qed (LHAPDF 6.5.6): alpha_s(MZ) = 0.130003
+mu =   500.00 GeV  table 0.10355038  one-loop nf=6 0.10429739  ratio 1.00721
+mu =  1000.00 GeV  table 0.09588325  one-loop nf=6 0.09652330  ratio 1.00668
+mu =  1842.07 GeV  table 0.09000948  one-loop nf=6 0.09057335  ratio 1.00626
+mu =  2000.00 GeV  table 0.08927308  one-loop nf=6 0.08982775  ratio 1.00621
+mu =  3000.00 GeV  table 0.08581259  one-loop nf=6 0.08632493  ratio 1.00597
+mu =  3750.00 GeV  table 0.08402020  one-loop nf=6 0.08451128  ratio 1.00584
+mu =  5000.00 GeV  table 0.08181691  one-loop nf=6 0.08228257  ratio 1.00569
+mu =  8000.00 GeV  table 0.07845582  one-loop nf=6 0.07888385  ratio 1.00546

@@ -3692,7 +3692,7 @@
         },
         {
           "name": "α_s(M_Z)",
-          "meaning": "0,130 como usan los generadores con este conjunto de PDF, o el 0,118 de este laboratorio.",
+          "meaning": "0,130, el valor del conjunto de PDF en M_Z, o el 0,118 de este laboratorio; los dos se llevan a la masa a un lazo con seis sabores (la tabla de α_s del propio conjunto difiere en torno al 0,6 % a 1,8 TeV).",
           "try": "Compara los dos; la producción escala con el acoplo."
         },
         {

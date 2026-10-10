@@ -1,5 +1,23 @@
 # HANDOFF — GHU Lab
 
+## 2026-10-10 (late) — KK-gluon card after an external review
+
+`changes/2026-10-10-kk-gluon-review.md`. Published RS point now carries all nine c (`cQ2`, `cU2`, `cD1`, `cD2`; null =
+the light value, so the other presets are unchanged). ATLAS control with the benchmark's chirality (g_tR ≈ 4 g_s):
+within 15% only 1–4 TeV, 4.5–5 TeV pinned as a known deviation (ratio 0.82–0.85); the mass slope is open (T132).
+`ttsReferenceCheck` returns `{…, checked, tolerance, passed, failures}` and fails on empty/NaN blocks (the KK card shows
+it); `ttsSolve` refuses non-symmetric matrices; `xsSigmaBW` gives 0 for no top coupling with BRX 0, throws for BRX > 0.
+New value `tt_spectrum_dchi2_normalisation` (theory error fully correlated). `tools/alphas_table_check.py` (docker
+ghu-pdf) → `data/alphas_table_check.txt`. Harness counts now: `_test_tt_spectrum` 91, `_test_resonance_xsec` 46,
+`_test_kk_gluon_lhc` 43. Still open from the review: dijet templates (NWA vs CMS's 15/20% curves), status vocabulary
+(two axes), recomputing only what ttTheory changes.
+
+Video revision `2026-10-10-demos` (`tools/video_guide/add_revision_demos.py`): all 44 chapters re-recorded so the
+screens show the 🎬 Demo buttons; chapter 43 starts the KK card's demo (`.cdm-btn`) and stops it (`[data-cdm-stop]`);
+`make_demo_scripts.mjs` drops both from the generated demos. Previous revision frozen as
+`src/site/video-2026-10-10-kkgluon.html`. Narration needs Windows PowerShell 5.1 (`powershell.exe -File narrate.ps1`):
+pwsh 7 has no System.Speech.
+
 ## 2026-10-10 — the first KK gluon against ATLAS and CMS data (ninth experiment card)
 
 **Collider → First KK gluon at the LHC.** Flat GHU coloron or warped zero-mode quarks; couplings, Γ/M, BR, LO

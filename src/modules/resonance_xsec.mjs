@@ -69,9 +69,12 @@ export function xsSigmaBW(lumi, { MGeV, alphas, gq, GammaOverM, BRX, mTopGeV = 1
   const g = lumi.grid_sqrtshat_GeV, lo = Math.max(g[0], 2 * mTopGeV + 1), hi = g[g.length - 1];
   const thLo = Math.atan((lo * lo - M * M) / (M * G)), thHi = Math.atan((hi * hi - M * M) / (M * G));
   const outsideFraction = 1 - (thHi - thLo) / Math.PI;   /* of the bare Lorentzian, for the record */
+  /* with no top coupling the threshold factor is 0 at the pole too: BRX = 0 gives σ = 0, not 0·0/0 (consultation T133) */
+  const thrM = xsTopThreshold(topLR[0], topLR[1], M, mTopGeV);
+  if (gamX !== 0 && !(thrM > 0)) throw new Error("xsSigmaBW: BRX > 0 but the top couplings give no width at the pole");
   const integrandTheta = (th) => {
     const sh = M * M + M * G * Math.tan(th), m = Math.min(Math.max(Math.sqrt(sh), lo), hi);   /* tan(atan x) overshoots by ulps */
-    const gx = gamX * xsTopThreshold(topLR[0], topLR[1], m, mTopGeV) / xsTopThreshold(topLR[0], topLR[1], M, mTopGeV);   /* chirality-aware */
+    const gx = gamX === 0 ? 0 : gamX * xsTopThreshold(topLR[0], topLR[1], m, mTopGeV) / thrM;   /* chirality-aware */
     let sum = 0;
     for (const q of XS_QUARKS) {
       const [gL, gR] = gq[q] || [0, 0], Gq = (alphas / 12) * (gL * gL + gR * gR) * M;

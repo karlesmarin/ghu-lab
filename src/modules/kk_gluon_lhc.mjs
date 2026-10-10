@@ -10,7 +10,7 @@
  * spin-1 qq limits at 1/10/30/55% width, interpolated log-linearly in the width).  The comparison is SModelS's
  * r = prediction / limit (DESIGN D9); the tool states r and lets the user conclude.
  * CONVENTIONS, as the experiments use them: tt̄ — Breit–Wigner σ × BR at LO (ATLAS's own theory curve is the
- * control, reproduced within 15% from 1 to 5 TeV); dijet — narrow-width σ × B × A × K as CMS computes its models
+ * control, with its chiral top couplings: within 15% from 1 to 4 TeV, 15–18% low at 4.5–5 TeV); dijet — narrow-width σ × B × A × K as CMS computes its models
  * (B = five light quarks, top in the width only; A = (1 + cos²θ*) acceptance of |Δη| < 1.1; K = CMS's coloron K).
  * Above ~6 TeV the q q̄ luminosity differs between PDF sets by more than 20%: that systematic is shown, not hidden.
  */
@@ -28,10 +28,14 @@ import { TTS_REFERENCE } from "./tts_reference.mjs";
 
 export const KKG_LIMITS = { MTeV: [1, 8], kL: [8, 40], c: [-1.2, 1.2] };
 
-/* realisation: 0 flat GHU, 1 warped.  alphasSet: 0 the PDF set's α_s(MZ) = 0.130, 1 the lab's 0.118. */
+/* realisation: 0 flat GHU, 1 warped.  alphasSet: 0 the PDF set's α_s(MZ) = 0.130, 1 the lab's 0.118; either is run at
+ * one loop, nf = 6, not read from the PDF set's own α_s table (consultation T133). */
 export function kkgValidate(input = {}) {
+  /* cQ2, cU2, cD1, cD2: null = equal to the light value; the published point sets all nine (consultation T133) */
   const p = { realisation: 1, MTeV: 3.75, kL: 35, cQ3: 0.3, cTR: 0.3, cLightL: 0.6, cLightR: -0.6, cBR: -0.6,
-              alphasSet: 0, ttTheory: 0.10, ...input };
+              cQ2: null, cU2: null, cD1: null, cD2: null, alphasSet: 0, ttTheory: 0.10, ...input };
+  for (const k of ["cQ2", "cU2", "cD1", "cD2"])
+    if (p[k] !== null && !(p[k] >= KKG_LIMITS.c[0] && p[k] <= KKG_LIMITS.c[1])) throw new RangeError(`${k} outside −1.2…1.2 (or null)`);
   if (!(p.ttTheory >= 0 && p.ttTheory <= 0.5)) throw new RangeError("ttTheory (SM theory uncertainty per bin) outside 0…0.5");
   for (const k of ["realisation", "alphasSet"]) if (![0, 1].includes(p[k])) throw new RangeError(`${k} must be 0 or 1`);
   if (!(p.MTeV >= KKG_LIMITS.MTeV[0] && p.MTeV <= KKG_LIMITS.MTeV[1])) throw new RangeError("Mass outside 1…8 TeV");
@@ -41,11 +45,13 @@ export function kkgValidate(input = {}) {
   return p;
 }
 
-/* The published reference point (arXiv:0807.4937 Sec. 6.3), mapped to the lab's c: doublets −c_Q, singlets +c_q. */
+/* The published reference point (arXiv:0807.4937 Sec. 6.3), mapped to the lab's c: doublets −c_Q, singlets +c_q.
+ * All nine bulk masses, in the flavour-diagonal (zero-mode) approximation: no mass-basis rotations.  A first version
+ * set Q₂ = Q₁ and d₁ = d₂ = u₁; at 3.75 TeV that moved σ × BR(tt̄) by 1.2% and the dijet σ × B by 19% (T133). */
 export function kkgBenchmarkInputs() {
-  const c = RF_BENCHMARK.c_paper;
-  return { realisation: 1, kL: Number(RF_BENCHMARK.L), MTeV: 3.75, cQ3: -Number(c.Q_3), cTR: Number(c.u_3),
-           cLightL: -Number(c.Q_1), cLightR: Number(c.u_1), cBR: Number(c.d_3), alphasSet: 0 };
+  const c = Object.fromEntries(Object.entries(RF_BENCHMARK.c_paper).map(([k, v]) => [k, Number(v)]));
+  return { realisation: 1, kL: Number(RF_BENCHMARK.L), MTeV: 3.75, cQ3: -c.Q_3, cTR: c.u_3, cLightL: -c.Q_1, cLightR: c.u_1, cBR: c.d_3,
+           cQ2: -c.Q_2, cU2: c.u_2, cD1: c.d_1, cD2: c.d_2, alphasSet: 0 };
 }
 
 const kkgLogInterp = (xs, ys, x) => {
@@ -62,7 +68,8 @@ function kkgCouplings(p) {
     const g = Math.SQRT2;
     return { x1: null, gQ: [g, g, g], gU: [g, g, g], gD: [g, g, g], certificate: { claim: "√2 g_s to every quark, Γ/M = 2α_s", check: "collider.mjs coloronOf; _test_collider.mjs" } };
   }
-  const o = rfOctetGenerations({ kL: p.kL, MGeV: 3000, cQ: [p.cLightL, p.cLightL, p.cQ3], cU: [p.cLightR, p.cLightR, p.cTR], cD: [p.cLightR, p.cLightR, p.cBR] });
+  const o = rfOctetGenerations({ kL: p.kL, MGeV: 3000, cQ: [p.cLightL, p.cQ2 ?? p.cLightL, p.cQ3], cU: [p.cLightR, p.cU2 ?? p.cLightR, p.cTR],
+                                 cD: [p.cD1 ?? p.cLightR, p.cD2 ?? p.cLightR, p.cBR] });
   return { x1: o.x1, gQ: o.couplings.Q, gU: o.couplings.U, gD: o.couplings.D, certificate: o.certificate };
 }
 
@@ -93,14 +100,18 @@ export function kkgModel(input = {}) {
   /* the m(tt̄) spectrum with interference, in the CMS binning (tt_spectrum.mjs); Δχ² is a sensitivity, not a limit */
   const T = TT_CMS.abs, ttBins = T.bin_low_GeV.map((lo, i) => [lo, T.bin_high_GeV[i]]);
   /* the experimental covariance plus an uncorrelated SM-theory uncertainty ttTheory × d_i per bin (the NNLO prediction
-   * carries scale and PDF errors the measurement's covariance does not contain) */
+   * carries scale and PDF errors the measurement's covariance does not contain).  Both theory models are this tool's
+   * assumptions, not CMS's: real scale and PDF errors are correlated across bins (consultation T133), so the fully
+   * correlated normalisation is shown beside the diagonal one; the truth lies in neither by construction. */
   const covTh = T.covariance.map((row, i) => row.map((c, j) => i === j ? c + (p.ttTheory * T.value[i]) ** 2 : c));
+  const covNorm = T.covariance.map((row, i) => row.map((c, j) => c + p.ttTheory ** 2 * T.value[i] * T.value[j]));
   const aSof = (mu) => p.alphasSet === 0 ? alphasRun(mu, { aZ: XS_LUMI.pdf.alphas_MZ }) : alphasRun(mu);
   const spec = (M) => { const m = kkgAtMass(p, C, M);
     const s = ttsSpectrum(XS_LUMI, { MGeV: M, GammaGeV: m.GoverM * M, gq: m.gq, top: [C.gQ[2], C.gU[2]], aS: aSof, aV: m.aS, bins: ttBins });
     const R = s.bins.map((b) => b.R);
     return { M, ...s, sensExp: ttsSensitivity(R, T.value, T.covariance), sens: ttsSensitivity(R, T.value, covTh) }; };
   const M = p.MTeV * 1000, here = tt(M), hereJ = jj(M), hereS = spec(M);
+  const sensNorm = ttsSensitivity(hereS.bins.map((b) => b.R), T.value, covNorm);
   const scanS = []; for (let m = 1000; m <= 8000; m += 250) scanS.push(spec(m));
   let reachS = null;
   for (let i = 0; i + 1 < scanS.length; i++) { const a = scanS[i].sens.chi2, b = scanS[i + 1].sens.chi2;
@@ -136,17 +147,18 @@ export function kkgModel(input = {}) {
     /* interference: computed in the spectrum below.  Its sign below the pole is −sign(v_q v_t): destructive for
      * same-sign couplings (flat GHU), constructive for the warped reference point (v_q < 0 < v_t). */
     interference_below_pole: val(vq * vt > 0 ? "destructive" : vq * vt < 0 ? "constructive" : "none", { status: STATUS.THEOREM, source: `sign of −v_u v_t (σ̂_int proportional to v_q v_t (ŝ − M²)); v_u = ${vq.toFixed(3)}, v_t = ${vt.toFixed(3)}` }),
-    tt_spectrum_dchi2: val(hereS.sens.chi2, { status: STATUS.MEASURED, source: `Δχ² = Δ · C⁻¹ · Δ over the 15 bins of CMS ${T.doi} (covariance ${T.covariance_doi}) plus ${(100 * p.ttTheory).toFixed(0)}% uncorrelated SM-theory uncertainty, Δ_i = R_i d_i at LO: an expected sensitivity if the data equal the SM, not an exclusion` }),
+    tt_spectrum_dchi2: val(hereS.sens.chi2, { status: STATUS.MEASURED, source: `Δχ² = Δ · C⁻¹ · Δ over the 15 bins of CMS ${T.doi} (covariance ${T.covariance_doi}) plus ${(100 * p.ttTheory).toFixed(0)}% SM-theory uncertainty, uncorrelated between bins (an assumption of this tool, not CMS's theory model); Δ_i = R_i d_i at LO, i.e. the same K-factor for SM, octet and interference (assumed, not validated): an expected sensitivity if the data equal the SM, not an exclusion` }),
+    tt_spectrum_dchi2_normalisation: val(sensNorm.chi2, { status: STATUS.MEASURED, source: `the same with the ${(100 * p.ttTheory).toFixed(0)}% SM-theory uncertainty fully correlated across bins (a free normalisation); the diagonal and the normalisation models bracket nothing by construction: they show how much the answer depends on an assumption CMS's correlated theory errors would fix` }),
     tt_spectrum_dchi2_experimental: val(hereS.sensExp.chi2, { status: STATUS.MEASURED, source: "the same with the experimental covariance alone (an upper bound on the sensitivity)" }),
     tt_spectrum_largest_shift: val(worstBin.R, { status: STATUS.MEASURED, source: `largest relative change of dσ/dm(tt̄), in the bin ${worstBin.lo}–${worstBin.hi} GeV (V + interference over the LO SM)` }),
-    tt_spectrum_reach_GeV: reachS == null ? unknown("Δχ² does not cross 3.84 between 1 and 8 TeV") : val(reachS, { units: "GeV", status: STATUS.MEASURED, source: `mass where the expected Δχ² of the CMS m(tt̄) spectrum (with ${(100 * p.ttTheory).toFixed(0)}% SM-theory uncertainty) falls to 3.84 (one parameter, Gaussian, 95% if the data equal the SM): a sensitivity, not a limit` }),
+    tt_spectrum_reach_GeV: reachS == null ? unknown("Δχ² does not cross 3.84 between 1 and 8 TeV") : val(reachS, { units: "GeV", status: STATUS.MEASURED, source: `mass where the expected Δχ² of the CMS m(tt̄) spectrum (with ${(100 * p.ttTheory).toFixed(0)}% SM-theory uncertainty, uncorrelated between bins: an assumption) falls to 3.84 (one parameter, Gaussian, 95% if the data equal the SM): a sensitivity, not a limit` }),
   };
   const certificates = {
     couplings: C.certificate,
     tt_integration: { claim: "Breit–Wigner integral converged over the whole luminosity grid",
       witness: { relativeShiftVsHalf: here.bw.relativeShiftVsHalf, lorentzianOutsideGrid: here.bw.lorentzianOutsideGrid },
       check: "_test_resonance_xsec.mjs: BW → NWA within 1% at Γ/M = 0.2%" },
-    tt_control: { claim: "ATLAS's own LO theory curve for its benchmark is reproduced within 15% from 1 to 5 TeV",
+    tt_control: { claim: "ATLAS's own LO theory curve for its chiral benchmark (g_tL = g_s, g_tR ≈ 4 g_s) is reproduced within 15% from 1 to 4 TeV; at 4.5–5 TeV this computation falls 15–18% below it, an unexplained mass slope",
       check: "_test_resonance_xsec.mjs (HEPData " + A.doi + ")" },
     dijet_control: { claim: "CMS's own coloron curve is reproduced within 4% from 2 to 5 TeV; the drift above follows the PDF luminosity ratio",
       check: "_test_kk_gluon_lhc.mjs (HEPData " + D.narrow.doi + ")" },

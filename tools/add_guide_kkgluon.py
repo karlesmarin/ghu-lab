@@ -34,7 +34,7 @@ EN = {
         {"name": "Realisation", "meaning": "Flat GHU (Part VII coloron) or warped zero-mode quarks.", "try": "Switch at fixed mass and compare BR(tt̄)."},
         {"name": "KK-gluon mass [TeV]", "meaning": "The resonance mass at which the r values are read.", "try": "Move it across the crossing and watch r pass 1."},
         {"name": "kL and the c values", "meaning": "Warp factor and bulk masses (left-handed UV-localised for c > 1/2, right-handed for c < −1/2), as in the RS localisation probe.", "try": "Raise c of t_R and watch the top coupling and the width grow."},
-        {"name": "α_s(M_Z)", "meaning": "0.130 as the generators use with this PDF set, or this laboratory's 0.118.", "try": "Compare the two; the production scales with the coupling."},
+        {"name": "α_s(M_Z)", "meaning": "0.130, the PDF set's value at M_Z, or this laboratory's 0.118; either is run to the mass at one loop with six flavours (the PDF set's own α_s table differs by about 0.6% at 1.8 TeV).", "try": "Compare the two; the production scales with the coupling."},
         {"name": "SM theory uncertainty per m(tt̄) bin", "meaning": "An uncorrelated fraction of each measured bin added to the CMS covariance, standing for the scale and PDF errors of the SM prediction.", "try": "Set it to 0 and to 0.2: the Δχ² and the mass where it reaches 3.84 move a lot, which is the honest size of this comparison."}],
     "outputs": [
         {"name": "Couplings g₁/g_s", "meaning": "Zero-mode couplings to the first KK gluon, certified against a 40-digit reference."},
@@ -67,7 +67,7 @@ ES = {
         {"name": "Realización", "meaning": "GHU plana (coloron de la Parte VII) o quarks de modo cero en la dimensión curvada.", "try": "Cambia a masa fija y compara BR(tt̄)."},
         {"name": "Masa del gluón KK [TeV]", "meaning": "La masa a la que se leen los valores de r.", "try": "Muévela a través del cruce y mira cómo r pasa por 1."},
         {"name": "kL y los c", "meaning": "Factor de curvatura y masas de bulk (levógiro localizado en la UV si c > 1/2, dextrógiro si c < −1/2), como en la sonda de localización RS.", "try": "Sube el c de t_R y mira crecer el acoplo del top y la anchura."},
-        {"name": "α_s(M_Z)", "meaning": "0,130 como usan los generadores con este conjunto de PDF, o el 0,118 de este laboratorio.", "try": "Compara los dos; la producción escala con el acoplo."},
+        {"name": "α_s(M_Z)", "meaning": "0,130, el valor del conjunto de PDF en M_Z, o el 0,118 de este laboratorio; los dos se llevan a la masa a un lazo con seis sabores (la tabla de α_s del propio conjunto difiere en torno al 0,6 % a 1,8 TeV).", "try": "Compara los dos; la producción escala con el acoplo."},
         {"name": "Incertidumbre teórica del SM por intervalo de m(tt̄)", "meaning": "Una fracción no correlacionada de cada intervalo medido que se suma a la covarianza de CMS, en lugar de los errores de escala y de PDF de la predicción del SM.", "try": "Ponla a 0 y a 0,2: el Δχ² y la masa a la que llega a 3,84 se mueven mucho; ese es el tamaño honesto de esta comparación."}],
     "outputs": [
         {"name": "Acoplos g₁/g_s", "meaning": "Acoplos de los modos cero al primer gluón KK, certificados contra una referencia de 40 dígitos."},

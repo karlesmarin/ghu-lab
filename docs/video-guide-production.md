@@ -10,8 +10,10 @@ The experiment's question, changed input and interpretation form each chapter's 
 
 ## What was recorded
 
-The revision of 10 October (`2026-10-10-kkgluon`) recaptures all 44 chapters against the current laboratory
-and adds chapter 43, *First KK gluon at the LHC*: five scenes that load the published warped reference point,
+The revision `2026-10-10-demos` recaptures all 44 chapters (145 scenes) against the current laboratory, so every
+screen shows the guided 🎬 Demo buttons; chapter 43 opens by starting the KK-gluon card's own demo, then takes
+over, and its narration follows the card after the external review (`tools/video_guide/add_revision_demos.py`).
+The earlier revision of 10 October (`2026-10-10-kkgluon`) recaptured all 44 chapters and added chapter 43, *First KK gluon at the LHC*: five scenes that load the published warped reference point,
 read r against the ATLAS tt̄ limit, show the m(tt̄) spectrum with constructive interference, switch to the flat
 GHU coloron where it turns destructive, and set the SM theory uncertainty to zero to show how the expected Δχ²
 moves. The opening scene mentions the new chapter. `tools/video_guide/add_chapter_kkgluon.py` inserts it;
@@ -25,11 +27,13 @@ diagnostics and withdrawal of unmatched archived evidence. Two existing scenes h
 narration in each language. The 139-scene script preserves scientific attribution and separates
 formal proofs, computer-assisted interval results, numerical agreement and open physics.
 
-Current assets live in `media/video/2026-10-10-kkgluon/`, selected by
+Current assets live in `media/video/2026-10-10-demos/`, selected by
 `media/video/current.json`. Earlier media remain byte-identical in `media/video/`,
-`media/video/2026-10-08/` and `media/video/2026-10-08-certification/`. Their complete previously served pages
-are preserved as `video/2026-10-07.html`, `video/2026-10-08.html` and `video/2026-10-08-certification.html`;
-Editions links all three.
+`media/video/2026-10-08/`, `media/video/2026-10-08-certification/` and `media/video/2026-10-10-kkgluon/`. Their
+complete previously served pages are preserved as `video/2026-10-07.html`, `video/2026-10-08.html`,
+`video/2026-10-08-certification.html` and `video/2026-10-10-kkgluon.html`; Editions links all four. The
+2026-10-10-demos revision re-recorded every chapter again, after the 🎬 Demo buttons were added (the KK-gluon
+revision's screens predate them).
 Identical audio is reused only when text, voice, rate and sample rate match. Image contents,
 audio and overlays all participate in clip cache keys. Captions and chapter times are rebuilt.
 

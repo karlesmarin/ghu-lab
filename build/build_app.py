@@ -46,7 +46,7 @@ KERNEL = ["meta.mjs", "status.mjs", "experiment.mjs", "observables.mjs", "sensit
           "cite.mjs", "latex.mjs", "blkt.mjs", "alphabet.mjs", "fibres.mjs", "moves.mjs", "rotations.mjs",
           # rank.mjs before unbroken.mjs: the second calls the first, and one scope means order is the import.
           "rank.mjs", "unbroken.mjs", "tripod.mjs"]
-VIEW = ["fibre_panels.js", "tower3d.js", "demo.js", "howto.js", "help.js", "neutrino_panel.js", "neutrino_decay_panel.js", "diagnostics_panels.js", "research_panels.js", "card_demo.js", "card_demos_cards.js", "demo_scripts.mjs", "neutrino_research_panel.js", "moment_panels.js", "crossvalidation_panels.js"]
+VIEW = ["fibre_panels.js", "tower3d.js", "demo.js", "howto.js", "help.js", "neutrino_panel.js", "neutrino_decay_panel.js", "diagnostics_panels.js", "research_panels.js", "card_demo.js", "card_demos_cards.js", "card_demos_sections.js", "demo_scripts.mjs", "neutrino_research_panel.js", "moment_panels.js", "crossvalidation_panels.js"]
 MODULES = ["selection.mjs", "calculator.mjs", "hierarchy.mjs", "anomalies.mjs", "escape.mjs",
            "samepot.mjs", "screen.mjs", "collider.mjs", "atlas.mjs", "eta.mjs", "fived.mjs",
            "spectrum.mjs", "inverse.mjs", "census.mjs", "sun5d.mjs", "bcclass.mjs",

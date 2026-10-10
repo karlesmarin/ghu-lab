@@ -26,6 +26,42 @@ const cdmLang = () => (CDM_URL.lang === 'es' || CDM_URL.lang === 'en') ? CDM_URL
 const cdmNum = (x, d = 2) => (x == null || !Number.isFinite(x)) ? '—' : Number(x).toFixed(d);
 const cdmChapters = () => (typeof CDM_SCRIPTS !== 'undefined' ? CDM_SCRIPTS.chapters : []);
 const cdmChapter = id => cdmChapters().find(c => c.id === id) || null;
+/* live readers for section demos: what the section itself prints, quoted — so a demo never states what the page does not */
+const cdmT = sel => (document.querySelector(sel)?.textContent || '').replace(/\s+/g, ' ').trim();
+const cdmV = sel => document.querySelector(sel)?.value ?? '';
+/* Block-aware text: a block element (a box, a row, a paragraph) ends its own phrase, so "1,286 tiles drawn" and
+ * "Sorted by…" do not run together.  textContent, not innerText: innerText applies CSS text-transform (UPPERCASE labels). */
+const CDM_BLOCK = new Set(['DIV', 'P', 'LI', 'TR', 'TABLE', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'SECTION', 'DETAILS', 'SUMMARY', 'UL', 'OL', 'TBODY', 'THEAD']);
+function cdmBT(sel) {
+  const el = document.querySelector(sel); if (!el) return '';
+  let out = '';
+  /* a block is decided by layout, not by tag: a <b> styled display:block ends its phrase too; table cells are spaced */
+  const BLOCKISH = new Set(['block', 'flex', 'grid', 'list-item', 'table', 'table-row', 'flow-root', 'table-row-group', 'table-header-group', 'table-caption']);
+  const kind = c => { const d = getComputedStyle(c).display;
+    return d === 'table-cell' ? 'cell' : (CDM_BLOCK.has(c.tagName) || BLOCKISH.has(d)) ? 'block' : 'inline'; };
+  const walk = n => { for (const c of n.childNodes) {
+    if (c.nodeType === 3) out += c.data.replace(/\s+/g, ' ');                                   // source line breaks are spaces
+    else if (c.nodeType === 1) {
+      if (c.tagName === 'BR') { out += ' '; continue; }                                        // a line break inside a sentence
+      if (c.childElementCount === 0 && c.textContent.trim() === 'i') continue;                 // the ⓘ info glyph
+      const k = kind(c); if (k === 'block') out += '\n'; walk(c); out += k === 'block' ? '\n' : k === 'cell' ? ' ' : '';
+    }
+  } };
+  walk(el);
+  return out.split(/\n+/).map(s => s.replace(/\s+/g, ' ').trim()).filter(Boolean)
+    .map(s => /[.!?:;,—–]$/.test(s) ? s : s + '.').join(' ');
+}
+/* a sentence ends at . ! ? followed by a space and a capital — never inside "1.92 TeV" */
+const CDM_ABBR = /\b(eq|eqs|Eq|Eqs|Fig|Figs|Ref|Refs|Sec|Secs|Thm|Phys|Rev|Lett|Math|Nucl|Mod|J|Proc|Vol|No|vs|al|cf|e\.g|i\.e|Prop|Lemma|Cor|Part|App|Ch)\.$/;
+const cdmSentences = sel => {
+  const raw = cdmBT(sel).split(/(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÑ«“"])/), out = [];
+  for (const piece of raw) { if (out.length && CDM_ABBR.test(out[out.length - 1])) out[out.length - 1] += ' ' + piece; else out.push(piece); }
+  return out;
+};
+/* many panels open with a short headline ("And it was just checked."): a quote then carries the sentence that has the data */
+const cdmS = (sel, n = 1) => { const p = cdmSentences(sel); const k = (p[0] || '').length < 60 && p.length > n ? n + 1 : n; return p.slice(0, k).join(' ').trim(); };
+const cdmLast = sel => cdmSentences(sel).at(-1) || '';
+const cdmFind = (sel, re) => cdmSentences(sel).find(s => re.test(s)) || '';
 const cdmEsc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 /* Hand-written card scripts, for banners that quote the card's numbers as they appear.  `v` is the current result. */
@@ -191,15 +227,26 @@ async function cdmRunHand(id) {
       if (!b) throw new Error('missing button: ' + s.button);
       cdmBanner(s[lang](d.model()), i + 1, total); cdmHighlight(b); await cdmSleep(1400); b.click(); await cdmSleep(900);
       if (s.then) { cdmBanner(s.then[lang](d.model()), i + 1, total); cdmHighlight(s.then.hl || `#rx_${id}_result > p`, s.then.index || 0); await cdmRead(4200); }
+    } else if (s.act) {
+      cdmBanner(s[lang](d.model()), i + 1, total); await cdmAct(s.act);
+      if (s.then) { cdmBanner(s.then[lang](d.model()), i + 1, total); if (!cdmHighlight(s.then.hl, s.then.index || 0)) throw new Error('missing target: ' + s.then.hl); await cdmRead(4200); }
+    } else if (s.click) {
+      const el = document.querySelector(s.click);
+      if (!el) throw new Error('missing control: ' + s.click);
+      cdmBanner(s[lang](d.model()), i + 1, total); cdmHighlight(el); await cdmSleep(1400); el.click(); await cdmSleep(900);
+      for (let k = 0; k < 600 && document.querySelector(s.click)?.disabled; k++) await cdmSleep(100);
+      if (s.then) { cdmBanner(s.then[lang](d.model()), i + 1, total); if (!cdmHighlight(s.then.hl || s.click, s.then.index || 0)) throw new Error('missing target: ' + s.then.hl); await cdmRead(4200); }
     } else if (s.set) {
       const [sel, value] = s.set, input = document.querySelector(sel);
       if (!input) throw new Error('missing control: ' + sel);
       const v = typeof value === 'function' ? value(d.model()) : value;
       cdmBanner(s[lang](d.model()), i + 1, total); cdmHighlight(sel); await cdmSleep(1400);
-      input.value = String(v); input.dispatchEvent(new Event(input.tagName === 'SELECT' ? 'change' : 'input', { bubbles: true }));
-      input.dispatchEvent(new Event('change', { bubbles: true })); await cdmSleep(900);
+      if (input.type === 'checkbox') { input.checked = !!v; input.dispatchEvent(new Event('change', { bubbles: true })); }
+      else { input.value = String(v); input.dispatchEvent(new Event(input.tagName === 'SELECT' ? 'change' : 'input', { bubbles: true }));
+        input.dispatchEvent(new Event('change', { bubbles: true })); }
+      await cdmSleep(900);
       const now = document.querySelector(sel);
-      if (now && String(now.value) !== String(v) && Number(now.value) !== Number(v)) throw new Error(`value did not persist: ${sel} wanted ${v}, got ${now.value}`);
+      if (now && (now.type === 'checkbox' ? now.checked !== !!v : (String(now.value) !== String(v) && Number(now.value) !== Number(v)))) throw new Error(`value did not persist: ${sel} wanted ${v}, got ${now.type === 'checkbox' ? now.checked : now.value}`);
       if (s.then) { cdmBanner(s.then[lang](d.model()), i + 1, total); cdmHighlight(s.then.hl || `#rx_${id}_result > p`, s.then.index || 0); await cdmRead(4200); }
     } else {
       await cdmSleep(150);
@@ -209,7 +256,17 @@ async function cdmRunHand(id) {
       await cdmRead(s.read || 4200);
     }
   }
-  const x = d.explain[lang]; cdmClosePanel(id, x.title, x.lines);
+  if (d.explain === 'guide') { const g = cdmGuideClose(id); cdmClosePanel(id, g.title, g.lines); }
+  else { const x = d.explain[lang]; cdmClosePanel(id, x.title, x.lines); }
+}
+/* the closing panel from the user guide's own "how to read it" — curated text, not a conclusion written for the demo */
+function cdmGuideClose(id) {
+  const c = cdmChapter(id), lang = cdmLang(), es = lang === 'es', close = c?.close?.[lang], lines = [];
+  if (close?.read) lines.push(cdmEsc(close.read));
+  if (close?.expect) lines.push(`<b>${es ? 'Qué esperar:' : 'What to expect:'}</b> ${cdmEsc(close.expect)}`);
+  if (close?.guide && typeof guideHref === 'function') lines.push(`<a href="${guideHref(close.guide)}" target="_blank" rel="noopener">${es ? 'Guía completa ↗' : 'Full guide ↗'}</a>`);
+  lines.push(es ? '👉 <b>Ahora prueba tú:</b> cambia un parámetro cada vez y lee el resultado con su alcance.' : '👉 <b>Now try it yourself:</b> change one input at a time and read the result with its scope.');
+  return { title: (es ? '📊 Cómo leerlo · ' : '📊 How to read it · ') + cdmEsc(c ? (es ? c.titleES : c.title) : id), lines };
 }
 async function cdmRunChapter(id) {
   const c = cdmChapter(id), lang = cdmLang(), total = c.steps.length, es = lang === 'es';
@@ -297,7 +354,8 @@ if (CDM_URL.demo && typeof document !== 'undefined' && typeof document.querySele
   const ready = () => card ? !!document.querySelector(`#${card} h2`) : (ch && document.querySelector('#rail a.on')?.dataset.id === ch.host);
   const wait = () => {
     if (CDM_STATE.autostarted) return;
-    if (ch === undefined) { ch = cdmChapter(id); card = CDM_DEMOS[id] ? `rx_${id}` : ch?.card; }
+    /* a card demo waits for its card; a section demo (hand-written or not) waits for its section */
+    if (ch === undefined) { ch = cdmChapter(id); card = ch ? ch.card : (CDM_DEMOS[id] ? `rx_${id}` : null); }
     if (ready()) { CDM_STATE.autostarted = true; setTimeout(() => { if (card) document.getElementById(card)?.scrollIntoView({ block: 'start' }); cdmRun(id); }, 900 * CDM_URL.speed); }
     else if (++tries < 300) setTimeout(wait, 100);
   };

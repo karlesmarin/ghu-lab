@@ -32,7 +32,11 @@ buttons come from `howToBlock` (`cdmSectionButton`, a menu when a section has se
 **After editing the storyboard or a guide, run `node tools/make_demo_scripts.mjs`** — `_test_demo_scripts.mjs`
 fails otherwise. `build/demos.mjs` (browser gate 15) runs all 44 to their panel, plus two negative controls.
 The nine cards have hand-written scripts in `src/view/card_demos_cards.js` (presets, live numbers, wording chosen
-from the value; panels are thunks because sections load after views); sections use the storyboard scripts.
+from the value; panels are thunks because sections load after views). Sections: hand-written for hierarchy, samepot,
+collider, predict, atlas7, anomalies, escape, multiplets, screen and the Simulator modes higgs-production, neutrino-ring,
+cms-hnl, decays and every remaining section in `card_demos_sections.js` (banners quote live page text via cdmBT/cdmS/cdmFind: block-aware by computed
+style, textContent not innerText; abbreviations and <br> do not end sentences; batch-3 sections close with
+the guide reading via `explain: 'guide'`); only `start` and `exports` use the storyboard.
 
 **Same day, 🎬 card demo.** `src/view/card_demo.js` (cdm…, after tafagent's demos): a Demo button in a card's
 heading runs scripted steps through the card's real presets and inputs, with a top banner (numbers read live from the

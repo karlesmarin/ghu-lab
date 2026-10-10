@@ -86,8 +86,9 @@ read; no event is ever simulated.
 
 **🎬 Or let the laboratory show you.** Every menu section, Simulator mode and experiment card has a **🎬 Demo**
 button — in *How to use this section*, or in the card heading. It presses the real controls, a banner explains each
-step (with **Next ▶** and **✕**), and a closing panel says how to read the result. The 44 demos run the same actions
-as the 44 video chapters (they are generated from the video's script) and finish with the user guide's reading. A
+step (with **Next ▶** and **✕**), and a closing panel says how to read the result. Each demo is written for its own
+panel: card demos quote the card's live numbers, section demos quote what the section prints at that moment, so no
+banner says what the page does not; the welcome and export demos follow the video's script. A
 link starts one directly, e.g. [`#s=samepot&demo=samepot`](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=samepot&demo=samepot);
 add `&lang=es` for Spanish.
 

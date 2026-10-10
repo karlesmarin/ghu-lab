@@ -27,4 +27,7 @@ apart: a harness fails if either changes without regenerating them. A browser ga
 demos to their closing panel and requires that no step fail, with negative controls proving the
 gate can fail. The nine experiment cards have hand-written demos instead: each follows the question its
 card answers, presses its own presets, and every number in the banner is read from the card at that
-step (src/view/card_demos_cards.js).
+step (src/view/card_demos_cards.js). Every menu section and Simulator mode has a hand-written demo
+too (src/view/card_demos_sections.js): their banners quote what the section prints at that moment,
+so no banner states what the page does not say, and most close with the user guide's own reading.
+Only the welcome and export demos still follow the video script.

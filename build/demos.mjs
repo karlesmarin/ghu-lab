@@ -48,6 +48,12 @@ try {
   const listed = CDM_SCRIPTS.chapters.filter(c => c.host === 'predict' && !c.card).length;
   check(`the Simulator 🎬 menu lists its ${listed} demos`, await ev(`document.querySelectorAll('.cdm-menu [data-cdm-run]').length===${listed}`));
   check('clicking the menu button does not fold the how-to', await ev(`!document.querySelector('#section > details.howto')?.open`));
+  /* a link must start a demo by itself — for a section (hand-written) and for a card */
+  for (const [hash, id] of [['#s=hierarchy&demo=hierarchy&demoSpeed=0.02', 'hierarchy'], ['#s=collider&demo=higgstools&demoSpeed=0.02', 'higgstools']]) {
+    await send('Page.navigate', {url: 'about:blank'}); await send('Page.navigate', {url: url + hash});
+    let s = null; for (let i = 0; i < 600; i++) { await pause(100); s = await ev(`({fin:CDM_STATE.lastFinished,err:CDM_STATE.lastError,panel:!!document.getElementById('cdm_explain')})`); if (s.fin || s.err) break; }
+    check(`a link with demo=${id} starts it by itself and it finishes${s.err ? ' — ' + s.err : ''}`, s.fin === id && s.panel && !s.err);
+  }
   /* negative controls: the gate must be able to fail.  A demo whose control is missing, or whose value does not
    * persist, has to stop with the reason on screen rather than "finish". */
   await ev(`document.querySelector('.cdm-menu')?.remove()`);

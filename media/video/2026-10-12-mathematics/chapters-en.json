@@ -1,0 +1,234 @@
+[
+  {
+    "id": "01_question",
+    "title": "Can one boundary change a mass?",
+    "start": 0,
+    "end": 15.041666666666666,
+    "text": "Watch the blue profile. Changing just one boundary makes it bend, and its lowest eigenvalue rises. Why? Let us build the explanation, then check the same effect in the laboratory.",
+    "section": "Boundary spectra"
+  },
+  {
+    "id": "02_zero",
+    "title": "Start with a flat profile",
+    "start": 15.041666666666666,
+    "end": 35.041666666666664,
+    "text": "The horizontal coordinate is position along an extra dimension. The vertical coordinate is field amplitude, not a particle trajectory. With zero slope required at both ends, a constant profile is allowed. Its curvature, and its normal eigenvalue, are zero.",
+    "section": "Boundary spectra"
+  },
+  {
+    "id": "03_reject",
+    "title": "Change the rule at the right edge",
+    "start": 35.041666666666664,
+    "end": 55.5,
+    "text": "Now turn on the boundary coupling, called a. The right edge requires slope plus a times amplitude to equal zero. Our nonzero constant has zero slope but nonzero amplitude. Watch the residual turn red. This profile no longer satisfies the boundary condition.",
+    "section": "Boundary spectra"
+  },
+  {
+    "id": "04_shape",
+    "title": "Find a shape that obeys the rule",
+    "start": 55.5,
+    "end": 74.79166666666667,
+    "text": "We keep zero slope at the left edge. The bulk equation then gives a cosine profile. Change its frequency, x, and watch the right endpoint. Most frequencies still fail. Only the frequency that balances slope against boundary amplitude is allowed.",
+    "section": "Boundary spectra"
+  },
+  {
+    "id": "05_balance",
+    "title": "See the cancellation at the endpoint",
+    "start": 74.79166666666667,
+    "end": 94.91666666666667,
+    "text": "For a cosine, the endpoint slope is minus x sine x. The boundary term is a cosine x. At coupling one, these two contributions cancel. Rearranging gives x tangent x equals a. This equation comes directly from the endpoint balance.",
+    "section": "Boundary spectra"
+  },
+  {
+    "id": "06_gap",
+    "title": "From an allowed shape to a spectral gap",
+    "start": 94.91666666666667,
+    "end": 114.04166666666667,
+    "text": "Increase the coupling. The allowed profile bends more, while the first root rises. The small graph tracks the same calculation. With interval length pi R, the scaled normal mass is x over pi. It approaches one half as the coupling grows.",
+    "section": "Boundary spectra"
+  },
+  {
+    "id": "07_lab",
+    "title": "Check the prediction in GHU Lab",
+    "start": 114.04166666666667,
+    "end": 134.33333333333334,
+    "text": "Now the actual laboratory. We change the boundary strength from zero to four. Watch the paired curve lift above the unpaired curve. At Wilson angle zero, its intercept is exactly the normal gap we just derived. The highlighted input and the plotted result change together.",
+    "section": "Boundary spectra"
+  },
+  {
+    "id": "08_why",
+    "title": "The reason, in three steps",
+    "start": 134.33333333333334,
+    "end": 155.375,
+    "text": "The boundary rule changed. The constant profile became inadmissible. The lowest allowed mode now has a positive eigenvalue. That is the mechanism behind this gap, in this stated interval problem. The laboratory computes the effect; the boundary argument explains why it happens.",
+    "section": "Boundary spectra"
+  },
+  {
+    "id": "p1",
+    "section": "Profiles",
+    "title": "Two components are not two functions",
+    "text": "We have seen how a boundary selects a profile. Now ask a different question: how many profiles are independent? Start with three simple two component functions. The first lives in the upper component, the second in the lower component, and the third changes with position. Watch their curves being drawn.",
+    "start": 155.375,
+    "end": 177.45833333333334
+  },
+  {
+    "id": "p2",
+    "section": "Profiles",
+    "title": "Cancel at one point. Fail everywhere else.",
+    "text": "Try subtracting half of the first profile from the third. Their upper components cancel at the midpoint. But move away from that point: the residual returns. Dependence would require one fixed set of coefficients to cancel the entire function, at every position. A cancellation at one point is not enough.",
+    "start": 177.45833333333334,
+    "end": 199.91666666666666
+  },
+  {
+    "id": "p3",
+    "section": "Profiles",
+    "title": "Build the Gram matrix from overlaps",
+    "text": "The Gram matrix records an overlap for each pair of profiles, integrated over the interval. Watch the entries appear. The first and third profiles overlap: their entry is one half. That does not make them dependent. The determinant is one twelfth, so this matrix is invertible and all three functions are independent.",
+    "start": 199.91666666666666,
+    "end": 223.375
+  },
+  {
+    "id": "p4",
+    "section": "Profiles",
+    "title": "A quadratic form becomes visible area",
+    "text": "Use the same coefficients as before. The combined profile is u minus one half. Square its amplitude and integrate: the shaded area is one twelfth, not zero. This is exactly c star G c. In general it equals the squared norm of the combined profile. A zero direction of G is therefore precisely a dependence relation.",
+    "start": 223.375,
+    "end": 248.66666666666669
+  },
+  {
+    "id": "p5",
+    "section": "Profiles",
+    "title": "Return to the exponential profiles",
+    "text": "Now return to the three exponential profiles used in the laboratory. Each has two complex components and depends on two coordinates. The surface shows the first component of the middle profile. At mass parameter zero it is flat. As M increases, it gains a slope in the z direction. This new spatial dependence is the key.",
+    "start": 248.66666666666669,
+    "end": 272.75
+  },
+  {
+    "id": "p6",
+    "section": "Profiles",
+    "title": "Differentiate to expose independence",
+    "text": "Suppose a fixed linear combination of these three profiles vanishes. Differentiate with respect to z. Only the middle profile changes, so for nonzero M its coefficient b must vanish. The two remaining spinor directions then force a and c to vanish. At M zero, that derivative argument disappears and the three constant profiles span only two directions.",
+    "start": 272.75,
+    "end": 299.08333333333337
+  },
+  {
+    "id": "p7",
+    "section": "Profiles",
+    "title": "Watch the laboratory eigenvalues",
+    "text": "Change the profile mass from zero to one in the actual laboratory. At zero, one Gram eigenvalue is numerically zero. At one, all three are positive. Their sizes depend on normalization, and the numerical rank uses a tolerance. The independent rational interval certificate also proves positive definiteness at M one, with the smallest eigenvalue greater than zero point one one zero five.",
+    "start": 299.08333333333337,
+    "end": 327.83333333333337
+  },
+  {
+    "id": "p8",
+    "section": "Profiles",
+    "title": "Why three examples do not mean three families",
+    "text": "There is an important limit to this conclusion. Distinct exponential rates can produce four independent functions, or any finite number. Along a suitable line, their independence follows from a Vandermonde determinant. For the four displayed rates it is seventy two. A physical family count needs the actual operator domain and boundary conditions, not just three chosen profiles.",
+    "start": 327.83333333333337,
+    "end": 354.375
+  },
+  {
+    "id": "t1",
+    "section": "Traces",
+    "title": "Build a representation from signs",
+    "text": "Next, representation theory becomes an exact finite sum. For the positive half spin representation of Spin twenty, each weight is a list of ten signs, divided by two. Their product must be positive. Choose nine signs freely; the tenth is fixed. Watch the allowed weights fill the grid: two to the ninth gives five hundred and twelve.",
+    "start": 354.375,
+    "end": 379.83333333333337
+  },
+  {
+    "id": "t2",
+    "section": "Traces",
+    "title": "Let the weights contribute to a trace",
+    "text": "At a Cartan probe, each weight contributes a number q, obtained by taking its dot product with the probe. For this example the insertion is the product of the first two signs. We sum the insertion times q squared. Set the first probe coordinates to one and two, with the rest zero. Four equal groups of weights give a total of five hundred and twelve.",
+    "start": 379.83333333333337,
+    "end": 404.9166666666667
+  },
+  {
+    "id": "t3",
+    "section": "Traces",
+    "title": "Check every coefficient, not just one value",
+    "text": "Expand the squared dot product before choosing a probe. There are fifty five quadratic monomials in ten variables. The checker sums each coefficient using exact rational arithmetic. Watch the cancellations: only the cross term h one times h two survives, with coefficient two hundred and fifty six. We have checked the complete quadratic polynomial.",
+    "start": 404.9166666666667,
+    "end": 430.70833333333337
+  },
+  {
+    "id": "t4",
+    "section": "Traces",
+    "title": "A zero on an axis can hide a nonzero polynomial",
+    "text": "Now move the probe across that polynomial. On either coordinate axis the value is zero. Move to one, two and it becomes five hundred and twelve. The heat map makes the distinction visible: one zero evaluation cannot establish an identity. A nonzero evaluation can refute an identically zero polynomial.",
+    "start": 430.70833333333337,
+    "end": 454.00000000000006
+  },
+  {
+    "id": "t5",
+    "section": "Traces",
+    "title": "Change the insertion in the real laboratory",
+    "text": "The laboratory keeps its displayed ten dimensional Cartan probe fixed while we change the insertion. Watch the exact trace table change. For the first insertion, the quadratic moment is five hundred and twelve, consistent with our identity. Other insertions produce different moments. These are unweighted representation traces, before the normalization and inflow needed for physical anomaly coefficients.",
+    "start": 454.00000000000006,
+    "end": 482.04166666666674
+  },
+  {
+    "id": "t6",
+    "section": "Traces",
+    "title": "Where the calculation stops",
+    "text": "The finite weight sum answers a precise algebraic question. Turning it into an anomaly calculation requires the appropriate projectors, normalization and descent, together with the contributions of other sectors. Global charge data and inflow also matter. The moving marker stops at what we have actually computed. A trace certificate does not certify the complete quantum theory.",
+    "start": 482.04166666666674,
+    "end": 508.50000000000006
+  },
+  {
+    "id": "c1",
+    "section": "Consistency",
+    "title": "Count signed doublets on a residue clock",
+    "text": "Our final example is a restricted six dimensional consistency condition. Let N count the signed excess of complex Weyl doublets. In the stated standalone SU two tensor setting, N must be divisible by six. With identical family assignments, three quark colours and an opposite lepton chirality contribute three minus one: two per family. Watch each family advance the residue clock by two.",
+    "start": 508.50000000000006,
+    "end": 536.75
+  },
+  {
+    "id": "c2",
+    "section": "Consistency",
+    "title": "Multiples of three, not exactly three",
+    "text": "After three such families, the clock returns to zero. Six and nine families also pass this condition. If the lepton chirality matches instead, each identical family contributes four; again, multiples of three return to zero. The congruence restricts the possibilities. It does not uniquely select three generations.",
+    "start": 536.75,
+    "end": 561.5
+  },
+  {
+    "id": "c3",
+    "section": "Consistency",
+    "title": "Change an assumption. Change the inference.",
+    "text": "Now allow two families with different chirality assignments. The first contributes two, the second four. Together they make six, so this residue test passes with two families. This is a counterexample to dropping the identical assignment assumption. It is not a construction of a fully consistent two family physical model.",
+    "start": 561.5,
+    "end": 584.8333333333334
+  },
+  {
+    "id": "c4",
+    "section": "Consistency",
+    "title": "Six and twelve can describe the same test",
+    "text": "Counting complex doublets gives modulus six. Counting in half doublet units doubles N and uses modulus twelve. Watch both clocks together: they pass at the same time. The units changed, not the condition. The physical argument also requires integral tensor quantization; factorizing an anomaly polynomial alone does not supply all that global information.",
+    "start": 584.8333333333334,
+    "end": 611.25
+  },
+  {
+    "id": "c5",
+    "section": "Consistency",
+    "title": "Check one, three and six families in the lab",
+    "text": "Now change the family number in the laboratory, keeping the lepton chirality opposite to the quarks. One and two fail this restricted condition; three passes. Four and five fail; six passes again. The displayed residue explains every change. Keep the identical assignment and standalone theory assumptions attached to this result.",
+    "start": 611.25,
+    "end": 635.9583333333334
+  },
+  {
+    "id": "s1",
+    "section": "Evidence",
+    "title": "Four questions. Four kinds of evidence.",
+    "text": "We have followed four different questions. Boundary conditions selected a spectrum. Integrated overlaps tested function independence. Weight sums determined a polynomial. A residue condition constrained identical assignments. Each calculation has a reason, inputs and limits. Passing these separate diagnostics does not by itself determine a Higgs vacuum, neutrino masses or a complete Standard Model construction.",
+    "start": 635.9583333333334,
+    "end": 666.5
+  },
+  {
+    "id": "s2",
+    "section": "Evidence",
+    "title": "Follow the argument. Reproduce the result.",
+    "text": "The companion page links the laboratory, ordinary proofs, exact certificates and their checker. It also links the primary papers behind the assumptions. No proof assistant formalization is claimed. You can change the variables, reproduce the calculations, and challenge the missing physical assumptions. The purpose is to make the path between physics and mathematics visible, and checkable.",
+    "start": 666.5,
+    "end": 694.1666666666667
+  }
+]

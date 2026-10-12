@@ -21,6 +21,15 @@ what each tool is for, its inputs, equations, examples, graphs, exports and fail
 The general video revision **2026-10-12-boundary-research** covers **45 chapters / 154 scenes**
 in English and Spanish, including the new card; earlier video editions are retained.
 
+## Between physics and mathematics · English video
+
+[Watch the 11:34 film](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html):
+a small story connecting fields, function spaces, boundary spectra and representation traces.
+Twenty-nine animated chapters include step-by-step proofs, computed 2D/3D figures and actual laboratory controls.
+English narration and captions accompany [reproducible certificates](proof/boundary-research/README.md)
+with 113 checks and explicit scope. No proof-assistant formalization or complete physical-model
+certificate is claimed. [Versioned video files](media/video/2026-10-12-mathematics/README.md).
+
 ## User guides · 12 October 2026
 
 [English](https://karlesmarin.github.io/ghu-explorer/guide/index.html)

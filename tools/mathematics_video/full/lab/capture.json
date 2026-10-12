@@ -1,0 +1,1472 @@
+{
+  "source": "Actual GHU Lab 0.2.1 browser controls and rendered outputs; trace details opened and trace/family typography enlarged for legibility, without changing values",
+  "records": [
+    {
+      "kind": "gram",
+      "frame": 0,
+      "input": 0,
+      "result": {
+        "mass": 0,
+        "angles": [
+          0,
+          1.5707963267948966,
+          3.141592653589793
+        ],
+        "lengths": [
+          1,
+          1
+        ],
+        "real": [
+          [
+            2,
+            1,
+            0
+          ],
+          [
+            1,
+            2,
+            1
+          ],
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "imag": [
+          [
+            0,
+            1,
+            1.2246467991473532e-16
+          ],
+          [
+            -1,
+            0,
+            1
+          ],
+          [
+            -1.2246467991473532e-16,
+            -1,
+            0
+          ]
+        ],
+        "values": [
+          3.068386111202837e-16,
+          2,
+          4
+        ],
+        "rank": 2,
+        "threshold": 4e-10,
+        "tolerance": 1e-10,
+        "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+      }
+    },
+    {
+      "kind": "gram",
+      "frame": 1,
+      "input": 0.05,
+      "result": {
+        "mass": 0.05,
+        "angles": [
+          0,
+          1.5707963267948966,
+          3.141592653589793
+        ],
+        "lengths": [
+          1,
+          1
+        ],
+        "real": [
+          [
+            2.1034183615129525,
+            1.0514901294398182,
+            0
+          ],
+          [
+            1.0514901294398182,
+            2.1034183615129525,
+            1.0002083506952195
+          ],
+          [
+            0,
+            1.0002083506952195,
+            1.9032516392808085
+          ]
+        ],
+        "imag": [
+          [
+            0,
+            1.0514901294398182,
+            1.2246467991473532e-16
+          ],
+          [
+            -1.0514901294398182,
+            0,
+            1.0002083506952195
+          ],
+          [
+            -1.2246467991473532e-16,
+            -1.0002083506952195,
+            0
+          ]
+        ],
+        "values": [
+          0.0004268786779420826,
+          1.9985837409973057,
+          4.111077742631465
+        ],
+        "rank": 3,
+        "threshold": 4.111077742631465e-10,
+        "tolerance": 1e-10,
+        "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+      }
+    },
+    {
+      "kind": "gram",
+      "frame": 2,
+      "input": 0.1,
+      "result": {
+        "mass": 0.1,
+        "angles": [
+          0,
+          1.5707963267948966,
+          3.141592653589793
+        ],
+        "lengths": [
+          1,
+          1
+        ],
+        "real": [
+          [
+            2.2140275816016985,
+            1.1060922008874583,
+            0
+          ],
+          [
+            1.1060922008874583,
+            2.2140275816016985,
+            1.0008336111607197
+          ],
+          [
+            0,
+            1.0008336111607197,
+            1.8126924692201813
+          ]
+        ],
+        "imag": [
+          [
+            0,
+            1.1060922008874583,
+            1.2246467991473532e-16
+          ],
+          [
+            -1.1060922008874583,
+            0,
+            1.0008336111607197
+          ],
+          [
+            -1.2246467991473532e-16,
+            -1.0008336111607197,
+            0
+          ]
+        ],
+        "values": [
+          0.0017464993233013636,
+          1.9953228384188602,
+          4.243678294681415
+        ],
+        "rank": 3,
+        "threshold": 4.2436782946814153e-10,
+        "tolerance": 1e-10,
+        "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+      }
+    },
+    {
+      "kind": "gram",
+      "frame": 3,
+      "input": 0.15,
+      "result": {
+        "mass": 0.15,
+        "angles": [
+          0,
+          1.5707963267948966,
+          3.141592653589793
+        ],
+        "lengths": [
+          1,
+          1
+        ],
+        "real": [
+          [
+            2.3323920505066873,
+            1.164014316419416,
+            0
+          ],
+          [
+            1.164014316419416,
+            2.3323920505066873,
+            1.0018764068151524
+          ],
+          [
+            0,
+            1.0018764068151524,
+            1.7278785287885476
+          ]
+        ],
+        "imag": [
+          [
+            0,
+            1.164014316419416,
+            1.2246467991473532e-16
+          ],
+          [
+            -1.164014316419416,
+            0,
+            1.0018764068151524
+          ],
+          [
+            -1.2246467991473532e-16,
+            -1.0018764068151524,
+            0
+          ]
+        ],
+        "values": [
+          0.00401234667452399,
+          1.991626114530517,
+          4.397024168596881
+        ],
+        "rank": 3,
+        "threshold": 4.397024168596882e-10,
+        "tolerance": 1e-10,
+        "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+      }
+    },
+    {
+      "kind": "gram",
+      "frame": 4,
+      "input": 0.2,
+      "result": {
+        "mass": 0.2,
+        "angles": [
+          0,
+          1.5707963267948966,
+          3.141592653589793
+        ],
+        "lengths": [
+          1,
+          1
+        ],
+        "real": [
+          [
+            2.4591234882063517,
+            1.2254795330232664,
+            0
+          ],
+          [
+            1.2254795330232664,
+            2.4591234882063517,
+            1.0033377809537924
+          ],
+          [
+            0,
+            1.0033377809537924,
+            1.6483997698218036
+          ]
+        ],
+        "imag": [
+          [
+            0,
+            1.2254795330232664,
+            1.2246467991473532e-16
+          ],
+          [
+            -1.2254795330232664,
+            0,
+            1.0033377809537924
+          ],
+          [
+            -1.2246467991473532e-16,
+            -1.0033377809537924,
+            0
+          ]
+        ],
+        "values": [
+          0.007269746493549679,
+          1.9887625813417833,
+          4.570614418399176
+        ],
+        "rank": 3,
+        "threshold": 4.570614418399176e-10,
+        "tolerance": 1e-10,
+        "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+      }
+    },
+    {
+      "kind": "gram",
+      "frame": 5,
+      "input": 0.25,
+      "result": {
+        "mass": 0.25,
+        "angles": [
+          0,
+          1.5707963267948966,
+          3.141592653589793
+        ],
+        "lengths": [
+          1,
+          1
+        ],
+        "real": [
+          [
+            2.5948850828005128,
+            1.2907269971943232,
+            0
+          ],
+          [
+            1.2907269971943232,
+            2.5948850828005128,
+            1.0052191961463417
+          ],
+          [
+            0,
+            1.0052191961463417,
+            1.5738773611494663
+          ]
+        ],
+        "imag": [
+          [
+            0,
+            1.2907269971943232,
+            1.2246467991473532e-16
+          ],
+          [
+            -1.2907269971943232,
+            0,
+            1.0052191961463417
+          ],
+          [
+            -1.2246467991473532e-16,
+            -1.0052191961463417,
+            0
+          ]
+        ],
+        "values": [
+          0.011553873250581482,
+          1.9878471755171854,
+          4.7642464779827245
+        ],
+        "rank": 3,
+        "threshold": 4.764246477982725e-10,
+        "tolerance": 1e-10,
+        "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+      }
+    },
+    {
+      "kind": "gram",
+      "frame": 6,
+      "input": 0.3,
+      "result": {
+        "mass": 0.3,
+        "angles": [
+          0,
+          1.5707963267948966,
+          3.141592653589793
+        ],
+        "lengths": [
+          1,
+          1
+        ],
+        "real": [
+          [
+            2.7403960013016966,
+            1.3600131693166972,
+            0
+          ],
+          [
+            1.3600131693166972,
+            2.7403960013016966,
+            1.0075225361968998
+          ],
+          [
+            0,
+            1.0075225361968998,
+            1.5039612130199118
+          ]
+        ],
+        "imag": [
+          [
+            0,
+            1.3600131693166972,
+            1.2246467991473532e-16
+          ],
+          [
+            -1.3600131693166972,
+            0,
+            1.0075225361968998
+          ],
+          [
+            -1.2246467991473532e-16,
+            -1.0075225361968998,
+            0
+          ]
+        ],
+        "values": [
+          0.01688765305766835,
+          1.9898562599849572,
+          4.978009302580681
+        ],
+        "rank": 3,
+        "threshold": 4.97800930258068e-10,
+        "tolerance": 1e-10,
+        "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+      }
+    },
+    {
+      "kind": "gram",
+      "frame": 7,
+      "input": 0.35,
+      "result": {
+        "mass": 0.35,
+        "angles": [
+          0,
+          1.5707963267948966,
+          3.141592653589793
+        ],
+        "lengths": [
+          1,
+          1
+        ],
+        "real": [
+          [
+            2.8964363070585044,
+            1.4336131451752006,
+            0
+          ],
+          [
+            1.4336131451752006,
+            2.8964363070585044,
+            1.0102501086691484
+          ],
+          [
+            0,
+            1.0102501086691484,
+            1.4383277034531157
+          ]
+        ],
+        "imag": [
+          [
+            0,
+            1.4336131451752006,
+            1.2246467991473532e-16
+          ],
+          [
+            -1.4336131451752006,
+            0,
+            1.0102501086691484
+          ],
+          [
+            -1.2246467991473532e-16,
+            -1.0102501086691484,
+            0
+          ]
+        ],
+        "values": [
+          0.023279620976155446,
+          1.9956571201077047,
+          5.212263576486264
+        ],
+        "rank": 3,
+        "threshold": 5.212263576486264e-10,
+        "tolerance": 1e-10,
+        "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+      }
+    },
+    {
+      "kind": "gram",
+      "frame": 8,
+      "input": 0.4,
+      "result": {
+        "mass": 0.4,
+        "angles": [
+          0,
+          1.5707963267948966,
+          3.141592653589793
+        ],
+        "lengths": [
+          1,
+          1
+        ],
+        "real": [
+          [
+            3.063852321231169,
+            1.5118220825620436,
+            0
+          ],
+          [
+            1.5118220825620436,
+            3.063852321231169,
+            1.0134046479806853
+          ],
+          [
+            0,
+            1.0134046479806853,
+            1.376677589706946
+          ]
+        ],
+        "imag": [
+          [
+            0,
+            1.5118220825620436,
+            1.2246467991473532e-16
+          ],
+          [
+            -1.5118220825620436,
+            0,
+            1.0134046479806853
+          ],
+          [
+            -1.2246467991473532e-16,
+            -1.0134046479806853,
+            0
+          ]
+        ],
+        "values": [
+          0.030721822881524113,
+          2.0060414464422713,
+          5.467618962845487
+        ],
+        "rank": 3,
+        "threshold": 5.467618962845487e-10,
+        "tolerance": 1e-10,
+        "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+      }
+    },
+    {
+      "kind": "gram",
+      "frame": 9,
+      "input": 0.45,
+      "result": {
+        "mass": 0.45,
+        "angles": [
+          0,
+          1.5707963267948966,
+          3.141592653589793
+        ],
+        "lengths": [
+          1,
+          1
+        ],
+        "real": [
+          [
+            3.2435624692376663,
+            1.5949567416128991,
+            0
+          ],
+          [
+            1.5949567416128991,
+            3.2435624692376663,
+            1.0169893190713188
+          ],
+          [
+            0,
+            1.0169893190713188,
+            1.3187340894653352
+          ]
+        ],
+        "imag": [
+          [
+            0,
+            1.5949567416128991,
+            1.2246467991473532e-16
+          ],
+          [
+            -1.5949567416128991,
+            0,
+            1.0169893190713188
+          ],
+          [
+            -1.2246467991473532e-16,
+            -1.0169893190713188,
+            0
+          ]
+        ],
+        "values": [
+          0.039187888510608705,
+          2.021757512170201,
+          5.744913627259859
+        ],
+        "rank": 3,
+        "threshold": 5.744913627259859e-10,
+        "tolerance": 1e-10,
+        "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+      }
+    },
+    {
+      "kind": "gram",
+      "frame": 10,
+      "input": 0.5,
+      "result": {
+        "mass": 0.5,
+        "angles": [
+          0,
+          1.5707963267948966,
+          3.141592653589793
+        ],
+        "lengths": [
+          1,
+          1
+        ],
+        "real": [
+          [
+            3.43656365691809,
+            1.683357148235156,
+            0
+          ],
+          [
+            1.683357148235156,
+            3.43656365691809,
+            1.0210077216510465
+          ],
+          [
+            0,
+            1.0210077216510465,
+            1.2642411176571153
+          ]
+        ],
+        "imag": [
+          [
+            0,
+            1.683357148235156,
+            1.2246467991473532e-16
+          ],
+          [
+            -1.683357148235156,
+            0,
+            1.0210077216510465
+          ],
+          [
+            -1.2246467991473532e-16,
+            -1.0210077216510465,
+            0
+          ]
+        ],
+        "values": [
+          0.04863144055260619,
+          2.043538755949654,
+          6.045198234991035
+        ],
+        "rank": 3,
+        "threshold": 6.045198234991035e-10,
+        "tolerance": 1e-10,
+        "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+      }
+    },
+    {
+      "kind": "gram",
+      "frame": 11,
+      "input": 0.55,
+      "result": {
+        "mass": 0.55,
+        "angles": [
+          0,
+          1.5707963267948966,
+          3.141592653589793
+        ],
+        "lengths": [
+          1,
+          1
+        ],
+        "real": [
+          [
+            3.6439382253571515,
+            1.7773883907822894,
+            0
+          ],
+          [
+            1.7773883907822894,
+            3.6439382253571515,
+            1.0254638950343204
+          ],
+          [
+            0,
+            1.0254638950343204,
+            1.2129616660034916
+          ]
+        ],
+        "imag": [
+          [
+            0,
+            1.7773883907822894,
+            1.2246467991473532e-16
+          ],
+          [
+            -1.7773883907822894,
+            0,
+            1.0254638950343204
+          ],
+          [
+            -1.2246467991473532e-16,
+            -1.0254638950343204,
+            0
+          ]
+        ],
+        "values": [
+          0.058985038357803346,
+          2.0721281054733374,
+          6.3697249728866545
+        ],
+        "rank": 3,
+        "threshold": 6.369724972886655e-10,
+        "tolerance": 1e-10,
+        "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+      }
+    },
+    {
+      "kind": "gram",
+      "frame": 12,
+      "input": 0.6,
+      "result": {
+        "mass": 0.6,
+        "angles": [
+          0,
+          1.5707963267948966,
+          3.141592653589793
+        ],
+        "lengths": [
+          1,
+          1
+        ],
+        "real": [
+          [
+            3.8668615378942457,
+            1.877442560987582,
+            0
+          ],
+          [
+            1.877442560987582,
+            3.8668615378942457,
+            1.030362323568154
+          ],
+          [
+            0,
+            1.030362323568154,
+            1.1646763134796632
+          ]
+        ],
+        "imag": [
+          [
+            0,
+            1.877442560987582,
+            1.2246467991473532e-16
+          ],
+          [
+            -1.877442560987582,
+            0,
+            1.030362323568154
+          ],
+          [
+            -1.2246467991473532e-16,
+            -1.030362323568154,
+            0
+          ]
+        ],
+        "values": [
+          0.07015987486281987,
+          2.1082981354891457,
+          6.719941378916188
+        ],
+        "rank": 3,
+        "threshold": 6.719941378916188e-10,
+        "tolerance": 1e-10,
+        "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+      }
+    },
+    {
+      "kind": "gram",
+      "frame": 13,
+      "input": 0.65,
+      "result": {
+        "mass": 0.65,
+        "angles": [
+          0,
+          1.5707963267948966,
+          3.141592653589793
+        ],
+        "lengths": [
+          1,
+          1
+        ],
+        "real": [
+          [
+            4.106610257875761,
+            1.9839408511040286,
+            0
+          ],
+          [
+            1.9839408511040286,
+            4.106610257875761,
+            1.035707942662514
+          ],
+          [
+            0,
+            1.035707942662514,
+            1.11918185687075
+          ]
+        ],
+        "imag": [
+          [
+            0,
+            1.9839408511040286,
+            1.2246467991473532e-16
+          ],
+          [
+            -1.9839408511040286,
+            0,
+            1.035707942662514
+          ],
+          [
+            -1.2246467991473532e-16,
+            -1.035707942662514,
+            0
+          ]
+        ],
+        "values": [
+          0.08204644048157396,
+          2.152867450825259,
+          7.097488481315438
+        ],
+        "rank": 3,
+        "threshold": 7.097488481315439e-10,
+        "tolerance": 1e-10,
+        "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+      }
+    },
+    {
+      "kind": "gram",
+      "frame": 14,
+      "input": 0.7,
+      "result": {
+        "mass": 0.7,
+        "angles": [
+          0,
+          1.5707963267948966,
+          3.141592653589793
+        ],
+        "lengths": [
+          1,
+          1
+        ],
+        "real": [
+          [
+            4.3645713812066775,
+            2.0973358202116765,
+            0
+          ],
+          [
+            2.0973358202116765,
+            4.3645713812066775,
+            1.0415061454324206
+          ],
+          [
+            0,
+            1.0415061454324206,
+            1.0762900515119909
+          ]
+        ],
+        "imag": [
+          [
+            0,
+            2.0973358202116765,
+            1.2246467991473532e-16
+          ],
+          [
+            -2.0973358202116765,
+            0,
+            1.0415061454324206
+          ],
+          [
+            -1.2246467991473532e-16,
+            -1.0415061454324206,
+            0
+          ]
+        ],
+        "values": [
+          0.09451632698034962,
+          2.206713777799147,
+          7.504202709145849
+        ],
+        "rank": 3,
+        "threshold": 7.504202709145849e-10,
+        "tolerance": 1e-10,
+        "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+      }
+    },
+    {
+      "kind": "gram",
+      "frame": 15,
+      "input": 0.75,
+      "result": {
+        "mass": 0.75,
+        "angles": [
+          0,
+          1.5707963267948966,
+          3.141592653589793
+        ],
+        "lengths": [
+          1,
+          1
+        ],
+        "real": [
+          [
+            4.642252093784086,
+            2.218113843755939,
+            0
+          ],
+          [
+            2.218113843755939,
+            4.642252093784086,
+            1.0477627899621147
+          ],
+          [
+            0,
+            1.0477627899621147,
+            1.0358264531354269
+          ]
+        ],
+        "imag": [
+          [
+            0,
+            2.218113843755939,
+            1.2246467991473532e-16
+          ],
+          [
+            -2.218113843755939,
+            0,
+            1.0477627899621147
+          ],
+          [
+            -1.2246467991473532e-16,
+            -1.0477627899621147,
+            0
+          ]
+        ],
+        "values": [
+          0.1074252606044661,
+          2.270784280395549,
+          7.942121099703584
+        ],
+        "rank": 3,
+        "threshold": 7.942121099703585e-10,
+        "tolerance": 1e-10,
+        "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+      }
+    },
+    {
+      "kind": "gram",
+      "frame": 16,
+      "input": 0.8,
+      "result": {
+        "mass": 0.8,
+        "angles": [
+          0,
+          1.5707963267948966,
+          3.141592653589793
+        ],
+        "lengths": [
+          1,
+          1
+        ],
+        "real": [
+          [
+            4.941290530493894,
+            2.3467977615784057,
+            0
+          ],
+          [
+            2.3467977615784057,
+            4.941290530493894,
+            1.05448420720264
+          ],
+          [
+            0,
+            1.05448420720264,
+            0.9976293525066807
+          ]
+        ],
+        "imag": [
+          [
+            0,
+            2.3467977615784057,
+            1.2246467991473532e-16
+          ],
+          [
+            -2.3467977615784057,
+            0,
+            1.05448420720264
+          ],
+          [
+            -1.2246467991473532e-16,
+            -1.05448420720264,
+            0
+          ]
+        ],
+        "values": [
+          0.1206173282048305,
+          2.346103658875322,
+          8.413489426414317
+        ],
+        "rank": 3,
+        "threshold": 8.413489426414317e-10,
+        "tolerance": 1e-10,
+        "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+      }
+    },
+    {
+      "kind": "gram",
+      "frame": 17,
+      "input": 0.85,
+      "result": {
+        "mass": 0.85,
+        "angles": [
+          0,
+          1.5707963267948966,
+          3.141592653589793
+        ],
+        "lengths": [
+          1,
+          1
+        ],
+        "real": [
+          [
+            5.2634675196790575,
+            2.483949741003761,
+            0
+          ],
+          [
+            2.483949741003761,
+            5.2634675196790575,
+            1.0616772095151803
+          ],
+          [
+            0,
+            1.0616772095151803,
+            0.9615487952320768
+          ]
+        ],
+        "imag": [
+          [
+            0,
+            2.483949741003761,
+            1.2246467991473532e-16
+          ],
+          [
+            -2.483949741003761,
+            0,
+            1.0616772095151803
+          ],
+          [
+            -1.2246467991473532e-16,
+            -1.0616772095151803,
+            0
+          ]
+        ],
+        "values": [
+          0.13393020619329582,
+          2.433780656578563,
+          8.920772971818328
+        ],
+        "rank": 3,
+        "threshold": 8.920772971818328e-10,
+        "tolerance": 1e-10,
+        "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+      }
+    },
+    {
+      "kind": "gram",
+      "frame": 18,
+      "input": 0.9,
+      "result": {
+        "mass": 0.9,
+        "angles": [
+          0,
+          1.5707963267948966,
+          3.141592653589793
+        ],
+        "lengths": [
+          1,
+          1
+        ],
+        "real": [
+          [
+            5.610719404903274,
+            2.6301743729617866,
+            0
+          ],
+          [
+            2.6301743729617866,
+            5.610719404903274,
+            1.0693490998735173
+          ],
+          [
+            0,
+            1.0693490998735173,
+            0.9274456797537927
+          ]
+        ],
+        "imag": [
+          [
+            0,
+            2.6301743729617866,
+            1.2246467991473532e-16
+          ],
+          [
+            -2.6301743729617866,
+            0,
+            1.0693490998735173
+          ],
+          [
+            -1.2246467991473532e-16,
+            -1.0693490998735173,
+            0
+          ]
+        ],
+        "values": [
+          0.1472010459237037,
+          2.5350136822439895,
+          9.466669761392646
+        ],
+        "rank": 3,
+        "threshold": 9.466669761392648e-10,
+        "tolerance": 1e-10,
+        "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+      }
+    },
+    {
+      "kind": "gram",
+      "frame": 19,
+      "input": 0.95,
+      "result": {
+        "mass": 0.95,
+        "angles": [
+          0,
+          1.5707963267948966,
+          3.141592653589793
+        ],
+        "lengths": [
+          1,
+          1
+        ],
+        "real": [
+          [
+            5.985152044504494,
+            2.786122020662135,
+            0
+          ],
+          [
+            2.786122020662135,
+            5.985152044504494,
+            1.0775076817399973
+          ],
+          [
+            0,
+            1.0775076817399973,
+            0.8951909271340686
+          ]
+        ],
+        "imag": [
+          [
+            0,
+            2.786122020662135,
+            1.2246467991473532e-16
+          ],
+          [
+            -2.786122020662135,
+            0,
+            1.0775076817399973
+          ],
+          [
+            -1.2246467991473532e-16,
+            -1.0775076817399973,
+            0
+          ]
+        ],
+        "values": [
+          0.16027254491371543,
+          2.6510963193786283,
+          10.05412615185071
+        ],
+        "rank": 3,
+        "threshold": 1.005412615185071e-9,
+        "tolerance": 1e-10,
+        "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+      }
+    },
+    {
+      "kind": "gram",
+      "frame": 20,
+      "input": 1,
+      "result": {
+        "mass": 1,
+        "angles": [
+          0,
+          1.5707963267948966,
+          3.141592653589793
+        ],
+        "lengths": [
+          1,
+          1
+        ],
+        "real": [
+          [
+            6.38905609893065,
+            2.9524924420125593,
+            0
+          ],
+          [
+            2.9524924420125593,
+            6.38905609893065,
+            1.0861612696304879
+          ],
+          [
+            0,
+            1.0861612696304879,
+            0.8646647167633875
+          ]
+        ],
+        "imag": [
+          [
+            0,
+            2.9524924420125593,
+            1.2246467991473532e-16
+          ],
+          [
+            -2.9524924420125593,
+            0,
+            1.0861612696304879
+          ],
+          [
+            -1.2246467991473532e-16,
+            -1.0861612696304879,
+            0
+          ]
+        ],
+        "values": [
+          0.17299867434465355,
+          2.7834235075070275,
+          10.686354732773006
+        ],
+        "rank": 3,
+        "threshold": 1.0686354732773008e-9,
+        "tolerance": 1e-10,
+        "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+      }
+    },
+    {
+      "kind": "trace",
+      "input": 3,
+      "result": [
+        {
+          "degree": 0,
+          "value": {
+            "n": 0,
+            "d": 1
+          }
+        },
+        {
+          "degree": 1,
+          "value": {
+            "n": 0,
+            "d": 1
+          }
+        },
+        {
+          "degree": 2,
+          "value": {
+            "n": 512,
+            "d": 1
+          }
+        },
+        {
+          "degree": 3,
+          "value": {
+            "n": 0,
+            "d": 1
+          }
+        },
+        {
+          "degree": 4,
+          "value": {
+            "n": 8192,
+            "d": 1
+          }
+        }
+      ]
+    },
+    {
+      "kind": "trace",
+      "input": 31,
+      "result": [
+        {
+          "degree": 0,
+          "value": {
+            "n": 0,
+            "d": 1
+          }
+        },
+        {
+          "degree": 1,
+          "value": {
+            "n": 0,
+            "d": 1
+          }
+        },
+        {
+          "degree": 2,
+          "value": {
+            "n": 0,
+            "d": 1
+          }
+        },
+        {
+          "degree": 3,
+          "value": {
+            "n": 0,
+            "d": 1
+          }
+        },
+        {
+          "degree": 4,
+          "value": {
+            "n": 0,
+            "d": 1
+          }
+        }
+      ]
+    },
+    {
+      "kind": "trace",
+      "input": 991,
+      "result": [
+        {
+          "degree": 0,
+          "value": {
+            "n": 0,
+            "d": 1
+          }
+        },
+        {
+          "degree": 1,
+          "value": {
+            "n": 256,
+            "d": 1
+          }
+        },
+        {
+          "degree": 2,
+          "value": {
+            "n": 0,
+            "d": 1
+          }
+        },
+        {
+          "degree": 3,
+          "value": {
+            "n": 2560,
+            "d": 1
+          }
+        },
+        {
+          "degree": 4,
+          "value": {
+            "n": 0,
+            "d": 1
+          }
+        }
+      ]
+    },
+    {
+      "kind": "family",
+      "input": 1,
+      "result": {
+        "complexDoubletExcess": 2,
+        "halfDoubletCoefficient": 4,
+        "residue": 2,
+        "passes": false,
+        "scope": "Restricted standalone 6D SU2 tensor condition. No verdict on the complete 8D orbifold, its inflow or its global quotient.",
+        "generations": 1,
+        "leptonSign": -1,
+        "assumption": "All families share the same 6D chirality assignments; Q has positive chirality. This is not inferred from three 4D zero modes."
+      }
+    },
+    {
+      "kind": "family",
+      "input": 2,
+      "result": {
+        "complexDoubletExcess": 4,
+        "halfDoubletCoefficient": 8,
+        "residue": 4,
+        "passes": false,
+        "scope": "Restricted standalone 6D SU2 tensor condition. No verdict on the complete 8D orbifold, its inflow or its global quotient.",
+        "generations": 2,
+        "leptonSign": -1,
+        "assumption": "All families share the same 6D chirality assignments; Q has positive chirality. This is not inferred from three 4D zero modes."
+      }
+    },
+    {
+      "kind": "family",
+      "input": 3,
+      "result": {
+        "complexDoubletExcess": 6,
+        "halfDoubletCoefficient": 12,
+        "residue": 0,
+        "passes": true,
+        "scope": "Restricted standalone 6D SU2 tensor condition. No verdict on the complete 8D orbifold, its inflow or its global quotient.",
+        "generations": 3,
+        "leptonSign": -1,
+        "assumption": "All families share the same 6D chirality assignments; Q has positive chirality. This is not inferred from three 4D zero modes."
+      }
+    },
+    {
+      "kind": "family",
+      "input": 4,
+      "result": {
+        "complexDoubletExcess": 8,
+        "halfDoubletCoefficient": 16,
+        "residue": 2,
+        "passes": false,
+        "scope": "Restricted standalone 6D SU2 tensor condition. No verdict on the complete 8D orbifold, its inflow or its global quotient.",
+        "generations": 4,
+        "leptonSign": -1,
+        "assumption": "All families share the same 6D chirality assignments; Q has positive chirality. This is not inferred from three 4D zero modes."
+      }
+    },
+    {
+      "kind": "family",
+      "input": 5,
+      "result": {
+        "complexDoubletExcess": 10,
+        "halfDoubletCoefficient": 20,
+        "residue": 4,
+        "passes": false,
+        "scope": "Restricted standalone 6D SU2 tensor condition. No verdict on the complete 8D orbifold, its inflow or its global quotient.",
+        "generations": 5,
+        "leptonSign": -1,
+        "assumption": "All families share the same 6D chirality assignments; Q has positive chirality. This is not inferred from three 4D zero modes."
+      }
+    },
+    {
+      "kind": "family",
+      "input": 6,
+      "result": {
+        "complexDoubletExcess": 12,
+        "halfDoubletCoefficient": 24,
+        "residue": 0,
+        "passes": true,
+        "scope": "Restricted standalone 6D SU2 tensor condition. No verdict on the complete 8D orbifold, its inflow or its global quotient.",
+        "generations": 6,
+        "leptonSign": -1,
+        "assumption": "All families share the same 6D chirality assignments; Q has positive chirality. This is not inferred from three 4D zero modes."
+      }
+    }
+  ]
+}

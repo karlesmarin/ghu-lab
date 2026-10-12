@@ -1,5 +1,12 @@
 # The site — what it is, page by page
 
+The English mathematical companion is at `video/mathematics/index.html`, with a direct MP4,
+29 animated chapters (11:34), ordinary proof notes and reproducible certificates. Its versioned
+source media live in `media/video/2026-10-12-mathematics/`; production scripts and recorded inputs
+are in `tools/mathematics_video/`, and mathematical evidence is in `proof/boundary-research/`.
+The bilingual general tutorial remains a separate video.
+
+
 
 Current guide architecture (12 October 2026): `docs/user-guides[.es].json` supplies
 44 guides and 59 glossary terms in each language. `build/user_guides.py` generates inline help

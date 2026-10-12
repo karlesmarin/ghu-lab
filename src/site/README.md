@@ -1,5 +1,17 @@
 # 🧭 GHU Lab — an instrument for gauge–Higgs unification
 
+
+## Between physics and mathematics · English animated video
+
+[Watch the complete 11:34 film](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html)
+or [open its MP4 directly](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-en.mp4).
+Twenty-nine chapters connect boundary spectra, function independence, exact traces and a restricted
+consistency condition through animated whiteboards, 2D/3D figures and real laboratory controls.
+The page includes the transcript, sources, ordinary proofs and
+[113 reproducible certificate checks](https://github.com/karlesmarin/ghu-lab/tree/main/proof/boundary-research).
+All narration and captions are English. These scoped certificates do not certify a complete physical model.
+
+
 ## Boundary research · Lab 0.2.1 · 12 October 2026
 
 The tenth research card is **Anomalies & proton → Boundary research**. Explore the flat

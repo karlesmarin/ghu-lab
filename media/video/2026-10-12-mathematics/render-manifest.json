@@ -1,0 +1,50 @@
+{
+  "title": "Between physics and mathematics",
+  "language": "en",
+  "seconds": 694.1666666666667,
+  "chapters": 29,
+  "sections": [
+    "Boundary spectra",
+    "Profiles",
+    "Traces",
+    "Consistency",
+    "Evidence"
+  ],
+  "width": 1920,
+  "height": 1080,
+  "fps": 24,
+  "syntheticNarration": true,
+  "voice": "Microsoft Zira Desktop",
+  "captionsBurnedIn": true,
+  "sourceCommit": "247b9022fafcc8a2a7cd997a4f063e7d72c7e6b0",
+  "sourceModuleUnchanged": true,
+  "bytes": 18267863,
+  "sha256": "f2200a434b2a8ae0244a91f7d1dff1006fd74c52922cfccf894fb9bc3da526a1",
+  "approvedBoundarySha256": "72080d391fbcc764cc256fb8cfed629af09410c1d578a3496efa8782c20c1c81",
+  "sources": [
+    {
+      "title": "Boundary tools: equations, assumptions and API",
+      "url": "https://github.com/karlesmarin/ghu-lab/blob/main/docs/boundary-research.md"
+    },
+    {
+      "title": "Fujimoto et al. \u00e2\u20ac\u201d 6d Dirac fermion on a rectangle",
+      "url": "https://arxiv.org/abs/1609.01413",
+      "locator": "section 3.1.2, equations 3.32\u00e2\u20ac\u201c3.43, footnote 10; appendix B; illustrative profile ansatz, not a full-domain theorem"
+    },
+    {
+      "title": "Asaka, Buchm\u00c3\u00bcller, Covi \u00e2\u20ac\u201d Bulk and brane anomalies in six dimensions",
+      "url": "https://arxiv.org/abs/hep-ph/0209144",
+      "locator": "equations 41\u00e2\u20ac\u201c43, 71\u00e2\u20ac\u201c72; appendix D"
+    },
+    {
+      "title": "Dobrescu, Poppitz \u00e2\u20ac\u201d Number of fermion generations derived from anomaly cancellation",
+      "url": "https://arxiv.org/abs/hep-ph/0102010",
+      "locator": "equations 3\u00e2\u20ac\u201c4; identical-assignment assumption"
+    },
+    {
+      "title": "Lee, Tachikawa \u00e2\u20ac\u201d Some comments on 6d global gauge anomalies",
+      "url": "https://arxiv.org/abs/2012.11622",
+      "locator": "sections 2.6\u00e2\u20ac\u201c2.7 and 3.3; integral tensor quantization"
+    }
+  ]
+}

@@ -74,3 +74,8 @@ data/pdf_systematic_cteq6l1.json -text -whitespace
 data/rs_benchmark_cghnp2008.json -text -whitespace
 data/rs_fermions_reference.json -text -whitespace
 data/tt_spectrum_reference.json -text -whitespace
+
+# Preserve the English mathematical film and its hash-pinned evidence.
+media/video/2026-10-12-mathematics/** -text whitespace=cr-at-eol
+proof/boundary-research/** -text whitespace=cr-at-eol
+tools/mathematics_video/** -text whitespace=cr-at-eol

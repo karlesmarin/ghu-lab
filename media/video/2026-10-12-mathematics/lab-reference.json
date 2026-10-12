@@ -1,0 +1,810 @@
+{
+  "roots": [
+    {
+      "a": 0,
+      "roots": [
+        {
+          "j": 0,
+          "x": 0,
+          "kR": 0,
+          "residual": 0,
+          "bracket": [
+            0,
+            0
+          ]
+        },
+        {
+          "j": 1,
+          "x": 3.141592653589793,
+          "kR": 1,
+          "residual": 0,
+          "bracket": [
+            3.141592653589793,
+            3.141592653589793
+          ]
+        },
+        {
+          "j": 2,
+          "x": 6.283185307179586,
+          "kR": 2,
+          "residual": 0,
+          "bracket": [
+            6.283185307179586,
+            6.283185307179586
+          ]
+        }
+      ]
+    },
+    {
+      "a": 0.02,
+      "roots": [
+        {
+          "j": 0,
+          "x": 0.14095167637328204,
+          "kR": 0.044866312063793906,
+          "residual": 5.976901575769083e-18,
+          "bracket": [
+            0.14095167637328201,
+            0.14095167637328204
+          ]
+        },
+        {
+          "j": 1,
+          "x": 3.1479459174103654,
+          "kR": 1.002022306683622,
+          "residual": 3.1631644648631075e-17,
+          "bracket": [
+            3.1479459174103654,
+            3.147945917410366
+          ]
+        },
+        {
+          "j": 2,
+          "x": 6.286366784367816,
+          "kR": 2.001012695641682,
+          "residual": 5.209132553317919e-16,
+          "bracket": [
+            6.286366784367815,
+            6.286366784367816
+          ]
+        }
+      ]
+    },
+    {
+      "a": 0.1,
+      "roots": [
+        {
+          "j": 0,
+          "x": 0.31105284820029777,
+          "kR": 0.0990111967077807,
+          "residual": 1.9670117707518373e-17,
+          "bracket": [
+            0.3110528482002977,
+            0.31105284820029777
+          ]
+        },
+        {
+          "j": 1,
+          "x": 3.1730971766928695,
+          "kR": 1.010028201163215,
+          "residual": 2.5981693809369554e-17,
+          "bracket": [
+            3.173097176692869,
+            3.1730971766928695
+          ]
+        },
+        {
+          "j": 2,
+          "x": 6.2990593598956455,
+          "kR": 2.0050528679133244,
+          "residual": 4.63276941270345e-16,
+          "bracket": [
+            6.2990593598956455,
+            6.299059359895646
+          ]
+        }
+      ]
+    },
+    {
+      "a": 0.5,
+      "roots": [
+        {
+          "j": 0,
+          "x": 0.653271187094403,
+          "kR": 0.20794267721116924,
+          "residual": 7.733974925772893e-17,
+          "bracket": [
+            0.653271187094403,
+            0.6532711870944031
+          ]
+        },
+        {
+          "j": 1,
+          "x": 3.292310021282087,
+          "kR": 1.0479748281560546,
+          "residual": 1.7375070994386627e-16,
+          "bracket": [
+            3.2923100212820864,
+            3.292310021282087
+          ]
+        },
+        {
+          "j": 2,
+          "x": 6.3616203920656655,
+          "kR": 2.0249666629429037,
+          "residual": 4.519060322966083e-16,
+          "bracket": [
+            6.361620392065665,
+            6.3616203920656655
+          ]
+        }
+      ]
+    },
+    {
+      "a": 1,
+      "roots": [
+        {
+          "j": 0,
+          "x": 0.8603335890193797,
+          "kR": 0.2738526868008509,
+          "residual": 3.8814459575177695e-17,
+          "bracket": [
+            0.8603335890193797,
+            0.8603335890193798
+          ]
+        },
+        {
+          "j": 1,
+          "x": 3.4256184594817283,
+          "kR": 1.0904082219467213,
+          "residual": 8.185043109214197e-17,
+          "bracket": [
+            3.425618459481728,
+            3.4256184594817283
+          ]
+        },
+        {
+          "j": 2,
+          "x": 6.437298179171947,
+          "kR": 2.0490556507433455,
+          "residual": 2.5001175755469397e-16,
+          "bracket": [
+            6.437298179171947,
+            6.437298179171948
+          ]
+        }
+      ]
+    },
+    {
+      "a": 2,
+      "roots": [
+        {
+          "j": 0,
+          "x": 1.0768739863118038,
+          "kR": 0.34277963601719524,
+          "residual": 8.169664024589099e-17,
+          "bracket": [
+            1.0768739863118035,
+            1.0768739863118038
+          ]
+        },
+        {
+          "j": 1,
+          "x": 3.6435971674254004,
+          "kR": 1.1597929996627614,
+          "residual": 1.3368938502999601e-16,
+          "bracket": [
+            3.6435971674254004,
+            3.643597167425401
+          ]
+        },
+        {
+          "j": 2,
+          "x": 6.578333732722339,
+          "kR": 2.0939486617418384,
+          "residual": 1.1590982895410252e-16,
+          "bracket": [
+            6.578333732722339,
+            6.5783337327223395
+          ]
+        }
+      ]
+    },
+    {
+      "a": 4,
+      "roots": [
+        {
+          "j": 0,
+          "x": 1.2645915712878018,
+          "kR": 0.4025319991256012,
+          "residual": 1.4177754600489363e-16,
+          "bracket": [
+            1.2645915712878015,
+            1.2645915712878018
+          ]
+        },
+        {
+          "j": 1,
+          "x": 3.935161652940459,
+          "kR": 1.2526008578622951,
+          "residual": 9.94026134275742e-17,
+          "bracket": [
+            3.9351616529404585,
+            3.935161652940459
+          ]
+        },
+        {
+          "j": 2,
+          "x": 6.814010343163551,
+          "kR": 2.1689668567875624,
+          "residual": 6.014407598443251e-16,
+          "bracket": [
+            6.81401034316355,
+            6.814010343163551
+          ]
+        }
+      ]
+    },
+    {
+      "a": 8,
+      "roots": [
+        {
+          "j": 0,
+          "x": 1.397815607977742,
+          "kR": 0.4449385270813212,
+          "residual": 1.0677464060560335e-16,
+          "bracket": [
+            1.3978156079777417,
+            1.397815607977742
+          ]
+        },
+        {
+          "j": 1,
+          "x": 4.226362218351069,
+          "kR": 1.3452928766948018,
+          "residual": 2.35032461506108e-16,
+          "bracket": [
+            4.226362218351068,
+            4.226362218351069
+          ]
+        },
+        {
+          "j": 2,
+          "x": 7.126281012544217,
+          "kR": 2.2683656980166584,
+          "residual": 3.3045874086253394e-16,
+          "bracket": [
+            7.126281012544217,
+            7.126281012544218
+          ]
+        }
+      ]
+    },
+    {
+      "a": 16,
+      "roots": [
+        {
+          "j": 0,
+          "x": 1.4786428982882969,
+          "kR": 0.47066665266061813,
+          "residual": 1.9226053008089647e-16,
+          "bracket": [
+            1.4786428982882966,
+            1.4786428982882969
+          ]
+        },
+        {
+          "j": 1,
+          "x": 4.441606786767368,
+          "kR": 1.4138073507690732,
+          "residual": 4.97077534458805e-16,
+          "bracket": [
+            4.441606786767367,
+            4.441606786767368
+          ]
+        },
+        {
+          "j": 2,
+          "x": 7.419764344171252,
+          "kR": 2.3617843439036994,
+          "residual": 2.545990555140173e-16,
+          "bracket": [
+            7.419764344171252,
+            7.419764344171253
+          ]
+        }
+      ]
+    },
+    {
+      "a": 32,
+      "roots": [
+        {
+          "j": 0,
+          "x": 1.5232312535931634,
+          "kR": 0.4848595669628326,
+          "residual": 4.5022211943542995e-17,
+          "bracket": [
+            1.5232312535931634,
+            1.5232312535931636
+          ]
+        },
+        {
+          "j": 1,
+          "x": 4.570519758293445,
+          "kR": 1.454841624063153,
+          "residual": 6.382881441668045e-16,
+          "bracket": [
+            4.570519758293445,
+            4.570519758293446
+          ]
+        },
+        {
+          "j": 2,
+          "x": 7.620204247825489,
+          "kR": 2.42558634682257,
+          "residual": 4.154432575312756e-16,
+          "bracket": [
+            7.620204247825488,
+            7.620204247825489
+          ]
+        }
+      ]
+    },
+    {
+      "a": 100,
+      "roots": [
+        {
+          "j": 0,
+          "x": 1.5552451292561664,
+          "kR": 0.4950499000814252,
+          "residual": 1.6021901896624615e-16,
+          "bracket": [
+            1.5552451292561664,
+            1.5552451292561666
+          ]
+        },
+        {
+          "j": 1,
+          "x": 4.665765141727249,
+          "kR": 1.4851591712234986,
+          "residual": 5.463604716539361e-16,
+          "bracket": [
+            4.665765141727248,
+            4.665765141727249
+          ]
+        },
+        {
+          "j": 2,
+          "x": 7.776374077846953,
+          "kR": 2.4752967476420435,
+          "residual": 4.0009370540481574e-16,
+          "bracket": [
+            7.776374077846953,
+            7.7763740778469534
+          ]
+        }
+      ]
+    }
+  ],
+  "gram": [
+    {
+      "mass": 0,
+      "angles": [
+        0,
+        1.5707963267948966,
+        3.141592653589793
+      ],
+      "lengths": [
+        1,
+        1
+      ],
+      "real": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "imag": [
+        [
+          0,
+          1,
+          1.2246467991473532e-16
+        ],
+        [
+          -1,
+          0,
+          1
+        ],
+        [
+          -1.2246467991473532e-16,
+          -1,
+          0
+        ]
+      ],
+      "values": [
+        3.068386111202837e-16,
+        2,
+        4
+      ],
+      "rank": 2,
+      "threshold": 4e-10,
+      "tolerance": 1e-10,
+      "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+    },
+    {
+      "mass": 0.25,
+      "angles": [
+        0,
+        1.5707963267948966,
+        3.141592653589793
+      ],
+      "lengths": [
+        1,
+        1
+      ],
+      "real": [
+        [
+          2.5948850828005128,
+          1.2907269971943232,
+          0
+        ],
+        [
+          1.2907269971943232,
+          2.5948850828005128,
+          1.0052191961463417
+        ],
+        [
+          0,
+          1.0052191961463417,
+          1.5738773611494663
+        ]
+      ],
+      "imag": [
+        [
+          0,
+          1.2907269971943232,
+          1.2246467991473532e-16
+        ],
+        [
+          -1.2907269971943232,
+          0,
+          1.0052191961463417
+        ],
+        [
+          -1.2246467991473532e-16,
+          -1.0052191961463417,
+          0
+        ]
+      ],
+      "values": [
+        0.011553873250581482,
+        1.9878471755171854,
+        4.7642464779827245
+      ],
+      "rank": 3,
+      "threshold": 4.764246477982725e-10,
+      "tolerance": 1e-10,
+      "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+    },
+    {
+      "mass": 0.5,
+      "angles": [
+        0,
+        1.5707963267948966,
+        3.141592653589793
+      ],
+      "lengths": [
+        1,
+        1
+      ],
+      "real": [
+        [
+          3.43656365691809,
+          1.683357148235156,
+          0
+        ],
+        [
+          1.683357148235156,
+          3.43656365691809,
+          1.0210077216510465
+        ],
+        [
+          0,
+          1.0210077216510465,
+          1.2642411176571153
+        ]
+      ],
+      "imag": [
+        [
+          0,
+          1.683357148235156,
+          1.2246467991473532e-16
+        ],
+        [
+          -1.683357148235156,
+          0,
+          1.0210077216510465
+        ],
+        [
+          -1.2246467991473532e-16,
+          -1.0210077216510465,
+          0
+        ]
+      ],
+      "values": [
+        0.04863144055260619,
+        2.043538755949654,
+        6.045198234991035
+      ],
+      "rank": 3,
+      "threshold": 6.045198234991035e-10,
+      "tolerance": 1e-10,
+      "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+    },
+    {
+      "mass": 0.75,
+      "angles": [
+        0,
+        1.5707963267948966,
+        3.141592653589793
+      ],
+      "lengths": [
+        1,
+        1
+      ],
+      "real": [
+        [
+          4.642252093784086,
+          2.218113843755939,
+          0
+        ],
+        [
+          2.218113843755939,
+          4.642252093784086,
+          1.0477627899621147
+        ],
+        [
+          0,
+          1.0477627899621147,
+          1.0358264531354269
+        ]
+      ],
+      "imag": [
+        [
+          0,
+          2.218113843755939,
+          1.2246467991473532e-16
+        ],
+        [
+          -2.218113843755939,
+          0,
+          1.0477627899621147
+        ],
+        [
+          -1.2246467991473532e-16,
+          -1.0477627899621147,
+          0
+        ]
+      ],
+      "values": [
+        0.1074252606044661,
+        2.270784280395549,
+        7.942121099703584
+      ],
+      "rank": 3,
+      "threshold": 7.942121099703585e-10,
+      "tolerance": 1e-10,
+      "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+    },
+    {
+      "mass": 1,
+      "angles": [
+        0,
+        1.5707963267948966,
+        3.141592653589793
+      ],
+      "lengths": [
+        1,
+        1
+      ],
+      "real": [
+        [
+          6.38905609893065,
+          2.9524924420125593,
+          0
+        ],
+        [
+          2.9524924420125593,
+          6.38905609893065,
+          1.0861612696304879
+        ],
+        [
+          0,
+          1.0861612696304879,
+          0.8646647167633875
+        ]
+      ],
+      "imag": [
+        [
+          0,
+          2.9524924420125593,
+          1.2246467991473532e-16
+        ],
+        [
+          -2.9524924420125593,
+          0,
+          1.0861612696304879
+        ],
+        [
+          -1.2246467991473532e-16,
+          -1.0861612696304879,
+          0
+        ]
+      ],
+      "values": [
+        0.17299867434465355,
+        2.7834235075070275,
+        10.686354732773006
+      ],
+      "rank": 3,
+      "threshold": 1.0686354732773008e-9,
+      "tolerance": 1e-10,
+      "interpretation": "Numerical linear independence of these profiles; not a count of physical families or an operator-domain certificate."
+    }
+  ],
+  "trace": [
+    {
+      "u": -2,
+      "v": -1,
+      "value": {
+        "n": 512,
+        "d": 1
+      }
+    },
+    {
+      "u": -1,
+      "v": 0,
+      "value": {
+        "n": 0,
+        "d": 1
+      }
+    },
+    {
+      "u": 0,
+      "v": 2,
+      "value": {
+        "n": 0,
+        "d": 1
+      }
+    },
+    {
+      "u": 1,
+      "v": 2,
+      "value": {
+        "n": 512,
+        "d": 1
+      }
+    },
+    {
+      "u": 2,
+      "v": -2,
+      "value": {
+        "n": -1024,
+        "d": 1
+      }
+    }
+  ],
+  "families": [
+    {
+      "complexDoubletExcess": 0,
+      "halfDoubletCoefficient": 0,
+      "residue": 0,
+      "passes": true,
+      "scope": "Restricted standalone 6D SU2 tensor condition. No verdict on the complete 8D orbifold, its inflow or its global quotient.",
+      "generations": 0,
+      "leptonSign": -1,
+      "assumption": "All families share the same 6D chirality assignments; Q has positive chirality. This is not inferred from three 4D zero modes."
+    },
+    {
+      "complexDoubletExcess": 2,
+      "halfDoubletCoefficient": 4,
+      "residue": 2,
+      "passes": false,
+      "scope": "Restricted standalone 6D SU2 tensor condition. No verdict on the complete 8D orbifold, its inflow or its global quotient.",
+      "generations": 1,
+      "leptonSign": -1,
+      "assumption": "All families share the same 6D chirality assignments; Q has positive chirality. This is not inferred from three 4D zero modes."
+    },
+    {
+      "complexDoubletExcess": 4,
+      "halfDoubletCoefficient": 8,
+      "residue": 4,
+      "passes": false,
+      "scope": "Restricted standalone 6D SU2 tensor condition. No verdict on the complete 8D orbifold, its inflow or its global quotient.",
+      "generations": 2,
+      "leptonSign": -1,
+      "assumption": "All families share the same 6D chirality assignments; Q has positive chirality. This is not inferred from three 4D zero modes."
+    },
+    {
+      "complexDoubletExcess": 6,
+      "halfDoubletCoefficient": 12,
+      "residue": 0,
+      "passes": true,
+      "scope": "Restricted standalone 6D SU2 tensor condition. No verdict on the complete 8D orbifold, its inflow or its global quotient.",
+      "generations": 3,
+      "leptonSign": -1,
+      "assumption": "All families share the same 6D chirality assignments; Q has positive chirality. This is not inferred from three 4D zero modes."
+    },
+    {
+      "complexDoubletExcess": 8,
+      "halfDoubletCoefficient": 16,
+      "residue": 2,
+      "passes": false,
+      "scope": "Restricted standalone 6D SU2 tensor condition. No verdict on the complete 8D orbifold, its inflow or its global quotient.",
+      "generations": 4,
+      "leptonSign": -1,
+      "assumption": "All families share the same 6D chirality assignments; Q has positive chirality. This is not inferred from three 4D zero modes."
+    },
+    {
+      "complexDoubletExcess": 10,
+      "halfDoubletCoefficient": 20,
+      "residue": 4,
+      "passes": false,
+      "scope": "Restricted standalone 6D SU2 tensor condition. No verdict on the complete 8D orbifold, its inflow or its global quotient.",
+      "generations": 5,
+      "leptonSign": -1,
+      "assumption": "All families share the same 6D chirality assignments; Q has positive chirality. This is not inferred from three 4D zero modes."
+    },
+    {
+      "complexDoubletExcess": 12,
+      "halfDoubletCoefficient": 24,
+      "residue": 0,
+      "passes": true,
+      "scope": "Restricted standalone 6D SU2 tensor condition. No verdict on the complete 8D orbifold, its inflow or its global quotient.",
+      "generations": 6,
+      "leptonSign": -1,
+      "assumption": "All families share the same 6D chirality assignments; Q has positive chirality. This is not inferred from three 4D zero modes."
+    },
+    {
+      "complexDoubletExcess": 14,
+      "halfDoubletCoefficient": 28,
+      "residue": 2,
+      "passes": false,
+      "scope": "Restricted standalone 6D SU2 tensor condition. No verdict on the complete 8D orbifold, its inflow or its global quotient.",
+      "generations": 7,
+      "leptonSign": -1,
+      "assumption": "All families share the same 6D chirality assignments; Q has positive chirality. This is not inferred from three 4D zero modes."
+    },
+    {
+      "complexDoubletExcess": 16,
+      "halfDoubletCoefficient": 32,
+      "residue": 4,
+      "passes": false,
+      "scope": "Restricted standalone 6D SU2 tensor condition. No verdict on the complete 8D orbifold, its inflow or its global quotient.",
+      "generations": 8,
+      "leptonSign": -1,
+      "assumption": "All families share the same 6D chirality assignments; Q has positive chirality. This is not inferred from three 4D zero modes."
+    },
+    {
+      "complexDoubletExcess": 18,
+      "halfDoubletCoefficient": 36,
+      "residue": 0,
+      "passes": true,
+      "scope": "Restricted standalone 6D SU2 tensor condition. No verdict on the complete 8D orbifold, its inflow or its global quotient.",
+      "generations": 9,
+      "leptonSign": -1,
+      "assumption": "All families share the same 6D chirality assignments; Q has positive chirality. This is not inferred from three 4D zero modes."
+    }
+  ]
+}

@@ -728,6 +728,7 @@ def main(argv=None):
                            "video/media/2026-10-10-kkgluon/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol\n"
                            "video/media/2026-10-10-demos/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol\n"
                            "video/media/2026-10-12-boundary-research/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol\n"
+                           "video/mathematics/** -text whitespace=cr-at-eol\n"
                            "# Preserve downloadable manual hashes across checkouts.\n"
                            "guide/manual/** -text\n"
                            "guide/manual/*.pdf binary\n"
@@ -743,6 +744,14 @@ def main(argv=None):
     video_page = video_page.replace("and reaches nothing outside itself.",
                                     "and uses only the video assets shipped alongside it.")
     write('video/index.html', video_page)
+
+    # Standalone English mathematical companion; the bilingual tutorial is unchanged.
+    math_media = ROOT / 'media' / 'video' / '2026-10-12-mathematics'
+    math_out = OUT / 'video' / 'mathematics'
+    shutil.copytree(math_media, math_out, dirs_exist_ok=True)
+    for math_name in ('index.html', 'proof-notes.html'):
+        write('video/mathematics/' + math_name,
+              (math_media / math_name).read_text(encoding='utf-8'))
     # Previously served pages are complete frozen documents, including their
     # transcripts and original media paths. Do not wrap them in a new page shell.
     for revision, date in [('', '2026-10-07'), ('2026-10-08', '2026-10-08'),
@@ -817,6 +826,9 @@ def main(argv=None):
            'menu section, Simulator mode and embedded experiment. The same catalogues supply '
            'in-app help, the glossary and downloadable manuals. Current guidance does not '
            'rewrite frozen evidence or archived tutorials.</p>'
+           '<h2>Between physics and mathematics</h2>'
+           '<p><a href="../video/mathematics/index.html">English mathematical companion</a>: '
+           '11:34, 29 animated chapters, ordinary proofs and executable certificates for the stated examples.</p>'
            '<h2>Versioned video guides</h2>'
            '<ul><li><a href="../video/index.html">Current revision · 12 October 2026</a>: '
            '45 chapters and 154 scenes in each language, including boundary research with linked 2D/3D mass views, profile rank and scoped anomaly tests. Every scene was captured on the current '

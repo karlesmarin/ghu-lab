@@ -153,6 +153,15 @@ degree,cartan,halfSpin=1)` returns a reduced rational `{n,d}`. `brxLandscape(max
 steps=24)` accepts 4..64 grid steps. `brxModel` collects the four diagnostics, grid, scopes
 and sources. Invalid values throw; the UI explains input errors and keeps the last valid state.
 
+## Mathematical companion and certificates
+
+[Between physics and mathematics](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html)
+is a 29-chapter English animated film with embedded captions. Its [proofs and executable certificates](../proof/boundary-research/README.md)
+cover the displayed Gram example, ten Robin root brackets, the complete quadratic inserted trace
+and the restricted family congruence. The 113 checks include exact finite computation and independent
+numerical comparisons; they are not 113 formal theorems. The profile ansatz locator is Fujimoto et al.,
+section 3.1.2, equations 3.32–3.43, footnote 10 and Appendix B.
+
 ## Reproduce and maintain
 
 ```text

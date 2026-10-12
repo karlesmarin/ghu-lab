@@ -27,7 +27,7 @@ Three rules decide everything here, and each is enforced rather than intended.
   3. **Nothing external.**  No font, no CDN, no analytics.  The pages carry links to other sites,
      which is different from depending on them; the gate in _test_site.py knows the difference.
 
-`--legacy` takes the working copy of the published ghu-explorer repository and carries its three
+`--legacy` takes the tools-2026-07 directory in the published ghu-explorer checkout and carries its three
 pages into the new site *at the URLs they already have*, because five Zenodo records point at that
 host.  A link in a published record is not ours to break.
 """
@@ -259,7 +259,7 @@ def load_groups():
         "hepdata_cms_ins1901295_parton_abs_ttm.json", "hepdata_cms_ins1901295_parton_abs_ttm_covariance.json",
         "hepdata_cms_ins1901295_parton_norm_ttm.json", "hepdata_cms_ins1901295_parton_norm_ttm_covariance.json",
         "parton_lumi_13TeV.json", "pdf_systematic_cteq6l1.json", "rs_benchmark_cghnp2008.json",
-        "rs_fermions_reference.json", "tt_spectrum_reference.json",
+        "rs_fermions_reference.json", "tt_spectrum_reference.json", "boundary_research_reference.json",
     }
     for p in sorted((ROOT / "data").glob("*.json")):
         if p.name in NOT_A_GROUP:
@@ -588,6 +588,10 @@ def main(argv=None):
 
     written = []
 
+    # The publishing repository's README follows the same reviewed source as the site.
+    shutil.copyfile(SITE_SRC / 'README.md', OUT / 'README.md')
+    written.append('README.md')
+
     # Google requires the original filename and body at the property root.
     # Copy bytes, bypassing the page template and canonical metadata.
     from search_index import VERIFICATION_FILES
@@ -723,6 +727,7 @@ def main(argv=None):
                            "video/media/2026-10-08-certification/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol\n"
                            "video/media/2026-10-10-kkgluon/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol\n"
                            "video/media/2026-10-10-demos/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol\n"
+                           "video/media/2026-10-12-boundary-research/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol\n"
                            "# Preserve downloadable manual hashes across checkouts.\n"
                            "guide/manual/** -text\n"
                            "guide/manual/*.pdf binary\n"
@@ -742,7 +747,8 @@ def main(argv=None):
     # transcripts and original media paths. Do not wrap them in a new page shell.
     for revision, date in [('', '2026-10-07'), ('2026-10-08', '2026-10-08'),
                            ('2026-10-08-certification', '2026-10-08-certification'),
-                           ('2026-10-10-kkgluon', '2026-10-10-kkgluon')]:
+                           ('2026-10-10-kkgluon', '2026-10-10-kkgluon'),
+                           ('2026-10-10-demos', '2026-10-10-demos')]:
         video_guide.copy_media(ROOT, OUT, revision)
         rel = f'video/{date}.html'
         shutil.copyfile(SITE_SRC / f'video-{date}.html', OUT / rel)
@@ -791,7 +797,7 @@ def main(argv=None):
                    f'<code>/{s}</code>, carried over byte for byte</li>' for s, d in carried)
            if carried else
            "<li>None carried in this build. Pass <code>--legacy</code> with the working copy of "
-           "the published repository to bring them in.</li>")
+           "the published repository's tools-2026-07 directory to bring them in.</li>")
     eds = (f'<h1>Editions</h1>'
            f'<p class="lead">This site is the living instrument, and it is rewritten continuously. '
            f'What is archived with a paper is not the tool but its evidence &mdash; the gate '
@@ -805,17 +811,19 @@ def main(argv=None):
            'include the 8 October certification and uncertainty update. Formal algebra, '
            'interval proofs, numerical comparisons and open physical assumptions retain '
            'their separate scope. This living release does not replace a frozen paper.</p>'
-           '<h2>Current user guides · 9 October 2026</h2>'
+           '<h2>Current user guides · 12 October 2026</h2>'
            '<p><a href="../guide/index.html">English</a> and '
            '<a href="../guide/es/index.html" lang="es">castellano</a> guides cover every '
            'menu section, Simulator mode and embedded experiment. The same catalogues supply '
            'in-app help, the glossary and downloadable manuals. Current guidance does not '
            'rewrite frozen evidence or archived tutorials.</p>'
            '<h2>Versioned video guides</h2>'
-           '<ul><li><a href="../video/index.html">Current revision · 10 October 2026</a>: '
-           '44 chapters and 145 scenes in each language, every one captured afresh on the current '
+           '<ul><li><a href="../video/index.html">Current revision · 12 October 2026</a>: '
+           '45 chapters and 154 scenes in each language, including boundary research with linked 2D/3D mass views, profile rank and scoped anomaly tests. Every scene was captured on the current '
            'laboratory, with the guided 🎬 Demo buttons and the KK-gluon card as revised after an '
            'external review.</li>'
+           '<li><a href="../video/2026-10-10-demos.html">Demo revision · 10 October 2026</a>: '
+           '44 chapters and 145 scenes, preserved with its original media.</li>'
            '<li><a href="../video/2026-10-10-kkgluon.html">KK-gluon revision · 10 October 2026</a>: '
            '44 chapters and 144 scenes, adding the first KK gluon against ATLAS and CMS data, captured '
            'before the 🎬 Demo buttons existed. Preserved with its original media.</li>'

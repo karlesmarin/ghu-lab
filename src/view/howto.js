@@ -2,6 +2,7 @@
 /*__HOWTO__*/
 let GUIDE_LANGUAGE='en';
 try { if(localStorage.getItem('ghu-help-language')==='es')GUIDE_LANGUAGE='es'; } catch {}
+try { const requested=new URLSearchParams(location.hash.slice(1)).get('lang')||new URLSearchParams(location.search).get('lang');if(requested==='en'||requested==='es')GUIDE_LANGUAGE=requested; } catch {}
 const GUIDE_INITIAL_TARGET=typeof location==='undefined'?null:new URLSearchParams(location.hash.slice(1)).get('help');
 function guideEscape(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function guideHref(id,lang=GUIDE_LANGUAGE){
@@ -21,6 +22,7 @@ function syncGuideLanguage(){
   if(typeof document==='undefined'||typeof document.querySelectorAll!=='function')return;
   document.querySelectorAll('[data-guide-id]').forEach(n=>{n.href=guideHref(n.dataset.guideId);n.lang=GUIDE_LANGUAGE;const es=GUIDE_LANGUAGE==='es';n.textContent=n.dataset.guideLabel==='start'?(es?'Primeros pasos':'Getting started'):n.dataset.guideLabel==='all'?(es?'Todas las guías':'All guides'):(es?'Guía completa ↗':'Full guide ↗');});
   document.querySelectorAll('[data-help]').forEach(n=>{const entry=(GUIDE_LANGUAGE==='es'?HELP_TERMS_ES:HELP_TERMS)[n.dataset.help];if(entry){n.title=entry.term;n.setAttribute('aria-label',(GUIDE_LANGUAGE==='es'?'Explicar: ':'Explain: ')+entry.term);}});
+  if(typeof brxLocalize==='function')brxLocalize();
 }
 function mountGuideHelp(){
   if(typeof document==='undefined'||typeof document.addEventListener!=='function')return;

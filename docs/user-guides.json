@@ -4220,6 +4220,153 @@
           "url": "https://doi.org/10.17182/hepdata.102956.v1/t38"
         }
       ]
+    },
+    {
+      "id": "boundaryresearch",
+      "kind": "experiment",
+      "host": "anomalies",
+      "route": "s=anomalies&help=boundaryresearch",
+      "video": "boundaryresearch",
+      "source": "src/modules/boundary_research.mjs",
+      "terms": [],
+      "related": [
+        "anomalies",
+        "rsanomaly"
+      ],
+      "references": [
+        {
+          "label": "Fujimoto et al.: rectangle boundary conditions and profiles, sections 2–5",
+          "url": "https://arxiv.org/abs/1609.01413"
+        },
+        {
+          "label": "Asaka, Buchmüller, Covi: localized orbifold anomalies, sections 2–4",
+          "url": "https://arxiv.org/abs/hep-ph/0209144"
+        },
+        {
+          "label": "Dobrescu, Poppitz: identical six-dimensional generations",
+          "url": "https://arxiv.org/abs/hep-ph/0102010"
+        },
+        {
+          "label": "Lee, Tachikawa: six-dimensional global anomalies and tensor quantization, sections 2–3",
+          "url": "https://arxiv.org/abs/2012.11622"
+        }
+      ],
+      "title": "Boundary research: spectrum, independent profiles and anomaly diagnostics",
+      "what": "Four separate tests help investigate a proposed GHU boundary mechanism: roots of a flat fermion boundary problem, the numerical rank of overlapping profiles, exact parity-inserted spinor traces and a restricted six-dimensional SU(2) tensor condition.",
+      "purpose": "Use these tools to find which requirement fails and why before attempting a full model. A mass gap addresses unwanted paired modes; Gram rank tests linear independence; inserted traces expose localized anomaly terms; the tensor condition tests a restricted quantization requirement. Passing all four does not prove a viable Standard Model embedding or a complete quantum theory.",
+      "steps": [
+        "Open Anomalies & proton and find Boundary research. Select English in the card. Press Research baseline to restore all inputs; Demo runs the worked examples and ends with this guide.",
+        "Set Boundary strength to 0, then 1. Compare the first normal root and the paired curve at the same imposed Wilson angle.",
+        "Set Profile example M to 0, then 1. Compare the Gram eigenvalues and numerical rank.",
+        "Switch the parity insertion between C1, C0 and C0 W. Read the exact trace table, keeping its degree and support dimension in mind.",
+        "With lepton chirality Opposite to Q, compare one and three identical 6D families. Read the signed doublet excess and its residue.",
+        "Expand assumptions and provenance. Pin a comparison, export the card JSON and save the application link to repeat the calculation."
+      ],
+      "read": "Read each result with its own assumptions. The normal gap is dimensionless kR; a Gram rank is numerical and threshold-dependent; the traces are exact scalar evaluations without local weights; a zero residue passes only the stated standalone six-dimensional condition. Full anomaly cancellation stays unknown.",
+      "controls": [
+        {
+          "name": "Boundary strength κ²L",
+          "meaning": "Nonnegative dimensionless coupling a of the uniform flat boundary action, from 0 to 100. L = πR.",
+          "try": "Use 0 and 1; the first kR changes from 0 to approximately 0.273853."
+        },
+        {
+          "name": "Imposed Wilson θ [rad]",
+          "meaning": "Supplied angle from 0 to π for the periodic transverse branch; this is not a computed vacuum.",
+          "try": "At a = 1 compare θ = 0 and θ = 0.2; the unpaired mass changes while the normal root stays fixed."
+        },
+        {
+          "name": "Profile example M",
+          "meaning": "Mass parameter from 0 to 2 on a separate unit rectangle. It is not a bulk mass inserted in the Spin(20) action.",
+          "try": "Compare M = 0 and M = 1: rank 2 becomes rank 3."
+        },
+        {
+          "name": "Spin(20) parity insertion",
+          "meaning": "C1, C0 or C0 W sign insertion on the positive half-spin representation of dimension 512. The Cartan probe is fixed and displayed.",
+          "try": "Compare C1 and C0 W. Six-dimensional anomalies use degrees 4 and 2; four-dimensional ones use degrees 3 and 1."
+        },
+        {
+          "name": "Identical 6D families",
+          "meaning": "Integer from 0 to 12 in a separate family-count example, assuming identical 6D chirality assignments.",
+          "try": "One family fails; three pass this restricted condition. Six also pass: it does not select exactly three."
+        },
+        {
+          "name": "6D lepton chirality",
+          "meaning": "Same as Q or opposite to Q, with quark chirality fixed positive and three colours.",
+          "try": "Switch the sign and compare the signed doublet excess; retain the identical-family assumption."
+        },
+        {
+          "name": "Mass landscape view / 3D perspective",
+          "meaning": "The 2D map and 3D surface use the same sampled paired masses and fixed colour range. Perspective is a display angle, not a physical parameter.",
+          "try": "Drag on the 2D map and release to apply the values. In 3D click a mesh node; adjust perspective between 15 and 75 degrees. Arrow keys move the selected point."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Root table and mass curves",
+          "meaning": "Six roots of x tan(x) = a, with x = kL, and scaled residuals. Curves show the lightest paired and unpaired branches versus the imposed angle; they are not the full Kaluza–Klein spectrum."
+        },
+        {
+          "name": "Gram eigenvalues and rank",
+          "meaning": "Eigenvalues of the complex Hermitian Gram matrix for profile angles 0, π/2 and π. Rank counts eigenvalues above the displayed numerical threshold; overlap alone does not establish dependence."
+        },
+        {
+          "name": "Exact inserted moments",
+          "meaning": "Tr(λ Fᵈ) for degrees 0 through 4 at one integer Cartan probe, evaluated with exact rational arithmetic. A nonzero value disproves an identically vanishing polynomial; a zero at one probe does not prove it."
+        },
+        {
+          "name": "Doublet excess and residues",
+          "meaning": "The signed complex-doublet excess must be a multiple of 6 in the stated standalone 6D test. Twice that coefficient counts half-doublets and must be a multiple of 12."
+        },
+        {
+          "name": "JSON, comparison and saved link",
+          "meaning": "JSON records tool version, schema, all parameters, roots, Gram results, exact moments, assumptions, sources and unresolved requirements. A pinned comparison overlays the earlier paired curve; a saved link restores controls."
+        },
+        {
+          "name": "2D map, 3D surface and Gram bars",
+          "meaning": "Mass colour is linear from 0 to 0.7071 in mR. The red slice fixes the current coupling; the white point is the selected calculation. Surface cells visualize sampled data, while the selected value is recomputed. Gram bars have their own labelled adaptive linear scale and numerical eigenvalues."
+        }
+      ],
+      "example": {
+        "title": "Find three different reasons a construction can fail",
+        "steps": [
+          "Load Research baseline, then Uncoupled boundary: the first normal root is zero.",
+          "Restore boundary strength 1: the first kR is approximately 0.273853.",
+          "Load Massless profile example: the three chosen profiles span only two independent directions.",
+          "Restore M = 1: the eigenvalues are approximately 0.172999, 2.783424 and 10.686355, and the numerical rank is three.",
+          "Select One 6D family with Opposite to Q: excess 2 gives residue 2. Select Three 6D families: excess 6 gives residue 0.",
+          "Switch C1 to C0 W and inspect the trace table, then export JSON."
+        ],
+        "expect": "The boundary gap, profile independence and restricted family condition respond to different changes. None of them settles localized or global anomaly cancellation of the full construction."
+      },
+      "limits": [
+        "The flat spectrum assumes uniform coupling, no additional boundary kinetic terms and the periodic transverse branch. It does not determine a Wilson vacuum, realistic flavour or neutrino masses.",
+        "The profile calculation is a separate mathematical example, not a derivation of three physical families. Numerical rank depends on tolerance; exact zero modes need an analytic boundary-domain analysis.",
+        "Inserted traces omit projector and covering-space normalization, consistent descent, mirror contributions and inflow. The scalar probe is not the full anomaly polynomial.",
+        "The SU(2) criterion applies to a specified standalone six-dimensional tensor setting. It cannot be transferred automatically to an eight-dimensional orbifold corner coupled to bulk inflow.",
+        "Local coefficients, integral tensor charge lattice, global gauge group, new boson zero modes and full quantum consistency remain unresolved."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "The first normal root is zero.",
+          "action": "Check boundary strength. At zero coupling this is the expected zero mode; it is not a numerical solver failure."
+        },
+        {
+          "symptom": "Overlapping profiles still have rank three.",
+          "action": "Overlap measures nonorthogonality. Dependence requires a null Gram direction; inspect the eigenvalues and threshold."
+        },
+        {
+          "symptom": "An inserted moment is zero.",
+          "action": "Check its degree and insertion. Evaluate the polynomial or more probes before claiming cancellation; this interface shows only one fixed probe."
+        },
+        {
+          "symptom": "Three families pass but full cancellation is unknown.",
+          "action": "That is intentional: the modular condition is necessary in its stated setting, not a complete local/global anomaly calculation."
+        },
+        {
+          "symptom": "An invalid input leaves the old result visible.",
+          "action": "The controls report the error and keep the last valid calculation. Restore the allowed range or press Research baseline."
+        }
+      ]
     }
   ],
   "glossary": {

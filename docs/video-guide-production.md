@@ -3,12 +3,20 @@
 [Watch in English](https://karlesmarin.github.io/ghu-explorer/video/index.html?lang=en) ·
 [Ver en español](https://karlesmarin.github.io/ghu-explorer/video/index.html?lang=es)
 
-The guide demonstrates all 29 navigation sections, three Simulator modes, nine research cards,
-integrated diagnostics and exports. There are 44 chapters and 144 narrated scenes per language.
+The guide demonstrates all 29 navigation sections, three Simulator modes, ten research cards,
+integrated diagnostics and exports. There are 45 chapters and 154 narrated scenes per language.
 Representative controls are shown; the guide does not enumerate every input combination.
 The experiment's question, changed input and interpretation form each chapter's teaching sequence.
 
 ## What was recorded
+
+The current revision `2026-10-12-boundary-research` recaptures all 45 chapters against Lab 0.2.1.
+Chapter 44 adds nine scenes: the boundary spectrum, linked 2D/3D mass views, independent
+profiles, parity-inserted traces and the restricted six-dimensional family condition.
+The controls and numerical results come from the actual app. The narration explains
+why these separate diagnostics do not certify a complete quantum model. Generate the
+new chapter with `tools/video_guide/add_chapter_boundary_research.py`, then regenerate
+the in-app demos before building and recording. Both manuals and task guides cover it.
 
 The revision `2026-10-10-demos` recaptures all 44 chapters (145 scenes) against the current laboratory, so every
 screen shows the guided 🎬 Demo buttons; chapter 43 opens by starting the KK-gluon card's own demo, then takes
@@ -27,14 +35,19 @@ diagnostics and withdrawal of unmatched archived evidence. Two existing scenes h
 narration in each language. The 139-scene script preserves scientific attribution and separates
 formal proofs, computer-assisted interval results, numerical agreement and open physics.
 
-Current assets live in `media/video/2026-10-10-demos/`, selected by
+Current assets live in `media/video/2026-10-12-boundary-research/`, selected by
 `media/video/current.json`. Earlier media remain byte-identical in `media/video/`,
 `media/video/2026-10-08/`, `media/video/2026-10-08-certification/` and `media/video/2026-10-10-kkgluon/`. Their
 complete previously served pages are preserved as `video/2026-10-07.html`, `video/2026-10-08.html`,
-`video/2026-10-08-certification.html` and `video/2026-10-10-kkgluon.html`; Editions links all four. The
+`video/2026-10-08-certification.html`, `video/2026-10-10-kkgluon.html` and
+`video/2026-10-10-demos.html`; Editions links all five. The
 2026-10-10-demos revision re-recorded every chapter again, after the 🎬 Demo buttons were added (the KK-gluon
 revision's screens predate them).
-Identical audio is reused only when text, voice, rate and sample rate match. Image contents,
+English and Spanish now have separate interface captures under `en/` and `es/` in the
+recording directory. Each capture records its application hash and requested UI language;
+the verifier checks that the Spanish boundary scenes contain Spanish results. The boundary
+card translates its controls, plots and explanations; older laboratory sections retain their
+existing English scientific interface. Identical audio is reused only when text, voice, rate and sample rate match. Image contents,
 audio and overlays all participate in clip cache keys. Captions and chapter times are rebuilt.
 
 `tools/video_guide/storyboard.json` contains the English and Spanish narration and the exact browser
@@ -66,7 +79,8 @@ browser is not automatically found. Capture and intermediate output must stay ou
 tree, so browser profiles, local file URLs and raw footage do not enter the public repository.
 
 ```powershell
-node tools/video_guide/record.mjs ../video-recording
+node tools/video_guide/record.mjs ../video-recording/en --language=en
+node tools/video_guide/record.mjs ../video-recording/es --language=es
 powershell -NoProfile -File tools/video_guide/narrate.ps1 -OutputDirectory ../video-recording/audio/en -Language en
 powershell -NoProfile -File tools/video_guide/narrate.ps1 -OutputDirectory ../video-recording/audio/es -Language es
 python tools/video_guide/render.py ../video-recording --pilot

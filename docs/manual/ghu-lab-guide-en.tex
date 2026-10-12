@@ -19,7 +19,7 @@
 {\LARGE User guide\par}
 \vspace{7mm}
 English edition.\par
-9 October 2026\par
+12 October 2026\par
 \vspace{8mm}
 Control names are kept as they appear in the application. Start with a reference, change one input at a time, and retain the assumptions with your result.\par
 \vfill
@@ -2348,6 +2348,86 @@ r(t\ensuremath{\overline{t}}) is close to 1: the 2008 reference point sits at th
 \item \href{https://arxiv.org/abs/2108.02803}{CMS differential t\ensuremath{\overline{t}} (TOP-20-001), arXiv:2108.02803}
 \item \href{https://doi.org/10.17182/hepdata.102956.v1/t37}{HEPData: CMS parton-level d\ensuremath{\sigma}/dm(t\ensuremath{\overline{t}})}
 \item \href{https://doi.org/10.17182/hepdata.102956.v1/t38}{HEPData: its covariance matrix}
+\end{itemize}
+\section{Boundary research: spectrum, independent profiles and anomaly diagnostics}
+Four separate tests help investigate a proposed GHU boundary mechanism: roots of a flat fermion boundary problem, the numerical rank of overlapping profiles, exact parity-inserted spinor traces and a restricted six-dimensional SU(2) tensor condition.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/boundaryresearch/index.html}{Open web guide}
+
+Use these tools to find which requirement fails and why before attempting a full model. A mass gap addresses unwanted paired modes; Gram rank tests linear independence; inserted traces expose localized anomaly terms; the tensor condition tests a restricted quantization requirement. Passing all four does not prove a viable Standard Model embedding or a complete quantum theory.
+\subsection*{First steps}
+\begin{enumerate}
+\item Open Anomalies \& proton and find Boundary research. Select English in the card. Press Research baseline to restore all inputs; Demo runs the worked examples and ends with this guide.
+\item Set Boundary strength to 0, then 1. Compare the first normal root and the paired curve at the same imposed Wilson angle.
+\item Set Profile example M to 0, then 1. Compare the Gram eigenvalues and numerical rank.
+\item Switch the parity insertion between C1, C0 and C0 W. Read the exact trace table, keeping its degree and support dimension in mind.
+\item With lepton chirality Opposite to Q, compare one and three identical 6D families. Read the signed doublet excess and its residue.
+\item Expand assumptions and provenance. Pin a comparison, export the card JSON and save the application link to repeat the calculation.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{Boundary strength \ensuremath{\kappa}\ensuremath{{}^{2}}L}. Nonnegative dimensionless coupling a of the uniform flat boundary action, from 0 to 100. L = \ensuremath{\pi}R. Use 0 and 1; the first kR changes from 0 to approximately 0.273853.
+
+\textbf{Imposed Wilson \ensuremath{\theta} [rad]}. Supplied angle from 0 to \ensuremath{\pi} for the periodic transverse branch; this is not a computed vacuum. At a = 1 compare \ensuremath{\theta} = 0 and \ensuremath{\theta} = 0.2; the unpaired mass changes while the normal root stays fixed.
+
+\textbf{Profile example M}. Mass parameter from 0 to 2 on a separate unit rectangle. It is not a bulk mass inserted in the Spin(20) action. Compare M = 0 and M = 1: rank 2 becomes rank 3.
+
+\textbf{Spin(20) parity insertion}. C1, C0 or C0 W sign insertion on the positive half-spin representation of dimension 512. The Cartan probe is fixed and displayed. Compare C1 and C0 W. Six-dimensional anomalies use degrees 4 and 2; four-dimensional ones use degrees 3 and 1.
+
+\textbf{Identical 6D families}. Integer from 0 to 12 in a separate family-count example, assuming identical 6D chirality assignments. One family fails; three pass this restricted condition. Six also pass: it does not select exactly three.
+
+\textbf{6D lepton chirality}. Same as Q or opposite to Q, with quark chirality fixed positive and three colours. Switch the sign and compare the signed doublet excess; retain the identical-family assumption.
+
+\textbf{Mass landscape view / 3D perspective}. The 2D map and 3D surface use the same sampled paired masses and fixed colour range. Perspective is a display angle, not a physical parameter. Drag on the 2D map and release to apply the values. In 3D click a mesh node; adjust perspective between 15 and 75 degrees. Arrow keys move the selected point.
+
+\subsection*{Reading the results}
+\textbf{Root table and mass curves}. Six roots of x tan(x) = a, with x = kL, and scaled residuals. Curves show the lightest paired and unpaired branches versus the imposed angle; they are not the full Kaluza--Klein spectrum.
+
+\textbf{Gram eigenvalues and rank}. Eigenvalues of the complex Hermitian Gram matrix for profile angles 0, \ensuremath{\pi}/2 and \ensuremath{\pi}. Rank counts eigenvalues above the displayed numerical threshold; overlap alone does not establish dependence.
+
+\textbf{Exact inserted moments}. Tr(\ensuremath{\lambda} F\ensuremath{{}^{d}}) for degrees 0 through 4 at one integer Cartan probe, evaluated with exact rational arithmetic. A nonzero value disproves an identically vanishing polynomial; a zero at one probe does not prove it.
+
+\textbf{Doublet excess and residues}. The signed complex-doublet excess must be a multiple of 6 in the stated standalone 6D test. Twice that coefficient counts half-doublets and must be a multiple of 12.
+
+\textbf{JSON, comparison and saved link}. JSON records tool version, schema, all parameters, roots, Gram results, exact moments, assumptions, sources and unresolved requirements. A pinned comparison overlays the earlier paired curve; a saved link restores controls.
+
+\textbf{2D map, 3D surface and Gram bars}. Mass colour is linear from 0 to 0.7071 in mR. The red slice fixes the current coupling; the white point is the selected calculation. Surface cells visualize sampled data, while the selected value is recomputed. Gram bars have their own labelled adaptive linear scale and numerical eigenvalues.
+
+Read each result with its own assumptions. The normal gap is dimensionless kR; a Gram rank is numerical and threshold-dependent; the traces are exact scalar evaluations without local weights; a zero residue passes only the stated standalone six-dimensional condition. Full anomaly cancellation stays unknown.
+\subsection*{Worked example: Find three different reasons a construction can fail}
+\begin{enumerate}
+\item Load Research baseline, then Uncoupled boundary: the first normal root is zero.
+\item Restore boundary strength 1: the first kR is approximately 0.273853.
+\item Load Massless profile example: the three chosen profiles span only two independent directions.
+\item Restore M = 1: the eigenvalues are approximately 0.172999, 2.783424 and 10.686355, and the numerical rank is three.
+\item Select One 6D family with Opposite to Q: excess 2 gives residue 2. Select Three 6D families: excess 6 gives residue 0.
+\item Switch C1 to C0 W and inspect the trace table, then export JSON.
+\end{enumerate}
+The boundary gap, profile independence and restricted family condition respond to different changes. None of them settles localized or global anomaly cancellation of the full construction.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item The flat spectrum assumes uniform coupling, no additional boundary kinetic terms and the periodic transverse branch. It does not determine a Wilson vacuum, realistic flavour or neutrino masses.
+\item The profile calculation is a separate mathematical example, not a derivation of three physical families. Numerical rank depends on tolerance; exact zero modes need an analytic boundary-domain analysis.
+\item Inserted traces omit projector and covering-space normalization, consistent descent, mirror contributions and inflow. The scalar probe is not the full anomaly polynomial.
+\item The SU(2) criterion applies to a specified standalone six-dimensional tensor setting. It cannot be transferred automatically to an eight-dimensional orbifold corner coupled to bulk inflow.
+\item Local coefficients, integral tensor charge lattice, global gauge group, new boson zero modes and full quantum consistency remain unresolved.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{The first normal root is zero.} Check boundary strength. At zero coupling this is the expected zero mode; it is not a numerical solver failure.
+
+\textbf{Overlapping profiles still have rank three.} Overlap measures nonorthogonality. Dependence requires a null Gram direction; inspect the eigenvalues and threshold.
+
+\textbf{An inserted moment is zero.} Check its degree and insertion. Evaluate the polynomial or more probes before claiming cancellation; this interface shows only one fixed probe.
+
+\textbf{Three families pass but full cancellation is unknown.} That is intentional: the modular condition is necessary in its stated setting, not a complete local/global anomaly calculation.
+
+\textbf{An invalid input leaves the old result visible.} The controls report the error and keep the last valid calculation. Restore the allowed range or press Research baseline.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/1609.01413}{Fujimoto et al.: rectangle boundary conditions and profiles, sections 2--5}
+\item \href{https://arxiv.org/abs/hep-ph/0209144}{Asaka, Buchmüller, Covi: localized orbifold anomalies, sections 2--4}
+\item \href{https://arxiv.org/abs/hep-ph/0102010}{Dobrescu, Poppitz: identical six-dimensional generations}
+\item \href{https://arxiv.org/abs/2012.11622}{Lee, Tachikawa: six-dimensional global anomalies and tensor quantization, sections 2--3}
 \end{itemize}
 \section{Glossary}
 \subsection*{the alphabet}

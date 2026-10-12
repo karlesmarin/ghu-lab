@@ -10,6 +10,7 @@ Each new experiment stays in an existing section. Start with its **What this tes
 
 | Question | Where | First useful comparison |
 |---|---|---|
+| Does a boundary proposal lift paired modes, retain independent profiles and meet scoped anomaly conditions? | Anomalies → [Boundary research](boundary-research.md) | Compare coupling 0/1, profile M 0/1 and one/three identical 6D families; select points in the linked 2D/3D mass views |
 | Does SU(6) content select a small Wilson phase? | Paper models → Maru–Nago | k3=3, Nad=5: compare 10 and 1000 Fourier terms; inspect the magnified minimum |
 | Can UV brane terms reconcile the coupling differences? | Brane kinetic terms → Warped SU(6) | Compare C1 and C2, then choose the required Δλ values |
 | What does a three-flavour ring require? | Simulator → Neutrino ring → Three active flavours | Normal/inverted ordering; vary δ and inspect the oscillation curves and flavour map |

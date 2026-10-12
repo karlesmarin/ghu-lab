@@ -1,5 +1,35 @@
 # HANDOFF — GHU Lab
 
+## 2026-10-12 — boundary research, app 0.2.1 / tool 1.0.0
+
+Anomalies → Boundary research is the tenth embedded experiment. Pure engine:
+`src/modules/boundary_research.mjs`; SVG views and input interactions:
+`src/view/boundary_plots.js`; dedicated numerical and Chromium harnesses:
+`_test_boundary_research.mjs` (159 checks) and `build/boundary_research.mjs` (25 checks).
+The existing research-card lifecycle calls an optional `rendered` hook after each render;
+listeners remain attached to disposable nodes, with no background animation or global listener.
+
+Read `docs/boundary-research.md` for equations, API, examples, exact arithmetic bounds and
+scientific scope. The linked 2D/3D plots share a 25 × 25 sampled mass grid; selection in 2D
+recomputes continuous coordinates, whereas 3D selection uses the nearest node. Camera angle
+does not change physics. Profile M is a separate example, not an SO(20) bulk mass.
+Full local/global anomaly cancellation remains unknown.
+
+`src/view/boundary_language.js` translates only this card's visible text and accessibility
+labels in place. It preserves event handlers, numeric state and SVG metadata. The local
+English/Español buttons share the help-language selector; URL `lang=es` initializes the
+same language used by the demo. The Spanish guide names the translated controls. A switch
+back to English restores original text; the browser gate checks both directions, invalid
+inputs and a complete direct Spanish demo. Record separate EN/ES interface captures for
+the full video (`record.mjs <recording>/<language> --language=<language>`).
+
+Guide generator: `tools/add_guide_boundary_research.py` (EN/ES). General video generator:
+`tools/video_guide/add_chapter_boundary_research.py`; revision `2026-10-12-boundary-research`,
+45 chapters / 154 scenes. Keep `src/site/video-2026-10-10-demos.html` and its media frozen.
+Guides validate against the completed current video chapter manifest: after adding a chapter,
+capture a development app, render and verify the revised full video, then run all final gates.
+Do not mistake a pre-video guide-coverage failure or `--skip-tests` build for publishable evidence.
+
 ## 2026-10-10 (late) — KK-gluon card after an external review
 
 `changes/2026-10-10-kk-gluon-review.md`. Published RS point now carries all nine c (`cQ2`, `cU2`, `cD1`, `cD2`; null =

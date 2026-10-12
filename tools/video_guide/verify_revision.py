@@ -17,26 +17,33 @@ def main():
     ap=argparse.ArgumentParser();ap.add_argument('recording',type=Path);ap.add_argument('--vendor',type=Path);a=ap.parse_args()
     if a.vendor:sys.path.insert(0,str(a.vendor.resolve()))
     import imageio_ffmpeg
-    rec=a.recording.resolve();plan=read(ROOT/'tools/video_guide/storyboard.json');capture=read(rec/'capture.json')
+    rec=a.recording.resolve();plan=read(ROOT/'tools/video_guide/storyboard.json')
+    capture_dirs={lang:rec/lang if (rec/lang/'capture.json').exists() else rec for lang in ['en','es']}
+    captures={lang:read(folder/'capture.json') for lang,folder in capture_dirs.items()}
     scene_count=sum(len(ch['steps']) for ch in plan['chapters'])
     chapter_count=len(plan['chapters'])
     checks=[]
     def check(ok,label):
         if not ok:raise AssertionError(label)
         checks.append(label)
-    check(sha(ROOT/'app/index.html')==capture['sourceAppSha256'],'captures refer to the delivered application')
-    check(set(capture['scenes'])=={s['id'] for ch in plan['chapters'] for s in ch['steps']},f'all {scene_count} scenes recorded')
-    check(all(not r['errors'] for r in capture['runs']),'capture runs have no browser exceptions')
+    for lang,capture in captures.items():
+        check(sha(ROOT/'app/index.html')==capture['sourceAppSha256'],lang+' captures refer to the delivered application')
+        check(set(capture['scenes'])=={s['id'] for ch in plan['chapters'] for s in ch['steps']},lang+f' all {scene_count} scenes recorded')
+        check(all(not r['errors'] for r in capture['runs']),lang+' capture runs have no browser exceptions')
+        if capture_dirs[lang]!=rec:check(capture['language']==lang,lang+' capture language matches narration')
     inventory={}
     for ch in plan['chapters']:
         for scene in ch['steps']:
-            folder=rec/'frames'/scene['id'];record=read(folder/'record.json')
-            check(record['chapter']==ch['id'] and record['state']['section']==ch['host'],scene['id']+' matching section')
-            check([x['action'] for x in record['actions']]==[{**x,**({'kind':'click','selector':'#demoRun','pauseDemo':True} if x['kind']=='demoStart' else {})} for x in scene['actions']],scene['id']+' recorded controls match storyboard')
-            digest=hashlib.sha256((folder/'record.json').read_bytes())
-            for f in record['frames']:digest.update((folder/f['file']).read_bytes())
-            inventory[scene['id']]=digest.hexdigest()
             for lang in ['en','es']:
+                folder=capture_dirs[lang]/'frames'/scene['id'];record=read(folder/'record.json')
+                check(record['chapter']==ch['id'] and record['state']['section']==ch['host'],lang+' '+scene['id']+' matching section')
+                check([x['action'] for x in record['actions']]==[{**x,**({'kind':'click','selector':'#demoRun','pauseDemo':True} if x['kind']=='demoStart' else {})} for x in scene['actions']],lang+' '+scene['id']+' recorded controls match storyboard')
+                if capture_dirs[lang]!=rec:check(record['state']['language']==lang,lang+' '+scene['id']+' controls use requested language')
+                if ch['id']=='boundaryresearch' and lang=='es' and capture_dirs[lang]!=rec:
+                    check('Primera raíz normal' in record['state']['text'] and 'First normal root' not in record['state']['text'],'Spanish boundary results accompany Spanish narration')
+                digest=hashlib.sha256((folder/'record.json').read_bytes())
+                for f in record['frames']:digest.update((folder/f['file']).read_bytes())
+                inventory[lang+'/'+scene['id']]=digest.hexdigest()
                 aud=rec/'audio'/lang/(scene['id']+'.wav');meta=read(Path(str(aud)+'.json'))
                 expected=spoken(scene['textES' if lang=='es' else 'text'],lang)
                 check(meta['text']==expected,lang+' '+scene['id']+' audio text matches final script')
@@ -61,7 +68,7 @@ def main():
         (rec/f'decode-{lang}.log').write_bytes(p.stderr)
         check(p.returncode==0 and not p.stderr.strip(),lang+' full audio/video decode has no errors')
         versions[lang]={k:r[k] for k in ['seconds','bytes','sha256','chapters','subtitles']}
-    report={'passed':True,'checks':len(checks),'sourceAppSha256':capture['sourceAppSha256'],'storyboardSha256':sha(ROOT/'tools/video_guide/storyboard.json'),'captureHashes':inventory,'versions':versions}
+    report={'passed':True,'checks':len(checks),'sourceAppSha256':captures['en']['sourceAppSha256'],'storyboardSha256':sha(ROOT/'tools/video_guide/storyboard.json'),'captureLanguages':{lang:cap.get('language','en') for lang,cap in captures.items()},'captureHashes':inventory,'versions':versions}
     (rec/'verification.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({'passed':True,'checks':len(checks),'versions':versions},indent=2))
 if __name__=='__main__':main()

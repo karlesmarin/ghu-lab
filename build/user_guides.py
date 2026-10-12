@@ -12,7 +12,7 @@ GROUPS=[('SU(7) · Komori–Maru','SU(7) · Komori–Maru','hierarchy inverse ce
  ('Flat 5D models','Modelos planos en 5D','fived sun5d papers su6mn spectrum5d anomaly5d brane sweep5d dossier predict simulator-builder'),
  ('Neutrino ring','Anillo de neutrinos','simulator-neutrino flavour identifiability neutrino-decays'),
  ('Higgs and thermal diagnostics','Diagnósticos del Higgs y térmicos','simulator-higgsrate thermal thermalhistory'),
- ('Boundary conditions','Condiciones de contorno','bcclass orbifold relations cbclass'),
+ ('Boundary conditions','Condiciones de contorno','bcclass orbifold relations cbclass boundaryresearch'),
  ('Boundary terms, gravity and literature','Términos de frontera, gravedad y bibliografía','blkt rsrunning gravitygauge litcensus')]
 TASKS=[('Build and inspect a model','Construir e inspeccionar un modelo','sun5d'),('Study the SU(7) hierarchy','Estudiar la jerarquía SU(7)','hierarchy'),('Compare with experimental references','Comparar con referencias experimentales','higgstools'),('Explore neutrino masses and decays','Explorar masas y desintegraciones de neutrinos','simulator-neutrino'),('Follow a thermal transition','Seguir una transición térmica','thermal'),('Classify boundary conditions','Clasificar condiciones de contorno','bcclass')]
 

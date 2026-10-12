@@ -1,13 +1,18 @@
 # The site — what it is, page by page
 
 
-Current guide architecture (9 October 2026): `docs/user-guides[.es].json` supplies
-43 guides and 59 glossary terms in each language. `build/user_guides.py` generates inline help
-and 88 HTML guide/index/glossary pages; `build/guide_manual.py` generates both PDF manuals with
+Current guide architecture (12 October 2026): `docs/user-guides[.es].json` supplies
+44 guides and 59 glossary terms in each language. `build/user_guides.py` generates inline help
+and 92 HTML guide/index/glossary pages; `build/guide_manual.py` generates both PDF manuals with
 Babel. The site build links these from Home, Docs and Editions, gives current pages canonical
 URLs, and lists current English/Spanish HTML in the root sitemap. No hash-only app state is
 listed as a separate indexable page. Historical video pages and frozen artifacts are preserved.
 The current full build reports its measured check count; dated counts below describe earlier work.
+
+The tenth research card, Anomalies → Boundary research, is documented in
+`docs/boundary-research.md`. Lab 0.2.1 includes linked 2D/3D views and the downloadable
+offline edition. The current general video has 45 chapters and 154 scenes in each language;
+its predecessor is preserved at `video/2026-10-10-demos.html`.
 
 Google Search Console uses the URL-prefix property `https://karlesmarin.github.io/ghu-explorer/`.
 Its original HTML verification file lives in `src/site/verification/`; the site build copies it

@@ -372,6 +372,15 @@
         "en": "guide/kkgluon/index.html",
         "es": "guide/es/kkgluon/index.html"
       }
+    },
+    {
+      "id": "boundaryresearch",
+      "title": "Boundary research: spectra, profile rank and anomaly tests",
+      "host": "anomalies",
+      "guides": {
+        "en": "guide/boundaryresearch/index.html",
+        "es": "guide/es/boundaryresearch/index.html"
+      }
     }
   ],
   "simulatorModes": [

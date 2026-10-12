@@ -28,6 +28,7 @@ The checks are not stylistic.  Each one corresponds to a way a static site quiet
   echo         an entry that appears in the stream but not on its own paper's page
 """
 import html
+from html.parser import HTMLParser
 import json
 import pathlib
 import re
@@ -72,6 +73,16 @@ def load():
 
 # ------------------------------------------------------------------ the checks
 
+class StaticLinks(HTMLParser):
+    """Read real HTML attributes; script strings and comments are not links."""
+    def __init__(self):
+        super().__init__()
+        self.hrefs = []
+
+    def handle_starttag(self, tag, attrs):
+        self.hrefs.extend(value for key, value in attrs if key == 'href' and value is not None)
+
+
 def check_links(w):
     bad = []
     for rel, text in w["pages"].items():
@@ -81,7 +92,9 @@ def check_links(w):
         if rel == "app/index.html":
             continue
         base = pathlib.PurePosixPath(rel).parent
-        for href in HREF_RX.findall(text):
+        parser = StaticLinks()
+        parser.feed(text)
+        for href in parser.hrefs:
             # `data:` is not a place, it is the payload: the favicon is carried in the attribute
             # itself, so there is no file to find on disk and its absence is not a broken link.
             if href.startswith(("http://", "https://", "mailto:", "#", "data:")):
@@ -555,6 +568,16 @@ BREAKERS = dict(zip([c[0] for c in CHECKS], _BREAKS))
 def main():
     w = load()
     ok, fail = [], []
+
+    probe = {'pages': {'editions/example.html': '<script>const template = `<a href="${target}">`;</script>'}, 'files': set()}
+    for name, expected in [('script template is not a static link', False),
+                           ('real broken edition link is detected', True)]:
+        if expected:
+            probe['pages']['editions/example.html'] += "<a href='missing.html'>Missing</a>"
+        if bool(check_links(probe)) == expected:
+            ok.append(name)
+        else:
+            fail.append((name, ['incorrect static link interpretation']))
 
     print("THE SITE AS BUILT\n")
     for name, fn in CHECKS:

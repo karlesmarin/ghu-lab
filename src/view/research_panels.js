@@ -106,7 +106,7 @@ function rxMount(def,ctx){
     const key=e.target.dataset.rx;if(!key)return;
     const value=e.target.value.trim()===''?NaN:Number(e.target.value);
     try {const proposed={...RX_STATE[def.id],[key]:value};def.validate(proposed);def.compute(proposed);RX_STATE[def.id]=proposed;$('error').textContent='';ctx.refresh();}
-    catch(err){$('error').textContent=err.message+'. Last valid results retained.';}
+    catch(err){$('error').textContent=err.message+'. Last valid results retained.';if(def.localize)def.localize();}
   };
   if(def.presets){const box=document.createElement('p');box.style.cssText='display:flex;gap:8px;flex-wrap:wrap';
     for(const preset of def.presets){const button=document.createElement('button');button.className='ghost';button.textContent=preset.label;
@@ -143,6 +143,7 @@ function rxMount(def,ctx){
     const selectedFigure=figures.value||'0';figures.innerHTML=Array.from($('result').querySelectorAll('svg')).map((s,i)=>`<option value="${i}">${rxEscape(s.getAttribute('aria-label')||'Figure '+(i+1))}</option>`).join('');if(+selectedFigure<figures.options.length)figures.value=selectedFigure;
     // Detailed numerical tables stay one click away, keeping the visual reading first.
     $('result').querySelectorAll('div[style="overflow-x:auto"]').forEach((table,i)=>{if(table.closest('details'))return;const detail=document.createElement('details');const summary=document.createElement('summary');summary.textContent='Numerical details · '+Array.from(table.querySelectorAll('th')).slice(0,3).map(x=>x.textContent).join(' / ');detail.append(summary);table.before(detail);detail.append(table);});
+    if(def.rendered)def.rendered($('result'),last,ctx);
     return last;
   }};
 }

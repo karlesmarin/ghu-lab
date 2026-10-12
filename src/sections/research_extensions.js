@@ -214,3 +214,41 @@ const KKG_PANEL={id:'kkgluon',title:'First KK gluon at the LHC: couplings, width
   `<p class="note">${rxEscape(r.scope)} Not evaluated: ${r.unknown.map(rxEscape).join('; ')}. The ATLAS limit assumes a Γ/M = 30% template; for a different width the comparison is approximate, and at high mass the off-shell tail dominates the Breit–Wigner.</p>`;},
  tex:r=>`First KK gluon (${r.parameters.realisation===0?'flat GHU':'warped'}) at ${r.parameters.MTeV} TeV: Gamma/M=${r.here.GoverM.toPrecision(4)}, BR(tt)=${r.here.BRtt.toPrecision(4)}, r(tt, ATLAS obs)=${r.values.r_tt_observed.value===null?'n/a':r.values.r_tt_observed.value.toPrecision(3)}, r(dijet, CMS)=${r.values.r_dijet_width.value===null?'n/a':r.values.r_dijet_width.value.toPrecision(3)}; m(tt) spectrum vs CMS TOP-20-001: expected Delta chi^2=${r.values.tt_spectrum_dchi2.value.toPrecision(3)} (sensitivity, ${Math.round(100*r.parameters.ttTheory)}% SM theory error). LO; limits in the experiments' conventions.`};
 rxAttach(COLLIDER_SECTION,KKG_PANEL);
+
+/* Boundary research: four separate diagnostics share controls and provenance. */
+const BRX_PANEL={id:'boundaryresearch',title:'Boundary research: spectra, profile rank and anomaly tests',
+ intro:'Test a proposed boundary mechanism in separate steps: its flat fermion gap, profile independence, parity-inserted traces and a restricted six-dimensional tensor condition.',
+ defaults:brxDefaults(),validate:brxValidate,compute:brxModel,rendered:brxBindPlots,localize:brxLocalize,
+ fields:[{key:'viewMode',label:'Mass landscape view',options:[[0,'2D · select / drag a point'],[1,'3D · select a mesh node']]},
+  {key:'viewAngle',label:'3D perspective [degrees]',min:15,max:75,step:1},
+  {key:'strength',label:'Boundary strength κ²L',min:0,max:100},
+  {key:'theta',label:'Imposed Wilson θ [rad]',min:0,max:Math.PI},
+  {key:'profileMass',label:'Profile example M (unit rectangle)',min:0,max:2},
+  {key:'generations',label:'Identical 6D families (separate test)',min:0,max:12,step:1},
+  {key:'leptonSign',label:'6D lepton chirality',options:[[-1,'Opposite to Q'],[1,'Same as Q']]},
+  {key:'insertion',label:'Spin(20) parity insertion',options:[[3,'C1 · six-dimensional corner'],[31,'C0 · six-dimensional corner'],[991,'C0 W · four-dimensional intersection']]}],
+ presets:[{label:'Research baseline',values:brxDefaults()},{label:'Uncoupled boundary',values:{strength:0}},
+  {label:'Massless profile example',values:{profileMass:0}},{label:'One 6D family',values:{generations:1}},
+  {label:'Three 6D families',values:{generations:3}}],
+ source:'Sources: <a href="https://arxiv.org/html/hep-ph/0209144v1">Asaka–Buchmüller–Covi</a>; <a href="https://arxiv.org/html/2012.11622v2">Lee–Tachikawa</a>; <a href="https://arxiv.org/html/hep-ph/0102010v2">Dobrescu–Poppitz</a>; <a href="https://arxiv.org/html/1609.01413v2">Fujimoto et al.</a>. The flat boundary spectrum and Spin(20) diagnostics are calculations of the ACTION study, not results attributed to these papers.',
+ present(r){return `<h3>1 · Does the boundary coupling lift the paired normal zero mode?</h3><p><b>First normal root kR = ${rxNumber(r.roots[0].kR)}</b>. At the imposed θ, the periodic branches have mR = ${rxNumber(r.atTheta.unpaired)} (unpaired) and ${rxNumber(r.atTheta.paired)} (paired).</p>`+
+  `<div id="brx_landscape">${brxLandscapeSVG(r)}<p data-brx-preview role="status">Selected: κ²L = ${rxNumber(r.parameters.strength)}, θ = ${rxNumber(r.parameters.theta)} rad, paired mR = ${rxNumber(r.atTheta.paired)}.</p><p class="note">On narrow screens, scroll the figure sideways to keep its labels readable. Select or drag a point and release to apply it to the inputs; arrow keys also move the selected point. The 3D view selects the nearest mesh node. The red line fixes the current boundary coupling; the curve below is that same slice. Colour and height represent the same mass, not a potential. The colour scale stays fixed; the coupling range expands above 4 if needed.</p></div>`+
+  rxPlot('Flat boundary spectrum at an imposed Wilson background',rxCompared('boundaryresearch',[{name:'Unpaired branch',points:r.curve.map(x=>[x.theta,x.unpaired])},{name:'Paired branch',points:r.curve.map(x=>[x.theta,x.paired])}],b=>b.curve.map(x=>[x.theta,x.paired])),'Imposed θ [rad]','mR · L = πR',r.parameters)+
+  `<p class="note">The upper (paired) branch contains the boundary gap. The lower (unpaired) branch contains only the imposed Wilson shift. At zero boundary coupling the two curves coincide.</p>`+
+  rxTable(['Normal level j','Root kL','kR','Scaled equation residual'],r.roots.map(x=>[x.j,x.x,x.kR,x.residual]))+
+  `<p class="note">kL tan(kL) = κ²L. Flat uniform action, periodic transverse branch, no added boundary kinetic terms. The Wilson background is supplied; the graph does not locate a vacuum.</p>`+
+  `<h3>2 · Are overlapping profiles independent?</h3><p><b>Numerical Gram rank: ${r.gram.rank} of 3</b>, threshold ${rxNumber(r.gram.threshold)}. Nonzero overlap alone does not imply dependence. M here belongs to a separate unit-rectangle profile example; it is not a bulk mass added to the Spin(20) action.</p>`+
+  `<div id="brx_gram">${brxGramSVG(r)}</div><p class="note">A positive bar above the threshold is an independent direction. At M = 0 one eigenvalue is numerically zero. Bar lengths use the displayed linear scale, which adapts to M; compare the printed values between runs.</p>`+
+  rxTable(['Gram eigenvalue','Value'],r.gram.values.map((v,i)=>[i+1,v]))+
+  `<h3 id="brx_trace">3 · What changes when a parity is inserted in the trace?</h3><p>Positive half-spin 512 of Spin(20); Cartan probe (${r.cartan.join(', ')}). These scalar evaluations can detect nonzero moments; a zero at one probe is not proof that the full polynomial vanishes.</p>`+
+  rxTable(['Degree d','Exact Tr(λ Fᵈ) at the probe'],r.moments.map(x=>[x.degree,str(x.value)]))+
+  `<p class="note">A six-dimensional anomaly polynomial uses degree 4 and mixed degree 2; a four-dimensional one uses degree 3 and mixed degree 1. These are unweighted traces. Local projector/cover factors, consistent descent, mirrors and inflow remain pending.</p>`+
+  `<h3 id="brx_family">4 · Do identical 6D families meet the restricted SU(2) tensor condition?</h3><p><b>${r.family.passes?'Passes this restricted condition':'Fails this restricted condition'}</b>: signed complex-doublet excess ${r.family.complexDoubletExcess}, residue modulo 6 = ${r.family.residue}. Half-doublet coefficient = ${r.family.halfDoubletCoefficient}; its modulus is 12.</p>`+
+  `<p>${rxEscape(r.family.assumption)} ${rxEscape(r.family.scope)} The criterion allows multiples of three under these premises; it does not select exactly three.</p>`+
+  `<details><summary>Assumptions, provenance and what remains unresolved</summary><ul>${r.assumptions.map(x=>`<li>${rxEscape(x)}</li>`).join('')}</ul><p><b>Full anomaly cancellation: unknown.</b> ${r.unknown.map(rxEscape).join('; ')}.</p><p>Tool ${rxEscape(r.toolVersion)} · ${rxEscape(r.schema)}. JSON includes every input, source and scope.</p></details>`;},
+ tex:r=>`Boundary diagnostics v${r.toolVersion}: first normal kR=${r.roots[0].kR.toPrecision(8)}, numerical profile rank=${r.gram.rank}, restricted SU2 residue=${r.family.residue}. Full local/global anomaly cancellation remains unknown.`
+};
+RX_RESEARCH_GUIDE.boundaryresearch={question:'Which specific requirement does a proposed boundary construction meet or fail?',
+ metrics:r=>[['First paired normal kR',r.roots[0].kR,''],['Profile Gram rank',r.gram.rank,'/ 3'],['6D doublet residue',r.family.residue,'mod 6']],
+ takeaway:r=>'These are separate diagnostics. A lifted mode, independent profiles and a passing restricted tensor test do not establish a complete anomaly-free GHU model.'};
+rxAttach(ANOMALIES_SECTION,BRX_PANEL);

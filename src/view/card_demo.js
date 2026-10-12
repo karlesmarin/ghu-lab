@@ -21,8 +21,8 @@ const CDM_URL = (() => {
   } catch { return { demo: null, lang: null, speed: 1 }; }
 })();
 const CDM_STATE = { running: null, cancel: false, skip: false, autostarted: false, lastError: null, lastFinished: null };
-const cdmLang = () => (CDM_URL.lang === 'es' || CDM_URL.lang === 'en') ? CDM_URL.lang
-  : (typeof GUIDE_LANGUAGE !== 'undefined' && GUIDE_LANGUAGE === 'es' ? 'es' : 'en');
+const cdmLang = () => typeof GUIDE_LANGUAGE !== 'undefined' ? GUIDE_LANGUAGE
+  : (CDM_URL.lang === 'es' ? 'es' : 'en');
 const cdmNum = (x, d = 2) => (x == null || !Number.isFinite(x)) ? '—' : Number(x).toFixed(d);
 const cdmChapters = () => (typeof CDM_SCRIPTS !== 'undefined' ? CDM_SCRIPTS.chapters : []);
 const cdmChapter = id => cdmChapters().find(c => c.id === id) || null;

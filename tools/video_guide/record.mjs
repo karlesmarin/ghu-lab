@@ -6,12 +6,16 @@ import {resolve} from 'node:path';
 import {pathToFileURL,fileURLToPath} from 'node:url';
 import {findChrome} from '../../build/_chrome.mjs';
 const lab=fileURLToPath(new URL('../../',import.meta.url));
-const out=resolve(process.argv[2]||'video-recording'), requested=process.argv.slice(3);
+const out=resolve(process.argv[2]||'video-recording'), args=process.argv.slice(3);
+const language=(args.find(a=>a.startsWith('--language='))||'--language=en').split('=')[1];
+if(!['en','es'].includes(language))throw Error('Capture language must be en or es');
+const requested=args.filter(a=>!a.startsWith('--language='));
 const plan=JSON.parse(readFileSync(new URL('storyboard.json',import.meta.url),'utf8'));
 const appHash=createHash('sha256').update(readFileSync(resolve(lab,'app/index.html'))).digest('hex');
 const capturePath=resolve(out,'capture.json');
-const capture=existsSync(capturePath)?JSON.parse(readFileSync(capturePath,'utf8')):{schema:'ghu-video-capture-v1',sourceAppSha256:appHash,scenes:[],runs:[]};
+const capture=existsSync(capturePath)?JSON.parse(readFileSync(capturePath,'utf8')):{schema:'ghu-video-capture-v1',sourceAppSha256:appHash,language,scenes:[],runs:[]};
 if(capture.sourceAppSha256!==appHash)throw Error('Use a new recording directory for a changed application');
+if((capture.language||'en')!==language)throw Error('Use a separate capture directory for each language');
 const chapters=plan.chapters.filter(c=>!requested.length||requested.includes(c.id));
 mkdirSync(out,{recursive:true});mkdirSync(resolve(out,'downloads'),{recursive:true});
 const port=9512,profile=resolve(out,`profile-${Date.now()}`);
@@ -26,7 +30,7 @@ try {
  ev=async expression=>{const r=await send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw Error(r.exceptionDetails.exception?.description||JSON.stringify(r.exceptionDetails));return r.result?.value;};
  await send('Page.enable');await send('Runtime.enable');await send('Browser.setDownloadBehavior',{behavior:'allow',downloadPath:resolve(out,'downloads'),eventsEnabled:true});
  await send('Emulation.setDeviceMetricsOverride',{width:1600,height:900,deviceScaleFactor:1.2,mobile:false});
- const elementExpr=a=>a.kind==='button'?`[...document.querySelectorAll('#section button')].find(e=>e.textContent.trim()===${JSON.stringify(a.text)})`:`document.querySelectorAll(${JSON.stringify(a.selector)})[${a.index||0}]`;
+ const elementExpr=a=>a.kind==='button'?`[...document.querySelectorAll('#section button')].find(e=>e.textContent.trim()===${JSON.stringify(a.text)}||e.textContent.trim()===(typeof brxTranslate==='function'?brxTranslate(${JSON.stringify(a.text)}):${JSON.stringify(a.text)}))`:`document.querySelectorAll(${JSON.stringify(a.selector)})[${a.index||0}]`;
  const locate=async a=>ev(`(()=>{const e=${elementExpr(a)};if(!e)throw Error('Missing target '+${JSON.stringify(a.selector||a.text)});for(let p=e;p;p=p.parentElement)if(p.tagName==='DETAILS')p.open=true;return {tag:e.tagName,type:e.type,value:e.value,checked:e.checked,disabled:e.disabled,options:e.tagName==='SELECT'?[...e.options].map(o=>o.value):null};})()`);
  let frames=[],frameDir,frameIndex=0;
  const shot=async(duration=.18)=>{if(!frameDir)return;const s=await send('Page.captureScreenshot',{format:'png'}),name=`${String(frameIndex++).padStart(4,'0')}.png`;writeFileSync(resolve(frameDir,name),Buffer.from(s.data,'base64'));frames.push({file:name,duration});};
@@ -56,7 +60,7 @@ try {
  };
  for(const chapter of chapters){
    console.log('Recording '+chapter.number+' / '+plan.chapters.length+' '+chapter.id);
-   await send('Page.navigate',{url:'about:blank'});await send('Page.navigate',{url:pathToFileURL(resolve(lab,'app/index.html')).href+'#s='+chapter.host});
+   await send('Page.navigate',{url:'about:blank'});await send('Page.navigate',{url:pathToFileURL(resolve(lab,'app/index.html')).href+'#s='+chapter.host+'&lang='+language});
    let ready=false;for(let i=0;i<600;i++){if(await ev(`document.querySelector('#rail a.on')?.dataset.id===${JSON.stringify(chapter.host)}`)){ready=true;break;}await pause(100);}if(!ready)throw Error('Section not ready '+chapter.host);await pause(350);
    await ev(`(()=>{const style=document.createElement('style');style.textContent='#videoBanner{position:fixed;left:0;right:0;top:0;z-index:9999;height:64px;background:#14232df5;color:#fff;display:flex;align-items:center;gap:18px;padding:0 30px;font:20px system-ui;box-shadow:0 2px 14px #0003}#videoBanner b{color:#7ed6df;font-size:16px;letter-spacing:1.4px}#videoBanner span{flex:1}#videoBanner small{font-size:14px;color:#cbd7dd}#videoAction{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:9998;max-width:80vw;background:#14232def;color:white;border-radius:8px;padding:10px 18px;font:16px system-ui;pointer-events:none}#videoAction:empty{display:none}#videoPointer{position:fixed;z-index:9998;width:44px;height:44px;margin:-22px;border:3px solid #d38710;border-radius:50%;box-shadow:0 0 0 7px #f9c85038;pointer-events:none;opacity:0}body{padding-top:66px!important;padding-bottom:100px!important}';document.head.appendChild(style);const b=document.createElement('div');b.id='videoBanner';b.innerHTML='<b>GHU LAB · VIDEO GUIDE</b><span></span><small></small>';document.body.appendChild(b);b.querySelector('span').textContent=${JSON.stringify(chapter.title)};b.querySelector('small').textContent=${JSON.stringify(String(chapter.number).padStart(2,'0')+' / '+plan.chapters.length+' · EN')};for(const id of ['videoPointer','videoAction']){const e=document.createElement('div');e.id=id;document.body.appendChild(e);}})()`);
    frameDir=null;for(const a of chapter.setup||[])await action(a);
@@ -66,7 +70,7 @@ try {
      for(const a of step.actions)actions.push(await action(a));
      if(step.focus)await scrollTo(step.focus);
      await ev(`document.getElementById('videoAction').textContent='';document.getElementById('videoPointer').style.opacity='0'`);await pause(150);await shot(1);
-     const state=await ev(`({section:document.querySelector('#rail a.on')?.dataset.id,location:location.hash,scrollY,text:document.getElementById('section').innerText})`);
+     const state=await ev(`({section:document.querySelector('#rail a.on')?.dataset.id,language:GUIDE_LANGUAGE,location:location.hash,scrollY,text:document.getElementById('section').innerText})`);
      const record={id:step.id,chapter:chapter.id,frames,actions,state};writeFileSync(resolve(frameDir,'record.json'),JSON.stringify(record,null,2)+'\n');records.push({id:step.id,frameCount:frames.length,actions:actions.length});
    }
    writeFileSync(resolve(out,'recording-progress.json'),JSON.stringify({records,errors},null,2)+'\n');

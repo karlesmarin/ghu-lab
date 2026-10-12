@@ -7,15 +7,29 @@ original SU(7), SU(4) and general 5D SU(N) tools, flat and warped SU(6) benchmar
 the 4D neutrino ring, Higgs-rate scenarios, integrated diagnostics and reproducible batch studies.
 Outputs retain their inputs, provenance and status: `theorem`, `verified`, `measured` or `unknown`.
 
-## User guides · 9 October 2026
+## Boundary research · 12 October 2026 · v0.2.1
+
+The new [boundary research tools](docs/boundary-research.md) in **Anomalies** compute a flat
+boundary spectrum, complex profile Gram rank, exact parity-inserted spinor moments and a
+restricted 6D SU(2) tensor condition. A linked 2D map and 3D surface use the same sampled
+mass data; selecting a point updates the numerical inputs. Every result retains its scope,
+sources and unresolved requirements. The full anomaly cancellation remains **unknown**.
+
+Start with **Research baseline**, compare zero and unit boundary coupling, compare profile
+mass zero and one, then one and three identical 6D families. The bilingual guide explains
+what each tool is for, its inputs, equations, examples, graphs, exports and failure cases.
+The general video revision **2026-10-12-boundary-research** covers **45 chapters / 154 scenes**
+in English and Spanish, including the new card; earlier video editions are retained.
+
+## User guides · 12 October 2026
 
 [English](https://karlesmarin.github.io/ghu-explorer/guide/index.html)
 · [Castellano](https://karlesmarin.github.io/ghu-explorer/guide/es/index.html)
 · [Getting started](https://karlesmarin.github.io/ghu-explorer/guide/getting-started/index.html)
 · [Spanish manual (PDF)](https://karlesmarin.github.io/ghu-explorer/guide/manual/ghu-lab-guide-es.pdf).
 
-The searchable guide index organizes tasks and model families. **43 guides** cover the 29 menu
-sections, three Simulator modes, nine embedded experiments, neutrino decays and getting started;
+The searchable guide index organizes tasks and model families. **44 guides** cover the 29 menu
+sections, three Simulator modes, ten embedded experiments, neutrino decays and getting started;
 these overlap and are not a count of independent panels. Each guide explains controls, outputs,
 an example, assumptions, troubleshooting and source attribution. The 59-term glossary and inline
 help share the English/Spanish catalogues, so scope corrections reach both places.
@@ -66,9 +80,9 @@ the local Docker image is `sagemath/sagemath`). The normal build includes the ne
 regressions and browser checks. These checks cover the stated identities and cases;
 they do not certify every model or the global optimum of a numerical search.
 
-The bilingual video revision of 10 October re-records all 44 chapters (145 scenes) on the current
-laboratory: every screen shows the guided 🎬 Demo buttons, and the KK-gluon chapter follows the card
-after its external review. Captions and chapter times are synchronized. Earlier revisions (7, 8 and
+The bilingual video revision of 12 October records all 45 chapters (154 scenes) on the current
+laboratory, including the linked 2D/3D boundary research tools and the existing guided 🎬 Demo
+buttons. Captions and chapter times are synchronized. Earlier revisions (7, 8 and
 10 October) remain available from the video page as historical versions; frozen editions retain
 their original checkpoint.
 
@@ -94,13 +108,14 @@ banner says what the page does not; the welcome and export demos follow the vide
 link starts one directly, e.g. [`#s=samepot&demo=samepot`](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=samepot&demo=samepot);
 add `&lang=es` for Spanish.
 
-Two narrated Full HD versions demonstrate the real interface in **44 chapters**: all **29 menu
-sections**, the **3 Simulator modes**, the **9 research cards** (the 10 October revision adds the first KK gluon at the
-LHC, with its m(tt̄) spectrum against CMS), integrated diagnostics and exports.
+Two narrated Full HD versions demonstrate the real interface in **45 chapters**: all **29 menu
+sections**, the **3 Simulator modes**, the **10 research cards**, integrated diagnostics and exports.
+The 12 October revision adds boundary research with linked 2D/3D mass views, Gram rank and
+scoped anomaly tests; it retains the KK-gluon comparisons and all earlier topics.
 Each chapter connects a question, a control change and the result, with the assumptions needed
 to interpret it. Use the searchable chapter list, subtitles, transcript and MP4 download. Changing
-language preserves your position within the chapter. Narration is synthetic; the interface keeps
-its English button labels. The certification revision of **8 October 2026** contains
+language preserves your position within the chapter. Narration is synthetic. The boundary research card has English/Spanish controls, results and plots;
+older sections retain their English button labels. The certification revision of **8 October 2026** contains
 **139 scenes per language**, with demonstrations of formal and interval certificates,
 moment errors, uncertainty, ATLAS/CMS references and the thermal solver comparison.
 Earlier guides from 7 October and the first 8 October release remain available from the player.
@@ -295,7 +310,7 @@ capabilities implemented in this release.
 The deployed page is a build artifact. This is where it comes from, and why it says what it says.
 
 ```
-🏗️  python build/build_app.py    # inline → collision guard → edition gate → 75 harnesses → app/index.html
+🏗️  python build/build_app.py    # inline → collision guard → edition gate → 77 harnesses → app/index.html
 🌐  python build/build_site.py --legacy ../ghu-explorer/tools-2026-07     # → site/, then gates itself
 📸  node   build/shoot.mjs       # headless screenshots of every section + console + which model
 🖱️  node   build/drive.mjs       # USES the panels: a real mouse through the DevTools Input domain
@@ -316,7 +331,7 @@ The deployed page is a build artifact. This is where it comes from, and why it s
 
 ## 🧪 What is checked, and against what
 
-The current build passes **8,626 source checks across 75 harnesses** and all fifteen browser gates (10 October: +585 checks and five harnesses for the first KK gluon at the LHC, its m(tt̄) spectrum against CMS and the guided demos, then +18 negative controls and corrections after an external review; the extensions browser gate now has 74 checks, including the guided demo). The generated site passes 32 site checks and 120 guide, link, language and manual checks; the guide pages also pass 194 desktop/mobile browser checks. The certification dossier contains 26 Lean theorems, 53 native exact/interval checks, 1,347 independent Sage/Arb checks and 235 checks of 21 conditional moment ceilings. The earlier formula/video release separately passed 30 site checks and 13 SageMath checks. The dedicated extensions and closure gates cover controls, comparison snapshots, permalinks, exports, stale external results, mobile layout, both KK-comb seeds and the conditional history/bounds. Real PhaseTracer/HiggsTools HTTP calculations, eight earlier exact Sage checks and the twelve study-record checks are recorded separately.
+The 12 October build passes **8,793 source checks across 77 harnesses** and all sixteen browser gates. The boundary tools have 159 numerical/scope checks and 25 dedicated browser checks. The generated site passes 34 site checks and 122 guide, link, language and manual checks; the guide pages pass 198 desktop/mobile browser checks. The bilingual general video passes 2,894 capture/media/subtitle checks and 32 player checks. The certification dossier contains 26 Lean theorems, 53 native exact/interval checks, 1,347 independent Sage/Arb checks and 235 checks of 21 conditional moment ceilings. The earlier formula/video release separately passed 30 site checks and 13 SageMath checks. The dedicated extensions and closure gates cover controls, comparison snapshots, permalinks, exports, stale external results, mobile layout, both KK-comb seeds and the conditional history/bounds. Real PhaseTracer/HiggsTools HTTP calculations, eight earlier exact Sage checks and the twelve study-record checks are recorded separately.
 
 The fixed-light-input extension registers `build/neutrino_research.mjs` as the eleventh browser gate: **31 checks** cover shared inputs, cancellation and unequal-deficit responses, invalid points, actual JSON/SVG downloads, saved comparisons, permalinks and desktop/mobile layout. `_test_neutrino_research.mjs` contributes **1,608 source checks** against independent NumPy/SVD references and original DeepCore tables.
 

@@ -59,6 +59,7 @@ def main():
     output=rec/('pilot' if a.pilot else 'published');output.mkdir(exist_ok=True)
     langs=[a.language] if a.language else ['en','es']
     for lang in langs:
+        capture_dir=rec/lang if (rec/lang/'capture.json').exists() else rec
         tmp=rec/'render-v2'/lang;tmp.mkdir(parents=True,exist_ok=True);parts=[];timeline=[];cues=[];clock=0.;report=[]
         for ch in chapters:
             start=clock;chapter_cues=[];chapter_parts=[]
@@ -70,7 +71,7 @@ def main():
                 cardmarker.write_text(cardhash)
             parts.append(cardmp4);chapter_parts.append(cardmp4);clock+=1.8
             for si,scene in enumerate(ch['steps']):
-                name=scene['id'];framepath=rec/'frames'/name;record=json.loads((framepath/'record.json').read_text(encoding='utf-8'))
+                name=scene['id'];framepath=capture_dir/'frames'/name;record=json.loads((framepath/'record.json').read_text(encoding='utf-8'))
                 aud=rec/'audio'/lang/(name+'.wav');meta=json.loads(Path(str(aud)+'.json').read_text(encoding='utf-8-sig'))
                 with wave.open(str(aud)) as w:duration=w.getnframes()/w.getframerate()
                 frames=record['frames'];total=math.ceil((duration+1.1)*15)/15

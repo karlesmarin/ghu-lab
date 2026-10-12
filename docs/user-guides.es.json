@@ -3795,6 +3795,153 @@
           "url": "https://doi.org/10.17182/hepdata.102956.v1/t38"
         }
       ]
+    },
+    {
+      "id": "boundaryresearch",
+      "kind": "experiment",
+      "host": "anomalies",
+      "route": "s=anomalies&help=boundaryresearch",
+      "video": "boundaryresearch",
+      "source": "src/modules/boundary_research.mjs",
+      "terms": [],
+      "related": [
+        "anomalies",
+        "rsanomaly"
+      ],
+      "references": [
+        {
+          "label": "Fujimoto et al.: rectangle boundary conditions and profiles, sections 2–5",
+          "url": "https://arxiv.org/abs/1609.01413"
+        },
+        {
+          "label": "Asaka, Buchmüller, Covi: localized orbifold anomalies, sections 2–4",
+          "url": "https://arxiv.org/abs/hep-ph/0209144"
+        },
+        {
+          "label": "Dobrescu, Poppitz: identical six-dimensional generations",
+          "url": "https://arxiv.org/abs/hep-ph/0102010"
+        },
+        {
+          "label": "Lee, Tachikawa: six-dimensional global anomalies and tensor quantization, sections 2–3",
+          "url": "https://arxiv.org/abs/2012.11622"
+        }
+      ],
+      "title": "Investigación de fronteras: espectro, perfiles independientes y anomalías",
+      "what": "Cuatro pruebas separadas permiten investigar un mecanismo de frontera en GHU: raíces de un problema fermiónico plano, rango numérico de perfiles solapados, trazas espinoriales exactas con inserciones de paridad y una condición restringida para tensores SU(2) en seis dimensiones.",
+      "purpose": "Sirven para identificar qué requisito falla y por qué antes de construir el modelo completo. La brecha de masa aborda los modos emparejados no deseados; el rango de Gram comprueba independencia; las trazas con inserciones detectan términos de anomalía localizada; la condición tensorial comprueba un requisito restringido de cuantización. Superar las cuatro no demuestra un encaje viable del Modelo Estándar ni una teoría cuántica completa.",
+      "steps": [
+        "Abre Anomalies & proton y busca Investigación de fronteras. Elige Español en la tarjeta. Pulsa Referencia de investigación para restablecer todas las entradas; Demo recorre los ejemplos y termina con esta guía.",
+        "Pon Acoplamiento de frontera en 0 y después en 1. Compara la primera raíz normal y la curva emparejada al mismo ángulo de Wilson impuesto.",
+        "Pon Ejemplo de perfiles M en 0 y después en 1. Compara los autovalores de Gram y el rango numérico.",
+        "Cambia la inserción de paridad entre C1, C0 y C0 W. Lee la tabla de trazas exactas atendiendo al grado y a la dimensión del soporte.",
+        "Con quiralidad leptónica Opuesta a Q, compara una y tres familias idénticas de seis dimensiones. Lee el exceso firmado de dobletes y su residuo.",
+        "Despliega las hipótesis y la procedencia. Fija una comparación, exporta el JSON de la tarjeta y guarda el enlace de la aplicación para repetir el cálculo."
+      ],
+      "read": "Lee cada resultado con sus propias hipótesis. La brecha normal es kR, sin dimensiones; el rango de Gram es numérico y depende del umbral; las trazas son evaluaciones escalares exactas sin pesos locales; un residuo nulo solo satisface la condición indicada para el sistema aislado de seis dimensiones. La cancelación completa de anomalías sigue pendiente.",
+      "controls": [
+        {
+          "name": "Acoplamiento de frontera κ²L",
+          "meaning": "Acoplamiento adimensional no negativo a de la acción plana uniforme de frontera, entre 0 y 100. L = πR.",
+          "try": "Usa 0 y 1; el primer kR pasa de 0 a aproximadamente 0.273853."
+        },
+        {
+          "name": "Ángulo de Wilson impuesto θ [rad]",
+          "meaning": "Ángulo impuesto entre 0 y π para la rama transversal periódica; no es un vacío calculado.",
+          "try": "Con a = 1 compara θ = 0 y θ = 0.2; cambia la masa no emparejada, pero la raíz normal permanece fija."
+        },
+        {
+          "name": "Ejemplo de perfiles M",
+          "meaning": "Parámetro de masa entre 0 y 2 en un rectángulo unidad separado. No es una masa de bulk añadida a la acción Spin(20).",
+          "try": "Compara M = 0 y M = 1: el rango pasa de 2 a 3."
+        },
+        {
+          "name": "Inserción de paridad en Spin(20)",
+          "meaning": "Inserción de signos C1, C0 o C0 W en la representación semiespinorial positiva de dimensión 512. La sonda de Cartan es fija y aparece en pantalla.",
+          "try": "Compara C1 y C0 W. Las anomalías de seis dimensiones usan grados 4 y 2; las de cuatro dimensiones, grados 3 y 1."
+        },
+        {
+          "name": "Familias 6D idénticas",
+          "meaning": "Entero entre 0 y 12 en un ejemplo separado de conteo de familias, suponiendo asignaciones idénticas de quiralidad en seis dimensiones.",
+          "try": "Una familia falla; tres cumplen esta condición restringida. Seis también cumplen: no selecciona exactamente tres."
+        },
+        {
+          "name": "Quiralidad leptónica 6D",
+          "meaning": "Igual que Q u Opuesta a Q, fijando positiva la quiralidad de los quarks y contando tres colores.",
+          "try": "Cambia el signo y compara el exceso firmado de dobletes; mantén la hipótesis de familias idénticas."
+        },
+        {
+          "name": "Vista de las masas / Perspectiva 3D",
+          "meaning": "El mapa 2D y la superficie 3D usan las mismas masas emparejadas y escala de color fija. La perspectiva es un ángulo de visualización, no un parámetro físico.",
+          "try": "Arrastra en el mapa 2D y suelta para aplicar los valores. En 3D pulsa un nodo de la malla; ajusta la perspectiva entre 15 y 75 grados. Las flechas del teclado mueven el punto seleccionado."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Tabla de raíces y curvas de masa",
+          "meaning": "Seis raíces de x tan(x) = a, con x = kL, y residuos escalados. Las curvas muestran las ramas emparejada y no emparejada más ligeras frente al ángulo impuesto; no son todo el espectro de Kaluza–Klein."
+        },
+        {
+          "name": "Autovalores y rango de Gram",
+          "meaning": "Autovalores de la matriz de Gram hermítica compleja para ángulos de perfil 0, π/2 y π. El rango cuenta los autovalores mayores que el umbral numérico mostrado; el solapamiento no basta para afirmar dependencia."
+        },
+        {
+          "name": "Momentos exactos con inserción",
+          "meaning": "Tr(λ Fᵈ) para grados de 0 a 4 en una sonda entera de Cartan, con aritmética racional exacta. Un valor no nulo refuta que el polinomio sea idénticamente cero; un cero en una sonda no lo demuestra."
+        },
+        {
+          "name": "Exceso de dobletes y residuos",
+          "meaning": "El exceso firmado de dobletes complejos debe ser múltiplo de 6 en la prueba indicada para el sistema aislado de seis dimensiones. El doble de ese coeficiente cuenta semidobletes y debe ser múltiplo de 12."
+        },
+        {
+          "name": "JSON, comparación y enlace guardado",
+          "meaning": "El JSON recoge versión, esquema, parámetros, raíces, resultados de Gram, momentos exactos, hipótesis, fuentes y requisitos pendientes. Una comparación fijada superpone la curva emparejada anterior; el enlace guardado restaura los controles."
+        },
+        {
+          "name": "Mapa 2D, superficie 3D y barras de Gram",
+          "meaning": "El color de masa es lineal entre 0 y 0.7071 en mR. El corte rojo fija el acoplamiento actual; el punto blanco marca el cálculo seleccionado. Las celdas visualizan datos muestreados y el valor seleccionado se recalcula. Las barras de Gram tienen su propia escala lineal adaptable, etiquetada, y autovalores numéricos."
+        }
+      ],
+      "example": {
+        "title": "Identificar tres motivos distintos de fallo",
+        "steps": [
+          "Carga Referencia de investigación y después Frontera sin acoplamiento: la primera raíz normal es cero.",
+          "Restablece el acoplamiento de frontera en 1: el primer kR vale aproximadamente 0.273853.",
+          "Carga Ejemplo de perfiles sin masa: los tres perfiles elegidos solo abarcan dos direcciones independientes.",
+          "Restablece M = 1: los autovalores valen aproximadamente 0.172999, 2.783424 y 10.686355, y el rango numérico es tres.",
+          "Selecciona Una familia 6D con Opuesta a Q: exceso 2 y residuo 2. Selecciona Tres familias 6D: exceso 6 y residuo 0.",
+          "Cambia C1 a C0 W, examina la tabla de trazas y exporta el JSON."
+        ],
+        "expect": "La brecha de frontera, la independencia de perfiles y la condición restringida de familias responden a cambios distintos. Ninguna resuelve la cancelación localizada o global de anomalías de la construcción completa."
+      },
+      "limits": [
+        "El espectro plano supone acoplamiento uniforme, ausencia de términos cinéticos adicionales de frontera y rama transversal periódica. No determina un vacío de Wilson, sabor realista ni masas de neutrinos.",
+        "El cálculo de perfiles es un ejemplo matemático separado, no una deducción de tres familias físicas. El rango numérico depende de la tolerancia; los modos cero exactos necesitan analizar el dominio de frontera.",
+        "Las trazas omiten la normalización de proyectores y del espacio de recubrimiento, el descenso consistente, las contribuciones espejo y el flujo de anomalía. La sonda escalar no es el polinomio completo.",
+        "El criterio SU(2) corresponde a un sistema tensorial aislado específico de seis dimensiones. No puede trasladarse automáticamente a una esquina de orbifold de ocho dimensiones acoplada al flujo del bulk.",
+        "Siguen pendientes los coeficientes locales, la red integral de cargas tensoriales, el grupo gauge global, los nuevos modos cero bosónicos y la consistencia cuántica completa."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "La primera raíz normal es cero.",
+          "action": "Comprueba el acoplamiento de frontera. Si es nulo, ese modo cero es el resultado esperado, no un fallo del método numérico."
+        },
+        {
+          "symptom": "Los perfiles se solapan, pero el rango es tres.",
+          "action": "Solaparse significa no ser ortogonales. La dependencia exige una dirección nula de Gram; examina autovalores y umbral."
+        },
+        {
+          "symptom": "Un momento con inserción es cero.",
+          "action": "Comprueba el grado y la inserción. Evalúa el polinomio o más sondas antes de afirmar cancelación; esta interfaz solo muestra una sonda fija."
+        },
+        {
+          "symptom": "Tres familias cumplen, pero la cancelación completa sigue pendiente.",
+          "action": "Es intencionado: la condición modular es necesaria en su contexto, pero no calcula todas las anomalías locales y globales."
+        },
+        {
+          "symptom": "Una entrada inválida conserva el resultado anterior.",
+          "action": "Los controles muestran el error y mantienen el último cálculo válido. Restablece el intervalo permitido o pulsa Referencia de investigación."
+        }
+      ]
     }
   ],
   "glossary": {

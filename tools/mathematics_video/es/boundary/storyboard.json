@@ -1,0 +1,56 @@
+{
+  "voice": "Microsoft Helena Desktop",
+  "rate": 0,
+  "language": "es",
+  "scenes": [
+    {
+      "id": "01_question",
+      "title": "¿Puede una frontera cambiar una masa?",
+      "text": "Observa el perfil azul. Al cambiar una sola frontera, el perfil se curva y aumenta su autovalor más bajo. ¿Por qué? Vamos a construir la explicación y después comprobaremos el mismo efecto en el laboratorio.",
+      "section": "Espectros de frontera"
+    },
+    {
+      "id": "02_zero",
+      "title": "Empezamos con un perfil plano",
+      "text": "La coordenada horizontal indica la posición a lo largo de una dimensión extra. La vertical representa la amplitud del campo, no la trayectoria de una partícula. Si exigimos pendiente nula en ambos extremos, se permite un perfil constante. Su curvatura y el autovalor del problema normal son cero.",
+      "section": "Espectros de frontera"
+    },
+    {
+      "id": "03_reject",
+      "title": "Cambiamos la condición del extremo derecho",
+      "text": "Activamos ahora el acoplamiento de frontera, llamado a. En el extremo derecho, la pendiente más a por la amplitud debe ser cero. Nuestra constante no nula tiene pendiente cero, pero amplitud distinta de cero. Observa cómo el residuo se vuelve rojo. Este perfil ya no satisface la condición de contorno.",
+      "section": "Espectros de frontera"
+    },
+    {
+      "id": "04_shape",
+      "title": "Buscamos un perfil que cumpla la condición",
+      "text": "Mantenemos pendiente cero en el extremo izquierdo. La ecuación en el interior proporciona entonces un perfil cosenoidal. Cambia su frecuencia, equis, y observa el extremo derecho. La mayoría de las frecuencias no cumplen la condición. Solo se admite aquella que equilibra la pendiente con el término de frontera.",
+      "section": "Espectros de frontera"
+    },
+    {
+      "id": "05_balance",
+      "title": "La cancelación en el extremo",
+      "text": "Para un coseno, la pendiente en el extremo es menos equis por seno de equis. El término de frontera es a por coseno de equis. Con acoplamiento uno, ambas contribuciones se cancelan. Al reorganizar, obtenemos equis por tangente de equis igual a a. Esta ecuación procede directamente del equilibrio en el extremo.",
+      "section": "Espectros de frontera"
+    },
+    {
+      "id": "06_gap",
+      "title": "Del perfil permitido a la brecha espectral",
+      "text": "Aumentamos el acoplamiento. El perfil permitido se curva más y la primera raíz crece. La gráfica pequeña sigue ese mismo cálculo. Si la longitud del intervalo es pi por erre, la masa normal adimensional es equis dividido por pi. Se aproxima a un medio cuando el acoplamiento aumenta.",
+      "section": "Espectros de frontera"
+    },
+    {
+      "id": "07_lab",
+      "title": "Comprobamos la predicción en GHU Lab",
+      "text": "Ahora vemos el laboratorio real. Cambiamos la intensidad de frontera de cero a cuatro. Observa cómo la rama emparejada se eleva sobre la no emparejada. Con ángulo de Wilson cero, la ordenada es precisamente la brecha normal que acabamos de deducir. El control resaltado y el resultado de la gráfica cambian juntos.",
+      "section": "Espectros de frontera"
+    },
+    {
+      "id": "08_why",
+      "title": "El porqué, en tres pasos",
+      "text": "La condición de frontera ha cambiado. El perfil constante deja de ser admisible. El modo permitido más bajo tiene ahora un autovalor positivo. Ese es el mecanismo de esta brecha, dentro del problema de intervalo que hemos definido. El laboratorio calcula el efecto; el argumento de frontera explica por qué ocurre.",
+      "section": "Espectros de frontera"
+    }
+  ],
+  "title": "Entre física y matemáticas"
+}

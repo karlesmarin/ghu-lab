@@ -749,7 +749,7 @@ def main(argv=None):
     math_media = ROOT / 'media' / 'video' / '2026-10-12-mathematics'
     math_out = OUT / 'video' / 'mathematics'
     shutil.copytree(math_media, math_out, dirs_exist_ok=True)
-    for math_name in ('index.html', 'proof-notes.html'):
+    for math_name in ('index.html', 'index-es.html', 'proof-notes.html'):
         write('video/mathematics/' + math_name,
               (math_media / math_name).read_text(encoding='utf-8'))
     # Previously served pages are complete frozen documents, including their

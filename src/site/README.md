@@ -1,5 +1,7 @@
 # 🧭 GHU Lab — an instrument for gauge–Higgs unification
 
+Spanish mathematical film: [Entre física y matemáticas](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html), 11:55, 29 chapters, Spanish narration, captions, whiteboards and actual laboratory captures. [Direct MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-es.mp4).
+
 
 ## Between physics and mathematics · English animated video
 

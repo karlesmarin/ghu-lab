@@ -1,0 +1,161 @@
+{
+  "title": "Entre física y matemáticas",
+  "voice": "Microsoft Helena Desktop",
+  "rate": 0,
+  "language": "es",
+  "sources": [
+    {
+      "title": "Boundary tools: equations, assumptions and API",
+      "url": "https://github.com/karlesmarin/ghu-lab/blob/main/docs/boundary-research.md"
+    },
+    {
+      "title": "Fujimoto et al. — 6d Dirac fermion on a rectangle",
+      "url": "https://arxiv.org/abs/1609.01413",
+      "locator": "section 3.1.2, equations 3.32–3.43, footnote 10; appendix B; illustrative profile ansatz, not a full-domain theorem"
+    },
+    {
+      "title": "Asaka, Buchmüller, Covi — Bulk and brane anomalies in six dimensions",
+      "url": "https://arxiv.org/abs/hep-ph/0209144",
+      "locator": "equations 41–43, 71–72; appendix D"
+    },
+    {
+      "title": "Dobrescu, Poppitz — Number of fermion generations derived from anomaly cancellation",
+      "url": "https://arxiv.org/abs/hep-ph/0102010",
+      "locator": "equations 3–4; identical-assignment assumption"
+    },
+    {
+      "title": "Lee, Tachikawa — Some comments on 6d global gauge anomalies",
+      "url": "https://arxiv.org/abs/2012.11622",
+      "locator": "sections 2.6–2.7 and 3.3; integral tensor quantization"
+    }
+  ],
+  "sourceCommit": "247b9022fafcc8a2a7cd997a4f063e7d72c7e6b0",
+  "scenes": [
+    {
+      "id": "p1",
+      "section": "Perfiles",
+      "title": "Dos componentes y tres funciones",
+      "text": "Hemos visto cómo una frontera selecciona un perfil. Ahora hacemos otra pregunta: ¿cuántos perfiles son independientes? Empecemos con tres funciones sencillas de dos componentes. La primera ocupa la componente superior, la segunda la inferior y la tercera cambia con la posición. Observa cómo se dibujan sus curvas."
+    },
+    {
+      "id": "p2",
+      "section": "Perfiles",
+      "title": "Una cancelación puntual no basta",
+      "text": "Restamos la mitad del primer perfil al tercero. Sus componentes superiores se cancelan en el punto medio. Pero, al alejarnos de ese punto, reaparece el residuo. Para que haya dependencia, un mismo conjunto de coeficientes debe anular toda la función, en cada posición. Cancelar en un punto no basta."
+    },
+    {
+      "id": "p3",
+      "section": "Perfiles",
+      "title": "Construimos la matriz de Gram",
+      "text": "La matriz de Gram recoge el producto interno de cada par de perfiles, integrado sobre el intervalo. Observa cómo aparecen sus entradas. El primer perfil y el tercero se solapan: su entrada es un medio. Eso no los hace dependientes. El determinante vale un doceavo, así que la matriz es invertible y las tres funciones son independientes."
+    },
+    {
+      "id": "p4",
+      "section": "Perfiles",
+      "title": "Una forma cuadrática se convierte en área",
+      "text": "Usamos los mismos coeficientes de antes. El perfil combinado es u menos un medio. Elevamos al cuadrado su amplitud e integramos: el área sombreada es un doceavo, y no cero. Eso es exactamente ce adjunto por ge por ce. En general, equivale a la norma al cuadrado del perfil combinado. Por tanto, una dirección del núcleo de ge corresponde precisamente a una relación de dependencia."
+    },
+    {
+      "id": "p5",
+      "section": "Perfiles",
+      "title": "Volvemos a los perfiles exponenciales",
+      "text": "Volvamos a los tres perfiles exponenciales del laboratorio. Cada uno tiene dos componentes complejas y depende de dos coordenadas. La superficie representa la primera componente del perfil intermedio. Con parámetro de masa cero es plana. Al aumentar eme, adquiere pendiente en la dirección zeta. Esa nueva dependencia espacial es la clave."
+    },
+    {
+      "id": "p6",
+      "section": "Perfiles",
+      "title": "Derivamos para demostrar independencia",
+      "text": "Supongamos que una combinación lineal fija de estos tres perfiles se anula. Derivamos respecto de zeta. Solo cambia el perfil intermedio, de modo que, si eme no es cero, su coeficiente be debe anularse. Las dos direcciones espinoriales restantes obligan entonces a que a y ce sean cero. Cuando eme es cero, ese argumento con la derivada desaparece y los tres perfiles constantes generan solo dos direcciones."
+    },
+    {
+      "id": "p7",
+      "section": "Perfiles",
+      "title": "Observamos los autovalores del laboratorio",
+      "text": "Cambiamos la masa del perfil de cero a uno en el laboratorio. En cero, un autovalor de Gram es numéricamente nulo. En uno, los tres son positivos. Su tamaño depende de la normalización y el rango numérico utiliza una tolerancia. El certificado independiente con intervalos racionales también demuestra positividad definida en eme igual a uno, con el menor autovalor superior a cero coma uno uno cero cinco."
+    },
+    {
+      "id": "p8",
+      "section": "Perfiles",
+      "title": "Tres ejemplos no fijan tres familias",
+      "text": "Esta conclusión tiene un límite importante. Tasas exponenciales distintas pueden producir cuatro funciones independientes, o cualquier número finito. Sobre una recta adecuada, la independencia se deduce de un determinante de Vandermonde. Para las cuatro tasas mostradas vale setenta y dos. Contar familias físicas requiere el dominio real del operador y sus condiciones de contorno, además de los perfiles elegidos."
+    },
+    {
+      "id": "t1",
+      "section": "Trazas",
+      "title": "Construimos una representación con signos",
+      "text": "Ahora la teoría de representaciones se convierte en una suma finita exacta. En la representación semiespinorial positiva de Spin veinte, cada peso es una lista de diez signos dividida por dos. El producto de los signos debe ser positivo. Elegimos nueve libremente y el décimo queda fijado. Observa cómo se llena la cuadrícula: dos elevado a nueve da quinientos doce pesos."
+    },
+    {
+      "id": "t2",
+      "section": "Trazas",
+      "title": "Los pesos contribuyen a una traza",
+      "text": "Cada peso aporta un número, cu, obtenido mediante su producto escalar con el vector de prueba de Cartan. En este ejemplo, la inserción es el producto de los dos primeros signos. Sumamos la inserción multiplicada por cu al cuadrado. Fijamos las dos primeras coordenadas del vector en uno y dos, y las demás en cero. Cuatro grupos del mismo tamaño suman quinientos doce."
+    },
+    {
+      "id": "t3",
+      "section": "Trazas",
+      "title": "Comprobamos todos los coeficientes",
+      "text": "Expandimos el producto escalar al cuadrado antes de elegir un vector de prueba. Hay cincuenta y cinco monomios cuadráticos en diez variables. El verificador suma cada coeficiente con aritmética racional exacta. Observa las cancelaciones: solo sobrevive el término cruzado hache uno por hache dos, con coeficiente doscientos cincuenta y seis. Hemos comprobado todo el polinomio cuadrático."
+    },
+    {
+      "id": "t4",
+      "section": "Trazas",
+      "title": "Un cero puede ocultar un polinomio no nulo",
+      "text": "Movemos ahora el vector de prueba sobre ese polinomio. En cualquiera de los ejes, el valor es cero. Al llegar al punto uno, dos, vale quinientos doce. El mapa de calor permite ver la diferencia: una evaluación nula no demuestra una identidad. En cambio, un valor no nulo refuta que el polinomio sea idénticamente cero."
+    },
+    {
+      "id": "t5",
+      "section": "Trazas",
+      "title": "Cambiamos la inserción en el laboratorio",
+      "text": "El laboratorio mantiene fijo el vector de Cartan de diez componentes mientras cambiamos la inserción. Observa la tabla de trazas exactas. Para la primera inserción, el momento cuadrático vale quinientos doce, de acuerdo con nuestra identidad. Otras inserciones producen momentos distintos. Son trazas de la representación sin factores físicos adicionales, previas a la normalización y al flujo de anomalías necesarios para obtener coeficientes físicos."
+    },
+    {
+      "id": "t6",
+      "section": "Trazas",
+      "title": "Hasta dónde llega el cálculo",
+      "text": "La suma finita de pesos responde a una pregunta algebraica precisa. Para convertirla en un cálculo de anomalías hacen falta los proyectores adecuados, la normalización y el descenso, además de las contribuciones de otros sectores. También importan los datos globales de carga y el flujo de anomalías. El marcador se detiene en lo que realmente hemos calculado. Un certificado de trazas no certifica toda la teoría cuántica."
+    },
+    {
+      "id": "c1",
+      "section": "Consistencia",
+      "title": "Contamos dobletes en un reloj de residuos",
+      "text": "El último ejemplo es una condición restringida de consistencia en seis dimensiones. Ene cuenta el exceso con signo de dobletes complejos de Weyl. En el marco indicado, una teoría autónoma con ese u dos y sector tensorial, ene debe ser divisible por seis. Con asignaciones idénticas por familia, los tres colores de quarks y un leptón de quiralidad opuesta aportan tres menos uno: dos por familia. Cada familia hace avanzar dos unidades el reloj de residuos."
+    },
+    {
+      "id": "c2",
+      "section": "Consistencia",
+      "title": "Múltiplos de tres, sin fijar exactamente tres",
+      "text": "Tras tres familias de ese tipo, el reloj vuelve a cero. Seis y nueve familias también superan esta condición. Si la quiralidad del leptón coincide con la de los quarks, cada familia idéntica aporta cuatro; de nuevo, los múltiplos de tres vuelven a cero. La congruencia restringe las posibilidades, pero no selecciona de forma única tres generaciones."
+    },
+    {
+      "id": "c3",
+      "section": "Consistencia",
+      "title": "Una hipótesis cambia la conclusión",
+      "text": "Permitamos ahora dos familias con asignaciones distintas de quiralidad. La primera aporta dos y la segunda cuatro. Juntas suman seis, así que superan esta prueba de residuos con dos familias. Es un contraejemplo a eliminar la hipótesis de asignaciones idénticas. No constituye un modelo físico completo y consistente de dos familias."
+    },
+    {
+      "id": "c4",
+      "section": "Consistencia",
+      "title": "Seis y doce pueden expresar la misma prueba",
+      "text": "Si contamos dobletes complejos, el módulo es seis. Si contamos en unidades de medio doblete, duplicamos ene y usamos módulo doce. Observa ambos relojes: superan la condición a la vez. Cambian las unidades, pero no la condición. El argumento físico también exige cuantización integral del sector tensorial; factorizar el polinomio de anomalías no proporciona por sí solo toda esa información global."
+    },
+    {
+      "id": "c5",
+      "section": "Consistencia",
+      "title": "Probamos las familias en el laboratorio",
+      "text": "Cambiamos el número de familias en el laboratorio y mantenemos la quiralidad del leptón opuesta a la de los quarks. Una y dos no cumplen esta condición restringida; tres sí. Cuatro y cinco no la cumplen; seis vuelve a cumplirla. El residuo mostrado explica cada cambio. Conservemos las hipótesis de asignaciones idénticas y de teoría autónoma al interpretar este resultado."
+    },
+    {
+      "id": "s1",
+      "section": "Evidencia",
+      "title": "Cuatro preguntas y cuatro evidencias",
+      "text": "Hemos seguido cuatro preguntas distintas. Las condiciones de contorno seleccionaron un espectro. Los productos internos integrados comprobaron independencia de funciones. Las sumas de pesos determinaron un polinomio. Una condición de residuos restringió asignaciones idénticas. Cada cálculo tiene una razón, unos datos y unos límites. Superar estos diagnósticos separados no determina por sí solo un vacío de Higgs, las masas de neutrinos ni una construcción completa del Modelo Estándar."
+    },
+    {
+      "id": "s2",
+      "section": "Evidencia",
+      "title": "Sigue el argumento y reproduce el resultado",
+      "text": "La página del vídeo enlaza el laboratorio, las demostraciones matemáticas, los certificados exactos y su verificador. También incluye los artículos originales que sustentan las hipótesis. No se afirma una formalización en un asistente de demostraciones. Puedes cambiar las variables, reproducir los cálculos y cuestionar las hipótesis físicas que faltan. El propósito es hacer visible, y comprobable, el camino entre física y matemáticas."
+    }
+  ]
+}

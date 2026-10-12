@@ -228,7 +228,7 @@ def check_head(w):
             if not t or not t.group(1).strip():
                 bad.append(f"{rel} is a carried artifact with no title")
             continue
-        expected_lang = 'es' if rel.startswith('guide/es/') else 'en'
+        expected_lang = 'es' if rel.startswith('guide/es/') or rel == 'video/mathematics/index-es.html' else 'en'
         if '<html lang="'+expected_lang+'">' not in text:
             bad.append(f"{rel} has no lang")
         if 'name="viewport"' not in text:

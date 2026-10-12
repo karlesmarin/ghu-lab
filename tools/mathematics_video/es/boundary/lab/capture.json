@@ -1,0 +1,211 @@
+{
+  "language": "es",
+  "source": "Actual Spanish GHU Lab interface",
+  "frames": [
+    {
+      "frame": 0,
+      "strength": 0,
+      "theta": 0
+    },
+    {
+      "frame": 1,
+      "strength": 0.1,
+      "theta": 0
+    },
+    {
+      "frame": 2,
+      "strength": 0.2,
+      "theta": 0
+    },
+    {
+      "frame": 3,
+      "strength": 0.3,
+      "theta": 0
+    },
+    {
+      "frame": 4,
+      "strength": 0.4,
+      "theta": 0
+    },
+    {
+      "frame": 5,
+      "strength": 0.5,
+      "theta": 0
+    },
+    {
+      "frame": 6,
+      "strength": 0.6,
+      "theta": 0
+    },
+    {
+      "frame": 7,
+      "strength": 0.7,
+      "theta": 0
+    },
+    {
+      "frame": 8,
+      "strength": 0.8,
+      "theta": 0
+    },
+    {
+      "frame": 9,
+      "strength": 0.9,
+      "theta": 0
+    },
+    {
+      "frame": 10,
+      "strength": 1,
+      "theta": 0
+    },
+    {
+      "frame": 11,
+      "strength": 1.1,
+      "theta": 0
+    },
+    {
+      "frame": 12,
+      "strength": 1.2,
+      "theta": 0
+    },
+    {
+      "frame": 13,
+      "strength": 1.3,
+      "theta": 0
+    },
+    {
+      "frame": 14,
+      "strength": 1.4,
+      "theta": 0
+    },
+    {
+      "frame": 15,
+      "strength": 1.5,
+      "theta": 0
+    },
+    {
+      "frame": 16,
+      "strength": 1.6,
+      "theta": 0
+    },
+    {
+      "frame": 17,
+      "strength": 1.7,
+      "theta": 0
+    },
+    {
+      "frame": 18,
+      "strength": 1.8,
+      "theta": 0
+    },
+    {
+      "frame": 19,
+      "strength": 1.9,
+      "theta": 0
+    },
+    {
+      "frame": 20,
+      "strength": 2,
+      "theta": 0
+    },
+    {
+      "frame": 21,
+      "strength": 2.1,
+      "theta": 0
+    },
+    {
+      "frame": 22,
+      "strength": 2.2,
+      "theta": 0
+    },
+    {
+      "frame": 23,
+      "strength": 2.3,
+      "theta": 0
+    },
+    {
+      "frame": 24,
+      "strength": 2.4,
+      "theta": 0
+    },
+    {
+      "frame": 25,
+      "strength": 2.5,
+      "theta": 0
+    },
+    {
+      "frame": 26,
+      "strength": 2.6,
+      "theta": 0
+    },
+    {
+      "frame": 27,
+      "strength": 2.7,
+      "theta": 0
+    },
+    {
+      "frame": 28,
+      "strength": 2.8,
+      "theta": 0
+    },
+    {
+      "frame": 29,
+      "strength": 2.9,
+      "theta": 0
+    },
+    {
+      "frame": 30,
+      "strength": 3,
+      "theta": 0
+    },
+    {
+      "frame": 31,
+      "strength": 3.1,
+      "theta": 0
+    },
+    {
+      "frame": 32,
+      "strength": 3.2,
+      "theta": 0
+    },
+    {
+      "frame": 33,
+      "strength": 3.3,
+      "theta": 0
+    },
+    {
+      "frame": 34,
+      "strength": 3.4,
+      "theta": 0
+    },
+    {
+      "frame": 35,
+      "strength": 3.5,
+      "theta": 0
+    },
+    {
+      "frame": 36,
+      "strength": 3.6,
+      "theta": 0
+    },
+    {
+      "frame": 37,
+      "strength": 3.7,
+      "theta": 0
+    },
+    {
+      "frame": 38,
+      "strength": 3.8,
+      "theta": 0
+    },
+    {
+      "frame": 39,
+      "strength": 3.9,
+      "theta": 0
+    },
+    {
+      "frame": 40,
+      "strength": 4,
+      "theta": 0
+    }
+  ]
+}

@@ -1,0 +1,234 @@
+[
+  {
+    "id": "01_question",
+    "title": "¿Puede una frontera cambiar una masa?",
+    "text": "Observa el perfil azul. Al cambiar una sola frontera, el perfil se curva y aumenta su autovalor más bajo. ¿Por qué? Vamos a construir la explicación y después comprobaremos el mismo efecto en el laboratorio.",
+    "section": "Espectros de frontera",
+    "start": 0,
+    "end": 15.541666666666666
+  },
+  {
+    "id": "02_zero",
+    "title": "Empezamos con un perfil plano",
+    "text": "La coordenada horizontal indica la posición a lo largo de una dimensión extra. La vertical representa la amplitud del campo, no la trayectoria de una partícula. Si exigimos pendiente nula en ambos extremos, se permite un perfil constante. Su curvatura y el autovalor del problema normal son cero.",
+    "section": "Espectros de frontera",
+    "start": 15.541666666666666,
+    "end": 36.041666666666664
+  },
+  {
+    "id": "03_reject",
+    "title": "Cambiamos la condición del extremo derecho",
+    "text": "Activamos ahora el acoplamiento de frontera, llamado a. En el extremo derecho, la pendiente más a por la amplitud debe ser cero. Nuestra constante no nula tiene pendiente cero, pero amplitud distinta de cero. Observa cómo el residuo se vuelve rojo. Este perfil ya no satisface la condición de contorno.",
+    "section": "Espectros de frontera",
+    "start": 36.041666666666664,
+    "end": 56.875
+  },
+  {
+    "id": "04_shape",
+    "title": "Buscamos un perfil que cumpla la condición",
+    "text": "Mantenemos pendiente cero en el extremo izquierdo. La ecuación en el interior proporciona entonces un perfil cosenoidal. Cambia su frecuencia, equis, y observa el extremo derecho. La mayoría de las frecuencias no cumplen la condición. Solo se admite aquella que equilibra la pendiente con el término de frontera.",
+    "section": "Espectros de frontera",
+    "start": 56.875,
+    "end": 78.41666666666667
+  },
+  {
+    "id": "05_balance",
+    "title": "La cancelación en el extremo",
+    "text": "Para un coseno, la pendiente en el extremo es menos equis por seno de equis. El término de frontera es a por coseno de equis. Con acoplamiento uno, ambas contribuciones se cancelan. Al reorganizar, obtenemos equis por tangente de equis igual a a. Esta ecuación procede directamente del equilibrio en el extremo.",
+    "section": "Espectros de frontera",
+    "start": 78.41666666666667,
+    "end": 99.58333333333334
+  },
+  {
+    "id": "06_gap",
+    "title": "Del perfil permitido a la brecha espectral",
+    "text": "Aumentamos el acoplamiento. El perfil permitido se curva más y la primera raíz crece. La gráfica pequeña sigue ese mismo cálculo. Si la longitud del intervalo es pi por erre, la masa normal adimensional es equis dividido por pi. Se aproxima a un medio cuando el acoplamiento aumenta.",
+    "section": "Espectros de frontera",
+    "start": 99.58333333333334,
+    "end": 119.70833333333334
+  },
+  {
+    "id": "07_lab",
+    "title": "Comprobamos la predicción en GHU Lab",
+    "text": "Ahora vemos el laboratorio real. Cambiamos la intensidad de frontera de cero a cuatro. Observa cómo la rama emparejada se eleva sobre la no emparejada. Con ángulo de Wilson cero, la ordenada es precisamente la brecha normal que acabamos de deducir. El control resaltado y el resultado de la gráfica cambian juntos.",
+    "section": "Espectros de frontera",
+    "start": 119.70833333333334,
+    "end": 141.20833333333334
+  },
+  {
+    "id": "08_why",
+    "title": "El porqué, en tres pasos",
+    "text": "La condición de frontera ha cambiado. El perfil constante deja de ser admisible. El modo permitido más bajo tiene ahora un autovalor positivo. Ese es el mecanismo de esta brecha, dentro del problema de intervalo que hemos definido. El laboratorio calcula el efecto; el argumento de frontera explica por qué ocurre.",
+    "section": "Espectros de frontera",
+    "start": 141.20833333333334,
+    "end": 162.875
+  },
+  {
+    "id": "p1",
+    "section": "Perfiles",
+    "title": "Dos componentes y tres funciones",
+    "text": "Hemos visto cómo una frontera selecciona un perfil. Ahora hacemos otra pregunta: ¿cuántos perfiles son independientes? Empecemos con tres funciones sencillas de dos componentes. La primera ocupa la componente superior, la segunda la inferior y la tercera cambia con la posición. Observa cómo se dibujan sus curvas.",
+    "start": 162.875,
+    "end": 185.04166666666666
+  },
+  {
+    "id": "p2",
+    "section": "Perfiles",
+    "title": "Una cancelación puntual no basta",
+    "text": "Restamos la mitad del primer perfil al tercero. Sus componentes superiores se cancelan en el punto medio. Pero, al alejarnos de ese punto, reaparece el residuo. Para que haya dependencia, un mismo conjunto de coeficientes debe anular toda la función, en cada posición. Cancelar en un punto no basta.",
+    "start": 185.04166666666666,
+    "end": 207.5
+  },
+  {
+    "id": "p3",
+    "section": "Perfiles",
+    "title": "Construimos la matriz de Gram",
+    "text": "La matriz de Gram recoge el producto interno de cada par de perfiles, integrado sobre el intervalo. Observa cómo aparecen sus entradas. El primer perfil y el tercero se solapan: su entrada es un medio. Eso no los hace dependientes. El determinante vale un doceavo, así que la matriz es invertible y las tres funciones son independientes.",
+    "start": 207.5,
+    "end": 231.20833333333331
+  },
+  {
+    "id": "p4",
+    "section": "Perfiles",
+    "title": "Una forma cuadrática se convierte en área",
+    "text": "Usamos los mismos coeficientes de antes. El perfil combinado es u menos un medio. Elevamos al cuadrado su amplitud e integramos: el área sombreada es un doceavo, y no cero. Eso es exactamente ce adjunto por ge por ce. En general, equivale a la norma al cuadrado del perfil combinado. Por tanto, una dirección del núcleo de ge corresponde precisamente a una relación de dependencia.",
+    "start": 231.20833333333331,
+    "end": 258.54166666666663
+  },
+  {
+    "id": "p5",
+    "section": "Perfiles",
+    "title": "Volvemos a los perfiles exponenciales",
+    "text": "Volvamos a los tres perfiles exponenciales del laboratorio. Cada uno tiene dos componentes complejas y depende de dos coordenadas. La superficie representa la primera componente del perfil intermedio. Con parámetro de masa cero es plana. Al aumentar eme, adquiere pendiente en la dirección zeta. Esa nueva dependencia espacial es la clave.",
+    "start": 258.54166666666663,
+    "end": 282.4583333333333
+  },
+  {
+    "id": "p6",
+    "section": "Perfiles",
+    "title": "Derivamos para demostrar independencia",
+    "text": "Supongamos que una combinación lineal fija de estos tres perfiles se anula. Derivamos respecto de zeta. Solo cambia el perfil intermedio, de modo que, si eme no es cero, su coeficiente be debe anularse. Las dos direcciones espinoriales restantes obligan entonces a que a y ce sean cero. Cuando eme es cero, ese argumento con la derivada desaparece y los tres perfiles constantes generan solo dos direcciones.",
+    "start": 282.4583333333333,
+    "end": 309.8333333333333
+  },
+  {
+    "id": "p7",
+    "section": "Perfiles",
+    "title": "Observamos los autovalores del laboratorio",
+    "text": "Cambiamos la masa del perfil de cero a uno en el laboratorio. En cero, un autovalor de Gram es numéricamente nulo. En uno, los tres son positivos. Su tamaño depende de la normalización y el rango numérico utiliza una tolerancia. El certificado independiente con intervalos racionales también demuestra positividad definida en eme igual a uno, con el menor autovalor superior a cero coma uno uno cero cinco.",
+    "start": 309.8333333333333,
+    "end": 336.8333333333333
+  },
+  {
+    "id": "p8",
+    "section": "Perfiles",
+    "title": "Tres ejemplos no fijan tres familias",
+    "text": "Esta conclusión tiene un límite importante. Tasas exponenciales distintas pueden producir cuatro funciones independientes, o cualquier número finito. Sobre una recta adecuada, la independencia se deduce de un determinante de Vandermonde. Para las cuatro tasas mostradas vale setenta y dos. Contar familias físicas requiere el dominio real del operador y sus condiciones de contorno, además de los perfiles elegidos.",
+    "start": 336.8333333333333,
+    "end": 364.54166666666663
+  },
+  {
+    "id": "t1",
+    "section": "Trazas",
+    "title": "Construimos una representación con signos",
+    "text": "Ahora la teoría de representaciones se convierte en una suma finita exacta. En la representación semiespinorial positiva de Spin veinte, cada peso es una lista de diez signos dividida por dos. El producto de los signos debe ser positivo. Elegimos nueve libremente y el décimo queda fijado. Observa cómo se llena la cuadrícula: dos elevado a nueve da quinientos doce pesos.",
+    "start": 364.54166666666663,
+    "end": 389.66666666666663
+  },
+  {
+    "id": "t2",
+    "section": "Trazas",
+    "title": "Los pesos contribuyen a una traza",
+    "text": "Cada peso aporta un número, cu, obtenido mediante su producto escalar con el vector de prueba de Cartan. En este ejemplo, la inserción es el producto de los dos primeros signos. Sumamos la inserción multiplicada por cu al cuadrado. Fijamos las dos primeras coordenadas del vector en uno y dos, y las demás en cero. Cuatro grupos del mismo tamaño suman quinientos doce.",
+    "start": 389.66666666666663,
+    "end": 415.29166666666663
+  },
+  {
+    "id": "t3",
+    "section": "Trazas",
+    "title": "Comprobamos todos los coeficientes",
+    "text": "Expandimos el producto escalar al cuadrado antes de elegir un vector de prueba. Hay cincuenta y cinco monomios cuadráticos en diez variables. El verificador suma cada coeficiente con aritmética racional exacta. Observa las cancelaciones: solo sobrevive el término cruzado hache uno por hache dos, con coeficiente doscientos cincuenta y seis. Hemos comprobado todo el polinomio cuadrático.",
+    "start": 415.29166666666663,
+    "end": 441.04166666666663
+  },
+  {
+    "id": "t4",
+    "section": "Trazas",
+    "title": "Un cero puede ocultar un polinomio no nulo",
+    "text": "Movemos ahora el vector de prueba sobre ese polinomio. En cualquiera de los ejes, el valor es cero. Al llegar al punto uno, dos, vale quinientos doce. El mapa de calor permite ver la diferencia: una evaluación nula no demuestra una identidad. En cambio, un valor no nulo refuta que el polinomio sea idénticamente cero.",
+    "start": 441.04166666666663,
+    "end": 464.24999999999994
+  },
+  {
+    "id": "t5",
+    "section": "Trazas",
+    "title": "Cambiamos la inserción en el laboratorio",
+    "text": "El laboratorio mantiene fijo el vector de Cartan de diez componentes mientras cambiamos la inserción. Observa la tabla de trazas exactas. Para la primera inserción, el momento cuadrático vale quinientos doce, de acuerdo con nuestra identidad. Otras inserciones producen momentos distintos. Son trazas de la representación sin factores físicos adicionales, previas a la normalización y al flujo de anomalías necesarios para obtener coeficientes físicos.",
+    "start": 464.24999999999994,
+    "end": 493.99999999999994
+  },
+  {
+    "id": "t6",
+    "section": "Trazas",
+    "title": "Hasta dónde llega el cálculo",
+    "text": "La suma finita de pesos responde a una pregunta algebraica precisa. Para convertirla en un cálculo de anomalías hacen falta los proyectores adecuados, la normalización y el descenso, además de las contribuciones de otros sectores. También importan los datos globales de carga y el flujo de anomalías. El marcador se detiene en lo que realmente hemos calculado. Un certificado de trazas no certifica toda la teoría cuántica.",
+    "start": 493.99999999999994,
+    "end": 521.5416666666666
+  },
+  {
+    "id": "c1",
+    "section": "Consistencia",
+    "title": "Contamos dobletes en un reloj de residuos",
+    "text": "El último ejemplo es una condición restringida de consistencia en seis dimensiones. Ene cuenta el exceso con signo de dobletes complejos de Weyl. En el marco indicado, una teoría autónoma con ese u dos y sector tensorial, ene debe ser divisible por seis. Con asignaciones idénticas por familia, los tres colores de quarks y un leptón de quiralidad opuesta aportan tres menos uno: dos por familia. Cada familia hace avanzar dos unidades el reloj de residuos.",
+    "start": 521.5416666666666,
+    "end": 551.9583333333333
+  },
+  {
+    "id": "c2",
+    "section": "Consistencia",
+    "title": "Múltiplos de tres, sin fijar exactamente tres",
+    "text": "Tras tres familias de ese tipo, el reloj vuelve a cero. Seis y nueve familias también superan esta condición. Si la quiralidad del leptón coincide con la de los quarks, cada familia idéntica aporta cuatro; de nuevo, los múltiplos de tres vuelven a cero. La congruencia restringe las posibilidades, pero no selecciona de forma única tres generaciones.",
+    "start": 551.9583333333333,
+    "end": 575.9583333333333
+  },
+  {
+    "id": "c3",
+    "section": "Consistencia",
+    "title": "Una hipótesis cambia la conclusión",
+    "text": "Permitamos ahora dos familias con asignaciones distintas de quiralidad. La primera aporta dos y la segunda cuatro. Juntas suman seis, así que superan esta prueba de residuos con dos familias. Es un contraejemplo a eliminar la hipótesis de asignaciones idénticas. No constituye un modelo físico completo y consistente de dos familias.",
+    "start": 575.9583333333333,
+    "end": 598.875
+  },
+  {
+    "id": "c4",
+    "section": "Consistencia",
+    "title": "Seis y doce pueden expresar la misma prueba",
+    "text": "Si contamos dobletes complejos, el módulo es seis. Si contamos en unidades de medio doblete, duplicamos ene y usamos módulo doce. Observa ambos relojes: superan la condición a la vez. Cambian las unidades, pero no la condición. El argumento físico también exige cuantización integral del sector tensorial; factorizar el polinomio de anomalías no proporciona por sí solo toda esa información global.",
+    "start": 598.875,
+    "end": 627.25
+  },
+  {
+    "id": "c5",
+    "section": "Consistencia",
+    "title": "Probamos las familias en el laboratorio",
+    "text": "Cambiamos el número de familias en el laboratorio y mantenemos la quiralidad del leptón opuesta a la de los quarks. Una y dos no cumplen esta condición restringida; tres sí. Cuatro y cinco no la cumplen; seis vuelve a cumplirla. El residuo mostrado explica cada cambio. Conservemos las hipótesis de asignaciones idénticas y de teoría autónoma al interpretar este resultado.",
+    "start": 627.25,
+    "end": 652.375
+  },
+  {
+    "id": "s1",
+    "section": "Evidencia",
+    "title": "Cuatro preguntas y cuatro evidencias",
+    "text": "Hemos seguido cuatro preguntas distintas. Las condiciones de contorno seleccionaron un espectro. Los productos internos integrados comprobaron independencia de funciones. Las sumas de pesos determinaron un polinomio. Una condición de residuos restringió asignaciones idénticas. Cada cálculo tiene una razón, unos datos y unos límites. Superar estos diagnósticos separados no determina por sí solo un vacío de Higgs, las masas de neutrinos ni una construcción completa del Modelo Estándar.",
+    "start": 652.375,
+    "end": 685.25
+  },
+  {
+    "id": "s2",
+    "section": "Evidencia",
+    "title": "Sigue el argumento y reproduce el resultado",
+    "text": "La página del vídeo enlaza el laboratorio, las demostraciones matemáticas, los certificados exactos y su verificador. También incluye los artículos originales que sustentan las hipótesis. No se afirma una formalización en un asistente de demostraciones. Puedes cambiar las variables, reproducir los cálculos y cuestionar las hipótesis físicas que faltan. El propósito es hacer visible, y comprobable, el camino entre física y matemáticas.",
+    "start": 685.25,
+    "end": 715.4583333333334
+  }
+]

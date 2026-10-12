@@ -1,5 +1,7 @@
 # 🔧 GHU Lab — the source tree of the gauge–Higgs unification instrument
 
+Spanish mathematical film: [Entre física y matemáticas](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html), 11:55, 29 chapters, Spanish narration, captions, whiteboards and actual laboratory captures. [Direct MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-es.mp4).
+
 This repository builds **[the GHU research laboratory](https://karlesmarin.github.io/ghu-explorer/)**:
 a self-contained browser instrument for model building, Wilson-line potentials, spectra,
 anomalies, thermal transitions, neutrino physics and experimental comparisons. It includes the

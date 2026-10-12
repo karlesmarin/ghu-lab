@@ -1,0 +1,50 @@
+{
+  "title": "Entre física y matemáticas",
+  "language": "es",
+  "seconds": 715.4583333333334,
+  "chapters": 29,
+  "sections": [
+    "Espectros de frontera",
+    "Perfiles",
+    "Trazas",
+    "Consistencia",
+    "Evidencia"
+  ],
+  "width": 1920,
+  "height": 1080,
+  "fps": 24,
+  "syntheticNarration": true,
+  "voice": "Microsoft Helena Desktop",
+  "captionsBurnedIn": true,
+  "sourceCommit": "247b9022fafcc8a2a7cd997a4f063e7d72c7e6b0",
+  "sourceModuleUnchanged": true,
+  "bytes": 19372225,
+  "sha256": "61ed37cdb5dfc24b06ca5b706dd4a362fb4c371d70e72f93f54f7491ccc78ca0",
+  "englishVideoSha256": "f2200a434b2a8ae0244a91f7d1dff1006fd74c52922cfccf894fb9bc3da526a1",
+  "sources": [
+    {
+      "title": "Boundary tools: equations, assumptions and API",
+      "url": "https://github.com/karlesmarin/ghu-lab/blob/main/docs/boundary-research.md"
+    },
+    {
+      "title": "Fujimoto et al. — 6d Dirac fermion on a rectangle",
+      "url": "https://arxiv.org/abs/1609.01413",
+      "locator": "section 3.1.2, equations 3.32–3.43, footnote 10; appendix B; illustrative profile ansatz, not a full-domain theorem"
+    },
+    {
+      "title": "Asaka, Buchmüller, Covi — Bulk and brane anomalies in six dimensions",
+      "url": "https://arxiv.org/abs/hep-ph/0209144",
+      "locator": "equations 41–43, 71–72; appendix D"
+    },
+    {
+      "title": "Dobrescu, Poppitz — Number of fermion generations derived from anomaly cancellation",
+      "url": "https://arxiv.org/abs/hep-ph/0102010",
+      "locator": "equations 3–4; identical-assignment assumption"
+    },
+    {
+      "title": "Lee, Tachikawa — Some comments on 6d global gauge anomalies",
+      "url": "https://arxiv.org/abs/2012.11622",
+      "locator": "sections 2.6–2.7 and 3.3; integral tensor quantization"
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 # The site — what it is, page by page
 
+Spanish mathematical film: [Entre física y matemáticas](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html), 11:55, 29 chapters, Spanish narration, captions, whiteboards and actual laboratory captures. [Direct MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-es.mp4).
+
 The English mathematical companion is at `video/mathematics/index.html`, with a direct MP4,
 29 animated chapters (11:34), ordinary proof notes and reproducible certificates. Its versioned
 source media live in `media/video/2026-10-12-mathematics/`; production scripts and recorded inputs

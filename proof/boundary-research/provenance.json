@@ -11,9 +11,20 @@
     "certify.py": "8021c28e97285af74ae5db0d8fc536cad5748a287cf40c9b3c3593b268578604",
     "export_lab.mjs": "9035d0779dba7f523e3e2ff24c7891885f87931f2cd04d70a5a5f2cfd1ffbd86",
     "lab-reference.json": "b98e5df36a17d27f8ced0fbd47f1e4c54d6cd6cda522a7b346e5de945df51952",
-    "README.md": "581565f1853567cc58aa8dd275f2d82b54446b0bc5e518fd6ad4373614f42380",
+    "README.md": "9a0354a98ebd329e1dd280113a884578380c13b4f9ba1e4bd99398f78fb0f132",
     "requirements.txt": "ec57eb511568601f4b5ef46479fbac27237b343f80eb91d9a9b99eaa83b570aa"
   },
   "videoSha256": "f2200a434b2a8ae0244a91f7d1dff1006fd74c52922cfccf894fb9bc3da526a1",
-  "proofAssistantFormalization": false
+  "proofAssistantFormalization": false,
+  "documentationRevision": "2026-10-12-bilingual-documentation",
+  "videoEditions": {
+    "en": {
+      "sha256": "f2200a434b2a8ae0244a91f7d1dff1006fd74c52922cfccf894fb9bc3da526a1",
+      "manifest": "media/video/2026-10-12-mathematics/render-manifest.json"
+    },
+    "es": {
+      "sha256": "61ed37cdb5dfc24b06ca5b706dd4a362fb4c371d70e72f93f54f7491ccc78ca0",
+      "manifest": "media/video/2026-10-12-mathematics/render-manifest-es.json"
+    }
+  }
 }

@@ -1,14 +1,16 @@
 # The site — what it is, page by page
 
-Spanish mathematical film: [Entre física y matemáticas](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html), 11:55, 29 chapters, Spanish narration, captions, whiteboards and actual laboratory captures. [Direct MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-es.mp4).
+The mathematical companion has two current pages: `video/mathematics/index.html` (English,
+11:34) and `video/mathematics/index-es.html` (Castellano, 11:55). Each has 29 animated chapters,
+a direct MP4, visible captions, a transcript, reciprocal language links and a canonical URL.
+Shared ordinary proof notes are at `video/mathematics/proof-notes.html`; the notes are in English.
 
-The English mathematical companion is at `video/mathematics/index.html`, with a direct MP4,
-29 animated chapters (11:34), ordinary proof notes and reproducible certificates. Its versioned
-source media live in `media/video/2026-10-12-mathematics/`; production scripts and recorded inputs
-are in `tools/mathematics_video/`, and mathematical evidence is in `proof/boundary-research/`.
-The bilingual general tutorial remains a separate video.
-
-
+Versioned media and verification receipts live in `media/video/2026-10-12-mathematics/`;
+production scripts and recorded inputs in `tools/mathematics_video/` (Spanish under `es/`);
+mathematical evidence in `proof/boundary-research/`. See [the video guide](docs/mathematics-video.md).
+The bilingual general tutorial remains separate: 45 chapters and 154 scenes per language.
+The mathematical-film pages are linked from Docs, Video and Editions. Current pages contribute
+113 canonical sitemap URLs after this addition; the build reports the measured count.
 
 Current guide architecture (12 October 2026): `docs/user-guides[.es].json` supplies
 44 guides and 59 glossary terms in each language. `build/user_guides.py` generates inline help

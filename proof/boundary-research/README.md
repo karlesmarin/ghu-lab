@@ -1,8 +1,8 @@
 # Between physics and mathematics: boundary research
 
-[Watch the English video](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html) · [Tool documentation](../../docs/boundary-research.md) · [Certificates](certificates.json)
+[English video · 11:34](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html) · [Vídeo en castellano · 11:55](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html) · [Tool documentation](../../docs/boundary-research.md) · [Certificates](certificates.json)
 
-A small story between physics and mathematics: can three profiles be independent if each has only two components? The film follows an animated boundary profile, then builds a Gram matrix, a trace polynomial and a residue condition from visible calculations. The 11:34 film has 29 chapters, English synthetic narration and embedded English captions. It is an explanatory companion to GHU Lab, with explicit assumptions and open physical questions.
+A small story between physics and mathematics: can three profiles be independent if each has only two components? The film follows an animated boundary profile, then builds a Gram matrix, a trace polynomial and a residue condition from visible calculations. Both editions have 29 chapters, synthetic narration and embedded captions in the selected language. The shared proofs and checker documentation below are in English. It is an explanatory companion to GHU Lab, with explicit assumptions and open physical questions.
 
 ## Reproduce the certificates
 
@@ -31,7 +31,7 @@ Ordinary proofs + executable certificates · no proof-assistant formalization
 
 ## Mathematical notes and certificates
 
-These notes support the English film. They distinguish exact mathematical reasoning, exact finite computation and numerical checks. They concern the stated examples, not a completed quantum field theory.
+These notes support the same mathematical examples in both language editions. They distinguish exact mathematical reasoning, exact finite computation and numerical checks. They concern the stated examples, not a completed quantum field theory.
 
 ### 1. Gram rank is the dimension of a span
 
@@ -97,7 +97,7 @@ The operator above is the reduced normal problem of the stated flat, uniform con
 
 (mR)²=(kR)²+(θ/2π)²,   0≤θ≤π.
 
-This is one specified periodic paired branch with an imposed Wilson background. The video shows the same 25×25 values as a heat map and a surface, with colour fixed on [0,√(1/2)]. For finite a the first normal kR is less than 1/2. The surface is not an effective potential or a vacuum selection, and it does not determine an experimental mass scale.
+This is one specified periodic paired branch with an imposed Wilson background. The laboratory shows the same 25×25 values as a heat map and a surface, with colour fixed on [0,√(1/2)]. For finite a the first normal kR is less than 1/2. The surface is not an effective potential or a vacuum selection, and it does not determine an experimental mass scale.
 
 ### 6. An exact trace identity, not a handful of probes
 

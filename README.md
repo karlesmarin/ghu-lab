@@ -1,6 +1,5 @@
 # 🔧 GHU Lab — the source tree of the gauge–Higgs unification instrument
 
-Spanish mathematical film: [Entre física y matemáticas](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html), 11:55, 29 chapters, Spanish narration, captions, whiteboards and actual laboratory captures. [Direct MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-es.mp4).
 
 This repository builds **[the GHU research laboratory](https://karlesmarin.github.io/ghu-explorer/)**:
 a self-contained browser instrument for model building, Wilson-line potentials, spectra,
@@ -23,14 +22,27 @@ what each tool is for, its inputs, equations, examples, graphs, exports and fail
 The general video revision **2026-10-12-boundary-research** covers **45 chapters / 154 scenes**
 in English and Spanish, including the new card; earlier video editions are retained.
 
-## Between physics and mathematics · English video
+## Between physics and mathematics · English and Castellano
 
-[Watch the 11:34 film](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html):
-a small story connecting fields, function spaces, boundary spectra and representation traces.
-Twenty-nine animated chapters include step-by-step proofs, computed 2D/3D figures and actual laboratory controls.
-English narration and captions accompany [reproducible certificates](proof/boundary-research/README.md)
-with 113 checks and explicit scope. No proof-assistant formalization or complete physical-model
-certificate is claimed. [Versioned video files](media/video/2026-10-12-mathematics/README.md).
+A question about field masses becomes a spectral problem; profile independence leads to a
+Gram matrix; representation weights yield an exact trace polynomial; a restricted consistency
+condition becomes a congruence. Animated whiteboards, calculated 2D/3D figures and actual
+laboratory controls make those connections visible in both languages.
+
+| Language | Full film | Direct download | Chapters | Synthetic narration |
+|---|---|---|---|---|
+| English | [11:34 · player](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-en.mp4) | 29 | Microsoft Zira |
+| Castellano | [11:55 · reproductor](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-es.mp4) | 29 | Microsoft Helena (España) |
+
+Each edition translates narration, visible captions, whiteboards and laboratory captures, with its
+own chapter and subtitle timings. Both link to the same ordinary proofs and **113 reproducible
+certificate checks**. The proofs and checker documentation are in English. These scoped results
+do not establish a complete physical model or a proof-assistant formalization.
+
+[Open the lab](https://karlesmarin.github.io/ghu-explorer/app/) → **Anomalies → Boundary research**.
+The separate general laboratory tutorial covers 45 chapters and 154 scenes per language.
+
+[Video guide and verification](docs/mathematics-video.md) · [Versioned files](media/video/2026-10-12-mathematics/README.md) · [Production instructions](tools/mathematics_video/README.md).
 
 ## User guides · 12 October 2026
 

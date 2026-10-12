@@ -1,10 +1,22 @@
 # Animated mathematics video production
 
-[Watch the complete English MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-en.mp4) · [Player, transcript and proofs](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html) · [Mathematical certificates](../../proof/boundary-research/README.md)
+| Language | Full film | Direct download | Chapters | Synthetic narration |
+|---|---|---|---|---|
+| English | [11:34 · player](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-en.mp4) | 29 | Microsoft Zira |
+| Castellano | [11:55 · reproductor](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-es.mp4) | 29 | Microsoft Helena (España) |
+
+[Video guide](../../docs/mathematics-video.md) · [Mathematical certificates](../../proof/boundary-research/README.md)
 
 The film has 29 narrated chapters: eight boundary steps followed by eight profile explanations, six trace explanations, five consistency explanations and two evidence chapters. Drawing primitives use Pillow and Matplotlib mathematical text. Numerical figures use explicit functions and fixed axes where appropriate. Real browser captures show 41 boundary states, 21 Gram states, three trace insertions and six family results. The source snapshots are included so rendering does not depend on the current website.
 
-## Render the stored explanations
+## Choose a language
+
+The commands below render English using Microsoft Zira. For the complete Spanish edition,
+use [the Spanish production instructions](es/README.md), Microsoft Helena (es-ES), and the
+scripts and stored captures under `es/`. Both editions have translated whiteboards and actual
+laboratory captures. Do not mix English and Spanish chapter timings or VTT files.
+
+## Render the stored English explanations
 
 Tested on Windows with Python 3.14, Microsoft Zira Desktop, Segoe UI and Node.js 24. Narration uses Windows PowerShell and System.Speech; its word events synchronize the captions. The `GHU_VIDEO_FONT_DIR` environment variable can point to a directory containing `segoeui.ttf` and `segoeuib.ttf`. No font binaries are redistributed. Other platforms and speech voices require adapting narration and fonts; byte-identical output is not promised across systems.
 
@@ -23,7 +35,7 @@ python tools/mathematics_video/full/verify_final.py .
 
 The final `.` argument supplies a dependency search directory; use `.` with the packages installed above. `imageio-ffmpeg` supplies FFmpeg. Preview mode writes early, middle and late images before the expensive render. Each further chapter is cached against its drawing code, captures, script and audio; input changes invalidate that scene. The final assembler preserves the approved boundary video stream, normalizes its audio format, joins all scenes and embeds MP4 chapter metadata. VTT and transcript timings follow the same video-frame clock.
 
-## Capture a revised laboratory
+## Capture a revised English laboratory
 
 Build the lab and website using the main repository instructions, then run the local range server:
 
@@ -47,4 +59,6 @@ Inspect the rendered frames, especially formula timing, axis labels, right-edge 
 
 The 113 certificate checks are separate from media checks. They do not certify the whole physical theory. The code and record have the repository's existing license terms; no additional open-source license is granted here.
 
-The approved introduction has a pinned historical hash. A render on a different system may fail this provenance check; review a new edition before changing that pin.
+The English introduction has a pinned historical hash; the Spanish edition renders all 29 scenes with its own narration and timings. A Spanish render is not compared against the English introduction hash.
+
+The approved English introduction has a pinned historical hash. A render on a different system may fail this provenance check; review a new edition before changing that pin.

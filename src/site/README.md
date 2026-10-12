@@ -1,18 +1,28 @@
 # 🧭 GHU Lab — an instrument for gauge–Higgs unification
 
-Spanish mathematical film: [Entre física y matemáticas](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html), 11:55, 29 chapters, Spanish narration, captions, whiteboards and actual laboratory captures. [Direct MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-es.mp4).
 
 
-## Between physics and mathematics · English animated video
+## Between physics and mathematics · English and Castellano
 
-[Watch the complete 11:34 film](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html)
-or [open its MP4 directly](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-en.mp4).
-Twenty-nine chapters connect boundary spectra, function independence, exact traces and a restricted
-consistency condition through animated whiteboards, 2D/3D figures and real laboratory controls.
-The page includes the transcript, sources, ordinary proofs and
-[113 reproducible certificate checks](https://github.com/karlesmarin/ghu-lab/tree/main/proof/boundary-research).
-All narration and captions are English. These scoped certificates do not certify a complete physical model.
+A question about field masses becomes a spectral problem; profile independence leads to a
+Gram matrix; representation weights yield an exact trace polynomial; a restricted consistency
+condition becomes a congruence. Animated whiteboards, calculated 2D/3D figures and actual
+laboratory controls make those connections visible in both languages.
 
+| Language | Full film | Direct download | Chapters | Synthetic narration |
+|---|---|---|---|---|
+| English | [11:34 · player](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-en.mp4) | 29 | Microsoft Zira |
+| Castellano | [11:55 · reproductor](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-es.mp4) | 29 | Microsoft Helena (España) |
+
+Each edition translates narration, visible captions, whiteboards and laboratory captures, with its
+own chapter and subtitle timings. Both link to the same ordinary proofs and **113 reproducible
+certificate checks**. The proofs and checker documentation are in English. These scoped results
+do not establish a complete physical model or a proof-assistant formalization.
+
+[Open the lab](https://karlesmarin.github.io/ghu-explorer/app/) → **Anomalies → Boundary research**.
+The separate general laboratory tutorial covers 45 chapters and 154 scenes per language.
+
+[Documentation and reproduction](https://github.com/karlesmarin/ghu-lab/blob/main/docs/mathematics-video.md) · [Proofs and certificates](https://github.com/karlesmarin/ghu-lab/tree/main/proof/boundary-research).
 
 ## Boundary research · Lab 0.2.1 · 12 October 2026
 

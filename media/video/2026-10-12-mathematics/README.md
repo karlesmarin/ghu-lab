@@ -1,11 +1,39 @@
-# Between physics and mathematics
+# Between physics and mathematics · Entre física y matemáticas
 
-[Watch the complete English film](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html) · [Open the MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-en.mp4) · [Proofs and certificates](../../../proof/boundary-research/README.md)
+| Language | Full film | Direct download | Chapters | Synthetic narration |
+|---|---|---|---|---|
+| English | [11:34 · player](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-en.mp4) | 29 | Microsoft Zira |
+| Castellano | [11:55 · reproductor](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-es.mp4) | 29 | Microsoft Helena (España) |
 
-Duration: 11:34. 29 chapters. 1920 × 1080, 24 fps. English animated whiteboards, calculated 2D/3D figures, and actual GHU Lab controls and outputs. Four mathematical topics: boundary spectra, independent profiles, exact inserted traces, and a restricted six-dimensional consistency condition. English captions are embedded, with a separate VTT and transcript. Narration uses Microsoft Zira (synthetic voice).
+The editions share 29 explanations: boundary spectra, independent profiles, exact inserted traces,
+a restricted six-dimensional consistency condition and the scope of the evidence. Both use
+translated whiteboards, calculated 2D/3D figures, actual laboratory controls and visible captions.
 
-The mathematical companion is separate from the bilingual general laboratory tutorial. The first boundary explanation preserves the approved prototype's video stream. See render-manifest.json for the source version and MP4 SHA-256. No full physical-model certificate or proof-assistant formalization is claimed. [Production sources](../../../tools/mathematics_video/README.md).
+| Artifact | English | Castellano |
+|---|---|---|
+| Player | `index.html` | `index-es.html` |
+| MP4 | `ghu-mathematics-en.mp4` | `ghu-mathematics-es.mp4` |
+| Chapters | `chapters-en.json` | `chapters-es.json` |
+| Subtitles | `captions-en.vtt` (154 cues) | `captions-es.vtt` (156 cues) |
+| Transcript | `transcript-en.txt` | `transcript-es.txt` |
+| Poster | `poster.png` | `poster-es.png` |
+| Hash and version | `render-manifest.json` | `render-manifest-es.json` |
+| Media verification | `verification.json` (194 checks) | `verification-es.json` (196 checks) |
+| Browser receipt | `browser-verification.json` | `browser-verification-es.json` |
 
-## Spanish edition
+Both MP4s are 1920×1080, 24 fps, with 48 kHz mono audio and synthetic narration.
+Each language has its own narration-derived timings. The English boundary segment preserves
+the approved introduction's video stream; Spanish renders that explanation with Spanish labels,
+speech and real interface captures. The English MP4 was not changed by the Spanish addition.
 
-`index-es.html` plays `ghu-mathematics-es.mp4` (11:55, 29 chapters), with Spanish whiteboards, captions and Microsoft Helena synthetic narration. See `render-manifest-es.json`, `verification-es.json` and `tools/mathematics_video/es/README.md`. English video bytes and shared certificates are unchanged.
+[Shared proofs and 113 certificate checks](https://github.com/karlesmarin/ghu-lab/tree/main/proof/boundary-research)
+are in English and apply to the same mathematical examples in both films. A successful check
+does not certify a complete physical model or a proof-assistant formalization.
+
+[Video guide](https://github.com/karlesmarin/ghu-lab/blob/main/docs/mathematics-video.md) ·
+[Production sources](https://github.com/karlesmarin/ghu-lab/tree/main/tools/mathematics_video) ·
+[Spanish production](https://github.com/karlesmarin/ghu-lab/tree/main/tools/mathematics_video/es).
+These absolute repository links also work when this README is copied to the publishing repository.
+
+This mathematical companion is separate from the 45-chapter bilingual general laboratory tutorial.
+Retain published video bytes and create a new edition for subsequent content revisions.

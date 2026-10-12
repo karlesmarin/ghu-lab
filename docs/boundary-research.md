@@ -155,8 +155,12 @@ and sources. Invalid values throw; the UI explains input errors and keeps the la
 
 ## Mathematical companion and certificates
 
-[Between physics and mathematics](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html)
-is a 29-chapter English animated film with embedded captions. Its [proofs and executable certificates](../proof/boundary-research/README.md)
+The animated mathematical film is available in
+[English (11:34)](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html) and
+[Castellano (11:55)](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html).
+Each has 29 chapters, translated narration, visible captions, whiteboards and actual laboratory
+captures. See [the video guide](mathematics-video.md) for topics, downloads, version information
+and verification. The shared [ordinary proofs and executable certificates](../proof/boundary-research/README.md)
 cover the displayed Gram example, ten Robin root brackets, the complete quadratic inserted trace
 and the restricted family congruence. The 113 checks include exact finite computation and independent
 numerical comparisons; they are not 113 formal theorems. The profile ansatz locator is Fujimoto et al.,

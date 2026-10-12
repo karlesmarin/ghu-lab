@@ -745,7 +745,7 @@ def main(argv=None):
                                     "and uses only the video assets shipped alongside it.")
     write('video/index.html', video_page)
 
-    # Standalone English mathematical companion; the bilingual tutorial is unchanged.
+    # Mathematical companion in English and Spanish; shared evidence and separate general tutorial.
     math_media = ROOT / 'media' / 'video' / '2026-10-12-mathematics'
     math_out = OUT / 'video' / 'mathematics'
     shutil.copytree(math_media, math_out, dirs_exist_ok=True)
@@ -827,8 +827,9 @@ def main(argv=None):
            'in-app help, the glossary and downloadable manuals. Current guidance does not '
            'rewrite frozen evidence or archived tutorials.</p>'
            '<h2>Between physics and mathematics</h2>'
-           '<p><a href="../video/mathematics/index.html">English mathematical companion</a>: '
-           '11:34, 29 animated chapters, ordinary proofs and executable certificates for the stated examples.</p>'
+           '<p>Mathematical companion: <a href="../video/mathematics/index.html" lang="en">English · 11:34</a> · '
+           '<a href="../video/mathematics/index-es.html" lang="es">Castellano · 11:55</a>. '
+           'Each edition has 29 animated chapters, with shared ordinary proofs and executable certificates for the stated examples.</p>'
            '<h2>Versioned video guides</h2>'
            '<ul><li><a href="../video/index.html">Current revision · 12 October 2026</a>: '
            '45 chapters and 154 scenes in each language, including boundary research with linked 2D/3D mass views, profile rank and scoped anomaly tests. Every scene was captured on the current '

@@ -1,5 +1,10 @@
 # 🎬 GHU Lab video guide · English and Spanish
 
+For the separate 29-chapter mathematical film in English (11:34) and Castellano (11:55),
+see [the mathematical video guide](mathematics-video.md) and
+[its production instructions](../tools/mathematics_video/README.md). The workflow below
+concerns the 45-chapter general laboratory tutorial.
+
 [Watch in English](https://karlesmarin.github.io/ghu-explorer/video/index.html?lang=en) ·
 [Ver en español](https://karlesmarin.github.io/ghu-explorer/video/index.html?lang=es)
 

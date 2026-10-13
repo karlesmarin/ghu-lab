@@ -1,5 +1,11 @@
 # 🧭 GHU Lab — an instrument for gauge–Higgs unification
 
+## Quantization and certificates · 13 October 2026
+
+[Open the new independent option and Demo](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=quantization) · [English video](https://karlesmarin.github.io/ghu-explorer/video/quantization/index.html) · [Vídeo en castellano](https://karlesmarin.github.io/ghu-explorer/video/quantization/index-es.html) · [All certificates and Lean sources](https://karlesmarin.github.io/ghu-explorer/proof/index.html).
+
+Exact universal and closed-spin-four criteria, the published axion congruence, conditional parent transfer, joint U(2) arithmetic and the Spin(20) lift distinction now have worked examples, bilingual documentation and a eleven-chapter narrated supplement. Four Lean files contain 49 theorem declarations, with replayable scripts and SHA-256 downloads. Arithmetic certification does not establish topology or full physical consistency. The current Lab has 30 sections and 45 bilingual guides; dated releases below retain their historical counts.
+
 
 
 ## Between physics and mathematics · English and Castellano
@@ -11,16 +17,18 @@ laboratory controls make those connections visible in both languages.
 
 | Language | Full film | Direct download | Chapters | Synthetic narration |
 |---|---|---|---|---|
-| English | [11:34 · player](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-en.mp4) | 29 | Microsoft Zira |
-| Castellano | [11:55 · reproductor](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-es.mp4) | 29 | Microsoft Helena (España) |
+| English | [16:37 · player](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-en.mp4) | 38 | Microsoft Zira |
+| Castellano | [16:53 · reproductor](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-es.mp4) | 38 | Microsoft Helena (España) |
 
-Each edition translates narration, visible captions, whiteboards and laboratory captures, with its
-own chapter and subtitle timings. Both link to the same ordinary proofs and **113 reproducible
-certificate checks**. The proofs and checker documentation are in English. These scoped results
-do not establish a complete physical model or a proof-assistant formalization.
+The 13 October revision retains the first 28 whiteboard chapters, replaces the closing chapter,
+and adds nine explanations connecting quantization, physical assumptions, certificates and
+experimental limits. The original four examples retain **113 executable checks**. The extension
+explains **23 new Lean declarations plus 26 existing SU(7) declarations**, with their stated scope.
+The bilingual [physical/mathematical bridge](https://karlesmarin.github.io/ghu-explorer/video/mathematics/bridge.html) identifies which interpretation steps remain external to the arithmetic proofs.
+No complete physical model or experimental agreement is certified.
 
 [Open the lab](https://karlesmarin.github.io/ghu-explorer/app/) → **Anomalies → Boundary research**.
-The separate general laboratory tutorial covers 45 chapters and 154 scenes per language.
+The separate general laboratory tutorial covers 46 chapters and 165 scenes per language.
 
 [Documentation and reproduction](https://github.com/karlesmarin/ghu-lab/blob/main/docs/mathematics-video.md) · [Proofs and certificates](https://github.com/karlesmarin/ghu-lab/tree/main/proof/boundary-research).
 

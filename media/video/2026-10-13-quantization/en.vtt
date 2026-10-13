@@ -1,0 +1,131 @@
+WEBVTT
+
+00:00:00.500 --> 00:00:07.415
+Open Quantization and certificates in the new research menu. These are independent diagnostics, with exact
+
+00:00:07.415 --> 00:00:14.825
+rational inputs and separate assumptions. The guided demo changes real controls. A passing arithmetic
+
+00:00:14.825 --> 00:00:22.500
+criterion is one ingredient of consistency. It does not certify a complete gauge Higgs model.
+
+00:00:23.250 --> 00:00:31.785
+Choose C over two. The universal class fails, while periods on closed spin four manifolds pass. This is not
+
+00:00:31.785 --> 00:00:40.155
+a contradiction. The tests use different backgrounds. The universal test detects a period of one half. On
+
+00:00:40.155 --> 00:00:47.110
+the stated spin backgrounds, the period of Y squared is even. That topological fact is external to the Lean
+
+00:00:47.110 --> 00:00:49.708
+arithmetic proof.
+
+00:00:50.458 --> 00:00:56.893
+The diamonds are universal integral classes. The rings between them pass only the closed spin four period
+
+00:00:56.893 --> 00:01:04.848
+test. The cross marks the current alpha and delta, at fixed beta. Select a lattice point in the application
+
+00:01:04.848 --> 00:01:13.033
+and the input gamma changes exactly. These are mathematical criteria, not experimental measurements. Outside
+
+00:01:13.033 --> 00:01:20.333
+the displayed window, the interface reports the exact coordinates instead of clipping a point to the border.
+
+00:01:21.083 --> 00:01:28.628
+Now choose C over thirty six. The covering direction gives an integer, one. But the displayed quotient
+
+00:01:28.628 --> 00:01:36.083
+cocharacter gives one over thirty six. Checking a convenient covering direction can miss a forbidden period.
+
+00:01:36.083 --> 00:01:42.753
+Read the witness together with the criterion. The application uses exact fractions, not a floating point
+
+00:01:42.753 --> 00:01:44.958
+tolerance.
+
+00:01:45.708 --> 00:01:53.373
+Choose A plus B. Alpha and beta are one; gamma is seven twelfths. After changing to the integral basis,
+
+00:01:53.373 --> 00:02:01.058
+delta is zero. Both criteria pass. The fractional contributions have to be combined before judging the total
+
+00:02:01.058 --> 00:02:08.500
+class. The controls, the witness and the exported result all use the same calculation.
+
+00:02:09.250 --> 00:02:15.990
+The axion panel uses the normalization of Choi and collaborators. The integer combination eighteen K two
+
+00:02:15.990 --> 00:02:24.215
+plus twenty four K three plus K one must be divisible by thirty six. The default zero, one, twelve satisfies
+
+00:02:24.215 --> 00:02:31.750
+it. This reproduces the published q equals six condition. Identifying this axion with the gauge Higgs field
+
+00:02:31.750 --> 00:02:36.250
+remains a separate, unresolved physical question.
+
+00:02:37.000 --> 00:02:43.180
+The parent map has two columns and a common annihilator. With the inherited spectrum and ordinary integral
+
+00:02:43.180 --> 00:02:50.805
+Green Schwarz sources, six times the annihilator is sixteen minus three p minus three q minus six r. For
+
+00:02:50.805 --> 00:02:58.935
+integer pairings it is one modulo three, so it cannot vanish. Lean proves that arithmetic for all integers.
+
+00:02:58.935 --> 00:03:05.250
+Allowed orbifold backgrounds and extra corner responses are not settled by this result.
+
+00:03:06.000 --> 00:03:12.775
+The U two example shows why joint integrality differs from separate factor requirements. With b zero equal
+
+00:03:12.775 --> 00:03:20.265
+to one and b one equal to six, the quadratic form is m squared plus m n plus n squared. It is integral for
+
+00:03:20.265 --> 00:03:26.495
+every integer pair. The formal criterion also covers rational coefficients with a common nonzero
+
+00:03:26.495 --> 00:03:33.042
+denominator. This example is not an anomaly free supergravity spectrum.
+
+00:03:33.792 --> 00:03:41.667
+Change b one from six to five. Each cell is a cocharacter labelled by integers m and n. Its printed fraction
+
+00:03:41.667 --> 00:03:49.522
+and color are Q modulo one, calculated with exact integer arithmetic. The point one, zero now has period
+
+00:03:49.522 --> 00:03:57.332
+seven eighths: a concrete witness of failure. Returning b one to six makes every cell integral. The eighty
+
+00:03:57.332 --> 00:04:04.208
+one cells illustrate the criterion; the Lean theorem establishes it for all integer pairs.
+
+00:04:04.958 --> 00:04:11.533
+For the Spin twenty audit, the degree eighteen Clifford element squares to minus one. Multiplication by
+
+00:04:11.533 --> 00:04:17.783
+minus i makes the representation matrix square to plus one. This distinction matters for an ordinary
+
+00:04:17.783 --> 00:04:25.818
+isotropy lift. It does not prove the model inconsistent: a twisted or combined action may be possible. Every
+
+00:04:25.818 --> 00:04:32.708
+field and interaction, including bosonic Omega, must share a specified action.
+
+00:04:33.458 --> 00:04:39.598
+The catalogue includes four Lean files with forty nine theorem declarations, the exact audit scripts,
+
+00:04:39.598 --> 00:04:47.403
+recorded checks and file hashes. All four files replay with Lean four point twenty seven. The older S U
+
+00:04:47.403 --> 00:04:54.288
+seven file was adapted from List bind to List flat Map, keeping its theorem statements. Download the
+
+00:04:54.288 --> 00:05:01.723
+evidence, verify its integrity and run the listed commands. Full anomaly cancellation and scientific novelty
+
+00:05:01.723 --> 00:05:04.000
+remain open.
+

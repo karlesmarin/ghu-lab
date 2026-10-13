@@ -13,7 +13,7 @@ GROUPS=[('SU(7) · Komori–Maru','SU(7) · Komori–Maru','hierarchy inverse ce
  ('Neutrino ring','Anillo de neutrinos','simulator-neutrino flavour identifiability neutrino-decays'),
  ('Higgs and thermal diagnostics','Diagnósticos del Higgs y térmicos','simulator-higgsrate thermal thermalhistory'),
  ('Boundary conditions','Condiciones de contorno','bcclass orbifold relations cbclass boundaryresearch'),
- ('Boundary terms, gravity and literature','Términos de frontera, gravedad y bibliografía','blkt rsrunning gravitygauge litcensus')]
+ ('Boundary terms, gravity and literature','Términos de frontera, gravedad y bibliografía','blkt rsrunning gravitygauge litcensus quantization')]
 TASKS=[('Build and inspect a model','Construir e inspeccionar un modelo','sun5d'),('Study the SU(7) hierarchy','Estudiar la jerarquía SU(7)','hierarchy'),('Compare with experimental references','Comparar con referencias experimentales','higgstools'),('Explore neutrino masses and decays','Explorar masas y desintegraciones de neutrinos','simulator-neutrino'),('Follow a thermal transition','Seguir una transición térmica','thermal'),('Classify boundary conditions','Clasificar condiciones de contorno','bcclass')]
 
 def load(root,lang='en'):
@@ -40,7 +40,7 @@ def validate(root,catalogues=None):
             assert len(g['steps'])>=2 and len(g['what'])>=30 and len(g['read'])>=30
             assert all(x in expected for x in g.get('related',[])),('related',g['id'])
             assert all(x in d['glossary'] for x in g.get('terms',[])),('term',g['id'])
-            assert g.get('video') in videoids,('video',g['id'],g.get('video'))
+            assert g.get('video') in videoids | {'quantization'},('video',g['id'],g.get('video'))
             if g.get('source'):assert (root/g['source']).is_file(),('source',g['id'])
             q=parse_qs(g['route']);assert q['s']==[g['host']],('route',g['id'])
             if g.get('mode'):assert q['predict.s']==['v:'+str({'builder':0,'neutrino':1,'higgsrate':2}[g['mode']])]
@@ -62,7 +62,8 @@ def howto_source(root):
         if g['kind']=='section':rows.append('  '+g['id']+': {\n'+''.join('    '+k+': '+js(g[k])+',\n' for k in ['what','steps','read'])+'  },')
     es={g['id']:{k:g[k] for k in ['what','steps','read']} for g in data['es']['guides'] if g['kind']=='section'}
     targets={g['id']:('rx_'+g['id'] if g['kind']=='experiment' else 'ndCard' if g['id']=='neutrino-decays' else 'prModel' if g['kind']=='mode' else 'section') for g in data['en']['guides']}
-    return 'const HOWTO = {\n'+'\n'.join(rows)+'\n};\nconst HOWTO_ES = '+js(es)+';\nconst GUIDE_TARGETS = '+js(targets)+';\n'
+    cards={lang:{g['id']:{k:g[k] for k in ['title','what','read']} for g in data[lang]['guides']} for lang in LANGUAGES}
+    return 'const HOWTO = {\n'+'\n'.join(rows)+'\n};\nconst HOWTO_ES = '+js(es)+';\nconst GUIDE_TARGETS = '+js(targets)+';\nconst CARD_HELP_GUIDES = '+js(cards)+';\n'
 
 def glossary_source(root):
     en=load(root,'en')['glossary'];es=load(root,'es')['glossary']
@@ -70,6 +71,7 @@ def glossary_source(root):
     return 'const HELP_TERMS = {\n'+'\n'.join(rows)+'\n};\nconst HELP_TERMS_ES = '+js(es)+';\n'
 
 def view_source(root,name,source):
+    if name=='interface_language.js':return source.replace('/*__UI_ES__*/',js(json.loads((root/'docs/interface-es.json').read_text(encoding='utf-8'))['translations']))
     if name=='howto.js':return source.replace('/*__HOWTO__*/',howto_source(root))
     if name=='help.js':return source.replace('/*__GLOSSARY__*/',glossary_source(root))
     return source

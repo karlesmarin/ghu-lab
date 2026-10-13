@@ -1,0 +1,308 @@
+﻿{
+    "voice":  "Microsoft Zira Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "Now choose C over thirty six. The covering direction gives an integer, one. But the displayed quotient cocharacter gives one over thirty six. Checking a convenient covering direction can miss a forbidden period. Read the witness together with the criterion. The application uses exact fractions, not a floating point tolerance.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "Now",
+                      "start":  0,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  0.365,
+                      "text":  "choose",
+                      "start":  4,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  0.69,
+                      "text":  "C",
+                      "start":  11,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  0.94,
+                      "text":  "over",
+                      "start":  13,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  1.165,
+                      "text":  "thirty",
+                      "start":  18,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  1.4749999999999999,
+                      "text":  "six",
+                      "start":  25,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  2.85,
+                      "text":  "The",
+                      "start":  30,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  2.9499999999999997,
+                      "text":  "covering",
+                      "start":  34,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  3.4,
+                      "text":  "direction",
+                      "start":  43,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  3.915,
+                      "text":  "gives",
+                      "start":  53,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  4.16,
+                      "text":  "an",
+                      "start":  59,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  4.27,
+                      "text":  "integer",
+                      "start":  62,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  5.185,
+                      "text":  "one",
+                      "start":  71,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  6.385,
+                      "text":  "But",
+                      "start":  76,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  6.535,
+                      "text":  "the",
+                      "start":  80,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  6.64,
+                      "text":  "displayed",
+                      "start":  84,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  7.12,
+                      "text":  "quotient",
+                      "start":  94,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  7.645,
+                      "text":  "cocharacter",
+                      "start":  103,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  8.379999999999999,
+                      "text":  "gives",
+                      "start":  115,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  8.67,
+                      "text":  "one",
+                      "start":  121,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  8.915,
+                      "text":  "over",
+                      "start":  125,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  9.15,
+                      "text":  "thirty",
+                      "start":  130,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  9.455,
+                      "text":  "six",
+                      "start":  137,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  10.815,
+                      "text":  "Checking",
+                      "start":  142,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  11.174999999999999,
+                      "text":  "a",
+                      "start":  151,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  11.254999999999999,
+                      "text":  "convenient",
+                      "start":  153,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  11.79,
+                      "text":  "covering",
+                      "start":  164,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  12.229999999999999,
+                      "text":  "direction",
+                      "start":  173,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  12.735,
+                      "text":  "can",
+                      "start":  183,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  12.93,
+                      "text":  "miss",
+                      "start":  187,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  13.155,
+                      "text":  "a",
+                      "start":  192,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  13.209999999999999,
+                      "text":  "forbidden",
+                      "start":  194,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  13.745,
+                      "text":  "period",
+                      "start":  204,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  15.1,
+                      "text":  "Read",
+                      "start":  212,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  15.315,
+                      "text":  "the",
+                      "start":  217,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  15.405,
+                      "text":  "witness",
+                      "start":  221,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  15.78,
+                      "text":  "together",
+                      "start":  229,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  16.189999999999998,
+                      "text":  "with",
+                      "start":  238,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  16.355,
+                      "text":  "the",
+                      "start":  243,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  16.445,
+                      "text":  "criterion",
+                      "start":  247,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  18.075,
+                      "text":  "The",
+                      "start":  258,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  18.215,
+                      "text":  "application",
+                      "start":  262,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  18.925,
+                      "text":  "uses",
+                      "start":  274,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  19.25,
+                      "text":  "exact",
+                      "start":  279,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  19.669999999999998,
+                      "text":  "fractions",
+                      "start":  285,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  20.744999999999997,
+                      "text":  "not",
+                      "start":  296,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  20.97,
+                      "text":  "a",
+                      "start":  300,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  21.025,
+                      "text":  "floating",
+                      "start":  302,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  21.439999999999998,
+                      "text":  "point",
+                      "start":  311,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  21.77,
+                      "text":  "tolerance",
+                      "start":  317,
+                      "length":  9
+                  }
+              ]
+}

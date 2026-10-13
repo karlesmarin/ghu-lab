@@ -14390,7 +14390,7 @@
       "scope": "Independent analytic/interval replay. This is computer-assisted certification, not a Lean proof of real analysis or validation of the physical model."
     },
     "lean": {
-      "version": "4.10.0",
+      "version": "4.27.0",
       "theorems": [
         "fundamental_dimension",
         "symmetric2_dimension",
@@ -14420,10 +14420,76 @@
         "candidate_seed_even"
       ],
       "passed": 26,
-      "axioms": "18 declarations are axiom-free; 8 use only Lean standard propext and Quot.sound.",
-      "sourceSHA256": "936fb777de827c1b7ddb93b44d223efc88d107a6594d907b9dd934e7de53fc07",
-      "logSHA256": "38e809d988dc14814f034b4aa8df2cc8839c6fb13febb4a9305cd346f2292336",
-      "scope": "Exact finite weight identities and universal same-matter seed shifts. Infinite Fourier analysis and physical assumptions are not formalized in Lean."
+      "axioms": "12 declarations are axiom-free; 14 use only Lean standard propext and Quot.sound.",
+      "sourceSHA256": "51e49c4d79ae1932326fa8e596fd7978ec9182f07724ba8acaf6ad05a1c37cfc",
+      "logSHA256": "76125b5a56f4360c7e03f2fe43d6b1e8f3fda793dc6f606a47b91d0aed925c01",
+      "scope": "Exact finite weight identities and universal same-matter seed shifts. Infinite Fourier analysis and physical assumptions are not formalized in Lean.",
+      "compatibilityNote": "List.bind renamed to List.flatMap; theorem statements unchanged. See proof/replay.json for a fresh kernel and axiom check.",
+      "axiom_dependencies": {
+        "GHU.fundamental_dimension": [],
+        "GHU.symmetric2_dimension": [
+          "propext"
+        ],
+        "GHU.symmetric3_dimension": [
+          "propext"
+        ],
+        "GHU.adjoint_dimension": [],
+        "GHU.fundamental_coefficients": [],
+        "GHU.symmetric2_coefficients": [
+          "propext"
+        ],
+        "GHU.adjoint_coefficients": [],
+        "GHU.symmetric3_coefficients": [
+          "propext"
+        ],
+        "GHU.adjoint_parity_resolution": [],
+        "GHU.printed_gauge_coefficients": [],
+        "GHU.background_gauge_coefficients": [],
+        "GHU.seed_shift_d8": [],
+        "GHU.seed_shift_a4": [],
+        "GHU.seed_shift_w": [],
+        "GHU.seed_shift_preserves_law_combination": [],
+        "GHU.quartet_lower_weight_is_required": [
+          "propext"
+        ],
+        "GHU.same_matter_preserves_d8_shift": [
+          "propext",
+          "Quot.sound"
+        ],
+        "GHU.same_matter_preserves_a4_shift": [
+          "propext",
+          "Quot.sound"
+        ],
+        "GHU.same_matter_preserves_w": [],
+        "GHU.dirac_chirality_trace_cancels_parity": [
+          "propext",
+          "Quot.sound"
+        ],
+        "GHU.eight_generator_moments": [
+          "propext"
+        ],
+        "GHU.universal_matter_congruence": [
+          "propext",
+          "Quot.sound"
+        ],
+        "GHU.published_seed_congruence": [
+          "propext",
+          "Quot.sound"
+        ],
+        "GHU.candidate_seed_congruence": [
+          "propext",
+          "Quot.sound"
+        ],
+        "GHU.published_seed_odd": [
+          "propext",
+          "Quot.sound"
+        ],
+        "GHU.candidate_seed_even": [
+          "propext",
+          "Quot.sound"
+        ]
+      },
+      "historicalRecord": "proof/su7/lean-4.10.0-record.json"
     },
     "conditionalBounds": {
       "sage": "10.9",

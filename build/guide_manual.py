@@ -8,7 +8,7 @@ from user_guides import load,validate,LABELS,BASE,relpath
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 GREEK=dict(zip('ΓΔΛΣαβγδηθκλμπστφχ',['Gamma','Delta','Lambda','Sigma','alpha','beta','gamma','delta','eta','theta','kappa','lambda','mu','pi','sigma','tau','phi','chi']))
 MATH={'±':r'\pm','≈':r'\approx','≥':r'\geq','×':r'\times','½':r'\frac{1}{2}','ℏ':r'\hbar','ℓ':r'\ell','→':r'\rightarrow','∏':r'\prod','−':'-','√':r'\surd','≤':r'\leq','⋊':r'\rtimes','⌊':r'\lfloor','⌋':r'\rfloor','′':r'\prime'}
-SUP=dict(zip('⁰¹²³⁴⁶⁻ʳᶜᵈ','012346-rcd'));SUB=dict(zip('₀₁₂₃₄₅₊₋ᵢ','012345+-i'))
+SUP=dict(zip('⁰¹²³⁴⁶⁻ʳᶜᵈ','012346-rcd'));SUB=dict(zip('₀₁₂₃₄₅₊₋ᵢₐ','012345+-ia'))
 
 def tex(s):
     s=html.unescape(re.sub('<[^>]+>','',str(s)))
@@ -59,7 +59,7 @@ def source(root,lang):
 {\LARGE '''+tex(l['index'])+r'''\par}
 \vspace{7mm}
 '''+('Castellano. Composición con Babel.' if lang=='es' else 'English edition.')+r'''\par
-'''+('12 de octubre de 2026' if lang=='es' else '12 October 2026')+r'''\par
+'''+('13 de octubre de 2026' if lang=='es' else '13 October 2026')+r'''\par
 \vspace{8mm}
 '''+tex(l['note'])+r'''\par
 \vfill
@@ -82,7 +82,10 @@ Carles Marín\par
         out+=tex(g['read'])+'\n\\subsection*{'+tex(l['example']+': '+g['example']['title'])+'}\n'+listing(g['example']['steps'],True)+tex(g['example']['expect'])+'\n'
         if g.get('formulas'):
             out+='\\subsection*{'+tex(l['formulas'])+'}\n'
-            for f in g['formulas']:out+='\\begin{quote}'+tex(f['expression'])+'\\end{quote}\n'+tex(f['meaning'])+'\n\n'
+            for f in g['formulas']:
+                block='\\begin{quote}'+tex(f['expression'])+'\\end{quote}\n'+tex(f['meaning'])+'\n\n'
+                if g['id']=='quantization':block='\\noindent\\begin{minipage}{\\linewidth}\n'+block+'\\end{minipage}\\par\\medskip\n'
+                out+=block
         out+='\\subsection*{'+tex(l['limits'])+'}\n'+listing(g['limits'])
         out+='\\subsection*{'+tex(l['troubleshooting'])+'}\n'
         for t in g['troubleshooting']:out+='\\textbf{'+tex(t['symptom'])+'} '+tex(t['action'])+'\n\n'

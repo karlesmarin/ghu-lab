@@ -1,0 +1,289 @@
+{
+  "passed": true,
+  "lean_version": "Lean (version 4.27.0, x86_64-w64-windows-gnu, commit db93fe1608548721853390a10cd40580fe7d22ae, Release)",
+  "lean": [
+    {
+      "path": "proof/su7/SU7Certificates.lean",
+      "theorems": 26,
+      "sha256": "51e49c4d79ae1932326fa8e596fd7978ec9182f07724ba8acaf6ad05a1c37cfc",
+      "axiom_dependencies": {
+        "GHU.fundamental_dimension": [],
+        "GHU.symmetric2_dimension": [
+          "propext"
+        ],
+        "GHU.symmetric3_dimension": [
+          "propext"
+        ],
+        "GHU.adjoint_dimension": [],
+        "GHU.fundamental_coefficients": [],
+        "GHU.symmetric2_coefficients": [
+          "propext"
+        ],
+        "GHU.adjoint_coefficients": [],
+        "GHU.symmetric3_coefficients": [
+          "propext"
+        ],
+        "GHU.adjoint_parity_resolution": [],
+        "GHU.printed_gauge_coefficients": [],
+        "GHU.background_gauge_coefficients": [],
+        "GHU.seed_shift_d8": [],
+        "GHU.seed_shift_a4": [],
+        "GHU.seed_shift_w": [],
+        "GHU.seed_shift_preserves_law_combination": [],
+        "GHU.quartet_lower_weight_is_required": [
+          "propext"
+        ],
+        "GHU.same_matter_preserves_d8_shift": [
+          "propext",
+          "Quot.sound"
+        ],
+        "GHU.same_matter_preserves_a4_shift": [
+          "propext",
+          "Quot.sound"
+        ],
+        "GHU.same_matter_preserves_w": [],
+        "GHU.dirac_chirality_trace_cancels_parity": [
+          "propext",
+          "Quot.sound"
+        ],
+        "GHU.eight_generator_moments": [
+          "propext"
+        ],
+        "GHU.universal_matter_congruence": [
+          "propext",
+          "Quot.sound"
+        ],
+        "GHU.published_seed_congruence": [
+          "propext",
+          "Quot.sound"
+        ],
+        "GHU.candidate_seed_congruence": [
+          "propext",
+          "Quot.sound"
+        ],
+        "GHU.published_seed_odd": [
+          "propext",
+          "Quot.sound"
+        ],
+        "GHU.candidate_seed_even": [
+          "propext",
+          "Quot.sound"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "path": "proof/quantization/GHUQuantization.lean",
+      "theorems": 8,
+      "sha256": "607663f02ec3206b406e64e53503a310e5ed2dca1d22b4c1379f9a76bec33609",
+      "axiom_dependencies": {
+        "GHUQuantization.integral_basis_criterion": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "GHUQuantization.quotient_witness": [],
+        "GHUQuantization.cover_witness": [],
+        "GHUQuantization.cover_misses_fraction": [
+          "propext",
+          "Quot.sound"
+        ],
+        "GHUQuantization.parent_annihilator": [
+          "propext",
+          "Quot.sound"
+        ],
+        "GHUQuantization.standard_tensor_obstruction": [
+          "propext",
+          "Quot.sound"
+        ],
+        "GHUQuantization.no_standard_tensor_parent_match": [
+          "propext",
+          "Quot.sound"
+        ],
+        "GHUQuantization.residue_mod_three": [
+          "propext",
+          "Quot.sound"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "path": "proof/quantization/SpinPeriod.lean",
+      "theorems": 7,
+      "sha256": "aaee15d1932bc82a34b4147d5c2e47aebe63864b353053730ebc9efd959bb67e",
+      "axiom_dependencies": {
+        "SpinPeriod.universal_basis": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "SpinPeriod.spin_basis": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "SpinPeriod.universal_implies_spin": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "SpinPeriod.half_square_spin": [
+          "propext"
+        ],
+        "SpinPeriod.half_square_not_universal": [
+          "propext",
+          "Quot.sound"
+        ],
+        "SpinPeriod.q6_congruence": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "SpinPeriod.q6_implies_six": [
+          "propext",
+          "Quot.sound"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "path": "proof/u2/U2Certificate.lean",
+      "theorems": 8,
+      "sha256": "1ae108981f60143dc37e174a412c5620dba338312c37c6d5265440a9faa55974",
+      "axiom_dependencies": {
+        "U2Certificate.positive_identity": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "U2Certificate.positive_joint": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "U2Certificate.positive_not_separate": [
+          "propext",
+          "Quot.sound"
+        ],
+        "U2Certificate.corrected_criterion": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "U2Certificate.separate_sufficient": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "U2Certificate.joint_does_not_imply_separate": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "U2Certificate.rational_corrected_criterion": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "U2Certificate.two_samples_suffice": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "passed": true
+    }
+  ],
+  "checks": [
+    {
+      "command": [
+        "python",
+        "proof/quantization/verify_lean.py",
+        "--check"
+      ],
+      "passed": true,
+      "output": "{\"passed\": true, \"theorems\": 8}"
+    },
+    {
+      "command": [
+        "python",
+        "proof/quantization/verify_spin.py",
+        "--check"
+      ],
+      "passed": true,
+      "output": "{\"passed\": true, \"theorems\": 7}"
+    },
+    {
+      "command": [
+        "python",
+        "proof/u2/verify_lean.py",
+        "--check"
+      ],
+      "passed": true,
+      "output": "{\"passed\": true, \"theorems\": 8, \"read_only\": true}"
+    },
+    {
+      "command": [
+        "node",
+        "proof/quantization/test_lab.mjs",
+        "--check"
+      ],
+      "passed": true,
+      "output": "{\"passed\":true,\"checks\":10}"
+    },
+    {
+      "command": [
+        "node",
+        "proof/quantization/test_spin.mjs",
+        "--check"
+      ],
+      "passed": true,
+      "output": "{\"passed\":true,\"checks\":7}"
+    },
+    {
+      "command": [
+        "python",
+        "proof/lifts/background_lift_checks.py"
+      ],
+      "passed": true,
+      "output": "{\"passed\": true, \"check_count\": 3290, \"arithmetic\": \"integer phases modulo four; independent Jordan-Wigner basis action\", \"source\": \"action_source.txt\", \"source_sha256\": \"618b9217f73c63d9ae139675c2264e038f604bc703b66e08746cf03582c73722\", \"source_definition\": \"U6=prod(cg[12:]);Ua=-1j*U6@prod(cg[:10]);Ub=-U6@prod(cg[:4])\", \"raw_degrees\": [8, 18, 12], \"raw_squares\": [1, -1, 1], \"representation_squares\": [1, 1, 1], \"negative_control\": \"Removing -i from Ua gives square -1\", \"scope\": \"Local Clifford and representation identities only; no proof of global bundle admissibility, anomaly cancellation or novelty\", \"lean_certified\": false}"
+    },
+    {
+      "command": [
+        "python",
+        "proof/lifts/background_lift_checks.py",
+        "--check"
+      ],
+      "passed": true,
+      "output": "{\"passed\": true, \"check_count\": 3290, \"arithmetic\": \"integer phases modulo four; independent Jordan-Wigner basis action\", \"source\": \"action_source.txt\", \"source_sha256\": \"618b9217f73c63d9ae139675c2264e038f604bc703b66e08746cf03582c73722\", \"source_definition\": \"U6=prod(cg[12:]);Ua=-1j*U6@prod(cg[:10]);Ub=-U6@prod(cg[:4])\", \"raw_degrees\": [8, 18, 12], \"raw_squares\": [1, -1, 1], \"representation_squares\": [1, 1, 1], \"negative_control\": \"Removing -i from Ua gives square -1\", \"scope\": \"Local Clifford and representation identities only; no proof of global bundle admissibility, anomaly cancellation or novelty\", \"lean_certified\": false}"
+    },
+    {
+      "command": [
+        "python",
+        "proof/boundary-research/certify.py",
+        "--check"
+      ],
+      "passed": true,
+      "output": "{\n  \"passed\": true,\n  \"checks\": 113,\n  \"certifiedGramLambdaMinLowerBound\": 0.11058751227528704,\n  \"rootBrackets\": 10\n}"
+    },
+    {
+      "command": [
+        "node",
+        "proof/u2/lab_crosscheck.mjs",
+        "--check"
+      ],
+      "passed": true,
+      "output": "{\"passed\":true,\"checks\":4,\"read_only\":true}"
+    },
+    {
+      "command": [
+        "python",
+        "proof/quantization/literature_checks.py",
+        "--check"
+      ],
+      "passed": true,
+      "output": "{\"passed\": true, \"checks\": 10, \"u2_cases\": 138}"
+    }
+  ],
+  "scope": "Arithmetic replay and scoped computational checks; topology and full physical consistency not formalized"
+}

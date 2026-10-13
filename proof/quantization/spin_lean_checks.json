@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "theorems": 7,
+  "axioms": {
+    "universal_basis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "spin_basis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "universal_implies_spin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "half_square_spin": [
+      "propext"
+    ],
+    "half_square_not_universal": [
+      "propext",
+      "Quot.sound"
+    ],
+    "q6_congruence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "q6_implies_six": [
+      "propext",
+      "Quot.sound"
+    ]
+  },
+  "version": "Lean (version 4.27.0, x86_64-w64-windows-gnu, commit db93fe1608548721853390a10cd40580fe7d22ae, Release)",
+  "source_sha256": "aaee15d1932bc82a34b4147d5c2e47aebe63864b353053730ebc9efd959bb67e",
+  "scope": "Arithmetic only. Spin geometry, bundles, Wu formula and differential actions are not formalized."
+}

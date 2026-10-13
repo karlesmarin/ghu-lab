@@ -1,0 +1,13 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Segoe UI,38,&H00FFFFFF,&H00FFFFFF,&H00172E3C,&H00172E3C,0,0,0,0,100,100,0,0,1,1,0,2,65,65,75,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.50,0:00:07.98,Default,,0,0,0,,Cambia b uno de seis a cinco. Cada celda es un cocarácter etiquetado por enteros m y n. Su fracción impresa
+Dialogue: 0,0:00:07.98,0:00:15.05,Default,,0,0,0,,y color son Q módulo uno, calculado con aritmética entera exacta. El punto uno, cero tiene ahora período
+Dialogue: 0,0:00:15.05,0:00:23.06,Default,,0,0,0,,siete octavos: un testigo concreto del fallo. Al volver a seis, todas las celdas son integrales. Las ochenta
+Dialogue: 0,0:00:23.06,0:00:29.38,Default,,0,0,0,,y una celdas ilustran el criterio; el teorema Lean lo establece para toda pareja entera.

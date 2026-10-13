@@ -1,0 +1,145 @@
+"""Clifford, transition, local mixing and Green-form gates for the 8D candidate.
+Classical broken-phase EFT only; no quantum-consistency claim.
+"""
+from pathlib import Path
+import itertools,json,hashlib
+import numpy as np
+import sympy as sy
+from scipy import sparse as ss
+ROOT=Path(__file__).resolve().parents[2];OUT=ROOT/'results/ghu_action_20261012'
+OUT.mkdir(parents=True,exist_ok=True)
+checks=[]
+def ck(name,ok,**details):
+    checks.append(dict(name=name,passed=bool(ok),**details))
+    if not ok:raise AssertionError(name)
+def eq(a,b,tol=2e-12):
+    if ss.issparse(a):
+        d=a-b;d.eliminate_zeros();return not d.nnz or np.max(abs(d.data))<tol
+    return np.allclose(a,b,atol=tol,rtol=0)
+I=np.eye(2,dtype=complex);X=np.array([[0,1],[1,0]],complex)
+Y=np.array([[0,-1j],[1j,0]]);Z=np.diag([1,-1]).astype(complex)
+K=np.kron
+g0=K(X,I);gi=[1j*K(Y,q) for q in [X,Y,Z]];gstar=1j*g0@gi[0]@gi[1]@gi[2]
+g6=[K(g,Z) for g in [g0]+gi]+[1j*K(np.eye(4),X),1j*K(np.eye(4),Y)]
+c6=K(gstar,Z)
+G=[K(g,Z) for g in g6]+[1j*K(np.eye(8),X),1j*K(np.eye(8),Y)]
+c8=K(c6,Z);Id=np.eye(16);eta=[1]+[-1]*7
+for a in range(8):
+    for b in range(a,8):ck(f'8D Clifford {a},{b}',eq(G[a]@G[b]+G[b]@G[a],2*eta[a]*Id if a==b else 0*Id))
+ck('8D chirality is a Hermitian involution',eq(c8@c8,Id) and eq(c8.conj().T,c8))
+ck('8D chirality anticommutes with every gamma',all(eq(c8@g+g@c8,0*Id) for g in G))
+R5=G[4]@c8;R6=1j*G[5];R78=1j*G[6]@G[7]
+reflections=[('r5',R5,[4]),('r6',R6,[5]),('r78',R78,[6,7])]
+mass_parities={}
+for name,R,flipped in reflections:
+    ck(name+' Hermitian involution',eq(R@R,Id) and eq(R.conj().T,R))
+    bar=G[0]@R.conj().T@G[0]
+    ck(name+' preserves all kinetic directions',all(eq(bar@g@R,(-1 if i in flipped else 1)*g) for i,g in enumerate(G)))
+    mass_parities[name]=round(np.trace(bar@R).real/16)
+for (na,A,_),(nb,B,_) in itertools.combinations(reflections,2):ck('Commuting spin lifts '+na+','+nb,eq(A@B,B@A))
+ck('Constant SO20 bulk Dirac mass is forbidden by r6',mass_parities==dict(r5=1,r6=-1,r78=1))
+ck('Transverse + sector exactly recovers original 6D spin lifts',eq(R5[::2,::2],g6[4]@c6) and eq(R6[::2,::2],1j*g6[5]))
+ck('Codimension-four spin insertion is minus 4D chirality',eq(R5@R6@R78,-K(gstar,np.eye(4))))
+
+# A boundary Dirac7D on the normal-spin + subspace. Analytical isometry.
+E=np.zeros((16,8),complex)
+for q in range(4):
+    for t in range(2):
+        tau=1-2*t;E[4*q+t,2*q+t]=1/np.sqrt(2);E[4*q+2+t,2*q+t]=-1j*tau/np.sqrt(2)
+ck('Boundary spin isometry selects R6=+',eq(E.conj().T@E,np.eye(8)) and eq(R6@E,E))
+tangent=[0,1,2,3,4,6,7]
+gb=[E.conj().T@(1j*G[a]@c8)@E for a in tangent]
+beta=gb[0];alpha=[G[0]@G[a] for a in range(1,8)]
+an=G[0]@G[5]
+for a in range(7):
+    for b in range(a,7):ck(f'Induced 7D Clifford {a},{b}',eq(gb[a]@gb[b]+gb[b]@gb[a],2*eta[a]*np.eye(8) if a==b else np.zeros((8,8))))
+rb5=E.conj().T@R5@E;rb78=E.conj().T@R78@E
+ck('Induced endpoint reflection is -i gamma7_5',eq(rb5,-1j*gb[4]))
+ck('Mirror scalar mixing needs opposite endpoint signs',eq(rb5@beta@rb5,-beta))
+ck('Mirror scalar mixing needs equal transverse signs',eq(rb78@beta@rb78,beta))
+for w in [1,-1]:
+    Ew=E if w==1 else c8@E
+    ck(f'Normal-spin embedding for hidden parity {w}',eq(R6@Ew,w*Ew))
+    ck(f'Common 7D Lorentz convention for hidden parity {w}',all(eq(w*Ew.conj().T@(1j*G[a]@c8)@Ew,gb[j]) for j,a in enumerate(tangent)))
+    ck(f'Hidden factor cancels from old endpoint spin reflection {w}',eq(w*Ew.conj().T@R5@Ew,rb5))
+    ck(f'Transverse spin lift independent of hidden parity {w}',eq(Ew.conj().T@R78@Ew,rb78))
+
+# Full Spin20 half-spin, reordered as visible Spin11 spinor32 x hidden16.
+def skron(items):
+    r=ss.csr_matrix([[1]],dtype=complex)
+    for a in items:r=ss.kron(r,ss.csr_matrix(a),format='csr')
+    return r
+cg=[]
+for k in range(10):cg.extend([skron([Z]*k+[X]+[I]*(9-k)),skron([Z]*k+[Y]+[I]*(9-k))])
+def prod(seq):
+    r=ss.eye(1024,format='csr',dtype=complex)
+    for a in seq:r=r@a
+    return r
+internal=[(v<<5)+(((v.bit_count()+h.bit_count())%2)<<4)+h for v in range(32) for h in range(16)]
+D=np.diag([(-1)**h.bit_count() for h in range(16)])
+U6=prod(cg[12:]);Ua=-1j*U6@prod(cg[:10]);Ub=-U6@prod(cg[:4])
+u6=U6[internal,:][:,internal];ua=Ua[internal,:][:,internal];ub=Ub[internal,:][:,internal]
+C0=np.diag([(-1)**v.bit_count() for v in range(32)])
+C1=np.diag([(-1)**(v>>3).bit_count() for v in range(32)])
+ck('Gauge r6 is central hidden parity',eq(u6,ss.kron(ss.eye(32),D)))
+ck('Gauge endpoints factor as C0 D and C1 D',eq(ua,ss.kron(C0,D)) and eq(ub,ss.kron(C1,D)))
+ck('All gauge space-group lifts commute and square to identity',all(eq(a@a,ss.eye(512)) for a in [u6,ua,ub]) and all(eq(a@b,b@a) for a,b in itertools.combinations([u6,ua,ub],2)))
+visible_generators=[];higgs_generators=[]
+for a,b in itertools.combinations(range(11),2):
+    T=(.5j*cg[a]@cg[b])[internal,:][:,internal]
+    visible=T[::16,::16]
+    ck(f'Spin11 branching factorization {a+1},{b+1}',eq(T,ss.kron(visible,ss.eye(16))))
+    visible_generators.append(visible)
+    if a<4 and b==10:higgs_generators.append(visible.toarray())
+path=ROOT/'results/so20_decoupling_20261009/projector_matrices.json'
+d=json.loads(path.read_text());B=np.array(sy.Matrix(d['B']),complex);P=np.array(sy.Matrix(d['P']),complex)
+Dm=B.conj().T@D@B
+ck('Local mirror map intertwines transverse holonomy',eq(D@B,B@Dm))
+ck('Local mirror map annihilates the three singlets',eq(P@B,np.zeros((16,13))) and eq(B@B.conj().T,np.eye(16)-P))
+ck('Mirror translations commute with endpoints',eq(Dm@Dm,np.eye(13)))
+
+# Omega must be extended over T2/Z2 along its x5=0 boundary.
+omega=np.zeros(512,complex);omega[0]=omega[480]=1/np.sqrt(2)
+do=np.array([(-1)**(s>>5).bit_count() for s in range(512)])
+ck('Omega VEV is invariant under both new translations',eq(do*omega,omega))
+ck('Omega VEV has positive Spin18 chirality',all(s.bit_count()%2==0 for s in [0,480]))
+hypercharge=np.array([-(1-2*(s&1))/4-(1-2*((s>>1)&1))/4+sum((1-2*((s>>k)&1))/6 for k in [2,3,4]) for s in range(512)])
+ck('Omega VEV remains hypercharge-neutral',eq(hypercharge*omega,np.zeros(512)))
+
+# Green boundary form including dynamical boundary degrees of freedom.
+# f=Pi+ psi, g=Pi- psi; J=beta Bdagger, H_X chi=h chi+kappa J f.
+# g=i kappa alpha_n Jdagger chi is required, replacing g=0.
+rng=np.random.default_rng(20261012);kap=.7
+def random(n):return rng.normal(size=n)+1j*rng.normal(size=n)
+errors=[];wrong=[]
+for k in range(12):
+    f1=E@random(8);f2=E@random(8);x1=random(8);x2=random(8)
+    J=beta@E.conj().T
+    g1=1j*kap*an@J.conj().T@x1;g2=1j*kap*an@J.conj().T@x2
+    residual=-1j*(np.vdot(f1,an@g2)+np.vdot(g1,an@f2))+kap*(np.vdot(x1,J@f2)-np.vdot(J@f1,x2))
+    errors.append(abs(residual))
+    wrong.append(abs(kap*(np.vdot(x1,J@f2)-np.vdot(J@f1,x2))))
+ck('Dynamical boundary condition cancels Green form',max(errors)<1e-12,max_error=max(errors))
+ck('Keeping free boundary condition with mixing fails control',max(wrong)>1)
+ck('Boundary condition supplies exactly the complementary normal trace',eq(R6@(an@J.conj().T),-an@J.conj().T))
+ck('Free projectors are maximal normal-isotropic',eq(E.conj().T@an@E,np.zeros((8,8))) and E.shape[1]==8)
+
+# Matrix identity responsible for the full flat-momentum extension of the Robin root.
+h=sum(gb[0]@gb[i]*p for i,p in enumerate([.1,.3,-.2,.4,.6,-.5],start=1))
+q2=sum(p*p for p in [.1,.3,-.2,.4,.6,-.5]);energy=2.1
+ck('All tangent momenta square to q2',eq(h@h,q2*np.eye(8)))
+ck('Local scalar beta reverses tangent Hamiltonian',eq(beta@h@beta,-h))
+ck('Eliminating mirror gives momentum-independent Robin parameter',eq((energy*np.eye(8)+h)@beta@np.linalg.inv(energy*np.eye(8)-h)@beta,np.eye(8)))
+result=dict(passed=True,count=len(checks),checks=checks,mass_parities=mass_parities,
+ spin_lifts={'r5':'Gamma5 Gamma_chi8','r6':'i Gamma6','r78':'i Gamma7 Gamma8','chirality':'Gamma_chi6 tensor sigma3'},
+ boundary={'fermions':'Bulk Dirac8D in 512+; mirror Dirac7D in (32,5)+2(32,4), with all supports extended uniformly along transverse T2/Z2.',
+ 'gamma7':'gamma_b^a = w E_w^dagger i Gamma^a Gamma_chi8 E_w; E_-=Gamma_chi8 E_+',
+ 'action':'Symmetric bulk Hamiltonian action plus local polarization term -i/2(fdagger alpha_n g-gdagger alpha_n f), canonical mirror kinetic term, and -kappa(chidagger J f+fdagger Jdagger chi). J=beta_b Bdagger in the dressed boundary representation.',
+ 'domain':'At x6=L6: g=i kappa alpha_n Jdagger chi; i dt chi=h chi+kappa J f. At x6=0: g=0. Coupling has mass dimension 1/2.',
+ 'interpretation':'Interval variational realization. An orbifold-cover description requires one-sided odd traces/jump prescriptions at the coupled wall; do not simultaneously impose continuous g=0 there.',
+ 'scope':'Green form and maximal local normal trace verified; full elliptic/operator-domain analysis at intersecting corners and quantum renormalization not certified.'},
+ scalar_supports={'Phi_Sigma_Theta':'7D x6=L6 wall, covariant derivatives along 0,1,2,3,5,7,8.', 'Omega':'7D x5=0 wall, covariant derivatives along 0,1,2,3,6,7,8; no D5. Orientation and norm may be imposed in a nonlinear EFT; no full linear potential constructed.'},
+ provenance=[{'path':path.relative_to(ROOT).as_posix(),'sha256':hashlib.sha256(path.read_bytes()).hexdigest()}])
+(OUT/'algebra.json').write_text(json.dumps(result,indent=2)+'\n')
+np.savez_compressed(OUT/'lorentz_matrices.npz',gamma8=np.array(G),chirality8=c8,R5=R5,R6=R6,R78=R78,E=E,gamma7=np.array(gb),C0=C0,C1=C1,higgs_generators=np.array(higgs_generators))
+print(json.dumps({'checks':len(checks),'mass_parities':mass_parities,'green_error':max(errors)}))

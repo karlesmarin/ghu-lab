@@ -102,7 +102,7 @@ body{max-width:1100px;margin:40px auto;padding:0 22px;color:#192c3a;font:17px/1.
 </section>
 <section id="reproduction">
 <h2>Reproduction and files</h2>
-<p>The recorded proof engines are <b>Lean 4.10.0</b> (core library) and <b>SageMath 10.9</b>, with Arb at 192-bit precision for the interval replays. Repository attributes preserve the exact bytes of the certificate inputs and proof sources so their SHA-256 checks remain reproducible across platforms.</p>
+<p>The recorded proof engines are <b>Lean 4.27.0</b> (core library; replayed 13 October 2026). The original 4.10.0 source and receipt are retained under proof/su7; only List.bind was renamed to List.flatMap, with theorem statements unchanged. See the <a href="../proof/index.html">complete certificate catalogue</a>. The numerical engine is and <b>SageMath 10.9</b>, with Arb at 192-bit precision for the interval replays. Repository attributes preserve the exact bytes of the certificate inputs and proof sources so their SHA-256 checks remain reproducible across platforms.</p>
 <p>From the <a href="https://github.com/karlesmarin/ghu-lab">lab source repository</a>, with SymPy and mpmath available:</p>
 <pre><code>python proof/su7/reconstruct.py
 python proof/su7/global_certificates.py

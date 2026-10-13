@@ -36,10 +36,10 @@ try{
  check('language choice does not change the model permalink',before===await ev('location.hash'));
  check('Spanish short help visible and English hidden',await ev(`!document.querySelector('[data-guide-language="es"]').hidden&&document.querySelector('[data-guide-language="en"]').hidden`));
  check('language updates the embedded experiment and decay links',await ev(`['flavour','identifiability','neutrino-decays'].every(id=>document.querySelector('[data-guide-id="'+id+'"]').href.includes('/guide/es/'+id+'/'))`));
- await ev(`document.querySelector('.ihelp').click()`);
- check('Spanish glossary popup and linked entry',await ev(`document.querySelector('.helppop')?.lang==='es'&&document.querySelector('.helppop a')?.href.includes('/guide/es/glossary/')`));
  await nav(catalogue.guides.find(g=>g.id==='hierarchy'));
  check('language survives navigation and reload',await ev(`GUIDE_LANGUAGE==='es'&&document.querySelector('.howto [data-guide-id="hierarchy"]').href.includes('/guide/es/hierarchy/')`));
+ await ev(`Array.from(document.querySelectorAll('.ihelp[data-help]')).find(b=>!b.closest('[hidden]')).click()`);
+ check('Spanish glossary popup and linked entry',await ev(`document.querySelector('.helppop')?.lang==='es'&&document.querySelector('.helppop a')?.href.includes('/guide/es/glossary/')`));
  for(const g of catalogue.guides.filter(g=>['mode','experiment','analysis'].includes(g.kind))){
   await nav(g);await pause(100);
   check(g.id+' correct contextual guide',await ev(`!!document.querySelector('[data-guide-id="${g.id}"]')&&document.querySelector('[data-guide-id="${g.id}"]').href.includes('/guide/es/${g.id}/')`));

@@ -1,84 +1,46 @@
 # Between physics and mathematics: video guide
 
-| Language | Full film | Direct download | Chapters | Synthetic narration |
-|---|---|---|---|---|
-| English | [11:34 · player](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-en.mp4) | 29 | Microsoft Zira |
-| Castellano | [11:55 · reproductor](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-es.mp4) | 29 | Microsoft Helena (España) |
+The 13 October revision uses the original animated whiteboard system: grid background, a progressive mathematical figure on the left, formulas and scope on the right, and word-timed captions. Both languages have 38 chapters. Chapters 1–28 preserve the original explanations; chapter 29 replaces the former closing statement and chapters 30–38 connect the new quantization module and certificates to physical assumptions and data.
 
-Both editions contain the same 29 explanations, organized as eight boundary scenes, eight
-profile scenes, six trace scenes, five consistency scenes and two evidence scenes. Their duration
-differs because captions and animation follow the narration in each language.
+| Language | Player | Duration | Narration |
+|---|---|---|---|
+| English | [Open](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html) | 16:37 | Microsoft Zira |
+| Castellano | [Abrir](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html) | 16:53 | Microsoft Helena |
 
-## What the viewer can investigate
+Each player provides chapter navigation, previous/next controls, a transcript, VTT download, MP4 download, the English-default laboratory demo, the module guide and the complete certificate catalogue. Language navigation preserves the chapter. The films have embedded captions; narration is synthetic. A complete human listening review is not claimed.
 
-| Physical question | Mathematical tool | What is established in the example |
+## How the new chapters fit
+
+| Chapters | Argument | Scope |
 |---|---|---|
-| Can changing an endpoint condition open a normal mass gap? | A separated interval operator and the first Robin root | A positive first eigenvalue for positive boundary coupling in the stated interval problem |
-| Can three two-component field profiles be independent? | Integrated overlaps, Gram rank and differentiation | Independence of the displayed profiles for nonzero M; rank two at M = 0 |
-| What does an inserted representation trace measure? | A finite sum over 512 half-spin weights | The complete quadratic identity T2(h) = 256 h1 h2 for the specified insertion |
-| Does a six-dimensional consistency condition select three families? | Signed counts and modular arithmetic | Multiples of three under identical assignments; no unique selection of three |
+| 1–8 | Boundary condition → spectrum → normal gap | Specified interval operator, scale and kinetic normalization |
+| 9–16 | Overlap → Gram matrix → function independence | Chosen profiles; not a physical family count |
+| 17–22 | Weights → exact trace polynomial | Raw representation trace before physical normalization and inflow |
+| 23–27 | Signed counts → restricted congruence | Identical assignments; not a unique selection of three families |
+| 28–30 | Evidence → physical dictionary | A theorem certifies an implication; physics must supply its hypotheses |
+| 31–33 | Quantum phase → global group → allowed backgrounds | Universal and closed smooth spin-four tests are different questions |
+| 34 | Joint U(2) integral class | Two fractional contributions add to an integer; no full SUGRA spectrum |
+| 35 | Parent transfer and annihilating functional | Conditional obstruction for the specified response family |
+| 36 | Representation involution versus group lift | All fields, including Ω, require a consistent action; exact audit, not Lean |
+| 37 | Certificate → controls → exact figure | Finite illustrations versus universal arithmetic statements |
+| 38 | Published ATLAS/CMS upper limits | No map yet from the new coefficients to collider observables |
 
-The spatial profile plot is a field amplitude, not a particle trajectory. The unrestricted
-exponential ansatz does not count physical families. Raw inserted traces precede normalization,
-projectors, descent and inflow. A restricted congruence does not settle full quantum consistency,
-the Higgs vacuum, neutrino masses or a Standard Model fit.
+The [bilingual analysis](https://karlesmarin.github.io/ghu-explorer/video/mathematics/bridge.html) gives the formulas and assumptions chapter by chapter. The phase circle is a normalized axion consistency illustration. The parent-response plane is a schematic linear map. Neither is measured data. The final two charts contain the actual maintained observed limits: ten ATLAS points and seventy CMS points, with separate hypotheses, units and logarithmic vertical ranges. Their source values and hashes are shipped as `inputs.json`.
 
-## Watch, then use the laboratory
+Data can support a physical realization meeting a theorem's hypotheses. They cannot replace a proof or show that an arithmetic example describes nature without an observable prediction. ATLAS/CMS limits are not measured new-particle production rates; staying below a limit is not a discovery. CERN hosts the LHC and is not a third independent dataset.
 
-1. Choose a language above; use full screen to read the formulas. Chapter buttons seek within
-   the MP4. English and Spanish are separately timed editions.
-2. Open [GHU Lab](https://karlesmarin.github.io/ghu-explorer/app/) and choose **Anomalies → Boundary research**.
-3. Compare boundary strength 0 and 1, profile mass 0 and 1, then one, three and six identical
-   families. Read the stated assumptions beside each result.
-4. Follow [the tool documentation](boundary-research.md) for variables, equations, exports,
-   linked 2D/3D mass views and the exact meaning of each diagnostic.
+## Certificates and reproduction
 
-The visible captions are burned into the films. Separate VTT files and transcripts are also
-available from each player. Narration is synthetic: Zira for English and Helena for Spanish.
-The whiteboards and laboratory captures are translated; the shared proof notes and primary
-papers retain their original language. A complete human listening review has not been recorded.
+The original four examples retain [113 executable checks](../proof/boundary-research/README.md). The new arithmetic contributes 23 Lean theorem declarations; with 26 existing SU(7) declarations, the [complete catalogue](https://karlesmarin.github.io/ghu-explorer/proof/index.html) contains 49 in four Lean files. Wu parity, characteristic-class interpretation and physically admissible backgrounds are supplied outside these arithmetic formalizations. The Spin(20) lift audit has 3,290 exact checks and is not a Lean proof. Full model consistency remains unchecked.
 
-## Evidence, versions and reproducibility
+The downloadable proof bundle contains all 80 maintained data files, all Lean sources, recorded checks and replay instructions. Integrity hashes, numerical audits, ordinary arguments and formal proofs certify different things.
 
-- [Certificate bundle and ordinary proofs](../proof/boundary-research/README.md): 113 checks,
-  including exact rational intervals and polynomial coefficients, plus independent numerical
-  comparisons. This is not a count of formal theorems.
-- [Versioned media](../media/video/2026-10-12-mathematics/README.md): original MP4s, 29-chapter
-  indexes, 154 English / 156 Spanish subtitle cues, transcripts, posters, hashes and verification receipts.
-- [Production sources](../tools/mathematics_video/README.md) and
-  [Spanish production](../tools/mathematics_video/es/README.md): stored real captures,
-  rendering scripts, speech generation, assembly and verification commands.
+Current media: [`2026-10-13-mathematics-quantization`](../media/video/2026-10-13-mathematics-quantization/README.md). Each film uses 1920×1080 at 24 fps, 48 kHz mono AAC and 38 continuous chapters on the video-frame clock. Assembly checks exact frame count, complete audio/video decoding, bounded subtitle intervals, unique chapter IDs and file size. `render-manifest.json` records source and media hashes, original-video provenance and each fresh scene's inputs. The shipped browser gate exercises all 38 seeks in both languages, playback, fragment links and mobile layout.
 
-The English verifier records **194 checks** and the Spanish verifier **196**. The counts differ
-with the number of subtitle intervals. Both include complete audio/video decoding, exact frame
-counts, 29 continuous chapters, dimensions and rational teaching examples. Public browser
-checks exercise playback, all chapters, links and mobile layout; they are separate from the
-mathematical certificate checks. Both films use 1920×1080 at 24 fps, 48 kHz mono AAC audio.
+Production commands are in [the source instructions](../tools/mathematics_video/README.md). The first 28 chapters are re-encoded from the pinned original films to cut on the exact frame, then combined with fresh narrated scenes. Original 12 October MP4s, transcripts and certificates remain byte-for-byte unchanged in their versioned source folder and the [historical player](https://karlesmarin.github.io/ghu-explorer/video/mathematics/2026-10-12/index.html).
 
-The mathematical-video media directory is `2026-10-12-mathematics`. The scientific application
-remains **0.2.1**, the boundary tool **1.0.0**, and its result schema `ghu-boundary-research-v1`.
-Adding a narrated edition does not change those scientific versions.
+## Related films
 
-From a checkout, reproduce the mathematical evidence with:
+The [main laboratory film](https://karlesmarin.github.io/ghu-explorer/video/index.html) has 46 chapters and 165 scenes; chapter 46 demonstrates the new module. The [11-chapter quantization supplement](https://karlesmarin.github.io/ghu-explorer/video/quantization/index.html) gives a focused controls walkthrough. The mathematical film explains why the statements and their physical interpretations fit together.
 
-```text
-python -m pip install -r proof/boundary-research/requirements.txt
-python proof/boundary-research/certify.py --check
-```
-
-No SageMath or Docker is needed for these checks. See the production instructions to regenerate
-speech and video; font and voice availability can change the rendered bytes across systems.
-Do not overwrite a published video when changing its scientific or narrated content: use a new
-edition and retain its old URLs and SHA-256 record.
-
-## Public announcement
-
-The [English Mathstodon announcement](https://mathstodon.xyz/@karlesmarin/117428242947952586)
-attaches the full English MP4 and links the laboratory, chapter player and evidence. It introduces
-the new boundary tools through the intersection of physics and mathematics. The Spanish edition
-is available through the same companion's language navigation; no separate Spanish social post
-has been published as part of this update.
-
-The [general laboratory tutorial](https://karlesmarin.github.io/ghu-explorer/video/index.html)
-is separate: 45 chapters and 154 scenes in each language, covering the laboratory's navigation
-and experiments. This shorter mathematical film explains four connected examples in depth.
+The [12 October Mathstodon announcement](https://mathstodon.xyz/@karlesmarin/117428242947952586) refers to the historical 29-chapter film. No new social post or email is sent by producing this revision.

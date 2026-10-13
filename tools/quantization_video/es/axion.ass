@@ -1,0 +1,13 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Segoe UI,38,&H00FFFFFF,&H00FFFFFF,&H00172E3C,&H00172E3C,0,0,0,0,100,100,0,0,1,1,0,2,65,65,75,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.50,0:00:06.74,Default,,0,0,0,,El panel del axión usa la normalización de Choi y colaboradores. La combinación entera dieciocho K dos más
+Dialogue: 0,0:00:06.74,0:00:13.37,Default,,0,0,0,,veinticuatro K tres más K uno debe ser divisible por treinta y seis. El ejemplo cero, uno, doce la
+Dialogue: 0,0:00:13.37,0:00:20.62,Default,,0,0,0,,satisface. Reproduce el criterio publicado para q igual a seis. Identificar este axión con el campo Higgs
+Dialogue: 0,0:00:20.62,0:00:25.29,Default,,0,0,0,,gauge sigue siendo una cuestión física distinta y no resuelta.

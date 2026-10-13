@@ -1,0 +1,12 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Segoe UI,38,&H00FFFFFF,&H00FFFFFF,&H00172E3C,&H00172E3C,0,0,0,0,100,100,0,0,1,1,0,2,65,65,75,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.50,0:00:07.36,Default,,0,0,0,,Elige A más B. Alfa y beta valen uno; gamma vale siete doceavos. Al cambiar a la base integral, delta es
+Dialogue: 0,0:00:07.36,0:00:14.56,Default,,0,0,0,,cero. Se cumplen ambos criterios. Las contribuciones fraccionarias deben combinarse antes de juzgar la clase
+Dialogue: 0,0:00:14.56,0:00:21.58,Default,,0,0,0,,total. Los controles, el testigo y el resultado exportado usan el mismo cálculo.

@@ -1,0 +1,377 @@
+{
+  "passed": true,
+  "count": 75,
+  "checks": [
+    {
+      "name": "Induced chirality6 agrees with bulk on E",
+      "passed": true
+    },
+    {
+      "name": "Induced chirality4 agrees with bulk on E",
+      "passed": true
+    },
+    {
+      "name": "Scalar mixing reverses endpoint reflection",
+      "passed": true
+    },
+    {
+      "name": "Scalar mixing preserves transverse reflection",
+      "passed": true
+    },
+    {
+      "name": "Mirror endpoint lift equals minus chi6",
+      "passed": true
+    },
+    {
+      "name": "Mirror combined lift equals plus chi4",
+      "passed": true
+    },
+    {
+      "name": "Mirror6D coefficient",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D coefficient",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (-1, -1, -1, -1, -1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (-1, -1, -1, -1, 1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (-1, -1, -1, 1, -1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (-1, -1, -1, 1, 1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (-1, -1, 1, -1, -1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (-1, -1, 1, -1, 1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (-1, -1, 1, 1, -1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (-1, -1, 1, 1, 1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (-1, 1, -1, -1, -1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (-1, 1, -1, -1, 1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (-1, 1, -1, 1, -1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (-1, 1, -1, 1, 1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (-1, 1, 1, -1, -1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (-1, 1, 1, -1, 1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (-1, 1, 1, 1, -1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (-1, 1, 1, 1, 1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (1, -1, -1, -1, -1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (1, -1, -1, -1, 1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (1, -1, -1, 1, -1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (1, -1, -1, 1, 1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (1, -1, 1, -1, -1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (1, -1, 1, -1, 1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (1, -1, 1, 1, -1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (1, -1, 1, 1, 1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (1, 1, -1, -1, -1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (1, 1, -1, -1, 1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (1, 1, -1, 1, -1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (1, 1, -1, 1, 1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (1, 1, 1, -1, -1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (1, 1, 1, -1, 1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (1, 1, 1, 1, -1)",
+      "passed": true
+    },
+    {
+      "name": "Mirror4D zero mode sum (1, 1, 1, 1, 1)",
+      "passed": true
+    },
+    {
+      "name": "Visible inserted Spin11 polynomial",
+      "passed": true
+    },
+    {
+      "name": "Hidden character identity 16 minus 13 equals three singlets",
+      "passed": true
+    },
+    {
+      "name": "Reduced net polynomial is 3/2 visible polynomial",
+      "passed": true
+    },
+    {
+      "name": "Every hidden-curvature monomial cancels from net",
+      "passed": true
+    },
+    {
+      "name": "x5=0 six-dimensional characters vanish on common subgroup",
+      "passed": true
+    },
+    {
+      "name": "Restricted4D trace C0 bulk twist=0 degree=1",
+      "passed": true
+    },
+    {
+      "name": "Restricted4D trace C0 bulk twist=0 degree=3",
+      "passed": true
+    },
+    {
+      "name": "Restricted4D trace C0 bulk twist=1 degree=1",
+      "passed": true
+    },
+    {
+      "name": "Restricted4D trace C0 bulk twist=1 degree=3",
+      "passed": true
+    },
+    {
+      "name": "Restricted4D trace C0 mirror twist=0 degree=1",
+      "passed": true
+    },
+    {
+      "name": "Restricted4D trace C0 mirror twist=0 degree=3",
+      "passed": true
+    },
+    {
+      "name": "Restricted4D trace C0 mirror twist=1 degree=1",
+      "passed": true
+    },
+    {
+      "name": "Restricted4D trace C0 mirror twist=1 degree=3",
+      "passed": true
+    },
+    {
+      "name": "Restricted4D trace C1 bulk twist=0 degree=1",
+      "passed": true
+    },
+    {
+      "name": "Restricted4D trace C1 bulk twist=0 degree=3",
+      "passed": true
+    },
+    {
+      "name": "Restricted4D trace C1 bulk twist=1 degree=1",
+      "passed": true
+    },
+    {
+      "name": "Restricted4D trace C1 bulk twist=1 degree=3",
+      "passed": true
+    },
+    {
+      "name": "Restricted4D trace C1 mirror twist=0 degree=1",
+      "passed": true
+    },
+    {
+      "name": "Restricted4D trace C1 mirror twist=0 degree=3",
+      "passed": true
+    },
+    {
+      "name": "Restricted4D trace C1 mirror twist=1 degree=1",
+      "passed": true
+    },
+    {
+      "name": "Restricted4D trace C1 mirror twist=1 degree=3",
+      "passed": true
+    },
+    {
+      "name": "Complex SU2 doublet coefficient bulk_lower",
+      "passed": true
+    },
+    {
+      "name": "Complex SU2 doublet coefficient bulk_upper",
+      "passed": true
+    },
+    {
+      "name": "Complex SU2 doublet coefficient mirror_upper",
+      "passed": true
+    },
+    {
+      "name": "Complex SU2 doublet coefficient total_upper",
+      "passed": true
+    },
+    {
+      "name": "Complex SU2 doublet coefficient net",
+      "passed": true
+    },
+    {
+      "name": "Local residues opposite, net passes restricted lattice",
+      "passed": true
+    },
+    {
+      "name": "Formal paired-sector inflow leaves equal three-singlet contributions",
+      "passed": true
+    },
+    {
+      "name": "Each formally redistributed SU2 residue would pass",
+      "passed": true
+    },
+    {
+      "name": "Parent wall has vector blocks of dimensions 12 and 8",
+      "passed": true
+    },
+    {
+      "name": "Weyl witness preserves orientation in each wall block and commutes with wall parity",
+      "passed": true
+    },
+    {
+      "name": "Weyl witness reverses precisely Cartan planes one and seven",
+      "passed": true
+    },
+    {
+      "name": "Proposed redistribution polynomial is odd under an allowed parent-wall Weyl move",
+      "passed": true
+    },
+    {
+      "name": "Six-dimensional zero-mode character reproduces integrated net",
+      "passed": true
+    },
+    {
+      "name": "Three-family 4D component count survives periodic mirror pairing",
+      "passed": true
+    }
+  ],
+  "mirror_weights": [
+    {
+      "element": "r5",
+      "dimension": 6,
+      "relative_spin_trace": "-2",
+      "projector": "1/4",
+      "jacobian": "1/2",
+      "cover": "-1/4",
+      "orbit": 2,
+      "physical": "-1/2"
+    },
+    {
+      "element": "r5 r78",
+      "dimension": 4,
+      "relative_spin_trace": "4",
+      "projector": "1/4",
+      "jacobian": "1/8",
+      "cover": "1/8",
+      "orbit": 1,
+      "physical": "1/8"
+    }
+  ],
+  "common_background": "Restriction to Spin11 x USp4; at x5=L5 use the C1 centralizer. This omits broken-parent directions, including the earlier Spin2 x6 diagnostic.",
+  "polynomials": {
+    "visible_J8": "-p1*x1*x2/3 + x1**3*x2/3 + x1*x2**3/3 + x1*x2*x3**2 + x1*x2*x4**2 + x1*x2*x5**2",
+    "bulk_lower": "-4*p1*x1*x2/3 + 8*u**2*x1*x2 + 8*v**2*x1*x2 + 4*x1**3*x2/3 + 4*x1*x2**3/3 + 4*x1*x2*x3**2 + 4*x1*x2*x4**2 + 4*x1*x2*x5**2",
+    "bulk_upper": "-4*p1*x1*x2/3 + 8*u**2*x1*x2 + 8*v**2*x1*x2 + 4*x1**3*x2/3 + 4*x1*x2**3/3 + 4*x1*x2*x3**2 + 4*x1*x2*x4**2 + 4*x1*x2*x5**2",
+    "mirror_upper": "13*p1*x1*x2/6 - 16*u**2*x1*x2 - 16*v**2*x1*x2 - 13*x1**3*x2/6 - 13*x1*x2**3/6 - 13*x1*x2*x3**2/2 - 13*x1*x2*x4**2/2 - 13*x1*x2*x5**2/2",
+    "total_upper": "5*p1*x1*x2/6 - 8*u**2*x1*x2 - 8*v**2*x1*x2 - 5*x1**3*x2/6 - 5*x1*x2**3/6 - 5*x1*x2*x3**2/2 - 5*x1*x2*x4**2/2 - 5*x1*x2*x5**2/2",
+    "net": "-p1*x1*x2/2 + x1**3*x2/2 + x1*x2**3/2 + 3*x1*x2*x3**2/2 + 3*x1*x2*x4**2/2 + 3*x1*x2*x5**2/2"
+  },
+  "characters": {
+    "hidden_bulk": "3*1+5+2*4",
+    "hidden_mirror": "5+2*4",
+    "difference": "3*1",
+    "mirror_transverse_parities": "5 positive, 8 negative"
+  },
+  "SU2_complex_doublets": {
+    "bulk_lower": 32,
+    "bulk_upper": 32,
+    "mirror_upper": -52,
+    "total_upper": -20,
+    "net": 12
+  },
+  "inflow": {
+    "formal_level": "-13*p1*x1*x2/12 + 8*u**2*x1*x2 + 8*v**2*x1*x2 + 13*x1**3*x2/12 + 13*x1*x2**3/12 + 13*x1*x2*x3**2/4 + 13*x1*x2*x4**2/4 + 13*x1*x2*x5**2/4",
+    "remaining_per_endpoint": "-p1*x1*x2/4 + x1**3*x2/4 + x1*x2**3/4 + 3*x1*x2*x3**2/4 + 3*x1*x2*x4**2/4 + 3*x1*x2*x5**2/4",
+    "SU2_formal_shift": 26,
+    "SU2_remaining_each": 6,
+    "ordinary_wall_CS_obstruction": "The candidate degree8 polynomial is odd under x1->-x1 on zero hidden curvature, whereas the parent wall permits the D6 Weyl move (x1,x7)->(-x1,-x7). It cannot be the restriction of an invariant polynomial of the full unbroken wall group. An ordinary constant-level CS term on that wall cannot implement this exact redistribution without extra symmetry-breaking/dressing data.",
+    "hypotheses": [
+      "Extend a transforming orientation field along the wall and construct a gauged Wess-Zumino completion, including its spectrum and quantization.",
+      "Study a relative inflow/tensor completion of the full stratified geometry; do not impose separate standalone lattice tests before identifying that structure."
+    ],
+    "scope": "Restricted-background balance is necessary, not a constructed gauge-invariant action. The obstruction does not classify all multi-wall, scalar-assisted or bulk inflow mechanisms."
+  },
+  "limitations": [
+    "Only reduced common gauge backgrounds, not all Spin20 Ward identities.",
+    "No arbitrary-background eta invariant or nonlinear Wess-Zumino functional.",
+    "Passing the net SU2 condition is not local anomaly cancellation."
+  ],
+  "provenance": [
+    {
+      "path": "results/ghu_action_20261012/lorentz_matrices.npz",
+      "sha256": "0c90e03594435aa39279c9baf1617da1f3d8d0cc05bd9538d754aa052d89a220"
+    },
+    {
+      "path": "CHECKPOINT_GHU_LOCALIZATION_2026-10-12_SHA256.json",
+      "sha256": "946cd4ada885be2794f4cc7b222610abc84694294d0a87a894400a03039d90c9"
+    }
+  ]
+}

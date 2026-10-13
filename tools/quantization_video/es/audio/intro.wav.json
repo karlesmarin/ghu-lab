@@ -1,0 +1,278 @@
+﻿{
+    "voice":  "Microsoft Helena Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "Abre Cuantización y certificados en la nueva opción de investigación. Son diagnósticos independientes, con entradas racionales exactas e hipótesis separadas. La demo guiada cambia los controles reales. Cumplir un criterio aritmético es un ingrediente de consistencia. No certifica un modelo completo de unificación gauge Higgs.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "Abre",
+                      "start":  0,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  0.32999999999999996,
+                      "text":  "Cuantización",
+                      "start":  5,
+                      "length":  12
+                  },
+                  {
+                      "seconds":  1.035,
+                      "text":  "y",
+                      "start":  18,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  1.0899999999999999,
+                      "text":  "certificados",
+                      "start":  20,
+                      "length":  12
+                  },
+                  {
+                      "seconds":  1.845,
+                      "text":  "en",
+                      "start":  33,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  1.9349999999999998,
+                      "text":  "la",
+                      "start":  36,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  2.03,
+                      "text":  "nueva",
+                      "start":  39,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  2.29,
+                      "text":  "opción",
+                      "start":  45,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  2.6599999999999997,
+                      "text":  "de",
+                      "start":  52,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  2.7399999999999998,
+                      "text":  "investigación",
+                      "start":  55,
+                      "length":  13
+                  },
+                  {
+                      "seconds":  4.375,
+                      "text":  "Son",
+                      "start":  70,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  4.595,
+                      "text":  "diagnósticos",
+                      "start":  74,
+                      "length":  12
+                  },
+                  {
+                      "seconds":  5.3149999999999995,
+                      "text":  "independientes",
+                      "start":  87,
+                      "length":  14
+                  },
+                  {
+                      "seconds":  6.5649999999999995,
+                      "text":  "con",
+                      "start":  103,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  6.755,
+                      "text":  "entradas",
+                      "start":  107,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  7.21,
+                      "text":  "racionales",
+                      "start":  116,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  7.76,
+                      "text":  "exactas",
+                      "start":  127,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  8.2999999999999989,
+                      "text":  "e",
+                      "start":  135,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  8.355,
+                      "text":  "hipótesis",
+                      "start":  137,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  8.87,
+                      "text":  "separadas",
+                      "start":  147,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  10.35,
+                      "text":  "La",
+                      "start":  158,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  10.485,
+                      "text":  "demo",
+                      "start":  161,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  10.719999999999999,
+                      "text":  "guiada",
+                      "start":  166,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  10.995,
+                      "text":  "cambia",
+                      "start":  173,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  11.33,
+                      "text":  "los",
+                      "start":  180,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  11.485,
+                      "text":  "controles",
+                      "start":  184,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  11.995,
+                      "text":  "reales",
+                      "start":  194,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  13.315,
+                      "text":  "Cumplir",
+                      "start":  202,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  13.764999999999999,
+                      "text":  "un",
+                      "start":  210,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  13.885,
+                      "text":  "criterio",
+                      "start":  213,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  14.315,
+                      "text":  "aritmético",
+                      "start":  222,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  14.895,
+                      "text":  "es",
+                      "start":  233,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  15.024999999999999,
+                      "text":  "un",
+                      "start":  236,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  15.139999999999999,
+                      "text":  "ingrediente",
+                      "start":  239,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  15.705,
+                      "text":  "de",
+                      "start":  251,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  15.809999999999999,
+                      "text":  "consistencia",
+                      "start":  254,
+                      "length":  12
+                  },
+                  {
+                      "seconds":  17.485,
+                      "text":  "No",
+                      "start":  268,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  17.619999999999997,
+                      "text":  "certifica",
+                      "start":  271,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  18.189999999999998,
+                      "text":  "un",
+                      "start":  281,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  18.294999999999998,
+                      "text":  "modelo",
+                      "start":  284,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  18.634999999999998,
+                      "text":  "completo",
+                      "start":  291,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  19.134999999999998,
+                      "text":  "de",
+                      "start":  300,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  19.23,
+                      "text":  "unificación",
+                      "start":  303,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  19.88,
+                      "text":  "gauge",
+                      "start":  315,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  20.16,
+                      "text":  "Higgs",
+                      "start":  321,
+                      "length":  5
+                  }
+              ]
+}

@@ -89,6 +89,7 @@ const SECTIONS = [
    * triple a comparison needs, and how few do.  Its own family, at the end, because it is the only
    * section whose subject is the field rather than a theory in it. */
   { ...GRAVITYGAUGE_SECTION, group: "su3_hy", family: "Gravity & gauge · research" },
+  { ...QUANTIZATION_SECTION, group: "su3_hy", family: "Global structure · research" },
   { ...CENSUS_LIT_SECTION, group: "su3_hy", family: "The literature" },
 ];
 

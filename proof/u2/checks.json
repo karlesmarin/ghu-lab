@@ -1,0 +1,172 @@
+{
+  "passed": true,
+  "count": 21,
+  "checks": [
+    {
+      "name": "Reconstruct full lower, upper and net from archived roots",
+      "passed": true
+    },
+    {
+      "name": "One-family virtual bundle has rank zero and no degree-two Chern character",
+      "passed": true
+    },
+    {
+      "name": "Index density of a genuine SM virtual bundle equals P/3",
+      "passed": true
+    },
+    {
+      "name": "P splits into a universal shifted square and integral mixed products",
+      "passed": true
+    },
+    {
+      "name": "Mixed instanton spin background has odd net period",
+      "passed": true
+    },
+    {
+      "name": "Local periods are integer on this genuine SM background",
+      "passed": true
+    },
+    {
+      "name": "Asymmetric tensor allocation cancels both full-subgroup local polynomials",
+      "passed": true
+    },
+    {
+      "name": "Transfer is an integer sum of an index density and integral tensor classes",
+      "passed": true
+    },
+    {
+      "name": "Equal half-net is different from the n=1 admissible-response allocation",
+      "passed": true
+    },
+    {
+      "name": "All mixed terms survive in the n=0 transfer",
+      "passed": true
+    },
+    {
+      "name": "Hyperbolic net response and characteristic gravitational vector are compatible",
+      "passed": true
+    },
+    {
+      "name": "A is outside the restricted parent quadratic-invariant span",
+      "passed": true
+    },
+    {
+      "name": "Whole displayed integer-allocation family fails this parent mixed-gravity gate",
+      "passed": true
+    },
+    {
+      "name": "SM product-cover cocharacters have index six in the quotient torus",
+      "passed": true
+    },
+    {
+      "name": "Explicit quotient cocharacter has no product lift",
+      "passed": true
+    },
+    {
+      "name": "Separate traceless Chern forms are fractional on the constructed quotient bundle",
+      "passed": true
+    },
+    {
+      "name": "U2 cocharacter condition depends on the combined quadratic form",
+      "passed": true
+    },
+    {
+      "name": "U2 fundamental c2 is a counterexample to separate factor divisibilities",
+      "passed": true
+    },
+    {
+      "name": "Positive U2 example also passes the combined criterion",
+      "passed": true
+    },
+    {
+      "name": "Positive U2 example has an even integral bilinear form on the full cocharacter lattice",
+      "passed": true
+    },
+    {
+      "name": "Separate source conditions reject that combined-integral example",
+      "passed": true
+    }
+  ],
+  "sage_version": "10.9",
+  "full_polynomials": {
+    "net": "2*A*Y^2 - A^2 - 3*A*B - A*lam",
+    "lower": "16/3*A*Y^2 - 8/3*A^2 - 8*A*B - 8*A*D - 8/3*A*lam",
+    "upper": "-10/3*A*Y^2 + 5/3*A^2 + 5*A*B + 8*A*D + 5/3*A*lam",
+    "bA": "1/2*A^2 + 1/2*A*lam",
+    "tensor_lower": "1/2*A^2*n + 1/2*A*lam*n",
+    "tensor_upper": "-2*A*Y^2 - 1/2*A^2*n - 1/2*A*lam*n + A^2 + 3*A*B + A*lam",
+    "transfer": "-16/3*A*Y^2 - 1/2*A^2*n - 1/2*A*lam*n + 8/3*A^2 + 8*A*B + 8*A*D + 8/3*A*lam"
+  },
+  "virtual_representation": "1 + L + E3*L^-1 + E3 - E2*L - E2*E3; L=det(E3)",
+  "mixed_instanton_periods": {
+    "net": "-3",
+    "half_net": "-3/2",
+    "lower": "-8",
+    "upper": "5",
+    "one_family_index": "-1",
+    "n0_transfer": "8"
+  },
+  "parent_gate": {
+    "matrix": [
+      [
+        "-2",
+        "0"
+      ],
+      [
+        "0",
+        "-2"
+      ],
+      [
+        "1",
+        "1"
+      ]
+    ],
+    "left_annihilator": [
+      1,
+      1,
+      2
+    ],
+    "scope": "Displayed n*bA allocation family and ordinary parent-invariant Chern-Simons, not all possible tensor/WZ completions"
+  },
+  "quotient": {
+    "index": 6,
+    "nonlift_cocharacter": [
+      1,
+      0,
+      -1,
+      0,
+      0
+    ],
+    "product_coordinates": [
+      "1/2",
+      "-2/3",
+      "-1/3",
+      "-1/6"
+    ]
+  },
+  "u2_audit": {
+    "source_equations": [
+      "1711.04777v3 (3.31)",
+      "(3.32)",
+      "(3.34)"
+    ],
+    "combined_condition": "b0 integral; b1+2*b0 divisible by 8 (scalar normalization); lattice-valued analogue componentwise",
+    "positive_example": [
+      1,
+      6
+    ],
+    "quadratic_form": "m1^2+m1*m2+m2^2",
+    "c2_example": [
+      -1,
+      2
+    ],
+    "status": "Explicit non-equivalence of the displayed factorwise conditions and the global combined criterion; not an anomaly-free supergravity spectrum"
+  },
+  "scope": "Full SM x USp4 polynomial matching and necessary quantization gates; no global orbifold action or bordism computation",
+  "input_sha256": {
+    "inputs/characters.json": "efb7738880a60d6cf8d6ce63097b7280399e1302c5e670d7c7005b12a88ed33b",
+    "inputs/checks.json": "0fe0a1788541901851b7f0bfcd51c4afceeb3b9a3ef1e6229175558906bc0361",
+    "inputs/2012.11622v2.txt": "058789e66c73eb72f64759621be768e06daafeb7344216e9e0453c350c27eba3",
+    "inputs/charges.mjs": "bdb8a59b83d7b27586756de7578776a66008eecc07c0d0cd62c5b6d78498703f"
+  }
+}

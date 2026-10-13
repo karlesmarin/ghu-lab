@@ -1,0 +1,30 @@
+{
+  "schema": "ghu-video-append-verification-v1",
+  "date": "2026-10-13",
+  "scope": "Chapters 1–45 retain the October 12 recording; chapter 46 uses October 13 captures. All video is encoded onto a continuous timeline. No claim that earlier chapters were recaptured.",
+  "previousManifestSha256": "aa5b77b36330210b2a30f2099f16c06f3a41693eb56732d83a5cd54248781b25",
+  "supplementManifestSha256": "567f1a934b5e1478f759d899974d2c4f936598787739752e5ca065e0b8b0b7f4",
+  "storyboardSha256": "13210e88860f232f43e619c32f925e1bfeacc7b6687468e256fc49f08946d7dc",
+  "newChapterAppSha256": "469fc6e31d019d76e16613a02036e3af2c3406e9662aa0ee1b15ba4e05a6c6af",
+  "captureReceiptSha256": "66bbd64a738b45d2baee46ae4c688d74dbf8e0ae0afabbad8b2f16f94ecda229",
+  "checks": [
+    {
+      "language": "en",
+      "fullDecodePassed": true,
+      "reusedChapters": 45,
+      "appendedScenes": 11,
+      "captionOffsetSeconds": 2362.4,
+      "chapterMetadataCount": 46,
+      "humanListeningReview": false
+    },
+    {
+      "language": "es",
+      "fullDecodePassed": true,
+      "reusedChapters": 45,
+      "appendedScenes": 11,
+      "captionOffsetSeconds": 2450.200000000001,
+      "chapterMetadataCount": 46,
+      "humanListeningReview": false
+    }
+  ]
+}

@@ -79,3 +79,13 @@ data/tt_spectrum_reference.json -text -whitespace
 media/video/2026-10-12-mathematics/** -text whitespace=cr-at-eol
 proof/boundary-research/** -text whitespace=cr-at-eol
 tools/mathematics_video/** -text whitespace=cr-at-eol
+
+# Hash-pinned complete proof catalogue and new narrated supplement.
+proof/** -text
+src/modules/** -text
+media/video/2026-10-13-quantization/** -text
+tools/quantization_video/** -text
+
+media/video/2026-10-13-quantization-main/** -text
+media/video/2026-10-13-mathematics-quantization/** -text whitespace=cr-at-eol
+media/video/current.json -text

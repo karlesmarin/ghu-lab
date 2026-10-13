@@ -1,0 +1,13 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Segoe UI,38,&H00FFFFFF,&H00FFFFFF,&H00172E3C,&H00172E3C,0,0,0,0,100,100,0,0,1,1,0,2,65,65,75,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.50,0:00:09.04,Default,,0,0,0,,Choose C over two. The universal class fails, while periods on closed spin four manifolds pass. This is not
+Dialogue: 0,0:00:09.04,0:00:17.40,Default,,0,0,0,,a contradiction. The tests use different backgrounds. The universal test detects a period of one half. On
+Dialogue: 0,0:00:17.40,0:00:24.36,Default,,0,0,0,,the stated spin backgrounds, the period of Y squared is even. That topological fact is external to the Lean
+Dialogue: 0,0:00:24.36,0:00:26.96,Default,,0,0,0,,arithmetic proof.

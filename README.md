@@ -1,5 +1,22 @@
 # 🔧 GHU Lab — the source tree of the gauge–Higgs unification instrument
 
+## Quantization and certificates · 13 October 2026 · v0.2.2
+
+The independent **Quantization & certificates** menu option compares exact universal and closed-spin-four periods, the published q=6 axion congruence, conditional parent transfer and joint U(2) arithmetic. It includes a bilingual guided Demo, JSON/LaTeX exports and worked examples. The Spin(20) lift clarification is also linked from Boundary research.
+
+The [complete proof catalogue](https://karlesmarin.github.io/ghu-explorer/proof/index.html) exposes all four Lean source files (49 theorem declarations), recorded checks, replay commands, hashes and a downloadable bundle. Arithmetic formalization is distinct from topology and physical consistency. Full anomaly cancellation remains unknown.
+
+[Main film, chapter 46](https://karlesmarin.github.io/ghu-explorer/video/index.html?lang=en#quantization) · [English supplement](https://karlesmarin.github.io/ghu-explorer/video/quantization/index.html) · [Suplemento en castellano](https://karlesmarin.github.io/ghu-explorer/video/quantization/index-es.html). The main revision has 46 chapters and 165 scenes: chapters 1–45 retain their 12 October recording, and chapter 46 uses 13 October captures. The chapter index follows playback and seeking, including fractional-second boundaries. Previous editions remain archived.
+
+Current navigation has 30 sections and the bilingual catalogue has 45 guides. Every rendered card has an information button; the shared interface language catalogue preserves inputs and restores the English source text on a language round trip. Scientific inputs, exports and stored data are unchanged by localization. The browser tier has 20 gates, including quantization, card-help, interface-language and computed-state language checks across all 46 demos; the source tier runs 10483 checks across 79 harnesses. Dated counts below describe earlier releases.
+
+The hierarchy response figures require selected bulk content and a complete valid scan. When curves cannot be calculated, the panel explains why and offers the existing published example. Calculated hierarchy summaries cover each verdict in both languages, including zero model span; Higgs summaries distinguish historical and user-defined windows. The Spanish catalogue includes 165 additional computed-state phrases. Text-node and accessible-label updates from asynchronous calculations are translated automatically. The diagnostics browser gate checks real language controls, numerical round trips, empty-content recovery and asynchronous updates. The dynamic-language gate inspects displayed prose during the scripted calculations; it does not claim exhaustive coverage of every possible numerical input or a human linguistic review of the entire catalogue.
+
+The on-demand hierarchy sweep (the “check all 1 286” button) is outside the guided-demo path. Its completed result and technical note now render directly in English or Spanish, including both gauge seeds and the failed-control message. The diagnostics browser gate runs that button for both seeds, reproduces the reported candidate case (291 contents, 0.7064% worst error in the paper regime, 17.68% overall), and compares every displayed number and the entire stored result across an ES–EN–ES round trip. This closes a coverage gap in the earlier demo-only language audit.
+
+[Integration and scope](docs/quantization-integration.md) explains the figures, complete data bundle and distinction between formal theorems and experimental support. ATLAS/CMS comparisons remain in the collider tools; the new arithmetic module has no derived map to those observables and makes no claim of experimental agreement.
+
+
 
 This repository builds **[the GHU research laboratory](https://karlesmarin.github.io/ghu-explorer/)**:
 a self-contained browser instrument for model building, Wilson-line potentials, spectra,
@@ -31,18 +48,20 @@ laboratory controls make those connections visible in both languages.
 
 | Language | Full film | Direct download | Chapters | Synthetic narration |
 |---|---|---|---|---|
-| English | [11:34 · player](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-en.mp4) | 29 | Microsoft Zira |
-| Castellano | [11:55 · reproductor](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-es.mp4) | 29 | Microsoft Helena (España) |
+| English | [16:37 · player](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-en.mp4) | 38 | Microsoft Zira |
+| Castellano | [16:53 · reproductor](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-es.mp4) | 38 | Microsoft Helena (España) |
 
-Each edition translates narration, visible captions, whiteboards and laboratory captures, with its
-own chapter and subtitle timings. Both link to the same ordinary proofs and **113 reproducible
-certificate checks**. The proofs and checker documentation are in English. These scoped results
-do not establish a complete physical model or a proof-assistant formalization.
+The 13 October revision retains the first 28 whiteboard chapters, replaces the closing chapter,
+and adds nine explanations connecting quantization, physical assumptions, certificates and
+experimental limits. The original four examples retain **113 executable checks**. The extension
+explains **23 new Lean declarations plus 26 existing SU(7) declarations**, with their stated scope.
+The bilingual [physical/mathematical bridge](https://karlesmarin.github.io/ghu-explorer/video/mathematics/bridge.html) identifies which interpretation steps remain external to the arithmetic proofs.
+No complete physical model or experimental agreement is certified.
 
 [Open the lab](https://karlesmarin.github.io/ghu-explorer/app/) → **Anomalies → Boundary research**.
-The separate general laboratory tutorial covers 45 chapters and 154 scenes per language.
+The separate general laboratory tutorial covers 46 chapters and 165 scenes per language.
 
-[Video guide and verification](docs/mathematics-video.md) · [Versioned files](media/video/2026-10-12-mathematics/README.md) · [Production instructions](tools/mathematics_video/README.md).
+[Video guide and verification](docs/mathematics-video.md) · [Versioned files](media/video/2026-10-13-mathematics-quantization/README.md) · [Production instructions](tools/mathematics_video/README.md).
 
 ## User guides · 12 October 2026
 

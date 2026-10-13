@@ -1,0 +1,22 @@
+[
+  {
+    "original": "results/ghu_mirrors_20261012/characters.json",
+    "local": "inputs/characters.json",
+    "sha256": "efb7738880a60d6cf8d6ce63097b7280399e1302c5e670d7c7005b12a88ed33b"
+  },
+  {
+    "original": "work/ghu_paths_20261012/checks.json",
+    "local": "inputs/checks.json",
+    "sha256": "0fe0a1788541901851b7f0bfcd51c4afceeb3b9a3ef1e6229175558906bc0361"
+  },
+  {
+    "original": "results/ghu_action_20261012/sources/2012.11622v2.txt",
+    "local": "inputs/2012.11622v2.txt",
+    "sha256": "058789e66c73eb72f64759621be768e06daafeb7344216e9e0453c350c27eba3"
+  },
+  {
+    "original": "work/ghu_socratic_anomaly_20261013/lab/src/kernel/charges.mjs",
+    "local": "inputs/charges.mjs",
+    "sha256": "bdb8a59b83d7b27586756de7578776a66008eecc07c0d0cd62c5b6d78498703f"
+  }
+]

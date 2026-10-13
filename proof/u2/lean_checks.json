@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "theorems": 8,
+  "lean_version": "Lean (version 4.27.0, x86_64-w64-windows-gnu, commit db93fe1608548721853390a10cd40580fe7d22ae, Release)",
+  "source_sha256": "1ae108981f60143dc37e174a412c5620dba338312c37c6d5265440a9faa55974",
+  "axiom_dependencies": {
+    "positive_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "positive_joint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "positive_not_separate": [
+      "propext",
+      "Quot.sound"
+    ],
+    "corrected_criterion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "separate_sufficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "joint_does_not_imply_separate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "rational_corrected_criterion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "two_samples_suffice": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "scope": "Integer polynomial arithmetic, including rational coefficients encoded with a common nonzero denominator. Lie theoretic translation and physical conclusions are outside Lean."
+}

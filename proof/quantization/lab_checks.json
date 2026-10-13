@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "count": 10,
+  "checks": [
+    {
+      "name": "Related fractional factors reconstruct integral A+B",
+      "passed": true
+    },
+    {
+      "name": "Cover-only test can miss a forbidden quotient period",
+      "passed": true
+    },
+    {
+      "name": "Each coefficient has a detecting cocharacter",
+      "passed": true
+    },
+    {
+      "name": "BigInt preserves integers beyond the floating-point range",
+      "passed": true
+    },
+    {
+      "name": "Malformed and unsafe inputs cannot generate a pass",
+      "passed": true
+    },
+    {
+      "name": "Known parent invariant passes only its polynomial image gate",
+      "passed": true
+    },
+    {
+      "name": "A alone lies outside the parent image",
+      "passed": true
+    },
+    {
+      "name": "All 729 sampled integral tensor pairings retain the certified obstruction",
+      "passed": true
+    },
+    {
+      "name": "Passing a quantization gate never certifies full physics",
+      "passed": true
+    },
+    {
+      "name": "81 cases and 405 periods agree with independent Sage centered-root calculations",
+      "passed": true
+    }
+  ],
+  "scope": "Behavioral tests of private JS diagnostics; universal arithmetic is proved separately in Lean"
+}

@@ -1,0 +1,200 @@
+{
+  "schema": "ghu-mathematics-quantization-video-v1",
+  "revision": "2026-10-13",
+  "reports": [
+    {
+      "language": "en",
+      "chapters": 38,
+      "seconds": 997.7916666666666,
+      "frames": 23947,
+      "width": 1920,
+      "height": 1080,
+      "fps": 24,
+      "bytes": 24615526,
+      "sha256": "9de52ff22ab060956756fd33d9af413cba5892ec0b3840cc814de4510ddcdc21",
+      "captionCues": 220,
+      "syntheticNarration": true,
+      "voice": "Microsoft Zira Desktop",
+      "captionsBurnedIn": true,
+      "humanListeningReview": false,
+      "fullDecodePassed": true,
+      "retainedChapters": 28,
+      "retainedPrefixSeconds": 666.5,
+      "originalVideoSha256": "f2200a434b2a8ae0244a91f7d1dff1006fd74c52922cfccf894fb9bc3da526a1",
+      "newScenes": [
+        {
+          "id": "s2",
+          "inputsSha256": "af92aa7a8cc55f4ebd816f94d79120c4823e1705ac82977044216ba8bb67b1b7",
+          "frames": 681,
+          "seconds": 28.375,
+          "sha256": "f59da40a99f3ac8f9b39f3c2353b411e5bd721afcffcf0bed5803417f35ce439"
+        },
+        {
+          "id": "q1",
+          "inputsSha256": "2049ff8bf15f077310ce5ec87e9742cd69395e3de2ce6b5d0f19c11b1b4a8f2b",
+          "frames": 765,
+          "seconds": 31.875,
+          "sha256": "089ed5d625f9074c805b1c65d07763254d38de7f7f21096f5833dbf39e382da8"
+        },
+        {
+          "id": "q2",
+          "inputsSha256": "43e5b68f01ac759ce9934caa1f526ef9372a99706d51f35ae1c1d2943796ff67",
+          "frames": 753,
+          "seconds": 31.375,
+          "sha256": "7e5646dae21be87ec563ffd88e95763019703de021de681729f0b49c9ac17030"
+        },
+        {
+          "id": "q3",
+          "inputsSha256": "bf9783f825a505bfdfb6d9558c67eec7d85d79739a681130f869236e2a73303b",
+          "frames": 816,
+          "seconds": 34.0,
+          "sha256": "4ee9dbf673f43a23844e68163792e893fe24f195b718288eb3187dc47f9b48a0"
+        },
+        {
+          "id": "q4",
+          "inputsSha256": "9d2bfb992c868136b8db0abd05c3b81fb19e7d5dae8a765ece340dcd9335d202",
+          "frames": 778,
+          "seconds": 32.416666666666664,
+          "sha256": "79a3497f6aae340974648bf12ad8b6f6951167aae03cfccfa22aed4b9375a8e4"
+        },
+        {
+          "id": "q5",
+          "inputsSha256": "95fc0bf8ce99c5144e4b4a6e33f3278f78b98e6e2cdcf8e3cb147a85ba464a03",
+          "frames": 814,
+          "seconds": 33.916666666666664,
+          "sha256": "899f56d702a3cd9deb7915df2e4957ea2023eca60063bd8d6fb0b6ced227ad34"
+        },
+        {
+          "id": "q6",
+          "inputsSha256": "6043c63f8c28661d99e7cbd254d3b8e21ac239d866b64199461abe50bea950fe",
+          "frames": 805,
+          "seconds": 33.541666666666664,
+          "sha256": "2143f78a78ea4030c9ae99c1ff21868d354830f54cebc584ee54e2cbe72d7dd2"
+        },
+        {
+          "id": "q7",
+          "inputsSha256": "bd29ea35ea7af83d47eb9338ce02f8c50e1fb9cd6915d9dc8b7b0421dd2b3f53",
+          "frames": 784,
+          "seconds": 32.666666666666664,
+          "sha256": "26f9149295677c6e04f5160970b9fb160458e1de73c4b4eea02f169406a5a88d"
+        },
+        {
+          "id": "q8",
+          "inputsSha256": "2ae169774291d804bb33986ebc453f93462adea344e7a7c49a437b7189353e02",
+          "frames": 838,
+          "seconds": 34.916666666666664,
+          "sha256": "aa907652eef873fdc379de07920239389bf1ffcaf01dd5d02df6bd5101249274"
+        },
+        {
+          "id": "q9",
+          "inputsSha256": "27979ad65c60ba16cee9f80249914ed939fb5c61d45492e59cd2d47f4575b906",
+          "frames": 917,
+          "seconds": 38.208333333333336,
+          "sha256": "0f239ecc28383619bc15e0e2f304607f25a197d6346ec0a8c7f8bee6d87acae3"
+        }
+      ]
+    },
+    {
+      "language": "es",
+      "chapters": 38,
+      "seconds": 1013.875,
+      "frames": 24333,
+      "width": 1920,
+      "height": 1080,
+      "fps": 24,
+      "bytes": 25748183,
+      "sha256": "89730726e6f8e50d55517d3718da2bf556bf0b90d279c8be838644806078965e",
+      "captionCues": 222,
+      "syntheticNarration": true,
+      "voice": "Microsoft Helena Desktop",
+      "captionsBurnedIn": true,
+      "humanListeningReview": false,
+      "fullDecodePassed": true,
+      "retainedChapters": 28,
+      "retainedPrefixSeconds": 685.25,
+      "originalVideoSha256": "61ed37cdb5dfc24b06ca5b706dd4a362fb4c371d70e72f93f54f7491ccc78ca0",
+      "newScenes": [
+        {
+          "id": "s2",
+          "inputsSha256": "cc65a5b193fd1afa40157f1a51ca2ff29df7162190cb51942bec149e80ac8b7f",
+          "frames": 709,
+          "seconds": 29.541666666666668,
+          "sha256": "601f7a5a4657d37da3f5c591757cfc6a67195ee3d0660e2ef3504e6f80b80561"
+        },
+        {
+          "id": "q1",
+          "inputsSha256": "a776d25b48da4110196f1734a34024484fe7b321c607028c9847281094f9cba3",
+          "frames": 785,
+          "seconds": 32.708333333333336,
+          "sha256": "b5cc31c4543f4c49acf3dfe765ae3e46e5f318e854c1eab3f4da8dcf3695a05e"
+        },
+        {
+          "id": "q2",
+          "inputsSha256": "d5e946dfdd187cfff270c640ec3d25e681a6cc433d5b34748ad13dd2ef6890fc",
+          "frames": 667,
+          "seconds": 27.791666666666668,
+          "sha256": "862b5328c5c536b9bc3df9a3f26e2de4005b90882aceca2aa934f80616e02c0a"
+        },
+        {
+          "id": "q3",
+          "inputsSha256": "6804163c91dd485ad946895010b68d4cc63b7057009acce35b374caa3f9d131c",
+          "frames": 747,
+          "seconds": 31.125,
+          "sha256": "20cc1358b2f556d6335d525f15a95c8fdeb4dcbe2f3b597ea19d1f895a64e180"
+        },
+        {
+          "id": "q4",
+          "inputsSha256": "4431ae348dde587634fed05a75b27b31ba43c79910b8bbee40e90eefbbfe65e8",
+          "frames": 806,
+          "seconds": 33.583333333333336,
+          "sha256": "76e0f470bcc08da332ba462da8d74e6544822245a3550eedb9a73438a2f0f006"
+        },
+        {
+          "id": "q5",
+          "inputsSha256": "cfeefd8134b9c5c7ad9c62107a42ce8c9002ed762871c0536c4201c0ec23c987",
+          "frames": 775,
+          "seconds": 32.291666666666664,
+          "sha256": "a10c62fd2ea22392d0493f7ab928e2ccca9ecae5c746b65396bca258d69cd261"
+        },
+        {
+          "id": "q6",
+          "inputsSha256": "636eaaf23d1dceff2cb0b0f16c59201fed1b0616f8652beedc4173cc4d7f05f3",
+          "frames": 785,
+          "seconds": 32.708333333333336,
+          "sha256": "dfba3795b87085809563d7fa2ecd0c9a63759daa8f6bff83dc4ea324eb35d946"
+        },
+        {
+          "id": "q7",
+          "inputsSha256": "e6e6f372d85700bc778f682019f41029c3a5ba0cb2c3ce5f9836ba10535115ab",
+          "frames": 764,
+          "seconds": 31.833333333333332,
+          "sha256": "ece44735c14d13ecbeb10acc19995ba8a7fe67407919859a449d4ae286f764d8"
+        },
+        {
+          "id": "q8",
+          "inputsSha256": "cdaa74246208dda5cd391368546665de6fe4f50882b0a57889b2f821ec52db7d",
+          "frames": 854,
+          "seconds": 35.583333333333336,
+          "sha256": "e84352905db2d481e668f356b0600d298bf643ca6671f5cc9814f18292689343"
+        },
+        {
+          "id": "q9",
+          "inputsSha256": "e8cc116e89c8b7bccdb0641464908999443128f578005b102765946645a8d3cb",
+          "frames": 995,
+          "seconds": 41.458333333333336,
+          "sha256": "72afb4a25f494fa3c140a675858744ebfb2eab9968b2972cd351ee10af1a89f9"
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "tools/mathematics_video/quantization/scenes.py": "d1569103bd7de1adbc77f53b48bf4d36dd5b0bc943239efaf04eaaf904dc7f5b",
+    "tools/mathematics_video/quantization/render.py": "e1f0ef5dfcab09b85e86c7b63f9de1501d69cf1a03fe252bcd6c07d850658bd2",
+    "tools/mathematics_video/quantization/assemble.py": "b07d358b5e1881a1b35ebfab730654a4134c2efab727d943cab7805cb528f4b9",
+    "tools/mathematics_video/quantization/prepare.py": "54569fc7f52c04128690f3a60103ffc11c7888648a471561e24fe0fe953f48ae",
+    "tools/mathematics_video/quantization/inputs.json": "ffb97572c3804af92d614856f5223d336728245fe3d64fc5e1c354d9f607e995",
+    "tools/mathematics_video/full/whiteboard_core.py": "8725e4a5e95c5a4206a6240b2394e105bb632993d62775a2149b4bf99beab883",
+    "src/modules/xs_limits_reference.mjs": "2fb37abfc25a54ccc538217db787abb69c3962eb41f179b13cf36aa7135cd825"
+  },
+  "scope": "Scoped ordinary proofs, exact checks and 49 Lean theorem declarations. No full physical-model certificate or new experimental signal. Charts use published upper limits, not a quantization-model fit."
+}

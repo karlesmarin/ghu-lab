@@ -19,7 +19,7 @@
 {\LARGE User guide\par}
 \vspace{7mm}
 English edition.\par
-12 October 2026\par
+13 October 2026\par
 \vspace{8mm}
 Control names are kept as they appear in the application. Start with a reference, change one input at a time, and retain the assumptions with your result.\par
 \vfill
@@ -2410,6 +2410,8 @@ The boundary gap, profile independence and restricted family condition respond t
 \item Inserted traces omit projector and covering-space normalization, consistent descent, mirror contributions and inflow. The scalar probe is not the full anomaly polynomial.
 \item The SU(2) criterion applies to a specified standalone six-dimensional tensor setting. It cannot be transferred automatically to an eight-dimensional orbifold corner coupled to bulk inflow.
 \item Local coefficients, integral tensor charge lattice, global gauge group, new boson zero modes and full quantum consistency remain unresolved.
+\item The global action on all fields, including bosonic Omega, and the admissible orbifold bundles remain open.
+\item The raw degree-18 Clifford element squares to \ensuremath{-}1; the matrix Ua=\ensuremath{-}i ta squares to +1. The scalar phase requires a common global interpretation.
 \end{itemize}
 \subsection*{If something is unclear}
 \textbf{The first normal root is zero.} Check boundary strength. At zero coupling this is the expected zero mode; it is not a numerical solver failure.
@@ -2428,6 +2430,99 @@ The boundary gap, profile independence and restricted family condition respond t
 \item \href{https://arxiv.org/abs/hep-ph/0209144}{Asaka, Buchmüller, Covi: localized orbifold anomalies, sections 2--4}
 \item \href{https://arxiv.org/abs/hep-ph/0102010}{Dobrescu, Poppitz: identical six-dimensional generations}
 \item \href{https://arxiv.org/abs/2012.11622}{Lee, Tachikawa: six-dimensional global anomalies and tensor quantization, sections 2--3}
+\end{itemize}
+\section{Quantization and certificates}
+Compare exact quantization criteria for H=S(U(2)\ensuremath{\times}U(3)), closed spin-four periods, a conditional parent transfer and a joint U(2) example.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/quantization/index.html}{Open web guide}
+
+Use this independent diagnostic before interpreting a polynomial cancellation as a globally quantized action. The global quotient correlates apparently separate coefficients. Closed spin-four periods ask a different question from universal degree-four cohomology. The panel makes this distinction visible and supplies exact witnesses rather than a single undifferentiated consistency label.
+\subsection*{First steps}
+\begin{enumerate}
+\item Run the Demo, then compare C/2, C/36 and A+B.
+\item Enter exact fractions. Inspect the detecting cocharacter or spin manifold when a criterion fails.
+\item Change integer tensor pairings and inspect the unchanged residue class.
+\item Export JSON and open the certificate catalogue to replay the appropriate Lean or numerical check.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{\ensuremath{\alpha}, \ensuremath{\beta}, \ensuremath{\gamma}}. Rational coefficients in the centered SU(2), SU(3) and Y\ensuremath{{}^{2}} convention. Choose C/2; change \ensuremath{\gamma} to 1/4.
+
+\textbf{p, q, r}. Integral lattice pairings for ordinary Green--Schwarz sources. Change p from zero to one.
+
+\textbf{K\ensuremath{{}_{2}}, K\ensuremath{{}_{3}}, K\ensuremath{{}_{1}}}. Integer axion couplings with \ensuremath{\alpha}=\ensuremath{-}K\ensuremath{{}_{2}}, \ensuremath{\beta}=\ensuremath{-}K\ensuremath{{}_{3}}, \ensuremath{\gamma}=K\ensuremath{{}_{1}}/72. Use (0,1,12), then K\ensuremath{{}_{1}}=13.
+
+\textbf{b\ensuremath{{}_{0}}, b\ensuremath{{}_{1}}}. Integer U(2) coefficients; the accompanying Lean criterion also treats a common rational denominator. Compare (1,6) with (1,5).
+
+\textbf{Exact figures / SVG}. Select a lattice point to set alpha and delta at fixed beta; select a heat-map cell to read its exact U(2) period. Compare b1=6 with b1=5; inspect (m,n)=(1,0), then export SVG and JSON.
+
+\subsection*{Reading the results}
+\textbf{Criteria and witnesses}. Read \ensuremath{\alpha},\ensuremath{\beta},\ensuremath{\delta} and \ensuremath{\alpha},\ensuremath{\beta},2\ensuremath{\delta} separately. The shown counterexample is an exact nonintegral evaluation.
+
+\textbf{Conditional transfer}. The annihilator \ensuremath{\ell}(x,y,z)=x+y+2z vanishes on both columns of the parent map. Its nonzero value excludes matching only under the listed source and spectrum assumptions.
+
+\textbf{JSON / Lean}. JSON retains every input, witness, source and limit. The catalogue includes four Lean files with 49 theorem declarations and their replay evidence.
+
+\textbf{Lattices and cocharacter fingerprint}. Diamonds satisfy both criteria; rings satisfy spin periods only, in the displayed fixed-beta slice. Each heat cell shows Q modulo one; its exact Q is available on selection. Both plots and JSON use gqModel.figures, without fitted or invented samples.
+
+Passing a restricted arithmetic criterion does not establish a global action or a complete anomaly-free model. The modulo-three response class is conditional; it is not an identified global Z3 anomaly.
+\subsection*{Worked example: Same polynomial, different background test}
+\begin{enumerate}
+\item Choose C/2 and read both rows.
+\item Universal integrality fails at the cocharacter (1,0,\ensuremath{-}1,0,0).
+\item Closed spin-four periods pass because the Y\ensuremath{{}^{2}} period is even.
+\end{enumerate}
+These outcomes are compatible: the tests quantify over different backgrounds. Neither determines the orbifold background category.
+\subsection*{Formulas and conventions}
+\noindent\begin{minipage}{\linewidth}
+\begin{quote}Q = \ensuremath{\alpha}(A \ensuremath{-} C/4) + \ensuremath{\beta}(B \ensuremath{-} C/3) + \ensuremath{\gamma}C; \ensuremath{\delta} = \ensuremath{\gamma} \ensuremath{-} \ensuremath{\alpha}/4 \ensuremath{-} \ensuremath{\beta}/3\end{quote}
+Change from centered roots to integral characteristic classes.
+
+\end{minipage}\par\medskip
+\noindent\begin{minipage}{\linewidth}
+\begin{quote}Universal: \ensuremath{\alpha}, \ensuremath{\beta}, \ensuremath{\delta} integral; closed spin-4: \ensuremath{\alpha}, \ensuremath{\beta}, 2\ensuremath{\delta} integral\end{quote}
+Ordinary bundles, with Wu parity supplying the spin restriction externally to Lean.
+
+\end{minipage}\par\medskip
+\noindent\begin{minipage}{\linewidth}
+\begin{quote}18K\ensuremath{{}_{2}} + 24K\ensuremath{{}_{3}} + K\ensuremath{{}_{1}} = 0 mod 36\end{quote}
+Known q=6 axion criterion; no identification with the GHU Higgs.
+
+\end{minipage}\par\medskip
+\noindent\begin{minipage}{\linewidth}
+\begin{quote}6\ensuremath{\ell}(v) = 16 \ensuremath{-} 3p \ensuremath{-} 3q \ensuremath{-} 6r = 1 mod 3\end{quote}
+Integer obstruction under fixed spectrum and ordinary parent responses.
+
+\end{minipage}\par\medskip
+\noindent\begin{minipage}{\linewidth}
+\begin{quote}Q(m,n) = b\ensuremath{{}_{0}}(m\ensuremath{-}n)\ensuremath{{}^{2}}/4 + b\ensuremath{{}_{1}}(m+n)\ensuremath{{}^{2}}/8\end{quote}
+Joint integrality iff b\ensuremath{{}_{0}} is integral and b\ensuremath{{}_{1}}+2b\ensuremath{{}_{0}} is divisible by eight.
+
+\end{minipage}\par\medskip
+\noindent\begin{minipage}{\linewidth}
+\begin{quote}t\ensuremath{{}_{a}}\ensuremath{{}^{2}} = \ensuremath{-}1; U\ensuremath{{}_{a}} = \ensuremath{-}i t\ensuremath{{}_{a}}; U\ensuremath{{}_{a}}\ensuremath{{}^{2}} = +1\end{quote}
+Representation involution differs from an ordinary Spin(20) isotropy lift.
+
+\end{minipage}\par\medskip
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item The global action on all fields, including bosonic Omega, and the admissible orbifold bundles remain open.
+\item The wall SU(2) divisibility criterion is known. No claim of new mathematics or full anomaly cancellation is made.
+\item Lean formalizes arithmetic. Characteristic-class topology, Wu parity and physical translations are external assumptions. The 3290 lift checks are exact computational checks, not Lean theorems.
+\item The 81 cocharacters are a finite visualization, not a universal proof. Values outside the lattice window are explicitly reported; only pixel coordinates are approximate.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{The input is rejected.} Use an integer or n/d with nonzero positive denominator. Tensor, axion and U(2) controls require integers. The last valid state is retained.
+
+\textbf{The result passes but model consistency is not checked.} Read the scope: a restricted quantization criterion is one necessary ingredient of a full action, not a certification of the remaining ingredients.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/1711.04777}{Monnier--Moore--Park: global quantization}
+\item \href{https://arxiv.org/abs/2309.03937}{Choi et al.: axion couplings, Table 1 q=6}
+\item \href{https://arxiv.org/abs/1705.01853}{Tong: global gauge group and line operators}
+\item \href{https://arxiv.org/abs/2012.11622}{Lee--Tachikawa: six-dimensional tensor criterion}
+\item \href{https://arxiv.org/abs/2011.10102}{Davighi--Lohitsiri: anomaly interplay}
+\item \href{https://arxiv.org/abs/hep-th/0305024}{von Gersdorff--Quiros: orbifold transformations}
 \end{itemize}
 \section{Glossary}
 \subsection*{the alphabet}
@@ -2606,5 +2701,29 @@ Green: the instrument returns what the paper prints. Amber: it does not --- and 
 
 \subsection*{what each row was read at}
 Three of the four models are supersymmetric and this engine's one-loop potential is not, so their rows are parity linear algebra only --- which boundary condition, which unbroken group, which zero modes --- and never their dynamics. Kubo--Lim--Yamashita is not supersymmetric, which is why its potential, its vacuum and its Higgs mass can be anchored at all, and why it is the one where this engine can be wrong by a number.
+
+\subsection*{Global quantization}
+A characteristic class must have integral periods on the specified backgrounds. The global group determines which bundles and cocharacters test it; a covering-group direction alone need not detect every obstruction.
+
+\subsection*{Universal classes and spin periods}
+For H = S(U(2) \ensuremath{\times} U(3)), the integral basis gives \ensuremath{\delta} = \ensuremath{\gamma} \ensuremath{-} \ensuremath{\alpha}/4 \ensuremath{-} \ensuremath{\beta}/3. Universal integrality requires \ensuremath{\alpha}, \ensuremath{\beta}, \ensuremath{\delta} integral. On the stated closed spin four-manifolds, Wu parity instead gives \ensuremath{\alpha}, \ensuremath{\beta}, 2\ensuremath{\delta} integral; this topology is assumed externally to Lean.
+
+\subsection*{The q = 6 axion congruence}
+In the normalization of Choi et al., \ensuremath{\alpha} = \ensuremath{-}K\ensuremath{{}_{2}}, \ensuremath{\beta} = \ensuremath{-}K\ensuremath{{}_{3}} and \ensuremath{\gamma} = K\ensuremath{{}_{1}}/72. The spin-period criterion becomes 18K\ensuremath{{}_{2}} + 24K\ensuremath{{}_{3}} + K\ensuremath{{}_{1}} divisible by 36, with K\ensuremath{{}_{2}} and K\ensuremath{{}_{3}} integral. This does not identify the axion with a GHU Higgs.
+
+\subsection*{A conditional parent obstruction}
+The linear functional \ensuremath{\ell}(x,y,z) = x + y + 2z annihilates both ordinary parent response columns. For the fixed inherited spectrum and ordinary integral Green--Schwarz sources, 6\ensuremath{\ell}(v) is 1 modulo 3 and cannot vanish. Other background or response families require their own analysis.
+
+\subsection*{Joint quadratic integrality}
+For all integer cocharacters (m,n), Q = b\ensuremath{{}_{0}}(m\ensuremath{-}n)\ensuremath{{}^{2}}/4 + b\ensuremath{{}_{1}}(m+n)\ensuremath{{}^{2}}/8 is integral exactly when b\ensuremath{{}_{0}} is integral and b\ensuremath{{}_{1}} + 2b\ensuremath{{}_{0}} is a multiple of 8. Separate summands need not be integral. The certificate proves this arithmetic criterion, not the existence of an anomaly-free supergravity spectrum.
+
+\subsection*{Reading the exact figures}
+The lattice holds \ensuremath{\beta} fixed: diamonds pass both criteria and rings pass only the spin-period criterion. In the cocharacter grid, each cell prints Q modulo 1; a nonzero fraction witnesses failure. Both figures use the current exact inputs. The finite grid illustrates the universal theorem rather than proving it.
+
+\subsection*{Representation versus group lift}
+An ordinary Z\ensuremath{{}_{2}} action lifted to Spin(20) needs an element whose square is +1. Here t\ensuremath{{}_{a}}\ensuremath{{}^{2}} = \ensuremath{-}1, while U\ensuremath{{}_{a}} = \ensuremath{-}i t\ensuremath{{}_{a}} has U\ensuremath{{}_{a}}\ensuremath{{}^{2}} = +1 because of an extra scalar phase. A combined or twisted action must be specified for all fields; the matrix alone does not establish it.
+
+\subsection*{Scope of a Lean certificate}
+Lean checks the exact theorem statements against their hypotheses. These four files contain 49 theorem declarations for weight algebra and arithmetic criteria. Numerical audits, the external topology, allowed orbifold backgrounds and full physical consistency remain distinct questions.
 
 \end{document}

@@ -1,0 +1,89 @@
+{
+  "schema": "ghu-quantization-video-v1",
+  "reports": [
+    {
+      "language": "en",
+      "chapters": 11,
+      "caption_cues": 43,
+      "duration_seconds": 304.25,
+      "frames": 7302,
+      "video_sha256": "7306c88b140300ebfdde3741599906a70afd1894474012007d23e64da9b503e3",
+      "full_decode_passed": true,
+      "captures": "Actual verified laboratory controls; see tools/quantization_video/captures/provenance.json",
+      "human_listening_review": false
+    },
+    {
+      "language": "es",
+      "chapters": 11,
+      "caption_cues": 46,
+      "duration_seconds": 296.0833333333333,
+      "frames": 7106,
+      "video_sha256": "824c08be85927c1fc8fba1918cdac894c476cdd0a53f1b0ce9306057c4c629c0",
+      "full_decode_passed": true,
+      "captures": "Actual verified laboratory controls; see tools/quantization_video/captures/provenance.json",
+      "human_listening_review": false
+    }
+  ],
+  "files": [
+    {
+      "path": "chapters-en.json",
+      "sha256": "3d2e05d56d04b35b499d0ec6f0bcda6c039ecd4065df3a4c105ab21704ea41ea",
+      "bytes": 5824
+    },
+    {
+      "path": "chapters-es.json",
+      "sha256": "7086819cb44b730c512183f2b15d4fa15bb65d9bdc3571afe185cfc72e3efbab",
+      "bytes": 6223
+    },
+    {
+      "path": "en.vtt",
+      "sha256": "2040e2b7d9052750b423394a55643667ac4c2f59cd3fa6f7a2ea7a3492d5b005",
+      "bytes": 5572
+    },
+    {
+      "path": "es.vtt",
+      "sha256": "8ef0e02f905c548ae77ffc09554449c8a448a5ce1e6543c02657a16aadd95f1b",
+      "bytes": 5963
+    },
+    {
+      "path": "ghu-quantization-en.mp4",
+      "sha256": "7306c88b140300ebfdde3741599906a70afd1894474012007d23e64da9b503e3",
+      "bytes": 5868755
+    },
+    {
+      "path": "ghu-quantization-es.mp4",
+      "sha256": "824c08be85927c1fc8fba1918cdac894c476cdd0a53f1b0ce9306057c4c629c0",
+      "bytes": 6091955
+    },
+    {
+      "path": "index-es.html",
+      "sha256": "84039df46285a173e7b19fa2b97294c3e0131c684ecfcc21fc17caf1f9f66aa3",
+      "bytes": 8859
+    },
+    {
+      "path": "index.html",
+      "sha256": "5fe34476a82cae784b60cb16369bfec4c5e4aec4013326df8180a2aae16e62f9",
+      "bytes": 8400
+    },
+    {
+      "path": "poster-en.png",
+      "sha256": "62bf452d9d0005df5f462b02099d72aac1330948cc2ac92a650643ab92d3bb9d",
+      "bytes": 253989
+    },
+    {
+      "path": "poster-es.png",
+      "sha256": "4a1c66b3a2e676df0b9ddf2ecd92c77f7d82e56a9c8bd77d88697e3818721dac",
+      "bytes": 266850
+    },
+    {
+      "path": "transcript-en.txt",
+      "sha256": "e5df27bb40dea1d6ccdb857ed4f9f7fef16e6ef9ee710aef98a6762a5368c366",
+      "bytes": 4570
+    },
+    {
+      "path": "transcript-es.txt",
+      "sha256": "e3ecfc55a5e6bfeb2ee77e90c3e614650c52f2e72ecfaed0e21a6eed3b426ab2",
+      "bytes": 4924
+    }
+  ]
+}

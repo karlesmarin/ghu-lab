@@ -1,0 +1,344 @@
+﻿{
+    "voice":  "Microsoft Helena Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "Ahora elige C partido por treinta y seis. La dirección del recubrimiento da un entero, uno. Pero el cocarácter del cociente mostrado da uno partido por treinta y seis. Comprobar una dirección cómoda del recubrimiento puede omitir un período prohibido. Lee el testigo junto al criterio. La aplicación usa fracciones exactas, sin tolerancia de coma flotante.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "Ahora",
+                      "start":  0,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  0.38,
+                      "text":  "elige",
+                      "start":  6,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  0.705,
+                      "text":  "C",
+                      "start":  12,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  0.85,
+                      "text":  "partido",
+                      "start":  14,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  1.29,
+                      "text":  "por",
+                      "start":  22,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  1.4549999999999998,
+                      "text":  "treinta",
+                      "start":  26,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  1.845,
+                      "text":  "y",
+                      "start":  34,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  1.9,
+                      "text":  "seis",
+                      "start":  36,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  3.15,
+                      "text":  "La",
+                      "start":  42,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  3.2849999999999997,
+                      "text":  "dirección",
+                      "start":  45,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  3.78,
+                      "text":  "del",
+                      "start":  55,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  3.915,
+                      "text":  "recubrimiento",
+                      "start":  59,
+                      "length":  13
+                  },
+                  {
+                      "seconds":  4.635,
+                      "text":  "da",
+                      "start":  73,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  4.76,
+                      "text":  "un",
+                      "start":  76,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  4.875,
+                      "text":  "entero",
+                      "start":  79,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  5.685,
+                      "text":  "uno",
+                      "start":  87,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  6.835,
+                      "text":  "Pero",
+                      "start":  92,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  7.0749999999999993,
+                      "text":  "el",
+                      "start":  97,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  7.165,
+                      "text":  "cocarácter",
+                      "start":  100,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  7.7399999999999993,
+                      "text":  "del",
+                      "start":  111,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  7.8999999999999995,
+                      "text":  "cociente",
+                      "start":  115,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  8.375,
+                      "text":  "mostrado",
+                      "start":  124,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  8.8349999999999991,
+                      "text":  "da",
+                      "start":  133,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  8.955,
+                      "text":  "uno",
+                      "start":  136,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  9.16,
+                      "text":  "partido",
+                      "start":  140,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  9.5949999999999989,
+                      "text":  "por",
+                      "start":  148,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  9.7649999999999988,
+                      "text":  "treinta",
+                      "start":  152,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  10.15,
+                      "text":  "y",
+                      "start":  160,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  10.205,
+                      "text":  "seis",
+                      "start":  162,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  11.45,
+                      "text":  "Comprobar",
+                      "start":  168,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  11.945,
+                      "text":  "una",
+                      "start":  178,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  12.12,
+                      "text":  "dirección",
+                      "start":  182,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  12.6,
+                      "text":  "cómoda",
+                      "start":  192,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  12.969999999999999,
+                      "text":  "del",
+                      "start":  199,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  13.115,
+                      "text":  "recubrimiento",
+                      "start":  203,
+                      "length":  13
+                  },
+                  {
+                      "seconds":  13.83,
+                      "text":  "puede",
+                      "start":  217,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  14.084999999999999,
+                      "text":  "omitir",
+                      "start":  223,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  14.44,
+                      "text":  "un",
+                      "start":  230,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  14.565,
+                      "text":  "período",
+                      "start":  233,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  14.934999999999999,
+                      "text":  "prohibido",
+                      "start":  241,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  16.31,
+                      "text":  "Lee",
+                      "start":  252,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  16.54,
+                      "text":  "el",
+                      "start":  256,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  16.64,
+                      "text":  "testigo",
+                      "start":  259,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  17.055,
+                      "text":  "junto",
+                      "start":  267,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  17.38,
+                      "text":  "al",
+                      "start":  273,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  17.48,
+                      "text":  "criterio",
+                      "start":  276,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  18.869999999999997,
+                      "text":  "La",
+                      "start":  286,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  18.99,
+                      "text":  "aplicación",
+                      "start":  289,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  19.58,
+                      "text":  "usa",
+                      "start":  300,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  19.794999999999998,
+                      "text":  "fracciones",
+                      "start":  304,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  20.365,
+                      "text":  "exactas",
+                      "start":  315,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  21.355,
+                      "text":  "sin",
+                      "start":  324,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  21.57,
+                      "text":  "tolerancia",
+                      "start":  328,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  22.125,
+                      "text":  "de",
+                      "start":  339,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  22.224999999999998,
+                      "text":  "coma",
+                      "start":  342,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  22.485,
+                      "text":  "flotante",
+                      "start":  347,
+                      "length":  8
+                  }
+              ]
+}

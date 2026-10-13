@@ -1,9 +1,35 @@
+# Mathematical film production · current revision 13 October 2026
+
+The current film has 38 chapters per language and uses the original `full/whiteboard_core.py` primitives, palette, grid, formula reveal, 24 fps clock and System.Speech word-event captions. Inspect `quantization/scenes.py` and the pinned `quantization/inputs.json` for the new mathematical and experimental figures. The first 28 chapters are retained; the old closing scene is replaced before nine new chapters. Full original films remain archived.
+
+From the repository root, with the existing requirements installed:
+
+```text
+python tools/mathematics_video/quantization/prepare.py
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/mathematics_video/quantization/en/narrate.ps1
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/mathematics_video/quantization/es/narrate.ps1
+python tools/mathematics_video/quantization/render.py . --preview
+python tools/mathematics_video/quantization/render.py .
+python tools/mathematics_video/quantization/assemble.py
+node build/quantization_site.mjs
+```
+
+Set `GHU_FFMPEG` to the FFmpeg executable before assembly. The last command checks the completed `site/` build. Intermediates and early/middle/late previews are under `.tmp/mathematics-20261013/`; source audio, word timestamps and bilingual storyboards are retained under `quantization/`. The scene cache hashes its drawing code, original primitives, chart data, narration and audio. Assembly performs full decoding and exact frame-count checks and writes a source/media manifest. Font or voice changes may change rendered bytes. Review assumptions and listen to the audio separately; automated checks do not claim human listening.
+
+Current version: `media/video/2026-10-13-mathematics-quantization/`. [Current guide](../../docs/mathematics-video.md).
+
+---
+
+## Historical 12 October production instructions
+
+The material below documents the original 29-chapter edition, retained in `media/video/2026-10-12-mathematics/`. Its player is now under `video/mathematics/2026-10-12/`.
+
 # Animated mathematics video production
 
 | Language | Full film | Direct download | Chapters | Synthetic narration |
 |---|---|---|---|---|
-| English | [11:34 · player](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-en.mp4) | 29 | Microsoft Zira |
-| Castellano | [11:55 · reproductor](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-es.mp4) | 29 | Microsoft Helena (España) |
+| English | [11:34 · player](https://karlesmarin.github.io/ghu-explorer/video/mathematics/2026-10-12/index.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/2026-10-12/ghu-mathematics-en.mp4) | 29 | Microsoft Zira |
+| Castellano | [11:55 · reproductor](https://karlesmarin.github.io/ghu-explorer/video/mathematics/2026-10-12/index-es.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/2026-10-12/ghu-mathematics-es.mp4) | 29 | Microsoft Helena (España) |
 
 [Video guide](../../docs/mathematics-video.md) · [Mathematical certificates](../../proof/boundary-research/README.md)
 

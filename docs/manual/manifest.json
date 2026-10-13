@@ -2,26 +2,26 @@
   "generator": "build/guide_manual.py",
   "languages": {
     "en": {
-      "pdfSHA256": "3e538092d29bbbbc837fde41ea7e79c1fe438443175382dd2fa3af58b3fdff21",
-      "texSHA256": "4eef69e582ee57e3793c037cb44b87f392ce91836e037601304e12cd5470b4b8",
-      "guides": 44,
-      "glossaryTerms": 59,
+      "pdfSHA256": "ae52cf64d557cfd036c5436aa72bf8473ea2e0a5a69bf890d69694c347742984",
+      "texSHA256": "cf8360edbc1daec1bf41b50b249bb7b096ed2e3aae8f68431afb1a75e00af962",
+      "guides": 45,
+      "glossaryTerms": 67,
       "missingGlyphs": 0,
       "overfullBoxes": 0
     },
     "es": {
-      "pdfSHA256": "6938354d1b9107d3abbe007d14c9251c2718fd102c9977fb5384bd4129f807e2",
-      "texSHA256": "8b3be0e006aa8a94a90eadadb1bf42ea0e9dc480ab64347df8da06bf744ef5da",
-      "guides": 44,
-      "glossaryTerms": 59,
+      "pdfSHA256": "cb73af5423cd7a38bb04c573f3ff20b381ce2bfeb0b3fc756fd59797688bf2f5",
+      "texSHA256": "a0ac9d3b2ad257682e8df72c2b5421d3658a4a8ac09c96c1344c49e87ec539cc",
+      "guides": 45,
+      "glossaryTerms": 67,
       "missingGlyphs": 0,
       "overfullBoxes": 0
     }
   },
   "babelSpanishOptions": "spanish,es-noshorthands,es-nodecimaldot,es-tabla",
   "inputs": {
-    "docs/user-guides.json": "a540e92409536446148a5011387a4eb0d09b9f8bc9602b3ea1fad91c8d017aeb",
-    "docs/user-guides.es.json": "df2990ad73f51caea91c4d6b9d3c91f7dcf21ed55ad80aebb69785524ae812d6",
-    "build/guide_manual.py": "10d0c601d43f1ff1efc3cb62dd330bf16325c55d8b659a1caba2c0285c1f4ad7"
+    "docs/user-guides.json": "36f40789d543992a1d46291890f0ae67e4ef728b933dd62e6f2c26b8139d48e1",
+    "docs/user-guides.es.json": "5eb222c7fa8088a248786b9b30be98efa4af1d65393ff3b0bf070b66db95d0c7",
+    "build/guide_manual.py": "cf3c3980652326af5f57c013d530c11967b0afd8d6b6eda713beeee12ff156d8"
   }
 }

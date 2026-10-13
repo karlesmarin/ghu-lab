@@ -136,5 +136,6 @@ export function brxModel(input={}){
     assumptions:['Separate diagnostics, not a joint GHU fit.','Robin spectrum: flat metric, uniform coupling and orientations, common tangent gauge connection, no extra boundary kinetic terms; L5=L6=pi R and periodic transverse branch.',
       'Wilson theta is imposed; no potential minimum or experimental mass scale is determined.','Profile example: unit rectangle and three exponential solutions from a restricted ansatz; no full-domain or compactification claim.',
       'Spin20: positive half-spin weights, integer Cartan probe, product-of-sign insertion; no projector, cover, consistent-descent or inflow coefficients.'],
+    liftAudit:{rawSquare:-1,representationSquare:1,phase:'Ua=-i ta',ordinaryEquivariantLift:'not_established',extendedAction:'not_checked'},
     unknown:['Normalized local anomaly distribution and 7D mirror parity anomaly','Global group quotients, charge lattice and inflow','Full tensor/axion spectrum, Higgs vacuum, flavour and neutrino masses'],sources:BRX_SOURCES};
 }

@@ -446,7 +446,39 @@ const HIERARCHY_SECTION = {
     const w = HIER_SWEEP, $ = (id) => document.getElementById(id);
     const pc = (x) => (100 * x).toFixed(x < 0.01 ? 4 : 2) + " %";
     $("hSweep").className = "verdict " + (w.control.trustworthy ? "breaks" : "stable");
-    $("hSweep").innerHTML = !w.control.trustworthy
+    // This calculation runs only on demand, after the guided demo has ended.
+    // Translate the complete result from structured values: content labels vary
+    // between seeds and cannot be used as exact-match translation keys.
+    if (GUIDE_LANGUAGE === "es") {
+      $("hSweep").innerHTML = !w.control.trustworthy
+        ? `<b style="color:var(--rust)">El cálculo no ha superado sus propios controles</b><span>` +
+          `La factorización difiere de F en ${w.control.factoring.toExponential(1)}, o el mínimo ` +
+          `acotado discrepa del obtenido sin acotar en ${pc(w.control.worstDisagreement)}. ` +
+          `No se presentan resultados de una ejecución que no supera su propio control.</span>`
+        : `<b>${w.tested} contenidos con un vacío · error máximo ${pc(w.worstInRegime)} en el ` +
+          `régimen de su tabla, ${pc(w.worst)} en todo el intervalo</b><span>` +
+          `De los <b>${w.contents}</b> contenidos de hasta ${w.maxN} multipletes, ${w.noVacuum} ` +
+          `tienen D ≤ 0, ${w.noSolution} no dan una solución de α pequeña al punto fijo, ` +
+          `${w.notMinimum} alcanzan un punto estacionario que no es un mínimo y ${w.atEdge} ` +
+          `no tienen ningún mínimo interior: se cuentan todos, sin descartar ninguno. En los ` +
+          `<b>${w.tested}</b> restantes, el error de la forma cerrada no supera ` +
+          `<b>${pc(w.worstInRegime)}</b> para α ≤ ${w.regimeAlphaMax.toFixed(4)}: el mayor α ` +
+          `que <em>este motor</em> asigna a sus cinco filas. El máximo publicado es ` +
+          `${w.publishedAlphaMax.toFixed(3)}, y delimitamos el régimen en nuestro eje porque ` +
+          `es donde se evalúa la forma cerrada. El error no supera <b>${pc(w.worst)}</b> hasta ` +
+          `α = ${w.worstAt.alpha.toFixed(3)}; mediana <b>${pc(w.median)}</b>. ` +
+          `<b>${w.notGlobal}</b> casos plantean una cuestión distinta: la rama de α pequeña ` +
+          `es un mínimo real, pero <em>no</em> el punto más profundo de F. El peor caso es ` +
+          `${w.notGlobalAt.content}, donde la rama está en ${w.notGlobalAt.branch.toFixed(4)} ` +
+          `y F es menor en ${w.notGlobalAt.deepest.toFixed(4)}. Esto no es una barra de error, ` +
+          `sino una afirmación sobre el modelo que esta herramienta no resuelve.<br><br>` +
+          `<b>Este recuento no es el de los 272 contenidos del artículo.</b> Aquellos son ` +
+          `contenidos sintéticos que abarcan doce valores de D; aquí se enumeran todos los ` +
+          `contenidos de hasta ${w.maxN} multipletes. La proximidad de ambas cifras es una ` +
+          `coincidencia del recuento. Dentro de su intervalo de α, las medianas concuerdan: ` +
+          `<b>${pc(w.medianInRegime)}</b> aquí frente al 0.13 % citado. Toda la diferencia ` +
+          `en la mediana global procede de contenidos que su conjunto no incluía.</span>`;
+    } else $("hSweep").innerHTML = !w.control.trustworthy
       ? `<b style="color:var(--rust)">The check did not earn its own numbers</b><span>The factoring ` +
         `differs from F by ${w.control.factoring.toExponential(1)}, or the bracketed minimum ` +
         `disagrees with an unbracketed one by ${pc(w.control.worstDisagreement)}. Nothing is ` +
@@ -472,7 +504,13 @@ const HIERARCHY_SECTION = {
         `close is a coincidence of counting. Inside their α range the medians agree — ` +
         `<b>${pc(w.medianInRegime)}</b> here against the 0.13 % quoted — and the whole of the ` +
         `difference in the overall median is contents their set never reached.</span>`;
-    $("hSweepNote").innerHTML =
+    $("hSweepNote").innerHTML = GUIDE_LANGUAGE === "es"
+      ? `Con la semilla gauge ${w.seed === "candidate" ? "candidata" : "publicada"}. ` +
+        `Seis componentes básicos, ${w.windings} números de vueltas, una malla de ${w.grid}. ` +
+        `Factorización exacta hasta ${w.control.factoring.toExponential(0)}; se volvieron a ` +
+        `minimizar ${w.control.n} contenidos sin acotar el intervalo, con una discrepancia de ` +
+        `${w.control.worstDisagreement.toExponential(1)}.`
+      :
       `On the ${w.seed === "candidate" ? "candidate" : "printed"} gauge seed. ` +
       `Six atoms, ${w.windings} windings, one grid of ${w.grid}. Factoring exact to ` +
       `${w.control.factoring.toExponential(0)}; ${w.control.n} contents re-minimised with no ` +

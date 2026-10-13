@@ -1,0 +1,374 @@
+﻿{
+    "voice":  "Microsoft Zira Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "For the Spin twenty audit, the degree eighteen Clifford element squares to minus one. Multiplication by minus i makes the representation matrix square to plus one. This distinction matters for an ordinary isotropy lift. It does not prove the model inconsistent: a twisted or combined action may be possible. Every field and interaction, including bosonic Omega, must share a specified action.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "For",
+                      "start":  0,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  0.32,
+                      "text":  "the",
+                      "start":  4,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  0.39999999999999997,
+                      "text":  "Spin",
+                      "start":  8,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  0.705,
+                      "text":  "twenty",
+                      "start":  13,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  1.1099999999999999,
+                      "text":  "audit",
+                      "start":  20,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  1.8499999999999999,
+                      "text":  "the",
+                      "start":  27,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  1.95,
+                      "text":  "degree",
+                      "start":  31,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  2.275,
+                      "text":  "eighteen",
+                      "start":  38,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  2.67,
+                      "text":  "Clifford",
+                      "start":  47,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  3.0999999999999996,
+                      "text":  "element",
+                      "start":  56,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  3.48,
+                      "text":  "squares",
+                      "start":  64,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  3.9349999999999996,
+                      "text":  "to",
+                      "start":  72,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  4.045,
+                      "text":  "minus",
+                      "start":  75,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  4.435,
+                      "text":  "one",
+                      "start":  81,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  5.6049999999999995,
+                      "text":  "Multiplication",
+                      "start":  86,
+                      "length":  14
+                  },
+                  {
+                      "seconds":  6.51,
+                      "text":  "by",
+                      "start":  101,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  6.675,
+                      "text":  "minus",
+                      "start":  104,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  7.085,
+                      "text":  "i",
+                      "start":  110,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  7.1899999999999995,
+                      "text":  "makes",
+                      "start":  112,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  7.5,
+                      "text":  "the",
+                      "start":  118,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  7.63,
+                      "text":  "representation",
+                      "start":  122,
+                      "length":  14
+                  },
+                  {
+                      "seconds":  8.5,
+                      "text":  "matrix",
+                      "start":  137,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  8.98,
+                      "text":  "square",
+                      "start":  144,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  9.305,
+                      "text":  "to",
+                      "start":  151,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  9.42,
+                      "text":  "plus",
+                      "start":  154,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  9.77,
+                      "text":  "one",
+                      "start":  159,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  10.94,
+                      "text":  "This",
+                      "start":  164,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  11.15,
+                      "text":  "distinction",
+                      "start":  169,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  11.75,
+                      "text":  "matters",
+                      "start":  181,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  12.125,
+                      "text":  "for",
+                      "start":  189,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  12.305,
+                      "text":  "an",
+                      "start":  193,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  12.43,
+                      "text":  "ordinary",
+                      "start":  196,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  12.924999999999999,
+                      "text":  "isotropy",
+                      "start":  205,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  13.645,
+                      "text":  "lift",
+                      "start":  214,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  14.895,
+                      "text":  "It",
+                      "start":  220,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  15.01,
+                      "text":  "does",
+                      "start":  223,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  15.25,
+                      "text":  "not",
+                      "start":  228,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  15.495,
+                      "text":  "prove",
+                      "start":  232,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  15.774999999999999,
+                      "text":  "the",
+                      "start":  238,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  15.87,
+                      "text":  "model",
+                      "start":  242,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  16.255,
+                      "text":  "inconsistent",
+                      "start":  248,
+                      "length":  12
+                  },
+                  {
+                      "seconds":  17.47,
+                      "text":  "a",
+                      "start":  262,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  17.544999999999998,
+                      "text":  "twisted",
+                      "start":  264,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  17.97,
+                      "text":  "or",
+                      "start":  272,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  18.099999999999998,
+                      "text":  "combined",
+                      "start":  275,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  18.57,
+                      "text":  "action",
+                      "start":  284,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  18.935,
+                      "text":  "may",
+                      "start":  291,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  19.09,
+                      "text":  "be",
+                      "start":  295,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  19.23,
+                      "text":  "possible",
+                      "start":  298,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  20.7,
+                      "text":  "Every",
+                      "start":  308,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  20.959999999999997,
+                      "text":  "field",
+                      "start":  314,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  21.305,
+                      "text":  "and",
+                      "start":  320,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  21.435,
+                      "text":  "interaction",
+                      "start":  324,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  22.57,
+                      "text":  "including",
+                      "start":  337,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  23.11,
+                      "text":  "bosonic",
+                      "start":  347,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  23.66,
+                      "text":  "Omega",
+                      "start":  355,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  24.555,
+                      "text":  "must",
+                      "start":  362,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  24.82,
+                      "text":  "share",
+                      "start":  367,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  25.11,
+                      "text":  "a",
+                      "start":  373,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  25.154999999999998,
+                      "text":  "specified",
+                      "start":  375,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  25.86,
+                      "text":  "action",
+                      "start":  385,
+                      "length":  6
+                  }
+              ]
+}

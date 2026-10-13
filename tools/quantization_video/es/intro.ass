@@ -1,0 +1,13 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Segoe UI,38,&H00FFFFFF,&H00FFFFFF,&H00172E3C,&H00172E3C,0,0,0,0,100,100,0,0,1,1,0,2,65,65,75,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.50,0:00:07.16,Default,,0,0,0,,Abre Cuantización y certificados en la nueva opción de investigación. Son diagnósticos independientes, con
+Dialogue: 0,0:00:07.16,0:00:14.28,Default,,0,0,0,,entradas racionales exactas e hipótesis separadas. La demo guiada cambia los controles reales. Cumplir un
+Dialogue: 0,0:00:14.28,0:00:20.56,Default,,0,0,0,,criterio aritmético es un ingrediente de consistencia. No certifica un modelo completo de unificación gauge
+Dialogue: 0,0:00:20.56,0:00:22.50,Default,,0,0,0,,Higgs.

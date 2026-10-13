@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "count": 8,
+  "checks": [
+    {
+      "name": "Weyl invariant quadratic space has dimension three",
+      "passed": true
+    },
+    {
+      "name": "A B and Y squared span precisely that invariant space",
+      "passed": true
+    },
+    {
+      "name": "Three cocharacters detect all integral coefficients",
+      "passed": true
+    },
+    {
+      "name": "Traceless expression becomes a joint integral-basis expression",
+      "passed": true
+    },
+    {
+      "name": "Fractional factor contributions admit the genuine class A+B",
+      "passed": true
+    },
+    {
+      "name": "Parent image has exactly one linear obstruction",
+      "passed": true
+    },
+    {
+      "name": "Arbitrary integral tensor pairings retain a thirds obstruction",
+      "passed": true
+    },
+    {
+      "name": "Formal fractional pairing would solve only by violating the integer assumption",
+      "passed": true
+    }
+  ],
+  "scope": "Exact invariant-space and conditional obstruction calculations; not an orbifold classification"
+}

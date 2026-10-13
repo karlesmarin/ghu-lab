@@ -1,0 +1,13 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Segoe UI,38,&H00FFFFFF,&H00FFFFFF,&H00172E3C,&H00172E3C,0,0,0,0,100,100,0,0,1,1,0,2,65,65,75,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.50,0:00:06.94,Default,,0,0,0,,The diamonds are universal integral classes. The rings between them pass only the closed spin four period
+Dialogue: 0,0:00:06.94,0:00:14.89,Default,,0,0,0,,test. The cross marks the current alpha and delta, at fixed beta. Select a lattice point in the application
+Dialogue: 0,0:00:14.89,0:00:23.08,Default,,0,0,0,,and the input gamma changes exactly. These are mathematical criteria, not experimental measurements. Outside
+Dialogue: 0,0:00:23.08,0:00:30.38,Default,,0,0,0,,the displayed window, the interface reports the exact coordinates instead of clipping a point to the border.

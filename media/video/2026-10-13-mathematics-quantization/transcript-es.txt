@@ -1,0 +1,113 @@
+00:00:00.000 — Espectros de frontera / ¿Puede una frontera cambiar una masa?
+Observa el perfil azul. Al cambiar una sola frontera, el perfil se curva y aumenta su autovalor más bajo. ¿Por qué? Vamos a construir la explicación y después comprobaremos el mismo efecto en el laboratorio.
+
+00:00:15.542 — Espectros de frontera / Empezamos con un perfil plano
+La coordenada horizontal indica la posición a lo largo de una dimensión extra. La vertical representa la amplitud del campo, no la trayectoria de una partícula. Si exigimos pendiente nula en ambos extremos, se permite un perfil constante. Su curvatura y el autovalor del problema normal son cero.
+
+00:00:36.042 — Espectros de frontera / Cambiamos la condición del extremo derecho
+Activamos ahora el acoplamiento de frontera, llamado a. En el extremo derecho, la pendiente más a por la amplitud debe ser cero. Nuestra constante no nula tiene pendiente cero, pero amplitud distinta de cero. Observa cómo el residuo se vuelve rojo. Este perfil ya no satisface la condición de contorno.
+
+00:00:56.875 — Espectros de frontera / Buscamos un perfil que cumpla la condición
+Mantenemos pendiente cero en el extremo izquierdo. La ecuación en el interior proporciona entonces un perfil cosenoidal. Cambia su frecuencia, equis, y observa el extremo derecho. La mayoría de las frecuencias no cumplen la condición. Solo se admite aquella que equilibra la pendiente con el término de frontera.
+
+00:01:18.417 — Espectros de frontera / La cancelación en el extremo
+Para un coseno, la pendiente en el extremo es menos equis por seno de equis. El término de frontera es a por coseno de equis. Con acoplamiento uno, ambas contribuciones se cancelan. Al reorganizar, obtenemos equis por tangente de equis igual a a. Esta ecuación procede directamente del equilibrio en el extremo.
+
+00:01:39.583 — Espectros de frontera / Del perfil permitido a la brecha espectral
+Aumentamos el acoplamiento. El perfil permitido se curva más y la primera raíz crece. La gráfica pequeña sigue ese mismo cálculo. Si la longitud del intervalo es pi por erre, la masa normal adimensional es equis dividido por pi. Se aproxima a un medio cuando el acoplamiento aumenta.
+
+00:01:59.708 — Espectros de frontera / Comprobamos la predicción en GHU Lab
+Ahora vemos el laboratorio real. Cambiamos la intensidad de frontera de cero a cuatro. Observa cómo la rama emparejada se eleva sobre la no emparejada. Con ángulo de Wilson cero, la ordenada es precisamente la brecha normal que acabamos de deducir. El control resaltado y el resultado de la gráfica cambian juntos.
+
+00:02:21.208 — Espectros de frontera / El porqué, en tres pasos
+La condición de frontera ha cambiado. El perfil constante deja de ser admisible. El modo permitido más bajo tiene ahora un autovalor positivo. Ese es el mecanismo de esta brecha, dentro del problema de intervalo que hemos definido. El laboratorio calcula el efecto; el argumento de frontera explica por qué ocurre.
+
+00:02:42.875 — Perfiles / Dos componentes y tres funciones
+Hemos visto cómo una frontera selecciona un perfil. Ahora hacemos otra pregunta: ¿cuántos perfiles son independientes? Empecemos con tres funciones sencillas de dos componentes. La primera ocupa la componente superior, la segunda la inferior y la tercera cambia con la posición. Observa cómo se dibujan sus curvas.
+
+00:03:05.042 — Perfiles / Una cancelación puntual no basta
+Restamos la mitad del primer perfil al tercero. Sus componentes superiores se cancelan en el punto medio. Pero, al alejarnos de ese punto, reaparece el residuo. Para que haya dependencia, un mismo conjunto de coeficientes debe anular toda la función, en cada posición. Cancelar en un punto no basta.
+
+00:03:27.500 — Perfiles / Construimos la matriz de Gram
+La matriz de Gram recoge el producto interno de cada par de perfiles, integrado sobre el intervalo. Observa cómo aparecen sus entradas. El primer perfil y el tercero se solapan: su entrada es un medio. Eso no los hace dependientes. El determinante vale un doceavo, así que la matriz es invertible y las tres funciones son independientes.
+
+00:03:51.208 — Perfiles / Una forma cuadrática se convierte en área
+Usamos los mismos coeficientes de antes. El perfil combinado es u menos un medio. Elevamos al cuadrado su amplitud e integramos: el área sombreada es un doceavo, y no cero. Eso es exactamente ce adjunto por ge por ce. En general, equivale a la norma al cuadrado del perfil combinado. Por tanto, una dirección del núcleo de ge corresponde precisamente a una relación de dependencia.
+
+00:04:18.542 — Perfiles / Volvemos a los perfiles exponenciales
+Volvamos a los tres perfiles exponenciales del laboratorio. Cada uno tiene dos componentes complejas y depende de dos coordenadas. La superficie representa la primera componente del perfil intermedio. Con parámetro de masa cero es plana. Al aumentar eme, adquiere pendiente en la dirección zeta. Esa nueva dependencia espacial es la clave.
+
+00:04:42.458 — Perfiles / Derivamos para demostrar independencia
+Supongamos que una combinación lineal fija de estos tres perfiles se anula. Derivamos respecto de zeta. Solo cambia el perfil intermedio, de modo que, si eme no es cero, su coeficiente be debe anularse. Las dos direcciones espinoriales restantes obligan entonces a que a y ce sean cero. Cuando eme es cero, ese argumento con la derivada desaparece y los tres perfiles constantes generan solo dos direcciones.
+
+00:05:09.833 — Perfiles / Observamos los autovalores del laboratorio
+Cambiamos la masa del perfil de cero a uno en el laboratorio. En cero, un autovalor de Gram es numéricamente nulo. En uno, los tres son positivos. Su tamaño depende de la normalización y el rango numérico utiliza una tolerancia. El certificado independiente con intervalos racionales también demuestra positividad definida en eme igual a uno, con el menor autovalor superior a cero coma uno uno cero cinco.
+
+00:05:36.833 — Perfiles / Tres ejemplos no fijan tres familias
+Esta conclusión tiene un límite importante. Tasas exponenciales distintas pueden producir cuatro funciones independientes, o cualquier número finito. Sobre una recta adecuada, la independencia se deduce de un determinante de Vandermonde. Para las cuatro tasas mostradas vale setenta y dos. Contar familias físicas requiere el dominio real del operador y sus condiciones de contorno, además de los perfiles elegidos.
+
+00:06:04.542 — Trazas / Construimos una representación con signos
+Ahora la teoría de representaciones se convierte en una suma finita exacta. En la representación semiespinorial positiva de Spin veinte, cada peso es una lista de diez signos dividida por dos. El producto de los signos debe ser positivo. Elegimos nueve libremente y el décimo queda fijado. Observa cómo se llena la cuadrícula: dos elevado a nueve da quinientos doce pesos.
+
+00:06:29.667 — Trazas / Los pesos contribuyen a una traza
+Cada peso aporta un número, cu, obtenido mediante su producto escalar con el vector de prueba de Cartan. En este ejemplo, la inserción es el producto de los dos primeros signos. Sumamos la inserción multiplicada por cu al cuadrado. Fijamos las dos primeras coordenadas del vector en uno y dos, y las demás en cero. Cuatro grupos del mismo tamaño suman quinientos doce.
+
+00:06:55.292 — Trazas / Comprobamos todos los coeficientes
+Expandimos el producto escalar al cuadrado antes de elegir un vector de prueba. Hay cincuenta y cinco monomios cuadráticos en diez variables. El verificador suma cada coeficiente con aritmética racional exacta. Observa las cancelaciones: solo sobrevive el término cruzado hache uno por hache dos, con coeficiente doscientos cincuenta y seis. Hemos comprobado todo el polinomio cuadrático.
+
+00:07:21.042 — Trazas / Un cero puede ocultar un polinomio no nulo
+Movemos ahora el vector de prueba sobre ese polinomio. En cualquiera de los ejes, el valor es cero. Al llegar al punto uno, dos, vale quinientos doce. El mapa de calor permite ver la diferencia: una evaluación nula no demuestra una identidad. En cambio, un valor no nulo refuta que el polinomio sea idénticamente cero.
+
+00:07:44.250 — Trazas / Cambiamos la inserción en el laboratorio
+El laboratorio mantiene fijo el vector de Cartan de diez componentes mientras cambiamos la inserción. Observa la tabla de trazas exactas. Para la primera inserción, el momento cuadrático vale quinientos doce, de acuerdo con nuestra identidad. Otras inserciones producen momentos distintos. Son trazas de la representación sin factores físicos adicionales, previas a la normalización y al flujo de anomalías necesarios para obtener coeficientes físicos.
+
+00:08:14.000 — Trazas / Hasta dónde llega el cálculo
+La suma finita de pesos responde a una pregunta algebraica precisa. Para convertirla en un cálculo de anomalías hacen falta los proyectores adecuados, la normalización y el descenso, además de las contribuciones de otros sectores. También importan los datos globales de carga y el flujo de anomalías. El marcador se detiene en lo que realmente hemos calculado. Un certificado de trazas no certifica toda la teoría cuántica.
+
+00:08:41.542 — Consistencia / Contamos dobletes en un reloj de residuos
+El último ejemplo es una condición restringida de consistencia en seis dimensiones. Ene cuenta el exceso con signo de dobletes complejos de Weyl. En el marco indicado, una teoría autónoma con ese u dos y sector tensorial, ene debe ser divisible por seis. Con asignaciones idénticas por familia, los tres colores de quarks y un leptón de quiralidad opuesta aportan tres menos uno: dos por familia. Cada familia hace avanzar dos unidades el reloj de residuos.
+
+00:09:11.958 — Consistencia / Múltiplos de tres, sin fijar exactamente tres
+Tras tres familias de ese tipo, el reloj vuelve a cero. Seis y nueve familias también superan esta condición. Si la quiralidad del leptón coincide con la de los quarks, cada familia idéntica aporta cuatro; de nuevo, los múltiplos de tres vuelven a cero. La congruencia restringe las posibilidades, pero no selecciona de forma única tres generaciones.
+
+00:09:35.958 — Consistencia / Una hipótesis cambia la conclusión
+Permitamos ahora dos familias con asignaciones distintas de quiralidad. La primera aporta dos y la segunda cuatro. Juntas suman seis, así que superan esta prueba de residuos con dos familias. Es un contraejemplo a eliminar la hipótesis de asignaciones idénticas. No constituye un modelo físico completo y consistente de dos familias.
+
+00:09:58.875 — Consistencia / Seis y doce pueden expresar la misma prueba
+Si contamos dobletes complejos, el módulo es seis. Si contamos en unidades de medio doblete, duplicamos ene y usamos módulo doce. Observa ambos relojes: superan la condición a la vez. Cambian las unidades, pero no la condición. El argumento físico también exige cuantización integral del sector tensorial; factorizar el polinomio de anomalías no proporciona por sí solo toda esa información global.
+
+00:10:27.250 — Consistencia / Probamos las familias en el laboratorio
+Cambiamos el número de familias en el laboratorio y mantenemos la quiralidad del leptón opuesta a la de los quarks. Una y dos no cumplen esta condición restringida; tres sí. Cuatro y cinco no la cumplen; seis vuelve a cumplirla. El residuo mostrado explica cada cambio. Conservemos las hipótesis de asignaciones idénticas y de teoría autónoma al interpretar este resultado.
+
+00:10:52.375 — Evidencia / Cuatro preguntas y cuatro evidencias
+Hemos seguido cuatro preguntas distintas. Las condiciones de contorno seleccionaron un espectro. Los productos internos integrados comprobaron independencia de funciones. Las sumas de pesos determinaron un polinomio. Una condición de residuos restringió asignaciones idénticas. Cada cálculo tiene una razón, unos datos y unos límites. Superar estos diagnósticos separados no determina por sí solo un vacío de Higgs, las masas de neutrinos ni una construcción completa del Modelo Estándar.
+
+00:11:25.250 — Evidencia / Sigue el argumento. Reproduce el resultado.
+Los primeros cuatro ejemplos tienen demostraciones ordinarias y comprobaciones ejecutables. El nuevo módulo de cuantización añade otra evidencia: veintitrés declaraciones de teoremas Lean, junto a las veintiséis anteriores de S U siete. Los siguientes capítulos explican cómo se conectan estos certificados con las hipótesis físicas. Una demostración verifica una implicación. Aplicarla a la naturaleza requiere además la correspondencia física adecuada.
+
+00:11:54.792 — Significado físico / Dónde se encuentran física y matemáticas
+Un objeto matemático adquiere significado físico mediante una identificación concreta. En el ejemplo del intervalo, un autovalor se convierte en una masa normal al cuadrado al fijar la longitud y la normalización cinética. Una matriz de Gram describe solapamientos; las familias físicas requieren además el dominio real de los campos. La cuantización sigue el mismo principio. Debemos fijar el grupo gauge, los fibrados permitidos y la acción antes de interpretar un certificado aritmético como restricción física.
+
+00:12:27.500 — Cuantización / Un campo periódico debe recuperar la misma fase
+Esta es una conexión concreta. En este ejemplo normalizado del axión, la acción topológica es theta por el período de Q. Desplazar theta en dos pi multiplica la fase cuántica por la exponencial de dos pi i por ese período. Un período entero recupera la misma fase. Un semientero da un signo menos. El diagrama ilustra esta condición de consistencia. No es una medida experimental ni una construcción completa de la acción.
+
+00:12:55.292 — Cuantización / El grupo global relaciona los coeficientes
+El álgebra de Lie no fija por sí sola el grupo gauge global. Para H igual a S de U dos por U tres, la correspondencia de clases características combina tres coeficientes en alfa, beta y delta. La integralidad universal exige que esas tres combinaciones sean enteras. Fija alfa y beta en uno y gamma en siete doceavos. Delta vale cero: la clase total es A más B. Lean verifica el criterio aritmético; la interpretación mediante clases características se aporta por separado.
+
+00:13:26.417 — Fondos / Cambiar los fondos cambia el criterio
+Considera ahora Q igual a C partido por dos. Una prueba universal sobre el plano proyectivo detecta un período semientero. En una variedad espín cerrada suave de dimensión cuatro, el cuadrado de una clase integral de grado dos tiene período par, por la fórmula de Wu. Por eso se cumple el criterio espín indicado. Son preguntas distintas, no respuestas contradictorias. Lean comprueba la aritmética de coeficientes. La paridad de Wu y la elección de fondos admisibles del orbifold son pasos separados.
+
+00:14:00.000 — U(2) conjunto / Dos contribuciones fraccionarias, una clase integral
+En el ejemplo U dos hay que sumar las contribuciones de los dos factores. Con b cero igual a uno y b uno igual a seis, el cocarácter uno, cero da un cuarto más tres cuartos: exactamente uno. Para todo m y n enteros, la suma es m al cuadrado más m n más n al cuadrado. El certificado demuestra el criterio conjunto, incluidos coeficientes racionales. Esto establece una clase característica integral, no un espectro de supergravedad libre de anomalías con esos coeficientes.
+
+00:14:32.292 — Respuesta de frontera / Una combinación conservada detecta una obstrucción
+Una respuesta parental propuesta debe pertenecer a la imagen del mapa de transferencia permitido. El funcional ele anula las dos columnas mostradas, así que toda respuesta en esa imagen tiene ele igual a cero. Para la respuesta requerida, seis ele vale dieciséis menos tres p menos tres q menos seis r. Es uno módulo tres para todos los enteros. Esto descarta el emparejamiento dentro de esa familia de respuestas. Términos de esquina, otro espectro u otra construcción global exigirían un análisis nuevo.
+
+00:15:05.000 — Acción del grupo / Una involución en un campo no fija el levantamiento
+El elemento Clifford de grado dieciocho t a tiene cuadrado menos uno. Multiplicarlo por menos i produce U a, cuyo cuadrado es más uno en la representación. Ambas identidades son correctas, pero responden a preguntas diferentes. Una simetría física debe actuar coherentemente sobre todos los campos e interacciones, incluido el campo bosónico Omega. Puede ser posible una acción torcida o combinada. La auditoría exacta no demuestra inconsistencia y no es una formalización Lean.
+
+00:15:36.833 — Certificados en el laboratorio / Del teorema al control y a la figura exacta
+El módulo permite utilizar estos enunciados de alcance definido. Cada control cambia entradas racionales exactas. El criterio y su testigo determinan la retícula y el mapa de cocaracteres mostrados. Una figura finita ilustra el resultado; la prueba Lean aporta el enunciado aritmético universal. Cuatro archivos Lean contienen cuarenta y nueve declaraciones de teoremas en total. La descarga completa incluye los ochenta archivos de datos mantenidos. Los hashes, las comprobaciones numéricas y las pruebas formales certifican cosas diferentes.
+
+00:16:12.417 — Contraste experimental / Dónde entran los datos medidos
+Estos valores proceden de las búsquedas publicadas de ATLAS en pares top y de CMS en dijets que ya usa el laboratorio. Son límites superiores observados con hipótesis de resonancia diferentes, no tasas medidas de producción de nuevas partículas. Ninguna de esas búsquedas comunica una señal significativa de nuevas partículas. Para contrastar nuestros ejemplos de cuantización sigue faltando conectarlos físicamente con masas, acoplamientos, anchuras y tasas predichas, con sus incertidumbres. Los datos pueden respaldar esa realización física. No sustituyen su demostración matemática, y quedar bajo un límite no es un descubrimiento.

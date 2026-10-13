@@ -1,0 +1,8 @@
+'U2Certificate.positive_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'U2Certificate.positive_joint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'U2Certificate.positive_not_separate' depends on axioms: [propext, Quot.sound]
+'U2Certificate.corrected_criterion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'U2Certificate.separate_sufficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'U2Certificate.joint_does_not_imply_separate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'U2Certificate.rational_corrected_criterion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'U2Certificate.two_samples_suffice' depends on axioms: [propext, Classical.choice, Quot.sound]

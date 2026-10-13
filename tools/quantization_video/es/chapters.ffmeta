@@ -1,0 +1,56 @@
+;FFMETADATA1
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=22750
+title=Una pregunta sobre la estructura global
+[CHAPTER]
+TIMEBASE=1/1000
+START=22750
+END=49958
+title=Un polinomio, dos criterios
+[CHAPTER]
+TIMEBASE=1/1000
+START=49958
+END=78875
+title=Dos retículas exactas, una clase móvil
+[CHAPTER]
+TIMEBASE=1/1000
+START=78875
+END=104083
+title=Por qué no basta una prueba del recubrimiento
+[CHAPTER]
+TIMEBASE=1/1000
+START=104083
+END=125917
+title=Coeficientes correlacionados reconstruyen una clase integral
+[CHAPTER]
+TIMEBASE=1/1000
+START=125917
+END=151458
+title=Reproducción de un criterio publicado del axión
+[CHAPTER]
+TIMEBASE=1/1000
+START=151458
+END=179042
+title=Una obstrucción condicional a la transferencia parental
+[CHAPTER]
+TIMEBASE=1/1000
+START=179042
+END=205667
+title=Integralidad conjunta de U(2)
+[CHAPTER]
+TIMEBASE=1/1000
+START=205667
+END=235292
+title=Una huella calculada con períodos exactos
+[CHAPTER]
+TIMEBASE=1/1000
+START=235292
+END=264375
+title=Una matriz de representación no fija todo el levantamiento
+[CHAPTER]
+TIMEBASE=1/1000
+START=264375
+END=296083
+title=Qué se demuestra y cómo verificarlo

@@ -1,5 +1,14 @@
 # The site — what it is, page by page
 
+## Quantization and certificates · 13 October 2026 · v0.2.2
+
+The independent **Quantization & certificates** menu option compares exact universal and closed-spin-four periods, the published q=6 axion congruence, conditional parent transfer and joint U(2) arithmetic. It includes a bilingual guided Demo, JSON/LaTeX exports and worked examples. The Spin(20) lift clarification is also linked from Boundary research.
+
+The [complete proof catalogue](https://karlesmarin.github.io/ghu-explorer/proof/index.html) exposes all four Lean source files (49 theorem declarations), recorded checks, replay commands, hashes and a downloadable bundle. Arithmetic formalization is distinct from topology and physical consistency. Full anomaly cancellation remains unknown.
+
+[English walkthrough](https://karlesmarin.github.io/ghu-explorer/video/quantization/index.html) · [Vídeo en castellano](https://karlesmarin.github.io/ghu-explorer/video/quantization/index-es.html). This supplementary edition covers the new option; the earlier films retain their original scope. Current navigation has 30 sections and the bilingual catalogue has 45 guides; dated counts below describe earlier releases.
+
+
 The mathematical companion has two current pages: `video/mathematics/index.html` (English,
 11:34) and `video/mathematics/index-es.html` (Castellano, 11:55). Each has 29 animated chapters,
 a direct MP4, visible captions, a transcript, reciprocal language links and a canonical URL.

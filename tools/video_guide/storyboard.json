@@ -2,8 +2,8 @@
   "schema": "ghu-video-guide-v1",
   "language": "en",
   "voice": "Microsoft Zira Desktop",
-  "date": "2026-10-12",
-  "scope": "A real-interface walkthrough of all menu sections, three Simulator modes, ten research cards and integrated diagnostics. Representative controls are demonstrated; this is not an exhaustive tour of every numerical input combination. Includes certified SU(7) benchmarks, equal-moment counterexample, separated uncertainty budget, named LHC datasets, matched thermal solver diagnostics and the first KK gluon against ATLAS and CMS data, and the guided Demo buttons. Includes boundary research: linked 2D/3D mass views, Gram rank, inserted traces and a scoped 6D tensor condition.",
+  "date": "2026-10-13",
+  "scope": "A real-interface walkthrough of all menu sections, three Simulator modes, ten research cards and integrated diagnostics. Representative controls are demonstrated; this is not an exhaustive tour of every numerical input combination. Includes certified SU(7) benchmarks, equal-moment counterexample, separated uncertainty budget, named LHC datasets, matched thermal solver diagnostics and the first KK gluon against ATLAS and CMS data, and the guided Demo buttons. Includes boundary research: linked 2D/3D mass views, Gram rank, inserted traces and a scoped 6D tensor condition. Adds a final quantization chapter: exact figures, joint integrality, conditional responses and scoped certificates.",
   "recordingNotes": "Pointer highlights and chapter captions are tutorial annotations. Computation waits may be shortened; results come from the actual application. Built-in demonstrations may be held between steps for narration.",
   "chapters": [
     {
@@ -2683,6 +2683,169 @@
         }
       ],
       "number": 45
+    },
+    {
+      "id": "quantization",
+      "host": "quantization",
+      "title": "Quantization and certificates",
+      "titleES": "Cuantización y certificados",
+      "number": 46,
+      "setup": [],
+      "steps": [
+        {
+          "id": "46_quantization_01",
+          "text": "Open Quantization and certificates in the new research menu. These are independent diagnostics, with exact rational inputs and separate assumptions. The guided demo changes real controls. A passing arithmetic criterion is one ingredient of consistency. It does not certify a complete gauge Higgs model.",
+          "textES": "Abre Cuantización y certificados en la nueva opción de investigación. Son diagnósticos independientes, con entradas racionales exactas e hipótesis separadas. La demo guiada cambia los controles reales. Cumplir un criterio aritmético es un ingrediente de consistencia. No certifica un modelo completo de unificación gauge Higgs.",
+          "actions": [
+            {
+              "kind": "click",
+              "selector": "#gqReset"
+            }
+          ],
+          "focus": {
+            "selector": "#gqIntro",
+            "index": 0
+          },
+          "title": null
+        },
+        {
+          "id": "46_quantization_02",
+          "text": "Choose C over two. The universal class fails, while periods on closed spin four manifolds pass. This is not a contradiction. The tests use different backgrounds. The universal test detects a period of one half. On the stated spin backgrounds, the period of Y squared is even. That topological fact is external to the Lean arithmetic proof.",
+          "textES": "Elige C partido por dos. La clase universal no cumple, mientras que los períodos sobre variedades espín cerradas de dimensión cuatro sí cumplen. No es una contradicción. Las pruebas usan fondos distintos. La prueba universal detecta un período de un medio. En los fondos espín indicados, el período de Y al cuadrado es par. Ese hecho topológico es externo a la prueba aritmética Lean.",
+          "actions": [
+            {
+              "kind": "click",
+              "selector": "#gqPreset_spin"
+            }
+          ],
+          "focus": {
+            "selector": "#gqClass",
+            "index": 0
+          },
+          "title": null
+        },
+        {
+          "id": "46_quantization_03",
+          "text": "The diamonds are universal integral classes. The rings between them pass only the closed spin four period test. The cross marks the current alpha and delta, at fixed beta. Select a lattice point in the application and the input gamma changes exactly. These are mathematical criteria, not experimental measurements. Outside the displayed window, the interface reports the exact coordinates instead of clipping a point to the border.",
+          "textES": "Los rombos son clases integrales universales. Los anillos intermedios cumplen solo la prueba de períodos espín cerrados de dimensión cuatro. La cruz marca alfa y delta actuales, a beta constante. Selecciona un punto en la aplicación y gamma cambia de forma exacta. Son criterios matemáticos, no medidas experimentales. Fuera de la ventana, la interfaz indica las coordenadas exactas en lugar de pegar el punto al borde.",
+          "actions": [],
+          "focus": {
+            "selector": "#gqLatticeSvg",
+            "index": 0
+          },
+          "title": null
+        },
+        {
+          "id": "46_quantization_04",
+          "text": "Now choose C over thirty six. The covering direction gives an integer, one. But the displayed quotient cocharacter gives one over thirty six. Checking a convenient covering direction can miss a forbidden period. Read the witness together with the criterion. The application uses exact fractions, not a floating point tolerance.",
+          "textES": "Ahora elige C partido por treinta y seis. La dirección del recubrimiento da un entero, uno. Pero el cocarácter del cociente mostrado da uno partido por treinta y seis. Comprobar una dirección cómoda del recubrimiento puede omitir un período prohibido. Lee el testigo junto al criterio. La aplicación usa fracciones exactas, sin tolerancia de coma flotante.",
+          "actions": [
+            {
+              "kind": "click",
+              "selector": "#gqPreset_cover"
+            }
+          ],
+          "focus": {
+            "selector": "#gqClass",
+            "index": 0
+          },
+          "title": null
+        },
+        {
+          "id": "46_quantization_05",
+          "text": "Choose A plus B. Alpha and beta are one; gamma is seven twelfths. After changing to the integral basis, delta is zero. Both criteria pass. The fractional contributions have to be combined before judging the total class. The controls, the witness and the exported result all use the same calculation.",
+          "textES": "Elige A más B. Alfa y beta valen uno; gamma vale siete doceavos. Al cambiar a la base integral, delta es cero. Se cumplen ambos criterios. Las contribuciones fraccionarias deben combinarse antes de juzgar la clase total. Los controles, el testigo y el resultado exportado usan el mismo cálculo.",
+          "actions": [
+            {
+              "kind": "click",
+              "selector": "#gqPreset_joint"
+            }
+          ],
+          "focus": {
+            "selector": "#gqClass",
+            "index": 0
+          },
+          "title": null
+        },
+        {
+          "id": "46_quantization_06",
+          "text": "The axion panel uses the normalization of Choi and collaborators. The integer combination eighteen K two plus twenty four K three plus K one must be divisible by thirty six. The default zero, one, twelve satisfies it. This reproduces the published q equals six condition. Identifying this axion with the gauge Higgs field remains a separate, unresolved physical question.",
+          "textES": "El panel del axión usa la normalización de Choi y colaboradores. La combinación entera dieciocho K dos más veinticuatro K tres más K uno debe ser divisible por treinta y seis. El ejemplo cero, uno, doce la satisface. Reproduce el criterio publicado para q igual a seis. Identificar este axión con el campo Higgs gauge sigue siendo una cuestión física distinta y no resuelta.",
+          "actions": [],
+          "focus": {
+            "selector": "#gqAxion",
+            "index": 0
+          },
+          "title": null
+        },
+        {
+          "id": "46_quantization_07",
+          "text": "The parent map has two columns and a common annihilator. With the inherited spectrum and ordinary integral Green Schwarz sources, six times the annihilator is sixteen minus three p minus three q minus six r. For integer pairings it is one modulo three, so it cannot vanish. Lean proves that arithmetic for all integers. Allowed orbifold backgrounds and extra corner responses are not settled by this result.",
+          "textES": "El mapa parental tiene dos columnas y un anulador común. Con el espectro heredado y fuentes Green Schwarz integrales ordinarias, seis veces el anulador es dieciséis menos tres p menos tres q menos seis r. Para emparejamientos enteros vale uno módulo tres y no puede anularse. Lean demuestra esa aritmética para todos los enteros. Este resultado no resuelve los fondos admisibles del orbifold ni las respuestas adicionales de esquina.",
+          "actions": [],
+          "focus": {
+            "selector": "#gqTensor",
+            "index": 0
+          },
+          "title": null
+        },
+        {
+          "id": "46_quantization_08",
+          "text": "The U two example shows why joint integrality differs from separate factor requirements. With b zero equal to one and b one equal to six, the quadratic form is m squared plus m n plus n squared. It is integral for every integer pair. The formal criterion also covers rational coefficients with a common nonzero denominator. This example is not an anomaly free supergravity spectrum.",
+          "textES": "El ejemplo U dos muestra por qué la integralidad conjunta difiere de exigirla a cada factor separado. Con b cero igual a uno y b uno igual a seis, la forma cuadrática es m al cuadrado más m n más n al cuadrado. Es integral para toda pareja de enteros. El criterio formal también cubre coeficientes racionales con un denominador común no nulo. Este ejemplo no es un espectro de supergravedad libre de anomalías.",
+          "actions": [],
+          "focus": {
+            "selector": "#gqU2",
+            "index": 0
+          },
+          "title": null
+        },
+        {
+          "id": "46_quantization_09",
+          "text": "Change b one from six to five. Each cell is a cocharacter labelled by integers m and n. Its printed fraction and color are Q modulo one, calculated with exact integer arithmetic. The point one, zero now has period seven eighths: a concrete witness of failure. Returning b one to six makes every cell integral. The eighty one cells illustrate the criterion; the Lean theorem establishes it for all integer pairs.",
+          "textES": "Cambia b uno de seis a cinco. Cada celda es un cocarácter etiquetado por enteros m y n. Su fracción impresa y color son Q módulo uno, calculado con aritmética entera exacta. El punto uno, cero tiene ahora período siete octavos: un testigo concreto del fallo. Al volver a seis, todas las celdas son integrales. Las ochenta y una celdas ilustran el criterio; el teorema Lean lo establece para toda pareja entera.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#gq_b1",
+              "value": "5"
+            }
+          ],
+          "focus": {
+            "selector": "#gqCocharacterSvg",
+            "index": 0
+          },
+          "title": null
+        },
+        {
+          "id": "46_quantization_10",
+          "text": "For the Spin twenty audit, the degree eighteen Clifford element squares to minus one. Multiplication by minus i makes the representation matrix square to plus one. This distinction matters for an ordinary isotropy lift. It does not prove the model inconsistent: a twisted or combined action may be possible. Every field and interaction, including bosonic Omega, must share a specified action.",
+          "textES": "En la auditoría de Spin veinte, el elemento Clifford de grado dieciocho tiene cuadrado menos uno. Multiplicarlo por menos i hace que la matriz de representación tenga cuadrado más uno. La distinción importa para un levantamiento ordinario de isotropía. No demuestra inconsistencia del modelo: puede ser posible una acción torcida o combinada. Cada campo e interacción, incluido Omega bosónico, debe compartir una acción especificada.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#gq_b1",
+              "value": "6"
+            }
+          ],
+          "focus": {
+            "selector": "#gqLift",
+            "index": 0
+          },
+          "title": null
+        },
+        {
+          "id": "46_quantization_11",
+          "text": "The catalogue includes four Lean files with forty nine theorem declarations, the exact audit scripts, recorded checks and file hashes. All four files replay with Lean four point twenty seven. The older S U seven file was adapted from List bind to List flat Map, keeping its theorem statements. Download the evidence, verify its integrity and run the listed commands. Full anomaly cancellation and scientific novelty remain open.",
+          "textES": "El catálogo contiene cuatro archivos Lean con cuarenta y nueve declaraciones de teoremas, scripts exactos, comprobaciones registradas y hashes. Los cuatro archivos se verifican con Lean cuatro punto veintisiete. El archivo antiguo de S U siete se adaptó de List bind a List flat Map, conservando sus enunciados. Descarga la evidencia, comprueba su integridad y ejecuta los comandos indicados. La cancelación completa de anomalías y la novedad científica siguen abiertas.",
+          "actions": [],
+          "focus": {
+            "selector": "#gqEvidence",
+            "index": 0
+          },
+          "title": null
+        }
+      ]
     }
   ],
   "languages": [
@@ -2693,6 +2856,6 @@
     "en": "Microsoft Zira Desktop",
     "es": "Microsoft Helena Desktop"
   },
-  "revisionOf": "2026-10-10-demos",
-  "revision": "2026-10-12-boundary-research"
+  "revisionOf": "2026-10-12-boundary-research",
+  "revision": "2026-10-13-quantization-main"
 }

@@ -1,0 +1,392 @@
+﻿{
+    "voice":  "Microsoft Helena Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "En la auditoría de Spin veinte, el elemento Clifford de grado dieciocho tiene cuadrado menos uno. Multiplicarlo por menos i hace que la matriz de representación tenga cuadrado más uno. La distinción importa para un levantamiento ordinario de isotropía. No demuestra inconsistencia del modelo: puede ser posible una acción torcida o combinada. Cada campo e interacción, incluido Omega bosónico, debe compartir una acción especificada.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "En",
+                      "start":  0,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  0.215,
+                      "text":  "la",
+                      "start":  3,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  0.295,
+                      "text":  "auditoría",
+                      "start":  6,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  0.835,
+                      "text":  "de",
+                      "start":  16,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  0.92499999999999993,
+                      "text":  "Spin",
+                      "start":  19,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  1.24,
+                      "text":  "veinte",
+                      "start":  24,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  2.065,
+                      "text":  "el",
+                      "start":  32,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  2.1999999999999997,
+                      "text":  "elemento",
+                      "start":  35,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  2.6599999999999997,
+                      "text":  "Clifford",
+                      "start":  44,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  3.0949999999999998,
+                      "text":  "de",
+                      "start":  53,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  3.205,
+                      "text":  "grado",
+                      "start":  56,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  3.485,
+                      "text":  "dieciocho",
+                      "start":  62,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  4.02,
+                      "text":  "tiene",
+                      "start":  72,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  4.295,
+                      "text":  "cuadrado",
+                      "start":  78,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  4.715,
+                      "text":  "menos",
+                      "start":  87,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  5.035,
+                      "text":  "uno",
+                      "start":  93,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  6.1499999999999995,
+                      "text":  "Multiplicarlo",
+                      "start":  98,
+                      "length":  13
+                  },
+                  {
+                      "seconds":  6.92,
+                      "text":  "por",
+                      "start":  112,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  7.085,
+                      "text":  "menos",
+                      "start":  116,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  7.3999999999999995,
+                      "text":  "i",
+                      "start":  122,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  7.47,
+                      "text":  "hace",
+                      "start":  124,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  7.68,
+                      "text":  "que",
+                      "start":  129,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  7.7849999999999993,
+                      "text":  "la",
+                      "start":  133,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  7.875,
+                      "text":  "matriz",
+                      "start":  136,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  8.28,
+                      "text":  "de",
+                      "start":  143,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  8.37,
+                      "text":  "representación",
+                      "start":  146,
+                      "length":  14
+                  },
+                  {
+                      "seconds":  9.2,
+                      "text":  "tenga",
+                      "start":  161,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  9.49,
+                      "text":  "cuadrado",
+                      "start":  167,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  9.915,
+                      "text":  "más",
+                      "start":  176,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  10.129999999999999,
+                      "text":  "uno",
+                      "start":  180,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  11.245,
+                      "text":  "La",
+                      "start":  185,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  11.379999999999999,
+                      "text":  "distinción",
+                      "start":  188,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  11.93,
+                      "text":  "importa",
+                      "start":  199,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  12.36,
+                      "text":  "para",
+                      "start":  207,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  12.565,
+                      "text":  "un",
+                      "start":  212,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  12.674999999999999,
+                      "text":  "levantamiento",
+                      "start":  215,
+                      "length":  13
+                  },
+                  {
+                      "seconds":  13.36,
+                      "text":  "ordinario",
+                      "start":  229,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  13.865,
+                      "text":  "de",
+                      "start":  239,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  13.955,
+                      "text":  "isotropía",
+                      "start":  242,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  15.479999999999999,
+                      "text":  "No",
+                      "start":  253,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  15.635,
+                      "text":  "demuestra",
+                      "start":  256,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  16.11,
+                      "text":  "inconsistencia",
+                      "start":  266,
+                      "length":  14
+                  },
+                  {
+                      "seconds":  16.939999999999998,
+                      "text":  "del",
+                      "start":  281,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  17.075,
+                      "text":  "modelo",
+                      "start":  285,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  17.884999999999998,
+                      "text":  "puede",
+                      "start":  293,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  18.145,
+                      "text":  "ser",
+                      "start":  299,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  18.34,
+                      "text":  "posible",
+                      "start":  303,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  18.79,
+                      "text":  "una",
+                      "start":  311,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  18.965,
+                      "text":  "acción",
+                      "start":  315,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  19.32,
+                      "text":  "torcida",
+                      "start":  322,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  19.77,
+                      "text":  "o",
+                      "start":  330,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  19.849999999999998,
+                      "text":  "combinada",
+                      "start":  332,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  21.27,
+                      "text":  "Cada",
+                      "start":  343,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  21.535,
+                      "text":  "campo",
+                      "start":  348,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  21.884999999999998,
+                      "text":  "e",
+                      "start":  354,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  21.955,
+                      "text":  "interacción",
+                      "start":  356,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  23.02,
+                      "text":  "incluido",
+                      "start":  369,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  23.544999999999998,
+                      "text":  "Omega",
+                      "start":  378,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  23.83,
+                      "text":  "bosónico",
+                      "start":  384,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  24.825,
+                      "text":  "debe",
+                      "start":  394,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  25.07,
+                      "text":  "compartir",
+                      "start":  399,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  25.584999999999997,
+                      "text":  "una",
+                      "start":  409,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  25.75,
+                      "text":  "acción",
+                      "start":  413,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  26.095,
+                      "text":  "especificada",
+                      "start":  420,
+                      "length":  12
+                  }
+              ]
+}

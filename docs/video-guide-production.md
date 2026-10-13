@@ -1,6 +1,6 @@
 # 🎬 GHU Lab video guide · English and Spanish
 
-For the separate 29-chapter mathematical film in English (11:34) and Castellano (11:55),
+For the separate 38-chapter mathematical film in English (16:37) and Castellano (16:53),
 see [the mathematical video guide](mathematics-video.md) and
 [its production instructions](../tools/mathematics_video/README.md). The workflow below
 concerns the 45-chapter general laboratory tutorial.

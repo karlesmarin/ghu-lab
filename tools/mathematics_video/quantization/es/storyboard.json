@@ -1,0 +1,67 @@
+{
+  "language": "es",
+  "voice": "Microsoft Helena Desktop",
+  "rate": 0,
+  "scenes": [
+    {
+      "id": "s2",
+      "section": "Evidencia",
+      "title": "Sigue el argumento. Reproduce el resultado.",
+      "text": "Los primeros cuatro ejemplos tienen demostraciones ordinarias y comprobaciones ejecutables. El nuevo módulo de cuantización añade otra evidencia: veintitrés declaraciones de teoremas Lean, junto a las veintiséis anteriores de S U siete. Los siguientes capítulos explican cómo se conectan estos certificados con las hipótesis físicas. Una demostración verifica una implicación. Aplicarla a la naturaleza requiere además la correspondencia física adecuada."
+    },
+    {
+      "id": "q1",
+      "section": "Significado físico",
+      "title": "Dónde se encuentran física y matemáticas",
+      "text": "Un objeto matemático adquiere significado físico mediante una identificación concreta. En el ejemplo del intervalo, un autovalor se convierte en una masa normal al cuadrado al fijar la longitud y la normalización cinética. Una matriz de Gram describe solapamientos; las familias físicas requieren además el dominio real de los campos. La cuantización sigue el mismo principio. Debemos fijar el grupo gauge, los fibrados permitidos y la acción antes de interpretar un certificado aritmético como restricción física."
+    },
+    {
+      "id": "q2",
+      "section": "Cuantización",
+      "title": "Un campo periódico debe recuperar la misma fase",
+      "text": "Esta es una conexión concreta. En este ejemplo normalizado del axión, la acción topológica es theta por el período de Q. Desplazar theta en dos pi multiplica la fase cuántica por la exponencial de dos pi i por ese período. Un período entero recupera la misma fase. Un semientero da un signo menos. El diagrama ilustra esta condición de consistencia. No es una medida experimental ni una construcción completa de la acción."
+    },
+    {
+      "id": "q3",
+      "section": "Cuantización",
+      "title": "El grupo global relaciona los coeficientes",
+      "text": "El álgebra de Lie no fija por sí sola el grupo gauge global. Para H igual a S de U dos por U tres, la correspondencia de clases características combina tres coeficientes en alfa, beta y delta. La integralidad universal exige que esas tres combinaciones sean enteras. Fija alfa y beta en uno y gamma en siete doceavos. Delta vale cero: la clase total es A más B. Lean verifica el criterio aritmético; la interpretación mediante clases características se aporta por separado."
+    },
+    {
+      "id": "q4",
+      "section": "Fondos",
+      "title": "Cambiar los fondos cambia el criterio",
+      "text": "Considera ahora Q igual a C partido por dos. Una prueba universal sobre el plano proyectivo detecta un período semientero. En una variedad espín cerrada suave de dimensión cuatro, el cuadrado de una clase integral de grado dos tiene período par, por la fórmula de Wu. Por eso se cumple el criterio espín indicado. Son preguntas distintas, no respuestas contradictorias. Lean comprueba la aritmética de coeficientes. La paridad de Wu y la elección de fondos admisibles del orbifold son pasos separados."
+    },
+    {
+      "id": "q5",
+      "section": "U(2) conjunto",
+      "title": "Dos contribuciones fraccionarias, una clase integral",
+      "text": "En el ejemplo U dos hay que sumar las contribuciones de los dos factores. Con b cero igual a uno y b uno igual a seis, el cocarácter uno, cero da un cuarto más tres cuartos: exactamente uno. Para todo m y n enteros, la suma es m al cuadrado más m n más n al cuadrado. El certificado demuestra el criterio conjunto, incluidos coeficientes racionales. Esto establece una clase característica integral, no un espectro de supergravedad libre de anomalías con esos coeficientes."
+    },
+    {
+      "id": "q6",
+      "section": "Respuesta de frontera",
+      "title": "Una combinación conservada detecta una obstrucción",
+      "text": "Una respuesta parental propuesta debe pertenecer a la imagen del mapa de transferencia permitido. El funcional ele anula las dos columnas mostradas, así que toda respuesta en esa imagen tiene ele igual a cero. Para la respuesta requerida, seis ele vale dieciséis menos tres p menos tres q menos seis r. Es uno módulo tres para todos los enteros. Esto descarta el emparejamiento dentro de esa familia de respuestas. Términos de esquina, otro espectro u otra construcción global exigirían un análisis nuevo."
+    },
+    {
+      "id": "q7",
+      "section": "Acción del grupo",
+      "title": "Una involución en un campo no fija el levantamiento",
+      "text": "El elemento Clifford de grado dieciocho t a tiene cuadrado menos uno. Multiplicarlo por menos i produce U a, cuyo cuadrado es más uno en la representación. Ambas identidades son correctas, pero responden a preguntas diferentes. Una simetría física debe actuar coherentemente sobre todos los campos e interacciones, incluido el campo bosónico Omega. Puede ser posible una acción torcida o combinada. La auditoría exacta no demuestra inconsistencia y no es una formalización Lean."
+    },
+    {
+      "id": "q8",
+      "section": "Certificados en el laboratorio",
+      "title": "Del teorema al control y a la figura exacta",
+      "text": "El módulo permite utilizar estos enunciados de alcance definido. Cada control cambia entradas racionales exactas. El criterio y su testigo determinan la retícula y el mapa de cocaracteres mostrados. Una figura finita ilustra el resultado; la prueba Lean aporta el enunciado aritmético universal. Cuatro archivos Lean contienen cuarenta y nueve declaraciones de teoremas en total. La descarga completa incluye los ochenta archivos de datos mantenidos. Los hashes, las comprobaciones numéricas y las pruebas formales certifican cosas diferentes."
+    },
+    {
+      "id": "q9",
+      "section": "Contraste experimental",
+      "title": "Dónde entran los datos medidos",
+      "text": "Estos valores proceden de las búsquedas publicadas de ATLAS en pares top y de CMS en dijets que ya usa el laboratorio. Son límites superiores observados con hipótesis de resonancia diferentes, no tasas medidas de producción de nuevas partículas. Ninguna de esas búsquedas comunica una señal significativa de nuevas partículas. Para contrastar nuestros ejemplos de cuantización sigue faltando conectarlos físicamente con masas, acoplamientos, anchuras y tasas predichas, con sus incertidumbres. Los datos pueden respaldar esa realización física. No sustituyen su demostración matemática, y quedar bajo un límite no es un descubrimiento."
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Segoe UI,38,&H00FFFFFF,&H00FFFFFF,&H00172E3C,&H00172E3C,0,0,0,0,100,100,0,0,1,1,0,2,65,65,75,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.50,0:00:06.66,Default,,0,0,0,,El ejemplo U dos muestra por qué la integralidad conjunta difiere de exigirla a cada factor separado. Con b
+Dialogue: 0,0:00:06.66,0:00:13.34,Default,,0,0,0,,cero igual a uno y b uno igual a seis, la forma cuadrática es m al cuadrado más m n más n al cuadrado. Es
+Dialogue: 0,0:00:13.34,0:00:19.29,Default,,0,0,0,,integral para toda pareja de enteros. El criterio formal también cubre coeficientes racionales con un
+Dialogue: 0,0:00:19.29,0:00:26.38,Default,,0,0,0,,denominador común no nulo. Este ejemplo no es un espectro de supergravedad libre de anomalías.

@@ -2,6 +2,8 @@
  * Text nodes are updated in place, preserving controls, focus and event handlers.
  * Original text is retained weakly so switching back to English restores it exactly. */
 const BRX_SPANISH = {
+ 'Quantization and certificates':'Cuantización y certificados',
+ 'Spin(20): ta² = −1, but Ua = −i ta has Ua² = +1. The representation matrices alone do not establish an ordinary equivariant Spin(20) bundle.':'Spin(20): ta² = −1, pero Ua = −i ta cumple Ua² = +1. Las matrices de representación por sí solas no establecen un fibrado Spin(20) equivariante ordinario.',
  'Boundary research: spectra, profile rank and anomaly tests':'Investigación de fronteras: espectro, rango de perfiles y anomalías',
  'Test a proposed boundary mechanism in separate steps: its flat fermion gap, profile independence, parity-inserted traces and a restricted six-dimensional tensor condition.':'Comprueba un mecanismo de frontera por partes: brecha fermiónica plana, independencia de perfiles, trazas con paridad y una condición tensorial restringida en seis dimensiones.',
  'Mass landscape view':'Vista de las masas',

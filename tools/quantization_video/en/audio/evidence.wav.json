@@ -1,0 +1,416 @@
+﻿{
+    "voice":  "Microsoft Zira Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "The catalogue includes four Lean files with forty nine theorem declarations, the exact audit scripts, recorded checks and file hashes. All four files replay with Lean four point twenty seven. The older S U seven file was adapted from List bind to List flat Map, keeping its theorem statements. Download the evidence, verify its integrity and run the listed commands. Full anomaly cancellation and scientific novelty remain open.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "The",
+                      "start":  0,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  0.19499999999999998,
+                      "text":  "catalogue",
+                      "start":  4,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  0.75,
+                      "text":  "includes",
+                      "start":  14,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  1.25,
+                      "text":  "four",
+                      "start":  23,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  1.525,
+                      "text":  "Lean",
+                      "start":  28,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  1.775,
+                      "text":  "files",
+                      "start":  33,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  2.1999999999999997,
+                      "text":  "with",
+                      "start":  39,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  2.335,
+                      "text":  "forty",
+                      "start":  44,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  2.655,
+                      "text":  "nine",
+                      "start":  50,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  2.96,
+                      "text":  "theorem",
+                      "start":  55,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  3.435,
+                      "text":  "declarations",
+                      "start":  63,
+                      "length":  12
+                  },
+                  {
+                      "seconds":  4.675,
+                      "text":  "the",
+                      "start":  77,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  4.8,
+                      "text":  "exact",
+                      "start":  81,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  5.22,
+                      "text":  "audit",
+                      "start":  87,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  5.5,
+                      "text":  "scripts",
+                      "start":  93,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  6.2399999999999993,
+                      "text":  "recorded",
+                      "start":  102,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  6.7399999999999993,
+                      "text":  "checks",
+                      "start":  111,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  7.34,
+                      "text":  "and",
+                      "start":  118,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  7.47,
+                      "text":  "file",
+                      "start":  122,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  7.81,
+                      "text":  "hashes",
+                      "start":  127,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  9.2199999999999989,
+                      "text":  "All",
+                      "start":  135,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  9.395,
+                      "text":  "four",
+                      "start":  139,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  9.665,
+                      "text":  "files",
+                      "start":  144,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  10.125,
+                      "text":  "replay",
+                      "start":  150,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  10.514999999999999,
+                      "text":  "with",
+                      "start":  157,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  10.684999999999999,
+                      "text":  "Lean",
+                      "start":  162,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  10.93,
+                      "text":  "four",
+                      "start":  167,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  11.184999999999999,
+                      "text":  "point",
+                      "start":  172,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  11.54,
+                      "text":  "twenty",
+                      "start":  178,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  11.905,
+                      "text":  "seven",
+                      "start":  185,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  13.205,
+                      "text":  "The",
+                      "start":  192,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  13.354999999999999,
+                      "text":  "older",
+                      "start":  196,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  13.69,
+                      "text":  "S",
+                      "start":  202,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  13.905,
+                      "text":  "U",
+                      "start":  204,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  14.045,
+                      "text":  "seven",
+                      "start":  206,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  14.41,
+                      "text":  "file",
+                      "start":  212,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  14.78,
+                      "text":  "was",
+                      "start":  217,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  14.94,
+                      "text":  "adapted",
+                      "start":  221,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  15.43,
+                      "text":  "from",
+                      "start":  229,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  15.67,
+                      "text":  "List",
+                      "start":  234,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  15.944999999999999,
+                      "text":  "bind",
+                      "start":  239,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  16.23,
+                      "text":  "to",
+                      "start":  244,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  16.345,
+                      "text":  "List",
+                      "start":  247,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  16.625,
+                      "text":  "flat",
+                      "start":  252,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  16.965,
+                      "text":  "Map",
+                      "start":  257,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  17.724999999999998,
+                      "text":  "keeping",
+                      "start":  262,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  18.08,
+                      "text":  "its",
+                      "start":  270,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  18.27,
+                      "text":  "theorem",
+                      "start":  274,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  18.72,
+                      "text":  "statements",
+                      "start":  282,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  20.27,
+                      "text":  "Download",
+                      "start":  294,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  20.765,
+                      "text":  "the",
+                      "start":  303,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  20.93,
+                      "text":  "evidence",
+                      "start":  307,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  21.84,
+                      "text":  "verify",
+                      "start":  317,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  22.34,
+                      "text":  "its",
+                      "start":  324,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  22.509999999999998,
+                      "text":  "integrity",
+                      "start":  328,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  23.115,
+                      "text":  "and",
+                      "start":  338,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  23.279999999999998,
+                      "text":  "run",
+                      "start":  342,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  23.494999999999997,
+                      "text":  "the",
+                      "start":  346,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  23.59,
+                      "text":  "listed",
+                      "start":  350,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  23.95,
+                      "text":  "commands",
+                      "start":  357,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  25.474999999999998,
+                      "text":  "Full",
+                      "start":  367,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  25.715,
+                      "text":  "anomaly",
+                      "start":  372,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  26.195,
+                      "text":  "cancellation",
+                      "start":  380,
+                      "length":  12
+                  },
+                  {
+                      "seconds":  26.99,
+                      "text":  "and",
+                      "start":  393,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  27.13,
+                      "text":  "scientific",
+                      "start":  397,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  27.86,
+                      "text":  "novelty",
+                      "start":  408,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  28.365,
+                      "text":  "remain",
+                      "start":  416,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  28.744999999999997,
+                      "text":  "open",
+                      "start":  423,
+                      "length":  4
+                  }
+              ]
+}

@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "sage_exact_cyclotomic_cases": 527,
+  "n_values": [
+    -64,
+    40
+  ],
+  "residues_mod12": [
+    8,
+    4
+  ],
+  "parent_annihilator_checked": true,
+  "projected_class": "1/3 mod Z",
+  "scope": "Exact finite validation of published identity and model-to-literature arithmetic; no novelty or physical-completion certification",
+  "source_sha256": "fd59496b37a3f6d84efe5d9f6ff453775a245e261081f166008f42958dc308bf",
+  "sage_image": "sha256:b0336c3d5dfbe1c62965f219523a9f8712317e613b7453147675cfe6cdf3dab7",
+  "network": "none"
+}

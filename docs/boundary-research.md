@@ -156,9 +156,9 @@ and sources. Invalid values throw; the UI explains input errors and keeps the la
 ## Mathematical companion and certificates
 
 The animated mathematical film is available in
-[English (11:34)](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html) and
-[Castellano (11:55)](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html).
-Each has 29 chapters, translated narration, visible captions, whiteboards and actual laboratory
+[English (16:37)](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html) and
+[Castellano (16:53)](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html).
+Each has 38 chapters, translated narration, visible captions, whiteboards and actual laboratory
 captures. See [the video guide](mathematics-video.md) for topics, downloads, version information
 and verification. The shared [ordinary proofs and executable certificates](../proof/boundary-research/README.md)
 cover the displayed Gram example, ten Robin root brackets, the complete quadratic inserted trace
@@ -197,3 +197,8 @@ realistic flavour construction or completed quantum anomaly cancellation is clai
 - [Asaka, Buchmüller, Covi, hep-ph/0209144](https://arxiv.org/abs/hep-ph/0209144): localized orbifold anomalies and normalization.
 - [Dobrescu, Poppitz, hep-ph/0102010](https://arxiv.org/abs/hep-ph/0102010): identical 6D chirality and generation constraints.
 - [Lee, Tachikawa, 2012.11622](https://arxiv.org/abs/2012.11622): tensor quantization beyond polynomial factorization.
+
+
+## 13 October 2026 supplement
+
+The [quantization guide](https://karlesmarin.github.io/ghu-explorer/guide/quantization/index.html), [bilingual narrated supplement](https://karlesmarin.github.io/ghu-explorer/video/quantization/index.html), and [complete certificates](https://karlesmarin.github.io/ghu-explorer/proof/index.html) add universal versus spin-period quantization, the joint U(2) arithmetic test, the conditional parent obstruction, and the Spin(20) lift audit. The matrices Ua = −i ta square to +1 while ta² = −1; these matrices do not establish an ordinary equivariant Spin(20) bundle. The lift audit is exact computation, not a Lean proof. The four Lean files contain 49 theorem declarations and do not certify full physical consistency. Earlier films remain dated records and are complemented by the new eleven-chapter video.

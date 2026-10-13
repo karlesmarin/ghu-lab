@@ -1,0 +1,308 @@
+﻿{
+    "voice":  "Microsoft Zira Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "Choose A plus B. Alpha and beta are one; gamma is seven twelfths. After changing to the integral basis, delta is zero. Both criteria pass. The fractional contributions have to be combined before judging the total class. The controls, the witness and the exported result all use the same calculation.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "Choose",
+                      "start":  0,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  0.42,
+                      "text":  "A",
+                      "start":  7,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  0.54999999999999993,
+                      "text":  "plus",
+                      "start":  9,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  0.89999999999999991,
+                      "text":  "B",
+                      "start":  14,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  1.145,
+                      "text":  "Alpha",
+                      "start":  17,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  1.52,
+                      "text":  "and",
+                      "start":  23,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  1.6749999999999998,
+                      "text":  "beta",
+                      "start":  27,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  2.005,
+                      "text":  "are",
+                      "start":  32,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  2.1799999999999997,
+                      "text":  "one",
+                      "start":  36,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  2.915,
+                      "text":  "gamma",
+                      "start":  41,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  3.275,
+                      "text":  "is",
+                      "start":  47,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  3.42,
+                      "text":  "seven",
+                      "start":  50,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  3.7399999999999998,
+                      "text":  "twelfths",
+                      "start":  56,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  5.35,
+                      "text":  "After",
+                      "start":  66,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  5.64,
+                      "text":  "changing",
+                      "start":  72,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  6.1099999999999994,
+                      "text":  "to",
+                      "start":  81,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  6.215,
+                      "text":  "the",
+                      "start":  84,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  6.37,
+                      "text":  "integral",
+                      "start":  88,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  6.7799999999999994,
+                      "text":  "basis",
+                      "start":  97,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  7.765,
+                      "text":  "delta",
+                      "start":  104,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  8.165,
+                      "text":  "is",
+                      "start":  110,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  8.325,
+                      "text":  "zero",
+                      "start":  113,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  9.635,
+                      "text":  "Both",
+                      "start":  119,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  9.875,
+                      "text":  "criteria",
+                      "start":  124,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  10.555,
+                      "text":  "pass",
+                      "start":  133,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  11.895,
+                      "text":  "The",
+                      "start":  139,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  11.975,
+                      "text":  "fractional",
+                      "start":  143,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  12.53,
+                      "text":  "contributions",
+                      "start":  154,
+                      "length":  13
+                  },
+                  {
+                      "seconds":  13.385,
+                      "text":  "have",
+                      "start":  168,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  13.594999999999999,
+                      "text":  "to",
+                      "start":  173,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  13.684999999999999,
+                      "text":  "be",
+                      "start":  176,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  13.819999999999999,
+                      "text":  "combined",
+                      "start":  179,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  14.299999999999999,
+                      "text":  "before",
+                      "start":  188,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  14.645,
+                      "text":  "judging",
+                      "start":  195,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  15.014999999999999,
+                      "text":  "the",
+                      "start":  203,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  15.104999999999999,
+                      "text":  "total",
+                      "start":  207,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  15.45,
+                      "text":  "class",
+                      "start":  213,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  16.89,
+                      "text":  "The",
+                      "start":  220,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  16.99,
+                      "text":  "controls",
+                      "start":  224,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  17.775,
+                      "text":  "the",
+                      "start":  234,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  17.884999999999998,
+                      "text":  "witness",
+                      "start":  238,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  18.52,
+                      "text":  "and",
+                      "start":  246,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  18.625,
+                      "text":  "the",
+                      "start":  250,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  18.744999999999997,
+                      "text":  "exported",
+                      "start":  254,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  19.265,
+                      "text":  "result",
+                      "start":  263,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  19.65,
+                      "text":  "all",
+                      "start":  270,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  19.86,
+                      "text":  "use",
+                      "start":  274,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  20.105,
+                      "text":  "the",
+                      "start":  278,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  20.195,
+                      "text":  "same",
+                      "start":  282,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  20.52,
+                      "text":  "calculation",
+                      "start":  287,
+                      "length":  11
+                  }
+              ]
+}

@@ -1,0 +1,79 @@
+[
+  {
+    "id": "intro",
+    "title": "Una pregunta sobre la estructura global",
+    "start": 0,
+    "end": 22.75,
+    "text": "Abre Cuantización y certificados en la nueva opción de investigación. Son diagnósticos independientes, con entradas racionales exactas e hipótesis separadas. La demo guiada cambia los controles reales. Cumplir un criterio aritmético es un ingrediente de consistencia. No certifica un modelo completo de unificación gauge Higgs."
+  },
+  {
+    "id": "spin",
+    "title": "Un polinomio, dos criterios",
+    "start": 22.75,
+    "end": 49.95833333333333,
+    "text": "Elige C partido por dos. La clase universal no cumple, mientras que los períodos sobre variedades espín cerradas de dimensión cuatro sí cumplen. No es una contradicción. Las pruebas usan fondos distintos. La prueba universal detecta un período de un medio. En los fondos espín indicados, el período de Y al cuadrado es par. Ese hecho topológico es externo a la prueba aritmética Lean."
+  },
+  {
+    "id": "lattice",
+    "title": "Dos retículas exactas, una clase móvil",
+    "start": 49.95833333333333,
+    "end": 78.875,
+    "text": "Los rombos son clases integrales universales. Los anillos intermedios cumplen solo la prueba de períodos espín cerrados de dimensión cuatro. La cruz marca alfa y delta actuales, a beta constante. Selecciona un punto en la aplicación y gamma cambia de forma exacta. Son criterios matemáticos, no medidas experimentales. Fuera de la ventana, la interfaz indica las coordenadas exactas en lugar de pegar el punto al borde."
+  },
+  {
+    "id": "cover",
+    "title": "Por qué no basta una prueba del recubrimiento",
+    "start": 78.875,
+    "end": 104.08333333333333,
+    "text": "Ahora elige C partido por treinta y seis. La dirección del recubrimiento da un entero, uno. Pero el cocarácter del cociente mostrado da uno partido por treinta y seis. Comprobar una dirección cómoda del recubrimiento puede omitir un período prohibido. Lee el testigo junto al criterio. La aplicación usa fracciones exactas, sin tolerancia de coma flotante."
+  },
+  {
+    "id": "joint",
+    "title": "Coeficientes correlacionados reconstruyen una clase integral",
+    "start": 104.08333333333333,
+    "end": 125.91666666666666,
+    "text": "Elige A más B. Alfa y beta valen uno; gamma vale siete doceavos. Al cambiar a la base integral, delta es cero. Se cumplen ambos criterios. Las contribuciones fraccionarias deben combinarse antes de juzgar la clase total. Los controles, el testigo y el resultado exportado usan el mismo cálculo."
+  },
+  {
+    "id": "axion",
+    "title": "Reproducción de un criterio publicado del axión",
+    "start": 125.91666666666666,
+    "end": 151.45833333333331,
+    "text": "El panel del axión usa la normalización de Choi y colaboradores. La combinación entera dieciocho K dos más veinticuatro K tres más K uno debe ser divisible por treinta y seis. El ejemplo cero, uno, doce la satisface. Reproduce el criterio publicado para q igual a seis. Identificar este axión con el campo Higgs gauge sigue siendo una cuestión física distinta y no resuelta."
+  },
+  {
+    "id": "tensor",
+    "title": "Una obstrucción condicional a la transferencia parental",
+    "start": 151.45833333333331,
+    "end": 179.04166666666666,
+    "text": "El mapa parental tiene dos columnas y un anulador común. Con el espectro heredado y fuentes Green Schwarz integrales ordinarias, seis veces el anulador es dieciséis menos tres p menos tres q menos seis r. Para emparejamientos enteros vale uno módulo tres y no puede anularse. Lean demuestra esa aritmética para todos los enteros. Este resultado no resuelve los fondos admisibles del orbifold ni las respuestas adicionales de esquina."
+  },
+  {
+    "id": "u2",
+    "title": "Integralidad conjunta de U(2)",
+    "start": 179.04166666666666,
+    "end": 205.66666666666666,
+    "text": "El ejemplo U dos muestra por qué la integralidad conjunta difiere de exigirla a cada factor separado. Con b cero igual a uno y b uno igual a seis, la forma cuadrática es m al cuadrado más m n más n al cuadrado. Es integral para toda pareja de enteros. El criterio formal también cubre coeficientes racionales con un denominador común no nulo. Este ejemplo no es un espectro de supergravedad libre de anomalías."
+  },
+  {
+    "id": "fingerprint",
+    "title": "Una huella calculada con períodos exactos",
+    "start": 205.66666666666666,
+    "end": 235.29166666666666,
+    "text": "Cambia b uno de seis a cinco. Cada celda es un cocarácter etiquetado por enteros m y n. Su fracción impresa y color son Q módulo uno, calculado con aritmética entera exacta. El punto uno, cero tiene ahora período siete octavos: un testigo concreto del fallo. Al volver a seis, todas las celdas son integrales. Las ochenta y una celdas ilustran el criterio; el teorema Lean lo establece para toda pareja entera."
+  },
+  {
+    "id": "lift",
+    "title": "Una matriz de representación no fija todo el levantamiento",
+    "start": 235.29166666666666,
+    "end": 264.375,
+    "text": "En la auditoría de Spin veinte, el elemento Clifford de grado dieciocho tiene cuadrado menos uno. Multiplicarlo por menos i hace que la matriz de representación tenga cuadrado más uno. La distinción importa para un levantamiento ordinario de isotropía. No demuestra inconsistencia del modelo: puede ser posible una acción torcida o combinada. Cada campo e interacción, incluido Omega bosónico, debe compartir una acción especificada."
+  },
+  {
+    "id": "evidence",
+    "title": "Qué se demuestra y cómo verificarlo",
+    "start": 264.375,
+    "end": 296.0833333333333,
+    "text": "El catálogo contiene cuatro archivos Lean con cuarenta y nueve declaraciones de teoremas, scripts exactos, comprobaciones registradas y hashes. Los cuatro archivos se verifican con Lean cuatro punto veintisiete. El archivo antiguo de S U siete se adaptó de List bind a List flat Map, conservando sus enunciados. Descarga la evidencia, comprueba su integridad y ejecuta los comandos indicados. La cancelación completa de anomalías y la novedad científica siguen abiertas."
+  }
+]

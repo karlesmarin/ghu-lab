@@ -1,0 +1,434 @@
+﻿{
+    "voice":  "Microsoft Zira Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "Change b one from six to five. Each cell is a cocharacter labelled by integers m and n. Its printed fraction and color are Q modulo one, calculated with exact integer arithmetic. The point one, zero now has period seven eighths: a concrete witness of failure. Returning b one to six makes every cell integral. The eighty one cells illustrate the criterion; the Lean theorem establishes it for all integer pairs.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "Change",
+                      "start":  0,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  0.475,
+                      "text":  "b",
+                      "start":  7,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  0.65999999999999992,
+                      "text":  "one",
+                      "start":  9,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  0.90499999999999992,
+                      "text":  "from",
+                      "start":  13,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  1.135,
+                      "text":  "six",
+                      "start":  18,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  1.44,
+                      "text":  "to",
+                      "start":  22,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  1.5499999999999998,
+                      "text":  "five",
+                      "start":  25,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  2.835,
+                      "text":  "Each",
+                      "start":  31,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  3.065,
+                      "text":  "cell",
+                      "start":  36,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  3.395,
+                      "text":  "is",
+                      "start":  41,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  3.53,
+                      "text":  "a",
+                      "start":  44,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  3.585,
+                      "text":  "cocharacter",
+                      "start":  46,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  4.33,
+                      "text":  "labelled",
+                      "start":  58,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  4.7,
+                      "text":  "by",
+                      "start":  67,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  4.92,
+                      "text":  "integers",
+                      "start":  70,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  5.4399999999999995,
+                      "text":  "m",
+                      "start":  79,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  5.63,
+                      "text":  "and",
+                      "start":  81,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  5.7749999999999995,
+                      "text":  "n",
+                      "start":  85,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  6.8999999999999995,
+                      "text":  "Its",
+                      "start":  88,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  7.08,
+                      "text":  "printed",
+                      "start":  92,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  7.47,
+                      "text":  "fraction",
+                      "start":  100,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  7.975,
+                      "text":  "and",
+                      "start":  109,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  8.12,
+                      "text":  "color",
+                      "start":  113,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  8.4599999999999991,
+                      "text":  "are",
+                      "start":  119,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  8.57,
+                      "text":  "Q",
+                      "start":  123,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  8.805,
+                      "text":  "modulo",
+                      "start":  125,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  9.385,
+                      "text":  "one",
+                      "start":  132,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  10.115,
+                      "text":  "calculated",
+                      "start":  137,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  10.799999999999999,
+                      "text":  "with",
+                      "start":  148,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  10.945,
+                      "text":  "exact",
+                      "start":  153,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  11.379999999999999,
+                      "text":  "integer",
+                      "start":  159,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  11.825,
+                      "text":  "arithmetic",
+                      "start":  167,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  13.399999999999999,
+                      "text":  "The",
+                      "start":  179,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  13.485,
+                      "text":  "point",
+                      "start":  183,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  13.844999999999999,
+                      "text":  "one",
+                      "start":  189,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  14.565,
+                      "text":  "zero",
+                      "start":  194,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  14.92,
+                      "text":  "now",
+                      "start":  199,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  15.184999999999999,
+                      "text":  "has",
+                      "start":  203,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  15.399999999999999,
+                      "text":  "period",
+                      "start":  207,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  15.83,
+                      "text":  "seven",
+                      "start":  214,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  16.18,
+                      "text":  "eighths",
+                      "start":  220,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  17.095,
+                      "text":  "a",
+                      "start":  229,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  17.169999999999998,
+                      "text":  "concrete",
+                      "start":  231,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  17.744999999999997,
+                      "text":  "witness",
+                      "start":  240,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  18.15,
+                      "text":  "of",
+                      "start":  248,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  18.255,
+                      "text":  "failure",
+                      "start":  251,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  19.634999999999998,
+                      "text":  "Returning",
+                      "start":  260,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  20.134999999999998,
+                      "text":  "b",
+                      "start":  270,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  20.32,
+                      "text":  "one",
+                      "start":  272,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  20.56,
+                      "text":  "to",
+                      "start":  276,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  20.66,
+                      "text":  "six",
+                      "start":  279,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  20.99,
+                      "text":  "makes",
+                      "start":  283,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  21.279999999999998,
+                      "text":  "every",
+                      "start":  289,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  21.54,
+                      "text":  "cell",
+                      "start":  295,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  21.86,
+                      "text":  "integral",
+                      "start":  300,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  23.275,
+                      "text":  "The",
+                      "start":  310,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  23.425,
+                      "text":  "eighty",
+                      "start":  314,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  23.64,
+                      "text":  "one",
+                      "start":  321,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  23.89,
+                      "text":  "cells",
+                      "start":  325,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  24.24,
+                      "text":  "illustrate",
+                      "start":  331,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  24.765,
+                      "text":  "the",
+                      "start":  342,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  24.865,
+                      "text":  "criterion",
+                      "start":  346,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  26.04,
+                      "text":  "the",
+                      "start":  357,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  26.14,
+                      "text":  "Lean",
+                      "start":  361,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  26.38,
+                      "text":  "theorem",
+                      "start":  366,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  26.82,
+                      "text":  "establishes",
+                      "start":  374,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  27.54,
+                      "text":  "it",
+                      "start":  386,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  27.669999999999998,
+                      "text":  "for",
+                      "start":  389,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  27.849999999999998,
+                      "text":  "all",
+                      "start":  393,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  28.044999999999998,
+                      "text":  "integer",
+                      "start":  397,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  28.48,
+                      "text":  "pairs",
+                      "start":  405,
+                      "length":  5
+                  }
+              ]
+}

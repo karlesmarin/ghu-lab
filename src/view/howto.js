@@ -9,6 +9,10 @@ function guideHref(id,lang=GUIDE_LANGUAGE){
   const base=(typeof document==='undefined'?null:document.querySelector?.('[data-guide-base]'))?.dataset.guideBase||'https://karlesmarin.github.io/ghu-explorer/guide/';
   return base+(lang==='es'?'es/':'')+(id==='index'?'':id+'/')+'index.html';
 }
+function siteHref(path){
+  const base=(typeof document==='undefined'?null:document.querySelector?.('[data-guide-base]'))?.dataset.guideBase||'https://karlesmarin.github.io/ghu-explorer/guide/';
+  return base.replace(/guide\/$/,'')+path;
+}
 function guideLink(id){
   return `<a class="guide-full-link" data-guide-id="${guideEscape(id)}" href="${guideHref(id)}" target="_blank" rel="noopener" lang="${GUIDE_LANGUAGE}">${GUIDE_LANGUAGE==='es'?'Guía completa ↗':'Full guide ↗'}</a>`;
 }
@@ -22,7 +26,9 @@ function syncGuideLanguage(){
   if(typeof document==='undefined'||typeof document.querySelectorAll!=='function')return;
   document.querySelectorAll('[data-guide-id]').forEach(n=>{n.href=guideHref(n.dataset.guideId);n.lang=GUIDE_LANGUAGE;const es=GUIDE_LANGUAGE==='es';n.textContent=n.dataset.guideLabel==='start'?(es?'Primeros pasos':'Getting started'):n.dataset.guideLabel==='all'?(es?'Todas las guías':'All guides'):(es?'Guía completa ↗':'Full guide ↗');});
   document.querySelectorAll('[data-help]').forEach(n=>{const entry=(GUIDE_LANGUAGE==='es'?HELP_TERMS_ES:HELP_TERMS)[n.dataset.help];if(entry){n.title=entry.term;n.setAttribute('aria-label',(GUIDE_LANGUAGE==='es'?'Explicar: ':'Explain: ')+entry.term);}});
+  document.querySelectorAll('[data-card-guide]').forEach(n=>{const entry=CARD_HELP_GUIDES[GUIDE_LANGUAGE][n.dataset.cardGuide];if(entry){n.title=entry.title;n.setAttribute('aria-label',(GUIDE_LANGUAGE==='es'?'Información: ':'Information: ')+entry.title);}});
   if(typeof brxLocalize==='function')brxLocalize();
+  if(typeof uiLocalize==='function')uiLocalize();
 }
 function mountGuideHelp(){
   if(typeof document==='undefined'||typeof document.addEventListener!=='function')return;
@@ -30,11 +36,14 @@ function mountGuideHelp(){
   document.addEventListener('click',e=>{
     const button=e.target.closest('[data-guide-set-language]');if(!button)return;
     GUIDE_LANGUAGE=button.dataset.guideSetLanguage==='es'?'es':'en';
+    if(document.getElementById('gqRoot'))QUANTIZATION_SECTION.render();
     try{localStorage.setItem('ghu-help-language',GUIDE_LANGUAGE);}catch{}
     document.querySelectorAll('[data-guide-language]').forEach(n=>{n.hidden=n.dataset.guideLanguage!==GUIDE_LANGUAGE;});
     document.querySelectorAll('[data-guide-set-language]').forEach(n=>n.setAttribute('aria-pressed',String(n.dataset.guideSetLanguage===GUIDE_LANGUAGE)));
     document.querySelectorAll('[data-guide-summary]').forEach(n=>{n.lang=GUIDE_LANGUAGE;n.textContent=GUIDE_LANGUAGE==='es'?'Cómo utilizar esta sección':'How to use this section';});
     syncGuideLanguage();
+    // Existing resize rendering redraws canvas labels from the retained inputs.
+    window.dispatchEvent(new Event('resize'));
   });
   if(GUIDE_INITIAL_TARGET&&Object.hasOwn(GUIDE_TARGETS,GUIDE_INITIAL_TARGET))requestAnimationFrame(()=>{
     const target=document.getElementById(GUIDE_TARGETS[GUIDE_INITIAL_TARGET]);if(!target||target.closest('[hidden]'))return;

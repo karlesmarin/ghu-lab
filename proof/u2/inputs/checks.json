@@ -1,0 +1,320 @@
+{
+  "passed": true,
+  "count": 39,
+  "checks": [
+    {
+      "name": "Full SM net polynomial is c2(E2)*(2*c1(E3)^2-c2(E2)-3*c2(E3)-lambda)",
+      "passed": true
+    },
+    {
+      "name": "Lower includes its hidden mixed term",
+      "passed": true
+    },
+    {
+      "name": "Upper includes opposite hidden mixed term",
+      "passed": true
+    },
+    {
+      "name": "Full SM plus hidden sum has no hidden curvature",
+      "passed": true
+    },
+    {
+      "name": "Hyperbolic lattice cancels the net polynomial algebraically",
+      "passed": true
+    },
+    {
+      "name": "Charge lattice is even and unimodular",
+      "passed": true
+    },
+    {
+      "name": "Opposite tensor chiralities balance intrinsic gravitational anomaly",
+      "passed": true
+    },
+    {
+      "name": "Both tensor backgrounds are integral polynomials in genuine characteristic classes",
+      "passed": true
+    },
+    {
+      "name": "Quotient-safe formula agrees with product-lift normalization",
+      "passed": true
+    },
+    {
+      "name": "SU2 restriction agrees with FALSIFICATION",
+      "passed": true
+    },
+    {
+      "name": "Unredistributed lower fails autonomous universal tensor integrality",
+      "passed": true
+    },
+    {
+      "name": "Unredistributed upper fails autonomous universal tensor integrality",
+      "passed": true
+    },
+    {
+      "name": "Net passes universal tensor period lattice",
+      "passed": true
+    },
+    {
+      "name": "Half-net passes shifted chiral tensor lattice, not necessarily ordinary electric coupling",
+      "passed": true
+    },
+    {
+      "name": "Family frame matches archived projector",
+      "passed": true
+    },
+    {
+      "name": "Actual two adjoint VEVs preserve protected P separately",
+      "passed": true
+    },
+    {
+      "name": "Actual VEV insertions do not connect P to mirror subspace",
+      "passed": true
+    },
+    {
+      "name": "Sigma has three distinct family eigenvalues",
+      "passed": true
+    },
+    {
+      "name": "Theta has three distinct family eigenvalues",
+      "passed": true
+    },
+    {
+      "name": "Existing adjoint directions are noncommuting on P",
+      "passed": true
+    },
+    {
+      "name": "Powers of Sigma alone reach only two directions for this Omega",
+      "passed": true
+    },
+    {
+      "name": "Two actual adjoint insertions and Omega span all three family directions",
+      "passed": true
+    },
+    {
+      "name": "Internal dressed portal Gram is positive definite",
+      "passed": true
+    },
+    {
+      "name": "Three operator directions do not suffice if their singlet coefficients remain aligned",
+      "passed": true
+    },
+    {
+      "name": "The imaginary portal phase is removable by a singlet rephasing",
+      "passed": true
+    },
+    {
+      "name": "Hidden orbifold twist preserves both insertions and portal directions",
+      "passed": true
+    },
+    {
+      "name": "One-spurion arbitrary quadratic Yukawas remain simultaneously diagonal",
+      "passed": true
+    },
+    {
+      "name": "Two-sector kinetic witness is positive definite",
+      "passed": true
+    },
+    {
+      "name": "Independent right-sector kinetic matrices can produce mixing",
+      "passed": true
+    },
+    {
+      "name": "This two-linear-direction witness has no CP violation",
+      "passed": true
+    },
+    {
+      "name": "A common family rephasing makes both adjoint matrices real",
+      "passed": true
+    },
+    {
+      "name": "Portal rank has explicit alignment-zero surfaces",
+      "passed": true
+    },
+    {
+      "name": "Changing relative Omega sign can reduce the dressed portal rank",
+      "passed": true
+    },
+    {
+      "name": "Positive A6 boundary Gram does not distinguish Omega sign plus",
+      "passed": true
+    },
+    {
+      "name": "Positive A6 boundary Gram does not distinguish Omega sign minus",
+      "passed": true
+    },
+    {
+      "name": "A positive covariant polynomial can select the full-rank hidden direction",
+      "passed": true
+    },
+    {
+      "name": "Candidate alignment kernel is exactly the archived Omega hidden line",
+      "passed": true
+    },
+    {
+      "name": "Rank-two opposite-sign alignment is disfavored by this candidate term",
+      "passed": true
+    },
+    {
+      "name": "Common left kinetic correction alone leaves Hu and Hd aligned",
+      "passed": true
+    }
+  ],
+  "input_sha256": {
+    "results/ghu_mirrors_20261012/characters.json": "efb7738880a60d6cf8d6ce63097b7280399e1302c5e670d7c7005b12a88ed33b",
+    "results/so20_decoupling_20261009/projector_matrices.json": "f86071bef2a865a7aede11876877e92310a0297b9b9b18434060ff4664a58103",
+    "work/so20_boundary_mixing_20261011/calculate.py": "8cd304147ed3aaf742cc1238a727e3196598e711f1c17906dd0e6252669eab70",
+    "work/ghu_dimensions_20261012/exact_audit.py": "4889f78539b160ced5c2d8ca64f152af175502c1e83aed1fe8da43a84b7234ff",
+    "results/ghu_action_20261012/sources/2012.11622v2.txt": "058789e66c73eb72f64759621be768e06daafeb7344216e9e0453c350c27eba3"
+  },
+  "tensor": {
+    "characteristic_classes": "A=c2(E2), B=c2(E3), Y=c1(E3)=-c1(E2), lambda=p1/2; D=c2(USp4)",
+    "net": "A*(2*Y^2-A-3*B-lambda)",
+    "lower": "8/3*net-8*A*D",
+    "upper": "-5/3*net+8*A*D",
+    "lattice": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "background": [
+      "A",
+      "A+3*B+lambda-2*Y^2"
+    ],
+    "universal_two_form_periods": {
+      "lower": [
+        "0",
+        "16/3"
+      ],
+      "upper": [
+        "0",
+        "-10/3"
+      ],
+      "net": [
+        "0",
+        "2"
+      ],
+      "formal_half_net": [
+        "0",
+        "1"
+      ]
+    },
+    "scope": "Net SM restriction has integral factorization on S(U2 x U3) bundles. Not an action on all orbifold strata or full global anomaly trivialization."
+  },
+  "flavor": {
+    "Sigma_on_P": [
+      [
+        "-2",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "2"
+      ]
+    ],
+    "Theta_on_P": [
+      [
+        "0",
+        "-sqrt(2)*I",
+        "0"
+      ],
+      [
+        "sqrt(2)*I",
+        "0",
+        "sqrt(2)*I"
+      ],
+      [
+        "0",
+        "-sqrt(2)*I",
+        "0"
+      ]
+    ],
+    "portal": [
+      [
+        "sqrt(2)/2",
+        "-sqrt(2)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "2*I"
+      ],
+      [
+        "sqrt(2)/2",
+        "sqrt(2)",
+        "0"
+      ]
+    ],
+    "portal_determinant": "-4*I",
+    "portal_gram": [
+      [
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "4",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "4"
+      ]
+    ],
+    "general_portal_determinant": "-2*sqrt(2)*I*(aa + cc)*(2*aa*cc + bb**2)",
+    "opposite_Omega_sign": {
+      "portal_rank": 2,
+      "A6_boundary_Gram": "I32/4 for both signs; not a KK spectrum"
+    },
+    "candidate_alignment_potential": {
+      "matrix": "(SJ^2-4I)^2+(SK^2-4I)^2",
+      "eigenvalues": {
+        "0": 1,
+        "16": 2,
+        "18": 8,
+        "32": 5
+      },
+      "scope": "Positive internal scalar-potential witness on the common intersection, with recorded Sigma/Theta VEVs fixed. Full scalar action and quantum alignment not derived."
+    },
+    "Sigma_only_Krylov_rank": 2,
+    "two_adjoints_portal_rank": 3,
+    "kinetic_commutator": [
+      [
+        "0",
+        "sqrt(2)*I/6",
+        "1/8"
+      ],
+      [
+        "sqrt(2)*I/6",
+        "0",
+        "-sqrt(2)*I/12"
+      ],
+      [
+        "-1/8",
+        "-sqrt(2)*I/12",
+        "0"
+      ]
+    ],
+    "CP_trace_cube": "0",
+    "scope": "Internal representation and conditional 4D matrices only. Interactions, Lorentz lifts, canonical spectrum, and intersection domain not constructed."
+  },
+  "analytic_gates": [
+    "Global smooth H with dH=X cannot exist on a closed four-cycle with nonzero integral of X without sources or restricted backgrounds.",
+    "Sigma and Theta live on x6=L6; Omega lives on x5=0. The three coexist on a six-dimensional codimension-two intersection in the 8D model.",
+    "A hidden-only term uniform along the Spin11 wall does not by itself assign different family matrices to up and down visible sectors."
+  ]
+}

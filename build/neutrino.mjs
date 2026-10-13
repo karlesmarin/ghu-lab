@@ -32,7 +32,7 @@ try {
   await send('Emulation.setDeviceMetricsOverride',{width:1380,height:1000,deviceScaleFactor:1,mobile:false});
   await send('Page.navigate',{url:url+'#s=predict'});check('offline_app_loaded',await ready());
   check('builder_remains_default',await ev(`PRED_S.variant==='builder'&&!document.getElementById('prBuilderView').hidden&&document.getElementById('prNeutrinoView').hidden`));
-  check('rail_still_has_29_live_sections',await ev(`SECTIONS.filter(s=>s.ready!==false).length===29`));
+  check('rail_has_30_live_sections',await ev(`SECTIONS.filter(s=>s.ready!==false).length===30`));
   await choose();const initial=await state();
   check('correct_model_visible',await ev(`document.getElementById('prBuilderView').hidden&&!document.getElementById('prNeutrinoView').hidden`));
   check('calibration_controls_locked',await ev(`document.getElementById('nrn_muAkeV').disabled&&document.getElementById('nrn_mDGeV').disabled&&!document.getElementById('nrn_muBkeV').disabled`));

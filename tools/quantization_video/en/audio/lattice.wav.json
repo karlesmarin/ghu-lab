@@ -1,0 +1,410 @@
+﻿{
+    "voice":  "Microsoft Zira Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "The diamonds are universal integral classes. The rings between them pass only the closed spin four period test. The cross marks the current alpha and delta, at fixed beta. Select a lattice point in the application and the input gamma changes exactly. These are mathematical criteria, not experimental measurements. Outside the displayed window, the interface reports the exact coordinates instead of clipping a point to the border.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "The",
+                      "start":  0,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  0.19999999999999998,
+                      "text":  "diamonds",
+                      "start":  4,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  0.67499999999999993,
+                      "text":  "are",
+                      "start":  13,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  0.80999999999999994,
+                      "text":  "universal",
+                      "start":  17,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  1.4349999999999998,
+                      "text":  "integral",
+                      "start":  27,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  1.855,
+                      "text":  "classes",
+                      "start":  36,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  3.3699999999999997,
+                      "text":  "The",
+                      "start":  45,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  3.4949999999999997,
+                      "text":  "rings",
+                      "start":  49,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  3.76,
+                      "text":  "between",
+                      "start":  55,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  4.175,
+                      "text":  "them",
+                      "start":  63,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  4.33,
+                      "text":  "pass",
+                      "start":  68,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  4.715,
+                      "text":  "only",
+                      "start":  73,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  4.995,
+                      "text":  "the",
+                      "start":  78,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  5.095,
+                      "text":  "closed",
+                      "start":  82,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  5.5249999999999995,
+                      "text":  "spin",
+                      "start":  89,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  5.825,
+                      "text":  "four",
+                      "start":  94,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  6.08,
+                      "text":  "period",
+                      "start":  99,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  6.535,
+                      "text":  "test",
+                      "start":  106,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  7.85,
+                      "text":  "The",
+                      "start":  112,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  7.9499999999999993,
+                      "text":  "cross",
+                      "start":  116,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  8.355,
+                      "text":  "marks",
+                      "start":  122,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  8.7199999999999989,
+                      "text":  "the",
+                      "start":  128,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  8.815,
+                      "text":  "current",
+                      "start":  132,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  9.18,
+                      "text":  "alpha",
+                      "start":  140,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  9.555,
+                      "text":  "and",
+                      "start":  146,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  9.7099999999999991,
+                      "text":  "delta",
+                      "start":  150,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  10.58,
+                      "text":  "at",
+                      "start":  157,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  10.705,
+                      "text":  "fixed",
+                      "start":  160,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  11.059999999999999,
+                      "text":  "beta",
+                      "start":  166,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  12.315,
+                      "text":  "Select",
+                      "start":  172,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  12.75,
+                      "text":  "a",
+                      "start":  179,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  12.83,
+                      "text":  "lattice",
+                      "start":  181,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  13.18,
+                      "text":  "point",
+                      "start":  189,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  13.535,
+                      "text":  "in",
+                      "start":  195,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  13.629999999999999,
+                      "text":  "the",
+                      "start":  198,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  13.77,
+                      "text":  "application",
+                      "start":  202,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  14.49,
+                      "text":  "and",
+                      "start":  214,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  14.61,
+                      "text":  "the",
+                      "start":  218,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  14.76,
+                      "text":  "input",
+                      "start":  222,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  15.155,
+                      "text":  "gamma",
+                      "start":  228,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  15.475,
+                      "text":  "changes",
+                      "start":  234,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  15.965,
+                      "text":  "exactly",
+                      "start":  242,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  17.439999999999998,
+                      "text":  "These",
+                      "start":  251,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  17.669999999999998,
+                      "text":  "are",
+                      "start":  257,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  17.77,
+                      "text":  "mathematical",
+                      "start":  261,
+                      "length":  12
+                  },
+                  {
+                      "seconds":  18.505,
+                      "text":  "criteria",
+                      "start":  274,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  19.675,
+                      "text":  "not",
+                      "start":  284,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  19.93,
+                      "text":  "experimental",
+                      "start":  288,
+                      "length":  12
+                  },
+                  {
+                      "seconds":  20.675,
+                      "text":  "measurements",
+                      "start":  301,
+                      "length":  12
+                  },
+                  {
+                      "seconds":  22.224999999999998,
+                      "text":  "Outside",
+                      "start":  315,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  22.675,
+                      "text":  "the",
+                      "start":  323,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  22.765,
+                      "text":  "displayed",
+                      "start":  327,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  23.255,
+                      "text":  "window",
+                      "start":  337,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  24.084999999999997,
+                      "text":  "the",
+                      "start":  345,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  24.24,
+                      "text":  "interface",
+                      "start":  349,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  24.814999999999998,
+                      "text":  "reports",
+                      "start":  359,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  25.314999999999998,
+                      "text":  "the",
+                      "start":  367,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  25.445,
+                      "text":  "exact",
+                      "start":  371,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  25.855,
+                      "text":  "coordinates",
+                      "start":  377,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  26.529999999999998,
+                      "text":  "instead",
+                      "start":  389,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  26.904999999999998,
+                      "text":  "of",
+                      "start":  397,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  27.025,
+                      "text":  "clipping",
+                      "start":  400,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  27.404999999999998,
+                      "text":  "a",
+                      "start":  409,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  27.459999999999997,
+                      "text":  "point",
+                      "start":  411,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  27.814999999999998,
+                      "text":  "to",
+                      "start":  417,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  27.924999999999997,
+                      "text":  "the",
+                      "start":  420,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  28.009999999999998,
+                      "text":  "border",
+                      "start":  424,
+                      "length":  6
+                  }
+              ]
+}

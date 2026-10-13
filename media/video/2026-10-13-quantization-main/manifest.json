@@ -1,0 +1,45 @@
+{
+  "schema": "ghu-video-media-v1",
+  "date": "2026-10-13",
+  "revision": "2026-10-13-quantization-main",
+  "revisionOf": "2026-10-12-boundary-research",
+  "versions": {
+    "en": {
+      "seconds": 2666.6666666666665,
+      "voice": "Microsoft Zira Desktop",
+      "syntheticNarration": true,
+      "chapters": 46,
+      "scenes": 165,
+      "width": 1920,
+      "height": 1080,
+      "fps": 15,
+      "bytes": 77810003,
+      "sha256": "dbc90144f503751d6628615cb63105e62fc9f6dda4123719f2d97a7c0ade5b39"
+    },
+    "es": {
+      "seconds": 2746.3333333333335,
+      "voice": "Microsoft Helena Desktop",
+      "syntheticNarration": true,
+      "chapters": 46,
+      "scenes": 165,
+      "width": 1920,
+      "height": 1080,
+      "fps": 15,
+      "bytes": 80457937,
+      "sha256": "6ff152f8547834be87173f6489292044024bf7fa626c0578b0b4316ce6c184f7"
+    }
+  },
+  "files": {
+    "chapters-en.json": "a9f29da70bed5e15145980f03bea2909e3de111b680419cde6ce963726c7d127",
+    "chapters-es.json": "162a38c2d99cb93d908bf98186b94e63179c1376100b9a34a5e35eb709e53ad8",
+    "ghu-lab-en.mp4": "dbc90144f503751d6628615cb63105e62fc9f6dda4123719f2d97a7c0ade5b39",
+    "ghu-lab-en.vtt": "a4a9349ab0af359e9e9f8d589295a0ea4ddd10b108b52de922e6158d4cdddc07",
+    "ghu-lab-es.mp4": "6ff152f8547834be87173f6489292044024bf7fa626c0578b0b4316ce6c184f7",
+    "ghu-lab-es.vtt": "a2b9b47be6aa6b70ee853322fbb59e21442fd5e3233daf82e9dddaafa584cbb2",
+    "poster-en.png": "cf13fc4ed468cfd2ed29b9f74f9b258b7c557ff38c05df807cef87c3e2bfc74d",
+    "poster-es.png": "47703bd8c2206a8b309ea33d460bd8d316e0d89c5aaf6a8ddd676507b053eaaa",
+    "transcript-en.txt": "0197c7ea48571c6c440732160e4c0de314fc1c9691c8c8bf4333d637917408d2",
+    "transcript-es.txt": "4630a8efb7483fe6768ae4b15886c64692efce10eb2395040f773f78bd37ef5e",
+    "verification.json": "d6f24aa71556264d16b880f9928b8c4456a23569bdadcfecc1c3e5f90d15dd8d"
+  }
+}

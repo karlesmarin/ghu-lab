@@ -282,6 +282,16 @@
     },
     {
       "number": 29,
+      "id": "quantization",
+      "label": "Quantization & certificates",
+      "source": "src/sections/quantization_section.js",
+      "guides": {
+        "en": "guide/quantization/index.html",
+        "es": "guide/es/quantization/index.html"
+      }
+    },
+    {
+      "number": 30,
       "id": "litcensus",
       "label": "The literature",
       "source": "src/sections/census_lit_section.js",
@@ -423,8 +433,8 @@
   ],
   "countingRule": "Menu sections, embedded cards, model modes and batch studies are overlapping levels of organization, not quantities to add into a panel total.",
   "userGuides": {
-    "guidesPerLanguage": 43,
-    "glossaryTerms": 59,
+    "guidesPerLanguage": 45,
+    "glossaryTerms": 67,
     "languages": [
       "en",
       "es"

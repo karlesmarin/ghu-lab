@@ -167,7 +167,7 @@ function cdmHighlight(selector, index = 0) {
 
 /* ---------- the actions the video recorder performs, done in the page ---------- */
 function cdmTarget(a) {
-  const el = a.kind === 'button' ? [...document.querySelectorAll('#section button')].find(e => e.textContent.trim() === a.text)
+  const el = a.kind === 'button' ? [...document.querySelectorAll('#section button')].find(e => uiSourceText(e).trim() === a.text)
     : document.querySelectorAll(a.selector)[a.index || 0];
   if (!el) throw new Error('missing control: ' + (a.selector || a.text));
   for (let p = el; p; p = p.parentElement) if (p.tagName === 'DETAILS') p.open = true;
@@ -222,8 +222,8 @@ async function cdmRunHand(id) {
   for (let i = 0; i < total; i++) {
     const s = d.steps[i];
     if (s.button) {
-      const b = [...document.querySelectorAll(`#rx_${id} button`)].find(x => x.textContent.trim() === s.button)
-        || [...document.querySelectorAll('#section button')].find(x => x.textContent.trim() === s.button);
+      const b = [...document.querySelectorAll(`#rx_${id} button`)].find(x => uiSourceText(x).trim() === s.button)
+        || [...document.querySelectorAll('#section button')].find(x => uiSourceText(x).trim() === s.button);
       if (!b) throw new Error('missing button: ' + s.button);
       cdmBanner(s[lang](d.model()), i + 1, total); cdmHighlight(b); await cdmSleep(1400); b.click(); await cdmSleep(900);
       if (s.then) { cdmBanner(s.then[lang](d.model()), i + 1, total); cdmHighlight(s.then.hl || `#rx_${id}_result > p`, s.then.index || 0); await cdmRead(4200); }

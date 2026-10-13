@@ -1,0 +1,56 @@
+;FFMETADATA1
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=22750
+title=A question about the global structure
+[CHAPTER]
+TIMEBASE=1/1000
+START=22750
+END=49958
+title=One polynomial, two criteria
+[CHAPTER]
+TIMEBASE=1/1000
+START=49958
+END=80583
+title=Two exact lattices, one moving class
+[CHAPTER]
+TIMEBASE=1/1000
+START=80583
+END=105208
+title=Why one covering test is insufficient
+[CHAPTER]
+TIMEBASE=1/1000
+START=105208
+END=128750
+title=Correlated coefficients reconstruct an integral class
+[CHAPTER]
+TIMEBASE=1/1000
+START=128750
+END=156500
+title=Reproducing a published axion condition
+[CHAPTER]
+TIMEBASE=1/1000
+START=156500
+END=185500
+title=A conditional obstruction to parent transfer
+[CHAPTER]
+TIMEBASE=1/1000
+START=185500
+END=213292
+title=Joint U(2) integrality
+[CHAPTER]
+TIMEBASE=1/1000
+START=213292
+END=244458
+title=A fingerprint computed from exact periods
+[CHAPTER]
+TIMEBASE=1/1000
+START=244458
+END=272958
+title=A representation matrix is not the entire lift
+[CHAPTER]
+TIMEBASE=1/1000
+START=272958
+END=304250
+title=What is proved, and how to replay it

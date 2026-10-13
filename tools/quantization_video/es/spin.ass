@@ -1,0 +1,13 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Segoe UI,38,&H00FFFFFF,&H00FFFFFF,&H00172E3C,&H00172E3C,0,0,0,0,100,100,0,0,1,1,0,2,65,65,75,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.50,0:00:06.98,Default,,0,0,0,,Elige C partido por dos. La clase universal no cumple, mientras que los períodos sobre variedades espín
+Dialogue: 0,0:00:06.98,0:00:14.84,Default,,0,0,0,,cerradas de dimensión cuatro sí cumplen. No es una contradicción. Las pruebas usan fondos distintos. La
+Dialogue: 0,0:00:14.84,0:00:21.18,Default,,0,0,0,,prueba universal detecta un período de un medio. En los fondos espín indicados, el período de Y al cuadrado
+Dialogue: 0,0:00:21.18,0:00:26.96,Default,,0,0,0,,es par. Ese hecho topológico es externo a la prueba aritmética Lean.

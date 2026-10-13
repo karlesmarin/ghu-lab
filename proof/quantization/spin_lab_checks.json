@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "count": 7,
+  "checks": [
+    {
+      "name": "Y^2/2 passes spin periods and fails universal integrality",
+      "passed": true
+    },
+    {
+      "name": "Y^2/4 is detected on the spin manifold S^2 x S^2",
+      "passed": true
+    },
+    {
+      "name": "Fractional SU(2) or SU(3) coefficients are detected on S^4",
+      "passed": true
+    },
+    {
+      "name": "3625 integer couplings agree with the published q=6 congruences",
+      "passed": true
+    },
+    {
+      "name": "Known axion point K3=1,K2=0,K1=12 and pure abelian K1=36 pass",
+      "passed": true
+    },
+    {
+      "name": "Very large signed couplings remain exact and invalid inputs are rejected",
+      "passed": true
+    },
+    {
+      "name": "Period quantization does not claim a global action or GHU identification",
+      "passed": true
+    }
+  ],
+  "scope": "Behavioral tests plus published congruences; universal arithmetic proved separately in Lean"
+}

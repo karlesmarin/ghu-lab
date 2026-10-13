@@ -35,7 +35,7 @@ try {
   const snapshot=()=>ev(`(()=>{const ring=nrModel(NR_S),decay=ndModel(ring,ND_S,NR_CMP.flavour);return {ring,decay,summary:document.getElementById('ndSummary').textContent};})()`);
   const change=(id,value)=>ev(`(()=>{const e=document.getElementById(${JSON.stringify(id)});e.value=${JSON.stringify(value)};e.dispatchEvent(new Event('change',{bubbles:true}));})()`);
   const original=await snapshot();
-  check('same_29_sections_and_three_model_options',await ev(`SECTIONS.filter(s=>s.ready!==false).length===29&&document.querySelectorAll('#prModel option').length===3`));
+  check('30_sections_and_three_model_options',await ev(`SECTIONS.filter(s=>s.ready!==false).length===30&&document.querySelectorAll('#prModel option').length===3`));
   check('six_rows_and_three_svg_figures',await ev(`document.querySelectorAll('#ndRows tr').length===6&&document.querySelectorAll('#ndCard svg').length===3`));
   check('default_unknown_full_model_is_visible',await ev(`document.getElementById('ndValidity').textContent.includes('remain uncomputed')&&document.getElementById('ndMissing').textContent.includes('Majoron')`));
   const ref=JSON.parse(readFileSync(resolve(root,'data/neutrino_decay_reference.json'))).models[0].rows[0];

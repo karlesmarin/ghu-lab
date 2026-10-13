@@ -1,0 +1,7 @@
+'SpinPeriod.universal_basis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SpinPeriod.spin_basis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SpinPeriod.universal_implies_spin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SpinPeriod.half_square_spin' depends on axioms: [propext]
+'SpinPeriod.half_square_not_universal' depends on axioms: [propext, Quot.sound]
+'SpinPeriod.q6_congruence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SpinPeriod.q6_implies_six' depends on axioms: [propext, Quot.sound]

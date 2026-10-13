@@ -1,0 +1,392 @@
+﻿{
+    "voice":  "Microsoft Helena Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "El panel del axión usa la normalización de Choi y colaboradores. La combinación entera dieciocho K dos más veinticuatro K tres más K uno debe ser divisible por treinta y seis. El ejemplo cero, uno, doce la satisface. Reproduce el criterio publicado para q igual a seis. Identificar este axión con el campo Higgs gauge sigue siendo una cuestión física distinta y no resuelta.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "El",
+                      "start":  0,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  0.24,
+                      "text":  "panel",
+                      "start":  3,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  0.54999999999999993,
+                      "text":  "del",
+                      "start":  9,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  0.695,
+                      "text":  "axión",
+                      "start":  13,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  1.085,
+                      "text":  "usa",
+                      "start":  19,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  1.305,
+                      "text":  "la",
+                      "start":  23,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  1.405,
+                      "text":  "normalización",
+                      "start":  26,
+                      "length":  13
+                  },
+                  {
+                      "seconds":  2.175,
+                      "text":  "de",
+                      "start":  40,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  2.2649999999999997,
+                      "text":  "Choi",
+                      "start":  43,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  2.505,
+                      "text":  "y",
+                      "start":  48,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  2.565,
+                      "text":  "colaboradores",
+                      "start":  50,
+                      "length":  13
+                  },
+                  {
+                      "seconds":  4.245,
+                      "text":  "La",
+                      "start":  65,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  4.385,
+                      "text":  "combinación",
+                      "start":  68,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  4.9849999999999994,
+                      "text":  "entera",
+                      "start":  80,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  5.335,
+                      "text":  "dieciocho",
+                      "start":  87,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  5.8649999999999993,
+                      "text":  "K",
+                      "start":  97,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  5.9799999999999995,
+                      "text":  "dos",
+                      "start":  99,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  6.165,
+                      "text":  "más",
+                      "start":  103,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  6.335,
+                      "text":  "veinticuatro",
+                      "start":  107,
+                      "length":  12
+                  },
+                  {
+                      "seconds":  6.9849999999999994,
+                      "text":  "K",
+                      "start":  120,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  7.09,
+                      "text":  "tres",
+                      "start":  122,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  7.3149999999999995,
+                      "text":  "más",
+                      "start":  127,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  7.4899999999999993,
+                      "text":  "K",
+                      "start":  131,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  7.64,
+                      "text":  "uno",
+                      "start":  133,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  7.84,
+                      "text":  "debe",
+                      "start":  137,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  8.045,
+                      "text":  "ser",
+                      "start":  142,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  8.24,
+                      "text":  "divisible",
+                      "start":  146,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  8.78,
+                      "text":  "por",
+                      "start":  156,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  8.9599999999999991,
+                      "text":  "treinta",
+                      "start":  160,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  9.3449999999999989,
+                      "text":  "y",
+                      "start":  168,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  9.4,
+                      "text":  "seis",
+                      "start":  170,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  10.645,
+                      "text":  "El",
+                      "start":  176,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  10.78,
+                      "text":  "ejemplo",
+                      "start":  179,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  11.19,
+                      "text":  "cero",
+                      "start":  187,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  11.915,
+                      "text":  "uno",
+                      "start":  193,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  12.594999999999999,
+                      "text":  "doce",
+                      "start":  198,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  12.87,
+                      "text":  "la",
+                      "start":  203,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  12.969999999999999,
+                      "text":  "satisface",
+                      "start":  206,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  14.51,
+                      "text":  "Reproduce",
+                      "start":  217,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  15.065,
+                      "text":  "el",
+                      "start":  227,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  15.165,
+                      "text":  "criterio",
+                      "start":  230,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  15.614999999999998,
+                      "text":  "publicado",
+                      "start":  239,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  16.15,
+                      "text":  "para",
+                      "start":  249,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  16.375,
+                      "text":  "q",
+                      "start":  254,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  16.495,
+                      "text":  "igual",
+                      "start":  256,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  16.794999999999998,
+                      "text":  "a",
+                      "start":  262,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  16.865,
+                      "text":  "seis",
+                      "start":  264,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  18.105,
+                      "text":  "Identificar",
+                      "start":  270,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  18.785,
+                      "text":  "este",
+                      "start":  282,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  19.015,
+                      "text":  "axión",
+                      "start":  287,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  19.384999999999998,
+                      "text":  "con",
+                      "start":  293,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  19.54,
+                      "text":  "el",
+                      "start":  297,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  19.65,
+                      "text":  "campo",
+                      "start":  300,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  19.97,
+                      "text":  "Higgs",
+                      "start":  306,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  20.224999999999998,
+                      "text":  "gauge",
+                      "start":  312,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  20.535,
+                      "text":  "sigue",
+                      "start":  318,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  20.8,
+                      "text":  "siendo",
+                      "start":  324,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  21.13,
+                      "text":  "una",
+                      "start":  331,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  21.31,
+                      "text":  "cuestión",
+                      "start":  335,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  21.73,
+                      "text":  "física",
+                      "start":  344,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  22.14,
+                      "text":  "distinta",
+                      "start":  351,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  22.619999999999997,
+                      "text":  "y",
+                      "start":  360,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  22.675,
+                      "text":  "no",
+                      "start":  362,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  22.79,
+                      "text":  "resuelta",
+                      "start":  365,
+                      "length":  8
+                  }
+              ]
+}

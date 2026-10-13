@@ -273,6 +273,11 @@
       const i = kv.indexOf("=");
       return i < 0 ? [kv, ""] : [kv.slice(0, i), unesc(kv.slice(i + 1))];
     }).filter(([, v]) => v !== null));
+    // Honour a language carried by an in-tab link before rendering its section.
+    if (q.lang === 'en' || q.lang === 'es') {
+      GUIDE_LANGUAGE = q.lang;
+      try { localStorage.setItem('ghu-help-language', GUIDE_LANGUAGE); } catch {}
+    }
     if (q.s && SECTIONS.some((x) => x.id === q.s && x.ready !== false)) state.section = q.s;
     for (const f of FAMILIES) {
       const sd = q[`${f.group}.seed`], Dg = DATASETS[f.group];
@@ -765,6 +770,7 @@
  * render so a mark works the moment it is drawn. */
 mountHelp();
 mountGuideHelp();
+mountInterfaceLanguage();
 
 /* THE RAIL DRAWER, below 960px only.  Wired once at load; above the breakpoint the button is
  * display:none and this never runs.  Picking a section closes it, because a drawer that stays open

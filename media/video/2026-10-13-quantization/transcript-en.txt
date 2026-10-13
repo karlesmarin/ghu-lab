@@ -1,0 +1,32 @@
+A question about the global structure
+Open Quantization and certificates in the new research menu. These are independent diagnostics, with exact rational inputs and separate assumptions. The guided demo changes real controls. A passing arithmetic criterion is one ingredient of consistency. It does not certify a complete gauge Higgs model.
+
+One polynomial, two criteria
+Choose C over two. The universal class fails, while periods on closed spin four manifolds pass. This is not a contradiction. The tests use different backgrounds. The universal test detects a period of one half. On the stated spin backgrounds, the period of Y squared is even. That topological fact is external to the Lean arithmetic proof.
+
+Two exact lattices, one moving class
+The diamonds are universal integral classes. The rings between them pass only the closed spin four period test. The cross marks the current alpha and delta, at fixed beta. Select a lattice point in the application and the input gamma changes exactly. These are mathematical criteria, not experimental measurements. Outside the displayed window, the interface reports the exact coordinates instead of clipping a point to the border.
+
+Why one covering test is insufficient
+Now choose C over thirty six. The covering direction gives an integer, one. But the displayed quotient cocharacter gives one over thirty six. Checking a convenient covering direction can miss a forbidden period. Read the witness together with the criterion. The application uses exact fractions, not a floating point tolerance.
+
+Correlated coefficients reconstruct an integral class
+Choose A plus B. Alpha and beta are one; gamma is seven twelfths. After changing to the integral basis, delta is zero. Both criteria pass. The fractional contributions have to be combined before judging the total class. The controls, the witness and the exported result all use the same calculation.
+
+Reproducing a published axion condition
+The axion panel uses the normalization of Choi and collaborators. The integer combination eighteen K two plus twenty four K three plus K one must be divisible by thirty six. The default zero, one, twelve satisfies it. This reproduces the published q equals six condition. Identifying this axion with the gauge Higgs field remains a separate, unresolved physical question.
+
+A conditional obstruction to parent transfer
+The parent map has two columns and a common annihilator. With the inherited spectrum and ordinary integral Green Schwarz sources, six times the annihilator is sixteen minus three p minus three q minus six r. For integer pairings it is one modulo three, so it cannot vanish. Lean proves that arithmetic for all integers. Allowed orbifold backgrounds and extra corner responses are not settled by this result.
+
+Joint U(2) integrality
+The U two example shows why joint integrality differs from separate factor requirements. With b zero equal to one and b one equal to six, the quadratic form is m squared plus m n plus n squared. It is integral for every integer pair. The formal criterion also covers rational coefficients with a common nonzero denominator. This example is not an anomaly free supergravity spectrum.
+
+A fingerprint computed from exact periods
+Change b one from six to five. Each cell is a cocharacter labelled by integers m and n. Its printed fraction and color are Q modulo one, calculated with exact integer arithmetic. The point one, zero now has period seven eighths: a concrete witness of failure. Returning b one to six makes every cell integral. The eighty one cells illustrate the criterion; the Lean theorem establishes it for all integer pairs.
+
+A representation matrix is not the entire lift
+For the Spin twenty audit, the degree eighteen Clifford element squares to minus one. Multiplication by minus i makes the representation matrix square to plus one. This distinction matters for an ordinary isotropy lift. It does not prove the model inconsistent: a twisted or combined action may be possible. Every field and interaction, including bosonic Omega, must share a specified action.
+
+What is proved, and how to replay it
+The catalogue includes four Lean files with forty nine theorem declarations, the exact audit scripts, recorded checks and file hashes. All four files replay with Lean four point twenty seven. The older S U seven file was adapted from List bind to List flat Map, keeping its theorem statements. Download the evidence, verify its integrity and run the listed commands. Full anomaly cancellation and scientific novelty remain open.

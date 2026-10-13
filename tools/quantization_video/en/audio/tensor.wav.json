@@ -1,0 +1,410 @@
+﻿{
+    "voice":  "Microsoft Zira Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "The parent map has two columns and a common annihilator. With the inherited spectrum and ordinary integral Green Schwarz sources, six times the annihilator is sixteen minus three p minus three q minus six r. For integer pairings it is one modulo three, so it cannot vanish. Lean proves that arithmetic for all integers. Allowed orbifold backgrounds and extra corner responses are not settled by this result.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "The",
+                      "start":  0,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  0.185,
+                      "text":  "parent",
+                      "start":  4,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  0.58,
+                      "text":  "map",
+                      "start":  11,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  0.865,
+                      "text":  "has",
+                      "start":  15,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  1.0999999999999999,
+                      "text":  "two",
+                      "start":  19,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  1.3199999999999998,
+                      "text":  "columns",
+                      "start":  23,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  1.77,
+                      "text":  "and",
+                      "start":  31,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  1.885,
+                      "text":  "a",
+                      "start":  35,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  1.9549999999999998,
+                      "text":  "common",
+                      "start":  37,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  2.315,
+                      "text":  "annihilator",
+                      "start":  44,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  3.855,
+                      "text":  "With",
+                      "start":  57,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  4.005,
+                      "text":  "the",
+                      "start":  62,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  4.125,
+                      "text":  "inherited",
+                      "start":  66,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  4.67,
+                      "text":  "spectrum",
+                      "start":  76,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  5.215,
+                      "text":  "and",
+                      "start":  85,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  5.37,
+                      "text":  "ordinary",
+                      "start":  89,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  5.8649999999999993,
+                      "text":  "integral",
+                      "start":  98,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  6.2799999999999994,
+                      "text":  "Green",
+                      "start":  107,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  6.585,
+                      "text":  "Schwarz",
+                      "start":  113,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  7.05,
+                      "text":  "sources",
+                      "start":  121,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  8.02,
+                      "text":  "six",
+                      "start":  130,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  8.35,
+                      "text":  "times",
+                      "start":  134,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  8.715,
+                      "text":  "the",
+                      "start":  140,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  8.8349999999999991,
+                      "text":  "annihilator",
+                      "start":  144,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  9.455,
+                      "text":  "is",
+                      "start":  156,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  9.5949999999999989,
+                      "text":  "sixteen",
+                      "start":  159,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  10.08,
+                      "text":  "minus",
+                      "start":  167,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  10.479999999999999,
+                      "text":  "three",
+                      "start":  173,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  10.7,
+                      "text":  "p",
+                      "start":  179,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  10.955,
+                      "text":  "minus",
+                      "start":  181,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  11.375,
+                      "text":  "three",
+                      "start":  187,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  11.58,
+                      "text":  "q",
+                      "start":  193,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  11.84,
+                      "text":  "minus",
+                      "start":  195,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  12.205,
+                      "text":  "six",
+                      "start":  201,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  12.52,
+                      "text":  "r",
+                      "start":  205,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  13.67,
+                      "text":  "For",
+                      "start":  208,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  13.905,
+                      "text":  "integer",
+                      "start":  212,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  14.34,
+                      "text":  "pairings",
+                      "start":  220,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  14.795,
+                      "text":  "it",
+                      "start":  229,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  14.915,
+                      "text":  "is",
+                      "start":  232,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  15.045,
+                      "text":  "one",
+                      "start":  235,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  15.27,
+                      "text":  "modulo",
+                      "start":  239,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  15.83,
+                      "text":  "three",
+                      "start":  246,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  16.63,
+                      "text":  "so",
+                      "start":  253,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  16.87,
+                      "text":  "it",
+                      "start":  256,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  16.985,
+                      "text":  "cannot",
+                      "start":  259,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  17.36,
+                      "text":  "vanish",
+                      "start":  266,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  18.715,
+                      "text":  "Lean",
+                      "start":  274,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  18.95,
+                      "text":  "proves",
+                      "start":  279,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  19.32,
+                      "text":  "that",
+                      "start":  286,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  19.494999999999997,
+                      "text":  "arithmetic",
+                      "start":  291,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  20.14,
+                      "text":  "for",
+                      "start":  302,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  20.33,
+                      "text":  "all",
+                      "start":  306,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  20.525,
+                      "text":  "integers",
+                      "start":  310,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  22.035,
+                      "text":  "Allowed",
+                      "start":  320,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  22.41,
+                      "text":  "orbifold",
+                      "start":  328,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  22.985,
+                      "text":  "backgrounds",
+                      "start":  337,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  23.689999999999998,
+                      "text":  "and",
+                      "start":  349,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  23.834999999999997,
+                      "text":  "extra",
+                      "start":  353,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  24.174999999999997,
+                      "text":  "corner",
+                      "start":  359,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  24.58,
+                      "text":  "responses",
+                      "start":  366,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  25.2,
+                      "text":  "are",
+                      "start":  376,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  25.299999999999997,
+                      "text":  "not",
+                      "start":  380,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  25.549999999999997,
+                      "text":  "settled",
+                      "start":  384,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  25.915,
+                      "text":  "by",
+                      "start":  392,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  26.08,
+                      "text":  "this",
+                      "start":  395,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  26.31,
+                      "text":  "result",
+                      "start":  400,
+                      "length":  6
+                  }
+              ]
+}

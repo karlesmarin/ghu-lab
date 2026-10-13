@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "check_count": 3290,
+  "arithmetic": "integer phases modulo four; independent Jordan-Wigner basis action",
+  "source": "action_source.txt",
+  "source_sha256": "618b9217f73c63d9ae139675c2264e038f604bc703b66e08746cf03582c73722",
+  "source_definition": "U6=prod(cg[12:]);Ua=-1j*U6@prod(cg[:10]);Ub=-U6@prod(cg[:4])",
+  "raw_degrees": [
+    8,
+    18,
+    12
+  ],
+  "raw_squares": [
+    1,
+    -1,
+    1
+  ],
+  "representation_squares": [
+    1,
+    1,
+    1
+  ],
+  "negative_control": "Removing -i from Ua gives square -1",
+  "scope": "Local Clifford and representation identities only; no proof of global bundle admissibility, anomaly cancellation or novelty",
+  "lean_certified": false
+}

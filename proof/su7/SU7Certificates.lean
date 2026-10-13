@@ -28,19 +28,19 @@ instance : Inhabited Weight := ⟨⟨0,1,1⟩⟩
 def w (i : Nat) : Weight := fundamental[i]!
 
 def symmetric2 : List Weight :=
-  (List.range 7).bind fun i =>
+  (List.range 7).flatMap fun i =>
     ((List.range 7).filter fun j => i ≤ j).map fun j => tensor (w i) (w j)
 
 def symmetric3 : List Weight :=
-  (List.range 7).bind fun i =>
-    (List.range 7).bind fun j =>
+  (List.range 7).flatMap fun i =>
+    (List.range 7).flatMap fun j =>
       ((List.range 7).filter fun k => i ≤ j && j ≤ k).map fun k =>
         tensor (tensor (w i) (w j)) (w k)
 
 -- End(V) has dimension 49. Removing its neutral singlet gives the adjoint;
 -- the singlet contributes to none of the nonzero-charge counts below.
 def endomorphisms : List Weight :=
-  fundamental.bind fun a => fundamental.map fun b => tensor a (conjugate b)
+  fundamental.flatMap fun a => fundamental.map fun b => tensor a (conjugate b)
 
 def channel (rep : List Weight) (q b : Int) : Nat :=
   (rep.filter fun a => a.q == q && a.b == b).length
@@ -105,7 +105,7 @@ theorem seed_shift_preserves_law_combination :
 -- Sym3 of charges {-1,+1} has {-3,-1,+1,+3}, each with multiplicity one.
 def doublet : List Weight := [⟨1,-1,-1⟩, ⟨-1,-1,-1⟩]
 def quartet : List Weight :=
-  (List.range 2).bind fun i => (List.range 2).bind fun j =>
+  (List.range 2).flatMap fun i => (List.range 2).flatMap fun j =>
     ((List.range 2).filter fun k => i ≤ j && j ≤ k).map fun k =>
       tensor (tensor doublet[i]! doublet[j]!) doublet[k]!
 

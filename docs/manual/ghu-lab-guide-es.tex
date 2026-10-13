@@ -19,7 +19,7 @@
 {\LARGE Guía de uso\par}
 \vspace{7mm}
 Castellano. Composición con Babel.\par
-12 de octubre de 2026\par
+13 de octubre de 2026\par
 \vspace{8mm}
 Los nombres de los controles se conservan tal como aparecen en la aplicación. Empieza con una referencia, cambia un parámetro cada vez y conserva las hipótesis junto al resultado.\par
 \vfill
@@ -2182,6 +2182,8 @@ La brecha de frontera, la independencia de perfiles y la condición restringida 
 \item Las trazas omiten la normalización de proyectores y del espacio de recubrimiento, el descenso consistente, las contribuciones espejo y el flujo de anomalía. La sonda escalar no es el polinomio completo.
 \item El criterio SU(2) corresponde a un sistema tensorial aislado específico de seis dimensiones. No puede trasladarse automáticamente a una esquina de orbifold de ocho dimensiones acoplada al flujo del bulk.
 \item Siguen pendientes los coeficientes locales, la red integral de cargas tensoriales, el grupo gauge global, los nuevos modos cero bosónicos y la consistencia cuántica completa.
+\item Siguen abiertas la acción global sobre todos los campos, incluido Omega bosónico, y los fibrados admisibles del orbifold.
+\item El elemento Clifford de grado 18 tiene cuadrado \ensuremath{-}1; la matriz Ua=\ensuremath{-}i ta tiene cuadrado +1. La fase escalar requiere una interpretación global común.
 \end{itemize}
 \subsection*{Si algo no queda claro}
 \textbf{La primera raíz normal es cero.} Comprueba el acoplamiento de frontera. Si es nulo, ese modo cero es el resultado esperado, no un fallo del método numérico.
@@ -2200,6 +2202,99 @@ La brecha de frontera, la independencia de perfiles y la condición restringida 
 \item \href{https://arxiv.org/abs/hep-ph/0209144}{Asaka, Buchmüller, Covi: localized orbifold anomalies, sections 2--4}
 \item \href{https://arxiv.org/abs/hep-ph/0102010}{Dobrescu, Poppitz: identical six-dimensional generations}
 \item \href{https://arxiv.org/abs/2012.11622}{Lee, Tachikawa: six-dimensional global anomalies and tensor quantization, sections 2--3}
+\end{itemize}
+\section{Cuantización y certificados}
+Compara criterios exactos de cuantización para H=S(U(2)\ensuremath{\times}U(3)), períodos espín cerrados en dimensión cuatro, transferencia parental condicional y un ejemplo conjunto U(2).
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/quantization/index.html}{Abrir guía web}
+
+Usa este diagnóstico independiente antes de interpretar la cancelación de un polinomio como una acción global cuantizada. El cociente global correlaciona coeficientes aparentemente separados. Los períodos espín cerrados en dimensión cuatro plantean una pregunta distinta de la cohomología universal de grado cuatro. El panel muestra la distinción y aporta testigos exactos.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Ejecuta la Demo y compara C/2, C/36 y A+B.
+\item Introduce fracciones exactas. Inspecciona el cocarácter o variedad espín que detecta cada fallo.
+\item Cambia emparejamientos enteros de tensores e inspecciona la clase residual que persiste.
+\item Exporta JSON y abre el catálogo para repetir la prueba Lean o numérica correspondiente.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{\ensuremath{\alpha}, \ensuremath{\beta}, \ensuremath{\gamma}}. Coeficientes racionales en la convención centrada SU(2), SU(3) e Y\ensuremath{{}^{2}}. Elige C/2; cambia \ensuremath{\gamma} a 1/4.
+
+\textbf{p, q, r}. Emparejamientos enteros del retículo para fuentes Green--Schwarz ordinarias. Cambia p de cero a uno.
+
+\textbf{K\ensuremath{{}_{2}}, K\ensuremath{{}_{3}}, K\ensuremath{{}_{1}}}. Acoplos enteros del axión con \ensuremath{\alpha}=\ensuremath{-}K\ensuremath{{}_{2}}, \ensuremath{\beta}=\ensuremath{-}K\ensuremath{{}_{3}}, \ensuremath{\gamma}=K\ensuremath{{}_{1}}/72. Usa (0,1,12), después K\ensuremath{{}_{1}}=13.
+
+\textbf{b\ensuremath{{}_{0}}, b\ensuremath{{}_{1}}}. Coeficientes U(2) enteros; el criterio Lean también trata un denominador racional común. Compara (1,6) con (1,5).
+
+\textbf{Figuras exactas / SVG}. Selecciona un punto para fijar alfa y delta a beta constante; selecciona una celda para leer su período U(2) exacto. Compara b1=6 con b1=5; inspecciona (m,n)=(1,0) y exporta SVG y JSON.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Criterios y testigos}. Lee \ensuremath{\alpha},\ensuremath{\beta},\ensuremath{\delta} y \ensuremath{\alpha},\ensuremath{\beta},2\ensuremath{\delta} por separado. El contraejemplo es una evaluación no integral exacta.
+
+\textbf{Transferencia condicional}. El anulador \ensuremath{\ell}(x,y,z)=x+y+2z se anula sobre ambas columnas parentales. Su valor no nulo excluye el emparejamiento solo bajo las hipótesis de fuentes y espectro indicadas.
+
+\textbf{JSON / Lean}. JSON conserva entradas, testigos, fuentes y límites. El catálogo contiene cuatro archivos Lean con 49 declaraciones de teoremas y su evidencia de verificación.
+
+\textbf{Retículas y huella de cocaracteres}. Los rombos cumplen ambos criterios; los anillos cumplen solo períodos espín en el corte de beta fijo. Cada celda muestra Q módulo uno; al seleccionarla se obtiene Q exacto. Figuras y JSON usan gqModel.figures, sin muestras ajustadas ni inventadas.
+
+Cumplir un criterio aritmético restringido no establece una acción global ni un modelo completo libre de anomalías. La clase módulo tres de respuestas es condicional; no se ha identificado con una anomalía global Z3.
+\subsection*{Ejemplo guiado: Un polinomio, distintas pruebas de fondos}
+\begin{enumerate}
+\item Elige C/2 y lee ambas filas.
+\item La integralidad universal falla en el cocarácter (1,0,\ensuremath{-}1,0,0).
+\item Los períodos espín cerrados de dimensión cuatro cumplen porque el período de Y\ensuremath{{}^{2}} es par.
+\end{enumerate}
+Los resultados son compatibles: las pruebas cuantifican sobre fondos distintos. Ninguna determina la categoría de fondos del orbifold.
+\subsection*{Fórmulas y convenciones}
+\noindent\begin{minipage}{\linewidth}
+\begin{quote}Q = \ensuremath{\alpha}(A \ensuremath{-} C/4) + \ensuremath{\beta}(B \ensuremath{-} C/3) + \ensuremath{\gamma}C; \ensuremath{\delta} = \ensuremath{\gamma} \ensuremath{-} \ensuremath{\alpha}/4 \ensuremath{-} \ensuremath{\beta}/3\end{quote}
+Cambio de raíces centradas a clases características integrales.
+
+\end{minipage}\par\medskip
+\noindent\begin{minipage}{\linewidth}
+\begin{quote}Universal: \ensuremath{\alpha}, \ensuremath{\beta}, \ensuremath{\delta} integral; closed spin-4: \ensuremath{\alpha}, \ensuremath{\beta}, 2\ensuremath{\delta} integral\end{quote}
+Fibrados ordinarios; la paridad de Wu es una premisa topológica externa a Lean.
+
+\end{minipage}\par\medskip
+\noindent\begin{minipage}{\linewidth}
+\begin{quote}18K\ensuremath{{}_{2}} + 24K\ensuremath{{}_{3}} + K\ensuremath{{}_{1}} = 0 mod 36\end{quote}
+Criterio conocido q=6 del axión; sin identificación con el Higgs GHU.
+
+\end{minipage}\par\medskip
+\noindent\begin{minipage}{\linewidth}
+\begin{quote}6\ensuremath{\ell}(v) = 16 \ensuremath{-} 3p \ensuremath{-} 3q \ensuremath{-} 6r = 1 mod 3\end{quote}
+Obstrucción entera con espectro fijo y respuestas parentales ordinarias.
+
+\end{minipage}\par\medskip
+\noindent\begin{minipage}{\linewidth}
+\begin{quote}Q(m,n) = b\ensuremath{{}_{0}}(m\ensuremath{-}n)\ensuremath{{}^{2}}/4 + b\ensuremath{{}_{1}}(m+n)\ensuremath{{}^{2}}/8\end{quote}
+Integralidad conjunta si y solo si b\ensuremath{{}_{0}} es integral y b\ensuremath{{}_{1}}+2b\ensuremath{{}_{0}} divisible por ocho.
+
+\end{minipage}\par\medskip
+\noindent\begin{minipage}{\linewidth}
+\begin{quote}t\ensuremath{{}_{a}}\ensuremath{{}^{2}} = \ensuremath{-}1; U\ensuremath{{}_{a}} = \ensuremath{-}i t\ensuremath{{}_{a}}; U\ensuremath{{}_{a}}\ensuremath{{}^{2}} = +1\end{quote}
+La involución de representación difiere de un levantamiento ordinario de isotropía Spin(20).
+
+\end{minipage}\par\medskip
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item Siguen abiertas la acción global sobre todos los campos, incluido Omega bosónico, y los fibrados admisibles del orbifold.
+\item El criterio de divisibilidad SU(2) de pared es conocido. No se afirma novedad matemática ni cancelación completa.
+\item Lean formaliza aritmética. La topología de clases características, paridad de Wu y traducciones físicas son hipótesis externas. Las 3290 comprobaciones de levantamientos son cálculos exactos, no teoremas Lean.
+\item Los 81 cocaracteres son una visualización finita, no una prueba universal. Los valores fuera de la ventana se indican explícitamente; solo las coordenadas de píxel son aproximadas.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{Se rechaza la entrada.} Usa un entero o n/d con denominador positivo no nulo. Los controles de tensores, axión y U(2) requieren enteros. Se conserva el último estado válido.
+
+\textbf{El resultado cumple, pero la consistencia del modelo no está comprobada.} Lee el alcance: un criterio restringido de cuantización es un ingrediente necesario de una acción completa, no certifica los restantes.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://arxiv.org/abs/1711.04777}{Monnier--Moore--Park: global quantization}
+\item \href{https://arxiv.org/abs/2309.03937}{Choi et al.: axion couplings, Table 1 q=6}
+\item \href{https://arxiv.org/abs/1705.01853}{Tong: global gauge group and line operators}
+\item \href{https://arxiv.org/abs/2012.11622}{Lee--Tachikawa: six-dimensional tensor criterion}
+\item \href{https://arxiv.org/abs/2011.10102}{Davighi--Lohitsiri: anomaly interplay}
+\item \href{https://arxiv.org/abs/hep-th/0305024}{von Gersdorff--Quiros: orbifold transformations}
 \end{itemize}
 \section{Glosario}
 \subsection*{Alfabeto}
@@ -2378,5 +2473,29 @@ Verde: reproduce la cantidad publicada bajo el alcance indicado. Ámbar: difiere
 
 \subsection*{Alcance de la referencia}
 Tres de los cuatro modelos archivados son supersimétricos y el potencial del motor no lo es: sus filas se limitan a álgebra de paridades, grupos y modos cero. Kubo--Lim--Yamashita no es supersimétrico y permite también las comparaciones dinámicas indicadas. La transferencia no añade interacciones ausentes.
+
+\subsection*{Cuantización global}
+Una clase característica debe tener períodos integrales sobre los fondos especificados. El grupo global determina qué fibrados y cocaracteres la comprueban; una dirección del recubrimiento no tiene por qué detectar todas las obstrucciones.
+
+\subsection*{Clases universales y períodos espín}
+Para H = S(U(2) \ensuremath{\times} U(3)), la base integral da \ensuremath{\delta} = \ensuremath{\gamma} \ensuremath{-} \ensuremath{\alpha}/4 \ensuremath{-} \ensuremath{\beta}/3. La integralidad universal exige \ensuremath{\alpha}, \ensuremath{\beta}, \ensuremath{\delta} enteros. En las variedades espín cerradas de dimensión cuatro indicadas, la paridad de Wu da \ensuremath{\alpha}, \ensuremath{\beta}, 2\ensuremath{\delta} enteros; esta topología es una hipótesis externa a Lean.
+
+\subsection*{Congruencia del axión para q = 6}
+En la normalización de Choi et al., \ensuremath{\alpha} = \ensuremath{-}K\ensuremath{{}_{2}}, \ensuremath{\beta} = \ensuremath{-}K\ensuremath{{}_{3}} y \ensuremath{\gamma} = K\ensuremath{{}_{1}}/72. El criterio de períodos espín exige que 18K\ensuremath{{}_{2}} + 24K\ensuremath{{}_{3}} + K\ensuremath{{}_{1}} sea divisible por 36, con K\ensuremath{{}_{2}} y K\ensuremath{{}_{3}} enteros. Esto no identifica el axión con un Higgs GHU.
+
+\subsection*{Obstrucción parental condicional}
+La forma lineal \ensuremath{\ell}(x,y,z) = x + y + 2z anula ambas columnas de respuesta parental ordinaria. Para el espectro heredado fijo y fuentes Green--Schwarz integrales ordinarias, 6\ensuremath{\ell}(v) vale 1 módulo 3 y no puede anularse. Otras familias de fondos o respuestas necesitan su propio análisis.
+
+\subsection*{Integralidad cuadrática conjunta}
+Para todo cocarácter entero (m,n), Q = b\ensuremath{{}_{0}}(m\ensuremath{-}n)\ensuremath{{}^{2}}/4 + b\ensuremath{{}_{1}}(m+n)\ensuremath{{}^{2}}/8 es integral exactamente cuando b\ensuremath{{}_{0}} es entero y b\ensuremath{{}_{1}} + 2b\ensuremath{{}_{0}} es múltiplo de 8. Los sumandos separados no tienen por qué ser integrales. El certificado demuestra este criterio aritmético, no la existencia de un espectro de supergravedad libre de anomalías.
+
+\subsection*{Cómo leer las figuras exactas}
+La retícula fija \ensuremath{\beta}: los rombos cumplen ambos criterios y los anillos solo el de períodos espín. En la malla de cocaracteres, cada celda imprime Q módulo 1; una fracción no nula es un testigo del fallo. Ambas figuras usan las entradas exactas actuales. La malla finita ilustra el teorema universal, sin demostrarlo.
+
+\subsection*{Representación y levantamiento de grupo}
+Una acción ordinaria de Z\ensuremath{{}_{2}} levantada a Spin(20) necesita un elemento con cuadrado +1. Aquí t\ensuremath{{}_{a}}\ensuremath{{}^{2}} = \ensuremath{-}1, mientras U\ensuremath{{}_{a}} = \ensuremath{-}i t\ensuremath{{}_{a}} tiene U\ensuremath{{}_{a}}\ensuremath{{}^{2}} = +1 por una fase escalar adicional. Una acción combinada o torcida debe definirse para todos los campos; la matriz sola no la establece.
+
+\subsection*{Alcance de un certificado Lean}
+Lean comprueba los enunciados exactos a partir de sus hipótesis. Estos cuatro archivos contienen 49 declaraciones de teoremas sobre álgebra de pesos y criterios aritméticos. Las auditorías numéricas, la topología externa, los fondos admisibles del orbifold y la consistencia física completa siguen siendo cuestiones distintas.
 
 \end{document}

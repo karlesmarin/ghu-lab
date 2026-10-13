@@ -47,7 +47,7 @@ PATRONES = [
 ]
 
 # Binary and vendored things the rule cannot speak about.
-SALTA = re.compile(r"\.(png|jpg|jpeg|gif|pdf|ico|woff2?|zip|mp4)$", re.I)
+SALTA = re.compile(r"\.(png|jpg|jpeg|gif|pdf|ico|woff2?|zip|mp4|wav)$", re.I)
 
 
 def tracked():
@@ -63,6 +63,10 @@ def audit(nombre, texto):
     hits = []
     for etq, rx in PATRONES:
         for m in rx.finditer(texto):
+            # A displayed map J:\pi_{d+1} is LaTeX, not a drive path.
+            # Skip only these delimited math commands; continue scanning the file.
+            if etq == "absolute Windows path" and re.match(r"[A-Za-z]:\\(?:pi_|mathbb|mathrm)\{", texto[m.start():]):
+                continue
             i = max(0, m.start() - 40)
             hits.append((etq, texto[i:m.start() + 60].replace("\n", " ").strip()))
             break
@@ -107,6 +111,9 @@ def main():
         ("ordinary prose with a colon", "See section 4: the ceiling is 10034 GeV", False),
         ("Spanish caption with an escaped newline", r"antes y después:\nanomalías y campos", False),
         ("a real Windows path after Unicode prose", r"Después: E:\notes\file.txt", True),
+        ("a LaTeX homomorphism", r"J:\pi_{d+1}(G)\to\mathbb{R}", False),
+        ("a real path after a LaTeX homomorphism", r"J:\pi_{d+1}(G); E:\notes\file.txt", True),
+        ("a similarly named Windows directory", r"J:\pi_folder\notes.txt", True),
     ]
     fallos = 0
     for etq, texto, debe in pruebas:

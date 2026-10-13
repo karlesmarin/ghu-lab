@@ -1,0 +1,428 @@
+﻿{
+    "voice":  "Microsoft Helena Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "El catálogo contiene cuatro archivos Lean con cuarenta y nueve declaraciones de teoremas, scripts exactos, comprobaciones registradas y hashes. Los cuatro archivos se verifican con Lean cuatro punto veintisiete. El archivo antiguo de S U siete se adaptó de List bind a List flat Map, conservando sus enunciados. Descarga la evidencia, comprueba su integridad y ejecuta los comandos indicados. La cancelación completa de anomalías y la novedad científica siguen abiertas.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "El",
+                      "start":  0,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  0.24,
+                      "text":  "catálogo",
+                      "start":  3,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  0.75,
+                      "text":  "contiene",
+                      "start":  12,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  1.21,
+                      "text":  "cuatro",
+                      "start":  21,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  1.545,
+                      "text":  "archivos",
+                      "start":  28,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  1.97,
+                      "text":  "Lean",
+                      "start":  37,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  2.215,
+                      "text":  "con",
+                      "start":  42,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  2.385,
+                      "text":  "cuarenta",
+                      "start":  46,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  2.76,
+                      "text":  "y",
+                      "start":  55,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  2.815,
+                      "text":  "nueve",
+                      "start":  57,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  3.0949999999999998,
+                      "text":  "declaraciones",
+                      "start":  63,
+                      "length":  13
+                  },
+                  {
+                      "seconds":  3.8,
+                      "text":  "de",
+                      "start":  77,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  3.9099999999999997,
+                      "text":  "teoremas",
+                      "start":  80,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  4.91,
+                      "text":  "scripts",
+                      "start":  90,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  5.425,
+                      "text":  "exactos",
+                      "start":  98,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  6.42,
+                      "text":  "comprobaciones",
+                      "start":  107,
+                      "length":  14
+                  },
+                  {
+                      "seconds":  7.1899999999999995,
+                      "text":  "registradas",
+                      "start":  122,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  7.89,
+                      "text":  "y",
+                      "start":  134,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  7.96,
+                      "text":  "hashes",
+                      "start":  136,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  9.379999999999999,
+                      "text":  "Los",
+                      "start":  144,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  9.57,
+                      "text":  "cuatro",
+                      "start":  148,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  9.8899999999999988,
+                      "text":  "archivos",
+                      "start":  155,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  10.295,
+                      "text":  "se",
+                      "start":  164,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  10.4,
+                      "text":  "verifican",
+                      "start":  167,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  10.93,
+                      "text":  "con",
+                      "start":  177,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  11.09,
+                      "text":  "Lean",
+                      "start":  181,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  11.33,
+                      "text":  "cuatro",
+                      "start":  186,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  11.639999999999999,
+                      "text":  "punto",
+                      "start":  193,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  11.969999999999999,
+                      "text":  "veintisiete",
+                      "start":  199,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  13.54,
+                      "text":  "El",
+                      "start":  212,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  13.674999999999999,
+                      "text":  "archivo",
+                      "start":  215,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  14.03,
+                      "text":  "antiguo",
+                      "start":  223,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  14.434999999999999,
+                      "text":  "de",
+                      "start":  231,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  14.559999999999999,
+                      "text":  "S",
+                      "start":  234,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  14.78,
+                      "text":  "U",
+                      "start":  236,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  14.84,
+                      "text":  "siete",
+                      "start":  238,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  15.174999999999999,
+                      "text":  "se",
+                      "start":  244,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  15.305,
+                      "text":  "adaptó",
+                      "start":  247,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  15.68,
+                      "text":  "de",
+                      "start":  254,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  15.78,
+                      "text":  "List",
+                      "start":  257,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  16.025,
+                      "text":  "bind",
+                      "start":  262,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  16.355,
+                      "text":  "a",
+                      "start":  267,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  16.425,
+                      "text":  "List",
+                      "start":  269,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  16.665,
+                      "text":  "flat",
+                      "start":  274,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  16.91,
+                      "text":  "Map",
+                      "start":  279,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  17.585,
+                      "text":  "conservando",
+                      "start":  284,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  18.235,
+                      "text":  "sus",
+                      "start":  296,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  18.46,
+                      "text":  "enunciados",
+                      "start":  300,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  20.009999999999998,
+                      "text":  "Descarga",
+                      "start":  312,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  20.52,
+                      "text":  "la",
+                      "start":  321,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  20.61,
+                      "text":  "evidencia",
+                      "start":  324,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  21.599999999999998,
+                      "text":  "comprueba",
+                      "start":  335,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  22.115,
+                      "text":  "su",
+                      "start":  345,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  22.259999999999998,
+                      "text":  "integridad",
+                      "start":  348,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  22.805,
+                      "text":  "y",
+                      "start":  359,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  22.86,
+                      "text":  "ejecuta",
+                      "start":  361,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  23.345,
+                      "text":  "los",
+                      "start":  369,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  23.5,
+                      "text":  "comandos",
+                      "start":  373,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  23.99,
+                      "text":  "indicados",
+                      "start":  382,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  25.49,
+                      "text":  "La",
+                      "start":  393,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  25.63,
+                      "text":  "cancelación",
+                      "start":  396,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  26.27,
+                      "text":  "completa",
+                      "start":  408,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  26.755,
+                      "text":  "de",
+                      "start":  417,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  26.845,
+                      "text":  "anomalías",
+                      "start":  420,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  27.424999999999997,
+                      "text":  "y",
+                      "start":  430,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  27.49,
+                      "text":  "la",
+                      "start":  432,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  27.599999999999998,
+                      "text":  "novedad",
+                      "start":  435,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  27.99,
+                      "text":  "científica",
+                      "start":  443,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  28.599999999999998,
+                      "text":  "siguen",
+                      "start":  454,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  28.924999999999997,
+                      "text":  "abiertas",
+                      "start":  461,
+                      "length":  8
+                  }
+              ]
+}

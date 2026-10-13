@@ -1,0 +1,13 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Segoe UI,38,&H00FFFFFF,&H00FFFFFF,&H00172E3C,&H00172E3C,0,0,0,0,100,100,0,0,1,1,0,2,65,65,75,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.50,0:00:07.08,Default,,0,0,0,,For the Spin twenty audit, the degree eighteen Clifford element squares to minus one. Multiplication by
+Dialogue: 0,0:00:07.08,0:00:13.32,Default,,0,0,0,,minus i makes the representation matrix square to plus one. This distinction matters for an ordinary
+Dialogue: 0,0:00:13.32,0:00:21.36,Default,,0,0,0,,isotropy lift. It does not prove the model inconsistent: a twisted or combined action may be possible. Every
+Dialogue: 0,0:00:21.36,0:00:28.25,Default,,0,0,0,,field and interaction, including bosonic Omega, must share a specified action.

@@ -1,0 +1,398 @@
+﻿{
+    "voice":  "Microsoft Zira Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "The U two example shows why joint integrality differs from separate factor requirements. With b zero equal to one and b one equal to six, the quadratic form is m squared plus m n plus n squared. It is integral for every integer pair. The formal criterion also covers rational coefficients with a common nonzero denominator. This example is not an anomaly free supergravity spectrum.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "The",
+                      "start":  0,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  0.21,
+                      "text":  "U",
+                      "start":  4,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  0.40499999999999997,
+                      "text":  "two",
+                      "start":  6,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  0.63,
+                      "text":  "example",
+                      "start":  10,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  1.125,
+                      "text":  "shows",
+                      "start":  18,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  1.48,
+                      "text":  "why",
+                      "start":  24,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  1.7049999999999998,
+                      "text":  "joint",
+                      "start":  28,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  2.0349999999999997,
+                      "text":  "integrality",
+                      "start":  34,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  2.725,
+                      "text":  "differs",
+                      "start":  46,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  3.11,
+                      "text":  "from",
+                      "start":  54,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  3.335,
+                      "text":  "separate",
+                      "start":  59,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  3.755,
+                      "text":  "factor",
+                      "start":  68,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  4.215,
+                      "text":  "requirements",
+                      "start":  75,
+                      "length":  12
+                  },
+                  {
+                      "seconds":  5.84,
+                      "text":  "With",
+                      "start":  89,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  5.995,
+                      "text":  "b",
+                      "start":  94,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  6.1949999999999994,
+                      "text":  "zero",
+                      "start":  96,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  6.5649999999999995,
+                      "text":  "equal",
+                      "start":  101,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  6.875,
+                      "text":  "to",
+                      "start":  107,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  7.02,
+                      "text":  "one",
+                      "start":  110,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  7.2399999999999993,
+                      "text":  "and",
+                      "start":  114,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  7.395,
+                      "text":  "b",
+                      "start":  118,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  7.55,
+                      "text":  "one",
+                      "start":  120,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  7.7849999999999993,
+                      "text":  "equal",
+                      "start":  124,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  8.08,
+                      "text":  "to",
+                      "start":  130,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  8.195,
+                      "text":  "six",
+                      "start":  133,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  9.03,
+                      "text":  "the",
+                      "start":  138,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  9.125,
+                      "text":  "quadratic",
+                      "start":  142,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  9.77,
+                      "text":  "form",
+                      "start":  152,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  10.11,
+                      "text":  "is",
+                      "start":  157,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  10.264999999999999,
+                      "text":  "m",
+                      "start":  160,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  10.469999999999999,
+                      "text":  "squared",
+                      "start":  162,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  10.9,
+                      "text":  "plus",
+                      "start":  170,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  11.229999999999999,
+                      "text":  "m",
+                      "start":  175,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  11.4,
+                      "text":  "n",
+                      "start":  177,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  11.59,
+                      "text":  "plus",
+                      "start":  179,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  11.915,
+                      "text":  "n",
+                      "start":  184,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  12.115,
+                      "text":  "squared",
+                      "start":  186,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  13.495,
+                      "text":  "It",
+                      "start":  195,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  13.615,
+                      "text":  "is",
+                      "start":  198,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  13.754999999999999,
+                      "text":  "integral",
+                      "start":  201,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  14.174999999999999,
+                      "text":  "for",
+                      "start":  210,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  14.365,
+                      "text":  "every",
+                      "start":  214,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  14.674999999999999,
+                      "text":  "integer",
+                      "start":  220,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  15.1,
+                      "text":  "pair",
+                      "start":  228,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  16.335,
+                      "text":  "The",
+                      "start":  234,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  16.415,
+                      "text":  "formal",
+                      "start":  238,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  16.8,
+                      "text":  "criterion",
+                      "start":  245,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  17.509999999999998,
+                      "text":  "also",
+                      "start":  255,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  17.875,
+                      "text":  "covers",
+                      "start":  260,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  18.285,
+                      "text":  "rational",
+                      "start":  267,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  18.74,
+                      "text":  "coefficients",
+                      "start":  276,
+                      "length":  12
+                  },
+                  {
+                      "seconds":  19.485,
+                      "text":  "with",
+                      "start":  289,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  19.63,
+                      "text":  "a",
+                      "start":  294,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  19.689999999999998,
+                      "text":  "common",
+                      "start":  296,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  20.06,
+                      "text":  "nonzero",
+                      "start":  303,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  20.595,
+                      "text":  "denominator",
+                      "start":  311,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  22.215,
+                      "text":  "This",
+                      "start":  324,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  22.415,
+                      "text":  "example",
+                      "start":  329,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  22.935,
+                      "text":  "is",
+                      "start":  337,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  23.095,
+                      "text":  "not",
+                      "start":  340,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  23.325,
+                      "text":  "an",
+                      "start":  344,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  23.415,
+                      "text":  "anomaly",
+                      "start":  347,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  23.895,
+                      "text":  "free",
+                      "start":  355,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  24.14,
+                      "text":  "supergravity",
+                      "start":  360,
+                      "length":  12
+                  },
+                  {
+                      "seconds":  24.965,
+                      "text":  "spectrum",
+                      "start":  373,
+                      "length":  8
+                  }
+              ]
+}

@@ -20,7 +20,8 @@ try{
   ws.onmessage=e=>{const m=JSON.parse(e.data);if(m.id){pending.get(m.id)?.(m);pending.delete(m.id);}else events.push(m);};
   const send=(method,params={})=>new Promise((r,j)=>{const id=++seq,timer=setTimeout(()=>{pending.delete(id);j(Error(`Timeout ${method}`));},60000);pending.set(id,m=>{clearTimeout(timer);m.error?j(Error(JSON.stringify(m.error))):r(m.result);});ws.send(JSON.stringify({id,method,params}));});
   const ev=async expression=>{const r=await send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw Error(r.exceptionDetails.exception?.description||JSON.stringify(r.exceptionDetails));return r.result?.value;};
-  const navigate=async(section,id)=>{await send('Page.navigate',{url:url+'#s='+section});for(let i=0;i<200;i++){if(await ev(`!!document.getElementById(${JSON.stringify(id)})`))return;await pause(100);}throw Error('Panel failed to mount: '+id);};
+  // This harness checks English prose; the Spanish-demo step persists its language.
+  const navigate=async(section,id)=>{await send('Page.navigate',{url:url+'#s='+section+'&lang=en'});for(let i=0;i<200;i++){if(await ev(`!!document.getElementById(${JSON.stringify(id)})`))return;await pause(100);}throw Error('Panel failed to mount: '+id);};
   const change=async(selector,value)=>ev(`(()=>{const e=document.querySelector(${JSON.stringify(selector)});e.value=${JSON.stringify(value)};e.dispatchEvent(new Event('change',{bubbles:true}));})()`);
   await send('Runtime.enable');await send('Page.enable');
   await send('Emulation.setDeviceMetricsOverride',{width:1380,height:1000,deviceScaleFactor:1,mobile:false});

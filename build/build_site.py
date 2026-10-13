@@ -719,7 +719,7 @@ def main(argv=None):
         (OUT / rel).parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source, OUT / rel)
         written.append(rel)
-    write(".gitattributes", "# Preserve downloaded evidence and its SHA-256 chain across platforms.\n"
+    write(".gitattributes", "# Preserve downloaded evidence and its SHA-256 chain across platforms.\nproof/** -text\nsrc/** -text\nvideo/quantization/** -text\nvideo/media/2026-10-13-quantization-main/** -text\nlean-toolchain -text\n"
                            "data/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol\n"
                            "# External records retain their original whitespace and checksums.\n"
                            "data/lhc_reference/** -text -whitespace\n"
@@ -735,6 +735,13 @@ def main(argv=None):
                            "# Preserve original ownership verification responses.\n"
                            "google*.html -text\n")
 
+    from proof_catalogue import build as build_proof_catalogue
+    written.extend(build_proof_catalogue(ROOT, OUT))
+    quant_media = ROOT / 'media/video/2026-10-13-quantization'
+    quant_out = OUT / 'video/quantization'
+    shutil.copytree(quant_media, quant_out, dirs_exist_ok=True)
+    written.extend('video/quantization/' + p.name for p in quant_media.iterdir() if p.is_file())
+
     # --- Requested video manual. Only this page uses adjacent, hash-pinned media.
     import video_guide
     video_body = video_guide.render(ROOT, OUT)
@@ -746,18 +753,27 @@ def main(argv=None):
     write('video/index.html', video_page)
 
     # Mathematical companion in English and Spanish; shared evidence and separate general tutorial.
-    math_media = ROOT / 'media' / 'video' / '2026-10-12-mathematics'
+    math_media = ROOT / 'media' / 'video' / '2026-10-13-mathematics-quantization'
     math_out = OUT / 'video' / 'mathematics'
     shutil.copytree(math_media, math_out, dirs_exist_ok=True)
-    for math_name in ('index.html', 'index-es.html', 'proof-notes.html'):
-        write('video/mathematics/' + math_name,
-              (math_media / math_name).read_text(encoding='utf-8'))
+    for math_page in math_media.glob('*.html'):
+        write('video/mathematics/' + math_page.name, math_page.read_text(encoding='utf-8'))
+    # Keep the original media bytes, including its former closing statement, in an archive.
+    # Only relative navigation in the archive's HTML is rebased for its extra path level.
+    math_old = ROOT / 'media' / 'video' / '2026-10-12-mathematics'
+    math_archive = math_out / '2026-10-12'
+    shutil.copytree(math_old, math_archive, dirs_exist_ok=True)
+    for archive_page in math_archive.glob('*.html'):
+        text = archive_page.read_text(encoding='utf-8')
+        text = re.sub(r'(href|src)="(\.\./[^"]*)"', lambda m: m[1]+'="../'+m[2]+'"', text)
+        archive_page.write_text(text, encoding='utf-8')
     # Previously served pages are complete frozen documents, including their
     # transcripts and original media paths. Do not wrap them in a new page shell.
     for revision, date in [('', '2026-10-07'), ('2026-10-08', '2026-10-08'),
                            ('2026-10-08-certification', '2026-10-08-certification'),
                            ('2026-10-10-kkgluon', '2026-10-10-kkgluon'),
-                           ('2026-10-10-demos', '2026-10-10-demos')]:
+                           ('2026-10-10-demos', '2026-10-10-demos'),
+                           ('2026-10-12-boundary-research', '2026-10-12-boundary-research')]:
         video_guide.copy_media(ROOT, OUT, revision)
         rel = f'video/{date}.html'
         shutil.copyfile(SITE_SRC / f'video-{date}.html', OUT / rel)
@@ -820,21 +836,26 @@ def main(argv=None):
            'include the 8 October certification and uncertainty update. Formal algebra, '
            'interval proofs, numerical comparisons and open physical assumptions retain '
            'their separate scope. This living release does not replace a frozen paper.</p>'
-           '<h2>Current user guides · 12 October 2026</h2>'
+           '<h2>Current user guides · 13 October 2026</h2>'
            '<p><a href="../guide/index.html">English</a> and '
            '<a href="../guide/es/index.html" lang="es">castellano</a> guides cover every '
            'menu section, Simulator mode and embedded experiment. The same catalogues supply '
            'in-app help, the glossary and downloadable manuals. Current guidance does not '
            'rewrite frozen evidence or archived tutorials.</p>'
            '<h2>Between physics and mathematics</h2>'
-           '<p>Mathematical companion: <a href="../video/mathematics/index.html" lang="en">English · 11:34</a> · '
-           '<a href="../video/mathematics/index-es.html" lang="es">Castellano · 11:55</a>. '
-           'Each edition has 29 animated chapters, with shared ordinary proofs and executable certificates for the stated examples.</p>'
+           '<p>Mathematical companion: <a href="../video/mathematics/index.html" lang="en">English · 16:37</a> · '
+           '<a href="../video/mathematics/index-es.html" lang="es">Castellano · 16:53</a>. '
+           'Each edition has 38 animated chapters, with ordinary proofs, exact checks and scoped Lean certificates, including the connection to physical assumptions and observed ATLAS/CMS limits.</p>'
            '<h2>Versioned video guides</h2>'
-           '<ul><li><a href="../video/index.html">Current revision · 12 October 2026</a>: '
-           '45 chapters and 154 scenes in each language, including boundary research with linked 2D/3D mass views, profile rank and scoped anomaly tests. Every scene was captured on the current '
+           '<p><a href="../video/quantization/index.html">13 October supplement · English</a> · '
+           '<a href="../video/quantization/index-es.html">Castellano</a>: eleven chapters on quantization, '
+           'the joint U(2) criterion, conditional parent transfer and the lift audit. '
+           '<a href="../proof/index.html">Complete certificates and four Lean sources</a>.</p>'
+           '<ul><li><a href="../video/index.html">Current revision · 13 October 2026</a>: '
+           '46 chapters and 165 scenes in each language: the original 45 chapters from 12 October plus the new quantization chapter captured on 13 October. The original chapters show the '
            'laboratory, with the guided 🎬 Demo buttons and the KK-gluon card as revised after an '
            'external review.</li>'
+           '<li><a href="../video/2026-10-12-boundary-research.html">Boundary revision · 12 October 2026</a>: 45 chapters and 154 scenes, preserved with its original media.</li>'
            '<li><a href="../video/2026-10-10-demos.html">Demo revision · 10 October 2026</a>: '
            '44 chapters and 145 scenes, preserved with its original media.</li>'
            '<li><a href="../video/2026-10-10-kkgluon.html">KK-gluon revision · 10 October 2026</a>: '
@@ -897,8 +918,8 @@ def main(argv=None):
     # is a site nobody checked, because the checking is the step that gets skipped.
     print()
     worst = 0
-    for gate in ["_test_site.py", "_test_guide_site.py"]:
-        r = subprocess.run([sys.executable, gate], cwd=ROOT, capture_output=True, encoding="utf-8", errors="replace")
+    for gate in ["_test_site.py", "_test_guide_site.py", "build/check_links.py", "build/quantization_site.mjs"]:
+        r = subprocess.run(["node" if gate.endswith('.mjs') else sys.executable, gate], cwd=ROOT, capture_output=True, encoding="utf-8", errors="replace")
         tail = [ln for ln in r.stdout.strip().split("\n") if ln.strip()][-1:] or ["(no output)"]
         print(f"  {gate:<24} {tail[0].strip()}")
         if r.returncode:

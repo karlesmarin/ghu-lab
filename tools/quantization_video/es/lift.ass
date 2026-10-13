@@ -1,0 +1,14 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Segoe UI,38,&H00FFFFFF,&H00FFFFFF,&H00172E3C,&H00172E3C,0,0,0,0,100,100,0,0,1,1,0,2,65,65,75,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.50,0:00:06.55,Default,,0,0,0,,En la auditoría de Spin veinte, el elemento Clifford de grado dieciocho tiene cuadrado menos uno.
+Dialogue: 0,0:00:06.55,0:00:12.76,Default,,0,0,0,,Multiplicarlo por menos i hace que la matriz de representación tenga cuadrado más uno. La distinción importa
+Dialogue: 0,0:00:12.76,0:00:19.36,Default,,0,0,0,,para un levantamiento ordinario de isotropía. No demuestra inconsistencia del modelo: puede ser posible una
+Dialogue: 0,0:00:19.36,0:00:26.49,Default,,0,0,0,,acción torcida o combinada. Cada campo e interacción, incluido Omega bosónico, debe compartir una acción
+Dialogue: 0,0:00:26.49,0:00:28.83,Default,,0,0,0,,especificada.

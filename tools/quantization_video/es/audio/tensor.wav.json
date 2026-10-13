@@ -1,0 +1,422 @@
+﻿{
+    "voice":  "Microsoft Helena Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "El mapa parental tiene dos columnas y un anulador común. Con el espectro heredado y fuentes Green Schwarz integrales ordinarias, seis veces el anulador es dieciséis menos tres p menos tres q menos seis r. Para emparejamientos enteros vale uno módulo tres y no puede anularse. Lean demuestra esa aritmética para todos los enteros. Este resultado no resuelve los fondos admisibles del orbifold ni las respuestas adicionales de esquina.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "El",
+                      "start":  0,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  0.22499999999999998,
+                      "text":  "mapa",
+                      "start":  3,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  0.485,
+                      "text":  "parental",
+                      "start":  8,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  0.955,
+                      "text":  "tiene",
+                      "start":  17,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  1.22,
+                      "text":  "dos",
+                      "start":  23,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  1.4,
+                      "text":  "columnas",
+                      "start":  27,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  1.9149999999999998,
+                      "text":  "y",
+                      "start":  36,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  1.9749999999999999,
+                      "text":  "un",
+                      "start":  38,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  2.09,
+                      "text":  "anulador",
+                      "start":  41,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  2.565,
+                      "text":  "común",
+                      "start":  50,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  3.8099999999999996,
+                      "text":  "Con",
+                      "start":  57,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  4.01,
+                      "text":  "el",
+                      "start":  61,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  4.1099999999999994,
+                      "text":  "espectro",
+                      "start":  64,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  4.575,
+                      "text":  "heredado",
+                      "start":  73,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  5,
+                      "text":  "y",
+                      "start":  82,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  5.055,
+                      "text":  "fuentes",
+                      "start":  84,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  5.4849999999999994,
+                      "text":  "Green",
+                      "start":  92,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  5.685,
+                      "text":  "Schwarz",
+                      "start":  98,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  6.13,
+                      "text":  "integrales",
+                      "start":  106,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  6.6949999999999994,
+                      "text":  "ordinarias",
+                      "start":  117,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  7.71,
+                      "text":  "seis",
+                      "start":  129,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  7.955,
+                      "text":  "veces",
+                      "start":  134,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  8.295,
+                      "text":  "el",
+                      "start":  140,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  8.395,
+                      "text":  "anulador",
+                      "start":  143,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  8.8349999999999991,
+                      "text":  "es",
+                      "start":  152,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  8.945,
+                      "text":  "dieciséis",
+                      "start":  155,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  9.48,
+                      "text":  "menos",
+                      "start":  165,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  9.775,
+                      "text":  "tres",
+                      "start":  171,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  10.004999999999999,
+                      "text":  "p",
+                      "start":  176,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  10.11,
+                      "text":  "menos",
+                      "start":  178,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  10.405,
+                      "text":  "tres",
+                      "start":  184,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  10.639999999999999,
+                      "text":  "q",
+                      "start":  189,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  10.754999999999999,
+                      "text":  "menos",
+                      "start":  191,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  11.045,
+                      "text":  "seis",
+                      "start":  197,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  11.28,
+                      "text":  "r",
+                      "start":  202,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  12.41,
+                      "text":  "Para",
+                      "start":  205,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  12.639999999999999,
+                      "text":  "emparejamientos",
+                      "start":  210,
+                      "length":  15
+                  },
+                  {
+                      "seconds":  13.49,
+                      "text":  "enteros",
+                      "start":  226,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  13.895,
+                      "text":  "vale",
+                      "start":  234,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  14.125,
+                      "text":  "uno",
+                      "start":  239,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  14.299999999999999,
+                      "text":  "módulo",
+                      "start":  243,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  14.655,
+                      "text":  "tres",
+                      "start":  250,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  14.915,
+                      "text":  "y",
+                      "start":  255,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  14.969999999999999,
+                      "text":  "no",
+                      "start":  257,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  15.094999999999999,
+                      "text":  "puede",
+                      "start":  260,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  15.354999999999999,
+                      "text":  "anularse",
+                      "start":  266,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  16.745,
+                      "text":  "Lean",
+                      "start":  276,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  17.025,
+                      "text":  "demuestra",
+                      "start":  281,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  17.505,
+                      "text":  "esa",
+                      "start":  291,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  17.705,
+                      "text":  "aritmética",
+                      "start":  295,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  18.279999999999998,
+                      "text":  "para",
+                      "start":  306,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  18.494999999999997,
+                      "text":  "todos",
+                      "start":  311,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  18.8,
+                      "text":  "los",
+                      "start":  317,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  18.974999999999998,
+                      "text":  "enteros",
+                      "start":  321,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  20.36,
+                      "text":  "Este",
+                      "start":  330,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  20.61,
+                      "text":  "resultado",
+                      "start":  335,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  21.15,
+                      "text":  "no",
+                      "start":  345,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  21.265,
+                      "text":  "resuelve",
+                      "start":  348,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  21.705,
+                      "text":  "los",
+                      "start":  357,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  21.865,
+                      "text":  "fondos",
+                      "start":  361,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  22.23,
+                      "text":  "admisibles",
+                      "start":  368,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  22.834999999999997,
+                      "text":  "del",
+                      "start":  379,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  22.97,
+                      "text":  "orbifold",
+                      "start":  383,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  23.459999999999997,
+                      "text":  "ni",
+                      "start":  392,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  23.584999999999997,
+                      "text":  "las",
+                      "start":  395,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  23.75,
+                      "text":  "respuestas",
+                      "start":  399,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  24.305,
+                      "text":  "adicionales",
+                      "start":  410,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  24.91,
+                      "text":  "de",
+                      "start":  422,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  24.994999999999997,
+                      "text":  "esquina",
+                      "start":  425,
+                      "length":  7
+                  }
+              ]
+}

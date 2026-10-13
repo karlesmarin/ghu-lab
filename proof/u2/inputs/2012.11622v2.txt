@@ -1,0 +1,1004 @@
+[000] UTF8mc
+[001] Some comments on 6d global gauge anomalies
+[002] Yasunori Lee
+and Yuji Tachikawa
+[003] Kavli Institute for the Physics and Mathematics of the Universe (WPI), University of Tokyo, Kashiwa, Chiba 277-8583, Japan
+[004] Global gauge anomalies in 6d associated with non-trivial homotopy groups \pi_{6}(G) for G=SU(2) , SU(3) , and G_{2} were computed and utilized in the past.
+In the modern bordism point of view of anomalies, however,
+they come from the bordism groups \Omega^{\text{spin}}_{7}(BG) ,
+which are in fact trivial and therefore preclude their existence.
+Instead, it was noticed that a proper treatment of the 6d Green-Schwarz mechanism reproduces the same anomaly cancellation conditions derived from \pi_{6}(G) .
+In this paper, we revisit and clarify the relation between these two different approaches.
+[005] — dedicated to the memory of the late Professor Tohru Eguchi —
+[006] 1 Introduction and summary
+[007] Given a gauge theory, its gauge anomaly must be canceled as a whole in order for the theory to be consistent.
+This imposes non-trivial constraints on the possible matter content.
+One notable subtlety here is that,
+even if the perturbative anomaly cancellation is achieved, the theory may still suffer from global anomaly,
+coming from a global gauge transformation corresponding to non-trivial elements of \pi_{d}(G) ,
+where d is the spacetime dimension and G is the gauge group.
+It was first pointed out in [ Wit82 ] that such a situation indeed arises for 4d SU(2) gauge theory with a Weyl fermion in the doublet.
+[008] In 6d the situation is more subtle, since the anomaly cancellation often involves chiral 2-form fields through the Green-Schwarz mechanism.
+The cancellation condition can nonetheless be derived,
+by embedding G in a larger group \tilde{G} whose global anomaly is absent.
+This approach was originally developed by Elitzur and Nair [ EN84 ] , and
+the extension to 6d with the Green-Schwarz mechanism was done
+in [ Tos89 , BV97 , ST05 ] . 1 1 1 There are many other works in the late 80s where the analysis in 6d was done without the Green-Schwarz mechanism.
+We do not cite them here; interested readers can find them by looking up papers citing [ EN84 ] in the INSPIRE-HEP database. The list of simply-connected simple Lie groups with non-trivial \pi_{6}(G) is 2 2 2 \pi_{6}(G) for classical groups were computed in [ BS53 , Sec. 19] . \pi_{6}(G) for G_{2} and F_{4} were considered as known in the review article [ Bor55 ] and were attributed to H. Toda; a derivation can be found in [ Mim67 ] , in which \pi_{i}(G_{2}) and \pi_{i}(F_{4}) were completely determined up to i=21 . \pi_{6}(G) for E_{6,7,8} were determined to be trivial in [ BS58 , Theorem V] . \pi_{6}(G) for G=SU(2)=S^{3} belongs more properly to the unstable homotopy groups of spheres and was computed by many people, see the footnote 7 of [ BS53 , Sec. 19] and the comments in [ Bor55 , p. 428] .
+[009] \begin{array}[]{lcl}\pi_{6}(SU(2))&=&\mathbb{Z}_{12},\\
+\pi_{6}(SU(3))&=&\mathbb{Z}_{6},\\
+\pi_{6}(G_{2})&=&\mathbb{Z}_{3},\\
+\end{array} (1.1)
+[010] and the references above found a mod-12, mod-6, mod-3 condition for G=SU(2) , SU(3) , and G_{2} , respectively.
+In [ BV97 ] , it was indeed found that the F-theory compactification to 6d only produces gauge theories which are free from the global gauge anomalies.
+[011] From the modern point of view,
+the anomaly of a theory Q in d spacetime dimensions is described via
+its anomaly theory A(Q) in (d+1) dimensions,
+which hosts the original theory Q on its boundary.
+The anomalous phase associated to a gauge transformation g:S^{d}\to G is now re-interpreted as the partition function
+[012] Z_{A(Q)}[S^{d+1},P_{g}] (1.2)
+[013] of the anomaly theory
+on S^{d+1} equipped with the G gauge field P_{g} obtained by performing gauge transformation g at the equator S^{d}\subset S^{d+1} .
+[014] More generally, the possible anomalies of a symmetry group G are characterized by \mathop{\mathrm{Inv}}\nolimits_{\text{spin}}^{d+1}(BG) ,
+the group formed by deformation classes of (d+1) -dimensional invertible phases with G symmetry.
+This group fits in the following short exact sequence
+[015] 0\longrightarrow\mathop{\mathrm{Ext}}\nolimits_{\mathbb{Z}}(\Omega^{\text{spin}}_{d+1}(BG),\mathbb{Z})\longrightarrow\mathop{\mathrm{Inv}}\nolimits_{\text{spin}}^{d+1}(BG)\longrightarrow\mathop{\mathrm{Hom}}\nolimits_{\mathbb{Z}}(\Omega^{\text{spin}}_{d+2}(BG),\mathbb{Z})\longrightarrow 0 (1.3)
+[016] where \Omega^{\text{spin}}_{d}(BG) is the bordism group of d -dimensional spin manifolds equipped with G bundle [ FH16 ] .
+In particular, the information on global anomalies is encoded in the part
+[017] \mathop{\mathrm{Ext}}\nolimits_{\mathbb{Z}}(\Omega^{\text{spin}}_{d+1}(BG),\mathbb{Z})=\mathop{\mathrm{Hom}}\nolimits(\mathop{\mathrm{Tors}}\nolimits\Omega^{\text{spin}}_{d+1}(BG),U(1)), (1.4)
+[018] while the information on the anomaly polynomial is encoded in the part
+[019] \mathop{\mathrm{Hom}}\nolimits_{\mathbb{Z}}(\Omega^{\text{spin}}_{d+2}(BG),\mathbb{Z})=\mathop{\mathrm{Hom}}\nolimits_{\mathbb{Z}}(\mathop{\mathrm{Free}}\nolimits\Omega^{\text{spin}}_{d+2}(BG),\mathbb{Z}). (1.5)
+[020] For 4d theory with G=SU(2) symmetry, the group \Omega^{\text{spin}}_{5}(BSU(2)) is indeed \mathbb{Z}_{2} ,
+and is generated by (S^{5},P_{[g]}) where g:S^{4}\to SU(2) belongs to the generator of \pi_{4}(SU(2))=\mathbb{Z}_{2} .
+This corresponds to Witten’s original global anomaly.
+[021] When we apply this argument to 6d , we encounter an immediate puzzle.
+Namely, for G=SU(2) , SU(3) , and G_{2} for which \pi_{6}(G) is non-trivial, we have
+[022] \begin{array}[]{lcc}\Omega^{\text{spin}}_{7}(BSU(2))&=&0,\\
+\Omega^{\text{spin}}_{7}(BSU(3))&=&0,\\
+\Omega^{\text{spin}}_{7}(BG_{2})&=&0,\\
+\end{array} (1.6)
+[023] and in particular the configuration (S^{7},P_{[g]}) for [g]\in\pi_{6}(G) is null-bordant.
+Therefore, the partition function of the anomaly theory on this background should be automatically trivial when the anomaly polynomial is canceled,
+and there should be no global anomalies at all for the gauge groups G=SU(2) , SU(3) , and G_{2} .
+But the old computations indeed found non-trivial anomalous phases,
+so one is led to wonder whether they were legitimate to start with.
+[024] The way out is suggested by another set of observations made more recently, in [ OSTY14 , Sec. 3.1.1] and
+in [ MM18a , MM18b ] .
+Namely, it was observed there
+that the mod-12, mod-6, mod-3 conditions for G=SU(2) , SU(3) , G_{2} theories can be derived by demanding that
+the factorized anomaly polynomial of the fermions can actually be canceled by a properly constructed Green-Schwarz term.
+For example, the non-(purely-)gravitational part of the anomaly polynomial 3 3 3 In this paper, we denote by \mathcal{I} the anomaly polynomial of a theory,
+and by \tilde{\mathcal{I}} the part of the anomaly polynomial not purely formed by the Pontrjagin classes p_{i}(R) of the spacetime. of n fermions in \mathbf{3} of SU(3) is
+[025] \tilde{\mathcal{I}}_{\text{fermion}}=\frac{n}{6}\cdot\frac{1}{2}\cdot c_{2}(F)\left(c_{2}(F)+\frac{p_{1}(R)}{2}\right) (1.7)
+[026] and it is always factorized, which is a necessary condition for the Green-Schwarz mechanism to be applicable.
+But it is not a sufficient condition.
+The instanton configurations of G gauge field correspond to strings charged under 2-form fields,
+and their self Dirac pairing is given by n/6 , which needs to be an integer.
+This shows that n needs to be divisible by 6 [ OSTY14 , Sec. 3.1.1] .
+Furthermore, when this is the case, one can actually construct a theory of 2-form fields with this anomaly,
+thanks to the series of works by Monnier and his collaborators [ Mon10 , Mon11a , Mon11b , Mon12 , Mon13a , Mon13b , Mon14 , Mon16 , Mon17 , MMP17 , MM18a , MM18b ] .
+[027] As we have recalled, there are now two ways to understand the mod-12, mod-6, mod-3 conditions for G=SU(2) , SU(3) , and G_{2} .
+One is from the absence of global gauge anomalies associated to non-trivial elements of \pi_{6}(G) ,
+and the other is from the proper consideration of the Green-Schwarz term cancelling the fermion anomaly.
+The aim of this rather technical paper is to reconcile these two points of view.
+[028] The rest of the paper is organized as follows:
+In Section 2 , we carefully study all possible anomalies of theories with 0-form symmetry G=SU(2) , SU(3) , G_{2} ,
+and theories with 3-form U(1) symmetry.
+This is done by finding the integral basis of the space of anomaly polynomials with these symmetries.
+This allows us to deduce the necessary and sufficient condition when the anomalies of fermions charged under G=SU(2) , SU(3) , G_{2} can be canceled by the anomalies of 2-form fields.
+The analysis in this section does not use the homotopy groups \pi_{6}(G) at all.
+[029] In Section 3 , we move on to study how the derivation in Section 2 is related to the homotopy groups \pi_{6}(G) .
+We do this by carefully reformulating
+the approach of Elitzur and Nair [ EN84 ] in a more modern language.
+The old computations of global anomalies associated to \pi_{6}(G) can then be re-interpreted in two ways.
+The first interpretation, which we give in Sec. 3.2 , is simply the following:
+if we assume that the perturbative anomaly is canceled by the Green-Schwarz mechanism,
+the Elitzur-Nair method shows that there is a global anomaly associated to \pi_{6}(G)=\mathbb{Z}_{k} .
+But there should not be any global anomaly, since \Omega^{\text{spin}}_{7}(BG)=0 .
+This means that it is impossible to cancel the fermion anomaly by the Green-Schwarz mechanism
+unless a mod- k condition is satisfied.
+The second interpretation, which we give in Sec. 3.3 , is more geometric:
+we introduce a 3-form field H satisfying dH=c_{2}(F) to the bulk 7d spacetime,
+mimicking an important half of the Green-Schwarz mechanism.
+This modifies the bordism group to be considered in the classification of anomalies,
+and then there actually is a global gauge anomaly associated to \pi_{6}(G) ,
+which defines a non-trivial element in the modified bordism group.
+[030] Before proceeding, we pause here to mention that the arguments in Section 3 which use \pi_{d}(G) only give necessary conditions.
+The derivation given in Section 2 , in contrast, gives conditions which are necessary and sufficient at the same time.
+In this sense, we consider the latter is better.
+[031] Furthermore, the discussions we provide in Section 2 have already been essentially given in [ MM18a , MM18b ] ,
+albeit in a slightly different form.
+Therefore, strictly speaking, our discussions in this paper do not add anything scientifically new.
+That said, the authors were very much confused when they encountered the apparent contradiction that
+people discussed global gauge anomalies associated to non-trivial \pi_{6}(G) ,
+while \Omega^{\text{spin}}_{7}(BG) is trivial and therefore there should not be any global gauge anomalies to start with.
+The authors wanted to record their understanding of how this contradiction is resolved, for future reference.
+[032] We have four appendices.
+In Appendix A , we summarize basic formulas of fermion anomalies
+and group-theoretical constants.
+In Appendix B and C ,
+we compute various spin bordism groups of our interest
+using the Atiyah-Hirzebruch spectral sequence (AHSS)
+and the Adams spectral sequence (Adams SS), respectively.
+Finally in Appendix D , one of the authors (Yuji Tachikawa) would like
+to share some of his recollections of his advisor, the late Professor Tohru Eguchi,
+to whose memory this paper is dedicated.
+[033] Note added:
+[034] When this paper is almost completed, the authors learned that there is an upcoming work by Davighi and Lohitsiri [ DL20c ] , which has a large overlap with this paper.
+[035] 2 Anomalies and their cancellation
+[036] In this paper, we are interested in the anomalies of fermionic 6d theories with G symmetry, where G=SU(2) , SU(3) , and G_{2} .
+To cancel them, we are also interested in the anomaly of 2-form fields, which can couple to background 4-form field strength G ,
+which is the background field for their U(1) 3-form symmetry. 4 4 4 The authors apologize that the same symbol G is used in three distinct ways,
+for groups in general,
+for the specific group G_{2} ,
+and for 4-form background field strengths.
+Hopefully the context makes it clear which use is intended. We will study when the fermion anomalies can be canceled by the anomalies of 2-form fields,
+by carefully studying all possible anomalies under these symmetries.
+As discussed in ( 1.3 ),
+the anomalies are then characterized by the group of seven-dimensional invertible phases \mathop{\mathrm{Inv}}\nolimits^{7}_{\text{spin}}(X) ,
+where X=BSU(2) , BSU(3) , BG_{2} and K(\mathbb{Z},4) .
+As \pi_{i}(BE_{7})=\pi_{i}(K(\mathbb{Z},4)) for i<12 , we can think of BE_{7}\simeq K(\mathbb{Z},4) for our purposes.
+This equivalence is useful for us, as we will see below, and also has been used in the past [ Wit96a , Wit96b , HTY20 ] .
+[037] Since \Omega_{7}^{\text{spin}}(X)=0 for all four cases,
+the anomalies are completely specified by the anomaly polynomials,
+encoded in \mathop{\mathrm{Hom}}\nolimits_{\mathbb{Z}}(\Omega_{8}^{\text{spin}}(X),\mathbb{Z}) .
+Below we do not worry about purely gravitational part of the anomalies,
+which means that we are going to study \mathop{\mathrm{Hom}}\nolimits_{\mathbb{Z}}(\widetilde{\Omega}_{8}^{\text{spin}}(X),\mathbb{Z}) .
+[038] Over rational numbers, the anomaly polynomials are then elements of
+[039] \mathop{\mathrm{Hom}}\nolimits_{\mathbb{Z}}(\widetilde{\Omega}_{8}^{\text{spin}}(X),\mathbb{Z})\otimes\mathbb{Q}\simeq H^{8}(X\times BSO;\mathbb{Q})/H^{8}(BSO;\mathbb{Q}). (2.1)
+[040] As H^{*}(BSO;\mathbb{Q})=\mathbb{Q}[p_{1},p_{2},\ldots,] where p_{i}\in H^{4i}(BSO;\mathbb{Z}) are the i -th Pontrjagin classes of the spacetime,
+Eq. ( 2.1 ) becomes
+[041] H^{4}(X;\mathbb{Q})\,p_{1}\oplus H^{8}(X;\mathbb{Q}). (2.2)
+[042] Our classifying spaces X have a simplifying feature that
+[043] H^{4}(X;\mathbb{Z})=\mathbb{Z}\,c_{2},\qquad H^{8}(X;\mathbb{Z})=\mathbb{Z}\,(c_{2})^{2} (2.3)
+[044] where c_{2} is a generator of H^{4}(X;\mathbb{Z}) corresponding to the instanton number,
+whose explicit forms are given in Appendix A .
+In the rest of this paper, the Pontrjagin classes p_{i}=p_{i}(R) are always for the spacetime part
+and the elements c_{2}=c_{2}(F) are always for the gauge part.
+For X=K(\mathbb{Z},4) or equivalently for X=BE_{7} , we also use the symbol G=c_{2}(F) interchangeably.
+[045] The preceding discussions show that the anomaly polynomials (modulo purely gravitational part) are rational linear combinations
+[046] \tilde{\mathcal{I}}=a\cdot(c_{2})^{2}+b\cdot c_{2}\wedge p_{1}, (2.4)
+[047] which has the nice quadratic form to be canceled by the Green-Schwarz mechanism.
+This is, however, only a necessary condition, since the Green-Schwarz mechanism cannot cancel anomaly polynomials with arbitrary rational numbers a , b in ( 2.4 ).
+We need to find the basis over \mathbb{Z} , not just over \mathbb{Q} , of elements of \mathop{\mathrm{Hom}}\nolimits_{\mathbb{Z}}(\Omega_{8}^{\text{spin}}(X),\mathbb{Z}) .
+They are degree-8 differential forms ( 2.4 ) which integrate to integers on any spin manifold.
+We will find in Sec. 2.1 , 2.2 , 2.3 , and 2.4 that they are given by
+[048] \tilde{\mathcal{I}}=n\cdot\frac{1}{2k_{G}}\cdot c_{2}\left(c_{2}+\frac{p_{1}}{2}\right)+m\cdot(c_{2})^{2},\qquad n,m\in\mathbb{Z} (2.5)
+[049] where k_{G}=12 , 6 , 3 , 1 for G=SU(2) , SU(3) , G_{2} and E_{7} , respectively.
+We then use this result to find the anomaly cancellation condition in Sec. 2.7 .
+Note that \pi_{6}(G)=\mathbb{Z}_{k_{G}} , but we do not directly use \pi_{6}(G) in the derivation in this section.
+[050] Before proceeding, we also note that the results analogous to ( 2.5 ) pertaining to the integrality properties of the coefficients in the anomaly polynomial
+were derived in the previous literature such as [ ST05 , KMT10 ] by explicitly computing the anomaly polynomials for free fermionic theories for all possible representations of G .
+The symplectic Majorana condition was often not considered systemtically either.
+As we will see below, our argument utilizes only a single representation of G ,
+thanks to the use of the bordism invariance.
+[051] 2.1 With U(1) 3-form symmetry
+[052] Let us start with the case X=K(\mathbb{Z},4) .
+We will find the dual bases of \mathop{\mathrm{Hom}}\nolimits_{\mathbb{Z}}(\Omega_{8}^{\text{spin}}(X),\mathbb{Z})=\mathbb{Z}\oplus\mathbb{Z} and \mathop{\mathrm{Free}}\nolimits\Omega_{8}^{\text{spin}}(X)=\mathbb{Z}\oplus\mathbb{Z} by writing down two elements from each and explicitly checking that they do form a set of dual bases. 5 5 5 We note that \mathop{\mathrm{Hom}}\nolimits_{\mathbb{Z}_{2}}(\widetilde{\Omega}_{10}^{\text{spin}}(K(\mathbb{Z},4)),\mathbb{Z}_{2}) was determined in a similar manner in [ DMW00 , Sec. 3.2] .
+[053] First, let us take two elements of \mathop{\mathrm{Hom}}\nolimits_{\mathbb{Z}}(\Omega_{8}^{\text{spin}}(X),\mathbb{Z}) .
+One is
+[054] G\wedge G, (2.6)
+[055] where G is a generator of H^{4}(K(\mathbb{Z},4);\mathbb{Z}) .
+The other element of \mathop{\mathrm{Hom}}\nolimits_{\mathbb{Z}}(\Omega_{8}^{\text{spin}}(X),\mathbb{Z}) we use is
+[056] \frac{1}{2}\cdot G\left(G+\frac{p_{1}}{2}\right). (2.7)
+[057] There are two ways to show that it integrates to an integer on spin manifolds.
+One method to demonstrate this only uses algebraic topology.
+Let us first recall that the standard generator \lambda of H^{4}(BSpin;\mathbb{Z})=\mathbb{Z} satisfies p_{1}=2\lambda .
+Now, for any SO bundle, there is a relation
+[058] p_{1}=\mathcal{P}(w_{2})+2w_{4}\mod 4. (2.8)
+[059] Here, the 2 in front of w_{4} is a map sending \mathbb{Z}_{2}=\{0,1\} to \{0,2\}\subset\mathbb{Z}_{4} .
+For spin bundles, we have w_{2}=0 , and therefore 2\lambda=p_{1}=2w_{4} ,
+meaning that
+[060] \lambda=w_{4}\mod 2. (2.9)
+[061] With this relation we can show
+[062] \int_{M_{8}}G\wedge\dfrac{p_{1}}{2}=\int_{M_{8}}G\cup w_{4}=\int_{M_{8}}Sq^{4}G=\int_{M_{8}}G\wedge G\mod 2, (2.10)
+[063] where we used the fact that w_{4} is the Wu class \nu_{4} on a spin manifold.
+Therefore the expression ( 2.7 ) integrates to an integer.
+[064] The other method is differential geometric, or uses a physics input.
+We consider the non-gravitational part \tilde{\mathcal{I}}_{\frac{1}{2}\mathbf{56}} of the anomaly polynomial of a fermion in the representation \frac{1}{2}\mathbf{56} of E_{7} ,
+where \frac{1}{2} means that we impose a reality condition using the fact that both \mathbf{56} of E_{7} and the Weyl spinor in 6d with Lorentz signature are pseudo-real.
+In terms of the index theory in 8d , the same \frac{1}{2} uses the fact that \mathbf{56} is pseudo-real and that the Weyl spinor in 8d with Euclidean signature are strictly real,
+and therefore the index in 8d is a multiple of 2.
+Using group-theoretical constants tabulated in Appendix A ,
+the anomaly polynomial can be computed and turns out to be
+[065] \tilde{\mathcal{I}}_{\frac{1}{2}\mathbf{56}}=\frac{1}{2}\cdot c_{2}\left(c_{2}+\frac{p_{1}}{2}\right). (2.11)
+[066] We next take two elements of \Omega_{8}^{\text{spin}}(X) , following [ Fra05 ] .
+One is the quaternionic projective space \mathbb{HP}^{2} .
+It has a canonical Sp(1)=SU(2) bundle Q , whose c_{2} generates H^{4}(\mathbb{HP}^{2};\mathbb{Z})=\mathbb{Z} such that \int_{\mathbb{HP}^{2}}(c_{2})^{2}=1 .
+The Pontrjagin classes of the tangent bundle are p_{1}=-2c_{2} and p_{2}=7(c_{2})^{2} . 6 6 6 The total Pontrjagin class of \mathbb{HP}^{k} is \frac{(1-c_{2})^{2(k+1)}}{(1-4c_{2})} ,
+see e.g. [ CG10 ] . The other is \mathbb{CP}^{1}\times\mathbb{CP}^{3} equipped with the element c\wedge c^{\prime}\in H^{4}(X;\mathbb{Z}) where c , c^{\prime} are the standard generators of H^{2}(\mathbb{CP}^{1};\mathbb{Z}) and H^{2}(\mathbb{CP}^{3};\mathbb{Z}) , respectively.
+[067] The pairings between these elements are given by
+[068] \displaystyle\int_{(\mathbb{HP}^{2},Q)}G\wedge G \displaystyle=1, \displaystyle\int_{(\mathbb{HP}^{2},Q)}\frac{1}{2}\cdot G\left(G+\frac{p_{1}}{2}\right) \displaystyle=0, (2.12) \displaystyle\int_{(\mathbb{CP}^{1}\times\mathbb{CP}^{3},c\wedge c^{\prime})}G\wedge G \displaystyle=0, \displaystyle\int_{(\mathbb{CP}^{1}\times\mathbb{CP}^{3},c\wedge c^{\prime})}\frac{1}{2}\cdot G\left(G+\frac{p_{1}}{2}\right) \displaystyle=-1. (2.13)
+[069] and therefore they constitute dual bases.
+In other words,
+the classes (\mathbb{HP}^{2},Q) and (\mathbb{CP}^{1}\times\mathbb{CP}^{3},c\wedge c^{\prime}) generate \mathop{\mathrm{Free}}\nolimits\Omega_{8}^{\text{spin}}(K(\mathbb{Z},4))=\mathbb{Z}\oplus\mathbb{Z} ,
+while G\wedge G and \frac{1}{2}\cdot G\left(G+\frac{p_{1}}{2}\right) generate \mathop{\mathrm{Hom}}\nolimits_{\mathbb{Z}}(\Omega_{8}^{\text{spin}}(K(\mathbb{Z},4)),\mathbb{Z})=\mathbb{Z}\oplus\mathbb{Z} .
+[070] 2.2 With SU(2) symmetry
+[071] Let us next consider the case X=BSU(2) .
+Our approach is the same as the previous case.
+We first take two elements of \mathop{\mathrm{Hom}}\nolimits_{\mathbb{Z}}(\Omega_{8}^{\text{spin}}(X),\mathbb{Z}) .
+One is c_{2}\wedge c_{2} as before,
+and the other is this time the non-gravitational part \tilde{\mathcal{I}}_{\frac{1}{2}\mathbf{2}} of the anomaly polynomial for the fermion in the representation \frac{1}{2}\mathbf{2} .
+Using the group theoretical data in Appendix A ,
+we have
+[072] \tilde{\mathcal{I}}_{\frac{1}{2}\mathbf{2}}=\frac{1}{24}\cdot c_{2}\left(c_{2}+\frac{p_{1}}{2}\right). (2.14)
+[073] This can also be derived from ( 2.11 ) by splitting \mathbf{56} as \mathbf{2}\otimes\mathbf{12}\oplus\mathbf{1}\otimes\mathbf{32} under \mathfrak{su}(2)\times\mathfrak{so}(12)\subset\mathfrak{e}_{7} ,
+which implies \tilde{\mathcal{I}}_{\frac{1}{2}\mathbf{56}}=12\cdot\tilde{\mathcal{I}}_{\frac{1}{2}\mathbf{2}} under SU(2)\subset E_{7} ;
+see e.g. [ FKS19 , Table A.178] .
+[074] We next consider two elements of \Omega_{8}^{\text{spin}}(BSU(2)) .
+One is (\mathbb{HP}^{2},Q) as before.
+As the other, we take (S^{4},I)\times K3 ,
+where S^{4} is equipped with a standard instanton bundle I on it, which has \int_{S^{4}}c_{2}=1 ,
+while K3 has \int_{K3}p_{1}=-48 .
+Note that S^{4}\simeq\mathbb{HP}^{1} and I is its canonical Sp(1) bundle.
+[075] The pairings of these elements are then
+[076] \displaystyle\int_{(\mathbb{HP}^{2},Q)}c_{2}\wedge c_{2} \displaystyle=1, \displaystyle\int_{(\mathbb{HP}^{2},Q)}\frac{1}{24}\cdot c_{2}\left(c_{2}+\frac{p_{1}}{2}\right) \displaystyle=0, (2.15) \displaystyle\int_{(S^{4},I)\times K3}c_{2}\wedge c_{2} \displaystyle=0, \displaystyle\int_{(S^{4},I)\times K3}\frac{1}{24}\cdot c_{2}\left(c_{2}+\frac{p_{1}}{2}\right) \displaystyle=-1, (2.16)
+[077] again guaranteeing that they form dual bases.
+Equivalently, we have now shown that (\mathbb{HP}^{2},Q) and (S^{4},I)\times K3 generate \mathop{\mathrm{Free}}\nolimits\Omega_{8}^{\text{spin}}(BSU(2))=\mathbb{Z}\oplus\mathbb{Z} ,
+and similarly c_{2}\wedge c_{2} and \frac{1}{24}\cdot c_{2}\left(c_{2}+\frac{p_{1}}{2}\right) generate \mathop{\mathrm{Hom}}\nolimits_{\mathbb{Z}}(\Omega_{8}^{\text{spin}}(BSU(2)),\mathbb{Z})=\mathbb{Z}\oplus\mathbb{Z} .
+[078] 2.3 With SU(3) symmetry
+[079] Next we consider the case X=BSU(3) .
+Two elements of \mathop{\mathrm{Hom}}\nolimits_{\mathbb{Z}}(\Omega_{8}^{\text{spin}}(X),\mathbb{Z}) can be chosen as before.
+One is c_{2}\wedge c_{2} as always,
+and the other is the non-gravitational part \tilde{\mathcal{I}}_{\mathbf{3}} of the anomaly polynomial in the representation \mathbf{3} .
+Under SU(3)\subset E_{7} , we have \tilde{\mathcal{I}}_{\frac{1}{2}\mathbf{56}}=6\cdot\tilde{\mathcal{I}}_{\mathbf{3}} and therefore
+[080] \tilde{\mathcal{I}}_{\mathbf{3}}=\frac{1}{12}\cdot c_{2}\left(c_{2}+\frac{p_{1}}{2}\right). (2.17)
+[081] A dual basis to c_{2}\wedge c_{2} can be taken to be (\mathbb{HP}^{2},Q) as always.
+Unfortunately, we have not found a concrete dual basis to \tilde{\mathcal{I}}_{\mathbf{3}} in \Omega_{8}^{\text{spin}}(X) .
+Instead we need to proceed indirectly, using the AHSS.
+As computed in Appendix B ,
+the entries E^{2}_{p,8-p} of the E^{2} page for various X are given by
+[082] \begin{array}[]{c|ccccccccccc}X&E^{2}_{4,4}&E^{2}_{6,2}&E^{2}_{7,1}&E^{2}_{8,0}\\
+\hline\cr BSU(2)&\mathbb{Z}&&&\mathbb{Z}\\
+BSU(3)&\mathbb{Z}&\mathbb{Z}_{2}&&\mathbb{Z}\\
+BG_{2}&\mathbb{Z}&\mathbb{Z}_{2}&\mathbb{Z}_{2}&\mathbb{Z}\\
+K(\mathbb{Z},4)&\mathbb{Z}&\mathbb{Z}_{2}&\mathbb{Z}_{2}&\mathbb{Z}\oplus\mathbb{Z}_{3}\end{array} (2.18)
+[083] where the other E^{2}_{p,8-p} are trivial.
+From the AHSS, it is clear that E^{2}=E^{\infty} for X=BSU(2) , and indeed \Omega^{\text{spin}}_{8}(BSU(2))=\mathbb{Z}\oplus\mathbb{Z} .
+We also know \mathop{\mathrm{Free}}\nolimits\Omega^{\text{spin}}_{8}(K(\mathbb{Z},4))=\mathbb{Z}\oplus\mathbb{Z} from the explicit analysis in Sec. 2.1 .
+Comparing the bases in Sec. 2.1 and 2.2 ,
+we find that under BSU(2)\to K(\mathbb{Z},4) , the image of \Omega^{\text{spin}}_{8}(BSU(2)) is 12\mathbb{Z}\oplus\mathbb{Z}\subset\mathbb{Z}\oplus\mathbb{Z} .
+This means that the extension problem in the AHSS for K(\mathbb{Z},4) is solved as follows:
+we have
+[084] 0\to\underbrace{E^{2}_{4,4}\oplus\mathop{\mathrm{Free}}\nolimits E^{2}_{8,0}}_{=\mathbb{Z}\oplus\mathbb{Z}}\to\underbrace{\Omega^{\text{spin}}_{8}(K(\mathbb{Z},4))}_{=\mathbb{Z}\oplus\mathbb{Z}}\to\mathbb{Z}_{12}\to 0 (2.19)
+[085] where \mathbb{Z}_{12} is composed of E^{2}_{6,2}=\mathbb{Z}_{2} , E^{2}_{7,1}=\mathbb{Z}_{2} , and \mathop{\mathrm{Tors}}\nolimits E^{2}_{8,0}=\mathbb{Z}_{3} in the last row of ( 2.18 ).
+[086] Since BSU(3) is sandwiched as in BSU(2)\to BSU(3)\to K(\mathbb{Z},4) ,
+we conclude that \Omega^{\text{spin}}_{8}(BSU(3))=\mathbb{Z}\oplus\mathbb{Z} whose image under BSU(3)\to K(\mathbb{Z},4) is 6\mathbb{Z}\oplus\mathbb{Z}\subset\mathbb{Z}\oplus\mathbb{Z} .
+This abstract analysis provides a dual basis element to \tilde{\mathcal{I}}_{\mathbf{3}}=\frac{1}{6}\cdot\tilde{\mathcal{I}}_{\frac{1}{2}\mathbf{56}} .
+[087] 2.4 With G_{2} symmetry
+[088] The G_{2} case is completely analogous to the SU(3) case.
+One basis of \mathop{\mathrm{Hom}}\nolimits_{\mathbb{Z}}(\Omega^{\text{spin}}_{8}(BG_{2}),\mathbb{Z})=\mathbb{Z}\oplus\mathbb{Z} is given by c_{2}\wedge c_{2} as always and the other is given by
+[089] \tilde{\mathcal{I}}_{\mathbf{7}}=\frac{1}{6}\cdot c_{2}\left(c_{2}+\frac{p_{1}}{2}\right), (2.20)
+[090] which satisfies \tilde{\mathcal{I}}_{\mathbf{7}}=\frac{1}{3}\cdot\tilde{\mathcal{I}}_{\frac{1}{2}\mathbf{56}} under G_{2}\subset E_{7} .
+The dual basis to c_{2}\wedge c_{2} is given by (\mathbb{HP}^{2},Q) .
+The existence of the dual basis to \tilde{\mathcal{I}}_{\mathbf{7}} can be argued exactly as before,
+and the image of \Omega^{\text{spin}}_{8}(BG_{2})=\mathbb{Z}\oplus\mathbb{Z} under BG_{2}\to K(\mathbb{Z},4) is 3\mathbb{Z}\oplus\mathbb{Z}\subset\mathbb{Z}\oplus\mathbb{Z} .
+[091] 2.5 Pure gravitational part
+[092] Before proceeding, here we record the dual bases of \mathop{\mathrm{Hom}}\nolimits_{\mathbb{Z}}(\Omega^{\text{spin}}_{8}(pt),\mathbb{Z})=\mathbb{Z}\oplus\mathbb{Z} and \Omega^{\text{spin}}_{8}(pt)=\mathbb{Z}\oplus\mathbb{Z} .
+Two generators of the latter were found e.g. in [ Mil63 ] ,
+which are \mathbb{HP}^{2} and L_{8} , where 4L_{8} is spin bordant to K3\times K3 .
+They have Pontrjagin numbers p_{1}^{2}(\mathbb{HP}^{2})=4 , p_{2}(\mathbb{HP}^{2})=7 and p_{1}^{2}(L_{8})=1152 , p_{2}(L_{8})=576 ,
+respectively.
+As for the generators of the former, we can take the anomaly polynomials \mathcal{I}_{\text{fermion}} and \mathcal{I}_{\text{gravitino}} of the 6d fermion and the gravitino,
+which can be found in any textbook:
+[093] \mathcal{I}_{\text{fermion}}=\frac{7\,p_{1}^{2}-4\,p_{2}}{5760},\qquad\mathcal{I}_{\text{gravitino}}=\frac{275\,p_{1}^{2}-980\,p_{2}}{5760}. (2.21)
+[094] They have the pairing
+[095] \displaystyle\int_{\mathbb{HP}^{2}}\mathcal{I}_{\text{fermion}} \displaystyle=0, \displaystyle\int_{\mathbb{HP}^{2}}\mathcal{I}_{\text{gravitino}} \displaystyle=-1, (2.22) \displaystyle\int_{L_{8}}\mathcal{I}_{\text{fermion}} \displaystyle=1, \displaystyle\int_{L_{8}}\mathcal{I}_{\text{gravitino}} \displaystyle=-43 (2.23)
+[096] and form a pair of dual bases.
+[097] 2.6 Anomalies of self-dual 2-forms
+[098] Now that we have discussed the general structures of anomalies with symmetries of our interest,
+we would like to study their cancellation.
+For this, we need to examine the anomalies of self-dual form fields in more detail.
+[099] Let us start by recalling the naive analysis often found in the older literature.
+The one-loop anomaly polynomial of a self-dual tensor can be found e.g. in [ AGW84 ] .
+In general dimensions, it is given by \pm L/8 , where L is the Hirzebruch genus.
+In six dimensions this gives 7 7 7 Our sign choice here is for -L/8 while the fermion anomaly in ( 2.21 ) corresponds to +\hat{A} .
+They are the anomaly polynomials for the tensor field in the tensor multiplet and for the fermion in the hypermultiplet in \mathcal{N}{=}(1,0) supersymmetry in six dimensions.
+[100] \mathcal{I}_{\text{tensor,one-loop}}=\frac{16\,p_{1}^{2}-112\,p_{2}}{5760}. (2.24)
+[101] Furthermore, at the level of differential forms,
+a self-dual tensor B can be coupled to a background 4-form \tilde{G} via dH=\tilde{G} ,
+which contributes to the anomaly polynomial by \frac{1}{2}\tilde{G}\wedge\tilde{G} .
+Then the total anomaly is
+[102] \mathcal{I}_{\text{tensor}}=\mathcal{I}_{\text{tensor,one-loop}}+\frac{1}{2}\tilde{G}\wedge\tilde{G}. (2.25)
+[103] Note that this does not integrate to integers on \mathbb{HP}^{2} and L_{8} when we naively set \tilde{G}=0 .
+Rather, we need to set
+[104] \tilde{G}=\frac{p_{1}}{4} (2.26)
+[105] for which we find
+[106] \mathcal{I}_{\text{tensor}}=\frac{196\,p_{1}^{2}-112\,p_{2}}{5760}=28\cdot\mathcal{I}_{\text{fermion}}, (2.27)
+[107] which does integrate to integers on \mathbb{HP}^{2} and L_{8} .
+We cannot, however, promote \tilde{G} to be a 3-form field strength, since \frac{p_{1}}{4} is not integrally quantized in general, although \frac{p_{1}}{2} is, as we saw above.
+[108] A proper formulation was first proposed by Belov and Moore in [ BM06 ] using the results of Hopkins and Singer [ HS02 ] ,
+and it requires the use of Wu structure in general (4k+2) dimensions.
+This formulation was then developed in detail in a series of papers by Monnier and collaborators [ Mon10 , Mon11a , Mon11b , Mon12 , Mon13a , Mon13b , Mon14 , Mon16 , Mon17 , MMP17 , MM18a , MM18b ] .
+For our case of interest in six spacetime dimensions, a spin structure induces a canonical Wu structure,
+and self-dual form fields can be naturally realized on the boundary of a natural class of 7d topological field theories [ HTY20 ] ;
+an in-depth discussion can also be found in [ GHP20 ] .
+[109] In the case of a single self-dual form field of level 1, the bulk theory has the action
+[110] S=-\displaystyle\int_{M_{7}}\left(\dfrac{1}{2}\cdot c\left(dc+\dfrac{p_{1}}{2}\right)+c\wedge G\right) (2.28)
+[111] where c is a 3-form gauge field to be path-integrated and G is a background 4-form field strength.
+It should more properly be written using its 8d extension as
+[112] S=-\displaystyle\int_{M_{8}}\left(\dfrac{1}{2}\cdot g\left(g+\dfrac{p_{1}}{2}\right)+g\wedge G\right) (2.29)
+[113] where M_{8} is a spin manifold such that \partial M_{8}=M_{7} ,
+and g=dc is the field strength of c ;
+we extend g and G to the entire M_{8} .
+Such extension is guaranteed to exist since \Omega^{\text{spin}}_{7}(K(\mathbb{Z}^{\oplus n},4))=0 ,
+and the action does not depend on the choice of the extension
+since we know that \frac{1}{2}\cdot g(g+\frac{p_{1}}{2}) and g\wedge G integrate to integers on spin manifolds,
+as we saw in Sec. 2.1 .
+[114] At the level of differential forms, one is tempted to rewrite ( 2.28 ) as
+[115] S=-\displaystyle\int_{M_{7}}\left(\dfrac{1}{2}\cdot c\wedge dc+c\wedge\tilde{G}\right) (2.30)
+[116] where
+[117] \tilde{G}=\frac{p_{1}}{4}+G. (2.31)
+[118] In this sense, a single self-dual 2-form is forced to couple to \frac{p_{1}}{4} from its consistency,
+explaining the observation ( 2.26 ) above.
+In this paper, we stick to use the unshifted G which is integrally quantized.
+[119] In ( 2.29 ), we can introduce a new variable \hat{g}=g+G and rewrite it as
+[120] S=-\displaystyle\int_{M_{8}}\dfrac{1}{2}\cdot\hat{g}\left(\hat{g}+\dfrac{p_{1}}{2}\right)+\displaystyle\int_{M_{8}}\dfrac{1}{2}\cdot G\left(G+\dfrac{p_{1}}{2}\right). (2.32)
+[121] As \hat{g} is path-integrated, the first term produces the pure gravitational anomaly of a single self-dual tensor field ‘properly coupled to \frac{1}{4}p_{1} ’,
+and the second term is the residual dependence on G ,
+which we saw in Sec. 2.1 to be a generator of \mathop{\mathrm{Hom}}\nolimits_{\mathbb{Z}}(\Omega^{\text{spin}}_{8}(K(\mathbb{Z},4)),\mathbb{Z}) .
+[122] The other generator was G\wedge G , which can be realized as the standard anomaly of a non-chiral 2-form field coupled to G both electrically and magnetically.
+Combining these two pieces of information,
+we find that every possible anomaly of \mathop{\mathrm{Hom}}\nolimits_{\mathbb{Z}}(\Omega^{\text{spin}}_{8}(K(\mathbb{Z},4)),\mathbb{Z}) can be realized by a system of 2-form fields in 6d .
+More generally,
+if there are n self-dual 2-form fields, the 7d bulk TQFT has the form
+[123] S=-\displaystyle\int_{M_{8}}\left(\dfrac{1}{2}\left(K_{ij}\cdot g^{i}\wedge g^{j}+a_{i}\cdot g^{i}\wedge\dfrac{p_{1}}{2}\right)+g^{i}\wedge Y_{i}.\right) (2.33)
+[124] Here, i runs from 1 to n , c^{i} are the 3-form fields to be integrated over, g^{i}=dc^{i} are their curvatures, Y_{i} are the background fields of U(1) 3-form symmetry,
+and K_{ij} and a_{i} are integer coefficients.
+For this expression to be well defined,
+we need to require 8 8 8 This relation can be more invariantly stated as follows.
+We introduce a lattice \Lambda=\mathbb{Z}^{n} whose pairing is given by K_{ij} .
+Then the vector (a_{i})\in\Lambda is a characteristic vector, i.e \braket{x,x}\equiv\braket{a,x} modulo two.
+That the coefficients a_{i} multiplying g^{i}\wedge\frac{p_{1}}{2} in the anomaly polynomial of the fermionic part of a 6d theory form a characteristic vector was long conjectured,
+e.g. in [ MMP17 ] and finally proved in [ MM18a , MM18b ] .
+We also note that an analogous constraint in the case of 3d Chern-Simons theory coupled to the \text{spin}^{c} connection was first noted in [ BM05 , Sec. 7] which was later utilized to a great effect in [ SW16 , Sec. 2.3] .
+[125] K_{ii}=a_{i}\mod 2\qquad\text{(not a sum over $i$)}. (2.34)
+[126] To see this, we first note
+the expression \frac{1}{2}\sum_{i\neq j}K_{ij}\cdot g^{i}\wedge g^{j}=\sum_{i<j}K_{ij}\cdot g^{i}\wedge g^{j} clearly integrates to an integer.
+Then, we can separately analyze each i .
+We finally recall that the generators of \mathop{\mathrm{Hom}}\nolimits_{\mathbb{Z}}(\Omega^{\text{spin}}_{8}(K(\mathbb{Z},4)),\mathbb{Z}) are G\wedge G and \frac{1}{2}\cdot G(G+\frac{p_{1}}{2}) , and we are done.
+[127] If \det K\neq 1 , this theory is not invertible but rather a topological field theory with a multi-dimensional Hilbert space.
+Correspondingly, the boundary 6d theory is a relative theory in the sense of [ FT12 ] ,
+which does not have a partition function but rather a partition vector .
+The system then depends on the background fields Y_{i} in a complicated manner,
+and cannot be directly used to cancel the fermion anomaly.
+However, suppose that Y_{i} has the form Y_{i}=K_{ij}\cdot G^{j}+\hat{Y}_{i} .
+In this case, shifting g^{i} to new fields \widetilde{g}^{i}=g^{i}+G^{i} , one can factor out as
+[128] S=-\displaystyle\int_{M_{8}}\left(\dfrac{1}{2}\left(K_{ij}\cdot\widetilde{g}^{i}\wedge\widetilde{g}^{j}+a_{i}\cdot\widetilde{g}^{i}\wedge\dfrac{p_{1}}{2}\right)+\widetilde{g}^{i}\wedge\hat{Y}_{i}\right)\\
++\displaystyle\int_{M_{8}}\left(\dfrac{1}{2}\left(K_{ij}\cdot G^{i}\wedge G^{j}+a_{i}\cdot G^{i}\wedge\dfrac{p_{1}}{2}\right)+G^{i}\wedge\hat{Y}_{i}\right) (2.35)
+[129] where the second line is invertible since it only depends on the background field G^{i} .
+It is this invertible part which is used to cancel the fermion anomaly,
+and the remaining non-invertible part is irrelevant for our purposes.
+Setting G^{i}=n^{i}\cdot G for a single G and integers n^{i} ,
+we again see that we can produce an arbitrary element of \mathop{\mathrm{Hom}}\nolimits_{\mathbb{Z}}(\Omega^{\text{spin}}_{8}(K(\mathbb{Z},4)),\mathbb{Z}) as the anomaly of a system of self-dual 2-form fields.
+In the examples in M-theory and F-theory treated in [ OSTY14 ] ,
+the cancellation was indeed done in this manner, where G^{i} were set to c_{2} of dynamical gauge fields and \hat{Y}_{i} were set to c_{2} of the R-symmetry background.
+[130] 2.7 Cancellation
+[131] After all these preparations, the analysis of the cancellation is very simple.
+Consider a system of fermions charged under G=SU(2) , SU(3) , or G_{2} .
+From the results of Sec. 2.2 , 2.3 and 2.4 ,
+its anomaly is necessarily of the form
+[132] \tilde{\mathcal{I}}_{\text{fermion}}=n\cdot\frac{1}{2k_{G}}\cdot c_{2}\left(c_{2}+\frac{p_{1}}{2}\right)+m\cdot c_{2}\wedge c_{2} (2.36)
+[133] where n and m are integers and k_{G}=12 , 6 , 3 for G=SU(2) , SU(3) , and G_{2} , respectively.
+[134] Now, take a number of self-dual 2-form fields and use c_{2} as their background field G .
+As we saw in Sec. 2.6 , the form of anomalies which can be produced by a system of 2-form fields has the structure
+[135] \tilde{\mathcal{I}}_{\text{tensor}}=\hat{n}\cdot\frac{1}{2}\cdot G\left(G+\frac{p_{1}}{2}\right)+\hat{m}\cdot G\wedge G, (2.37)
+[136] where \hat{n} and \hat{m} are again integers.
+This means that the necessary and sufficient condition for the anomaly of fermions to be cancelable by the anomaly of 2-form fields is
+[137] n\equiv 0\mod k_{G}. (2.38)
+[138] Here, \pi_{6}(G)=\mathbb{Z}_{k_{G}} for our G ,
+but we did not use this in the derivation presented in this section.
+[139] We note that the coefficient n controls the fractional part of the coefficient of c_{2}\wedge c_{2} , which comes from the \mathop{\mathrm{Tr}}\nolimits F^{4} term in the fermion anomaly.
+For G=SU(2) , SU(3) , and G_{2} , we have
+[140] \mathrm{tr}_{\text{rep.}}F^{4}=\gamma_{\text{rep.}}\cdot\big(\mathrm{tr}_{\text{fund.}}F^{2}\big)^{2}, (2.39)
+[141] and we saw in Sec. 2.2 , 2.3 , and 2.4 that a fermion in the representation \frac{1}{2}\mathbf{2} , \mathbf{3} , and \mathbf{7} corresponds to n=1 in ( 2.36 ).
+Therefore, the condition ( 2.38 ) can be expanded more concretely into
+[142] \begin{array}[]{cl}SU(2):&\displaystyle\sum_{i^{+}}\frac{\gamma_{\text{rep.$(i^{+})$}}}{\gamma_{\frac{1}{2}\mathbf{2}}}-\sum_{i^{-}}\frac{\gamma_{\text{rep.$(i^{-})$}}}{{\gamma_{\frac{1}{2}\mathbf{2}}}}=0\mod 12,\\
+SU(3):&\displaystyle\sum_{i^{+}}\frac{\gamma_{\text{rep.$(i^{+})$}}}{\gamma_{\mathbf{3}}}-\sum_{i^{-}}\frac{\gamma_{\text{rep.$(i^{-})$}}}{\gamma_{\mathbf{3}}}=0\mod 6,\\
+G_{2}:&\displaystyle\sum_{i^{+}}\frac{\gamma_{\text{rep.$(i^{+})$}}}{\gamma_{\mathbf{7}}}-\sum_{i^{-}}\frac{\gamma_{\text{rep.$(i^{-})$}}}{\gamma_{\mathbf{7}}}=0\mod 3,\\
+\end{array} (2.40)
+[143] where \gamma_{\frac{1}{2}\mathbf{2}}=1/4 , \gamma_{\mathbf{3}}=1/2 , and \gamma_{\mathbf{7}}=1/4 , and
+the summation runs over all fermions in the theory where +/- represents their chiralities.
+Some values of \gamma_{\text{rep.}} are collected in Appendix A .
+[144] 2.8 Examples: \mathcal{N}=(1,0) supersymmetric cases
+[145] Let us provide some concrete examples of the anomaly cancellation.
+In 6d \mathcal{N}=(1,0) QFT, fermions charged under the gauge group are gaugini in the adjoint representation and hyperini in the matter representation.
+They are in opposite chiralities.
+Let us restrict the representations of hyperini and denote their numbers as follows:
+[146] \begin{array}[]{cccc}n_{2}&:&SU(2)&\text{fundamental},\\
+n_{3}&:&SU(3)&\text{fundamental},\\
+n_{6}&:&&\text{symmetric},\\
+n_{7}&:&G_{2}&\text{fundamental}.\\
+\end{array} (2.41)
+[147] Then, the conditions for the perturbative anomaly cancellation ( 2.40 ) are
+[148] \begin{array}[]{cclll}SU(2)&:&4\gamma_{\text{adj.}}-4\gamma_{\text{fund.}}\cdot n_{2}&=32-2\cdot n_{2}&=0\mod 12,\\
+SU(3)&:&2\gamma_{\text{adj.}}-2\gamma_{\text{fund.}}\cdot n_{3}-2\gamma_{\text{sym.}}\cdot n_{6}&=18-n_{3}-17\cdot n_{6}&=0\mod 6,\\
+G_{2}&:&4\gamma_{\text{adj.}}-4\gamma_{\text{fund.}}\cdot n_{7}&=10-n_{7}&=0\mod 3.\\
+\end{array} (2.42)
+[149] which exactly coincide with the conditions for absence of global anomalies appeared in [ BV97 ] .
+[150] 3 Relation to \pi_{6}(G)
+[151] In the last section, we deduced the condition when the anomaly of a fermion system with G symmetry can be canceled by the anomaly of 2-form fields, for G=SU(2) , SU(3) , and G_{2} .
+Our exposition used a careful determination of integral generators of the group of anomalies.
+In the end, we found a mod-12, mod-6, and mod-3 condition, respectively.
+[152] Traditionally, the same anomaly cancellation condition was related to the anomaly by a global gauge transformation associated to \pi_{6}(G)=\mathbb{Z}_{12} , \mathbb{Z}_{6} , and \mathbb{Z}_{3} for each G .
+However, our derivation in the last section did not use \pi_{6}(G) at all.
+In this section, we would like to clarify the relation between these two approaches.
+[153] 3.1 The Elitzur-Nair method
+[154] Let us first remind ourselves the method to determine the global gauge anomaly of a system under G symmetry, assuming the cancellation of perturbative gauge anomalies,
+by rewriting it as a perturbative anomaly under a larger group \tilde{G} whose global gauge anomaly is absent.
+This method is originally due to [ EN84 ] .
+In the context of the modern bordism approach to the anomalies, it was re-discovered
+in [ DL20a ] and further developed more extensively in [ DL20b ] .
+The basic idea is as follows.
+[155] The global G gauge anomaly may arise due to gauge transformations g:S^{d}\to G belonging to non-trivial elements of \pi_{d}(G)=\mathbb{Z}_{k} ,
+which cannot be continuously deformed to the trivial transformation.
+The first step is then to embed the gauge group G into a larger group \tilde{G} with \pi_{d}(\tilde{G})=0 .
+This means that g can be trivialized within \tilde{G} .
+Further, assume that our G -symmetric system Q is obtained by restricting the symmetry of a \tilde{G} -symmetric system \tilde{Q} .
+Using this, one can describe the global G gauge anomaly of Q in terms of perturbative \tilde{G} gauge anomaly of \tilde{Q} .
+[156] Let us implement this idea, following [ EN84 ] .
+We first note that the fibration
+[157] G\ \xrightarrow{\hskip 5.69054pt\text{$\iota$}\hskip 5.69054pt}\ \tilde{G}\ \xrightarrow{\hskip 5.69054pt\text{$p$}\hskip 5.69054pt}\ \tilde{G}/G (3.1)
+[158] induces a homotopy exact sequence,
+which we assume to have the form
+[159] \cdots\ \xrightarrow{\hskip 5.69054pt\text{$\iota_{\ast}$}\hskip 5.69054pt}\ \underbrace{\pi_{d+1}(\tilde{G})}_{=\mathbb{Z}}\ \xrightarrow{\hskip 5.69054pt\text{$p_{\ast}$}\hskip 5.69054pt}\ \underbrace{\pi_{d+1}(\tilde{G}/G)}_{=\mathbb{Z}}\ \xrightarrow{\hskip 5.69054pt\text{$\partial$}\hskip 5.69054pt}\ \underbrace{\pi_{d}(G)}_{=\mathbb{Z}_{k}}\ \xrightarrow{\hskip 5.69054pt\text{$\iota_{\ast}$}\hskip 5.69054pt}\ \underbrace{\pi_{d}(\tilde{G})}_{=0}\ \xrightarrow{\hskip 5.69054pt\text{$p_{\ast}$}\hskip 5.69054pt}\ \cdots (3.2)
+[160] so that the generator of \pi_{d+1}(\tilde{G}) is mapped to a k -th power of the generator of \mathbb{Z}=\pi_{d+1}(\tilde{G}/G) .
+Now, to compute the anomaly under g:S^{d}\to G ,
+we consider a G bundle on S^{d+1} obtained by gluing two trivial bundles on two hemispheres at the equator S^{d}\subset S^{d+1} .
+The resulting G bundle on S^{d+1} is classified by an element \pi_{d+1}(BG) ,
+which is naturally isomorphic to \pi_{d}(G) .
+We denote the resulting G bundle by P_{[g]} where [g]\in\pi_{d}(G)\simeq\pi_{d+1}(BG) .
+In the modern understanding, the anomaly is the partition function Z_{A(Q)}[S^{d+1},P_{[g]}] of the (d+1) -dimensional anomaly theory A(Q) evaluated on (S^{d+1},P_{[g]}) .
+[161] From the assumption that \pi_{d}(\tilde{G})=\pi_{d+1}(B\tilde{G})=0 ,
+we can extend this G bundle P_{[g]} on S^{d+1} to
+a \tilde{G} bundle on D^{d+2} .
+Such an extension is classified by an element [f]\in\pi_{d+1}(\tilde{G}/G) such that \partial[f]=[g] .
+Denoting the corresponding \tilde{G} bundle on D^{d+2} by \tilde{P}_{[f]} ,
+the anomaly is \exp(2\pi iJ([f])) where
+[162] J([f])=\int_{(D^{d+2},\tilde{P}_{[f]})}\mathcal{I}_{\tilde{Q}} (3.3)
+[163] where \mathcal{I}_{\tilde{Q}} is the anomaly polynomial of the \tilde{G} -symmetric theory \tilde{Q} .
+One can check that the expression ( 3.3 ) gives a well-defined homomorphism
+[164] J:\pi_{d+1}(\tilde{G}/G)\to\mathbb{R}, (3.4)
+[165] since \mathcal{I}_{\tilde{Q}} is a closed form and its restriction to G bundles is zero by assumption.
+Let us now take a generator [f_{0}]\in\pi_{d+1}(\tilde{G}/G)=\mathbb{Z} ,
+which maps to a generator [g_{0}]=\partial[f_{0}]\in\pi_{d+1}(BG)=\mathbb{Z}_{k} .
+Then the global anomaly we are after is
+[166] Z_{A(Q)}[S^{d+1},P_{[g_{0}]}]=\exp\Big(2\pi iJ([f_{0}])\Big). (3.5)
+[167] To compute it, note that k[f_{0}]\in\pi_{d+1}(\tilde{G}/G) is the image of the generator [\tilde{g}_{0}]\in\pi_{d+1}(\tilde{G})\simeq\pi_{d+2}(B\tilde{G}) .
+In this case, we can attach
+a trivial \tilde{G} bundle over another copy of D^{d+2} to the bundle (D^{d+2},\tilde{P}_{k[f_{0}]}) discussed above
+along the common boundary S^{d+1} via gauge transformation in [\tilde{g}_{0}] ,
+to form a \tilde{G} bundle \hat{P}_{[\tilde{g}_{0}]} on S^{d+2} .
+Then
+[168] J(k[f_{0}])=\int_{(D^{d+2},\tilde{P}_{k[f_{0}]})}\mathcal{I}_{\tilde{Q}}=\int_{(S^{d+2},\hat{P}_{[\tilde{g}_{0}]})}\mathcal{I}_{\tilde{Q}}. (3.6)
+[169] This last expression is often computable,
+resulting in the final formula that
+the anomalous phase associated to the gauge transformation in [g_{0}]\in\pi_{d}(G) is given by
+[170] Z_{A(Q)}[S^{d+1},P_{[g_{0}]}]=\exp\left(\frac{2\pi i}{k}\int_{(S^{d+2},\hat{P}_{[\tilde{g}_{0}]})}\mathcal{I}_{\tilde{Q}}\right). (3.7)
+[171] This derivation was originally devised by Elitzur and Nair [ EN84 ] for the 4d analysis,
+where Witten’s original anomaly in the G=SU(2) case was derived by embedding G to \tilde{G}=SU(3) .
+It was also re-discovered in the context of our recent progress in the understanding of anomalies in the bordism point of view by [ DL20a ] ,
+who embedded SU(2) to U(2) instead.
+[172] Let us quickly see how Witten’s anomaly is computed in this framework.
+The sequence is
+[173] \cdots\ \xrightarrow{\hskip 5.69054pt\text{$\iota_{\ast}$}\hskip 5.69054pt}\ \underbrace{\pi_{5}(SU(3))}_{=\mathbb{Z}}\ \xrightarrow{\hskip 5.69054pt\text{$p_{\ast}$}\hskip 5.69054pt}\ \underbrace{\pi_{5}(SU(3)/SU(2))}_{=\mathbb{Z}}\ \xrightarrow{\hskip 5.69054pt\text{$\partial$}\hskip 5.69054pt}\ \underbrace{\pi_{4}(SU(2))}_{=\mathbb{Z}_{2}}\ \xrightarrow{\hskip 5.69054pt\text{$\iota_{\ast}$}\hskip 5.69054pt}\ \underbrace{\pi_{4}(SU(3))}_{=0}\ \xrightarrow{\hskip 5.69054pt\text{$p_{\ast}$}\hskip 5.69054pt}\ \cdots, (3.8)
+[174] where SU(3)/SU(2)\simeq S^{5} .
+We take the doublet in SU(2) minus two uncharged Weyl spinors as the theory Q ,
+and the triplet in SU(3) minus three uncharged Weyl spinors as the theory \tilde{Q} .
+By restricting the symmetry from SU(3) to SU(2) , the theory \tilde{Q} reduces to Q ,
+since an uncharged pair of Weyl spinors of different chirality can be given a mass
+and therefore does not contribute to the anomaly.
+The anomaly polynomial of \tilde{Q} is simply \frac{1}{3!}\mathop{\mathrm{Tr}}\nolimits\left(\frac{F}{2\pi}\right)^{3} ,
+which is known to integrate to 1 against the generator [\tilde{g}_{0}] of \pi_{5}(SU(3))=\pi_{6}(BSU(3)) ,
+meaning that J(2[f_{0}])=1 .
+Therefore, the anomalous phase under the generator [g_{0}]\in\pi_{4}(SU(2)) is \exp(2\pi iJ([f_{0}]))=\exp(2\pi i\cdot\frac{1}{2})=-1 .
+In this way, we see that the anomaly theory of a 4d fermion in the doublet of SU(2) detects the generator of \Omega^{\text{spin}}_{5}(BSU(2))=\mathbb{Z}_{2} .
+[175] 3.2 6d analysis, take 1
+[176] The analysis of Elitzur and Nair was applied and extended to the 6d case in [ Tos89 , BV97 , ST05 ] .
+However, the analyses there were not quite satisfactory from a more modern point of view,
+since the contribution from the self-dual tensor field was not properly taken care of.
+The first objection to their analyses is the following:
+we know that \pi_{6}(SU(2))=\mathbb{Z}_{12}\to\Omega^{\text{spin}}_{7}(BSU(2))=0 is a zero map.
+How can there be a global anomaly?
+The second objection is the following:
+we know from Sec. 2.7 that we cannot cancel the perturbative anomaly of a single fermion in \frac{1}{2}\mathbf{2} of SU(2) by that of self-dual tensor fields.
+How can we apply the Elitzur-Nair method?
+We can combine these two objections into a consistent modern reinterpretation of the old analyses, as follows.
+[177] Suppose that the perturbative anomaly of n fermions in \frac{1}{2}\mathbf{2} of SU(2) can be canceled by a combination of 2-form fields, by using c_{2} of the SU(2) bundle as the background of the U(1) 3-form symmetry of the 2-form fields.
+We also assume that the perturbative gravitational anomaly is canceled by adding some uncharged fields,
+and take the combined theory as Q .
+Since the perturbative anomaly vanishes, it determines a bordism invariant
+[178] \Omega^{\text{spin}}_{7}(BSU(2))\to U(1), (3.9)
+[179] but as \Omega^{\text{spin}}_{7}(BSU(2))=0 , it is trivial.
+In particular, the anomalous phase associated to (S^{7},P_{[g_{0}]}) for the generator [g_{0}]\in\pi_{7}(BSU(2))=\mathbb{Z}_{12} should also be trivial, i.e.
+[180] Z_{A(Q)}[S^{7},P_{[g_{0}]}]=1. (3.10)
+[181] We now compute this anomalous phase by the Elitzur-Nair method.
+Taking G=SU(2)=Sp(1) and \tilde{G}=Sp(2) , the sequence is
+[182] \cdots\ \xrightarrow{\hskip 5.69054pt\text{$\iota_{\ast}$}\hskip 5.69054pt}\ \underbrace{\pi_{7}(Sp(2))}_{=\mathbb{Z}}\ \xrightarrow{\hskip 5.69054pt\text{$p_{\ast}$}\hskip 5.69054pt}\ \underbrace{\pi_{7}(Sp(2)/Sp(1))}_{=\mathbb{Z}}\ \xrightarrow{\hskip 5.69054pt\text{$\partial$}\hskip 5.69054pt}\ \underbrace{\pi_{6}(Sp(1))}_{=\mathbb{Z}_{12}}\ \xrightarrow{\hskip 5.69054pt\text{$\iota_{\ast}$}\hskip 5.69054pt}\ \underbrace{\pi_{6}(Sp(2))}_{=0}\ \xrightarrow{\hskip 5.69054pt\text{$p_{\ast}$}\hskip 5.69054pt}\ \cdots, (3.11)
+[183] where Sp(2)/Sp(1)\simeq S^{7} .
+As the theory \tilde{Q} , we take n copies of \frac{1}{2}\mathbf{4} of Sp(2) ,
+coupled to the same combination of 2-form fields, by using c_{2} of the Sp(2) bundle as the background of the U(1) 3-form symmetry.
+Note that our presentation of the Elitzur-Nair method in Sec. 3.1 applies to this case.
+The anomaly polynomial \mathcal{I}_{\tilde{Q}} of \tilde{Q} is n times \frac{1}{2}\cdot\frac{1}{4!}\mathop{\mathrm{Tr}}\nolimits\left(\frac{F}{2\pi}\right)^{4} modulo multi-trace terms.
+Now, it is known that the expression \frac{1}{2}\cdot\frac{1}{4!}\mathop{\mathrm{Tr}}\nolimits\left(\frac{F}{2\pi}\right)^{4} integrates to 1 against the generator [\tilde{g}_{0}] of \pi_{7}(Sp(2))=\pi_{8}(BSp(2))=\mathbb{Z} [ ST05 , Appendix B.2] .
+This means that for \partial[\tilde{g}_{0}]=12[f_{0}] we have
+[184] J(12[f_{0}])=\int_{(S^{d+2},\hat{P}_{[\tilde{g}_{0}]})}\mathcal{I}_{\tilde{Q}}=n\int_{(S^{d+2},\hat{P}_{[\tilde{g}_{0}]})}\dfrac{1}{2}\cdot\frac{1}{4!}\mathop{\mathrm{Tr}}\nolimits\left(\frac{F}{2\pi}\right)^{4}=n. (3.12)
+[185] Therefore the anomalous phase associated to (S^{7},P_{[g_{0}]}) is
+[186] Z_{A(Q)}[S^{7},P_{[g_{0}]}]=\exp\left(n\cdot\frac{2\pi i}{12}\right). (3.13)
+[187] For the results ( 3.10 ) and ( 3.13 ) to be consistent,
+we conclude that n needs to be divisible by 12 .
+The analysis can be extended to arbitrary fermions charged under SU(2) ,
+and we can re-derive ( 2.40 ) as a necessary condition.
+The argument in this subsection, however, does not say that they are also sufficient.
+Differently put, the method in this section does not directly show that the fermion anomaly can actually be canceled, without the analysis of Sec. 2.7 .
+[188] The analysis for G=SU(3) and G_{2} can be rephrased in a completely similar manner
+by choosing \tilde{G} to be SU(4) and SU(7) respectively,
+so will not be repeated.
+[189] 3.3 6d analysis, take 2
+[190] The argument in the previous subsection can also be phrased in the following manner.
+Let us start by assuming that the perturbative anomaly of a single fermion in \frac{1}{2}\mathbf{2} can be canceled.
+Then, we can apply the Elitzur-Nair argument to compute the anomaly under the generator [g_{0}]\in\pi_{6}(SU(2))=\mathbb{Z}_{12} ,
+which is the partition function of the anomaly theory on (S^{7},P_{[g_{0}]}) .
+The value turns out to be \exp(2\pi i/12) .
+The configuration (S^{7},P_{[g_{0}]}) is however null-bordant in \Omega^{\text{spin}}_{7}(BSU(2)) ,
+and therefore the partition function should be 1.
+This leads to a contradiction,
+meaning that the initial assumption is incorrect.
+We conclude that the perturbative anomaly cannot be canceled for a single fermion in \frac{1}{2}\mathbf{2} .
+[191] This argument still leaves us wondering whether it is possible to have a setup where the anomaly associated to [g_{0}] is actually \exp(2\pi i/12) .
+It turns out that it can be achieved by considering a slightly different bordism group as follows.
+This is essentially the computation done in [ Tos89 , BV97 ] .
+[192] So far, we have considered the manifolds in question to be equipped with spin structure and a G gauge field.
+Let us equip the manifolds with a classical 3-form field H ,
+which we consider to be a (modified) field strength of the 2-form field B , satisfying
+[193] dH=c_{2}. (3.14)
+[194] This relation makes
+the part of the anomaly polynomial divisible by c_{2} cohomologically trivial, and effectively cancels it.
+Let us see this more concretely.
+Take G=SU(2) and consider fermions in \frac{1}{2}\mathbf{2} .
+The partition function of its anomaly theory A(Q) is given by the associated eta invariant \eta_{\frac{1}{2}\mathbf{2}} ,
+whose variation is controlled by the anomaly polynomial
+[195] \frac{1}{24}\cdot c_{2}\left(c_{2}+\frac{p_{1}}{2}\right). (3.15)
+[196] With ( 3.14 ) we can add a local counterterm in 7d , and consider the anomaly theory to be
+[197] Z_{A(Q)^{\prime}}=\exp\left(2\pi i\left(\eta_{\frac{1}{2}\mathbf{2}}-\int_{M_{7}}\frac{1}{24}\cdot H\left(c_{2}+\frac{p_{1}}{2}\right)\right)\right). (3.16)
+[198] This combination is clearly constant under infinitesimal variations of the background fields,
+and gives a invariant of the bordism group equipped with spin structure, a G gauge field, and a 3-form field satisfying ( 3.14 ).
+[199] The G -field configuration P_{[g_{0}]} on S^{7} has a cohomologically-trivial c_{2} , since H^{4}(S^{7}) vanishes.
+Therefore we can solve ( 3.14 ) to find H on S^{7} .
+The \tilde{G} -field configuration \tilde{P}_{[f_{0}]} on D^{8} can also be augmented with a solution to ( 3.14 ), since H^{4}(D^{8}) is again trivial.
+Then the Elitzur-Nair argument goes through,
+and this time we actually conclude that
+[200] Z_{A(Q)^{\prime}}[S^{7},P_{[g_{0}]},H]=\exp\left(\frac{2\pi i}{12}\right). (3.17)
+[201] The classifying space X of a G gauge field and a 3-form field satisfying ( 3.14 )
+can be described as a total space of the fibration
+[202] K(\mathbb{Z},3)\to X\to BG (3.18)
+[203] where the extension is controlled by ( 3.14 ).
+Therefore the relevant bordism group for us is \Omega^{\text{spin}}_{7}(X) .
+See Appendix B.6 for the details of the calculations;
+we do find that \Omega^{\text{spin}}_{7}(X)=\mathbb{Z}_{12} ,
+and our modified anomaly theory A(Q)^{\prime} detects its generator.
+Again the cases G=SU(3) and G_{2} can be treated similarly,
+and we will not detail it.
+[204] We now see that with 12 copies of the same fermion system, the global anomaly associated to \pi_{6}(SU(2)) vanishes,
+when the manifolds involved are all equipped with a classical 3-form field H satisfying ( 3.14 ).
+However, this does not directly imply that one can perform
+the path integral over the G gauge field and the 2-form field B satisfying ( 3.14 ).
+Indeed, the 7d counterterm in ( 3.16 ) with 12 copies corresponds to the 6d coupling
+[205] -\dfrac{1}{2}\cdot B\left(c_{2}+\frac{p_{1}}{2}\right) (3.19)
+[206] but \frac{1}{2}(c_{2}+\frac{p_{1}}{2}) is not integrally quantized.
+As we know from Sec. 2.7 , we need to use chiral 2-form fields in 6d to cancel the fermion anomaly in this case,
+and the subtlety of the chiral 2-forms is not encoded in the classical equation ( 3.14 ).
+[207] Before closing, we note that the spacetime structure analogous to ( 3.14 ), given by
+providing a 3-form field strength H satisfying
+[208] dH=\frac{p_{1}}{2}-c_{2} (3.20)
+[209] on a spin manifold, is known as the (twisted) string structure in mathematical literature.
+This captures a part of the original 10d Green-Schwarz mechanism, where the fermion anomalies of the form
+[210] \mathcal{I}_{12}=\left(\frac{p_{1}}{2}-c_{2}\right)X_{8} (3.21)
+[211] is cancelled by the anomaly of the B -field.
+Indeed, analogously to the analysis in this subsection,
+equipping manifolds with (twisted) string structure automatically cancels the factorized \mathcal{I}_{12} .
+It must be noted, however, that vanishing of the anomaly with the use of the (twisted) string structure
+does not guarantee that the part X_{8} is integrally quantized,
+again as analogously to the 6d analysis.
+This needs to be kept in mind whenever we try to use the string bordism to study the anomaly cancellation in string theory.
+[212] Acknowledgements
+[213] The authors would like to thank the anonymous referee for the detailed comments,
+which led to improve the representation of this paper.
+Y.L. is partially supported by the Programs for Leading Graduate Schools, MEXT, Japan, via the Leading Graduate Course for Frontiers of Mathematical Sciences and Physics
+and also by JSPS Research Fellowship for Young Scientists.
+Y.T. is partially supported by JSPS KAKENHI Grant-in-Aid (Wakate-A), No.17H04837
+and JSPS KAKENHI Grant-in-Aid (Kiban-S), No.16H06335,
+and also by WPI Initiative, MEXT, Japan at IPMU, the University of Tokyo.
+[214] Appendix A Fermion anomalies and group-theoretic constants
+[215] The perturbative gauge anomaly of a fermion is given by
+[216] \displaystyle\mathcal{I}_{\text{fermion}} \displaystyle=\left[\widehat{A}(R)\mathop{\mathrm{ch}}\nolimits(F)\right]_{8} \displaystyle=(\mathrm{tr}_{\text{rep.}}1)\cdot\frac{7\,p_{1}(R)^{2}-4\,p_{2}(R)}{5760}+\dfrac{p_{1}(R)}{24}\left[\dfrac{1}{2!}\cdot\mathrm{tr}_{\text{rep.}}\left(\frac{F}{2\pi}\right)^{2}\right]+\dfrac{1}{4!}\cdot\mathrm{tr}_{\text{rep.}}\left(\frac{F}{2\pi}\right)^{4}. (A.1)
+[217] In general, the traces have following forms
+[218] \begin{array}[]{cclcc}\mathrm{tr}_{\text{rep.}}F^{2}&=&\alpha_{\text{rep.}}\cdot\mathrm{tr}_{\text{fund.}}F^{2},\\
+\mathrm{tr}_{\text{rep.}}F^{4}&=&\beta_{\text{rep.}}\cdot\mathrm{tr}_{\text{fund.}}F^{4}&+&\gamma_{\text{rep.}}\cdot\big(\mathrm{tr}_{\text{fund.}}F^{2}\big)^{2},\\
+\end{array} (A.2)
+[219] and in particular \beta_{\text{rep.}}=0 for SU(2) , SU(3) , and G_{2} .
+Explicitly, \alpha and \gamma for some common representations are given as follows:
+[220] \begin{array}[]{c|ccc|c}&SU(2)&SU(3)&G_{2}&\\
+\hline\cr\mathrm{tr}_{\text{adj.}}F^{2}&4\cdot\mathrm{tr}_{\text{fund.}}F^{2}&6\cdot\mathrm{tr}_{\text{fund.}}F^{2}&4\cdot\mathrm{tr}_{\text{fund.}}F^{2}&\alpha_{\text{adj.}}\\
+\mathrm{tr}_{\text{sym.}}F^{2}&-&5\cdot\mathrm{tr}_{\text{fund.}}F^{2}&-&\alpha_{\text{sym.}}\\
+\hline\cr\mathrm{tr}_{\text{fund.}}F^{4}&\dfrac{1}{2}\cdot\big(\mathrm{tr}_{\text{fund.}}F^{2}\big)^{2}&\dfrac{1}{2}\cdot\big(\mathrm{tr}_{\text{fund.}}F^{2}\big)^{2}&\dfrac{1}{4}\cdot\big(\mathrm{tr}_{\text{fund.}}F^{2}\big)^{2}&\gamma_{\text{fund.}}\\
+\mathrm{tr}_{\text{adj.}}F^{4}&8\cdot\big(\mathrm{tr}_{\text{fund.}}F^{2}\big)^{2}&9\cdot\big(\mathrm{tr}_{\text{fund.}}F^{2}\big)^{2}&\dfrac{5}{2}\cdot\big(\mathrm{tr}_{\text{fund.}}F^{2}\big)^{2}&\gamma_{\text{adj.}}\\
+\mathrm{tr}_{\text{sym.}}F^{4}&-&\dfrac{17}{2}\cdot\big(\mathrm{tr}_{\text{fund.}}F^{2}\big)^{2}&-&\gamma_{\text{sym.}}\\
+\end{array} (A.3)
+[221] Furthermore, the instanton number c_{2}(F) is normalized so that
+[222] c_{2}(F)=\dfrac{1}{4}\cdot\dfrac{1}{h^{\vee}}\cdot\mathrm{tr}_{\text{adj.}}\left(\frac{F}{2\pi}\right)^{2}=\left\{\begin{array}[]{cl}\dfrac{1}{4}\cdot\dfrac{1}{2}\cdot 4\cdot\mathrm{tr}_{\text{fund.}}\left(\dfrac{F}{2\pi}\right)^{2}=\dfrac{1}{2}\cdot\mathrm{tr}_{\text{fund.}}\left(\dfrac{F}{2\pi}\right)^{2}&:SU(2),\\
+\dfrac{1}{4}\cdot\dfrac{1}{3}\cdot 6\cdot\mathrm{tr}_{\text{fund.}}\left(\dfrac{F}{2\pi}\right)^{2}=\dfrac{1}{2}\cdot\mathrm{tr}_{\text{fund.}}\left(\dfrac{F}{2\pi}\right)^{2}&:SU(3),\\
+\dfrac{1}{4}\cdot\dfrac{1}{4}\cdot 4\cdot\mathrm{tr}_{\text{fund.}}\left(\dfrac{F}{2\pi}\right)^{2}=\dfrac{1}{4}\cdot\mathrm{tr}_{\text{fund.}}\left(\dfrac{F}{2\pi}\right)^{2}&:G_{2},\\
+\end{array}\right. (A.4)
+[223] where h^{\vee} is the dual Coxeter number of each gauge group.
+As a result, the non-gravitational part of the anomaly becomes
+[224] \displaystyle\widetilde{\mathcal{I}}_{\text{fermion}}=\dfrac{1}{24}\left(\alpha_{\text{rep.}}\cdot\mathrm{tr}_{\text{fund.}}\left(\frac{F}{2\pi}\right)^{2}\wedge\dfrac{p_{1}(R)}{2}+\gamma_{\text{rep.}}\cdot\mathrm{tr}_{\text{fund.}}\left(\frac{F}{2\pi}\right)^{2}\wedge\mathrm{tr}_{\text{fund.}}\left(\frac{F}{2\pi}\right)^{2}\right) \displaystyle=\left\{\begin{array}[]{cccl}4\gamma_{\text{rep.}}\cdot\dfrac{1}{24}\cdot c_{2}(F)\left(c_{2}(F)+\dfrac{p_{1}(R)}{2}\right)&+&\dfrac{2\alpha_{\text{rep.}}-4\gamma_{\text{rep.}}}{24}\cdot c_{2}(F)\wedge\dfrac{p_{1}(R)}{2}&:SU(2),\\
+2\gamma_{\text{rep.}}\cdot\dfrac{1}{12}\cdot c_{2}(F)\left(c_{2}(F)+\dfrac{p_{1}(R)}{2}\right)&+&\dfrac{2\alpha_{\text{rep.}}-4\gamma_{\text{rep.}}}{24}\cdot c_{2}(F)\wedge\dfrac{p_{1}(R)}{2}&:SU(3),\\
+4\gamma_{\text{rep.}}\cdot\dfrac{1}{6}\cdot c_{2}(F)\left(c_{2}(F)+\dfrac{p_{1}(R)}{2}\right)&+&\dfrac{4\alpha_{\text{rep.}}-16\gamma_{\text{rep.}}}{24}\cdot c_{2}(F)\wedge\dfrac{p_{1}(R)}{2}&:\begin{array}[]{l}G_{2}.\end{array}\end{array}\right.
+[225] From our general argument in Sec. 2.2 , 2.3 and 2.4 ,
+the numerical coefficients before \cdot of the two terms in each row,
+such as 4\gamma_{\text{rep}} and \frac{1}{24}(2\alpha_{\text{rep.}}-4\gamma_{\text{rep.}}) ,
+are guaranteed to be integers.
+[226] Appendix B Bordisms via Atiyah-Hirzebruch spectral sequence
+[227] In this appendix, we compute \Omega^{\text{spin}}_{d}(X) for X=K(\mathbb{Z},4) , BSU(2) , BSU(3) , BG_{2} ,
+and K(\mathbb{Z},3) -fibered BSU(2) by using the Atiyah-Hirzebruch spectral sequence (AHSS),
+associated to the trivial fibration
+[228] pt\longrightarrow X\overset{p}{\longrightarrow}X. (B.1)
+[229] Here we will not give an introduction to AHSS; consult e.g. [ GEM18 ] for a detailed introduction to AHSS for \Omega^{\text{spin}}_{*} . 9 9 9 We note that the AHSS appeared in the physics literature first in the context of K-theory classification of D-branes in [ DMW00 , BGS01 , MMS01 ] ;
+see Appendix C, Appendix A, Sec. 3 of respective references.
+[230] B.1 K(\mathbb{Z},4)
+[231] The E^{2} -page of the AHSS is as follows:
+[232] \begin{array}[]{ccc}E^{2}_{p,q}=H_{p}\big(K(\mathbb{Z},4);\Omega^{\text{spin}}_{q}\big)&&\widetilde{\Omega}_{p+q}^{\text{spin}}(K(\mathbb{Z},4))\\
+\begin{array}[]{c|c:ccccccccc}8&\mathbb{Z}^{\oplus 2}\hfil\lx@intercol\vrule\lx@add@cssclass&&&&\ast&&\ast&&\ast&\\
+7&\hfil\lx@intercol\vrule\lx@add@cssclass\\
+6&\hfil\lx@intercol\vrule\lx@add@cssclass&\\
+5&\hfil\lx@intercol\vrule\lx@add@cssclass&&&&\\
+4&\mathbb{Z}\hfil\lx@intercol\vrule\lx@add@cssclass&&&&\mathbb{Z}&&\mathbb{Z}_{2}&&\ast&\\
+3&\hfil\lx@intercol\vrule\lx@add@cssclass&&&&\\
+2&\mathbb{Z}_{2}\hfil\lx@intercol\vrule\lx@add@cssclass&&&&{\color[rgb]{0,0,1}\framebox{{\color[rgb]{0,0,0}$\mathbb{Z}_{2}$}}}&&\mathbb{Z}_{2}&\mathbb{Z}_{2}&\mathbb{Z}_{2}&\\
+1&\mathbb{Z}_{2}\hfil\lx@intercol\vrule\lx@add@cssclass&&&&{\color[rgb]{1,0,0}\framebox{{\color[rgb]{0,0,0}$\mathbb{Z}_{2}$}}}&&{\color[rgb]{0,0,1}\framebox{{\color[rgb]{0,0,0}$\mathbb{Z}_{2}$}}}&\mathbb{Z}_{2}&\mathbb{Z}_{2}&\\
+0&\mathbb{Z}\hfil\lx@intercol\vrule\lx@add@cssclass&&&&\mathbb{Z}&&{\color[rgb]{1,0,0}\framebox{{\color[rgb]{0,0,0}$\mathbb{Z}_{2}$}}}&&\mathbb{Z}\oplus\mathbb{Z}_{3}&\\
+\hline\cr&0\hfil\lx@intercol\vrule\lx@add@cssclass&1&2&3&4&5&6&7&8&9\\
+\end{array}&\Longrightarrow&\begin{array}[]{c|c}8&\ast\\
+7&\\
+6&\\
+5&\\
+4&\mathbb{Z}\\
+3&\\
+2&\\
+1&\\
+0&\\
+\hline\cr\\
+\end{array}\end{array} (B.2)
+[233] where the horizontal axis and the vertical axis are for p and q , respectively.
+The integral homology of K(\mathbb{Z},4) is due to [ BMT13 , Appendix B.2] .
+For \mathbb{Z}_{2} (co)homology, it is known that (see e.g. [ MT91 ] )
+[234] H^{\ast}(K(\mathbb{Z},4);\mathbb{Z}_{2})=\mathbb{Z}_{2}[u_{4},u_{6},u_{7},u_{10},u_{11},u_{13},\cdots] (B.3)
+[235] where
+[236] \begin{array}[]{lcc}Sq^{2}u_{4}&=&u_{6},\\
+Sq^{1}u_{6}&=&u_{7}.\\
+\end{array} (B.4)
+[237] The differentials d_{2}:E^{2}_{6,0}\to E^{2}_{4,1} and d_{2}:E^{2}_{6,1}\to E^{2}_{4,2} are known to be
+(mod 2 reduction composed with) the dual of Sq^{2} [ Tei93 ] ,
+and therefore none of the \mathbb{Z}_{2} ’s involved survive to the E^{\infty} -page. 10 10 10 This indeed agrees with the result of [ Sto86 ] up to odd torsion. As a result, one has \widetilde{\Omega}^{\text{spin}}_{7}(K(\mathbb{Z},4))=0 .
+The extension problem for \widetilde{\Omega}^{\text{spin}}_{8}(K(\mathbb{Z},4)) was solved in Sec. 2.3 ,
+see in particular the discussions around ( 2.19 ).
+Summarizing, we have the (non-canonical) isomorphism of groups
+[238] \mathop{\mathrm{Inv}}\nolimits_{\text{spin}}^{7}(K(\mathbb{Z},4))=\underbrace{\mathop{\mathrm{Free}}\nolimits\widetilde{\Omega}^{\text{spin}}_{8}(K(\mathbb{Z},4))}_{=\mathbb{Z}\oplus\mathbb{Z}}\oplus\underbrace{\mathop{\mathrm{Tors}}\nolimits\widetilde{\Omega}^{\text{spin}}_{7}(K(\mathbb{Z},4))}_{=0}. (B.5)
+[239] B.2 BSU(2)
+[240] The E^{2} -page of the AHSS is as follows:
+[241] \begin{array}[]{ccc}E^{2}_{p,q}=H_{p}\big(BSU(2);\Omega^{\text{spin}}_{q}\big)&&\widetilde{\Omega}_{p+q}^{\text{spin}}(BSU(2))\\
+\begin{array}[]{c|c:cccccccccccc}8&\mathbb{Z}^{\oplus 2}\hfil\lx@intercol\vrule\lx@add@cssclass&&&&\ast&&&&\ast\\
+7&\hfil\lx@intercol\vrule\lx@add@cssclass\\
+6&\hfil\lx@intercol\vrule\lx@add@cssclass&\\
+5&\hfil\lx@intercol\vrule\lx@add@cssclass&&\\
+4&\mathbb{Z}\hfil\lx@intercol\vrule\lx@add@cssclass&&&&\mathbb{Z}&&&&\ast\\
+3&\hfil\lx@intercol\vrule\lx@add@cssclass&&&&&&&&\\
+2&\mathbb{Z}_{2}\hfil\lx@intercol\vrule\lx@add@cssclass&&&&\mathbb{Z}_{2}&&&&\ast&\\
+1&\mathbb{Z}_{2}\hfil\lx@intercol\vrule\lx@add@cssclass&&&&\mathbb{Z}_{2}&&&&\ast&\\
+0&\mathbb{Z}\hfil\lx@intercol\vrule\lx@add@cssclass&&&&\mathbb{Z}&&&&\mathbb{Z}&\\
+\hline\cr&0\hfil\lx@intercol\vrule\lx@add@cssclass&1&2&3&4&5&6&7&8&9\\
+\end{array}&\Longrightarrow&\begin{array}[]{c|c}8&\mathbb{Z}\oplus\mathbb{Z}\\
+7&\\
+6&\mathbb{Z}_{2}\\
+5&\mathbb{Z}_{2}\\
+4&\mathbb{Z}\\
+3&\\
+2&\\
+1&\\
+0&\\
+\hline\cr\\
+\end{array}\end{array} (B.6)
+[242] where the relevant (co)homologies are
+[243] \begin{array}[]{ccc}H^{\ast}\big(BSU(2);\mathbb{Z}\big)&=&\mathbb{Z}[c_{2}],\\
+H^{\ast}\big(BSU(2);\mathbb{Z}_{2}\big)&=&\mathbb{Z}_{2}[c_{2}].\end{array} (B.7)
+[244] For the range p+q\leq 7 , there are no differentials and all the elements survive to E^{\infty} -page.
+As a result, one has
+[245] \mathop{\mathrm{Inv}}\nolimits_{\text{spin}}^{7}(BSU(2))=\underbrace{\mathop{\mathrm{Free}}\nolimits\widetilde{\Omega}^{\text{spin}}_{8}(BSU(2))}_{=\mathbb{Z}\oplus\mathbb{Z}}\oplus\underbrace{\mathop{\mathrm{Tors}}\nolimits\widetilde{\Omega}^{\text{spin}}_{7}(BSU(2))}_{=0}. (B.8)
+[246] Since BSU(2)=\mathbb{HP}^{\infty} ,
+each generator of H_{4i}(BSU(2);\mathbb{Z})=\mathbb{Z} is the embedded \mathbb{HP}^{4i} .
+As SU(2)=Sp(1) bundles, they are the canonical bundles Q over \mathbb{HP}^{4i} .
+Therefore, the generator of E^{2}_{4,4}=\mathbb{Z} is (\mathbb{HP}^{1},Q)\times K3 and the generator of E^{2}_{8,0}=\mathbb{Z} is (\mathbb{HP}^{2},Q) .
+They are the generators discussed in Sec. 2.2 .
+[247] B.3 BSU(3)
+[248] The E^{2} -page of the AHSS is as follows:
+[249] \begin{array}[]{ccc}E^{2}_{p,q}=H_{p}\big(BSU(3);\Omega^{\text{spin}}_{q}\big)&&\widetilde{\Omega}_{p+q}^{\text{spin}}(BSU(3))\\
+\begin{array}[]{c|c:cccccccccccc}8&\mathbb{Z}^{\oplus 2}\hfil\lx@intercol\vrule\lx@add@cssclass&&&&\ast&&\ast&&\ast\\
+7&\hfil\lx@intercol\vrule\lx@add@cssclass\\
+6&\hfil\lx@intercol\vrule\lx@add@cssclass&\\
+5&\hfil\lx@intercol\vrule\lx@add@cssclass&&\\
+4&\mathbb{Z}\hfil\lx@intercol\vrule\lx@add@cssclass&&&&\mathbb{Z}&&\ast&&\ast\\
+3&\hfil\lx@intercol\vrule\lx@add@cssclass&&&&&&&&\\
+2&\mathbb{Z}_{2}\hfil\lx@intercol\vrule\lx@add@cssclass&&&&{\color[rgb]{0,0,1}\framebox{{\color[rgb]{0,0,0}$\mathbb{Z}_{2}$}}}&&\mathbb{Z}_{2}&&\ast&\\
+1&\mathbb{Z}_{2}\hfil\lx@intercol\vrule\lx@add@cssclass&&&&{\color[rgb]{1,0,0}\framebox{{\color[rgb]{0,0,0}$\mathbb{Z}_{2}$}}}&&{\color[rgb]{0,0,1}\framebox{{\color[rgb]{0,0,0}$\mathbb{Z}_{2}$}}}&&\ast&\\
+0&\mathbb{Z}\hfil\lx@intercol\vrule\lx@add@cssclass&&&&\mathbb{Z}&&{\color[rgb]{1,0,0}\framebox{{\color[rgb]{0,0,0}$\mathbb{Z}$}}}&&\mathbb{Z}&\\
+\hline\cr&0\hfil\lx@intercol\vrule\lx@add@cssclass&1&2&3&4&5&6&7&8&9\\
+\end{array}&\Longrightarrow&\begin{array}[]{c|c}8&\ast\\
+7&\\
+6&\mathbb{Z}\\
+5&\\
+4&\mathbb{Z}\\
+3&\\
+2&\\
+1&\\
+0&\\
+\hline\cr\\
+\end{array}\end{array} (B.9)
+[250] where the relevant (co)homologies are
+[251] \begin{array}[]{ccc}H^{\ast}\big(BSU(3);\mathbb{Z}\big)&=&\mathbb{Z}[c_{2},c_{3}],\\
+H^{\ast}\big(BSU(3);\mathbb{Z}_{2}\big)&=&\mathbb{Z}_{2}[c_{2},c_{3}].\end{array} (B.10)
+[252] Here, c_{2} and c_{3} in H^{\ast}\big(BSU(3);\mathbb{Z}_{2}\big) are related as
+[253] Sq^{2}c_{2}=c_{3},
+[254] and therefore the differentials d_{2}:E^{2}_{6,0}\to E^{2}_{4,1} and d_{2}:E^{2}_{6,1}\to E^{2}_{4,2} are again non-trivial
+as in the X=K(\mathbb{Z},4) case.
+As a result, one has
+[255] \mathop{\mathrm{Inv}}\nolimits_{\text{spin}}^{7}(BSU(3))=\underbrace{\mathop{\mathrm{Free}}\nolimits\widetilde{\Omega}^{\text{spin}}_{8}(BSU(3))}_{=\mathbb{Z}\oplus\mathbb{Z}}\oplus\underbrace{\mathop{\mathrm{Tors}}\nolimits\widetilde{\Omega}^{\text{spin}}_{7}(BSU(3))}_{=0}. (B.11)
+[256] As discussed in Sec. 2.3 , E^{2}_{6,2}=\mathbb{Z}_{2} extends E^{2}_{4,4}=\mathbb{Z} to form a \mathbb{Z} .
+The generator is a dual basis to \tilde{I}_{\mathbf{3}}=\frac{1}{6}\cdot\frac{1}{2}c_{2}(c_{2}+\frac{p_{1}}{2}) .
+Another factor of \mathbb{Z} simply comes from H_{8}(BSU(3);\mathbb{Z})=\mathbb{Z} .
+[257] B.4 BSU(n\geq 4)
+[258] In passing, we briefly comment on the case of BSU(n\geq 4) .
+The (relevant part of) E^{2} -page of the AHSS is almost the same as BSU(3) .
+The only difference is the additional \mathbb{Z} in E^{2}_{8,\ast} elements due to c_{4}\in H^{8}(BSU(n);\mathbb{Z}) ,
+which also newly shows up in the anomaly polynomial \tilde{\mathcal{I}}_{\mathbf{n}} .
+As a result, one has
+[259] \mathop{\mathrm{Inv}}\nolimits_{\text{spin}}^{7}(BSU(n))=\underbrace{\mathop{\mathrm{Free}}\nolimits\widetilde{\Omega}^{\text{spin}}_{8}(BSU(n))}_{=\mathbb{Z}\oplus\mathbb{Z}\oplus\mathbb{Z}}\oplus\underbrace{\mathop{\mathrm{Tors}}\nolimits\widetilde{\Omega}^{\text{spin}}_{7}(BSU(n))}_{=0}. (B.12)
+[260] Comparing with the BSU(3) case, we find that one factor of \mathbb{Z} is given by extending E^{2}_{4,4}=\mathbb{Z} by E^{2}_{6,2}=\mathbb{Z}_{2} as before, whose generator is obtained by sending the corresponding one for BSU(3) by the embedding SU(3)\to SU(n) . This is a dual basis to \tilde{\mathcal{I}}_{\mathbf{n}}=-\frac{c_{4}}{6}+\frac{1}{6}\cdot\frac{1}{2}c_{2}(c_{2}+\frac{p_{1}}{2}). The other two factors of \mathbb{Z} simply come from H_{8}(BSU(n);\mathbb{Z})=\mathbb{Z}\oplus\mathbb{Z} and are dual to (c_{2})^{2} and c_{4} .
+Then we see that a basis of \mathop{\mathrm{Hom}}\nolimits_{\mathbb{Z}}(\widetilde{\Omega}^{\text{spin}}_{8}(BSU(n)),\mathbb{Z}) can be chosen to be \tilde{\mathcal{I}}_{\mathbf{n}} , (c_{2})^{2} and \frac{1}{2}c_{2}(c_{2}+\frac{p_{1}}{2}) ,
+the last two of which can be obtained by pulling back from K(\mathbb{Z},4) .
+Applying the logic of Sec. 2.7 , we find that
+the anomaly of 2-form fields can cancel the fermion anomaly if and only if the coefficient of c_{4} in the anomaly polynomial vanishes.
+[261] B.5 BG_{2}
+[262] The E^{2} -page of the AHSS is as follows:
+[263] \begin{array}[]{ccc}E^{2}_{p,q}=H_{p}\big(BG_{2};\Omega^{\text{spin}}_{q}\big)&&\widetilde{\Omega}_{p+q}^{\text{spin}}(BG_{2})\\
+\begin{array}[]{c|c:cccccccccccc}8&\mathbb{Z}^{\oplus 2}\hfil\lx@intercol\vrule\lx@add@cssclass&&&&\ast&&\ast&&\ast\\
+7&\hfil\lx@intercol\vrule\lx@add@cssclass\\
+6&\hfil\lx@intercol\vrule\lx@add@cssclass&\\
+5&\hfil\lx@intercol\vrule\lx@add@cssclass&&\\
+4&\mathbb{Z}\hfil\lx@intercol\vrule\lx@add@cssclass&&&&\mathbb{Z}&&\ast&&\ast\\
+3&\hfil\lx@intercol\vrule\lx@add@cssclass&&&&&&&&\\
+2&\mathbb{Z}_{2}\hfil\lx@intercol\vrule\lx@add@cssclass&&&&{\color[rgb]{0,0,1}\framebox{{\color[rgb]{0,0,0}$\mathbb{Z}_{2}$}}}&&\mathbb{Z}_{2}&\mathbb{Z}_{2}&\ast&\\
+1&\mathbb{Z}_{2}\hfil\lx@intercol\vrule\lx@add@cssclass&&&&{\color[rgb]{1,0,0}\framebox{{\color[rgb]{0,0,0}$\mathbb{Z}_{2}$}}}&&{\color[rgb]{0,0,1}\framebox{{\color[rgb]{0,0,0}$\mathbb{Z}_{2}$}}}&\mathbb{Z}_{2}&\ast&\\
+0&\mathbb{Z}\hfil\lx@intercol\vrule\lx@add@cssclass&&&&\mathbb{Z}&&{\color[rgb]{1,0,0}\framebox{{\color[rgb]{0,0,0}$\mathbb{Z}_{2}$}}}&&\mathbb{Z}&\\
+\hline\cr&0\hfil\lx@intercol\vrule\lx@add@cssclass&1&2&3&4&5&6&7&8&9\\
+\end{array}&\Longrightarrow&\begin{array}[]{c|c}8&\ast\\
+7&\\
+6&\\
+5&\\
+4&\mathbb{Z}\\
+3&\\
+2&\\
+1&\\
+0&\\
+\hline\cr\\
+\end{array}\end{array} (B.13)
+[264] where the relevant (co)homologies are
+[265] \begin{array}[]{lcl}H^{\ast}\big(BG_{2};\mathbb{Z}_{p\geq 3}\big)&=&\mathbb{Z}_{p}[x_{4},x_{12}],\\
+H^{\ast}\big(BG_{2};\mathbb{Z}_{2}\big)&=&\mathbb{Z}_{2}[x_{4},x_{6},x_{7}].\end{array} (B.14)
+[266] For the latter, generators are related as
+[267] \begin{array}[]{lcc}Sq^{2}x_{4}&=&x_{6},\\
+Sq^{1}x_{6}&=&x_{7},\\
+\end{array} (B.15)
+[268] and therefore the differentials d_{2}:E^{2}_{6,0}\to E^{2}_{4,1} and d_{2}:E^{2}_{6,1}\to E^{2}_{4,2} are again non-trivial
+as in the X=K(\mathbb{Z},4) case.
+Since the (co)homology of BG_{2} is p -torsion free for p\geq 3 (see e.g. [ MT91 ] ),
+one can deduce the integral (co)homology as in the E^{2} -page.
+As a result, one has
+[269] \mathop{\mathrm{Inv}}\nolimits_{\text{spin}}^{7}(BG_{2})=\underbrace{\mathop{\mathrm{Free}}\nolimits\widetilde{\Omega}^{\text{spin}}_{8}(BG_{2})}_{=\mathbb{Z}\oplus\mathbb{Z}}\oplus\underbrace{\mathop{\mathrm{Tors}}\nolimits\widetilde{\Omega}^{\text{spin}}_{7}(BG_{2})}_{=0}. (B.16)
+[270] B.6 K(\mathbb{Z},3)\to X\to BSU(2)
+[271] Here we compute \Omega_{d}^{\text{spin}}(X) for a fibration K(\mathbb{Z},3)\to X\to BSU(2) designed to kill the generator c_{2}\in H^{4}(BSU(2);\mathbb{Z})=\mathbb{Z} via dH=c_{2} , where H\in H^{3}(K(\mathbb{Z},3);\mathbb{Z})=\mathbb{Z} is also the generator.
+To compute \Omega_{d}^{\text{spin}}(X) ,
+let us first calculate the cohomology group of X via the Leray-Serre spectral sequence (LSSS),
+and then throw it into the AHSS.
+The E_{2} -page of the LSSS is given on the left hand side of the following equation:
+[272] \begin{array}[]{ccc}E_{2}^{p,q}=H^{p}\big(BSU(2);H^{q}(K(\mathbb{Z},3);\mathbb{Z})\big)&&H^{p+q}(X;\mathbb{Z})\\
+\begin{array}[]{c|cccccccccc}9&{\color[rgb]{1,0,0}\raisebox{-0.4pt}{\parbox[b]{17.39723pt}{\hbox to17.39723pt{\vrule height=0.4pt,width=3.0pt\leaders{\hbox to6.0pt{\hfill\rule{3.0pt}{0.4pt}\hfill}}{\hfill}\vrule height=0.4pt,width=3.0pt}\kern-0.4pt\par\parbox{0.4pt}{\vbox to15.1333pt{\hrule height=3.0pt,width=0.4pt\leaders{\vbox to6.0pt{\vfill\rule{0.4pt}{3.0pt}\vfill}}{\vfill}\hrule height=3.0pt,width=0.4pt}}\kern 3.0pt\parbox{10.59724pt}{\vskip 3.0pt\hbox{{\color[rgb]{0,0,0}$\mathbb{Z}_{2}$}}\vskip 3.0pt}\kern 3.0pt\parbox{0.4pt}{\vbox to15.1333pt{\hrule height=3.0pt,width=0.4pt\leaders{\vbox to6.0pt{\vfill\rule{0.4pt}{3.0pt}\vfill}}{\vfill}\hrule height=3.0pt,width=0.4pt}}\par\kern-0.4pt\hbox to17.39723pt{\vrule height=0.4pt,width=3.0pt\leaders{\hbox to6.0pt{\hfill\rule{3.0pt}{0.4pt}\hfill}}{\hfill}\vrule height=0.4pt,width=3.0pt}}}}&&&&\ast&&&&\ast&\\
+8&\mathbb{Z}_{3}&&&&\ast&&&&\ast&\\
+7&\\
+6&\mathbb{Z}_{2}&&&&{\color[rgb]{1,0,0}\raisebox{-0.4pt}{\parbox[b]{17.39723pt}{\hbox to17.39723pt{\vrule height=0.4pt,width=3.0pt\leaders{\hbox to6.0pt{\hfill\rule{3.0pt}{0.4pt}\hfill}}{\hfill}\vrule height=0.4pt,width=3.0pt}\kern-0.4pt\par\parbox{0.4pt}{\vbox to15.1333pt{\hrule height=3.0pt,width=0.4pt\leaders{\vbox to6.0pt{\vfill\rule{0.4pt}{3.0pt}\vfill}}{\vfill}\hrule height=3.0pt,width=0.4pt}}\kern 3.0pt\parbox{10.59724pt}{\vskip 3.0pt\hbox{{\color[rgb]{0,0,0}$\mathbb{Z}_{2}$}}\vskip 3.0pt}\kern 3.0pt\parbox{0.4pt}{\vbox to15.1333pt{\hrule height=3.0pt,width=0.4pt\leaders{\vbox to6.0pt{\vfill\rule{0.4pt}{3.0pt}\vfill}}{\vfill}\hrule height=3.0pt,width=0.4pt}}\par\kern-0.4pt\hbox to17.39723pt{\vrule height=0.4pt,width=3.0pt\leaders{\hbox to6.0pt{\hfill\rule{3.0pt}{0.4pt}\hfill}}{\hfill}\vrule height=0.4pt,width=3.0pt}}}}&&&&\ast\\
+5&&&&&\\
+4&&&&&&&&&&\\
+3&{\color[rgb]{1,0,0}\framebox{{\color[rgb]{0,0,0}$\mathbb{Z}$}}}&&&&{\color[rgb]{0,0,1}\framebox{{\color[rgb]{0,0,0}$\mathbb{Z}$}}}&&&&\ast\\
+2&&&&&&&&&&\\
+1&&&&&&&&&&\\
+0&\mathbb{Z}&&&&{\color[rgb]{1,0,0}\framebox{{\color[rgb]{0,0,0}$\mathbb{Z}$}}}&&&&{\color[rgb]{0,0,1}\framebox{{\color[rgb]{0,0,0}$\mathbb{Z}$}}}&\\
+\hline\cr&0&1&2&3&4&5&6&7&8&9\\
+\end{array}&\Longrightarrow&\begin{array}[]{c|c}9&\\
+8&\mathbb{Z}_{3}\\
+7&\\
+6&\mathbb{Z}_{2}\\
+5&\\
+4&\\
+3&\\
+2&\\
+1&\\
+0&\mathbb{Z}\\
+\hline\cr\\
+\end{array}\end{array} (B.17)
+[273] where the integral homology of K(\mathbb{Z},3) is again due to [ BMT13 , Appendix B.2] .
+The differentials d_{4}:E_{2}^{0,3}\to E_{2}^{4,0} and d_{4}:E_{2}^{0,9}\to E_{2}^{4,6} are non-trivial due to dH=c_{2} ,
+and d_{4}:E_{2}^{4,3}\to E_{2}^{8,0} is also non-trivial due to
+[274] d(H\wedge c_{2}(F))=(c_{2}(F))^{2}. (B.18)
+[275] This results in the cohomology group of X as given on the right hand side of ( B.17 ).
+[276] The knowledge of H^{*}(X,\mathbb{Z}) allows us to compute the AHSS for pt\to X\to X ,
+whose E^{2} -page is as follows:
+[277] \begin{array}[]{c}E^{2}_{p,q}=H_{p}\big(X;\Omega^{\text{spin}}_{q}\big)\\
+\begin{array}[]{c|c:ccccccccc}8&\mathbb{Z}^{\oplus 2}\hfil\lx@intercol\vrule\lx@add@cssclass&&&&&\ast&&\ast&\\
+7&\hfil\lx@intercol\vrule\lx@add@cssclass\\
+6&\hfil\lx@intercol\vrule\lx@add@cssclass&\\
+5&\hfil\lx@intercol\vrule\lx@add@cssclass&&\\
+4&\mathbb{Z}\hfil\lx@intercol\vrule\lx@add@cssclass&&&&&\mathbb{Z}_{2}&&\ast&\\
+3&\hfil\lx@intercol\vrule\lx@add@cssclass&&&&&&&&\\
+2&\mathbb{Z}_{2}\hfil\lx@intercol\vrule\lx@add@cssclass&&&&&\mathbb{Z}_{2}&\mathbb{Z}_{2}&&\\
+1&\mathbb{Z}_{2}\hfil\lx@intercol\vrule\lx@add@cssclass&&&&&\mathbb{Z}_{2}&\mathbb{Z}_{2}&&\\
+0&\mathbb{Z}\hfil\lx@intercol\vrule\lx@add@cssclass&&&&&\mathbb{Z}_{2}&&\mathbb{Z}_{3}&\\
+\hline\cr&0\hfil\lx@intercol\vrule\lx@add@cssclass&1&2&3&4&5&6&7&8\\
+\end{array}\end{array} (B.19)
+[278] where the relevant homology groups can be obtained from the universal coefficient theorems.
+As a result, one has
+[279] \mathop{\mathrm{Inv}}\nolimits_{\text{spin}}^{7}(X)=\underbrace{\mathop{\mathrm{Free}}\nolimits\widetilde{\Omega}^{\text{spin}}_{8}(X)}_{=0}\oplus\mathop{\mathrm{Tors}}\nolimits\widetilde{\Omega}^{\text{spin}}_{7}(X) (B.20)
+[280] and \mathop{\mathrm{Tors}}\nolimits\widetilde{\Omega}^{\text{spin}}_{7}(X) is a finite group with at most 2\cdot 2\cdot 3=12 elements.
+As we saw in Sec. 3.3 ,
+there is a bordism invariant with the value \exp(2\pi i/12) , meaning that
+the AHSS is indeed consistent with the previous analyses on 6d global anomaly claiming
+[281] \widetilde{\Omega}^{\text{spin}}_{7}(X)=\mathbb{Z}_{12}. (B.21)
+[282] Appendix C Bordisms via Adams spectral sequence
+[283] In this appendix, we compute \Omega^{\text{spin}}_{d}(BG) for G=SO(n) , Spin(n) and G_{2} by using the Adams spectral sequence
+[284] E_{2}^{s,t}=\mathrm{Ext}_{\mathcal{A}(1)}^{s,t}(\widetilde{H}^{*}(X;\mathbb{Z}_{2}),\mathbb{Z}_{2})\quad\Rightarrow\quad\widetilde{\mathrm{ko}}_{t-s}(X)_{2}^{\wedge} (C.1)
+[285] where \mathcal{A}(1) is the algebra generated by the Steendrod operations Sq^{1} and Sq^{2} ,
+and \mathrm{ko} is the connective KO theory.
+The RHS is known to agree with the reduced spin-bordism \widetilde{\Omega}_{t-s}^{\text{spin}}(X) for t-s\leq 7 [ ABP67 ] ,
+allowing us to compute the spin bordism groups of our interest.
+Here we will not give an introduction to Adams SS; consult [ BC18 ] for the details
+(to which we refer for the Adams charts of various modules below),
+or see [ LOT20 , Appendix C] for a brief description.
+[286] C.1 BSO(n)
+[287] n\geq 5\ :
+[288] The module M^{BSO}=\widetilde{H}^{*}(BSO(n);\mathbb{Z}_{2}) up to degree 7 is as follows:
+[289] {\lx@inpgf@ignorespaces\bullet} {\lx@inpgf@ignorespaces\bullet} {\lx@inpgf@ignorespaces\bullet} {\lx@inpgf@ignorespaces\bullet} {\lx@inpgf@ignorespaces\bullet} {\lx@inpgf@ignorespaces\bullet} {\lx@inpgf@ignorespaces\bullet} {\lx@inpgf@ignorespaces\bullet} {\lx@inpgf@ignorespaces\bullet} {\lx@inpgf@ignorespaces\bullet} {\lx@inpgf@ignorespaces\bullet} {\lx@inpgf@ignorespaces\bullet} {\lx@inpgf@ignorespaces\bullet} {\lx@inpgf@ignorespaces\bullet} w_{2} w_{3} w_{4} w_{2}w_{3}+w_{5} w_{5} w_{2}w_{4}+w_{6} w_{2}w_{5} w_{2}w_{5}+w_{3}w_{4}+w_{7} w_{7} w_{6} w_{3}(w_{2})^{2} (w_{2})^{3} (w_{2})^{2} (w_{3})^{2} (C.2)
+[290] where, as is customary, we used a dot for a basis in a \mathbb{Z}_{2} -vector space,
+and a vertical straight line and a curved line shows the action of Sq^{1} and Sq^{2} .
+We therefore have
+[291] M^{BSO}_{\leq 7}\cong\big(J[2]\oplus\mathcal{A}(1)[4]\oplus\mathcal{A}(1)[6]\oplus\mathcal{A}(1)[6]\big)_{\leq 7} (C.3)
+[292] in terms of [ BC18 ] , and the Adams chart is correspondingly given as
+[293] 0,0)
+0,1)
+(0,1-1,-1)(0,1,-1)
+
+0,2)
+(0,2-1,-1)(0,2,-1)
+
+0,3)
+(0,3-1,-1)(0,3,-1)
+
+0,4)
+(0,4-1,-1)(0,4,-1)
+
+0,5)
+(0,5-1,-1)(0,5,-1)
+
+0,6)
+(0,6-1,-1)(0,6,-1)
+
+0,7)
+(0,7-1,-1)(0,7,-1)
+
+0,8)
+(0,8-1,-1)(0,8,-1)
+[294] where the horizontal axis and the vertical axis are for t-s and s ,
+a dot corresponds to a generator,
+and the vertical line shows the action of a multiplication by a special element known as h_{0} ;
+a tower of h_{0} generates the ring \mathbb{Z}_{2} of 2 -adic integers.
+As this E_{2} page is too sparse for any differentials, one obtains
+[295] \begin{array}[]{c|cccccccc}d&0&1&2&3&4&5&6&7\\
+\hline\cr\widetilde{\Omega}_{d}^{\text{spin}}(BSO(n\geq 5))&0&0&\mathbb{Z}_{2}&0&\mathbb{Z}\oplus\mathbb{Z}_{2}&0&\mathbb{Z}_{2}^{\oplus 2}&0\\
+\hline\cr\end{array} (C.4)
+[296] n=4\ :
+[297] Removing w_{i\geq 5} from the module M^{BSO} , it becomes (J[2]\oplus Q[4]\oplus\mathcal{A}(1)[6])_{\leq 7} as \mathcal{A}(1) -module.
+Correspondingly, the Adams chart becomes
+[298] Again, this E_{2} page is too sparse for any differentials, and one obtains
+[299] \begin{array}[]{c|cccccccc}d&0&1&2&3&4&5&6&7\\
+\hline\cr\widetilde{\Omega}_{d}^{\text{spin}}(BSO(4))&0&0&\mathbb{Z}_{2}&0&\mathbb{Z}^{\oplus 2}&0&\mathbb{Z}_{2}&0\\
+\hline\cr\end{array} (C.5)
+[300] n=3\ :
+[301] Further removing w_{4} from the module M^{BSO} , it becomes (J[2]\oplus\mathcal{A}(1)[6])_{\leq 7} as \mathcal{A}(1) -module.
+Correspondingly, the Adams chart becomes
+[302] Again, this E_{2} page is too sparse for any differentials, and one obtains
+[303] \begin{array}[]{c|cccccccc}d&0&1&2&3&4&5&6&7\\
+\hline\cr\widetilde{\Omega}_{d}^{\text{spin}}(BSO(3))&0&0&\mathbb{Z}_{2}&0&\mathbb{Z}&0&\mathbb{Z}_{2}&0\\
+\hline\cr\end{array} (C.6)
+[304] C.2 BSpin(n)
+[305] For n\leq 6 , one can use the exceptional isomorphisms to deduce \widetilde{\Omega}_{7}^{\text{spin}}(BSpin(n))=0 .
+Therefore, let us focus on the remaining n\geq 7 cases.
+Since M^{BSpin}=H^{\ast}(BSpin(n);\mathbb{Z}_{2}) up to degree 7
+can be obtained by removing w_{2} , w_{3} , and w_{5} from M^{BSO}_{\leq 7} [ Qui71 , Theorem 6.5] 11 11 11 This happens to be completely the same as K(\mathbb{Z},4) ,
+and the result is indeed consistent with the AHSS computation ( B.2 ).
+See also [ Fra05 ] . , it is
+[306] {\lx@inpgf@ignorespaces\bullet} {\lx@inpgf@ignorespaces\bullet} {\lx@inpgf@ignorespaces\bullet} w_{4} w_{6} w_{7} (C.7)
+[307] which means
+[308] M^{BSpin}_{\leq 7}\cong Q[4]. (C.8)
+[309] Therefore, the Adams chart is
+[310] As there is no room for any differentials, one obtains
+[311] \begin{array}[]{c|cccccccc}d&0&1&2&3&4&5&6&7\\
+\hline\cr\widetilde{\Omega}_{d}^{\text{spin}}(BSpin(n\geq 7))&0&0&0&0&\mathbb{Z}&0&0&0\\
+\hline\cr\end{array} (C.9)
+[312] C.3 BG_{2}
+[313] Since H^{*}(BG_{2};\mathbb{Z}_{2})=\mathbb{Z}_{2}[x_{4},x_{6},x_{7}] and each elements are related as [ MT91 ]
+[314] \begin{array}[]{lcc}Sq^{2}x_{4}&=&x_{6},\\
+Sq^{1}x_{6}&=&x_{7},\\
+\end{array} (C.10)
+[315] the result is completely the same as the BSpin case, and in particular one has \widetilde{\Omega}_{7}^{\text{spin}}(BG_{2})=0 .
+This is also consistent with the AHSS computation ( B.13 ).
+[316] Appendix D Recollections of Eguchi-sensei
+[317] In this appendix, one of the authors (Yuji Tachikawa) would like to share memories of his late advisor Professor Tohru Eguchi, who passed away unexpectedly in early 2019.
+In the rest of the appendix, I would like to use the first person, and I would also like to refer to my late advisor as Eguchi-sensei (江口先生) as I often called him.
+[318] My first encounter with him should have been when I was reading the August 1994 issue of a popular Japanese mathematics magazine, “Suugaku seminar”,
+in which there was a write-up of his interview of Professor Edward Witten.
+It was interesting for me to re-read that article to prepare this appendix.
+The interview was dated May 13, 1994, and there was a discussion of the Seiberg-Witten theory in it, which was not even available as a preprint at that time.
+I do not think I understood anything back then, as I was a high school student at that time.
+But somehow, by a miraculous action at distance, I became a student of Eguchi-sensei several years later, and started specializing in the Seiberg-Witten theory.
+It was Eguchi-sensei who advised me to read Nekrasov’s influential instanton counting paper when it appeared in 2002, which became the basis of my career.
+[319] In the last year of the graduate school,
+recommendation letters by him and by Hirosi Ooguri allowed me
+to stay in KITP from August to December 2005 for a long-term workshop.
+Despite all his duties in the university, he also attended the workshop for one month in August.
+While preparing for my first visit to the US, he suggested me to stay together with him in a large apartment already arranged for him by KITP, since he did not want to live alone.
+It is a fond memory that I cooked barely edible breakfast for him every day, and often went to restaurants in Isla Vista together for supper.
+He also taught me then what is according to him the most delicious and at the same time the easiest way to eat Avocado,
+which is to cut one in half, remove the big seed, and then pour a bit of soy sauce to the resulting depression.
+Then all that is left is to scoop the flesh by a spoon.
+During my stay there, I worked with Suzuki-kun, who was another student of Eguchi-sensei,
+on 6d global anomaly cancellation across the Pacific Ocean using Skype.
+As this paper can be considered as a direct sequel to that paper [ ST05 ] ,
+I feel it quite appropriate that I dedicate this paper to his memory.
+[320] Due to the age difference, Eguchi-sensei was always a father-like figure to me,
+including the following unfortunate events in his last few years.
+In 2015, I was a faculty member in the department of physics of the University of Tokyo,
+from which he had retired and moved to Rikkyo University.
+Due to various reasons, I wanted to move to my current affiliation,
+and one day I went to Rikkyo University to visit him to ask if he could write a recommendation letter to me,
+as he had done countless times before.
+I was surprised then that he flatly refused to do so.
+I think I now understand how he felt at that time;
+he had been in the same department of physics of the University of Tokyo for decades.
+Surely he had felt strongly attached to the place, which I was suddenly trying to abandon.
+Since then, we met once in a while in workshops and in other places,
+but I never felt reconciled since,
+just as a father and a son would feel when the partner brought back to the home by the son was not acceptable to the father.
+[321] In late 2018, I knew he was sick, but I was never able to make up my mind to visit him in the hospital.
+Then came the sudden new of his passing away in January 30, 2019.
+I deeply regret that I did not go to see him at least once, before he left this world.
+[322] On his passing, I recalled a parable of Zhuang-zi: 12 12 12 For the classical Chinese original and the modern English translation, see https://ctext.org/zhuangzi/perfect-enjoyment#n2831 .
+[323] 莊子妻死，惠子弔之，莊子則方箕踞鼓盆而歌。惠子曰：「與人居長子，老身死，不哭亦足矣，又鼓盆而歌，不亦甚乎！」莊子曰：「不然。是其始死也，我獨何能無概然！察其始而本無生，非徒無生也，而本無形，非徒無形也，而本無氣。雜乎芒芴之間，變而有氣，氣變而有形，形變而有生，今又變而之死，是相與為春秋冬夏四時行也。人且偃然寢於巨室，而我噭噭然隨而哭之，自以為不通乎命，故止也。」
+[324] Roughly: Zhuang-zi’s wife died, and his friend Hui-zi came to mourn her.
+Hui-zi finds Zhuang-zi drumming and singing.
+Hui-zi says: “Not mourning is one thing, but isn’t drumming and singing a bit too much!”
+Zhuang-zi replies: “Not so.
+Of course I was sad when I first realized that my wife had died!
+But after reflecting how the life forms from nothingness and then goes back to nothingness,
+it is no different from the change of four seasons.
+She just started sleeping comfortably in a large room, and there was no use for me to cry loudly,
+so I decided to stop.”
+[325] Eguchi-sensei is no more, and but in some sense his existence went back to become one with the world, or the universe, or whatever I should call this entirety, to which I will eventually return, too.
+[326] References

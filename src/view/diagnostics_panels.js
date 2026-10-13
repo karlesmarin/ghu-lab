@@ -4,6 +4,19 @@ const HR_S={g4:.63,span:10,windings:600};
 const HR_CACHE=new Map();
 
 function dgNumber(x,d=6) {return Number.isFinite(x)?Number(x.toPrecision(d)).toString():'—';}
+/* Render each verdict from its structured result. A whole-paragraph translation
+ * cannot cover every combination of model, measured and convergence outcomes. */
+function dgSensitivityLine(name,result) {
+  if(GUIDE_LANGUAGE!=='es')return result.line;
+  const fmt=x=>Math.abs(x)>=100?x.toFixed(0):Math.abs(x)>=1?x.toFixed(2):x.toPrecision(3);
+  if(!result.valid)return `${name}: no determinado; no hay un barrido completo válido`;
+  switch(result.verdict.word){
+    case 'sensitive-to-truncation':return `${name} = ${fmt(result.base)} GeV, SIN CONVERGENCIA (varía ±${fmt(result.convergence)} GeV solo por el truncamiento)`;
+    case 'sensitive-to-model':return `${name} ∈ [${fmt(result.base-result.model)}, ${fmt(result.base+result.model)}] GeV en la familia de modelos: un rango de predicciones, no una barra de error`;
+    case 'robust':return `${name} = ${fmt(result.base)} ± ${fmt(result.measured)} GeV (propagado desde las entradas medidas)`;
+    default:return `${name} = ${fmt(result.base)} GeV, sensibilidad no determinada`;
+  }
+}
 function dgInput(id,label,value,lo,hi,step) {
   return `<label for="${id}" style="display:block;margin:10px 0">${label}<input id="${id}" type="number" min="${lo}" max="${hi}" step="${step}" value="${value}" style="display:block;width:100%;max-width:220px;margin-top:4px"></label>`;
 }
@@ -143,6 +156,8 @@ function hierarchyRobustnessHTML() {
     </div><div><div class="stat"><div class="k">mₕ · diagnostic central value</div><div class="v" id="hrMass">—</div></div>
       <div class="stat"><div class="k">1/R₅ · diagnostic central value</div><div class="v" id="hrScale">—</div></div>
       <p class="note" id="hrAnchor"></p></div></div>
+    <p id="hrEmpty" class="note" role="status" hidden></p>
+    <button id="hrLoadExample" type="button" hidden>Load an example with valid curves</button>
     ${hrFiguresHTML()}
     <h3>Separate responses · all masses in GeV</h3>
     ${dgTable(['Variation','mₕ minimum → maximum','1/R₅ minimum → maximum'],'hrBudgets')}
@@ -164,6 +179,7 @@ function hierarchyRobustnessResult(model,data) {
 function hierarchyRobustnessMount(ctx) {
   const $=id=>document.getElementById(id);
   const figures=hrFiguresMount(ctx);
+  $('hrLoadExample').onclick=()=>$('tour').click();
   for(const [id,key,lo,hi] of [['hrG4','g4',.4,1.2],['hrSpan','span',0,40],['hrWindings','windings',300,1200]]) {
     $(id).onchange=()=>{const el=$(id),v=Number(el.value);
       if(el.value===''||!Number.isFinite(v)||v<lo||v>hi||(key==='windings'&&![300,600,1200].includes(v))){el.value=HR_S[key];$('hrInputNote').textContent='Invalid input; the last valid value is retained.';return;}
@@ -172,14 +188,21 @@ function hierarchyRobustnessMount(ctx) {
   $('hrReset').onclick=()=>{Object.assign(HR_S,{g4:.63,span:10,windings:600});$('hrInputNote').textContent='';ctx.refresh();};
   return {render(model,data){
     const r=hierarchyRobustnessResult(model,data);
+    const empty=!model.bulk.some(x=>x.multiplicity>0),valid=r.m_h.valid&&r.invR5.valid;
+    $('hrEmpty').hidden=$('hrLoadExample').hidden=valid;
+    $('hrEmpty').textContent=empty
+      ?'No bulk content is selected. Select the content above or load the example to calculate the response curves.'
+      :'The selected content has no complete valid scan. Curves require an interior minimum with positive curvature at every cutoff; try another content or load the example.';
     figures.render(r,model);
     for(const [id,k] of [['hrG4','g4'],['hrSpan','span'],['hrWindings','windings']])$(id).value=HR_S[k];
     $('hrMass').textContent=dgNumber(r.m_h.base)+' GeV';$('hrScale').textContent=dgNumber(r.invR5.base)+' GeV';
     $('hrAnchor').textContent=`W anchor = ${EXPERIMENT.m_W.value} ± ${EXPERIMENT.m_W.error} GeV (registered measured uncertainty). ${EXPERIMENT.m_W.source}; read ${EXPERIMENT.m_W.read}.`;
     $('hrBudgets').innerHTML=r.knobs.map((k,i)=>{const a=r.m_h.raw.scans[i],b=r.invR5.raw.scans[i];
       return `<tr><td>${k.name} · ${k.kind}</td><td>${dgNumber(a.lo)} → ${dgNumber(a.hi)}</td><td>${dgNumber(b.lo)} → ${dgNumber(b.hi)}</td></tr>`;}).join('');
-    $('hrSummary').textContent=!r.m_h.valid||!r.invR5.valid?'No complete valid scan: no resolved interior minimum with positive curvature for every cutoff. No robustness verdict is available.':
-      `${r.m_h.line}. ${r.invR5.line}. Winding convergence: mₕ ${r.m_h.convergenceOK?'within':'outside'} target, 1/R₅ ${r.invR5.convergenceOK?'within':'outside'} target. Changing g₄ leaves 1/R₅ unchanged in this normalization.`;
+    $('hrSummary').textContent=!valid?'No complete valid scan: no resolved interior minimum with positive curvature for every cutoff. No robustness verdict is available.':
+      GUIDE_LANGUAGE==='es'
+      ?`${dgSensitivityLine('m_h',r.m_h)}. ${dgSensitivityLine('1/R',r.invR5)}. Convergencia del número de vueltas: mₕ ${r.m_h.convergenceOK?'dentro':'fuera'} del objetivo, 1/R₅ ${r.invR5.convergenceOK?'dentro':'fuera'} del objetivo. Cambiar g₄ deja 1/R₅ sin cambios en esta normalización.`
+      :`${r.m_h.line}. ${r.invR5.line}. Winding convergence: mₕ ${r.m_h.convergenceOK?'within':'outside'} target, 1/R₅ ${r.invR5.convergenceOK?'within':'outside'} target. Changing g₄ leaves 1/R₅ unchanged in this normalization.`;
     $('hrVacua').innerHTML=[...r.vacua].sort((a,b)=>a.windings-b.windings).map(q=>{
       const i=r.m_h.raw.scans[0].values.find(v=>v.value===q.windings),j=r.invR5.raw.scans[0].values.find(v=>v.value===q.windings);
       return `<tr><td>${q.windings}</td><td>${dgNumber(q.alpha,8)}</td><td>${dgNumber(q.curvature)}</td><td>${dgNumber(i?.y,9)}</td><td>${dgNumber(j?.y,9)}</td></tr>`;}).join('');

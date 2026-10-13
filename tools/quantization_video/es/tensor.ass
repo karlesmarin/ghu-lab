@@ -1,0 +1,14 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Segoe UI,38,&H00FFFFFF,&H00FFFFFF,&H00172E3C,&H00172E3C,0,0,0,0,100,100,0,0,1,1,0,2,65,65,75,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.50,0:00:06.53,Default,,0,0,0,,El mapa parental tiene dos columnas y un anulador común. Con el espectro heredado y fuentes Green Schwarz
+Dialogue: 0,0:00:06.53,0:00:13.04,Default,,0,0,0,,integrales ordinarias, seis veces el anulador es dieciséis menos tres p menos tres q menos seis r. Para
+Dialogue: 0,0:00:13.04,0:00:19.20,Default,,0,0,0,,emparejamientos enteros vale uno módulo tres y no puede anularse. Lean demuestra esa aritmética para todos
+Dialogue: 0,0:00:19.20,0:00:25.39,Default,,0,0,0,,los enteros. Este resultado no resuelve los fondos admisibles del orbifold ni las respuestas adicionales de
+Dialogue: 0,0:00:25.39,0:00:27.33,Default,,0,0,0,,esquina.

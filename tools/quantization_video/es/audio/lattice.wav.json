@@ -1,0 +1,404 @@
+﻿{
+    "voice":  "Microsoft Helena Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "Los rombos son clases integrales universales. Los anillos intermedios cumplen solo la prueba de períodos espín cerrados de dimensión cuatro. La cruz marca alfa y delta actuales, a beta constante. Selecciona un punto en la aplicación y gamma cambia de forma exacta. Son criterios matemáticos, no medidas experimentales. Fuera de la ventana, la interfaz indica las coordenadas exactas en lugar de pegar el punto al borde.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "Los",
+                      "start":  0,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  0.285,
+                      "text":  "rombos",
+                      "start":  4,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  0.615,
+                      "text":  "son",
+                      "start":  11,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  0.78999999999999992,
+                      "text":  "clases",
+                      "start":  15,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  1.1949999999999998,
+                      "text":  "integrales",
+                      "start":  22,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  1.765,
+                      "text":  "universales",
+                      "start":  33,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  3.3649999999999998,
+                      "text":  "Los",
+                      "start":  46,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  3.56,
+                      "text":  "anillos",
+                      "start":  50,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  3.965,
+                      "text":  "intermedios",
+                      "start":  58,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  4.585,
+                      "text":  "cumplen",
+                      "start":  70,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  4.99,
+                      "text":  "solo",
+                      "start":  78,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  5.26,
+                      "text":  "la",
+                      "start":  83,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  5.3649999999999993,
+                      "text":  "prueba",
+                      "start":  86,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  5.6949999999999994,
+                      "text":  "de",
+                      "start":  93,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  5.795,
+                      "text":  "períodos",
+                      "start":  96,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  6.26,
+                      "text":  "espín",
+                      "start":  105,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  6.555,
+                      "text":  "cerrados",
+                      "start":  111,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  6.975,
+                      "text":  "de",
+                      "start":  120,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  7.0749999999999993,
+                      "text":  "dimensión",
+                      "start":  123,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  7.6,
+                      "text":  "cuatro",
+                      "start":  133,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  8.86,
+                      "text":  "La",
+                      "start":  141,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  9.004999999999999,
+                      "text":  "cruz",
+                      "start":  144,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  9.23,
+                      "text":  "marca",
+                      "start":  149,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  9.545,
+                      "text":  "alfa",
+                      "start":  155,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  9.815,
+                      "text":  "y",
+                      "start":  160,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  9.875,
+                      "text":  "delta",
+                      "start":  162,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  10.18,
+                      "text":  "actuales",
+                      "start":  168,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  11.125,
+                      "text":  "a",
+                      "start":  178,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  11.219999999999999,
+                      "text":  "beta",
+                      "start":  180,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  11.485,
+                      "text":  "constante",
+                      "start":  185,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  12.955,
+                      "text":  "Selecciona",
+                      "start":  196,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  13.524999999999999,
+                      "text":  "un",
+                      "start":  207,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  13.649999999999999,
+                      "text":  "punto",
+                      "start":  210,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  13.944999999999999,
+                      "text":  "en",
+                      "start":  216,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  14.024999999999999,
+                      "text":  "la",
+                      "start":  219,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  14.09,
+                      "text":  "aplicación",
+                      "start":  222,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  14.68,
+                      "text":  "y",
+                      "start":  233,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  14.745,
+                      "text":  "gamma",
+                      "start":  235,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  15.065,
+                      "text":  "cambia",
+                      "start":  241,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  15.405,
+                      "text":  "de",
+                      "start":  248,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  15.5,
+                      "text":  "forma",
+                      "start":  251,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  15.809999999999999,
+                      "text":  "exacta",
+                      "start":  257,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  17.21,
+                      "text":  "Son",
+                      "start":  265,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  17.435,
+                      "text":  "criterios",
+                      "start":  269,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  17.93,
+                      "text":  "matemáticos",
+                      "start":  279,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  19.08,
+                      "text":  "no",
+                      "start":  292,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  19.224999999999998,
+                      "text":  "medidas",
+                      "start":  295,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  19.66,
+                      "text":  "experimentales",
+                      "start":  303,
+                      "length":  14
+                  },
+                  {
+                      "seconds":  21.415,
+                      "text":  "Fuera",
+                      "start":  319,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  21.709999999999997,
+                      "text":  "de",
+                      "start":  325,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  21.8,
+                      "text":  "la",
+                      "start":  328,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  21.9,
+                      "text":  "ventana",
+                      "start":  331,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  22.775,
+                      "text":  "la",
+                      "start":  340,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  22.9,
+                      "text":  "interfaz",
+                      "start":  343,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  23.4,
+                      "text":  "indica",
+                      "start":  352,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  23.755,
+                      "text":  "las",
+                      "start":  359,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  23.91,
+                      "text":  "coordenadas",
+                      "start":  363,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  24.57,
+                      "text":  "exactas",
+                      "start":  375,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  25.084999999999997,
+                      "text":  "en",
+                      "start":  383,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  25.189999999999998,
+                      "text":  "lugar",
+                      "start":  386,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  25.48,
+                      "text":  "de",
+                      "start":  392,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  25.595,
+                      "text":  "pegar",
+                      "start":  395,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  25.89,
+                      "text":  "el",
+                      "start":  401,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  25.994999999999997,
+                      "text":  "punto",
+                      "start":  404,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  26.305,
+                      "text":  "al",
+                      "start":  410,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  26.404999999999998,
+                      "text":  "borde",
+                      "start":  413,
+                      "length":  5
+                  }
+              ]
+}

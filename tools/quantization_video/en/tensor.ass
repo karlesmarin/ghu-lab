@@ -1,0 +1,13 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Segoe UI,38,&H00FFFFFF,&H00FFFFFF,&H00172E3C,&H00172E3C,0,0,0,0,100,100,0,0,1,1,0,2,65,65,75,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.50,0:00:06.68,Default,,0,0,0,,The parent map has two columns and a common annihilator. With the inherited spectrum and ordinary integral
+Dialogue: 0,0:00:06.68,0:00:14.30,Default,,0,0,0,,Green Schwarz sources, six times the annihilator is sixteen minus three p minus three q minus six r. For
+Dialogue: 0,0:00:14.30,0:00:22.44,Default,,0,0,0,,integer pairings it is one modulo three, so it cannot vanish. Lean proves that arithmetic for all integers.
+Dialogue: 0,0:00:22.44,0:00:28.75,Default,,0,0,0,,Allowed orbifold backgrounds and extra corner responses are not settled by this result.

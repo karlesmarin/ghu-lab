@@ -1,0 +1,392 @@
+﻿{
+    "voice":  "Microsoft Helena Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "Elige C partido por dos. La clase universal no cumple, mientras que los períodos sobre variedades espín cerradas de dimensión cuatro sí cumplen. No es una contradicción. Las pruebas usan fondos distintos. La prueba universal detecta un período de un medio. En los fondos espín indicados, el período de Y al cuadrado es par. Ese hecho topológico es externo a la prueba aritmética Lean.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "Elige",
+                      "start":  0,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  0.45999999999999996,
+                      "text":  "C",
+                      "start":  6,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  0.615,
+                      "text":  "partido",
+                      "start":  8,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  1.05,
+                      "text":  "por",
+                      "start":  16,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  1.2149999999999999,
+                      "text":  "dos",
+                      "start":  20,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  2.395,
+                      "text":  "La",
+                      "start":  25,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  2.54,
+                      "text":  "clase",
+                      "start":  28,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  2.8649999999999998,
+                      "text":  "universal",
+                      "start":  34,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  3.385,
+                      "text":  "no",
+                      "start":  44,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  3.52,
+                      "text":  "cumple",
+                      "start":  47,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  4.365,
+                      "text":  "mientras",
+                      "start":  55,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  4.7749999999999995,
+                      "text":  "que",
+                      "start":  64,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  4.8999999999999995,
+                      "text":  "los",
+                      "start":  68,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  5.05,
+                      "text":  "períodos",
+                      "start":  72,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  5.4849999999999994,
+                      "text":  "sobre",
+                      "start":  81,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  5.7299999999999995,
+                      "text":  "variedades",
+                      "start":  87,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  6.285,
+                      "text":  "espín",
+                      "start":  98,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  6.58,
+                      "text":  "cerradas",
+                      "start":  104,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  7.005,
+                      "text":  "de",
+                      "start":  113,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  7.1,
+                      "text":  "dimensión",
+                      "start":  116,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  7.635,
+                      "text":  "cuatro",
+                      "start":  126,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  7.9399999999999995,
+                      "text":  "sí",
+                      "start":  133,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  8.0849999999999991,
+                      "text":  "cumplen",
+                      "start":  136,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  9.465,
+                      "text":  "No",
+                      "start":  145,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  9.61,
+                      "text":  "es",
+                      "start":  148,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  9.745,
+                      "text":  "una",
+                      "start":  151,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  9.92,
+                      "text":  "contradicción",
+                      "start":  155,
+                      "length":  13
+                  },
+                  {
+                      "seconds":  11.565,
+                      "text":  "Las",
+                      "start":  170,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  11.745,
+                      "text":  "pruebas",
+                      "start":  174,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  12.145,
+                      "text":  "usan",
+                      "start":  182,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  12.415,
+                      "text":  "fondos",
+                      "start":  187,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  12.76,
+                      "text":  "distintos",
+                      "start":  194,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  14.295,
+                      "text":  "La",
+                      "start":  205,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  14.434999999999999,
+                      "text":  "prueba",
+                      "start":  208,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  14.75,
+                      "text":  "universal",
+                      "start":  215,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  15.239999999999998,
+                      "text":  "detecta",
+                      "start":  225,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  15.665,
+                      "text":  "un",
+                      "start":  233,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  15.785,
+                      "text":  "período",
+                      "start":  236,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  16.16,
+                      "text":  "de",
+                      "start":  244,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  16.255,
+                      "text":  "un",
+                      "start":  247,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  16.365,
+                      "text":  "medio",
+                      "start":  250,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  17.58,
+                      "text":  "En",
+                      "start":  257,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  17.7,
+                      "text":  "los",
+                      "start":  260,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  17.855,
+                      "text":  "fondos",
+                      "start":  264,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  18.224999999999998,
+                      "text":  "espín",
+                      "start":  271,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  18.544999999999998,
+                      "text":  "indicados",
+                      "start":  277,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  19.54,
+                      "text":  "el",
+                      "start":  288,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  19.68,
+                      "text":  "período",
+                      "start":  291,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  20.075,
+                      "text":  "de",
+                      "start":  299,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  20.175,
+                      "text":  "Y",
+                      "start":  302,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  20.27,
+                      "text":  "al",
+                      "start":  304,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  20.369999999999997,
+                      "text":  "cuadrado",
+                      "start":  307,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  20.785,
+                      "text":  "es",
+                      "start":  316,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  20.884999999999998,
+                      "text":  "par.",
+                      "start":  319,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  21.959999999999997,
+                      "text":  "Ese",
+                      "start":  324,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  22.23,
+                      "text":  "hecho",
+                      "start":  328,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  22.455,
+                      "text":  "topológico",
+                      "start":  334,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  23.084999999999997,
+                      "text":  "es",
+                      "start":  345,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  23.209999999999997,
+                      "text":  "externo",
+                      "start":  348,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  23.615,
+                      "text":  "a",
+                      "start":  356,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  23.66,
+                      "text":  "la",
+                      "start":  358,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  23.759999999999998,
+                      "text":  "prueba",
+                      "start":  361,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  24.08,
+                      "text":  "aritmética",
+                      "start":  368,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  24.645,
+                      "text":  "Lean",
+                      "start":  379,
+                      "length":  4
+                  }
+              ]
+}

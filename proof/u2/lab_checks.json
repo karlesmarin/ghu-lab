@@ -1,0 +1,225 @@
+{
+  "passed": true,
+  "count": 4,
+  "checks": [
+    {
+      "name": "GHU rational kernel confirms both U2 examples on 25 independent cocharacters",
+      "passed": true
+    },
+    {
+      "name": "Fractional pieces add to an integral CP3 charge",
+      "passed": true
+    },
+    {
+      "name": "Mixed-instanton periods independently match Sage",
+      "passed": true
+    },
+    {
+      "name": "Quotient bundle fractional factor classes recombine into genuine integral classes",
+      "passed": true
+    }
+  ],
+  "examples": [
+    {
+      "m": [
+        -2,
+        -2
+      ],
+      "c2": "4",
+      "positive": "12"
+    },
+    {
+      "m": [
+        -2,
+        -1
+      ],
+      "c2": "2",
+      "positive": "7"
+    },
+    {
+      "m": [
+        -2,
+        0
+      ],
+      "c2": "0",
+      "positive": "4"
+    },
+    {
+      "m": [
+        -2,
+        1
+      ],
+      "c2": "-2",
+      "positive": "3"
+    },
+    {
+      "m": [
+        -2,
+        2
+      ],
+      "c2": "-4",
+      "positive": "4"
+    },
+    {
+      "m": [
+        -1,
+        -2
+      ],
+      "c2": "2",
+      "positive": "7"
+    },
+    {
+      "m": [
+        -1,
+        -1
+      ],
+      "c2": "1",
+      "positive": "3"
+    },
+    {
+      "m": [
+        -1,
+        0
+      ],
+      "c2": "0",
+      "positive": "1"
+    },
+    {
+      "m": [
+        -1,
+        1
+      ],
+      "c2": "-1",
+      "positive": "1"
+    },
+    {
+      "m": [
+        -1,
+        2
+      ],
+      "c2": "-2",
+      "positive": "3"
+    },
+    {
+      "m": [
+        0,
+        -2
+      ],
+      "c2": "0",
+      "positive": "4"
+    },
+    {
+      "m": [
+        0,
+        -1
+      ],
+      "c2": "0",
+      "positive": "1"
+    },
+    {
+      "m": [
+        0,
+        0
+      ],
+      "c2": "0",
+      "positive": "0"
+    },
+    {
+      "m": [
+        0,
+        1
+      ],
+      "c2": "0",
+      "positive": "1"
+    },
+    {
+      "m": [
+        0,
+        2
+      ],
+      "c2": "0",
+      "positive": "4"
+    },
+    {
+      "m": [
+        1,
+        -2
+      ],
+      "c2": "-2",
+      "positive": "3"
+    },
+    {
+      "m": [
+        1,
+        -1
+      ],
+      "c2": "-1",
+      "positive": "1"
+    },
+    {
+      "m": [
+        1,
+        0
+      ],
+      "c2": "0",
+      "positive": "1"
+    },
+    {
+      "m": [
+        1,
+        1
+      ],
+      "c2": "1",
+      "positive": "3"
+    },
+    {
+      "m": [
+        1,
+        2
+      ],
+      "c2": "2",
+      "positive": "7"
+    },
+    {
+      "m": [
+        2,
+        -2
+      ],
+      "c2": "-4",
+      "positive": "4"
+    },
+    {
+      "m": [
+        2,
+        -1
+      ],
+      "c2": "-2",
+      "positive": "3"
+    },
+    {
+      "m": [
+        2,
+        0
+      ],
+      "c2": "0",
+      "positive": "4"
+    },
+    {
+      "m": [
+        2,
+        1
+      ],
+      "c2": "2",
+      "positive": "7"
+    },
+    {
+      "m": [
+        2,
+        2
+      ],
+      "c2": "4",
+      "positive": "12"
+    }
+  ],
+  "scope": "Unmodified GHU Lab rational arithmetic kernel; finite numerical crosschecks supplement the symbolic proof, no full-model validation"
+}

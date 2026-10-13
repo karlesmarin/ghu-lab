@@ -1,0 +1,302 @@
+﻿{
+    "voice":  "Microsoft Helena Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "Elige A más B. Alfa y beta valen uno; gamma vale siete doceavos. Al cambiar a la base integral, delta es cero. Se cumplen ambos criterios. Las contribuciones fraccionarias deben combinarse antes de juzgar la clase total. Los controles, el testigo y el resultado exportado usan el mismo cálculo.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "Elige",
+                      "start":  0,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  0.45999999999999996,
+                      "text":  "A",
+                      "start":  6,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  0.505,
+                      "text":  "más",
+                      "start":  8,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  0.705,
+                      "text":  "B.",
+                      "start":  12,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  0.815,
+                      "text":  "Alfa",
+                      "start":  15,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  1.085,
+                      "text":  "y",
+                      "start":  20,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  1.145,
+                      "text":  "beta",
+                      "start":  22,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  1.42,
+                      "text":  "valen",
+                      "start":  27,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  1.6949999999999998,
+                      "text":  "uno",
+                      "start":  33,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  2.34,
+                      "text":  "gamma",
+                      "start":  38,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  2.67,
+                      "text":  "vale",
+                      "start":  44,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  2.9,
+                      "text":  "siete",
+                      "start":  49,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  3.2199999999999998,
+                      "text":  "doceavos",
+                      "start":  55,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  4.7,
+                      "text":  "Al",
+                      "start":  65,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  4.845,
+                      "text":  "cambiar",
+                      "start":  68,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  5.21,
+                      "text":  "a",
+                      "start":  76,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  5.255,
+                      "text":  "la",
+                      "start":  78,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  5.3549999999999995,
+                      "text":  "base",
+                      "start":  81,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  5.6149999999999993,
+                      "text":  "integral",
+                      "start":  86,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  6.535,
+                      "text":  "delta",
+                      "start":  96,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  6.85,
+                      "text":  "es",
+                      "start":  102,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  6.96,
+                      "text":  "cero",
+                      "start":  105,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  8.12,
+                      "text":  "Se",
+                      "start":  111,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  8.285,
+                      "text":  "cumplen",
+                      "start":  114,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  8.69,
+                      "text":  "ambos",
+                      "start":  122,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  8.975,
+                      "text":  "criterios",
+                      "start":  128,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  10.459999999999999,
+                      "text":  "Las",
+                      "start":  139,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  10.635,
+                      "text":  "contribuciones",
+                      "start":  143,
+                      "length":  14
+                  },
+                  {
+                      "seconds":  11.415,
+                      "text":  "fraccionarias",
+                      "start":  158,
+                      "length":  13
+                  },
+                  {
+                      "seconds":  12.075,
+                      "text":  "deben",
+                      "start":  172,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  12.35,
+                      "text":  "combinarse",
+                      "start":  178,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  12.915,
+                      "text":  "antes",
+                      "start":  189,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  13.205,
+                      "text":  "de",
+                      "start":  195,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  13.295,
+                      "text":  "juzgar",
+                      "start":  198,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  13.715,
+                      "text":  "la",
+                      "start":  205,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  13.83,
+                      "text":  "clase",
+                      "start":  208,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  14.165,
+                      "text":  "total",
+                      "start":  214,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  15.415,
+                      "text":  "Los",
+                      "start":  221,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  15.594999999999999,
+                      "text":  "controles",
+                      "start":  225,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  16.58,
+                      "text":  "el",
+                      "start":  236,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  16.724999999999998,
+                      "text":  "testigo",
+                      "start":  239,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  17.175,
+                      "text":  "y",
+                      "start":  247,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  17.275,
+                      "text":  "el",
+                      "start":  249,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  17.375,
+                      "text":  "resultado",
+                      "start":  252,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  17.919999999999998,
+                      "text":  "exportado",
+                      "start":  262,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  18.509999999999998,
+                      "text":  "usan",
+                      "start":  272,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  18.77,
+                      "text":  "el",
+                      "start":  277,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  18.869999999999997,
+                      "text":  "mismo",
+                      "start":  280,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  19.185,
+                      "text":  "cálculo",
+                      "start":  286,
+                      "length":  7
+                  }
+              ]
+}

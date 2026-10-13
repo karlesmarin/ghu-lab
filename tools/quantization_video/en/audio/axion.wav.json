@@ -1,0 +1,362 @@
+﻿{
+    "voice":  "Microsoft Zira Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "The axion panel uses the normalization of Choi and collaborators. The integer combination eighteen K two plus twenty four K three plus K one must be divisible by thirty six. The default zero, one, twelve satisfies it. This reproduces the published q equals six condition. Identifying this axion with the gauge Higgs field remains a separate, unresolved physical question.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "The",
+                      "start":  0,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  0.235,
+                      "text":  "axion",
+                      "start":  4,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  0.7,
+                      "text":  "panel",
+                      "start":  10,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  1.065,
+                      "text":  "uses",
+                      "start":  16,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  1.425,
+                      "text":  "the",
+                      "start":  21,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  1.51,
+                      "text":  "normalization",
+                      "start":  25,
+                      "length":  13
+                  },
+                  {
+                      "seconds":  2.31,
+                      "text":  "of",
+                      "start":  39,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  2.4299999999999997,
+                      "text":  "Choi",
+                      "start":  42,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  2.75,
+                      "text":  "and",
+                      "start":  47,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  2.8899999999999997,
+                      "text":  "collaborators",
+                      "start":  51,
+                      "length":  13
+                  },
+                  {
+                      "seconds":  4.665,
+                      "text":  "The",
+                      "start":  66,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  4.8149999999999995,
+                      "text":  "integer",
+                      "start":  70,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  5.2349999999999994,
+                      "text":  "combination",
+                      "start":  78,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  5.93,
+                      "text":  "eighteen",
+                      "start":  90,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  6.3249999999999993,
+                      "text":  "K",
+                      "start":  99,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  6.59,
+                      "text":  "two",
+                      "start":  101,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  6.84,
+                      "text":  "plus",
+                      "start":  105,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  7.165,
+                      "text":  "twenty",
+                      "start":  110,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  7.5299999999999994,
+                      "text":  "four",
+                      "start":  117,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  7.81,
+                      "text":  "K",
+                      "start":  122,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  8.0849999999999991,
+                      "text":  "three",
+                      "start":  124,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  8.34,
+                      "text":  "plus",
+                      "start":  130,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  8.6749999999999989,
+                      "text":  "K",
+                      "start":  135,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  8.905,
+                      "text":  "one",
+                      "start":  137,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  9.15,
+                      "text":  "must",
+                      "start":  141,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  9.415,
+                      "text":  "be",
+                      "start":  146,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  9.555,
+                      "text":  "divisible",
+                      "start":  149,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  10.065,
+                      "text":  "by",
+                      "start":  159,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  10.26,
+                      "text":  "thirty",
+                      "start":  162,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  10.57,
+                      "text":  "six",
+                      "start":  169,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  11.93,
+                      "text":  "The",
+                      "start":  174,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  12.03,
+                      "text":  "default",
+                      "start":  178,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  12.45,
+                      "text":  "zero",
+                      "start":  186,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  13.315,
+                      "text":  "one",
+                      "start":  192,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  14.055,
+                      "text":  "twelve",
+                      "start":  197,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  14.379999999999999,
+                      "text":  "satisfies",
+                      "start":  204,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  15.065,
+                      "text":  "it",
+                      "start":  214,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  16.09,
+                      "text":  "This",
+                      "start":  218,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  16.325,
+                      "text":  "reproduces",
+                      "start":  223,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  17.015,
+                      "text":  "the",
+                      "start":  234,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  17.105,
+                      "text":  "published",
+                      "start":  238,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  17.59,
+                      "text":  "q",
+                      "start":  248,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  17.869999999999997,
+                      "text":  "equals",
+                      "start":  250,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  18.27,
+                      "text":  "six",
+                      "start":  257,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  18.529999999999998,
+                      "text":  "condition",
+                      "start":  261,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  19.98,
+                      "text":  "Identifying",
+                      "start":  272,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  20.73,
+                      "text":  "this",
+                      "start":  284,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  20.935,
+                      "text":  "axion",
+                      "start":  289,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  21.4,
+                      "text":  "with",
+                      "start":  295,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  21.544999999999998,
+                      "text":  "the",
+                      "start":  300,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  21.645,
+                      "text":  "gauge",
+                      "start":  304,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  21.97,
+                      "text":  "Higgs",
+                      "start":  310,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  22.275,
+                      "text":  "field",
+                      "start":  316,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  22.599999999999998,
+                      "text":  "remains",
+                      "start":  322,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  23.009999999999998,
+                      "text":  "a",
+                      "start":  330,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  23.06,
+                      "text":  "separate",
+                      "start":  332,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  23.97,
+                      "text":  "unresolved",
+                      "start":  342,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  24.575,
+                      "text":  "physical",
+                      "start":  353,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  25.005,
+                      "text":  "question",
+                      "start":  362,
+                      "length":  8
+                  }
+              ]
+}

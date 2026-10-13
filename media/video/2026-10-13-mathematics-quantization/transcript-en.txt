@@ -1,0 +1,113 @@
+00:00:00.000 — Boundary spectra / Can one boundary change a mass?
+Watch the blue profile. Changing just one boundary makes it bend, and its lowest eigenvalue rises. Why? Let us build the explanation, then check the same effect in the laboratory.
+
+00:00:15.042 — Boundary spectra / Start with a flat profile
+The horizontal coordinate is position along an extra dimension. The vertical coordinate is field amplitude, not a particle trajectory. With zero slope required at both ends, a constant profile is allowed. Its curvature, and its normal eigenvalue, are zero.
+
+00:00:35.042 — Boundary spectra / Change the rule at the right edge
+Now turn on the boundary coupling, called a. The right edge requires slope plus a times amplitude to equal zero. Our nonzero constant has zero slope but nonzero amplitude. Watch the residual turn red. This profile no longer satisfies the boundary condition.
+
+00:00:55.500 — Boundary spectra / Find a shape that obeys the rule
+We keep zero slope at the left edge. The bulk equation then gives a cosine profile. Change its frequency, x, and watch the right endpoint. Most frequencies still fail. Only the frequency that balances slope against boundary amplitude is allowed.
+
+00:01:14.792 — Boundary spectra / See the cancellation at the endpoint
+For a cosine, the endpoint slope is minus x sine x. The boundary term is a cosine x. At coupling one, these two contributions cancel. Rearranging gives x tangent x equals a. This equation comes directly from the endpoint balance.
+
+00:01:34.917 — Boundary spectra / From an allowed shape to a spectral gap
+Increase the coupling. The allowed profile bends more, while the first root rises. The small graph tracks the same calculation. With interval length pi R, the scaled normal mass is x over pi. It approaches one half as the coupling grows.
+
+00:01:54.042 — Boundary spectra / Check the prediction in GHU Lab
+Now the actual laboratory. We change the boundary strength from zero to four. Watch the paired curve lift above the unpaired curve. At Wilson angle zero, its intercept is exactly the normal gap we just derived. The highlighted input and the plotted result change together.
+
+00:02:14.333 — Boundary spectra / The reason, in three steps
+The boundary rule changed. The constant profile became inadmissible. The lowest allowed mode now has a positive eigenvalue. That is the mechanism behind this gap, in this stated interval problem. The laboratory computes the effect; the boundary argument explains why it happens.
+
+00:02:35.375 — Profiles / Two components are not two functions
+We have seen how a boundary selects a profile. Now ask a different question: how many profiles are independent? Start with three simple two component functions. The first lives in the upper component, the second in the lower component, and the third changes with position. Watch their curves being drawn.
+
+00:02:57.458 — Profiles / Cancel at one point. Fail everywhere else.
+Try subtracting half of the first profile from the third. Their upper components cancel at the midpoint. But move away from that point: the residual returns. Dependence would require one fixed set of coefficients to cancel the entire function, at every position. A cancellation at one point is not enough.
+
+00:03:19.917 — Profiles / Build the Gram matrix from overlaps
+The Gram matrix records an overlap for each pair of profiles, integrated over the interval. Watch the entries appear. The first and third profiles overlap: their entry is one half. That does not make them dependent. The determinant is one twelfth, so this matrix is invertible and all three functions are independent.
+
+00:03:43.375 — Profiles / A quadratic form becomes visible area
+Use the same coefficients as before. The combined profile is u minus one half. Square its amplitude and integrate: the shaded area is one twelfth, not zero. This is exactly c star G c. In general it equals the squared norm of the combined profile. A zero direction of G is therefore precisely a dependence relation.
+
+00:04:08.667 — Profiles / Return to the exponential profiles
+Now return to the three exponential profiles used in the laboratory. Each has two complex components and depends on two coordinates. The surface shows the first component of the middle profile. At mass parameter zero it is flat. As M increases, it gains a slope in the z direction. This new spatial dependence is the key.
+
+00:04:32.750 — Profiles / Differentiate to expose independence
+Suppose a fixed linear combination of these three profiles vanishes. Differentiate with respect to z. Only the middle profile changes, so for nonzero M its coefficient b must vanish. The two remaining spinor directions then force a and c to vanish. At M zero, that derivative argument disappears and the three constant profiles span only two directions.
+
+00:04:59.083 — Profiles / Watch the laboratory eigenvalues
+Change the profile mass from zero to one in the actual laboratory. At zero, one Gram eigenvalue is numerically zero. At one, all three are positive. Their sizes depend on normalization, and the numerical rank uses a tolerance. The independent rational interval certificate also proves positive definiteness at M one, with the smallest eigenvalue greater than zero point one one zero five.
+
+00:05:27.833 — Profiles / Why three examples do not mean three families
+There is an important limit to this conclusion. Distinct exponential rates can produce four independent functions, or any finite number. Along a suitable line, their independence follows from a Vandermonde determinant. For the four displayed rates it is seventy two. A physical family count needs the actual operator domain and boundary conditions, not just three chosen profiles.
+
+00:05:54.375 — Traces / Build a representation from signs
+Next, representation theory becomes an exact finite sum. For the positive half spin representation of Spin twenty, each weight is a list of ten signs, divided by two. Their product must be positive. Choose nine signs freely; the tenth is fixed. Watch the allowed weights fill the grid: two to the ninth gives five hundred and twelve.
+
+00:06:19.833 — Traces / Let the weights contribute to a trace
+At a Cartan probe, each weight contributes a number q, obtained by taking its dot product with the probe. For this example the insertion is the product of the first two signs. We sum the insertion times q squared. Set the first probe coordinates to one and two, with the rest zero. Four equal groups of weights give a total of five hundred and twelve.
+
+00:06:44.917 — Traces / Check every coefficient, not just one value
+Expand the squared dot product before choosing a probe. There are fifty five quadratic monomials in ten variables. The checker sums each coefficient using exact rational arithmetic. Watch the cancellations: only the cross term h one times h two survives, with coefficient two hundred and fifty six. We have checked the complete quadratic polynomial.
+
+00:07:10.708 — Traces / A zero on an axis can hide a nonzero polynomial
+Now move the probe across that polynomial. On either coordinate axis the value is zero. Move to one, two and it becomes five hundred and twelve. The heat map makes the distinction visible: one zero evaluation cannot establish an identity. A nonzero evaluation can refute an identically zero polynomial.
+
+00:07:34.000 — Traces / Change the insertion in the real laboratory
+The laboratory keeps its displayed ten dimensional Cartan probe fixed while we change the insertion. Watch the exact trace table change. For the first insertion, the quadratic moment is five hundred and twelve, consistent with our identity. Other insertions produce different moments. These are unweighted representation traces, before the normalization and inflow needed for physical anomaly coefficients.
+
+00:08:02.042 — Traces / Where the calculation stops
+The finite weight sum answers a precise algebraic question. Turning it into an anomaly calculation requires the appropriate projectors, normalization and descent, together with the contributions of other sectors. Global charge data and inflow also matter. The moving marker stops at what we have actually computed. A trace certificate does not certify the complete quantum theory.
+
+00:08:28.500 — Consistency / Count signed doublets on a residue clock
+Our final example is a restricted six dimensional consistency condition. Let N count the signed excess of complex Weyl doublets. In the stated standalone SU two tensor setting, N must be divisible by six. With identical family assignments, three quark colours and an opposite lepton chirality contribute three minus one: two per family. Watch each family advance the residue clock by two.
+
+00:08:56.750 — Consistency / Multiples of three, not exactly three
+After three such families, the clock returns to zero. Six and nine families also pass this condition. If the lepton chirality matches instead, each identical family contributes four; again, multiples of three return to zero. The congruence restricts the possibilities. It does not uniquely select three generations.
+
+00:09:21.500 — Consistency / Change an assumption. Change the inference.
+Now allow two families with different chirality assignments. The first contributes two, the second four. Together they make six, so this residue test passes with two families. This is a counterexample to dropping the identical assignment assumption. It is not a construction of a fully consistent two family physical model.
+
+00:09:44.833 — Consistency / Six and twelve can describe the same test
+Counting complex doublets gives modulus six. Counting in half doublet units doubles N and uses modulus twelve. Watch both clocks together: they pass at the same time. The units changed, not the condition. The physical argument also requires integral tensor quantization; factorizing an anomaly polynomial alone does not supply all that global information.
+
+00:10:11.250 — Consistency / Check one, three and six families in the lab
+Now change the family number in the laboratory, keeping the lepton chirality opposite to the quarks. One and two fail this restricted condition; three passes. Four and five fail; six passes again. The displayed residue explains every change. Keep the identical assignment and standalone theory assumptions attached to this result.
+
+00:10:35.958 — Evidence / Four questions. Four kinds of evidence.
+We have followed four different questions. Boundary conditions selected a spectrum. Integrated overlaps tested function independence. Weight sums determined a polynomial. A residue condition constrained identical assignments. Each calculation has a reason, inputs and limits. Passing these separate diagnostics does not by itself determine a Higgs vacuum, neutrino masses or a complete Standard Model construction.
+
+00:11:06.500 — Evidence / Follow the argument. Reproduce the result.
+The first four examples have ordinary proofs and executable checks. The new quantization module adds a different kind of evidence: twenty three Lean theorem declarations, alongside twenty six existing S U seven declarations. The next chapters explain how these certificates connect to physical assumptions. A proof checks an implication. Applying it to nature also requires the right physical dictionary.
+
+00:11:34.875 — Physical meaning / Where physics meets mathematics
+A mathematical object becomes physical through a specified identification. In the interval example, an operator eigenvalue becomes a squared normal mass after fixing the length scale and kinetic normalization. A Gram matrix describes overlaps; physical families additionally require the actual field domain. Quantization works the same way. We must name the gauge group, the allowed bundles and the action before an arithmetic certificate becomes a physical constraint.
+
+00:12:06.750 — Quantization / A periodic field must return to the same phase
+Here is a concrete connection. In this normalized axion example, the topological action is theta times the period of Q. Shifting theta by two pi multiplies the quantum phase by the exponential of two pi i times that period. An integer period returns to the same phase. A half integer gives a minus sign. The phase diagram illustrates this consistency requirement. It is not an experimental measurement, or a complete construction of the action.
+
+00:12:38.125 — Quantization / The global group correlates the coefficients
+The Lie algebra alone does not fix the global gauge group. For H equal to S of U two times U three, the characteristic class dictionary combines three coefficients into alpha, beta and delta. Universal integrality requires these three combinations to be integers. Set alpha and beta to one and gamma to seven twelfths. Delta becomes zero: the total class is A plus B. Lean verifies the arithmetic criterion; the characteristic class interpretation is supplied separately.
+
+00:13:12.125 — Backgrounds / Change the allowed backgrounds, change the test
+Now take Q equal to C over two. A universal test on the projective plane detects a half integer period. On a closed smooth spin four manifold, the square of an integral degree two class has even period, by the Wu formula. The stated spin test therefore passes. These are different questions, not conflicting answers. Lean checks the coefficient arithmetic. Wu parity and the choice of physically admissible orbifold backgrounds are separate steps.
+
+00:13:44.542 — Joint U(2) / Two fractional contributions, one integral class
+In the U two example, the two factor contributions have to be added. With b zero equal to one and b one equal to six, the cocharacter one, zero gives one quarter plus three quarters: exactly one. For every integer m and n the sum is m squared plus m n plus n squared. The certificate proves the joint criterion, including rational coefficients. This establishes an integral characteristic class, not an anomaly free supergravity spectrum with those coefficients.
+
+00:14:18.458 — Boundary response / A conserved linear combination detects an obstruction
+A proposed parent response must lie in the image of its allowed transfer map. Both displayed columns are annihilated by ell, so every response in that image has ell equal to zero. For the required response, six ell equals sixteen minus three p minus three q minus six r. It is one modulo three for all integers. This rules out matching within that response family. Extra corner terms, a different spectrum or a different global construction would require a new analysis.
+
+00:14:52.000 — Group action / An involution on one field is not a full group lift
+The degree eighteen Clifford element t a squares to minus one. Multiplying by minus i produces U a, whose square is plus one on the representation. Both identities are correct, but they answer different questions. A physical symmetry must act consistently on all fields and interactions, including the bosonic Omega field. A twisted or combined action may be possible. The exact lift audit does not prove inconsistency, and it is not a Lean formalization.
+
+00:15:24.667 — Certificates in the laboratory / From a theorem to a control and an exact figure
+The module is the interface to these scoped statements. Each control changes the exact rational inputs. The criterion and its witness determine the displayed lattice and cocharacter map. A finite figure illustrates the result; the Lean proof supplies the universal arithmetic statement. Four Lean files contain forty nine theorem declarations in total. The complete download includes all eighty maintained data files. Integrity hashes, numerical checks and formal proofs certify different things.
+
+00:15:59.583 — Experimental comparison / Where measured data enter the chain
+These plotted values come from the published ATLAS top pair and CMS dijet searches already used by the laboratory. They are observed upper limits under different resonance assumptions, not measured new particle production rates. Neither search reports a significant new particle signal. To test our quantization examples, we still need a physical map to masses, couplings, widths and predicted rates, with uncertainties. Data can support that physical realization. They cannot replace its mathematical proof, and remaining below a limit is not a discovery.

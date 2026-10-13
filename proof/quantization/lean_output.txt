@@ -1,0 +1,8 @@
+'GHUQuantization.integral_basis_criterion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GHUQuantization.quotient_witness' does not depend on any axioms
+'GHUQuantization.cover_witness' does not depend on any axioms
+'GHUQuantization.cover_misses_fraction' depends on axioms: [propext, Quot.sound]
+'GHUQuantization.parent_annihilator' depends on axioms: [propext, Quot.sound]
+'GHUQuantization.standard_tensor_obstruction' depends on axioms: [propext, Quot.sound]
+'GHUQuantization.no_standard_tensor_parent_match' depends on axioms: [propext, Quot.sound]
+'GHUQuantization.residue_mod_three' depends on axioms: [propext, Quot.sound]

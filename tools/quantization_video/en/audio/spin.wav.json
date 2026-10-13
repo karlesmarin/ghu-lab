@@ -1,0 +1,350 @@
+﻿{
+    "voice":  "Microsoft Zira Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "Choose C over two. The universal class fails, while periods on closed spin four manifolds pass. This is not a contradiction. The tests use different backgrounds. The universal test detects a period of one half. On the stated spin backgrounds, the period of Y squared is even. That topological fact is external to the Lean arithmetic proof.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "Choose",
+                      "start":  0,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  0.39499999999999996,
+                      "text":  "C",
+                      "start":  7,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  0.645,
+                      "text":  "over",
+                      "start":  9,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  0.99,
+                      "text":  "two",
+                      "start":  14,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  2.155,
+                      "text":  "The",
+                      "start":  19,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  2.2649999999999997,
+                      "text":  "universal",
+                      "start":  23,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  2.885,
+                      "text":  "class",
+                      "start":  33,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  3.26,
+                      "text":  "fails",
+                      "start":  39,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  4.175,
+                      "text":  "while",
+                      "start":  46,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  4.4399999999999995,
+                      "text":  "periods",
+                      "start":  52,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  4.95,
+                      "text":  "on",
+                      "start":  60,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  5.135,
+                      "text":  "closed",
+                      "start":  63,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  5.555,
+                      "text":  "spin",
+                      "start":  70,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  5.8549999999999995,
+                      "text":  "four",
+                      "start":  75,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  6.1,
+                      "text":  "manifolds",
+                      "start":  80,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  6.72,
+                      "text":  "pass",
+                      "start":  90,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  8.065,
+                      "text":  "This",
+                      "start":  96,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  8.27,
+                      "text":  "is",
+                      "start":  101,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  8.405,
+                      "text":  "not",
+                      "start":  104,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  8.635,
+                      "text":  "a",
+                      "start":  108,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  8.69,
+                      "text":  "contradiction",
+                      "start":  110,
+                      "length":  13
+                  },
+                  {
+                      "seconds":  10.389999999999999,
+                      "text":  "The",
+                      "start":  125,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  10.49,
+                      "text":  "tests",
+                      "start":  129,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  10.924999999999999,
+                      "text":  "use",
+                      "start":  135,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  11.17,
+                      "text":  "different",
+                      "start":  139,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  11.575,
+                      "text":  "backgrounds",
+                      "start":  149,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  13.309999999999999,
+                      "text":  "The",
+                      "start":  162,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  13.42,
+                      "text":  "universal",
+                      "start":  166,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  14.035,
+                      "text":  "test",
+                      "start":  176,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  14.385,
+                      "text":  "detects",
+                      "start":  181,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  14.785,
+                      "text":  "a",
+                      "start":  189,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  14.844999999999999,
+                      "text":  "period",
+                      "start":  191,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  15.285,
+                      "text":  "of",
+                      "start":  198,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  15.389999999999999,
+                      "text":  "one",
+                      "start":  201,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  15.584999999999999,
+                      "text":  "half",
+                      "start":  205,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  16.865,
+                      "text":  "On",
+                      "start":  211,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  17.005,
+                      "text":  "the",
+                      "start":  214,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  17.08,
+                      "text":  "stated",
+                      "start":  218,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  17.485,
+                      "text":  "spin",
+                      "start":  225,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  17.79,
+                      "text":  "backgrounds",
+                      "start":  230,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  19.025,
+                      "text":  "the",
+                      "start":  243,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  19.11,
+                      "text":  "period",
+                      "start":  247,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  19.55,
+                      "text":  "of",
+                      "start":  254,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  19.654999999999998,
+                      "text":  "Y",
+                      "start":  257,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  19.845,
+                      "text":  "squared",
+                      "start":  259,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  20.265,
+                      "text":  "is",
+                      "start":  267,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  20.425,
+                      "text":  "even",
+                      "start":  270,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  21.625,
+                      "text":  "That",
+                      "start":  276,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  21.814999999999998,
+                      "text":  "topological",
+                      "start":  281,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  22.56,
+                      "text":  "fact",
+                      "start":  293,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  22.919999999999998,
+                      "text":  "is",
+                      "start":  298,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  23.06,
+                      "text":  "external",
+                      "start":  301,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  23.544999999999998,
+                      "text":  "to",
+                      "start":  310,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  23.665,
+                      "text":  "the",
+                      "start":  313,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  23.77,
+                      "text":  "Lean",
+                      "start":  317,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  23.959999999999997,
+                      "text":  "arithmetic",
+                      "start":  322,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  24.615,
+                      "text":  "proof",
+                      "start":  333,
+                      "length":  5
+                  }
+              ]
+}

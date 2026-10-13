@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "theorems": 8,
+  "axioms": {
+    "integral_basis_criterion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "quotient_witness": [],
+    "cover_witness": [],
+    "cover_misses_fraction": [
+      "propext",
+      "Quot.sound"
+    ],
+    "parent_annihilator": [
+      "propext",
+      "Quot.sound"
+    ],
+    "standard_tensor_obstruction": [
+      "propext",
+      "Quot.sound"
+    ],
+    "no_standard_tensor_parent_match": [
+      "propext",
+      "Quot.sound"
+    ],
+    "residue_mod_three": [
+      "propext",
+      "Quot.sound"
+    ]
+  },
+  "version": "Lean (version 4.27.0, x86_64-w64-windows-gnu, commit db93fe1608548721853390a10cd40580fe7d22ae, Release)",
+  "source_sha256": "607663f02ec3206b406e64e53503a310e5ed2dca1d22b4c1379f9a76bec33609",
+  "scope": "Universal arithmetic only; physical assumptions and topology supplied externally"
+}

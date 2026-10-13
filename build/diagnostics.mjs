@@ -35,7 +35,7 @@ try {
   await send('Runtime.enable');await send('Page.enable');
   await send('Emulation.setDeviceMetricsOverride',{width:1380,height:1000,deviceScaleFactor:1,mobile:false});
   await send('Page.navigate',{url:url+'#s=predict'});check('offline_simulator_loaded',await ready('prModel'));
-  check('still_29_sections_and_builder_default',await ev(`SECTIONS.filter(s=>s.ready!==false).length===29&&PRED_S.variant==='builder'`));
+  check('30_sections_and_builder_default',await ev(`SECTIONS.filter(s=>s.ready!==false).length===30&&PRED_S.variant==='builder'`));
   await choose('higgsrate');
   check('higgs_view_and_correct_scope',await ev(`!document.getElementById('prHiggsView').hidden&&document.getElementById('prBuilderView').hidden&&PRED_SECTION.holds().includes('top KK')`));
   const initial=await ev(`({r:hdModel(HD_S),summary:document.getElementById('hdSummary').textContent})`);
@@ -50,6 +50,9 @@ try {
   check('top_mass_reaches_rate',await ev(`hdModel(HD_S).rgg<${initial.r.rgg}`));
   await ev(`document.getElementById('hdCustom').click()`);await input('hd_upper',.95);
   check('custom_upper_edge_produces_finite_interval',await ev(`!hdModel(HD_S).interval.upperUnbounded&&document.getElementById('hdWindowSource').textContent.includes('User-defined')`));
+  await ev(`document.querySelector('[data-guide-set-language="es"]').click()`);await sleep(80);
+  check('custom_summary_spanish_and_correct_provenance',await ev(`document.getElementById('hdSummary').textContent.includes('escenario definido por el usuario')&&!document.getElementById('hdSummary').textContent.includes('The point')`));
+  await ev(`document.querySelector('[data-guide-set-language="en"]').click()`);await sleep(80);
   await input('hd_lower',1.02);
   check('inverted_window_rejected',await ev(`HD_S.lower===.89&&document.getElementById('hdInputNote').textContent.includes('last valid')`));
   await input('hd_mTop','');
@@ -90,6 +93,18 @@ try {
   check('keyboard_inspects_last_sample',await ev(`document.getElementById('hrPlot_g4').dataset.selectedIndex==='2'`));
   await input('hrSpan',0);
   check('zero_span_has_finite_flat_plot',await ev(`!document.getElementById('hrPlot_g4').outerHTML.includes('NaN')&&Array.from(document.querySelectorAll('#hrPlot_g4 circle')).every(p=>Number(p.dataset.change)===0)`));
+  const zeroSummary=await ev(`document.getElementById('hrSummary').textContent`);
+  await ev(`document.querySelector('[data-guide-set-language="es"]').click()`);await sleep(80);
+  check('zero_span_summary_spanish',await ev(`document.getElementById('hrSummary').textContent.includes('propagado desde las entradas medidas')&&!document.getElementById('hrSummary').textContent.includes('from measured')`));
+  await input('hrSpan',20);await sleep(80);
+  check('changed_calculation_summary_spanish',await ev(`document.getElementById('hrSummary').textContent.includes('rango de predicciones')&&document.getElementById('hrSummary').textContent.includes('dentro del objetivo')`));
+  await ev(`window.__languageProbe=document.createElement('p');__languageProbe.textContent='Summary';document.getElementById('section').append(__languageProbe)`);await sleep(80);
+  await ev(`__languageProbe.firstChild.nodeValue='Saved reference is a calculation snapshot. Its inputs and results are included in the JSON export.';__languageProbe.setAttribute('aria-label','Load an example with valid curves')`);await sleep(80);
+  check('async_text_and_accessibility_language',await ev(`__languageProbe.textContent.startsWith('La referencia guardada')&&__languageProbe.getAttribute('aria-label').startsWith('Cargar un ejemplo')`));
+  await ev(`document.querySelector('[data-guide-set-language="en"]').click()`);await sleep(80);
+  check('async_language_reversible',await ev(`__languageProbe.textContent.startsWith('Saved reference')&&__languageProbe.getAttribute('aria-label').startsWith('Load an example')`));
+  await ev(`__languageProbe.remove()`);await input('hrSpan',0);
+  check('summary_roundtrip_preserves_exact_numbers',await ev(`document.getElementById('hrSummary').textContent===${JSON.stringify(zeroSummary)}`));
   await input('hrSpan',10);
   await input('hrG4',.7);
   check('g4_changes_Higgs_but_not_scale',await ev(`document.getElementById('hrMass').textContent!==${JSON.stringify(hr0.mass)}&&document.getElementById('hrScale').textContent===${JSON.stringify(hr0.scale)}`));
@@ -137,8 +152,43 @@ try {
   await ev(`document.getElementById('clr').click()`);
   check('empty_content_refuses_robustness',await ev(`document.getElementById('hrSummary').textContent.includes('No complete valid scan')`));
   check('invalid_scan_draws_no_fabricated_curve',await ev(`['g4','mW','windings'].every(k=>!document.querySelector('#hrPlot_'+k+' circle')&&document.getElementById('hrSVG_'+k).disabled&&document.getElementById('hrPlot_'+k).textContent.includes('No complete valid scan'))`));
+  await ev(`document.querySelector('[data-guide-set-language="es"]').click()`);await sleep(80);
+  check('empty_state_explains_missing_curves',await ev(`!document.getElementById('hrEmpty').hidden&&document.getElementById('hrEmpty').textContent.includes('No hay contenido')&&!document.getElementById('hrLoadExample').hidden`));
+  await ev(`document.getElementById('hrLoadExample').click()`);await sleep(80);
+  check('empty_state_action_loads_real_curves',await ev(`document.getElementById('hrEmpty').hidden&&['g4','mW','windings'].every(k=>document.querySelectorAll('#hrPlot_'+k+' circle').length===(k==='windings'?8:6))`));
+  await ev(`document.querySelector('[data-guide-set-language="en"]').click()`);await sleep(80);
   await send('Page.navigate',{url:url+'#s=predict&predict.s=v:2,hd_mTop:999,hd_modes:1.5,hc:1,hd_lower:1.01,hd_upper:.6'});check('malformed_link_loaded',await ready('prModel'));
   check('malformed_higgs_state_reset',await ev(`HD_S.mTop===173.34&&HD_S.modes===30&&!HD_S.custom`));
+  // The exhaustive sweep is an explicit user action, absent from the guided demo.
+  // Wait for its real result instead of auditing only its initial placeholder.
+  await send('Page.navigate',{url:url+'#s=hierarchy&lang=es'});check('sweep_panel_loaded',await ready('hSweepGo'));
+  for(const seed of ['published','candidate']){
+    await ev(`document.getElementById('${seed==='published'?'hSeedP':'hSeedC'}').click();document.getElementById('hSweepGo').click()`);
+    let complete=false;
+    for(let i=0;i<120;i++){await sleep(100);if(await ev(`HIER_SWEEP?.seed===${JSON.stringify(seed)}`)){complete=true;break;}}
+    check(seed+'_real_sweep_finished',complete);
+    const result=await ev(`JSON.stringify(HIER_SWEEP)`);
+    console.log('Completed sweep',seed,await ev(`({contents:HIER_SWEEP.contents,tested:HIER_SWEEP.tested,worstInRegime:100*HIER_SWEEP.worstInRegime,worst:100*HIER_SWEEP.worst})`));
+    if(seed==='candidate')check('user_reported_sweep_reproduced',await ev(`HIER_SWEEP.contents===1286&&HIER_SWEEP.tested===291&&(100*HIER_SWEEP.worstInRegime).toFixed(4)==='0.7064'&&(100*HIER_SWEEP.worst).toFixed(2)==='17.68'`));
+    const spanish=await ev(`document.getElementById('hSweep').textContent+' '+document.getElementById('hSweepNote').textContent`);
+    check(seed+'_completed_sweep_spanish',spanish.includes('contenidos con un vacío')&&spanish.includes('contenidos sintéticos')&&spanish.includes('mediana global')&&!/contents|closed form|their table|worst|Those are|On the/.test(spanish));
+    check(seed+'_technical_note_spanish',spanish.includes(seed==='published'?'semilla gauge publicada':'semilla gauge candidata'));
+    await ev(`document.querySelector('[data-guide-set-language="en"]').click()`);await sleep(80);
+    const english=await ev(`document.getElementById('hSweep').textContent+' '+document.getElementById('hSweepNote').textContent`);
+    check(seed+'_completed_sweep_english',english.includes('contents with a vacuum')&&english.includes('Those are synthetic contents'));
+    const numbers=text=>text.match(/[+-]?\d+(?:[.,]\d+)*(?:[eE][+-]?\d+)?/g);
+    check(seed+'_all_displayed_numbers_preserved',JSON.stringify(numbers(spanish))===JSON.stringify(numbers(english)));
+    await ev(`document.querySelector('[data-guide-set-language="es"]').click()`);await sleep(80);
+    check(seed+'_sweep_roundtrip_and_result_unchanged',await ev(`JSON.stringify(HIER_SWEEP)===${JSON.stringify(result)}&&(document.getElementById('hSweep').textContent+' '+document.getElementById('hSweepNote').textContent)===${JSON.stringify(spanish)}`));
+    if(seed==='candidate'){
+      await ev(`document.getElementById('hSweep').scrollIntoView({block:'center'})`);
+      writeFileSync(resolve(out,'completed_sweep_es.png'),Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
+    }
+  }
+  // Controlled failed-check fixture: verify the withholding message, then restore the actual result.
+  await ev(`window.__actualSweep=HIER_SWEEP;HIER_SWEEP={...HIER_SWEEP,control:{...HIER_SWEEP.control,trustworthy:false}};HIERARCHY_SECTION._sweep()`);await sleep(80);
+  check('failed_sweep_control_spanish',await ev(`document.getElementById('hSweep').textContent.includes('No se presentan resultados')&&!document.getElementById('hSweep').textContent.includes('contents with a vacuum')`));
+  await ev(`HIER_SWEEP=window.__actualSweep;delete window.__actualSweep;HIERARCHY_SECTION._sweep()`);
   check('no_browser_exceptions',events.every(e=>e.method!=='Runtime.exceptionThrown'));
   writeFileSync(resolve(out,'exports_checked.json'),JSON.stringify({higgs:hDownloads,hierarchy:hrDownloads},null,2)+'\n');
   const report={date:new Date().toISOString(),app_sha256:createHash('sha256').update(readFileSync(app)).digest('hex'),checks,initial:initial.r,hCard,hrCard};

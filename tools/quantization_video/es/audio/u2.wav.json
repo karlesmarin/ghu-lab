@@ -1,0 +1,452 @@
+﻿{
+    "voice":  "Microsoft Helena Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "El ejemplo U dos muestra por qué la integralidad conjunta difiere de exigirla a cada factor separado. Con b cero igual a uno y b uno igual a seis, la forma cuadrática es m al cuadrado más m n más n al cuadrado. Es integral para toda pareja de enteros. El criterio formal también cubre coeficientes racionales con un denominador común no nulo. Este ejemplo no es un espectro de supergravedad libre de anomalías.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "El",
+                      "start":  0,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  0.235,
+                      "text":  "ejemplo",
+                      "start":  3,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  0.65,
+                      "text":  "U",
+                      "start":  11,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  0.705,
+                      "text":  "dos",
+                      "start":  13,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  0.88,
+                      "text":  "muestra",
+                      "start":  17,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  1.25,
+                      "text":  "por",
+                      "start":  25,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  1.4349999999999998,
+                      "text":  "qué",
+                      "start":  29,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  1.5699999999999998,
+                      "text":  "la",
+                      "start":  33,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  1.665,
+                      "text":  "integralidad",
+                      "start":  36,
+                      "length":  12
+                  },
+                  {
+                      "seconds":  2.31,
+                      "text":  "conjunta",
+                      "start":  49,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  2.85,
+                      "text":  "difiere",
+                      "start":  58,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  3.235,
+                      "text":  "de",
+                      "start":  66,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  3.3249999999999997,
+                      "text":  "exigirla",
+                      "start":  69,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  3.875,
+                      "text":  "a",
+                      "start":  78,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  3.925,
+                      "text":  "cada",
+                      "start":  80,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  4.165,
+                      "text":  "factor",
+                      "start":  85,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  4.535,
+                      "text":  "separado",
+                      "start":  92,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  5.9449999999999994,
+                      "text":  "Con",
+                      "start":  102,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  6.16,
+                      "text":  "b",
+                      "start":  106,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  6.265,
+                      "text":  "cero",
+                      "start":  108,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  6.5249999999999995,
+                      "text":  "igual",
+                      "start":  113,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  6.8,
+                      "text":  "a",
+                      "start":  119,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  6.87,
+                      "text":  "uno",
+                      "start":  121,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  7.0749999999999993,
+                      "text":  "y",
+                      "start":  125,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  7.14,
+                      "text":  "b",
+                      "start":  127,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  7.255,
+                      "text":  "uno",
+                      "start":  129,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  7.4399999999999995,
+                      "text":  "igual",
+                      "start":  133,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  7.715,
+                      "text":  "a",
+                      "start":  139,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  7.7849999999999993,
+                      "text":  "seis",
+                      "start":  141,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  8.5149999999999988,
+                      "text":  "la",
+                      "start":  147,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  8.65,
+                      "text":  "forma",
+                      "start":  150,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  8.965,
+                      "text":  "cuadrática",
+                      "start":  156,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  9.53,
+                      "text":  "es",
+                      "start":  167,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  9.66,
+                      "text":  "m",
+                      "start":  170,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  9.83,
+                      "text":  "al",
+                      "start":  172,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  9.9249999999999989,
+                      "text":  "cuadrado",
+                      "start":  175,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  10.354999999999999,
+                      "text":  "más",
+                      "start":  184,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  10.565,
+                      "text":  "m",
+                      "start":  188,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  10.764999999999999,
+                      "text":  "n",
+                      "start":  190,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  10.94,
+                      "text":  "más",
+                      "start":  192,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  11.145,
+                      "text":  "n",
+                      "start":  196,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  11.325,
+                      "text":  "al",
+                      "start":  198,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  11.424999999999999,
+                      "text":  "cuadrado",
+                      "start":  201,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  12.774999999999999,
+                      "text":  "Es",
+                      "start":  211,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  12.945,
+                      "text":  "integral",
+                      "start":  214,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  13.399999999999999,
+                      "text":  "para",
+                      "start":  223,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  13.629999999999999,
+                      "text":  "toda",
+                      "start":  228,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  13.879999999999999,
+                      "text":  "pareja",
+                      "start":  233,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  14.26,
+                      "text":  "de",
+                      "start":  240,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  14.35,
+                      "text":  "enteros",
+                      "start":  243,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  15.719999999999999,
+                      "text":  "El",
+                      "start":  252,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  15.86,
+                      "text":  "criterio",
+                      "start":  255,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  16.305,
+                      "text":  "formal",
+                      "start":  264,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  16.68,
+                      "text":  "también",
+                      "start":  271,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  17.05,
+                      "text":  "cubre",
+                      "start":  279,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  17.325,
+                      "text":  "coeficientes",
+                      "start":  285,
+                      "length":  12
+                  },
+                  {
+                      "seconds":  18.044999999999998,
+                      "text":  "racionales",
+                      "start":  298,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  18.59,
+                      "text":  "con",
+                      "start":  309,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  18.765,
+                      "text":  "un",
+                      "start":  313,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  18.89,
+                      "text":  "denominador",
+                      "start":  316,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  19.474999999999998,
+                      "text":  "común",
+                      "start":  328,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  19.805,
+                      "text":  "no",
+                      "start":  334,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  19.925,
+                      "text":  "nulo",
+                      "start":  337,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  21.095,
+                      "text":  "Este",
+                      "start":  343,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  21.334999999999997,
+                      "text":  "ejemplo",
+                      "start":  348,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  21.744999999999997,
+                      "text":  "no",
+                      "start":  356,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  21.869999999999997,
+                      "text":  "es",
+                      "start":  359,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  21.994999999999997,
+                      "text":  "un",
+                      "start":  362,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  22.11,
+                      "text":  "espectro",
+                      "start":  365,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  22.57,
+                      "text":  "de",
+                      "start":  374,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  22.665,
+                      "text":  "supergravedad",
+                      "start":  377,
+                      "length":  13
+                  },
+                  {
+                      "seconds":  23.419999999999998,
+                      "text":  "libre",
+                      "start":  391,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  23.695,
+                      "text":  "de",
+                      "start":  397,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  23.785,
+                      "text":  "anomalías",
+                      "start":  400,
+                      "length":  9
+                  }
+              ]
+}

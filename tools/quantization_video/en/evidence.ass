@@ -1,0 +1,14 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Segoe UI,38,&H00FFFFFF,&H00FFFFFF,&H00172E3C,&H00172E3C,0,0,0,0,100,100,0,0,1,1,0,2,65,65,75,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.50,0:00:06.64,Default,,0,0,0,,The catalogue includes four Lean files with forty nine theorem declarations, the exact audit scripts,
+Dialogue: 0,0:00:06.64,0:00:14.44,Default,,0,0,0,,recorded checks and file hashes. All four files replay with Lean four point twenty seven. The older S U
+Dialogue: 0,0:00:14.44,0:00:21.33,Default,,0,0,0,,seven file was adapted from List bind to List flat Map, keeping its theorem statements. Download the
+Dialogue: 0,0:00:21.33,0:00:28.76,Default,,0,0,0,,evidence, verify its integrity and run the listed commands. Full anomaly cancellation and scientific novelty
+Dialogue: 0,0:00:28.76,0:00:31.04,Default,,0,0,0,,remain open.

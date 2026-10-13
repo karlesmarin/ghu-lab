@@ -1,0 +1,440 @@
+﻿{
+    "voice":  "Microsoft Helena Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "Cambia b uno de seis a cinco. Cada celda es un cocarácter etiquetado por enteros m y n. Su fracción impresa y color son Q módulo uno, calculado con aritmética entera exacta. El punto uno, cero tiene ahora período siete octavos: un testigo concreto del fallo. Al volver a seis, todas las celdas son integrales. Las ochenta y una celdas ilustran el criterio; el teorema Lean lo establece para toda pareja entera.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "Cambia",
+                      "start":  0,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  0.57,
+                      "text":  "b",
+                      "start":  7,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  0.67999999999999994,
+                      "text":  "uno",
+                      "start":  9,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  0.885,
+                      "text":  "de",
+                      "start":  13,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  0.98,
+                      "text":  "seis",
+                      "start":  16,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  1.26,
+                      "text":  "a",
+                      "start":  21,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  1.315,
+                      "text":  "cinco",
+                      "start":  23,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  2.6149999999999998,
+                      "text":  "Cada",
+                      "start":  30,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  2.875,
+                      "text":  "celda",
+                      "start":  35,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  3.1599999999999997,
+                      "text":  "es",
+                      "start":  41,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  3.3,
+                      "text":  "un",
+                      "start":  44,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  3.415,
+                      "text":  "cocarácter",
+                      "start":  47,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  3.9899999999999998,
+                      "text":  "etiquetado",
+                      "start":  58,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  4.555,
+                      "text":  "por",
+                      "start":  69,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  4.72,
+                      "text":  "enteros",
+                      "start":  73,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  5.135,
+                      "text":  "m",
+                      "start":  81,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  5.335,
+                      "text":  "y",
+                      "start":  83,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  5.43,
+                      "text":  "n",
+                      "start":  85,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  6.52,
+                      "text":  "Su",
+                      "start":  88,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  6.665,
+                      "text":  "fracción",
+                      "start":  91,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  7.125,
+                      "text":  "impresa",
+                      "start":  100,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  7.5749999999999993,
+                      "text":  "y",
+                      "start":  108,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  7.63,
+                      "text":  "color",
+                      "start":  110,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  7.935,
+                      "text":  "son",
+                      "start":  116,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  8.165,
+                      "text":  "Q",
+                      "start":  120,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  8.355,
+                      "text":  "módulo",
+                      "start":  122,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  8.705,
+                      "text":  "uno",
+                      "start":  129,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  9.34,
+                      "text":  "calculado",
+                      "start":  134,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  9.915,
+                      "text":  "con",
+                      "start":  144,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  10.084999999999999,
+                      "text":  "aritmética",
+                      "start":  148,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  10.67,
+                      "text":  "entera",
+                      "start":  159,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  11,
+                      "text":  "exacta",
+                      "start":  166,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  12.399999999999999,
+                      "text":  "El",
+                      "start":  174,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  12.535,
+                      "text":  "punto",
+                      "start":  177,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  12.85,
+                      "text":  "uno",
+                      "start":  183,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  13.504999999999999,
+                      "text":  "cero",
+                      "start":  188,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  13.774999999999999,
+                      "text":  "tiene",
+                      "start":  193,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  14.024999999999999,
+                      "text":  "ahora",
+                      "start":  199,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  14.264999999999999,
+                      "text":  "período",
+                      "start":  205,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  14.649999999999999,
+                      "text":  "siete",
+                      "start":  213,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  14.969999999999999,
+                      "text":  "octavos",
+                      "start":  219,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  15.85,
+                      "text":  "un",
+                      "start":  228,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  16.009999999999998,
+                      "text":  "testigo",
+                      "start":  231,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  16.415,
+                      "text":  "concreto",
+                      "start":  239,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  16.9,
+                      "text":  "del",
+                      "start":  248,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  17.05,
+                      "text":  "fallo",
+                      "start":  252,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  18.285,
+                      "text":  "Al",
+                      "start":  259,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  18.43,
+                      "text":  "volver",
+                      "start":  262,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  18.744999999999997,
+                      "text":  "a",
+                      "start":  269,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  18.805,
+                      "text":  "seis",
+                      "start":  271,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  19.544999999999998,
+                      "text":  "todas",
+                      "start":  277,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  19.869999999999997,
+                      "text":  "las",
+                      "start":  283,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  20.029999999999998,
+                      "text":  "celdas",
+                      "start":  287,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  20.375,
+                      "text":  "son",
+                      "start":  294,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  20.544999999999998,
+                      "text":  "integrales",
+                      "start":  298,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  22.07,
+                      "text":  "Las",
+                      "start":  310,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  22.265,
+                      "text":  "ochenta",
+                      "start":  314,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  22.665,
+                      "text":  "y",
+                      "start":  322,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  22.765,
+                      "text":  "una",
+                      "start":  324,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  22.945,
+                      "text":  "celdas",
+                      "start":  328,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  23.325,
+                      "text":  "ilustran",
+                      "start":  335,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  23.77,
+                      "text":  "el",
+                      "start":  344,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  23.88,
+                      "text":  "criterio",
+                      "start":  347,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  24.794999999999998,
+                      "text":  "el",
+                      "start":  357,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  24.939999999999998,
+                      "text":  "teorema",
+                      "start":  360,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  25.34,
+                      "text":  "Lean",
+                      "start":  368,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  25.564999999999998,
+                      "text":  "lo",
+                      "start":  373,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  25.674999999999997,
+                      "text":  "establece",
+                      "start":  376,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  26.189999999999998,
+                      "text":  "para",
+                      "start":  386,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  26.41,
+                      "text":  "toda",
+                      "start":  391,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  26.66,
+                      "text":  "pareja",
+                      "start":  396,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  27.025,
+                      "text":  "entera",
+                      "start":  403,
+                      "length":  6
+                  }
+              ]
+}

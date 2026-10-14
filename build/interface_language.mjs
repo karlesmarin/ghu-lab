@@ -28,7 +28,7 @@ try{
    const result=await ev(`(()=>{
     const inputs=()=>Array.from(document.querySelectorAll('#section input,#section select')).map(e=>[e.id,e.value,e.checked]);
     const before=JSON.stringify(inputs());GUIDE_LANGUAGE='en';syncGuideLanguage();
-    const nodes=[];const walk=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);while(walk.nextNode()){const node=walk.currentNode;if(node.parentElement.closest('script,style,noscript,metadata,code,pre,textarea,[data-guide-language],.helppop,#gqRoot,#rx_boundaryresearch'))continue;nodes.push([node,node.nodeValue]);}
+    const nodes=[];const walk=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);while(walk.nextNode()){const node=walk.currentNode;if(node.parentElement.closest('script,style,noscript,metadata,code,pre,textarea,[data-guide-language],.helppop,#gqRoot,#rx_boundaryresearch,#rx_hypothesiscompare'))continue;nodes.push([node,node.nodeValue]);}
     GUIDE_LANGUAGE='es';syncGuideLanguage();
     const missing=[];for(const [node,en] of nodes){if(!node.parentElement||!node.parentElement.getClientRects().length)continue;const text=en.trim().replace(/\\s+/g,' ');const {key}=uiCanonical(text);if(text.split(/\\s+/).length>=4&&/[a-z]{3}/.test(text)&&!Object.hasOwn(UI_ES,key))missing.push(text);}
     const spanish=nodes.filter(([node,en])=>node.nodeValue!==en).length;

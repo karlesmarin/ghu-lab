@@ -11,6 +11,7 @@ const HCX_UI_ES={
  'Saved reference is a calculation snapshot. Its inputs and results are included in the JSON export.':'La referencia guardada es una instantánea del cálculo. Sus entradas y resultados se incluyen en el JSON.'
 };
 const HCX_ORIGINAL_TEXT=new WeakMap();
+const HCX_EXPANDED=new WeakMap();
 function hcxStopDemo(){if(typeof CDM_STATE!=='undefined'&&CDM_STATE.running==='hypothesiscompare'){CDM_STATE.cancel=true;cdmHide();}}
 function hcxLocalize(){const card=document.getElementById('rx_hypothesiscompare');if(!card||typeof NodeFilter==='undefined')return;card.lang=GUIDE_LANGUAGE;
  const walker=document.createTreeWalker(card,NodeFilter.SHOW_TEXT);let n;
@@ -79,5 +80,7 @@ function hcxBindPlots(root,r,ctx){
  root.querySelector('[data-hcx-certificate]').onclick=()=>rxDownload('ghu-hypothesis-certificates.json',JSON.stringify(r.certificates,null,2),'application/json');
  root.querySelector('[data-hcx-import]').onchange=async e=>{const box=root.querySelector('[data-hcx-import-status]');try{const file=e.target.files[0];if(!file)return;if(file.size>5e6)throw Error(hcxText('File exceeds 5 MB','El archivo supera 5 MB'));const raw=JSON.parse(await file.text());if(!active)return;set(hcxImportSelection(raw));}catch(err){if(active)box.textContent=hcxText('Import rejected: ','Importación rechazada: ')+err.message;}};
  const inputs=document.getElementById('rx_hypothesiscompare_controls'),manual=e=>{if(e.isTrusted)hcxStopDemo();};inputs?.addEventListener?.('change',manual,true);
- draw();hcxLocalize();const observer=typeof ResizeObserver==='function'?new ResizeObserver(draw):null;observer?.observe(root);return()=>{active=false;observer?.disconnect();inputs?.removeEventListener?.('change',manual,true);};
+ // Shared language changes redraw the section; retain expanded evidence on refresh.
+ const expanded=HCX_EXPANDED.get(root);if(expanded)root.querySelectorAll('details').forEach((d,i)=>{d.open=expanded[i]||false;});
+ draw();hcxLocalize();const observer=typeof ResizeObserver==='function'?new ResizeObserver(draw):null;observer?.observe(root);return()=>{active=false;HCX_EXPANDED.set(root,[...root.querySelectorAll('details')].map(d=>d.open));observer?.disconnect();inputs?.removeEventListener?.('change',manual,true);};
 }

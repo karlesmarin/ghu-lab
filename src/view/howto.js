@@ -28,6 +28,7 @@ function syncGuideLanguage(){
   document.querySelectorAll('[data-help]').forEach(n=>{const entry=(GUIDE_LANGUAGE==='es'?HELP_TERMS_ES:HELP_TERMS)[n.dataset.help];if(entry){n.title=entry.term;n.setAttribute('aria-label',(GUIDE_LANGUAGE==='es'?'Explicar: ':'Explain: ')+entry.term);}});
   document.querySelectorAll('[data-card-guide]').forEach(n=>{const entry=CARD_HELP_GUIDES[GUIDE_LANGUAGE][n.dataset.cardGuide];if(entry){n.title=entry.title;n.setAttribute('aria-label',(GUIDE_LANGUAGE==='es'?'Información: ':'Information: ')+entry.title);}});
   if(typeof brxLocalize==='function')brxLocalize();
+  if(typeof hcxLocalize==='function')hcxLocalize();
   if(typeof uiLocalize==='function')uiLocalize();
 }
 function mountGuideHelp(){

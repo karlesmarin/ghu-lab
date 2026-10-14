@@ -23,12 +23,16 @@ try{
   for(let i=0;i<300;i++){if(await ev(`typeof cdmRun==='function'&&document.querySelector('#rail a.on')?.dataset.id===${JSON.stringify(c.host)}`))break;await pause(100);}
   await ev(`window.__dynamic={snapshots:[],missing:{}};window.__snapshot=()=>{
    const texts=[],walk=document.createTreeWalker(document.getElementById('section'),NodeFilter.SHOW_TEXT);
-   while(walk.nextNode()){const n=walk.currentNode,p=n.parentElement;if(!p||!p.getClientRects().length||p.closest('script,style,noscript,metadata,code,pre,textarea,.howto,.helppop,#gqRoot,#rx_boundaryresearch,#cdm_explain'))continue;
+   while(walk.nextNode()){const n=walk.currentNode,p=n.parentElement;if(!p||!p.getClientRects().length||p.closest('script,style,noscript,metadata,code,pre,textarea,.howto,.helppop,#gqRoot,#rx_boundaryresearch,#rx_hypothesiscompare,#cdm_explain'))continue;
     // This summary is rendered natively in both languages and tested by diagnostics.mjs.
     if(p.closest('#hrSummary'))continue;
     const record=UI_TEXT.get(n),en=record&&n.nodeValue===record.translated?record.original:n.nodeValue,key=uiCanonical(en).key;
     if(en.trim().split(/\\s+/).length>=4&&/[a-z]{3}/.test(en)&&!Object.hasOwn(UI_ES,key))window.__dynamic.missing[key]={en:en.trim(),shown:n.nodeValue.trim(),parent:p.id||p.tagName};
     if(Object.hasOwn(UI_ES,key)&&n.nodeValue!==uiTranslate(en,'es'))window.__dynamic.missing[key]={en:en.trim(),shown:n.nodeValue.trim(),parent:p.id||p.tagName,reason:'translation not displayed'};
+   }
+   // This card renders computed prose natively; compare it with the selected model.
+   if(document.getElementById('hcx_theory_reading')){const reading=hcxRead(hcxModel(RX_STATE.hypothesiscompare),'es');
+    for(const [id,expected] of [['hcx_theory_reading',reading.theory],['hcx_data_reading',reading.data]])if(document.getElementById(id).textContent!==expected)window.__dynamic.missing[id]={reason:'native Spanish reading differs from selected model'};
    }
    window.__dynamic.snapshots.push({summaries:Array.from(document.querySelectorAll('#section [id*=Summary],#section [id*=summary]')).map(e=>({id:e.id,text:e.textContent})),plots:['g4','mW','windings'].map(k=>({id:k,points:document.querySelectorAll('#hrPlot_'+k+' circle').length}))});
   };window.__snapshot();

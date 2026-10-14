@@ -32,6 +32,14 @@ try{
  await set('case',999);check('Invalid input retains validated state',await ev("RX_STATE.hypothesiscompare.case===4 && document.getElementById('rx_hypothesiscompare_error').textContent.length>0"));await set('case',4);
  await ev("document.querySelector('#rx_hypothesiscompare [data-pin]').click()");await set('case',6);
  check('Shared comparison retains earlier selection',await ev("RX_BASELINES.hypothesiscompare.parameters.case===4"));
+ await ev("document.getElementById('hcx_certificates').open=true;globalThis.hcxBeforeLanguage=JSON.stringify({inputs:RX_STATE.hypothesiscompare,comparison:RX_BASELINES.hypothesiscompare,result:hcxModel(RX_STATE.hypothesiscompare)});document.querySelector('#rx_hypothesiscompare select[aria-label]').value='2'");
+ for(const lang of ['en','es','en','es']){
+  await ev(`document.querySelector('[data-guide-set-language="${lang}"]').click()`);
+  check('Live language '+lang+' renders the selected model',await ev(`(()=>{const reading=hcxRead(hcxModel(RX_STATE.hypothesiscompare),'${lang}');return document.getElementById('hcx_theory_reading').textContent===reading.theory&&document.getElementById('hcx_data_reading').textContent===reading.data&&document.getElementById('rx_hypothesiscompare').lang==='${lang}';})()`));
+  const kept=await ev("({same:hcxBeforeLanguage===JSON.stringify({inputs:RX_STATE.hypothesiscompare,comparison:RX_BASELINES.hypothesiscompare,result:hcxModel(RX_STATE.hypothesiscompare)}),open:document.getElementById('hcx_certificates').open,figure:document.querySelector('#rx_hypothesiscompare select[aria-label]').value})");
+  check('Live language '+lang+' preserves inputs, comparison, results and open certificate',kept.same&&kept.open&&kept.figure==='2',kept);
+  check('Live language '+lang+' translates figure labels',await ev(`document.querySelector('#hcx_correlation [data-axis="y"]').textContent===${JSON.stringify(lang==='es'?'Intervalo i':'Interval i')}`));
+ }
  await ev("globalThis.hcxDownloads=[];globalThis.hcxOriginalDownload=rxDownload;rxDownload=(...args)=>hcxDownloads.push(args);document.getElementById('rx_hypothesiscompare_json').click();document.querySelector('#rx_hypothesiscompare [data-hcx-csv]').click()");
  check('Shared JSON exports scope and full covariance',await ev("(()=>{const d=JSON.parse(hcxDownloads[0][1]);return d.experiment==='hypothesiscompare'&&!d.result.observedFitReady&&d.result.cms.covariance.length===15&&d.comparison.parameters.case===4;})()"));
  check('CSV contains fifteen observed bins',await ev("hcxDownloads[1][1].split('\\n').length===16"));

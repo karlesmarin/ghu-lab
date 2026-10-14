@@ -1,8 +1,9 @@
 {
   "schema": "ghu-interface-es-v1",
   "source": "Already published English laboratory UI; build-time translation draft with maintained terminology corrections. No runtime translation service.",
-  "date": "2026-10-13",
+  "date": "2026-10-14",
   "translations": {
+    "Go to experiment · Hypotheses: local response and experimental context": "Ir al experimento · Hipótesis: respuesta local y contexto experimental",
     "\"the cancellation of the four-dimensional anomaly is sufficient to eliminate the five-dimensional anomaly\"": "\"la cancelación de la anomalía de cuatro dimensiones es suficiente para eliminar la anomalía de cinco dimensiones\"",
     "'s and": "'s y",
     "'s, applied here to a different object.": "'s, aplicado aquí a un objeto diferente.",

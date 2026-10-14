@@ -13,5 +13,12 @@ what
 why
 : Researchers need to move from a paper or video to an understandable calculation, its inputs and reproducible evidence. A small local coupling change is not proof of a globally identical potential or of experimental indistinguishability. Measured cross sections, resonance limits and theoretical potentials retain their distinct scopes.
 
+The final interface review also synchronizes the hypothesis card's language labels
+and retains expanded evidence when the section redraws. Fifty browser checks cover
+the live English/Spanish round trip, selected inputs, saved comparison, numerical
+results, selected figure, certificate visibility, imports, exports and demos.
+The recordings remain tied to source checkpoint `99007ca`, documented in the
+production notes; their data, media and chapter times are unchanged by this UI fix.
+
 so
 : This is a tool and teaching revision. Historical films retain their original media. Ten rational Lean identities and scoped numerical certificates do not certify a full physical model. A compatible GHU prediction, observed fit, full-integral error bound and global-minimum proof remain pending. Synthetic narration and automated media checks do not constitute a complete human listening review.

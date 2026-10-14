@@ -13,6 +13,13 @@ integrated diagnostics and exports. There are 47 chapters and 175 narrated scene
 Representative controls are shown; the guide does not enumerate every input combination.
 The experiment's question, changed input and interpretation form each chapter's teaching sequence.
 
+The general recordings were captured from source commit
+[`99007ca`](https://github.com/karlesmarin/ghu-lab/commit/99007ca), whose built app
+SHA-256 is `16f09833671badd3b3a5f7a935784dda8a4cef8874bb02c59c95d1d1bd117d68`.
+The subsequent live language-switch correction preserves the recorded calculations,
+data, media and chapter times. Replay the capture against that checkpoint; the current
+app has its own build hash.
+
 ## Cover and access to the new chapter · 14 October 2026
 
 In Spanish, chapter 47, **Hipótesis: respuesta, medidas y certificados**, runs from

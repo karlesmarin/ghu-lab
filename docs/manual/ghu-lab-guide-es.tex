@@ -19,7 +19,7 @@
 {\LARGE Guía de uso\par}
 \vspace{7mm}
 Castellano. Composición con Babel.\par
-13 de octubre de 2026\par
+14 de octubre de 2026\par
 \vspace{8mm}
 Los nombres de los controles se conservan tal como aparecen en la aplicación. Empieza con una referencia, cambia un parámetro cada vez y conserva las hipótesis junto al resultado.\par
 \vfill
@@ -2232,7 +2232,7 @@ Usa este diagnóstico independiente antes de interpretar la cancelación de un p
 
 \textbf{Transferencia condicional}. El anulador \ensuremath{\ell}(x,y,z)=x+y+2z se anula sobre ambas columnas parentales. Su valor no nulo excluye el emparejamiento solo bajo las hipótesis de fuentes y espectro indicadas.
 
-\textbf{JSON / Lean}. JSON conserva entradas, testigos, fuentes y límites. El catálogo contiene cuatro archivos Lean con 49 declaraciones de teoremas y su evidencia de verificación.
+\textbf{JSON / Lean}. JSON conserva entradas, testigos, fuentes y límites. El catálogo contiene cinco archivos Lean con 59 declaraciones de teoremas y su evidencia de verificación.
 
 \textbf{Retículas y huella de cocaracteres}. Los rombos cumplen ambos criterios; los anillos cumplen solo períodos espín en el corte de beta fijo. Cada celda muestra Q módulo uno; al seleccionarla se obtiene Q exacto. Figuras y JSON usan gqModel.figures, sin muestras ajustadas ni inventadas.
 
@@ -2295,6 +2295,62 @@ La involución de representación difiere de un levantamiento ordinario de isotr
 \item \href{https://arxiv.org/abs/2012.11622}{Lee--Tachikawa: six-dimensional tensor criterion}
 \item \href{https://arxiv.org/abs/2011.10102}{Davighi--Lohitsiri: anomaly interplay}
 \item \href{https://arxiv.org/abs/hep-th/0305024}{von Gersdorff--Quiros: orbifold transformations}
+\end{itemize}
+\section{Hipótesis: respuesta local y contexto experimental}
+Compara nueve referencias GHU recalibradas y examina un espectro CMS separado con su covarianza. Cada selección incluye una lectura de los valores calculados y su alcance.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/es/hypothesiscompare/index.html}{Abrir guía web}
+
+Distingue cambios de parámetros, acoplamientos locales, diferencias de potencial y estructura de los errores experimentales. Teoría y CMS son contextos separados hasta disponer de una predicción compatible.
+\subsection*{Primeros pasos}
+\begin{enumerate}
+\item Abre ¿Mismo potencial? y usa el acceso a Hipótesis. Pulsa Demo para recorrer los controles reales.
+\item Elige los casos 1 y 6. Lee los cambios de los acoplamientos recalibrados y amplía el intervalo del potencial.
+\item Elige intervalos CMS i y j. Examina el valor medido, su error marginal y el signo de la correlación.
+\item Exporta el SVG seleccionado, el JSON completo o el CSV observado. Importa el JSON para restaurar una selección validada.
+\item Abre Certificados. Lee cada afirmación y su alcance y descarga el JSON o el ZIP del catálogo existente.
+\end{enumerate}
+\subsection*{Controles y parámetros}
+\textbf{Caso GHU}. Uno de nueve casos recalibrados fijados; cambiarlo puede cambiar varias entradas y multiplicidades de campos. Compara los casos 1 y 6.
+
+\textbf{Intervalo del potencial}. Campo \ensuremath{\theta} en 0,06--0,14 o 0--\ensuremath{\pi}. El vacío \ensuremath{\theta}H permanece fijado en 0,1. Cambia de región y lee el exponente vertical.
+
+\textbf{Intervalos CMS i y j}. Selecciona un intervalo medido y otro para su correlación experimental. Usa i=j y después selecciona intervalos diferentes.
+
+\subsection*{Cómo leer los resultados}
+\textbf{Cuatro figuras enlazadas}. La nube de parámetros y la diferencia de potencial comparten selección teórica. Las barras observadas y las correlaciones comparten selección CMS.
+
+\textbf{Descargas e importaciones}. El JSON conserva procedencia, covarianza completa y muestras teóricas. El SVG es autónomo; el CSV contiene intervalos observados. Se importan selecciones, no un dataset externo ni un veredicto.
+
+\textbf{Certificados con alcance explícito}. Diez identidades racionales Lean, testigos exactos de covarianza y tres cotas puntuales de derivadas. Siguen pendientes la cota del error de la integral completa y la certificación del ajuste observado.
+
+Lee ejes, unidades y fuente antes de comparar paneles. Cambios pequeños de acoplamientos tras recalibrar no establecen indistinguibilidad experimental. La escala del potencial es común a los casos dentro de una región y cambia al cambiar la región.
+\subsection*{Ejemplo guiado: Sigue la demo interactiva}
+\begin{enumerate}
+\item Abre ¿Mismo potencial? y usa el acceso a Hipótesis. Pulsa Demo para recorrer los controles reales.
+\item Elige los casos 1 y 6. Lee los cambios de los acoplamientos recalibrados y amplía el intervalo del potencial.
+\item Elige intervalos CMS i y j. Examina el valor medido, su error marginal y el signo de la correlación.
+\item Exporta el SVG seleccionado, el JSON completo o el CSV observado. Importa el JSON para restaurar una selección validada.
+\item Abre Certificados. Lee cada afirmación y su alcance y descarga el JSON o el ZIP del catálogo existente.
+\end{enumerate}
+La demo termina con lecturas teórica y experimental separadas. No asigna una exclusión a los nueve casos.
+\subsection*{Alcance y limitaciones}
+\begin{itemize}
+\item Reconstrucción con torres dominantes, bottom omitido e incertidumbre física sin cuantificar. El navegador lee cálculos archivados; no repite las integrales de Bessel.
+\item Este estudio es independiente del teorema exacto SU(7) de la sección anfitriona. Su capítulo de vídeo y su Demo interactiva comparten el mismo recorrido práctico.
+\item No se ofrece un ajuste observado GHU ni una certificación física completa. Una covarianza no aporta por sí sola la predicción teórica compatible.
+\item La discrepancia aproximada del 7,4 \% entre ajuste cuártico y tabla sigue abierta. La convergencia de cuadratura no es una cota rigurosa del error total.
+\end{itemize}
+\subsection*{Si algo no queda claro}
+\textbf{La curva seleccionada es cero.} El caso 1 se compara consigo mismo. Selecciona otro.
+
+\textbf{La importación se rechaza.} Usa el JSON exportado por esta ficha con selecciones enteras válidas. Otros datasets necesitan un adaptador auditado.
+
+\subsection*{Fuentes y atribución}
+\begin{itemize}
+\item \href{https://arxiv.org/html/2002.09262v3}{Funatsu et al. · GHU potential and Table 3}
+\item \href{https://doi.org/10.17182/hepdata.102956.v1/t37}{CMS observed spectrum}
+\item \href{https://doi.org/10.17182/hepdata.102956.v1/t38}{CMS experimental covariance}
 \end{itemize}
 \section{Glosario}
 \subsection*{Alfabeto}
@@ -2496,6 +2552,6 @@ La retícula fija \ensuremath{\beta}: los rombos cumplen ambos criterios y los a
 Una acción ordinaria de Z\ensuremath{{}_{2}} levantada a Spin(20) necesita un elemento con cuadrado +1. Aquí t\ensuremath{{}_{a}}\ensuremath{{}^{2}} = \ensuremath{-}1, mientras U\ensuremath{{}_{a}} = \ensuremath{-}i t\ensuremath{{}_{a}} tiene U\ensuremath{{}_{a}}\ensuremath{{}^{2}} = +1 por una fase escalar adicional. Una acción combinada o torcida debe definirse para todos los campos; la matriz sola no la establece.
 
 \subsection*{Alcance de un certificado Lean}
-Lean comprueba los enunciados exactos a partir de sus hipótesis. Estos cuatro archivos contienen 49 declaraciones de teoremas sobre álgebra de pesos y criterios aritméticos. Las auditorías numéricas, la topología externa, los fondos admisibles del orbifold y la consistencia física completa siguen siendo cuestiones distintas.
+Lean comprueba los enunciados exactos a partir de sus hipótesis. Estos cinco archivos contienen 59 declaraciones de teoremas sobre álgebra de pesos y criterios aritméticos. Las auditorías numéricas, la topología externa, los fondos admisibles del orbifold y la consistencia física completa siguen siendo cuestiones distintas.
 
 \end{document}

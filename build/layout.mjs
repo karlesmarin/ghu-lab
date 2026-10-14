@@ -106,9 +106,16 @@ const PROBE = `(() => {
   const words = (el) => (el.textContent || "").replace(/\\s+/g, " ").trim().slice(0, 64);
   const clipped = [], scrolls = [], off = [];
   for (const el of document.querySelectorAll("body *")) {
-    const over = el.scrollWidth - el.clientWidth;
+    let over = el.scrollWidth - el.clientWidth;
     const r = el.getBoundingClientRect();
     if (r.width === 0 && r.height === 0) continue;
+    // SVG text can be rotated: HTML scroll/client widths are not its painted bounds.
+    // Compare its transformed rectangle with the clipping SVG viewport instead.
+    if (el instanceof SVGTextElement && el.ownerSVGElement) {
+      const svg = el.ownerSVGElement, box = svg.getBoundingClientRect();
+      over = getComputedStyle(svg).overflow === "visible" ? 0
+        : Math.max(0, box.left-r.left, r.right-box.right, box.top-r.top, r.bottom-box.bottom);
+    }
     if (over > 1) {
       const cs = getComputedStyle(el);
       /* THREE CASES, and the third took a second pass to get right.  A box that scrolls is fine.
@@ -144,6 +151,17 @@ const PROBE = `(() => {
 })()`;
 
 /* ------------------------------------------------------------------ the report */
+
+// Positive and negative controls: preserve real clipping detection for SVG and HTML.
+await send("Page.navigate", { url: "about:blank" });
+await js(`document.body.innerHTML='<svg width="180" height="160" style="overflow:hidden"><text id="inside-svg" x="24" y="135" transform="rotate(-90 24 135)">Rotated axis label</text><text id="clipped-svg" x="-5" y="135" transform="rotate(-90 -5 135)">Clipped label</text></svg><div id="clipped-html" style="width:10px;overflow:hidden;white-space:nowrap">Clipped HTML content</div>';true`);
+const controls = JSON.parse(await js(PROBE));
+if (controls.clipped.some(x=>x.sig.includes('#inside-svg')) ||
+    !controls.clipped.some(x=>x.sig.includes('#clipped-svg')) ||
+    !controls.clipped.some(x=>x.sig.includes('#clipped-html'))) {
+  console.error('Layout measurement controls failed', controls); chrome.kill(); process.exit(1);
+}
+console.log('Layout controls pass: rotated in-bounds text and true SVG/HTML clipping.');
 
 const found = new Map();          /* key -> { kind, sig, txt, worst, where: Set } */
 const note = (kind, width, section, state, o) => {

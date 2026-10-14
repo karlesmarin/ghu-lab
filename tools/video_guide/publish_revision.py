@@ -31,6 +31,12 @@ if dest.exists():
     raise SystemExit(f'{dest} exists; a revision is never overwritten')
 dest.mkdir(parents=True)
 pub = rec / 'published'
+poster = json.loads((pub/'poster-provenance.json').read_text(encoding='utf-8'))
+if poster['sourceSha256'] != sha(ROOT/poster['source']) or poster['dataSha256'] != sha(pub/'poster-data.json'):
+    raise SystemExit('poster data or scientific source changed')
+for lang in ('en','es'):
+    if poster['posters'][lang]['sha256'] != sha(pub/f'poster-{lang}.png'):
+        raise SystemExit('poster image changed after scientific rendering')
 files = {}
 versions = {}
 for lang in ('en', 'es'):
@@ -43,6 +49,9 @@ for lang in ('en', 'es'):
     for name in (f'ghu-lab-{lang}.mp4', f'ghu-lab-{lang}.vtt', f'chapters-{lang}.json', f'transcript-{lang}.txt', f'poster-{lang}.png'):
         shutil.copyfile(pub / name, dest / name)
         files[name] = sha(dest / name)
+for name in ('poster-data.json', 'poster-provenance.json'):
+    shutil.copyfile(pub / name, dest / name)
+    files[name] = sha(dest / name)
 shutil.copyfile(rec / 'verification.json', dest / 'verification.json')
 files['verification.json'] = sha(dest / 'verification.json')
 manifest = {'schema': 'ghu-video-media-v1', 'date': plan['date'], 'revision': revision, 'revisionOf': plan['revisionOf'],

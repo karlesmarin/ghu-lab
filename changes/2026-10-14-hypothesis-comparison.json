@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-14",
+  "section": "samepot",
+  "card": "hypothesiscompare",
+  "menu_sections": 30,
+  "new_menu": false,
+  "behavior": [
+    "Four distinct linked scientific figures",
+    "Selection-dependent EN/ES readings",
+    "Existing card_demo.js runner; stops on section departure",
+    "Shared JSON/SVG export; observed-bin CSV; validated selection import",
+    "Archived theory and CMS data retain separate provenance"
+  ],
+  "scope": "Dominant-tower reconstruction at fixed thetaH and Higgs mass; physical uncertainty unquantified; no observed GHU fit.",
+  "checks": {
+    "numerical": 42,
+    "integrated_browser": 30,
+    "app_smoke": 130,
+    "boundary_browser_regression": 25,
+    "bilingual_card_information": 652,
+    "guides": 235,
+    "demo_catalogue": 102
+  },
+  "build_note": "Full harness run followed by focused reruns of failures and changed presentation. No new physics certification. Full publication browser tier and revised video have not been produced.",
+  "privacy_gate_fix": "Exempts only a literal full VTT timestamp regex; a real path after that pattern still fails.",
+  "guide_video": "Existing samepot video supplies section background; the new card has an interactive demo."
+}

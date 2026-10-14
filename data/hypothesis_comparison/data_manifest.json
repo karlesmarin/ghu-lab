@@ -1,0 +1,87 @@
+{
+  "schema": "ghu-hypothesis-data-index-v1",
+  "date": "2026-10-14",
+  "observedFitReady": false,
+  "families": {
+    "theory": {
+      "origin": "recalibrated theoretical reconstruction",
+      "cases": 9,
+      "fixed": {
+        "thetaH": 0.1,
+        "mH_GeV": 125.1
+      },
+      "source": "https://arxiv.org/html/2002.09262v3",
+      "limitations": [
+        "dominant towers",
+        "bottom omitted",
+        "physical uncertainty unquantified"
+      ]
+    },
+    "cms": {
+      "origin": "published measured spectrum and covariance",
+      "bins": 15,
+      "sqrtS_TeV": 13,
+      "luminosity_inverse_fb": 137,
+      "units": "pb/GeV",
+      "covariance_units": "(pb/GeV)^2",
+      "channel": "e/mu+jets",
+      "level": "parton",
+      "phase_space": "full",
+      "spectrum": "https://doi.org/10.17182/hepdata.102956.v1/t37",
+      "covariance": "https://doi.org/10.17182/hepdata.102956.v1/t38"
+    }
+  },
+  "files": [
+    {
+      "path": "data/hypothesis_comparison/ghu_paper_benchmark.json",
+      "sha256": "6db9baf700cde27fc893c77c84d544fd70cfc2e673ea34aa505084f1c58f706b",
+      "bytes": 1688
+    },
+    {
+      "path": "data/hypothesis_comparison/ghu_potential_results.json",
+      "sha256": "243296543e86307f8474d1586ed99ccb28b1cca62ebbe9bcb00d6b581146caa6",
+      "bytes": 10257
+    },
+    {
+      "path": "data/hypothesis_comparison/visual_data.json",
+      "sha256": "27e9340d8f6967ddd82bc3d4138c9e71bc712465ce624828250b41103a95f3ad",
+      "bytes": 128157
+    },
+    {
+      "path": "data/hypothesis_comparison/potential_validation.json",
+      "sha256": "6cf8928214d77ad6bd7097f0e9526207302c9b0ae509dc0948718f2a1805eb91",
+      "bytes": 13421
+    },
+    {
+      "path": "data/hypothesis_comparison/visual_data_validation.json",
+      "sha256": "9d4eee9f24dcb1624c25bdcaa75915d90951e5cf7e91ca3fcff118407310e5a2",
+      "bytes": 2080
+    },
+    {
+      "path": "data/hepdata_cms_ins1901295.meta.json",
+      "sha256": "954ae067aa7981d9af80da6d06d05e3ece7ab34aa17629bc1774b973748015df",
+      "bytes": 11953
+    },
+    {
+      "path": "data/hepdata_cms_ins1901295_parton_abs_ttm.json",
+      "sha256": "04c3d1eabb7f9a243e6f2c9d658dc6466cf03b75193f6dac35d17485ea61813b",
+      "bytes": 3477
+    },
+    {
+      "path": "data/hepdata_cms_ins1901295_parton_abs_ttm_covariance.json",
+      "sha256": "8d8fc41dbae06cf003d4bbd3dfdf9ceb43501521e48df688f817a8cc40fe2441",
+      "bytes": 32308
+    },
+    {
+      "path": "src/modules/tt_cms_reference.mjs",
+      "sha256": "2aa64d96b425384052ebd5b7e17b8081cbef1acf476abddc0789da58b50536f5",
+      "bytes": 7331
+    },
+    {
+      "path": "proof/hypothesis/certificates.json",
+      "sha256": "905793fea6f1ecff60c62d30142d1017e236258fc9d315af50c241adef5e4577",
+      "bytes": 56200
+    }
+  ],
+  "selection_import": "Restores validated integer input selections; does not replace measured data or import a scientific verdict."
+}

@@ -4044,7 +4044,7 @@
         },
         {
           "name": "JSON / Lean",
-          "meaning": "JSON conserva entradas, testigos, fuentes y límites. El catálogo contiene cuatro archivos Lean con 49 declaraciones de teoremas y su evidencia de verificación."
+          "meaning": "JSON conserva entradas, testigos, fuentes y límites. El catálogo contiene cinco archivos Lean con 59 declaraciones de teoremas y su evidencia de verificación."
         },
         {
           "name": "Retículas y huella de cocaracteres",
@@ -4100,6 +4100,103 @@
         {
           "symptom": "El resultado cumple, pero la consistencia del modelo no está comprobada.",
           "action": "Lee el alcance: un criterio restringido de cuantización es un ingrediente necesario de una acción completa, no certifica los restantes."
+        }
+      ]
+    },
+    {
+      "id": "hypothesiscompare",
+      "kind": "experiment",
+      "host": "samepot",
+      "route": "s=samepot&help=hypothesiscompare",
+      "video": "hypothesiscompare",
+      "source": "src/modules/hypothesis_compare.mjs",
+      "terms": [],
+      "related": [
+        "samepot",
+        "collider",
+        "kkgluon"
+      ],
+      "references": [
+        {
+          "label": "Funatsu et al. · GHU potential and Table 3",
+          "url": "https://arxiv.org/html/2002.09262v3"
+        },
+        {
+          "label": "CMS observed spectrum",
+          "url": "https://doi.org/10.17182/hepdata.102956.v1/t37"
+        },
+        {
+          "label": "CMS experimental covariance",
+          "url": "https://doi.org/10.17182/hepdata.102956.v1/t38"
+        }
+      ],
+      "title": "Hipótesis: respuesta local y contexto experimental",
+      "what": "Compara nueve referencias GHU recalibradas y examina un espectro CMS separado con su covarianza. Cada selección incluye una lectura de los valores calculados y su alcance.",
+      "purpose": "Distingue cambios de parámetros, acoplamientos locales, diferencias de potencial y estructura de los errores experimentales. Teoría y CMS son contextos separados hasta disponer de una predicción compatible.",
+      "steps": [
+        "Abre ¿Mismo potencial? y usa el acceso a Hipótesis. Pulsa Demo para recorrer los controles reales.",
+        "Elige los casos 1 y 6. Lee los cambios de los acoplamientos recalibrados y amplía el intervalo del potencial.",
+        "Elige intervalos CMS i y j. Examina el valor medido, su error marginal y el signo de la correlación.",
+        "Exporta el SVG seleccionado, el JSON completo o el CSV observado. Importa el JSON para restaurar una selección validada.",
+        "Abre Certificados. Lee cada afirmación y su alcance y descarga el JSON o el ZIP del catálogo existente."
+      ],
+      "read": "Lee ejes, unidades y fuente antes de comparar paneles. Cambios pequeños de acoplamientos tras recalibrar no establecen indistinguibilidad experimental. La escala del potencial es común a los casos dentro de una región y cambia al cambiar la región.",
+      "controls": [
+        {
+          "name": "Caso GHU",
+          "meaning": "Uno de nueve casos recalibrados fijados; cambiarlo puede cambiar varias entradas y multiplicidades de campos.",
+          "try": "Compara los casos 1 y 6."
+        },
+        {
+          "name": "Intervalo del potencial",
+          "meaning": "Campo θ en 0,06–0,14 o 0–π. El vacío θH permanece fijado en 0,1.",
+          "try": "Cambia de región y lee el exponente vertical."
+        },
+        {
+          "name": "Intervalos CMS i y j",
+          "meaning": "Selecciona un intervalo medido y otro para su correlación experimental.",
+          "try": "Usa i=j y después selecciona intervalos diferentes."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cuatro figuras enlazadas",
+          "meaning": "La nube de parámetros y la diferencia de potencial comparten selección teórica. Las barras observadas y las correlaciones comparten selección CMS."
+        },
+        {
+          "name": "Descargas e importaciones",
+          "meaning": "El JSON conserva procedencia, covarianza completa y muestras teóricas. El SVG es autónomo; el CSV contiene intervalos observados. Se importan selecciones, no un dataset externo ni un veredicto."
+        },
+        {
+          "name": "Certificados con alcance explícito",
+          "meaning": "Diez identidades racionales Lean, testigos exactos de covarianza y tres cotas puntuales de derivadas. Siguen pendientes la cota del error de la integral completa y la certificación del ajuste observado."
+        }
+      ],
+      "example": {
+        "title": "Sigue la demo interactiva",
+        "steps": [
+          "Abre ¿Mismo potencial? y usa el acceso a Hipótesis. Pulsa Demo para recorrer los controles reales.",
+          "Elige los casos 1 y 6. Lee los cambios de los acoplamientos recalibrados y amplía el intervalo del potencial.",
+          "Elige intervalos CMS i y j. Examina el valor medido, su error marginal y el signo de la correlación.",
+          "Exporta el SVG seleccionado, el JSON completo o el CSV observado. Importa el JSON para restaurar una selección validada.",
+          "Abre Certificados. Lee cada afirmación y su alcance y descarga el JSON o el ZIP del catálogo existente."
+        ],
+        "expect": "La demo termina con lecturas teórica y experimental separadas. No asigna una exclusión a los nueve casos."
+      },
+      "limits": [
+        "Reconstrucción con torres dominantes, bottom omitido e incertidumbre física sin cuantificar. El navegador lee cálculos archivados; no repite las integrales de Bessel.",
+        "Este estudio es independiente del teorema exacto SU(7) de la sección anfitriona. Su capítulo de vídeo y su Demo interactiva comparten el mismo recorrido práctico.",
+        "No se ofrece un ajuste observado GHU ni una certificación física completa. Una covarianza no aporta por sí sola la predicción teórica compatible.",
+        "La discrepancia aproximada del 7,4 % entre ajuste cuártico y tabla sigue abierta. La convergencia de cuadratura no es una cota rigurosa del error total."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "La curva seleccionada es cero.",
+          "action": "El caso 1 se compara consigo mismo. Selecciona otro."
+        },
+        {
+          "symptom": "La importación se rechaza.",
+          "action": "Usa el JSON exportado por esta ficha con selecciones enteras válidas. Otros datasets necesitan un adaptador auditado."
         }
       ]
     }
@@ -4371,7 +4468,7 @@
     },
     "quantization-evidence": {
       "term": "Alcance de un certificado Lean",
-      "body": "Lean comprueba los enunciados exactos a partir de sus hipótesis. Estos cuatro archivos contienen 49 declaraciones de teoremas sobre álgebra de pesos y criterios aritméticos. Las auditorías numéricas, la topología externa, los fondos admisibles del orbifold y la consistencia física completa siguen siendo cuestiones distintas."
+      "body": "Lean comprueba los enunciados exactos a partir de sus hipótesis. Estos cinco archivos contienen 59 declaraciones de teoremas sobre álgebra de pesos y criterios aritméticos. Las auditorías numéricas, la topología externa, los fondos admisibles del orbifold y la consistencia física completa siguen siendo cuestiones distintas."
     }
   }
 }

@@ -98,7 +98,7 @@ function rxHTML(def){return `<div class="card" id="rx_${def.id}" style="margin-t
 function rxMount(def,ctx){
   const $=suffix=>document.getElementById(`rx_${def.id}_${suffix}`);
   const jump=document.getElementById(`rx_${def.id}_jump`);if(jump)jump.onclick=()=>document.getElementById(`rx_${def.id}`).scrollIntoView({behavior:'smooth',block:'start'});
-  RX_STATE[def.id]??={...def.defaults};let last=null,active=true,pending=null;
+  RX_STATE[def.id]??={...def.defaults};let last=null,active=true,pending=null,renderCleanup=null;
   const advanced=new Set(['windings','thermalTerms','alpha21','alpha31','d1','d2','d3','cPlus','cMinus','mUV']);
   const field=f=>`<label>${rxEscape(f.label)}<br>${f.options?`<select data-rx="${f.key}">${f.options.map(([v,t])=>`<option value="${v}">${rxEscape(t)}</option>`).join('')}</select>`:`<input data-rx="${f.key}" type="number" min="${f.min}" max="${f.max}" step="${f.step??'any'}" style="width:180px;max-width:100%">`}</label>`;
   $('controls').innerHTML=def.fields.filter(f=>!advanced.has(f.key)).map(field).join('')+(def.fields.some(f=>advanced.has(f.key))?`<details style="flex-basis:100%"><summary>Additional parameters and numerical precision</summary><div style="display:flex;gap:14px;flex-wrap:wrap;padding-top:10px">${def.fields.filter(f=>advanced.has(f.key)).map(field).join('')}</div></details>`:'');
@@ -134,7 +134,8 @@ function rxMount(def,ctx){
   $('svg').onclick=()=>{const svg=$('result').querySelectorAll('svg')[+figures.value||0];if(svg)rxDownload(`ghu-${def.id}-${+figures.value+1}.svg`,svg.outerHTML,'image/svg+xml');};
   if(def.load)$('load').onclick=()=>def.load(last,ctx);
   if(typeof cdmButton==='function')cdmButton(def.id);   // 🎬 guided simulation, when the card has one (card_demo.js)
-  return {dispose(){active=false;if(pending)pending.abort();},render(){
+  return {dispose(){active=false;if(pending)pending.abort();if(renderCleanup)renderCleanup();renderCleanup=null;if(def.dispose)def.dispose();},render(){
+    if(renderCleanup)renderCleanup();renderCleanup=null;
     const visible=!def.visible||def.visible();document.getElementById(`rx_${def.id}`).hidden=!visible;if(jump)jump.hidden=!visible;if(!visible)return null;
     const p=RX_STATE[def.id];try{last=rxResult(def,p);}catch(e){last=null;$('error').textContent=e.message;$('result').textContent='No result is valid for the current combined inputs.';$('json').disabled=true;$('svg').disabled=true;return null;}
     $('json').disabled=false;$('svg').disabled=false;
@@ -143,7 +144,7 @@ function rxMount(def,ctx){
     const selectedFigure=figures.value||'0';figures.innerHTML=Array.from($('result').querySelectorAll('svg')).map((s,i)=>`<option value="${i}">${rxEscape(s.getAttribute('aria-label')||'Figure '+(i+1))}</option>`).join('');if(+selectedFigure<figures.options.length)figures.value=selectedFigure;
     // Detailed numerical tables stay one click away, keeping the visual reading first.
     $('result').querySelectorAll('div[style="overflow-x:auto"]').forEach((table,i)=>{if(table.closest('details'))return;const detail=document.createElement('details');const summary=document.createElement('summary');summary.textContent='Numerical details · '+Array.from(table.querySelectorAll('th')).slice(0,3).map(x=>x.textContent).join(' / ');detail.append(summary);table.before(detail);detail.append(table);});
-    if(def.rendered)def.rendered($('result'),last,ctx);
+    if(def.rendered){const cleanup=def.rendered($('result'),last,ctx);if(typeof cleanup==='function')renderCleanup=cleanup;}
     return last;
   }};
 }

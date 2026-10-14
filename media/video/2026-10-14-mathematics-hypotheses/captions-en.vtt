@@ -1,0 +1,790 @@
+WEBVTT
+
+00:00:00.450 --> 00:00:05.575
+Watch the blue profile. Changing just one boundary makes it bend, and its
+
+00:00:05.575 --> 00:00:11.150
+lowest eigenvalue rises. Why? Let us build the explanation,
+
+00:00:11.150 --> 00:00:14.105
+then check the same effect in the laboratory.
+
+00:00:15.492 --> 00:00:19.717
+The horizontal coordinate is position along an extra dimension.
+
+00:00:19.717 --> 00:00:24.617
+The vertical coordinate is field amplitude, not a particle trajectory.
+
+00:00:24.617 --> 00:00:29.847
+With zero slope required at both ends, a constant profile is allowed.
+
+00:00:29.847 --> 00:00:34.137
+Its curvature, and its normal eigenvalue, are zero.
+
+00:00:35.492 --> 00:00:39.117
+Now turn on the boundary coupling, called a.
+
+00:00:39.117 --> 00:00:43.807
+The right edge requires slope plus a times amplitude to equal zero.
+
+00:00:43.807 --> 00:00:48.157
+Our nonzero constant has zero slope but nonzero amplitude.
+
+00:00:48.157 --> 00:00:53.222
+Watch the residual turn red. This profile no longer satisfies the boundary
+
+00:00:53.222 --> 00:00:54.582
+condition.
+
+00:00:55.950 --> 00:00:58.885
+We keep zero slope at the left edge.
+
+00:00:58.885 --> 00:01:02.360
+The bulk equation then gives a cosine profile.
+
+00:01:02.360 --> 00:01:06.520
+Change its frequency, x, and watch the right endpoint.
+
+00:01:06.520 --> 00:01:11.530
+Most frequencies still fail. Only the frequency that balances slope against
+
+00:01:11.530 --> 00:01:13.860
+boundary amplitude is allowed.
+
+00:01:15.242 --> 00:01:19.917
+For a cosine, the endpoint slope is minus x sine x.
+
+00:01:19.917 --> 00:01:22.877
+The boundary term is a cosine x.
+
+00:01:22.877 --> 00:01:26.867
+At coupling one, these two contributions cancel.
+
+00:01:26.867 --> 00:01:30.202
+Rearranging gives x tangent x equals a.
+
+00:01:30.202 --> 00:01:33.992
+This equation comes directly from the endpoint balance.
+
+00:01:35.367 --> 00:01:40.502
+Increase the coupling. The allowed profile bends more, while the first root
+
+00:01:40.502 --> 00:01:45.237
+rises. The small graph tracks the same calculation.
+
+00:01:45.237 --> 00:01:50.082
+With interval length pi R, the scaled normal mass is x over pi.
+
+00:01:50.082 --> 00:01:53.117
+It approaches one half as the coupling grows.
+
+00:01:54.492 --> 00:02:00.457
+Now the actual laboratory. We change the boundary strength from zero to four.
+
+00:02:00.457 --> 00:02:03.837
+Watch the paired curve lift above the unpaired curve.
+
+00:02:03.837 --> 00:02:09.642
+At Wilson angle zero, its intercept is exactly the normal gap we just derived.
+
+00:02:09.642 --> 00:02:13.397
+The highlighted input and the plotted result change together.
+
+00:02:14.783 --> 00:02:20.223
+The boundary rule changed. The constant profile became inadmissible.
+
+00:02:20.223 --> 00:02:24.073
+The lowest allowed mode now has a positive eigenvalue.
+
+00:02:24.073 --> 00:02:28.858
+That is the mechanism behind this gap, in this stated interval problem.
+
+00:02:28.858 --> 00:02:34.453
+The laboratory computes the effect; the boundary argument explains why it happens.
+
+00:02:35.825 --> 00:02:39.145
+We have seen how a boundary selects a profile.
+
+00:02:39.145 --> 00:02:44.320
+Now ask a different question: how many profiles are independent? Start
+
+00:02:44.320 --> 00:02:47.435
+with three simple two component functions.
+
+00:02:47.435 --> 00:02:52.175
+The first lives in the upper component, the second in the lower component, and the third
+
+00:02:52.175 --> 00:02:56.525
+changes with position. Watch their curves being drawn.
+
+00:02:57.908 --> 00:03:01.858
+Try subtracting half of the first profile from the third.
+
+00:03:01.858 --> 00:03:05.013
+Their upper components cancel at the midpoint.
+
+00:03:05.013 --> 00:03:09.088
+But move away from that point: the residual returns.
+
+00:03:09.088 --> 00:03:14.028
+Dependence would require one fixed set of coefficients to cancel the entire function,
+
+00:03:14.028 --> 00:03:18.988
+at every position. A cancellation at one point is not enough.
+
+00:03:20.367 --> 00:03:26.622
+The Gram matrix records an overlap for each pair of profiles, integrated over the interval.
+
+00:03:26.622 --> 00:03:31.917
+Watch the entries appear. The first and third profiles overlap: their entry
+
+00:03:31.917 --> 00:03:36.057
+is one half. That does not make them dependent.
+
+00:03:36.057 --> 00:03:40.982
+The determinant is one twelfth, so this matrix is invertible and all three functions are
+
+00:03:40.982 --> 00:03:42.442
+independent.
+
+00:03:43.825 --> 00:03:46.740
+Use the same coefficients as before.
+
+00:03:46.740 --> 00:03:50.060
+The combined profile is u minus one half.
+
+00:03:50.060 --> 00:03:56.190
+Square its amplitude and integrate: the shaded area is one twelfth, not zero.
+
+00:03:56.190 --> 00:04:01.230
+This is exactly c star G c. In general it equals the squared norm of the
+
+00:04:01.230 --> 00:04:06.405
+combined profile. A zero direction of G is therefore precisely a dependence
+
+00:04:06.405 --> 00:04:07.745
+relation.
+
+00:04:09.117 --> 00:04:13.727
+Now return to the three exponential profiles used in the laboratory.
+
+00:04:13.727 --> 00:04:18.172
+Each has two complex components and depends on two coordinates.
+
+00:04:18.172 --> 00:04:22.027
+The surface shows the first component of the middle profile.
+
+00:04:22.027 --> 00:04:24.922
+At mass parameter zero it is flat.
+
+00:04:24.922 --> 00:04:29.107
+As M increases, it gains a slope in the z direction.
+
+00:04:29.107 --> 00:04:31.817
+This new spatial dependence is the key.
+
+00:04:33.200 --> 00:04:37.955
+Suppose a fixed linear combination of these three profiles vanishes.
+
+00:04:37.955 --> 00:04:40.570
+Differentiate with respect to z.
+
+00:04:40.570 --> 00:04:46.580
+Only the middle profile changes, so for nonzero M its coefficient b must vanish.
+
+00:04:46.580 --> 00:04:51.080
+The two remaining spinor directions then force a and c to vanish.
+
+00:04:51.080 --> 00:04:56.135
+At M zero, that derivative argument disappears and the three constant profiles span
+
+00:04:56.135 --> 00:04:58.150
+only two directions.
+
+00:04:59.533 --> 00:05:04.148
+Change the profile mass from zero to one in the actual laboratory.
+
+00:05:04.148 --> 00:05:08.523
+At zero, one Gram eigenvalue is numerically zero.
+
+00:05:08.523 --> 00:05:11.428
+At one, all three are positive.
+
+00:05:11.428 --> 00:05:16.913
+Their sizes depend on normalization, and the numerical rank uses a tolerance.
+
+00:05:16.913 --> 00:05:22.198
+The independent rational interval certificate also proves positive definiteness at M one,
+
+00:05:22.198 --> 00:05:26.898
+with the smallest eigenvalue greater than zero point one one zero five.
+
+00:05:28.283 --> 00:05:31.318
+There is an important limit to this conclusion.
+
+00:05:31.318 --> 00:05:37.468
+Distinct exponential rates can produce four independent functions, or any finite number.
+
+00:05:37.468 --> 00:05:42.813
+Along a suitable line, their independence follows from a Vandermonde determinant.
+
+00:05:42.813 --> 00:05:45.988
+For the four displayed rates it is seventy two.
+
+00:05:45.988 --> 00:05:50.998
+A physical family count needs the actual operator domain and boundary conditions, not
+
+00:05:50.998 --> 00:05:53.443
+just three chosen profiles.
+
+00:05:54.825 --> 00:05:59.550
+Next, representation theory becomes an exact finite sum.
+
+00:05:59.550 --> 00:06:04.475
+For the positive half spin representation of Spin twenty, each weight is a list of ten
+
+00:06:04.475 --> 00:06:09.770
+signs, divided by two. Their product must be positive.
+
+00:06:09.770 --> 00:06:13.535
+Choose nine signs freely; the tenth is fixed.
+
+00:06:13.535 --> 00:06:18.895
+Watch the allowed weights fill the grid: two to the ninth gives five hundred and twelve.
+
+00:06:20.283 --> 00:06:25.453
+At a Cartan probe, each weight contributes a number q, obtained by taking its dot
+
+00:06:25.453 --> 00:06:30.498
+product with the probe. For this example the insertion is the product of the first two
+
+00:06:30.498 --> 00:06:35.028
+signs. We sum the insertion times q squared.
+
+00:06:35.028 --> 00:06:39.858
+Set the first probe coordinates to one and two, with the rest zero.
+
+00:06:39.858 --> 00:06:44.013
+Four equal groups of weights give a total of five hundred and twelve.
+
+00:06:45.367 --> 00:06:49.157
+Expand the squared dot product before choosing a probe.
+
+00:06:49.157 --> 00:06:53.347
+There are fifty five quadratic monomials in ten variables.
+
+00:06:53.347 --> 00:06:57.897
+The checker sums each coefficient using exact rational arithmetic.
+
+00:06:57.897 --> 00:07:03.087
+Watch the cancellations: only the cross term h one times h two survives,
+
+00:07:03.087 --> 00:07:06.447
+with coefficient two hundred and fifty six.
+
+00:07:06.447 --> 00:07:09.792
+We have checked the complete quadratic polynomial.
+
+00:07:11.158 --> 00:07:14.378
+Now move the probe across that polynomial.
+
+00:07:14.378 --> 00:07:17.858
+On either coordinate axis the value is zero.
+
+00:07:17.858 --> 00:07:21.968
+Move to one, two and it becomes five hundred and twelve.
+
+00:07:21.968 --> 00:07:28.443
+The heat map makes the distinction visible: one zero evaluation cannot establish an identity.
+
+00:07:28.443 --> 00:07:33.088
+A nonzero evaluation can refute an identically zero polynomial.
+
+00:07:34.450 --> 00:07:38.950
+The laboratory keeps its displayed ten dimensional Cartan probe fixed while we change
+
+00:07:38.950 --> 00:07:43.485
+the insertion. Watch the exact trace table change.
+
+00:07:43.485 --> 00:07:48.750
+For the first insertion, the quadratic moment is five hundred and twelve, consistent
+
+00:07:48.750 --> 00:07:53.595
+with our identity. Other insertions produce different moments.
+
+00:07:53.595 --> 00:07:58.425
+These are unweighted representation traces, before the normalization and inflow needed
+
+00:07:58.425 --> 00:08:01.140
+for physical anomaly coefficients.
+
+00:08:02.492 --> 00:08:06.687
+The finite weight sum answers a precise algebraic question.
+
+00:08:06.687 --> 00:08:11.957
+Turning it into an anomaly calculation requires the appropriate projectors, normalization
+
+00:08:11.957 --> 00:08:16.287
+and descent, together with the contributions of other sectors.
+
+00:08:16.287 --> 00:08:19.562
+Global charge data and inflow also matter.
+
+00:08:19.562 --> 00:08:23.302
+The moving marker stops at what we have actually computed.
+
+00:08:23.302 --> 00:08:27.587
+A trace certificate does not certify the complete quantum theory.
+
+00:08:28.950 --> 00:08:33.825
+Our final example is a restricted six dimensional consistency condition.
+
+00:08:33.825 --> 00:08:37.810
+Let N count the signed excess of complex Weyl doublets.
+
+00:08:37.810 --> 00:08:43.440
+In the stated standalone SU two tensor setting, N must be divisible by six.
+
+00:08:43.440 --> 00:08:48.520
+With identical family assignments, three quark colours and an opposite lepton chirality
+
+00:08:48.520 --> 00:08:52.195
+contribute three minus one: two per family.
+
+00:08:52.195 --> 00:08:55.815
+Watch each family advance the residue clock by two.
+
+00:08:57.200 --> 00:09:01.440
+After three such families, the clock returns to zero.
+
+00:09:01.440 --> 00:09:05.070
+Six and nine families also pass this condition.
+
+00:09:05.070 --> 00:09:10.475
+If the lepton chirality matches instead, each identical family contributes four;
+
+00:09:10.475 --> 00:09:14.130
+again, multiples of three return to zero.
+
+00:09:14.130 --> 00:09:17.280
+The congruence restricts the possibilities.
+
+00:09:17.280 --> 00:09:20.590
+It does not uniquely select three generations.
+
+00:09:21.950 --> 00:09:26.015
+Now allow two families with different chirality assignments.
+
+00:09:26.015 --> 00:09:29.575
+The first contributes two, the second four.
+
+00:09:29.575 --> 00:09:34.765
+Together they make six, so this residue test passes with two families.
+
+00:09:34.765 --> 00:09:39.355
+This is a counterexample to dropping the identical assignment assumption.
+
+00:09:39.355 --> 00:09:43.930
+It is not a construction of a fully consistent two family physical model.
+
+00:09:45.283 --> 00:09:48.803
+Counting complex doublets gives modulus six.
+
+00:09:48.803 --> 00:09:53.278
+Counting in half doublet units doubles N and uses modulus twelve.
+
+00:09:53.278 --> 00:09:57.413
+Watch both clocks together: they pass at the same time.
+
+00:09:57.413 --> 00:10:00.658
+The units changed, not the condition.
+
+00:10:00.658 --> 00:10:06.078
+The physical argument also requires integral tensor quantization; factorizing an anomaly
+
+00:10:06.078 --> 00:10:10.338
+polynomial alone does not supply all that global information.
+
+00:10:11.700 --> 00:10:16.655
+Now change the family number in the laboratory, keeping the lepton chirality opposite
+
+00:10:16.655 --> 00:10:22.740
+to the quarks. One and two fail this restricted condition; three passes.
+
+00:10:22.740 --> 00:10:26.360
+Four and five fail; six passes again.
+
+00:10:26.360 --> 00:10:29.745
+The displayed residue explains every change.
+
+00:10:29.745 --> 00:10:35.055
+Keep the identical assignment and standalone theory assumptions attached to this result.
+
+00:10:36.408 --> 00:10:39.353
+We have followed four different questions.
+
+00:10:39.353 --> 00:10:42.448
+Boundary conditions selected a spectrum.
+
+00:10:42.448 --> 00:10:46.163
+Integrated overlaps tested function independence.
+
+00:10:46.163 --> 00:10:48.958
+Weight sums determined a polynomial.
+
+00:10:48.958 --> 00:10:52.843
+A residue condition constrained identical assignments.
+
+00:10:52.843 --> 00:10:56.868
+Each calculation has a reason, inputs and limits.
+
+00:10:56.868 --> 00:11:01.933
+Passing these separate diagnostics does not by itself determine a Higgs vacuum, neutrino
+
+00:11:01.933 --> 00:11:05.588
+masses or a complete Standard Model construction.
+
+00:11:06.950 --> 00:11:11.575
+The first four examples have ordinary proofs and executable checks.
+
+00:11:11.575 --> 00:11:16.470
+The new quantization module adds a different kind of evidence: twenty three Lean theorem
+
+00:11:16.470 --> 00:11:22.030
+declarations, alongside twenty six existing S U seven declarations.
+
+00:11:22.030 --> 00:11:26.925
+Ten further rational algebra statements now support the hypothesis card.
+
+00:11:26.925 --> 00:11:31.980
+The next chapters explain how these certificates connect to physical assumptions.
+
+00:11:31.980 --> 00:11:34.565
+A proof checks an implication.
+
+00:11:34.565 --> 00:11:38.865
+Applying it to nature also requires the right physical dictionary.
+
+00:11:40.242 --> 00:11:45.277
+A mathematical object becomes physical through a specified identification.
+
+00:11:45.277 --> 00:11:50.557
+In the interval example, an operator eigenvalue becomes a squared normal mass after fixing
+
+00:11:50.557 --> 00:11:53.652
+the length scale and kinetic normalization.
+
+00:11:53.652 --> 00:11:58.922
+A Gram matrix describes overlaps; physical families additionally require the actual
+
+00:11:58.922 --> 00:12:03.287
+field domain. Quantization works the same way.
+
+00:12:03.287 --> 00:12:07.722
+We must name the gauge group, the allowed bundles and the action before an arithmetic
+
+00:12:07.722 --> 00:12:10.732
+certificate becomes a physical constraint.
+
+00:12:12.117 --> 00:12:14.562
+Here is a concrete connection.
+
+00:12:14.562 --> 00:12:19.652
+In this normalized axion example, the topological action is theta times the period
+
+00:12:19.652 --> 00:12:24.487
+of Q. Shifting theta by two pi multiplies the quantum phase by the exponential of two
+
+00:12:24.487 --> 00:12:30.217
+pi i times that period. An integer period returns to the same phase.
+
+00:12:30.217 --> 00:12:32.912
+A half integer gives a minus sign.
+
+00:12:32.912 --> 00:12:37.062
+The phase diagram illustrates this consistency requirement.
+
+00:12:37.062 --> 00:12:42.142
+It is not an experimental measurement, or a complete construction of the action.
+
+00:12:43.492 --> 00:12:47.602
+The Lie algebra alone does not fix the global gauge group.
+
+00:12:47.602 --> 00:12:53.092
+For H equal to S of U two times U three, the characteristic class dictionary combines
+
+00:12:53.092 --> 00:12:56.867
+three coefficients into alpha, beta and delta.
+
+00:12:56.867 --> 00:13:01.857
+Universal integrality requires these three combinations to be integers.
+
+00:13:01.857 --> 00:13:05.952
+Set alpha and beta to one and gamma to seven twelfths.
+
+00:13:05.952 --> 00:13:09.237
+Delta becomes zero: the total class is A plus B.
+
+00:13:09.237 --> 00:13:14.342
+Lean verifies the arithmetic criterion; the characteristic class interpretation is
+
+00:13:14.342 --> 00:13:16.127
+supplied separately.
+
+00:13:17.492 --> 00:13:20.447
+Now take Q equal to C over two.
+
+00:13:20.447 --> 00:13:25.077
+A universal test on the projective plane detects a half integer period.
+
+00:13:25.077 --> 00:13:29.917
+On a closed smooth spin four manifold, the square of an integral degree two class has
+
+00:13:29.917 --> 00:13:32.952
+even period, by the Wu formula.
+
+00:13:32.952 --> 00:13:35.972
+The stated spin test therefore passes.
+
+00:13:35.972 --> 00:13:40.157
+These are different questions, not conflicting answers.
+
+00:13:40.157 --> 00:13:43.117
+Lean checks the coefficient arithmetic.
+
+00:13:43.117 --> 00:13:48.552
+Wu parity and the choice of physically admissible orbifold backgrounds are separate steps.
+
+00:13:49.908 --> 00:13:54.848
+In the U two example, the two factor contributions have to be added.
+
+00:13:54.848 --> 00:13:59.928
+With b zero equal to one and b one equal to six, the cocharacter one, zero
+
+00:13:59.928 --> 00:14:04.168
+gives one quarter plus three quarters: exactly one.
+
+00:14:04.168 --> 00:14:09.418
+For every integer m and n the sum is m squared plus m n plus n squared.
+
+00:14:09.418 --> 00:14:14.848
+The certificate proves the joint criterion, including rational coefficients.
+
+00:14:14.848 --> 00:14:19.958
+This establishes an integral characteristic class, not an anomaly free supergravity
+
+00:14:19.958 --> 00:14:22.473
+spectrum with those coefficients.
+
+00:14:23.825 --> 00:14:28.850
+A proposed parent response must lie in the image of its allowed transfer map.
+
+00:14:28.850 --> 00:14:33.845
+Both displayed columns are annihilated by ell, so every response in that image has ell
+
+00:14:33.845 --> 00:14:38.945
+equal to zero. For the required response, six ell equals sixteen
+
+00:14:38.945 --> 00:14:42.535
+minus three p minus three q minus six r.
+
+00:14:42.535 --> 00:14:45.730
+It is one modulo three for all integers.
+
+00:14:45.730 --> 00:14:49.265
+This rules out matching within that response family.
+
+00:14:49.265 --> 00:14:54.215
+Extra corner terms, a different spectrum or a different global construction would require
+
+00:14:54.215 --> 00:14:55.995
+a new analysis.
+
+00:14:57.367 --> 00:15:01.567
+The degree eighteen Clifford element t a squares to minus one.
+
+00:15:01.567 --> 00:15:07.612
+Multiplying by minus i produces U a, whose square is plus one on the representation.
+
+00:15:07.612 --> 00:15:12.167
+Both identities are correct, but they answer different questions.
+
+00:15:12.167 --> 00:15:17.232
+A physical symmetry must act consistently on all fields and interactions, including the
+
+00:15:17.232 --> 00:15:22.747
+bosonic Omega field. A twisted or combined action may be possible.
+
+00:15:22.747 --> 00:15:28.647
+The exact lift audit does not prove inconsistency, and it is not a Lean formalization.
+
+00:15:30.033 --> 00:15:33.693
+The module is the interface to these scoped statements.
+
+00:15:33.693 --> 00:15:37.378
+Each control changes the exact rational inputs.
+
+00:15:37.378 --> 00:15:42.453
+The criterion and its witness determine the displayed lattice and cocharacter map.
+
+00:15:42.453 --> 00:15:47.548
+A finite figure illustrates the result; the Lean proof supplies the universal arithmetic
+
+00:15:47.548 --> 00:15:53.263
+statement. Five Lean files contain fifty nine theorem declarations in total,
+
+00:15:53.263 --> 00:15:57.773
+including ten rational algebra statements for the hypothesis card.
+
+00:15:57.773 --> 00:16:02.443
+The complete download includes the maintained data and replay scripts.
+
+00:16:02.443 --> 00:16:08.003
+Integrity hashes, numerical checks and formal proofs certify different things.
+
+00:16:09.367 --> 00:16:14.592
+These plotted values come from the published ATLAS top pair and CMS dijet searches already
+
+00:16:14.592 --> 00:16:20.367
+used by the laboratory. They are observed upper limits under different resonance assumptions,
+
+00:16:20.367 --> 00:16:23.552
+not measured new particle production rates.
+
+00:16:23.552 --> 00:16:27.377
+Neither search reports a significant new particle signal.
+
+00:16:27.377 --> 00:16:33.412
+To test our quantization examples, we still need a physical map to masses, couplings,
+
+00:16:33.412 --> 00:16:37.167
+widths and predicted rates, with uncertainties.
+
+00:16:37.167 --> 00:16:40.392
+Data can support that physical realization.
+
+00:16:40.392 --> 00:16:46.187
+They cannot replace its mathematical proof, and remaining below a limit is not a discovery.
+
+00:16:47.575 --> 00:16:51.550
+A potential describes how the energy changes with a field.
+
+00:16:51.550 --> 00:16:56.555
+Near the chosen vacuum, its curvature determines the squared Higgs mass after canonical
+
+00:16:56.555 --> 00:17:02.925
+normalization. The third and fourth derivatives determine the cubic and quartic coefficients.
+
+00:17:02.925 --> 00:17:08.050
+The factorials matter: the coefficient of a power in the potential is not the same convention
+
+00:17:08.050 --> 00:17:11.205
+as the corresponding interaction vertex.
+
+00:17:11.205 --> 00:17:15.355
+Here the canonical field is f H times the change in theta.
+
+00:17:15.355 --> 00:17:20.330
+Lean checks rational polynomial identities; real differentiation is checked separately
+
+00:17:20.330 --> 00:17:22.345
+with symbolic algebra.
+
+00:17:23.700 --> 00:17:28.015
+These curves use the nine numerical cases stored in the laboratory.
+
+00:17:28.015 --> 00:17:32.605
+Each case is recalibrated to the same vacuum phase and Higgs mass.
+
+00:17:32.605 --> 00:17:37.660
+The plotted quantity subtracts each vacuum value, subtracts reference case one and
+
+00:17:37.660 --> 00:17:43.110
+divides by a common scale. Its values come from the potential engine.
+
+00:17:43.110 --> 00:17:48.570
+Near agreement of the cubic and quartic couplings does not make the whole potential identical.
+
+00:17:48.570 --> 00:17:53.520
+This is a comparison between specified models, not a proof that other parameters never
+
+00:17:53.520 --> 00:17:56.300
+matter and not an experimental test.
+
+00:17:57.658 --> 00:18:03.363
+This is the C M S top pair invariant mass spectrum, not an upper-limit curve.
+
+00:18:03.363 --> 00:18:07.198
+The horizontal intervals cover unequal mass ranges.
+
+00:18:07.198 --> 00:18:12.173
+The vertical values are cross section per unit mass, so an interval contribution is the
+
+00:18:12.173 --> 00:18:17.383
+density times its width. The logarithmic scale makes the small high-mass values
+
+00:18:17.383 --> 00:18:23.163
+visible. Vertical bars show square roots of covariance diagonal entries.
+
+00:18:23.163 --> 00:18:25.983
+They describe marginal uncertainties.
+
+00:18:25.983 --> 00:18:31.138
+A model prediction must match the energy, channel, phase space, level
+
+00:18:31.138 --> 00:18:34.313
+of correction and binning before it can be compared.
+
+00:18:35.700 --> 00:18:40.125
+Each heat-map cell is a correlation between two measured intervals.
+
+00:18:40.125 --> 00:18:45.455
+The diagonal is one. Positive and negative values mean that errors tend to move together
+
+00:18:45.455 --> 00:18:50.530
+or in opposite directions. The exact decimal matrix has a factorization with
+
+00:18:50.530 --> 00:18:56.200
+fifteen positive pivots. That verifies its positive definiteness as published;
+
+00:18:56.200 --> 00:18:59.265
+it does not remove measurement uncertainty.
+
+00:18:59.265 --> 00:19:05.240
+If we normalize a density to unit area, the sum constraint introduces a null direction.
+
+00:19:05.240 --> 00:19:10.335
+Its covariance is singular. Treating all normalized intervals as independent would
+
+00:19:10.335 --> 00:19:12.775
+count information incorrectly.
+
+00:19:14.158 --> 00:19:17.363
+Use three questions when reading a certificate.
+
+00:19:17.363 --> 00:19:22.678
+Is this an exact mathematical identity? Is the numerical error bounded over the domain
+
+00:19:22.678 --> 00:19:29.028
+I use? Does the calculation predict the measured observable with physical uncertainties?
+
+00:19:29.028 --> 00:19:34.063
+The present package supplies ten rational Lean identities, an exact covariance check
+
+00:19:34.063 --> 00:19:37.183
+and three pointwise derivative enclosures.
+
+00:19:37.183 --> 00:19:40.888
+The full integral error and global minimum remain pending.
+
+00:19:40.888 --> 00:19:45.183
+The quartic fitting curve still differs from its published table by about seven point
+
+00:19:45.183 --> 00:19:50.188
+four percent. Download the evidence and use the practical hypothesis chapter
+
+00:19:50.188 --> 00:19:54.453
+to repeat a case comparison without turning these partial guarantees into an observed
+
+00:19:54.453 --> 00:19:55.848
+exclusion.

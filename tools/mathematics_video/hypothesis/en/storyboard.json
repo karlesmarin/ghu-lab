@@ -1,0 +1,97 @@
+{
+  "language": "en",
+  "voice": "Microsoft Zira Desktop",
+  "rate": 0,
+  "scenes": [
+    {
+      "id": "s2",
+      "section": "Evidence",
+      "title": "Follow the argument. Reproduce the result.",
+      "text": "The first four examples have ordinary proofs and executable checks. The new quantization module adds a different kind of evidence: twenty three Lean theorem declarations, alongside twenty six existing S U seven declarations. Ten further rational algebra statements now support the hypothesis card. The next chapters explain how these certificates connect to physical assumptions. A proof checks an implication. Applying it to nature also requires the right physical dictionary."
+    },
+    {
+      "id": "q1",
+      "section": "Physical meaning",
+      "title": "Where physics meets mathematics",
+      "text": "A mathematical object becomes physical through a specified identification. In the interval example, an operator eigenvalue becomes a squared normal mass after fixing the length scale and kinetic normalization. A Gram matrix describes overlaps; physical families additionally require the actual field domain. Quantization works the same way. We must name the gauge group, the allowed bundles and the action before an arithmetic certificate becomes a physical constraint."
+    },
+    {
+      "id": "q2",
+      "section": "Quantization",
+      "title": "A periodic field must return to the same phase",
+      "text": "Here is a concrete connection. In this normalized axion example, the topological action is theta times the period of Q. Shifting theta by two pi multiplies the quantum phase by the exponential of two pi i times that period. An integer period returns to the same phase. A half integer gives a minus sign. The phase diagram illustrates this consistency requirement. It is not an experimental measurement, or a complete construction of the action."
+    },
+    {
+      "id": "q3",
+      "section": "Quantization",
+      "title": "The global group correlates the coefficients",
+      "text": "The Lie algebra alone does not fix the global gauge group. For H equal to S of U two times U three, the characteristic class dictionary combines three coefficients into alpha, beta and delta. Universal integrality requires these three combinations to be integers. Set alpha and beta to one and gamma to seven twelfths. Delta becomes zero: the total class is A plus B. Lean verifies the arithmetic criterion; the characteristic class interpretation is supplied separately."
+    },
+    {
+      "id": "q4",
+      "section": "Backgrounds",
+      "title": "Change the allowed backgrounds, change the test",
+      "text": "Now take Q equal to C over two. A universal test on the projective plane detects a half integer period. On a closed smooth spin four manifold, the square of an integral degree two class has even period, by the Wu formula. The stated spin test therefore passes. These are different questions, not conflicting answers. Lean checks the coefficient arithmetic. Wu parity and the choice of physically admissible orbifold backgrounds are separate steps."
+    },
+    {
+      "id": "q5",
+      "section": "Joint U(2)",
+      "title": "Two fractional contributions, one integral class",
+      "text": "In the U two example, the two factor contributions have to be added. With b zero equal to one and b one equal to six, the cocharacter one, zero gives one quarter plus three quarters: exactly one. For every integer m and n the sum is m squared plus m n plus n squared. The certificate proves the joint criterion, including rational coefficients. This establishes an integral characteristic class, not an anomaly free supergravity spectrum with those coefficients."
+    },
+    {
+      "id": "q6",
+      "section": "Boundary response",
+      "title": "A conserved linear combination detects an obstruction",
+      "text": "A proposed parent response must lie in the image of its allowed transfer map. Both displayed columns are annihilated by ell, so every response in that image has ell equal to zero. For the required response, six ell equals sixteen minus three p minus three q minus six r. It is one modulo three for all integers. This rules out matching within that response family. Extra corner terms, a different spectrum or a different global construction would require a new analysis."
+    },
+    {
+      "id": "q7",
+      "section": "Group action",
+      "title": "An involution on one field is not a full group lift",
+      "text": "The degree eighteen Clifford element t a squares to minus one. Multiplying by minus i produces U a, whose square is plus one on the representation. Both identities are correct, but they answer different questions. A physical symmetry must act consistently on all fields and interactions, including the bosonic Omega field. A twisted or combined action may be possible. The exact lift audit does not prove inconsistency, and it is not a Lean formalization."
+    },
+    {
+      "id": "q8",
+      "section": "Certificates in the laboratory",
+      "title": "From a theorem to a control and an exact figure",
+      "text": "The module is the interface to these scoped statements. Each control changes the exact rational inputs. The criterion and its witness determine the displayed lattice and cocharacter map. A finite figure illustrates the result; the Lean proof supplies the universal arithmetic statement. Five Lean files contain fifty nine theorem declarations in total, including ten rational algebra statements for the hypothesis card. The complete download includes the maintained data and replay scripts. Integrity hashes, numerical checks and formal proofs certify different things."
+    },
+    {
+      "id": "q9",
+      "section": "Experimental comparison",
+      "title": "Where measured data enter the chain",
+      "text": "These plotted values come from the published ATLAS top pair and CMS dijet searches already used by the laboratory. They are observed upper limits under different resonance assumptions, not measured new particle production rates. Neither search reports a significant new particle signal. To test our quantization examples, we still need a physical map to masses, couplings, widths and predicted rates, with uncertainties. Data can support that physical realization. They cannot replace its mathematical proof, and remaining below a limit is not a discovery."
+    },
+    {
+      "id": "h1",
+      "section": "Hypotheses",
+      "title": "From a potential to local couplings",
+      "text": "A potential describes how the energy changes with a field. Near the chosen vacuum, its curvature determines the squared Higgs mass after canonical normalization. The third and fourth derivatives determine the cubic and quartic coefficients. The factorials matter: the coefficient of a power in the potential is not the same convention as the corresponding interaction vertex. Here the canonical field is f H times the change in theta. Lean checks rational polynomial identities; real differentiation is checked separately with symbolic algebra."
+    },
+    {
+      "id": "h2",
+      "section": "Recalibration",
+      "title": "Similar local couplings can hide different potentials",
+      "text": "These curves use the nine numerical cases stored in the laboratory. Each case is recalibrated to the same vacuum phase and Higgs mass. The plotted quantity subtracts each vacuum value, subtracts reference case one and divides by a common scale. Its values come from the potential engine. Near agreement of the cubic and quartic couplings does not make the whole potential identical. This is a comparison between specified models, not a proof that other parameters never matter and not an experimental test."
+    },
+    {
+      "id": "h3",
+      "section": "Measurements",
+      "title": "Read the measured distribution before comparing a model",
+      "text": "This is the C M S top pair invariant mass spectrum, not an upper-limit curve. The horizontal intervals cover unequal mass ranges. The vertical values are cross section per unit mass, so an interval contribution is the density times its width. The logarithmic scale makes the small high-mass values visible. Vertical bars show square roots of covariance diagonal entries. They describe marginal uncertainties. A model prediction must match the energy, channel, phase space, level of correction and binning before it can be compared."
+    },
+    {
+      "id": "h4",
+      "section": "Correlated errors",
+      "title": "A covariance matrix preserves information between bins",
+      "text": "Each heat-map cell is a correlation between two measured intervals. The diagonal is one. Positive and negative values mean that errors tend to move together or in opposite directions. The exact decimal matrix has a factorization with fifteen positive pivots. That verifies its positive definiteness as published; it does not remove measurement uncertainty. If we normalize a density to unit area, the sum constraint introduces a null direction. Its covariance is singular. Treating all normalized intervals as independent would count information incorrectly."
+    },
+    {
+      "id": "h5",
+      "section": "Evidence and next steps",
+      "title": "What is guaranteed, and what must still be tested",
+      "text": "Use three questions when reading a certificate. Is this an exact mathematical identity? Is the numerical error bounded over the domain I use? Does the calculation predict the measured observable with physical uncertainties? The present package supplies ten rational Lean identities, an exact covariance check and three pointwise derivative enclosures. The full integral error and global minimum remain pending. The quartic fitting curve still differs from its published table by about seven point four percent. Download the evidence and use the practical hypothesis chapter to repeat a case comparison without turning these partial guarantees into an observed exclusion."
+    }
+  ]
+}

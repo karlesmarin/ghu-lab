@@ -16,7 +16,7 @@ def collect(root):
         if not ready or ready.group(1)!='true':continue
         sections.append(dict(number=len(sections)+1,id=field('id'),label=field('label'),source=path,constant=name))
     hosts={s.pop('constant'):s['id'] for s in sections}
-    rx=read('src/sections/research_extensions.js');experiments=[]
+    rx=read('src/sections/research_extensions.js')+'\n'+read('src/sections/hypothesis_card.js');experiments=[]
     for host,panel in re.findall(r'^rxAttach\((\w+),(\w+)\);',rx,re.M):
         block=rx[re.search(r'const\s+'+panel+r'\s*=\s*\{',rx).end():]
         field=lambda key:re.search(r'\b'+key+r':\s*[\"\x27]([^\"\x27]+)',block).group(1)

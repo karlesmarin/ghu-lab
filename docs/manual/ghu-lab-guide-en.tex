@@ -19,7 +19,7 @@
 {\LARGE User guide\par}
 \vspace{7mm}
 English edition.\par
-13 October 2026\par
+14 October 2026\par
 \vspace{8mm}
 Control names are kept as they appear in the application. Start with a reference, change one input at a time, and retain the assumptions with your result.\par
 \vfill
@@ -2460,7 +2460,7 @@ Use this independent diagnostic before interpreting a polynomial cancellation as
 
 \textbf{Conditional transfer}. The annihilator \ensuremath{\ell}(x,y,z)=x+y+2z vanishes on both columns of the parent map. Its nonzero value excludes matching only under the listed source and spectrum assumptions.
 
-\textbf{JSON / Lean}. JSON retains every input, witness, source and limit. The catalogue includes four Lean files with 49 theorem declarations and their replay evidence.
+\textbf{JSON / Lean}. JSON retains every input, witness, source and limit. The catalogue includes five Lean files with 59 theorem declarations and their replay evidence.
 
 \textbf{Lattices and cocharacter fingerprint}. Diamonds satisfy both criteria; rings satisfy spin periods only, in the displayed fixed-beta slice. Each heat cell shows Q modulo one; its exact Q is available on selection. Both plots and JSON use gqModel.figures, without fitted or invented samples.
 
@@ -2523,6 +2523,62 @@ Representation involution differs from an ordinary Spin(20) isotropy lift.
 \item \href{https://arxiv.org/abs/2012.11622}{Lee--Tachikawa: six-dimensional tensor criterion}
 \item \href{https://arxiv.org/abs/2011.10102}{Davighi--Lohitsiri: anomaly interplay}
 \item \href{https://arxiv.org/abs/hep-th/0305024}{von Gersdorff--Quiros: orbifold transformations}
+\end{itemize}
+\section{Hypotheses: local response and experimental context}
+Compare nine recalibrated GHU benchmarks and inspect a separate CMS spectrum with its covariance. Each selection includes a reading of the calculated values and their scope.
+
+\href{https://karlesmarin.github.io/ghu-explorer/guide/hypothesiscompare/index.html}{Open web guide}
+
+Distinguish changes in model parameters, local couplings, full-field potential differences and experimental error structure. Theory and CMS are separate contexts until a compatible prediction exists.
+\subsection*{First steps}
+\begin{enumerate}
+\item Open Same potential? and use the jump button for Hypotheses. Press Demo for the real-control walkthrough.
+\item Choose cases 1 and 6. Read the recalibrated coupling changes, then expand the potential interval.
+\item Choose CMS intervals i and j. Inspect the measured value, marginal error and signed correlation.
+\item Export the selected SVG, full JSON or observed CSV. Import the JSON to restore a validated selection.
+\item Open Certificates. Read each claim and its scope, then download its JSON or the existing catalogue ZIP.
+\end{enumerate}
+\subsection*{Controls and inputs}
+\textbf{GHU case}. One of nine fixed recalibrated cases; changing the case may change multiple inputs and field multiplicities. Compare cases 1 and 6.
+
+\textbf{Potential interval}. Field \ensuremath{\theta} in 0.06--0.14 or 0--\ensuremath{\pi}. The vacuum \ensuremath{\theta}H remains fixed at 0.1. Switch regions and read the vertical exponent.
+
+\textbf{CMS intervals i and j}. Select one measured bin and a second bin for their experimental correlation. Set i=j, then select different intervals.
+
+\subsection*{Reading the results}
+\textbf{Four linked figures}. Parameter scatter and potential difference share the theory selection. Measured error bars and covariance-derived correlations share the CMS selection.
+
+\textbf{Downloads and imports}. JSON preserves provenance, full covariance and theory samples. SVG is standalone; CSV contains observed bins. Import restores inputs, not an external dataset or imported verdict.
+
+\textbf{Scoped certificates}. Ten rational Lean identities, exact covariance witnesses and three pointwise derivative enclosures. Full-integral error and observed-fit certification remain pending.
+
+Read axes, units and source before comparing panels. Small coupling changes after recalibration do not establish experimental indistinguishability. The potential scale is fixed across cases within a region, and changes when the region changes.
+\subsection*{Worked example: Follow the interactive demo}
+\begin{enumerate}
+\item Open Same potential? and use the jump button for Hypotheses. Press Demo for the real-control walkthrough.
+\item Choose cases 1 and 6. Read the recalibrated coupling changes, then expand the potential interval.
+\item Choose CMS intervals i and j. Inspect the measured value, marginal error and signed correlation.
+\item Export the selected SVG, full JSON or observed CSV. Import the JSON to restore a validated selection.
+\item Open Certificates. Read each claim and its scope, then download its JSON or the existing catalogue ZIP.
+\end{enumerate}
+The demo ends with separate theoretical and experimental readings. It never assigns an exclusion to the nine benchmarks.
+\subsection*{Scope and limitations}
+\begin{itemize}
+\item Dominant-tower reconstruction, bottom omitted, physical uncertainty unquantified. The browser reads archived calculations; it does not rerun the Bessel integrals.
+\item This study is independent of the exact SU(7) equivalence theorem in its host section. Its video chapter and interactive Demo share the same practical walkthrough.
+\item No observed GHU fit or full physical certification is provided. A covariance alone does not supply a compatible theory prediction.
+\item The about 7.4\% quartic fit/table discrepancy is unresolved. Quadrature convergence is not a rigorous total error bound.
+\end{itemize}
+\subsection*{If something is unclear}
+\textbf{The selected curve is zero.} Case 1 is compared with itself. Select another case.
+
+\textbf{Import is rejected.} Use this card's JSON export with valid integer selections. Unrelated datasets require a separate audited adapter.
+
+\subsection*{Sources and attribution}
+\begin{itemize}
+\item \href{https://arxiv.org/html/2002.09262v3}{Funatsu et al. · GHU potential and Table 3}
+\item \href{https://doi.org/10.17182/hepdata.102956.v1/t37}{CMS observed spectrum}
+\item \href{https://doi.org/10.17182/hepdata.102956.v1/t38}{CMS experimental covariance}
 \end{itemize}
 \section{Glossary}
 \subsection*{the alphabet}
@@ -2724,6 +2780,6 @@ The lattice holds \ensuremath{\beta} fixed: diamonds pass both criteria and ring
 An ordinary Z\ensuremath{{}_{2}} action lifted to Spin(20) needs an element whose square is +1. Here t\ensuremath{{}_{a}}\ensuremath{{}^{2}} = \ensuremath{-}1, while U\ensuremath{{}_{a}} = \ensuremath{-}i t\ensuremath{{}_{a}} has U\ensuremath{{}_{a}}\ensuremath{{}^{2}} = +1 because of an extra scalar phase. A combined or twisted action must be specified for all fields; the matrix alone does not establish it.
 
 \subsection*{Scope of a Lean certificate}
-Lean checks the exact theorem statements against their hypotheses. These four files contain 49 theorem declarations for weight algebra and arithmetic criteria. Numerical audits, the external topology, allowed orbifold backgrounds and full physical consistency remain distinct questions.
+Lean checks the exact theorem statements against their hypotheses. These five files contain 59 theorem declarations for weight algebra, arithmetic criteria and rational hypothesis algebra. Numerical audits, the external topology, allowed orbifold backgrounds and full physical consistency remain distinct questions.
 
 \end{document}

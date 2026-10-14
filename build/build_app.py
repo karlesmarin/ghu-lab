@@ -46,7 +46,7 @@ KERNEL = ["meta.mjs", "status.mjs", "experiment.mjs", "observables.mjs", "sensit
           "cite.mjs", "latex.mjs", "blkt.mjs", "alphabet.mjs", "fibres.mjs", "moves.mjs", "rotations.mjs",
           # rank.mjs before unbroken.mjs: the second calls the first, and one scope means order is the import.
           "rank.mjs", "unbroken.mjs", "tripod.mjs"]
-VIEW = ["interface_language.js", "quantization_figures.js", "fibre_panels.js", "tower3d.js", "demo.js", "howto.js", "help.js", "neutrino_panel.js", "neutrino_decay_panel.js", "diagnostics_panels.js", "research_panels.js", "boundary_language.js", "boundary_plots.js", "card_demo.js", "card_demos_cards.js", "card_demos_sections.js", "demo_scripts.mjs", "neutrino_research_panel.js", "moment_panels.js", "crossvalidation_panels.js"]
+VIEW = ["interface_language.js", "quantization_figures.js", "fibre_panels.js", "tower3d.js", "demo.js", "howto.js", "help.js", "neutrino_panel.js", "neutrino_decay_panel.js", "diagnostics_panels.js", "research_panels.js", "boundary_language.js", "boundary_plots.js", "hypothesis_plots.js", "card_demo.js", "card_demos_cards.js", "card_demos_sections.js", "demo_scripts.mjs", "neutrino_research_panel.js", "moment_panels.js", "crossvalidation_panels.js"]
 MODULES = ["selection.mjs", "calculator.mjs", "hierarchy.mjs", "anomalies.mjs", "escape.mjs",
            "samepot.mjs", "screen.mjs", "collider.mjs", "atlas.mjs", "eta.mjs", "fived.mjs",
            "spectrum.mjs", "inverse.mjs", "census.mjs", "sun5d.mjs", "bcclass.mjs",
@@ -55,7 +55,7 @@ MODULES = ["selection.mjs", "calculator.mjs", "hierarchy.mjs", "anomalies.mjs", 
            "yukawa.mjs",
            "predict.mjs", "reading.mjs", "sweep5d.mjs", "dossier.mjs", "papers.mjs", "particles.mjs",
             "robustness.mjs", "gravitygauge.mjs", "neutrino_ring.mjs", "neutrino_limits.mjs", "neutrino_majoron.mjs", "neutrino_decay.mjs", "higgs_diagnostics.mjs", "su6_maru_nago.mjs", "rs_unification.mjs", "neutrino_flavour.mjs", "neutrino_research.mjs", "thermal_ghu.mjs", "rs_anomaly.mjs", "resonance_xsec.mjs", "rs_fermions.mjs", "xs_lumi_reference.mjs", "xs_limits_reference.mjs", "rf_benchmark_reference.mjs", "tt_cms_reference.mjs", "tts_reference.mjs", "tt_spectrum.mjs", "kk_gluon_lhc.mjs", "higgstools_reference.mjs", "higgstools_adapter.mjs", "external_reference.mjs",
-            "thermal_history.mjs", "thermal_history_reference.mjs", "candidate_bounds_reference.mjs", "candidate_bounds.mjs", "candidate_vacua_reference.mjs", "formula_consistency_reference.mjs", "su7_certification_reference.mjs", "moment_diagnostics.mjs", "moment_diagnostics_reference.mjs", "crossvalidation.mjs", "crossvalidation_reference.mjs", "boundary_research.mjs", "quantization.mjs"]
+            "thermal_history.mjs", "thermal_history_reference.mjs", "candidate_bounds_reference.mjs", "candidate_bounds.mjs", "candidate_vacua_reference.mjs", "formula_consistency_reference.mjs", "su7_certification_reference.mjs", "moment_diagnostics.mjs", "moment_diagnostics_reference.mjs", "crossvalidation.mjs", "crossvalidation_reference.mjs", "boundary_research.mjs", "quantization.mjs", "hypothesis_reference.mjs", "hypothesis_compare.mjs"]
 SECTIONS = ["torus_panels.js", "hierarchy_section.js", "inverse_section.js", "census_section.js",
             "atlas_section.js", "samepot_section.js",
             "anomalies_section.js", "escape_section.js", "screen_section.js",
@@ -68,7 +68,7 @@ SECTIONS = ["torus_panels.js", "hierarchy_section.js", "inverse_section.js", "ce
             "cbclass_section.js", "blkt_section.js",
             "census_lit_section.js",
             "multiplets_section.js",
-            "gravitygauge_section.js", "quantization_section.js", "research_extensions.js", "registry.js"]
+            "gravitygauge_section.js", "quantization_section.js", "research_extensions.js", "hypothesis_card.js", "registry.js"]
 
 IMPORT_LINE = re.compile(r'^\s*import\s+[^;]*?from\s+["\'][^"\']+["\']\s*(?:with\s*\{\s*type\s*:\s*["\']json["\']\s*\}\s*)?;?\s*$', re.M)
 EXPORT_KW = re.compile(r"^\s*export\s+(?=(?:const|let|var|function|class|async))", re.M)
@@ -283,7 +283,7 @@ def build(edition=False, home=None, out_path=None):
 # Leaving the only gate for that defect outside every tier would be the same mistake in the same
 # week: the header above this list says the failure mode was never "too slow to run", it was
 # "I forgot".  It costs about two minutes.
-BROWSER_GATES = [("leaks.mjs", []), ("layout.mjs", ["--quiet"]), ("extremes.mjs", []),
+BROWSER_GATES = [("hypothesis_compare.mjs", []), ("leaks.mjs", []), ("layout.mjs", ["--quiet"]), ("extremes.mjs", []),
                  ("lifecycle.mjs", []), ("drive.mjs", []), ("neutrino.mjs", []), ("diagnostics.mjs", []), ("neutrino_decay.mjs", []), ("extensions.mjs", []), ("boundary_research.mjs", []), ("quantization.mjs", []), ("card_help.mjs", []), ("interface_language.mjs", []), ("dynamic_language.mjs", []), ("closure.mjs", []), ("neutrino_research.mjs", []), ("moments.mjs", []), ("crossvalidation.mjs", []), ("guides.mjs", []), ("demos.mjs", [])]
 STAMP = HERE / ".browser_gate.json"
 
@@ -376,7 +376,7 @@ def main(argv=None):
                 ["node", "_test_app.mjs"], ["node", "_test_groups.mjs"], ["node", "_test_wilson.mjs"],
                 ["node", "_test_eta.mjs"], ["node", "_test_selection.mjs"],
                 ["node", "_test_surface.mjs"], ["node", "_test_escape.mjs"],
-                ["node", "_test_samepot.mjs"], ["node", "_test_screen.mjs"],
+                ["node", "_test_samepot.mjs"], ["node", "_test_hypothesis_compare.mjs"], ["node", "_test_screen.mjs"],
                 ["node", "_test_multiplets.mjs"],
                 ["node", "_test_fived.mjs"], ["node", "_test_collider.mjs"],
                 ["node", "_test_atlas.mjs"],

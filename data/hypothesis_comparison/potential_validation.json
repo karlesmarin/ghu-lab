@@ -1,0 +1,513 @@
+{
+  "status": "dominant_tower_numerics_checked_full_physics_validation_pending",
+  "passed": true,
+  "count": 50,
+  "checks": [
+    {
+      "name": "SciPy Bessel combinations match 60-digit mpmath",
+      "passed": true,
+      "witness": 6.661338147750939e-16
+    },
+    {
+      "name": "Analytic log derivatives through fourth order (-0.999, 1)",
+      "passed": true,
+      "witness": 6.393774398816277e-13
+    },
+    {
+      "name": "Analytic log derivatives through fourth order (-0.95, 2)",
+      "passed": true,
+      "witness": 5.10702591327572e-15
+    },
+    {
+      "name": "Analytic log derivatives through fourth order (0.8, 1)",
+      "passed": true,
+      "witness": 6.661338147750939e-16
+    },
+    {
+      "name": "Point 1: quadrature refinement",
+      "passed": true,
+      "witness": 6.654400227918402e-15
+    },
+    {
+      "name": "Point 1: cutoff 35 to 45",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 1: recalibration residuals",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 1: bottom-inclusive diagnostic recalibration",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 1: no lower sampled point in [0,pi]",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 2: quadrature refinement",
+      "passed": true,
+      "witness": 8.129997187816392e-15
+    },
+    {
+      "name": "Point 2: cutoff 35 to 45",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 2: recalibration residuals",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 2: bottom-inclusive diagnostic recalibration",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 2: no lower sampled point in [0,pi]",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 3: quadrature refinement",
+      "passed": true,
+      "witness": 5.209908471074024e-14
+    },
+    {
+      "name": "Point 3: cutoff 35 to 45",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 3: recalibration residuals",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 3: bottom-inclusive diagnostic recalibration",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 3: no lower sampled point in [0,pi]",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 4: quadrature refinement",
+      "passed": true,
+      "witness": 5.193678226667634e-14
+    },
+    {
+      "name": "Point 4: cutoff 35 to 45",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 4: recalibration residuals",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 4: bottom-inclusive diagnostic recalibration",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 4: no lower sampled point in [0,pi]",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 5: quadrature refinement",
+      "passed": true,
+      "witness": 2.5968391133340106e-14
+    },
+    {
+      "name": "Point 5: cutoff 35 to 45",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 5: recalibration residuals",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 5: bottom-inclusive diagnostic recalibration",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 5: no lower sampled point in [0,pi]",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 6: quadrature refinement",
+      "passed": true,
+      "witness": 1.947629335000508e-14
+    },
+    {
+      "name": "Point 6: cutoff 35 to 45",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 6: recalibration residuals",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 6: bottom-inclusive diagnostic recalibration",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 6: no lower sampled point in [0,pi]",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 7: quadrature refinement",
+      "passed": true,
+      "witness": 5.193678226668021e-14
+    },
+    {
+      "name": "Point 7: cutoff 35 to 45",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 7: recalibration residuals",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 7: bottom-inclusive diagnostic recalibration",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 7: no lower sampled point in [0,pi]",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 8: quadrature refinement",
+      "passed": true,
+      "witness": 8.455957362793871e-14
+    },
+    {
+      "name": "Point 8: cutoff 35 to 45",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 8: recalibration residuals",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 8: bottom-inclusive diagnostic recalibration",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 8: no lower sampled point in [0,pi]",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 9: quadrature refinement",
+      "passed": true,
+      "witness": 1.2984195566667734e-14
+    },
+    {
+      "name": "Point 9: cutoff 35 to 45",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 9: recalibration residuals",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 9: bottom-inclusive diagnostic recalibration",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Point 9: no lower sampled point in [0,pi]",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Adaptive versus fixed quadrature for derivatives 2,3,4",
+      "passed": true,
+      "witness": [
+        9.270362255620057e-14,
+        6.439293542825908e-15,
+        5.551115123125783e-16
+      ]
+    }
+  ],
+  "max_quadrature_drift": 8.455957362793871e-14,
+  "max_published_relative_discrepancy": [
+    0.0020474101946554857,
+    0.0034548987609182014
+  ],
+  "max_bottom_diagnostic_relative_shift": [
+    0.14720101015840692,
+    0.0005416164016465164,
+    0.0007681951621409944
+  ],
+  "bottom_diagnostic_columns": [
+    "mass_squared",
+    "lambda3",
+    "lambda4"
+  ],
+  "bottom_recalibrated": [
+    {
+      "point": 1,
+      "parameters": [
+        0.3185747345823393,
+        0.08064105627680665
+      ],
+      "result": {
+        "derivatives": [
+          -0.0007995691162551748,
+          94014536266.9502,
+          2569105859280.32,
+          18101924291978.62
+        ],
+        "stationarity_scaled": -8.504739245692299e-15,
+        "mass_squared": 15650.009999998403,
+        "lambda3": 29.08105555190397,
+        "lambda4": 0.020900309861120615
+      },
+      "relative_to_paper": [
+        0.001758716910229774,
+        0.0033754133999335245
+      ]
+    },
+    {
+      "point": 2,
+      "parameters": [
+        0.3187073519997434,
+        0.0777856954111814
+      ],
+      "result": {
+        "derivatives": [
+          0.007761015536944367,
+          94014536267.03947,
+          2569078946988.485,
+          18100319144018.535
+        ],
+        "stationarity_scaled": 8.255122925785124e-14,
+        "mass_squared": 15650.010000013264,
+        "lambda3": 29.0807509175694,
+        "lambda4": 0.02089845657253109
+      },
+      "relative_to_paper": [
+        0.001748223133634097,
+        0.0032864413121023173
+      ]
+    },
+    {
+      "point": 3,
+      "parameters": [
+        0.321473560318551,
+        -0.037208672380700566
+      ],
+      "result": {
+        "derivatives": [
+          -0.004391957318937125,
+          94014536266.9184,
+          2568365316513.558,
+          18057873163175.85
+        ],
+        "stationarity_scaled": -4.671572602842932e-14,
+        "mass_squared": 15650.00999999311,
+        "lambda3": 29.072672960248212,
+        "lambda4": 0.02084944884618874
+      },
+      "relative_to_paper": [
+        0.0018150572104829177,
+        0.003342100394068348
+      ]
+    },
+    {
+      "point": 4,
+      "parameters": [
+        0.42505772126392155,
+        0.07941939423360879
+      ],
+      "result": {
+        "derivatives": [
+          0.0027163852948803515,
+          94014536266.99239,
+          2568956606913.479,
+          18092995063736.598
+        ],
+        "stationarity_scaled": 2.889324781826309e-14,
+        "mass_squared": 15650.010000005426,
+        "lambda3": 29.079366086148532,
+        "lambda4": 0.020890000258999383
+      },
+      "relative_to_paper": [
+        0.0020456955943670696,
+        0.0033621642170691413
+      ]
+    },
+    {
+      "point": 5,
+      "parameters": [
+        0.4251168006956572,
+        0.07655371226012324
+      ],
+      "result": {
+        "derivatives": [
+          0.0016463122132304086,
+          94014536266.98016,
+          2568926406392.543,
+          18091193925909.336
+        ],
+        "stationarity_scaled": 1.7511251755320144e-14,
+        "mass_squared": 15650.010000003393,
+        "lambda3": 29.07902423062558,
+        "lambda4": 0.02088792068237067
+      },
+      "relative_to_paper": [
+        0.002033915597022151,
+        0.003262280613384627
+      ]
+    },
+    {
+      "point": 6,
+      "parameters": [
+        0.4263932524229167,
+        -0.03506593109285852
+      ],
+      "result": {
+        "derivatives": [
+          0.0002705039653947679,
+          94014536266.9606,
+          2568076663462.2065,
+          18040678463340.21
+        ],
+        "stationarity_scaled": 2.8772568172506434e-15,
+        "mass_squared": 15650.010000000135,
+        "lambda3": 29.06940554509237,
+        "lambda4": 0.020829596009068373
+      },
+      "relative_to_paper": [
+        0.002047760947685884,
+        0.0033524089146614866
+      ]
+    },
+    {
+      "point": 7,
+      "parameters": [
+        0.3176958109066826,
+        0.09646575779613908
+      ],
+      "result": {
+        "derivatives": [
+          0.0013405770470447107,
+          94014536266.97711,
+          2569276008557.8354,
+          18112076758699.684
+        ],
+        "stationarity_scaled": 1.425925288019359e-14,
+        "mass_squared": 15650.010000002883,
+        "lambda3": 29.082981560742287,
+        "lambda4": 0.020912031802771812
+      },
+      "relative_to_paper": [
+        0.001825062374863462,
+        0.0034564204784937047
+      ]
+    },
+    {
+      "point": 8,
+      "parameters": [
+        0.31775753878263074,
+        0.09375411180845945
+      ],
+      "result": {
+        "derivatives": [
+          0.001569878421683984,
+          94014536266.97588,
+          2569264210839.8037,
+          18111372737960.215
+        ],
+        "stationarity_scaled": 1.6698252036538504e-14,
+        "mass_squared": 15650.010000002678,
+        "lambda3": 29.082848016189335,
+        "lambda4": 0.02091121894711259
+      },
+      "relative_to_paper": [
+        0.0018204621491331174,
+        0.003417415888320008
+      ]
+    },
+    {
+      "point": 9,
+      "parameters": [
+        0.31873261903935296,
+        0.06157987511820089
+      ],
+      "result": {
+        "derivatives": [
+          0.00730241278766582,
+          94014536267.03642,
+          2569064059319.9243,
+          18099436679555.957
+        ],
+        "stationarity_scaled": 7.767323094516141e-14,
+        "mass_squared": 15650.010000012757,
+        "lambda3": 29.080582396247134,
+        "lambda4": 0.02089743768744397
+      },
+      "relative_to_paper": [
+        0.001742418058805928,
+        0.0032375270016307134
+      ]
+    }
+  ],
+  "max_bottom_recalibrated_difference_to_paper": [
+    0.002047760947685884,
+    0.0034564204784937047
+  ],
+  "sampled_global_minimum_only": true,
+  "not_formally_certified": true,
+  "not_experimental_validation": true,
+  "rounding_mass_range_GeV": [
+    107.19852485672308,
+    161.54780009539002
+  ],
+  "limitations": [
+    "Bottom omitted in main reconstruction; alternative includes bottom with Table 2/Appendix A inputs and recalibrates. Neither is a complete electroweak/model validation.",
+    "Rounded k/ct and approximate gW=0.653; electroweak input scheme not reproduced.",
+    "Recalibration uses stationarity and mH, never lambda3/lambda4. Agreement at one theta does not establish validity throughout parameter space.",
+    "Positive curvature and sampled potential check are not a proof of the global minimum.",
+    "7.4% published quartic fitting-curve/table discrepancy persists; its cause is not established."
+  ],
+  "source": "https://arxiv.org/html/2002.09262v3",
+  "environment": {
+    "numpy": "2.4.4",
+    "scipy": "1.16.3",
+    "mpmath": "1.3.0"
+  },
+  "code_sha256": {
+    "ghu_potential.py": "6220b0a48717e22bd451c2aa0dda039951056e7e99d25b7335617edc1a4ee04f",
+    "validate_potential.py": "3999d1d723d9a008533d08179ec8f6b18a2878c5c4e0453865bc4a242de06cf9"
+  }
+}

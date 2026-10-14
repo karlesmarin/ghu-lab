@@ -4469,7 +4469,7 @@
         },
         {
           "name": "JSON / Lean",
-          "meaning": "JSON retains every input, witness, source and limit. The catalogue includes four Lean files with 49 theorem declarations and their replay evidence."
+          "meaning": "JSON retains every input, witness, source and limit. The catalogue includes five Lean files with 59 theorem declarations and their replay evidence."
         },
         {
           "name": "Lattices and cocharacter fingerprint",
@@ -4525,6 +4525,103 @@
         {
           "symptom": "The result passes but model consistency is not checked.",
           "action": "Read the scope: a restricted quantization criterion is one necessary ingredient of a full action, not a certification of the remaining ingredients."
+        }
+      ]
+    },
+    {
+      "id": "hypothesiscompare",
+      "kind": "experiment",
+      "host": "samepot",
+      "route": "s=samepot&help=hypothesiscompare",
+      "video": "hypothesiscompare",
+      "source": "src/modules/hypothesis_compare.mjs",
+      "terms": [],
+      "related": [
+        "samepot",
+        "collider",
+        "kkgluon"
+      ],
+      "references": [
+        {
+          "label": "Funatsu et al. · GHU potential and Table 3",
+          "url": "https://arxiv.org/html/2002.09262v3"
+        },
+        {
+          "label": "CMS observed spectrum",
+          "url": "https://doi.org/10.17182/hepdata.102956.v1/t37"
+        },
+        {
+          "label": "CMS experimental covariance",
+          "url": "https://doi.org/10.17182/hepdata.102956.v1/t38"
+        }
+      ],
+      "title": "Hypotheses: local response and experimental context",
+      "what": "Compare nine recalibrated GHU benchmarks and inspect a separate CMS spectrum with its covariance. Each selection includes a reading of the calculated values and their scope.",
+      "purpose": "Distinguish changes in model parameters, local couplings, full-field potential differences and experimental error structure. Theory and CMS are separate contexts until a compatible prediction exists.",
+      "steps": [
+        "Open Same potential? and use the jump button for Hypotheses. Press Demo for the real-control walkthrough.",
+        "Choose cases 1 and 6. Read the recalibrated coupling changes, then expand the potential interval.",
+        "Choose CMS intervals i and j. Inspect the measured value, marginal error and signed correlation.",
+        "Export the selected SVG, full JSON or observed CSV. Import the JSON to restore a validated selection.",
+        "Open Certificates. Read each claim and its scope, then download its JSON or the existing catalogue ZIP."
+      ],
+      "read": "Read axes, units and source before comparing panels. Small coupling changes after recalibration do not establish experimental indistinguishability. The potential scale is fixed across cases within a region, and changes when the region changes.",
+      "controls": [
+        {
+          "name": "GHU case",
+          "meaning": "One of nine fixed recalibrated cases; changing the case may change multiple inputs and field multiplicities.",
+          "try": "Compare cases 1 and 6."
+        },
+        {
+          "name": "Potential interval",
+          "meaning": "Field θ in 0.06–0.14 or 0–π. The vacuum θH remains fixed at 0.1.",
+          "try": "Switch regions and read the vertical exponent."
+        },
+        {
+          "name": "CMS intervals i and j",
+          "meaning": "Select one measured bin and a second bin for their experimental correlation.",
+          "try": "Set i=j, then select different intervals."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Four linked figures",
+          "meaning": "Parameter scatter and potential difference share the theory selection. Measured error bars and covariance-derived correlations share the CMS selection."
+        },
+        {
+          "name": "Downloads and imports",
+          "meaning": "JSON preserves provenance, full covariance and theory samples. SVG is standalone; CSV contains observed bins. Import restores inputs, not an external dataset or imported verdict."
+        },
+        {
+          "name": "Scoped certificates",
+          "meaning": "Ten rational Lean identities, exact covariance witnesses and three pointwise derivative enclosures. Full-integral error and observed-fit certification remain pending."
+        }
+      ],
+      "example": {
+        "title": "Follow the interactive demo",
+        "steps": [
+          "Open Same potential? and use the jump button for Hypotheses. Press Demo for the real-control walkthrough.",
+          "Choose cases 1 and 6. Read the recalibrated coupling changes, then expand the potential interval.",
+          "Choose CMS intervals i and j. Inspect the measured value, marginal error and signed correlation.",
+          "Export the selected SVG, full JSON or observed CSV. Import the JSON to restore a validated selection.",
+          "Open Certificates. Read each claim and its scope, then download its JSON or the existing catalogue ZIP."
+        ],
+        "expect": "The demo ends with separate theoretical and experimental readings. It never assigns an exclusion to the nine benchmarks."
+      },
+      "limits": [
+        "Dominant-tower reconstruction, bottom omitted, physical uncertainty unquantified. The browser reads archived calculations; it does not rerun the Bessel integrals.",
+        "This study is independent of the exact SU(7) equivalence theorem in its host section. Its video chapter and interactive Demo share the same practical walkthrough.",
+        "No observed GHU fit or full physical certification is provided. A covariance alone does not supply a compatible theory prediction.",
+        "The about 7.4% quartic fit/table discrepancy is unresolved. Quadrature convergence is not a rigorous total error bound."
+      ],
+      "troubleshooting": [
+        {
+          "symptom": "The selected curve is zero.",
+          "action": "Case 1 is compared with itself. Select another case."
+        },
+        {
+          "symptom": "Import is rejected.",
+          "action": "Use this card’s JSON export with valid integer selections. Unrelated datasets require a separate audited adapter."
         }
       ]
     }
@@ -4796,7 +4893,7 @@
     },
     "quantization-evidence": {
       "term": "Scope of a Lean certificate",
-      "body": "Lean checks the exact theorem statements against their hypotheses. These four files contain 49 theorem declarations for weight algebra and arithmetic criteria. Numerical audits, the external topology, allowed orbifold backgrounds and full physical consistency remain distinct questions."
+      "body": "Lean checks the exact theorem statements against their hypotheses. These five files contain 59 theorem declarations for weight algebra, arithmetic criteria and rational hypothesis algebra. Numerical audits, the external topology, allowed orbifold backgrounds and full physical consistency remain distinct questions."
     }
   }
 }

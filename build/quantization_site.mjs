@@ -33,7 +33,7 @@ try{
   const lang=report.language;await send('Page.navigate',{url:base+'/video/quantization/index'+(lang==='es'?'-es':'')+'.html'});
   let ready=false;for(let i=0;i<100;i++){ready=await ev(`!!document.getElementById('film')&&document.getElementById('film').readyState>=1`);if(ready)break;await pause(100);}
   ck(lang+' video metadata and duration',ready&&await ev(`Math.abs(document.getElementById('film').duration-${report.duration_seconds})<.2`));
-  ck(lang+' document language and chapter count',await ev(`document.documentElement.lang==='${lang}'&&document.querySelectorAll('[data-start]').length===${report.chapters}`));
+  ck(lang+' document language and chapter count',await ev(`document.documentElement?.lang==='${lang}'&&document.querySelectorAll('[data-start]').length===${report.chapters}`));
   await ev(`document.getElementById('film').textTracks[0].mode='hidden'`);
   let cues=0;for(let i=0;i<50;i++){cues=await ev(`document.getElementById('film').textTracks[0].cues?.length||0`);if(cues)break;await pause(100);}
   ck(lang+' VTT captions loaded',cues===report.caption_cues);
@@ -48,12 +48,13 @@ try{
  const revision=JSON.parse(readFileSync(resolve(root,'media/video/current.json'))).directory;
  const main=JSON.parse(readFileSync(resolve(root,'media/video',revision,'manifest.json')));
  for(const lang of ['en','es']){
-  const ch=JSON.parse(readFileSync(resolve(root,'media/video',revision,'chapters-'+lang+'.json'))).at(-1);
+  const mainChapters=JSON.parse(readFileSync(resolve(root,'media/video',revision,'chapters-'+lang+'.json')));
+  const ch=mainChapters.find(c=>c.id==='quantization');
   await send('Page.navigate',{url:base+'/video/index.html?lang='+lang+'#quantization'});
-  let ready=false;for(let i=0;i<150;i++){ready=await ev(`document.documentElement.lang==='${lang}'&&document.getElementById('guideVideo')?.readyState>=1&&document.getElementById('chapterNow')?.textContent.startsWith('46')&&Math.abs(document.getElementById('guideVideo').currentTime-${ch.start})<1`);if(ready)break;await pause(100);}
-  if(!ready)console.log('Primary player state',await ev(`(()=>{const v=document.getElementById('guideVideo');return {href:location.href,lang:document.documentElement.lang,time:v?.currentTime,duration:v?.duration,ready:v?.readyState,network:v?.networkState,error:v?.error?.message,title:document.getElementById('chapterNow')?.textContent,src:v?.currentSrc,chapters:document.querySelectorAll('.vg-chapter').length};})()`));
-  ck(lang+' primary film chapter 46 opens from its link',ready&&await ev(`document.querySelectorAll('.vg-chapter').length===46&&Math.abs(document.getElementById('guideVideo').currentTime-${ch.start})<1`));
-  ck(lang+' primary film duration and language',await ev(`document.documentElement.lang==='${lang}'&&Math.abs(document.getElementById('guideVideo').duration-${main.versions[lang].seconds})<.2`));
+  let ready=false;for(let i=0;i<150;i++){ready=await ev(`document.documentElement?.lang==='${lang}'&&document.getElementById('guideVideo')?.readyState>=1&&document.getElementById('chapterNow')?.textContent.startsWith('46')&&Math.abs(document.getElementById('guideVideo').currentTime-${ch.start})<1`);if(ready)break;await pause(100);}
+  if(!ready)console.log('Primary player state',await ev(`(()=>{const v=document.getElementById('guideVideo');return {href:location.href,lang:document.documentElement?.lang,time:v?.currentTime,duration:v?.duration,ready:v?.readyState,network:v?.networkState,error:v?.error?.message,title:document.getElementById('chapterNow')?.textContent,src:v?.currentSrc,chapters:document.querySelectorAll('.vg-chapter').length};})()`));
+  ck(lang+' primary film chapter 46 opens from its link',ready&&await ev(`document.querySelectorAll('.vg-chapter').length===${mainChapters.length}&&Math.abs(document.getElementById('guideVideo').currentTime-${ch.start})<1`));
+  ck(lang+' primary film duration and language',await ev(`document.documentElement?.lang==='${lang}'&&Math.abs(document.getElementById('guideVideo').duration-${main.versions[lang].seconds})<.2`));
   ck(lang+' primary film points to matching laboratory section',await ev(`document.getElementById('openSection').href.endsWith('#s=quantization&lang=${lang}')`));
   await ev(`document.getElementById('guideVideo').play()`);await pause(500);
   ck(lang+' primary film actually plays the new chapter',await ev(`!document.getElementById('guideVideo').paused&&document.getElementById('guideVideo').currentTime>${ch.start}`));
@@ -66,19 +67,28 @@ try{
   }
   writeFileSync(resolve(out,'main-'+lang+'.png'),Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
  }
+ for(const lang of ['en','es']){
+  await send('Page.navigate',{url:base+'/video/index.html?lang='+lang+'#hypothesiscompare'});
+  let ready=false;for(let i=0;i<150;i++){ready=await ev(`document.documentElement?.lang==='${lang}'&&document.getElementById('chapterNow')?.textContent.startsWith('47')&&document.getElementById('guideVideo')?.readyState>=1`);if(ready)break;await pause(100);}
+  ck(lang+' hypothesis chapter opens and links to the matching demo',ready&&await ev(`document.getElementById('openSection').href.includes('#s=samepot&demo=hypothesiscompare&lang=${lang}')`));
+  const href=await ev(`document.getElementById('openSection').href`);
+  await send('Page.navigate',{url:href+'&demoSpeed=.01'});
+  let finished=false;for(let i=0;i<400;i++){finished=await ev(`typeof CDM_STATE!=='undefined'&&CDM_STATE.lastFinished==='hypothesiscompare'&&!CDM_STATE.running`);if(finished)break;await pause(100);}
+  ck(lang+' video-to-hypothesis demo completes with matching language',finished&&await ev(`!CDM_STATE.lastError&&GUIDE_LANGUAGE==='${lang}'&&!!document.getElementById('cdm_explain')`));
+ }
  const math=JSON.parse(readFileSync(resolve(site,'video/mathematics/render-manifest.json')));
  for(const report of math.reports){
   const lang=report.language,chapters=JSON.parse(readFileSync(resolve(site,'video/mathematics/chapters-'+lang+'.json')));
   await send('Page.navigate',{url:base+'/video/mathematics/index'+(lang==='es'?'-es':'')+'.html#q1'});
-  let ready=false;for(let i=0;i<150;i++){ready=await ev(`document.getElementById('film')?.readyState>=1&&document.querySelectorAll('#chapters button').length===38&&Math.abs(document.getElementById('film').currentTime-${chapters[29].start})<.002`);if(ready)break;await pause(100);}
-  ck(lang+' mathematical film 38 chapters and hash seek',ready);
-  ck(lang+' mathematical film duration and language',await ev(`document.documentElement.lang==='${lang}'&&Math.abs(document.getElementById('film').duration-${report.seconds})<.2`));
+  let ready=false;for(let i=0;i<150;i++){ready=await ev(`document.getElementById('film')?.readyState>=1&&document.querySelectorAll('#chapters button').length===${report.chapters}&&Math.abs(document.getElementById('film').currentTime-${chapters[29].start})<.002`);if(ready)break;await pause(100);}
+  ck(lang+' mathematical film '+report.chapters+' chapters and hash seek',ready);
+  ck(lang+' mathematical film duration and language',await ev(`document.documentElement?.lang==='${lang}'&&Math.abs(document.getElementById('film').duration-${report.seconds})<.2`));
   for(let i=0;i<chapters.length;i++){
    await ev(`document.querySelectorAll('#chapters button')[${i}].click()`);
    ck(lang+' mathematical index chapter '+(i+1),await ev(`Math.abs(document.getElementById('film').currentTime-${chapters[i].start})<.002&&document.querySelector('#chapters [aria-current="true"]').dataset.index==='${i}'`));
   }
-  await ev(`document.getElementById('film').play()`);await pause(600);
-  ck(lang+' mathematical film plays the experimental chapter',await ev(`!document.getElementById('film').paused&&document.getElementById('film').currentTime>${chapters[37].start}`));
+  await ev(`document.querySelectorAll('#chapters button')[40].click();document.getElementById('film').play()`);await pause(600);
+  ck(lang+' mathematical film plays the experimental chapter',await ev(`!document.getElementById('film').paused&&document.getElementById('film').currentTime>${chapters[40].start}`));
   await ev(`document.getElementById('film').pause()`);
   await send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});
   ck(lang+' mathematical player mobile layout',await ev(`document.documentElement.scrollWidth<=window.innerWidth+1`));

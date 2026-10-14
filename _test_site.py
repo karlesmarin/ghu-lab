@@ -28,6 +28,7 @@ The checks are not stylistic.  Each one corresponds to a way a static site quiet
   echo         an entry that appears in the stream but not on its own paper's page
 """
 import html
+import hashlib
 from html.parser import HTMLParser
 import json
 import pathlib
@@ -39,7 +40,7 @@ ROOT = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "build"))
 from editiongate import check as edition_check                             # noqa: E402
 import build_site                                                          # noqa: E402
-from search_index import VERIFICATION_FILES
+from search_index import VERIFICATION_FILES, PINNED_PROOF_PAGES
 from build_site import ROMAN, SLUG, SEVERITIES, APP_HOME                   # noqa: E402
 from build_app import HOME_PLAIN, HOME_LINKED, SITE_HEAD                              # noqa: E402
 
@@ -215,7 +216,7 @@ def carried(rel):
     what frozen means — so holding them to the standards of a generated page would produce a
     failure nobody is allowed to fix.  They are still required to be self-contained and to carry a
     title."""
-    return rel.startswith(("tools-", "editions/")) and rel != "editions/index.html"
+    return rel in PINNED_PROOF_PAGES or (rel.startswith(("tools-", "editions/")) and rel != "editions/index.html")
 
 
 def check_head(w):
@@ -224,11 +225,15 @@ def check_head(w):
         if rel == "app/index.html":
             continue
         if carried(rel):
+            if rel in PINNED_PROOF_PAGES:
+                certificate=json.loads((ROOT/'proof/hypothesis/certificates.json').read_text(encoding='utf-8'))
+                if hashlib.sha256((SITE/rel).read_bytes()).hexdigest()!=certificate['sources'][rel]:
+                    bad.append(f"{rel} differs from its scientific certificate hash")
             t = re.search(r"<title>(.*?)</title>", text, re.S)
             if not t or not t.group(1).strip():
                 bad.append(f"{rel} is a carried artifact with no title")
             continue
-        expected_lang = 'es' if rel.startswith('guide/es/') or (rel.startswith(('video/mathematics/', 'video/quantization/')) and rel.endswith('-es.html')) else 'en'
+        expected_lang = 'es' if rel in ('proof/hypothesis/notes.html','data/hypothesis_comparison/index.html') or rel.startswith('guide/es/') or (rel.startswith(('video/mathematics/', 'video/quantization/')) and rel.endswith('-es.html')) else 'en'
         if '<html lang="'+expected_lang+'">' not in text:
             bad.append(f"{rel} has no lang")
         if 'name="viewport"' not in text:

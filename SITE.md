@@ -1,6 +1,49 @@
 # The site — what it is, page by page
 
-## Quantization and certificates · 13 October 2026 · v0.2.2
+## Current site · 14 October 2026
+
+The Lab has 30 menu sections, 11 embedded cards, 3 Simulator modes and 46 bilingual
+guides. Same potential? contains the Hypotheses card, its four linked plots, contextual
+readings, data downloads, selection import and a shared guided Demo/video script.
+The measured CMS spectrum is kept separate from the nine recalibrated model cases;
+there is no compatible GHU prediction or observed fit in this card yet.
+
+The main tutorial has 47 chapters and 175 scenes per language (English 47:32,
+Spanish 49:10). Chapter 47 starts at 45:16 in Spanish. Its 3D-response / 2D-mass
+cover remains visible before playback. Current assets are selected by
+`media/video/current.json`: `2026-10-14-hypotheses`.
+The mathematical companion has 43 chapters (English 19:56, Spanish 20:12), with
+assets in `media/video/2026-10-14-mathematics-hypotheses/`.
+
+The data guide is `data/hypothesis_comparison/index.html`; the certificate catalogue
+contains 59 Lean declarations in five files and a replayable download. Formal algebra,
+numerical checks and experimental support have distinct scopes. The site build checks
+123 canonical URLs and 5,059 local links; both PDF manuals match the current guides.
+See [production and playback checks](docs/video-guide-production.md) and
+[mathematical-film documentation](docs/mathematics-video.md).
+
+The source repository is `ghu-lab`; the reviewed generated `site/` is published through
+`ghu-explorer`. Preserve historical media, frozen papers and ownership verification.
+The dated architecture snapshots below describe previous versions.
+
+### Google sitemap
+
+`build/build_site.py` regenerates `site/sitemap.xml` from current canonical pages.
+It contains 123 absolute HTTPS URLs, including both hypothesis guides and the data
+index. Historical editions, hash-only app states and duplicate entry points are excluded.
+The guide/site gate checks exact coverage, uniqueness, canonical tags and local targets.
+No artificial modification dates or priority values are added.
+
+Submit `https://karlesmarin.github.io/ghu-explorer/sitemap.xml` in the Sitemaps report
+for the existing URL-prefix property. The ownership verification HTML is preserved.
+This project is hosted in a subdirectory: a `robots.txt` inside `/ghu-explorer/` is
+not the host-root robots file Google reads, so the project does not claim discovery
+through such a file. Publishing a sitemap is distinct from submitting it or confirming
+indexing. See [Google's sitemap instructions](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap)
+and [robots.txt location](https://developers.google.com/crawling/docs/robots-txt/create-robots-txt).
+
+
+## Historical checkpoint · 13 October 2026 · v0.2.2
 
 The independent **Quantization & certificates** menu option compares exact universal and closed-spin-four periods, the published q=6 axion congruence, conditional parent transfer and joint U(2) arithmetic. It includes a bilingual guided Demo, JSON/LaTeX exports and worked examples. The Spin(20) lift clarification is also linked from Boundary research.
 
@@ -9,7 +52,9 @@ The [complete proof catalogue](https://karlesmarin.github.io/ghu-explorer/proof/
 [English walkthrough](https://karlesmarin.github.io/ghu-explorer/video/quantization/index.html) · [Vídeo en castellano](https://karlesmarin.github.io/ghu-explorer/video/quantization/index-es.html). This supplementary edition covers the new option; the earlier films retain their original scope. Current navigation has 30 sections and the bilingual catalogue has 45 guides; dated counts below describe earlier releases.
 
 
-The mathematical companion has two current pages: `video/mathematics/index.html` (English,
+## Historical media and guide architecture · 12 October 2026
+
+The mathematical companion then had two current pages: `video/mathematics/index.html` (English,
 11:34) and `video/mathematics/index-es.html` (Castellano, 11:55). Each has 29 animated chapters,
 a direct MP4, visible captions, a transcript, reciprocal language links and a canonical URL.
 Shared ordinary proof notes are at `video/mathematics/proof-notes.html`; the notes are in English.

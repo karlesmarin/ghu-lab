@@ -192,6 +192,64 @@
         ]
       },
       "passed": true
+    },
+    {
+      "path": "proof/hypothesis/HypothesisAlgebra.lean",
+      "theorems": 10,
+      "sha256": "ebf9c91fc0172e126553c725fa56ed987cfd0c077b1dd0101e93301db24c7b50",
+      "axiom_dependencies": {
+        "HypothesisAlgebra.canonical_quartic": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "HypothesisAlgebra.mass_coefficient": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "HypothesisAlgebra.log_second_numerator": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "HypothesisAlgebra.log_third_recurrence": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "HypothesisAlgebra.log_fourth_recurrence": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "HypothesisAlgebra.vacuum_offset_cancels": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "HypothesisAlgebra.normalization_null_column": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "HypothesisAlgebra.covariance_pullback_two": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "HypothesisAlgebra.gram_minor_two": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "HypothesisAlgebra.covariance_unit_minor": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "passed": true
     }
   ],
   "checks": [
@@ -283,6 +341,15 @@
       ],
       "passed": true,
       "output": "{\"passed\": true, \"checks\": 10, \"u2_cases\": 138}"
+    },
+    {
+      "command": [
+        "python",
+        "proof/hypothesis/certify.py",
+        "--check"
+      ],
+      "passed": true,
+      "output": "{\"passed\": true, \"checks\": 296, \"lean_theorems\": 10, \"exact_covariance_dimension\": 15, \"pointwise_enclosures\": 3, \"full_potential_certified\": false}"
     }
   ],
   "scope": "Arithmetic replay and scoped computational checks; topology and full physical consistency not formalized"

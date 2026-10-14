@@ -1,10 +1,20 @@
 # 🧭 GHU Lab — an instrument for gauge–Higgs unification
 
+## Hypothesis comparison and teaching media · 14 October 2026
+
+Current inventory: 30 menu sections, 11 embedded cards, 3 Simulator modes and 46 bilingual guides. **Same potential? → Hypotheses** compares nine recalibrated cases and separately explains the measured CMS top-pair spectrum. Four linked plots, contextual readings, a shared video/Demo storyboard, JSON selection import, JSON/SVG/CSV exports and scoped certificates support a reproducible walkthrough.
+
+The new main video has 47 chapters and 175 scenes per language, recaptured from the current app. Chapter 47 teaches the complete workflow. The mathematical companion has 43 chapters, including derivatives, recalibration, measured bins and correlations. The complete catalogue contains 59 Lean declarations in five files; ten are new rational hypothesis identities. An observed GHU fit and a rigorous full-potential error bound remain pending. See [production notes](https://github.com/karlesmarin/ghu-lab/blob/main/docs/video-guide-production.md) and the current media manifests for validation details.
+
+Find the new card in **chapter 47, “Hipótesis: respuesta, medidas y certificados”**, at **45:16–49:10** in Spanish ([open this chapter](https://karlesmarin.github.io/ghu-explorer/video/index.html?lang=es#hypothesiscompare)). The player shows the calculated 3D-response / 2D-mass cover before playback, including when opened from disk. The startup black-screen bug is fixed; the playback gate passes 35 checks, including visual cover comparisons.
+
+### Previous dated release notes
+
 ## Quantization and certificates · 13 October 2026
 
 [Open the new independent option and Demo](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=quantization) · [English video](https://karlesmarin.github.io/ghu-explorer/video/quantization/index.html) · [Vídeo en castellano](https://karlesmarin.github.io/ghu-explorer/video/quantization/index-es.html) · [All certificates and Lean sources](https://karlesmarin.github.io/ghu-explorer/proof/index.html).
 
-Exact universal and closed-spin-four criteria, the published axion congruence, conditional parent transfer, joint U(2) arithmetic and the Spin(20) lift distinction now have worked examples, bilingual documentation and a eleven-chapter narrated supplement. Four Lean files contain 49 theorem declarations, with replayable scripts and SHA-256 downloads. Arithmetic certification does not establish topology or full physical consistency. The current Lab has 30 sections and 45 bilingual guides; dated releases below retain their historical counts.
+Exact universal and closed-spin-four criteria, the published axion congruence, conditional parent transfer, joint U(2) arithmetic and the Spin(20) lift distinction now have worked examples, bilingual documentation and a eleven-chapter narrated supplement. Four Lean files contain 49 theorem declarations, with replayable scripts and SHA-256 downloads. Arithmetic certification does not establish topology or full physical consistency. The 13 October Lab had 30 sections and 45 bilingual guides; dated releases below retain their historical counts.
 
 
 
@@ -17,18 +27,18 @@ laboratory controls make those connections visible in both languages.
 
 | Language | Full film | Direct download | Chapters | Synthetic narration |
 |---|---|---|---|---|
-| English | [16:37 · player](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-en.mp4) | 38 | Microsoft Zira |
-| Castellano | [16:53 · reproductor](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-es.mp4) | 38 | Microsoft Helena (España) |
+| English | [19:56 · player](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-en.mp4) | 43 | Microsoft Zira |
+| Castellano | [20:12 · reproductor](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-es.mp4) | 43 | Microsoft Helena (España) |
 
-The 13 October revision retains the first 28 whiteboard chapters, replaces the closing chapter,
-and adds nine explanations connecting quantization, physical assumptions, certificates and
+The 14 October revision retains the first 28 whiteboard chapters, replaces the closing chapter,
+and adds fourteen explanations connecting quantization, physical assumptions, certificates and
 experimental limits. The original four examples retain **113 executable checks**. The extension
-explains **23 new Lean declarations plus 26 existing SU(7) declarations**, with their stated scope.
+explains **23 quantization declarations, 26 SU(7) declarations and 10 rational hypothesis identities**, with their stated scope.
 The bilingual [physical/mathematical bridge](https://karlesmarin.github.io/ghu-explorer/video/mathematics/bridge.html) identifies which interpretation steps remain external to the arithmetic proofs.
 No complete physical model or experimental agreement is certified.
 
 [Open the lab](https://karlesmarin.github.io/ghu-explorer/app/) → **Anomalies → Boundary research**.
-The separate general laboratory tutorial covers 46 chapters and 165 scenes per language.
+The separate general laboratory tutorial covers 47 chapters and 175 scenes per language.
 
 [Documentation and reproduction](https://github.com/karlesmarin/ghu-lab/blob/main/docs/mathematics-video.md) · [Proofs and certificates](https://github.com/karlesmarin/ghu-lab/tree/main/proof/boundary-research).
 
@@ -137,13 +147,17 @@ banner says what the page does not; the welcome and export demos follow the vide
 link starts one directly, e.g. [`#s=samepot&demo=samepot`](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=samepot&demo=samepot);
 add `&lang=es` for Spanish.
 
-Two narrated Full HD versions demonstrate the real interface in **45 chapters and 154 scenes**: all **29 menu
-sections**, the **3 Simulator modes**, the **10 research cards** (the 10 October revision adds the first KK gluon at the
-LHC, with its m(tt̄) spectrum against CMS), integrated diagnostics and exports.
+Two narrated Full HD versions demonstrate the current interface in **47 chapters and 175 scenes**:
+all **30 menu sections**, the **3 Simulator modes**, the **11 research cards**, diagnostics and exports.
+Chapter 47 explains how to compare hypotheses, read the measured CMS bins and correlations,
+inspect certificates and export the results. The cover combines a calculated 3D response surface
+with a 2D plot of invariant paired masses; it is a model calculation, not experimental data.
 Each chapter connects a question, a control change and the result, with the assumptions needed
 to interpret it. Use the searchable chapter list, subtitles, transcript and MP4 download. Changing
-language preserves your position within the chapter. Narration is synthetic. The boundary research card has English/Spanish controls, results and plots;
-older sections retain their English button labels. Revised and recaptured on **12 October 2026**; the original 7 October guide remains available as a historical version.
+language preserves your position within the chapter. Narration is synthetic. Both language versions
+were recaptured from the current app on **14 October 2026**: English **47:32**, Spanish **49:10**.
+The mathematical companion contains **43 chapters** (English **19:56**, Spanish **20:12**).
+Earlier dated editions remain available from the player as historical versions.
 
 🇪🇸 **Cómo empezar:** abre la guía, elige Español y busca el módulo. Pulsa Reproducir y usa la
 pantalla completa para leer las gráficas. «Probar esta sección» abre el laboratorio. Cambia una
@@ -160,7 +174,7 @@ models. Representative controls are demonstrated, rather than every possible inp
 
 | Layer | Current inventory | Where to find it |
 |---|---|---|
-| 🗂️ Navigation | **29 menu sections**, covering model construction, spectra, anomalies, vacua, orbifolds, collider comparisons and research diagnostics | The complete section catalog below, in the actual menu order |
+| 🗂️ Navigation | **30 menu sections**, covering model construction, spectra, anomalies, vacua, orbifolds, collider comparisons and research diagnostics | The complete section catalog below, in the actual menu order |
 | 🔮 Simulator models | **3 modes:** the 5D SU(N) builder, Higgs production from a top KK tower, and the 4D neutrino ring | [Simulator](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=predict) → model selector |
 | 🧪 Embedded experiments | **10 dedicated experiment cards:** Maru–Nago SU(6), warped SU(6) running, three active flavours, fixed-light-input neutrino paths, thermal potential, integrated transition history, RS anomaly flow, HiggsTools the first KK gluon against ATLAS/CMS limits and boundary research | Inside Paper models, Brane kinetic terms, Simulator, Anomalies & proton and Collider |
 | 📊 Integrated analyses | SU(7) robustness; CMS HNL comparisons; neutrino decays, lifetime, flight and coherence with optional computed Majoron channels; conditional rung certificates and full-potential witnesses | Hierarchy, Simulator → Neutrino ring, and Screen a table |

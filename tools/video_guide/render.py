@@ -117,4 +117,7 @@ def main():
         (output/f'transcript-{lang}.txt').write_text('\n\n'.join(f'{stamp(c["start"])}  {c["number"]:02d}. {c["title"]}\n\n{c["text"]}' for c in timeline)+'\n',encoding='utf-8')
         poster=output/f'poster-{lang}.png';card(poster,chapters[0],lang,len(plan['chapters']),plan['date'])
         print(f'READY {dest} {clock/60:.1f} minutes {dest.stat().st_size/1e6:.1f} MB',flush=True)
+    if not a.pilot:
+        from poster import generate
+        generate(output,langs)
 if __name__=='__main__':main()

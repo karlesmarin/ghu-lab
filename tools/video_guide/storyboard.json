@@ -2,7 +2,7 @@
   "schema": "ghu-video-guide-v1",
   "language": "en",
   "voice": "Microsoft Zira Desktop",
-  "date": "2026-10-13",
+  "date": "2026-10-14",
   "scope": "A real-interface walkthrough of all menu sections, three Simulator modes, ten research cards and integrated diagnostics. Representative controls are demonstrated; this is not an exhaustive tour of every numerical input combination. Includes certified SU(7) benchmarks, equal-moment counterexample, separated uncertainty budget, named LHC datasets, matched thermal solver diagnostics and the first KK gluon against ATLAS and CMS data, and the guided Demo buttons. Includes boundary research: linked 2D/3D mass views, Gram rank, inserted traces and a scoped 6D tensor condition. Adds a final quantization chapter: exact figures, joint integrality, conditional responses and scoped certificates.",
   "recordingNotes": "Pointer highlights and chapter captions are tutorial annotations. Computation waits may be shortened; results come from the actual application. Built-in demonstrations may be held between steps for narration.",
   "chapters": [
@@ -2836,14 +2836,173 @@
         },
         {
           "id": "46_quantization_11",
-          "text": "The catalogue includes four Lean files with forty nine theorem declarations, the exact audit scripts, recorded checks and file hashes. All four files replay with Lean four point twenty seven. The older S U seven file was adapted from List bind to List flat Map, keeping its theorem statements. Download the evidence, verify its integrity and run the listed commands. Full anomaly cancellation and scientific novelty remain open.",
-          "textES": "El catálogo contiene cuatro archivos Lean con cuarenta y nueve declaraciones de teoremas, scripts exactos, comprobaciones registradas y hashes. Los cuatro archivos se verifican con Lean cuatro punto veintisiete. El archivo antiguo de S U siete se adaptó de List bind a List flat Map, conservando sus enunciados. Descarga la evidencia, comprueba su integridad y ejecuta los comandos indicados. La cancelación completa de anomalías y la novedad científica siguen abiertas.",
+          "text": "The catalogue now includes five Lean files with fifty nine theorem declarations. A theorem is a statement checked under explicit assumptions. The ten hypothesis algebra declarations have their own scope. Download the evidence, verify its file hashes and repeat the listed checks. File integrity, numerical agreement and mathematical proof answer different questions; none alone establishes a complete physical model.",
+          "textES": "El catálogo reúne ahora cinco archivos Lean con cincuenta y nueve declaraciones de teoremas. Un teorema es un enunciado comprobado bajo hipótesis explícitas. Las diez declaraciones de álgebra de hipótesis tienen su propio alcance. Descarga la evidencia, verifica los hashes y repite las comprobaciones indicadas. La integridad de archivos, el acuerdo numérico y la demostración matemática responden a preguntas distintas; ninguna por sí sola establece un modelo físico completo.",
           "actions": [],
           "focus": {
             "selector": "#gqEvidence",
             "index": 0
           },
           "title": null
+        }
+      ]
+    },
+    {
+      "id": "hypothesiscompare",
+      "number": 47,
+      "host": "samepot",
+      "title": "Hypotheses: response, measurements and certificates",
+      "titleES": "Hipótesis: respuesta, medidas y certificados",
+      "setup": [],
+      "steps": [
+        {
+          "id": "hcx_question",
+          "text": "Open the hypothesis card inside Same potential. It brings together four views with two separate scientific contexts: nine recalibrated gauge Higgs models and one measured C M S spectrum. Each selection includes an interpretation. The card does not yet fit these models to the measurement.",
+          "textES": "Abre la ficha de hipótesis dentro de Mismo potencial. Reúne cuatro vistas con dos contextos científicos separados: nueve modelos gauge Higgs recalibrados y un espectro medido por C M S. Cada selección incluye una lectura. La ficha todavía no ajusta estos modelos a esa medición.",
+          "actions": [],
+          "focus": {
+            "kind": "scroll",
+            "selector": "#rx_hypothesiscompare_controls"
+          }
+        },
+        {
+          "id": "hcx_reference",
+          "text": "Choose case one. The square marks the reference in parameter space. The potential difference is exactly zero because the reference is compared with itself. The horizontal variable is the field phase theta. The vacuum phase remains fixed at zero point one.",
+          "textES": "Elige el caso uno. El cuadrado marca la referencia en el espacio de parámetros. La diferencia de potencial es cero porque la referencia se compara consigo misma. La variable horizontal es la fase del campo theta. La fase del vacío permanece fijada en cero coma uno.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#rx_hypothesiscompare_controls [data-rx=\"case\"]",
+              "value": 1
+            },
+            {
+              "kind": "set",
+              "selector": "#rx_hypothesiscompare_controls [data-rx=\"region\"]",
+              "value": 0
+            }
+          ],
+          "focus": {
+            "kind": "scroll",
+            "selector": "#hcx_potential"
+          }
+        },
+        {
+          "id": "hcx_recalibration",
+          "text": "Change to case six. The labels c F and m V name two parameters of the fermion sector in this model. Several inputs change together and were recalibrated to preserve the vacuum and Higgs mass. Lambda three and lambda four describe the cubic and quartic response near that vacuum. They are calculated outputs. Read their percentage changes below the figures: this compares complete cases, not one isolated parameter.",
+          "textES": "Cambia al caso seis. Las etiquetas ce efe y eme uve nombran dos parámetros del sector de fermiones de este modelo. Varias entradas cambian conjuntamente y se recalibraron para conservar el vacío y la masa del Higgs. Lambda tres y lambda cuatro describen la respuesta cúbica y cuártica cerca de ese vacío. Son resultados calculados. Lee sus cambios porcentuales bajo las figuras: se comparan casos completos, no un parámetro aislado.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#rx_hypothesiscompare_controls [data-rx=\"case\"]",
+              "value": 6
+            }
+          ],
+          "focus": {
+            "kind": "scroll",
+            "selector": "#hcx_theory_reading"
+          }
+        },
+        {
+          "id": "hcx_global",
+          "text": "Expand the field interval. Each potential has its own vacuum value subtracted; we then subtract case one and divide by the same mass and field scale. The vertical exponent changes with the interval. A small local difference can coexist with a different shape away from the vacuum. Lines connect calculated samples; they do not prove a global minimum.",
+          "textES": "Amplía el intervalo del campo. A cada potencial se le resta su valor en el vacío; después se resta el caso uno y se divide por la misma escala de masa y campo. El exponente vertical cambia con el intervalo. Una diferencia local pequeña puede coexistir con otra forma lejos del vacío. Las líneas unen muestras calculadas; no demuestran un mínimo global.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#rx_hypothesiscompare_controls [data-rx=\"region\"]",
+              "value": 1
+            }
+          ],
+          "focus": {
+            "kind": "scroll",
+            "selector": "#hcx_potential"
+          }
+        },
+        {
+          "id": "hcx_measurement",
+          "text": "Select the last measured mass interval. C M S reports a differential top pair cross section at thirteen tera electron volts. The vertical axis is logarithmic. Vertical bars show total marginal uncertainties; horizontal bars show bin widths. These are measured cross sections, unlike the observed resonance upper limits in other cards.",
+          "textES": "Selecciona el último intervalo de masa medido. C M S publica una sección eficaz diferencial de pares top a trece tera electronvoltios. El eje vertical es logarítmico. Las barras verticales muestran incertidumbres marginales totales; las horizontales, anchuras de intervalos. Son secciones eficaces medidas, distintas de los límites superiores de resonancias de otras fichas.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#rx_hypothesiscompare_controls [data-rx=\"bin\"]",
+              "value": 14
+            }
+          ],
+          "focus": {
+            "kind": "scroll",
+            "selector": "#hcx_spectrum"
+          }
+        },
+        {
+          "id": "hcx_correlation",
+          "text": "Set the two interval selectors equal. Their correlation is one by definition. Now choose the neighbouring interval. The sign and magnitude describe how experimental errors move together, not how similar two physical models are. Combining bins requires the complete covariance matrix, which is included in the JSON export.",
+          "textES": "Iguala los dos selectores de intervalo. Su correlación es uno por definición. Elige ahora el intervalo vecino. El signo y la magnitud describen cómo varían conjuntamente los errores experimentales, no la semejanza de dos modelos físicos. Combinar intervalos requiere la matriz de covarianza completa, incluida en la exportación JSON.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#rx_hypothesiscompare_controls [data-rx=\"other\"]",
+              "value": 14
+            },
+            {
+              "kind": "set",
+              "selector": "#rx_hypothesiscompare_controls [data-rx=\"other\"]",
+              "value": 13
+            }
+          ],
+          "focus": {
+            "kind": "scroll",
+            "selector": "#hcx_correlation"
+          }
+        },
+        {
+          "id": "hcx_proofs",
+          "text": "Open Certificates. Lean is a proof assistant: it checks the mathematical steps of a stated claim. Ten additional declarations check rational algebra used by the hypothesis study. A separate exact calculation verifies the published covariance matrix. Read each row from left to right: what is checked, what evidence supports it, and where that guarantee stops. A correct identity does not establish that a physical model describes nature.",
+          "textES": "Abre Certificados. Lean es un asistente de demostraciones: verifica los pasos matemáticos de un enunciado. Diez declaraciones adicionales comprueban álgebra racional utilizada por este estudio. Un cálculo exacto separado verifica la matriz publicada de covarianza. Lee cada fila de izquierda a derecha: qué se comprueba, con qué evidencia y hasta dónde llega esa garantía. Una identidad correcta no establece que un modelo físico describa la naturaleza.",
+          "actions": [],
+          "focus": {
+            "kind": "scroll",
+            "selector": "#hcx_certificates"
+          }
+        },
+        {
+          "id": "hcx_bounds",
+          "text": "Three rational interval probes bound logarithm derivatives through fourth order. They exclude the error in the Bessel functions and the full integral. Quadrature refinement remains a convergence diagnostic. The global minimum, omitted physical sectors and the roughly seven point four percent quartic fit discrepancy remain open. Read the pending items before interpreting agreement.",
+          "textES": "Tres entradas con intervalos racionales acotan las derivadas del logaritmo hasta cuarto orden. Excluyen el error de las funciones de Bessel y de la integral completa. El refinamiento de cuadratura sigue siendo un diagnóstico de convergencia. Permanecen abiertos el mínimo global, sectores físicos omitidos y la discrepancia aproximada del siete coma cuatro por ciento del ajuste cuártico. Lee los pendientes antes de interpretar un acuerdo.",
+          "actions": [],
+          "focus": {
+            "kind": "scroll",
+            "selector": "#hcx_certificates"
+          }
+        },
+        {
+          "id": "hcx_exports",
+          "text": "Save the inputs and results as JSON, and download the certificate evidence. The JSON preserves the selected cases, measured bins, full covariance, sources and scientific scope. Importing this file restores a valid selection against the bundled references. It does not import a new measurement or accept a verdict from another file. Use the certificate catalogue for the replay scripts and source hashes.",
+          "textES": "Guarda las entradas y resultados como JSON y descarga la evidencia de los certificados. El JSON conserva los casos elegidos, intervalos medidos, covarianza completa, fuentes y alcance científico. Importarlo restaura una selección válida con las referencias incluidas. No incorpora otra medición ni acepta el veredicto de otro archivo. El catálogo de certificados ofrece los scripts de repetición y los hashes de las fuentes.",
+          "actions": [
+            {
+              "kind": "click",
+              "selector": "#rx_hypothesiscompare_json"
+            },
+            {
+              "kind": "click",
+              "selector": "[data-hcx-certificate]"
+            }
+          ],
+          "focus": {
+            "kind": "scroll",
+            "selector": "#hcx_certificates"
+          }
+        },
+        {
+          "id": "hcx_practice",
+          "text": "Now try a comparison yourself. Choose another case and read which inputs changed, how the two couplings responded and where the potential differs. Then choose two measured intervals and explain their correlation in words. Save your selection with its sources. Before claiming that data distinguish the models, identify the missing prediction and its uncertainties. The Demo button repeats this walkthrough and the information buttons explain each card.",
+          "textES": "Ahora prueba una comparación. Elige otro caso y lee qué entradas cambiaron, cómo respondieron los dos acoplamientos y dónde difiere el potencial. Después elige dos intervalos medidos y explica su correlación con tus palabras. Guarda la selección con sus fuentes. Antes de afirmar que los datos distinguen los modelos, identifica la predicción que falta y sus incertidumbres. El botón Demo repite el recorrido y los botones de información explican cada ficha.",
+          "actions": [],
+          "focus": {
+            "kind": "scroll",
+            "selector": "#rx_hypothesiscompare_controls"
+          }
         }
       ]
     }
@@ -2856,6 +3015,6 @@
     "en": "Microsoft Zira Desktop",
     "es": "Microsoft Helena Desktop"
   },
-  "revisionOf": "2026-10-12-boundary-research",
-  "revision": "2026-10-13-quantization-main"
+  "revisionOf": "2026-10-13-quantization-main",
+  "revision": "2026-10-14-hypotheses"
 }

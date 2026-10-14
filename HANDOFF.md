@@ -1,5 +1,33 @@
 # HANDOFF — GHU Lab
 
+## 2026-10-14 — hypotheses, certificates and complete teaching media
+
+The eleventh card lives inside Same potential?; do not add a duplicate menu section.
+Engine/reference: `src/modules/hypothesis_compare.mjs`, `hypothesis_reference.mjs`;
+card/figures: `src/sections/hypothesis_card.js`, `src/view/hypothesis_plots.js`.
+The shared 10-scene Demo is generated from `tools/video_guide/storyboard.json`.
+The older `hypothesis_demo.js` is retained as history, not loaded in the app.
+
+Current tutorials: 47 chapters / 175 scenes in each language; mathematics: 43 chapters.
+Spanish hypothesis chapter: 45:16–49:10. Read `docs/video-guide-production.md` for
+cover generation, playback checks and production commands. Avoid seeking to zero
+on initial metadata load: it hides the native poster behind the first black frame.
+
+Data and provenance: `data/hypothesis_comparison/index.html`; formal/numerical scope:
+`proof/hypothesis/notes.html`, `certificates.json`, `certify.py`. The notes are hash-pinned
+scientific evidence; changing them requires rebuilding dependent certificates/references.
+The complete catalogue has 59 Lean declarations in five files, including ten rational
+hypothesis identities. The extracted bundle replays 296 hypothesis checks.
+
+Still open: compatible GHU prediction for the measured CMS spectrum, observed fit,
+full-integral/Bessel error bounds, global minimum, omitted physical sectors and the
+approximately 7.4% quartic fit/table discrepancy. Visual agreement is not validation.
+
+Read README.md and SITE.md for current counts and publishing. Preserve older dated
+media and frozen papers. The source and generated-site repositories must both be
+updated to make a release visible online.
+
+
 ## 2026-10-12 — boundary research, app 0.2.1 / tool 1.0.0
 
 Anomalies → Boundary research is the tenth embedded experiment. Pure engine:

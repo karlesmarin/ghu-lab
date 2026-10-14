@@ -1,21 +1,46 @@
 # 🎬 GHU Lab video guide · English and Spanish
 
-For the separate 38-chapter mathematical film in English (16:37) and Castellano (16:53),
+For the separate 43-chapter mathematical film in English and Castellano,
 see [the mathematical video guide](mathematics-video.md) and
 [its production instructions](../tools/mathematics_video/README.md). The workflow below
-concerns the 45-chapter general laboratory tutorial.
+concerns the 47-chapter general laboratory tutorial.
 
 [Watch in English](https://karlesmarin.github.io/ghu-explorer/video/index.html?lang=en) ·
 [Ver en español](https://karlesmarin.github.io/ghu-explorer/video/index.html?lang=es)
 
-The guide demonstrates all 29 navigation sections, three Simulator modes, ten research cards,
-integrated diagnostics and exports. There are 45 chapters and 154 narrated scenes per language.
+The guide demonstrates all 30 navigation sections, three Simulator modes, eleven research cards,
+integrated diagnostics and exports. There are 47 chapters and 175 narrated scenes per language.
 Representative controls are shown; the guide does not enumerate every input combination.
 The experiment's question, changed input and interpretation form each chapter's teaching sequence.
 
+## Cover and access to the new chapter · 14 October 2026
+
+In Spanish, chapter 47, **Hipótesis: respuesta, medidas y certificados**, runs from
+**45:16 to 49:10**. In a local build open
+`site/video/index.html?lang=es#hypothesiscompare`, or search for “Hipótesis” in the player.
+
+The player cover combines a 3D source-response surface with a 2D plot of invariant paired
+masses. `tools/video_guide/poster_data.mjs` computes it from the maintained gravity–gauge
+engine; `poster.py` renders both languages. `poster-data.json` and
+`poster-provenance.json` record the model scope, reference checks and hashes. This is a
+calculated model example, not measured collider data. The cover is the player's poster;
+it does not add an introductory segment or change the MP4 chapter times.
+
+The startup fix avoids assigning `currentTime = 0` after loading metadata: even that
+redundant seek dismisses the browser's poster and exposes the black opening frame.
+Nonzero chapter links and language changes retain their intended positions. The browser
+gate now passes **35 checks**, including rendered-pixel comparisons with the cover in
+English, Spanish and local-file playback. These supplement the **3,376** capture,
+media and subtitle checks for this recording; neither is a full human listening review.
+
 ## What was recorded
 
-The current revision `2026-10-12-boundary-research` recaptures all 45 chapters against Lab 0.2.1.
+The current `2026-10-14-hypotheses` revision recaptures all 47 chapters in both languages. Chapter 47 and the embedded hypothesis Demo share one storyboard: start with a question, change a real control, read axes and uncertainty, state what follows, then save and practice. It demonstrates recalibrated GHU cases, a global potential view, measured CMS bins, correlations and scoped certificates. The guide links directly to this chapter. The recorder resolves translated controls using their original source text.
+
+The 13 October main film and mathematical film remain archived with their original media. Current mathematics has 43 chapters and the complete Lean catalogue has 59 declarations in five files. Publication is a separate step; these commands produce local assets.
+
+
+The historical revision `2026-10-12-boundary-research` recaptures all 45 chapters against Lab 0.2.1.
 Chapter 44 adds nine scenes: the boundary spectrum, linked 2D/3D mass views, independent
 profiles, parity-inserted traces and the restricted six-dimensional family condition.
 The controls and numerical results come from the actual app. The narration explains
@@ -40,7 +65,7 @@ diagnostics and withdrawal of unmatched archived evidence. Two existing scenes h
 narration in each language. The 139-scene script preserves scientific attribution and separates
 formal proofs, computer-assisted interval results, numerical agreement and open physics.
 
-Current assets live in `media/video/2026-10-12-boundary-research/`, selected by
+Current assets live in `media/video/2026-10-14-hypotheses/`, selected by
 `media/video/current.json`. Earlier media remain byte-identical in `media/video/`,
 `media/video/2026-10-08/`, `media/video/2026-10-08-certification/` and `media/video/2026-10-10-kkgluon/`. Their
 complete previously served pages are preserved as `video/2026-10-07.html`, `video/2026-10-08.html`,
@@ -51,8 +76,7 @@ revision's screens predate them).
 English and Spanish now have separate interface captures under `en/` and `es/` in the
 recording directory. Each capture records its application hash and requested UI language;
 the verifier checks that the Spanish boundary scenes contain Spanish results. The boundary
-card translates its controls, plots and explanations; older laboratory sections retain their
-existing English scientific interface. Identical audio is reused only when text, voice, rate and sample rate match. Image contents,
+card translates its controls, plots and explanations; the current interface uses its reversible translation catalogue, preserving scientific source names. Identical audio is reused only when text, voice, rate and sample rate match. Image contents,
 audio and overlays all participate in clip cache keys. Captions and chapter times are rebuilt.
 
 `tools/video_guide/storyboard.json` contains the English and Spanish narration and the exact browser
@@ -115,6 +139,6 @@ These references informed the production choices; they are not endorsements or a
 ## Playback verification
 
 After building the site, run `node build/video_guide.mjs` for the real-browser playback gate.
-It checks both languages, seeks, live captions, transcript coverage, chapter search, deep links,
+It checks visible startup covers, both languages, seeks, live captions, transcript coverage, chapter search, deep links,
 mobile width and playback from disk. Its local server supports byte-range video requests.
 Screenshots and the result are written to `shots/video-guide/`, outside the tracked source.

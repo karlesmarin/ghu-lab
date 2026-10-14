@@ -59,7 +59,7 @@ def source(root,lang):
 {\LARGE '''+tex(l['index'])+r'''\par}
 \vspace{7mm}
 '''+('Castellano. Composición con Babel.' if lang=='es' else 'English edition.')+r'''\par
-'''+('13 de octubre de 2026' if lang=='es' else '13 October 2026')+r'''\par
+'''+('14 de octubre de 2026' if lang=='es' else '14 October 2026')+r'''\par
 \vspace{8mm}
 '''+tex(l['note'])+r'''\par
 \vfill

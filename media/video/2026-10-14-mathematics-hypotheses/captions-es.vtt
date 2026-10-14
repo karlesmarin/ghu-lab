@@ -1,0 +1,796 @@
+WEBVTT
+
+00:00:00.450 --> 00:00:05.500
+Observa el perfil azul. Al cambiar una sola frontera, el perfil se curva y
+
+00:00:05.500 --> 00:00:11.075
+aumenta su autovalor más bajo. ¿Por qué? Vamos a construir la explicación
+
+00:00:11.075 --> 00:00:14.630
+y después comprobaremos el mismo efecto en el laboratorio.
+
+00:00:15.992 --> 00:00:20.737
+La coordenada horizontal indica la posición a lo largo de una dimensión extra.
+
+00:00:20.737 --> 00:00:26.102
+La vertical representa la amplitud del campo, no la trayectoria de una partícula.
+
+00:00:26.102 --> 00:00:31.472
+Si exigimos pendiente nula en ambos extremos, se permite un perfil constante.
+
+00:00:31.472 --> 00:00:35.112
+Su curvatura y el autovalor del problema normal son cero.
+
+00:00:36.492 --> 00:00:39.572
+Activamos ahora el acoplamiento de frontera, llamado a.
+
+00:00:39.572 --> 00:00:44.297
+En el extremo derecho, la pendiente más a por la amplitud debe ser cero.
+
+00:00:44.297 --> 00:00:49.467
+Nuestra constante no nula tiene pendiente cero, pero amplitud distinta de cero.
+
+00:00:49.467 --> 00:00:52.422
+Observa cómo el residuo se vuelve rojo.
+
+00:00:52.422 --> 00:00:55.972
+Este perfil ya no satisface la condición de contorno.
+
+00:00:57.325 --> 00:01:00.655
+Mantenemos pendiente cero en el extremo izquierdo.
+
+00:01:00.655 --> 00:01:04.975
+La ecuación en el interior proporciona entonces un perfil cosenoidal.
+
+00:01:04.975 --> 00:01:09.685
+Cambia su frecuencia, equis, y observa el extremo derecho.
+
+00:01:09.685 --> 00:01:13.205
+La mayoría de las frecuencias no cumplen la condición.
+
+00:01:13.205 --> 00:01:17.495
+Solo se admite aquella que equilibra la pendiente con el término de frontera.
+
+00:01:18.867 --> 00:01:23.837
+Para un coseno, la pendiente en el extremo es menos equis por seno de equis.
+
+00:01:23.837 --> 00:01:27.092
+El término de frontera es a por coseno de equis.
+
+00:01:27.092 --> 00:01:31.252
+Con acoplamiento uno, ambas contribuciones se cancelan.
+
+00:01:31.252 --> 00:01:34.857
+Al reorganizar, obtenemos equis por tangente de equis igual a a.
+
+00:01:34.857 --> 00:01:38.677
+Esta ecuación procede directamente del equilibrio en el extremo.
+
+00:01:40.033 --> 00:01:46.263
+Aumentamos el acoplamiento. El perfil permitido se curva más y la primera raíz crece.
+
+00:01:46.263 --> 00:01:49.393
+La gráfica pequeña sigue ese mismo cálculo.
+
+00:01:49.393 --> 00:01:54.128
+Si la longitud del intervalo es pi por erre, la masa normal adimensional es equis dividido
+
+00:01:54.128 --> 00:01:58.793
+por pi. Se aproxima a un medio cuando el acoplamiento aumenta.
+
+00:02:00.158 --> 00:02:02.643
+Ahora vemos el laboratorio real.
+
+00:02:02.643 --> 00:02:06.123
+Cambiamos la intensidad de frontera de cero a cuatro.
+
+00:02:06.123 --> 00:02:10.163
+Observa cómo la rama emparejada se eleva sobre la no emparejada.
+
+00:02:10.163 --> 00:02:14.768
+Con ángulo de Wilson cero, la ordenada es precisamente la brecha normal que acabamos de
+
+00:02:14.768 --> 00:02:20.268
+deducir. El control resaltado y el resultado de la gráfica cambian juntos.
+
+00:02:21.658 --> 00:02:24.308
+La condición de frontera ha cambiado.
+
+00:02:24.308 --> 00:02:27.373
+El perfil constante deja de ser admisible.
+
+00:02:27.373 --> 00:02:31.323
+El modo permitido más bajo tiene ahora un autovalor positivo.
+
+00:02:31.323 --> 00:02:36.713
+Ese es el mecanismo de esta brecha, dentro del problema de intervalo que hemos definido.
+
+00:02:36.713 --> 00:02:41.958
+El laboratorio calcula el efecto; el argumento de frontera explica por qué ocurre.
+
+00:02:43.325 --> 00:02:46.735
+Hemos visto cómo una frontera selecciona un perfil.
+
+00:02:46.735 --> 00:02:51.945
+Ahora hacemos otra pregunta: ¿cuántos perfiles son independientes? Empecemos
+
+00:02:51.945 --> 00:02:55.250
+con tres funciones sencillas de dos componentes.
+
+00:02:55.250 --> 00:02:59.840
+La primera ocupa la componente superior, la segunda la inferior y la tercera cambia con
+
+00:02:59.840 --> 00:03:04.140
+la posición. Observa cómo se dibujan sus curvas.
+
+00:03:05.492 --> 00:03:08.707
+Restamos la mitad del primer perfil al tercero.
+
+00:03:08.707 --> 00:03:12.422
+Sus componentes superiores se cancelan en el punto medio.
+
+00:03:12.422 --> 00:03:17.002
+Pero, al alejarnos de ese punto, reaparece el residuo.
+
+00:03:17.002 --> 00:03:22.337
+Para que haya dependencia, un mismo conjunto de coeficientes debe anular toda la función,
+
+00:03:22.337 --> 00:03:26.592
+en cada posición. Cancelar en un punto no basta.
+
+00:03:27.950 --> 00:03:32.555
+La matriz de Gram recoge el producto interno de cada par de perfiles, integrado sobre
+
+00:03:32.555 --> 00:03:36.895
+el intervalo. Observa cómo aparecen sus entradas.
+
+00:03:36.895 --> 00:03:41.395
+El primer perfil y el tercero se solapan: su entrada es un medio.
+
+00:03:41.395 --> 00:03:46.750
+Eso no los hace dependientes. El determinante vale un doceavo, así que la matriz
+
+00:03:46.750 --> 00:03:50.285
+es invertible y las tres funciones son independientes.
+
+00:03:51.658 --> 00:03:54.718
+Usamos los mismos coeficientes de antes.
+
+00:03:54.718 --> 00:03:57.548
+El perfil combinado es u menos un medio.
+
+00:03:57.548 --> 00:04:03.708
+Elevamos al cuadrado su amplitud e integramos: el área sombreada es un doceavo, y no cero.
+
+00:04:03.708 --> 00:04:07.123
+Eso es exactamente ce adjunto por ge por ce.
+
+00:04:07.123 --> 00:04:11.513
+En general, equivale a la norma al cuadrado del perfil combinado.
+
+00:04:11.513 --> 00:04:17.633
+Por tanto, una dirección del núcleo de ge corresponde precisamente a una relación de dependencia.
+
+00:04:18.992 --> 00:04:22.847
+Volvamos a los tres perfiles exponenciales del laboratorio.
+
+00:04:22.847 --> 00:04:27.372
+Cada uno tiene dos componentes complejas y depende de dos coordenadas.
+
+00:04:27.372 --> 00:04:31.772
+La superficie representa la primera componente del perfil intermedio.
+
+00:04:31.772 --> 00:04:34.562
+Con parámetro de masa cero es plana.
+
+00:04:34.562 --> 00:04:38.622
+Al aumentar eme, adquiere pendiente en la dirección zeta.
+
+00:04:38.622 --> 00:04:41.547
+Esa nueva dependencia espacial es la clave.
+
+00:04:42.908 --> 00:04:47.508
+Supongamos que una combinación lineal fija de estos tres perfiles se anula.
+
+00:04:47.508 --> 00:04:52.838
+Derivamos respecto de zeta. Solo cambia el perfil intermedio, de modo que,
+
+00:04:52.838 --> 00:04:56.663
+si eme no es cero, su coeficiente be debe anularse.
+
+00:04:56.663 --> 00:05:01.718
+Las dos direcciones espinoriales restantes obligan entonces a que a y ce sean cero.
+
+00:05:01.718 --> 00:05:06.628
+Cuando eme es cero, ese argumento con la derivada desaparece y los tres perfiles constantes
+
+00:05:06.628 --> 00:05:08.913
+generan solo dos direcciones.
+
+00:05:10.283 --> 00:05:14.113
+Cambiamos la masa del perfil de cero a uno en el laboratorio.
+
+00:05:14.113 --> 00:05:18.058
+En cero, un autovalor de Gram es numéricamente nulo.
+
+00:05:18.058 --> 00:05:20.998
+En uno, los tres son positivos.
+
+00:05:20.998 --> 00:05:25.978
+Su tamaño depende de la normalización y el rango numérico utiliza una tolerancia.
+
+00:05:25.978 --> 00:05:30.673
+El certificado independiente con intervalos racionales también demuestra positividad definida
+
+00:05:30.673 --> 00:05:35.933
+en eme igual a uno, con el menor autovalor superior a cero coma uno uno cero cinco.
+
+00:05:37.283 --> 00:05:40.353
+Esta conclusión tiene un límite importante.
+
+00:05:40.353 --> 00:05:45.398
+Tasas exponenciales distintas pueden producir cuatro funciones independientes, o cualquier
+
+00:05:45.398 --> 00:05:50.403
+número finito. Sobre una recta adecuada, la independencia se deduce de un
+
+00:05:50.403 --> 00:05:56.163
+determinante de Vandermonde. Para las cuatro tasas mostradas vale setenta y dos.
+
+00:05:56.163 --> 00:06:01.168
+Contar familias físicas requiere el dominio real del operador y sus condiciones de contorno,
+
+00:06:01.168 --> 00:06:03.618
+además de los perfiles elegidos.
+
+00:06:04.992 --> 00:06:09.692
+Ahora la teoría de representaciones se convierte en una suma finita exacta.
+
+00:06:09.692 --> 00:06:14.447
+En la representación semiespinorial positiva de Spin veinte, cada peso es una lista de
+
+00:06:14.447 --> 00:06:19.942
+diez signos dividida por dos. El producto de los signos debe ser positivo.
+
+00:06:19.942 --> 00:06:23.457
+Elegimos nueve libremente y el décimo queda fijado.
+
+00:06:23.457 --> 00:06:28.742
+Observa cómo se llena la cuadrícula: dos elevado a nueve da quinientos doce pesos.
+
+00:06:30.117 --> 00:06:35.277
+Cada peso aporta un número, cu, obtenido mediante su producto escalar con el vector
+
+00:06:35.277 --> 00:06:40.682
+de prueba de Cartan. En este ejemplo, la inserción es el producto de los dos primeros
+
+00:06:40.682 --> 00:06:45.642
+signos. Sumamos la inserción multiplicada por cu al cuadrado.
+
+00:06:45.642 --> 00:06:50.907
+Fijamos las dos primeras coordenadas del vector en uno y dos, y las demás en cero.
+
+00:06:50.907 --> 00:06:54.367
+Cuatro grupos del mismo tamaño suman quinientos doce.
+
+00:06:55.742 --> 00:07:00.412
+Expandimos el producto escalar al cuadrado antes de elegir un vector de prueba.
+
+00:07:00.412 --> 00:07:04.357
+Hay cincuenta y cinco monomios cuadráticos en diez variables.
+
+00:07:04.357 --> 00:07:08.897
+El verificador suma cada coeficiente con aritmética racional exacta.
+
+00:07:08.897 --> 00:07:13.897
+Observa las cancelaciones: solo sobrevive el término cruzado hache uno por hache dos,
+
+00:07:13.897 --> 00:07:17.042
+con coeficiente doscientos cincuenta y seis.
+
+00:07:17.042 --> 00:07:20.117
+Hemos comprobado todo el polinomio cuadrático.
+
+00:07:21.492 --> 00:07:24.992
+Movemos ahora el vector de prueba sobre ese polinomio.
+
+00:07:24.992 --> 00:07:28.522
+En cualquiera de los ejes, el valor es cero.
+
+00:07:28.522 --> 00:07:32.737
+Al llegar al punto uno, dos, vale quinientos doce.
+
+00:07:32.737 --> 00:07:38.407
+El mapa de calor permite ver la diferencia: una evaluación nula no demuestra una identidad.
+
+00:07:38.407 --> 00:07:43.342
+En cambio, un valor no nulo refuta que el polinomio sea idénticamente cero.
+
+00:07:44.700 --> 00:07:48.985
+El laboratorio mantiene fijo el vector de Cartan de diez componentes mientras cambiamos
+
+00:07:48.985 --> 00:07:53.420
+la inserción. Observa la tabla de trazas exactas.
+
+00:07:53.420 --> 00:07:58.445
+Para la primera inserción, el momento cuadrático vale quinientos doce, de acuerdo con
+
+00:07:58.445 --> 00:08:03.560
+nuestra identidad. Otras inserciones producen momentos distintos.
+
+00:08:03.560 --> 00:08:08.690
+Son trazas de la representación sin factores físicos adicionales, previas a la normalización
+
+00:08:08.690 --> 00:08:13.080
+y al flujo de anomalías necesarios para obtener coeficientes físicos.
+
+00:08:14.450 --> 00:08:18.775
+La suma finita de pesos responde a una pregunta algebraica precisa.
+
+00:08:18.775 --> 00:08:23.440
+Para convertirla en un cálculo de anomalías hacen falta los proyectores adecuados, la
+
+00:08:23.440 --> 00:08:28.540
+normalización y el descenso, además de las contribuciones de otros sectores.
+
+00:08:28.540 --> 00:08:32.845
+También importan los datos globales de carga y el flujo de anomalías.
+
+00:08:32.845 --> 00:08:36.580
+El marcador se detiene en lo que realmente hemos calculado.
+
+00:08:36.580 --> 00:08:40.635
+Un certificado de trazas no certifica toda la teoría cuántica.
+
+00:08:41.992 --> 00:08:47.087
+El último ejemplo es una condición restringida de consistencia en seis dimensiones.
+
+00:08:47.087 --> 00:08:51.032
+Ene cuenta el exceso con signo de dobletes complejos de Weyl.
+
+00:08:51.032 --> 00:08:56.142
+En el marco indicado, una teoría autónoma con ese u dos y sector tensorial, ene debe
+
+00:08:56.142 --> 00:09:01.267
+ser divisible por seis. Con asignaciones idénticas por familia, los tres
+
+00:09:01.267 --> 00:09:07.147
+colores de quarks y un leptón de quiralidad opuesta aportan tres menos uno: dos por familia.
+
+00:09:07.147 --> 00:09:11.022
+Cada familia hace avanzar dos unidades el reloj de residuos.
+
+00:09:12.408 --> 00:09:16.393
+Tras tres familias de ese tipo, el reloj vuelve a cero.
+
+00:09:16.393 --> 00:09:19.953
+Seis y nueve familias también superan esta condición.
+
+00:09:19.953 --> 00:09:24.658
+Si la quiralidad del leptón coincide con la de los quarks, cada familia idéntica aporta
+
+00:09:24.658 --> 00:09:28.998
+cuatro; de nuevo, los múltiplos de tres vuelven a cero.
+
+00:09:28.998 --> 00:09:35.058
+La congruencia restringe las posibilidades, pero no selecciona de forma única tres generaciones.
+
+00:09:36.408 --> 00:09:40.858
+Permitamos ahora dos familias con asignaciones distintas de quiralidad.
+
+00:09:40.858 --> 00:09:43.828
+La primera aporta dos y la segunda cuatro.
+
+00:09:43.828 --> 00:09:48.998
+Juntas suman seis, así que superan esta prueba de residuos con dos familias.
+
+00:09:48.998 --> 00:09:53.463
+Es un contraejemplo a eliminar la hipótesis de asignaciones idénticas.
+
+00:09:53.463 --> 00:09:57.963
+No constituye un modelo físico completo y consistente de dos familias.
+
+00:09:59.325 --> 00:10:03.295
+Si contamos dobletes complejos, el módulo es seis.
+
+00:10:03.295 --> 00:10:08.605
+Si contamos en unidades de medio doblete, duplicamos ene y usamos módulo doce.
+
+00:10:08.605 --> 00:10:12.675
+Observa ambos relojes: superan la condición a la vez.
+
+00:10:12.675 --> 00:10:16.380
+Cambian las unidades, pero no la condición.
+
+00:10:16.380 --> 00:10:21.520
+El argumento físico también exige cuantización integral del sector tensorial; factorizar
+
+00:10:21.520 --> 00:10:26.335
+el polinomio de anomalías no proporciona por sí solo toda esa información global.
+
+00:10:27.700 --> 00:10:31.930
+Cambiamos el número de familias en el laboratorio y mantenemos la quiralidad del leptón
+
+00:10:31.930 --> 00:10:37.010
+opuesta a la de los quarks. Una y dos no cumplen esta condición restringida;
+
+00:10:37.010 --> 00:10:42.290
+tres sí. Cuatro y cinco no la cumplen; seis vuelve a cumplirla.
+
+00:10:42.290 --> 00:10:45.335
+El residuo mostrado explica cada cambio.
+
+00:10:45.335 --> 00:10:49.840
+Conservemos las hipótesis de asignaciones idénticas y de teoría autónoma al interpretar
+
+00:10:49.840 --> 00:10:51.465
+este resultado.
+
+00:10:52.825 --> 00:10:55.770
+Hemos seguido cuatro preguntas distintas.
+
+00:10:55.770 --> 00:10:59.355
+Las condiciones de contorno seleccionaron un espectro.
+
+00:10:59.355 --> 00:11:04.050
+Los productos internos integrados comprobaron independencia de funciones.
+
+00:11:04.050 --> 00:11:07.145
+Las sumas de pesos determinaron un polinomio.
+
+00:11:07.145 --> 00:11:11.255
+Una condición de residuos restringió asignaciones idénticas.
+
+00:11:11.255 --> 00:11:15.535
+Cada cálculo tiene una razón, unos datos y unos límites.
+
+00:11:15.535 --> 00:11:20.500
+Superar estos diagnósticos separados no determina por sí solo un vacío de Higgs, las masas
+
+00:11:20.500 --> 00:11:24.310
+de neutrinos ni una construcción completa del Modelo Estándar.
+
+00:11:25.700 --> 00:11:31.270
+Los primeros cuatro ejemplos tienen demostraciones ordinarias y comprobaciones ejecutables.
+
+00:11:31.270 --> 00:11:36.215
+El nuevo módulo de cuantización añade otra evidencia: veintitrés declaraciones de teoremas
+
+00:11:36.215 --> 00:11:40.275
+Lean, junto a las veintiséis anteriores de S U siete.
+
+00:11:40.275 --> 00:11:45.105
+Otras diez declaraciones de álgebra racional apoyan ahora la ficha de hipótesis.
+
+00:11:45.105 --> 00:11:49.550
+Los siguientes capítulos explican cómo se conectan estos certificados con las hipótesis
+
+00:11:49.550 --> 00:11:54.035
+físicas. Una demostración verifica una implicación.
+
+00:11:54.035 --> 00:11:58.695
+Aplicarla a la naturaleza requiere además la correspondencia física adecuada.
+
+00:12:00.075 --> 00:12:05.570
+Un objeto matemático adquiere significado físico mediante una identificación concreta.
+
+00:12:05.570 --> 00:12:10.080
+En el ejemplo del intervalo, un autovalor se convierte en una masa normal al cuadrado
+
+00:12:10.080 --> 00:12:13.520
+al fijar la longitud y la normalización cinética.
+
+00:12:13.520 --> 00:12:18.550
+Una matriz de Gram describe solapamientos; las familias físicas requieren además el dominio
+
+00:12:18.550 --> 00:12:23.395
+real de los campos. La cuantización sigue el mismo principio.
+
+00:12:23.395 --> 00:12:27.960
+Debemos fijar el grupo gauge, los fibrados permitidos y la acción antes de interpretar
+
+00:12:27.960 --> 00:12:31.425
+un certificado aritmético como restricción física.
+
+00:12:32.783 --> 00:12:35.288
+Esta es una conexión concreta.
+
+00:12:35.288 --> 00:12:39.908
+En este ejemplo normalizado del axión, la acción topológica es theta por el período de
+
+00:12:39.908 --> 00:12:44.088
+Q. Desplazar theta en dos pi multiplica la fase cuántica por la exponencial de dos pi
+
+00:12:44.088 --> 00:12:48.808
+i por ese período. Un período entero recupera la misma fase.
+
+00:12:48.808 --> 00:12:51.368
+Un semientero da un signo menos.
+
+00:12:51.368 --> 00:12:54.898
+El diagrama ilustra esta condición de consistencia.
+
+00:12:54.898 --> 00:12:59.208
+No es una medida experimental ni una construcción completa de la acción.
+
+00:13:00.575 --> 00:13:04.380
+El álgebra de Lie no fija por sí sola el grupo gauge global.
+
+00:13:04.380 --> 00:13:09.370
+Para H igual a S de U dos por U tres, la correspondencia de clases características combina
+
+00:13:09.370 --> 00:13:12.825
+tres coeficientes en alfa, beta y delta.
+
+00:13:12.825 --> 00:13:17.435
+La integralidad universal exige que esas tres combinaciones sean enteras.
+
+00:13:17.435 --> 00:13:20.895
+Fija alfa y beta en uno y gamma en siete doceavos.
+
+00:13:20.895 --> 00:13:23.520
+Delta vale cero: la clase total es A más B.
+
+00:13:23.520 --> 00:13:28.385
+Lean verifica el criterio aritmético; la interpretación mediante clases características
+
+00:13:28.385 --> 00:13:30.325
+se aporta por separado.
+
+00:13:31.700 --> 00:13:34.890
+Considera ahora Q igual a C partido por dos.
+
+00:13:34.890 --> 00:13:39.600
+Una prueba universal sobre el plano proyectivo detecta un período semientero.
+
+00:13:39.600 --> 00:13:44.425
+En una variedad espín cerrada suave de dimensión cuatro, el cuadrado de una clase integral
+
+00:13:44.425 --> 00:13:48.200
+de grado dos tiene período par, por la fórmula de Wu.
+
+00:13:48.200 --> 00:13:51.360
+Por eso se cumple el criterio espín indicado.
+
+00:13:51.360 --> 00:13:55.650
+Son preguntas distintas, no respuestas contradictorias.
+
+00:13:55.650 --> 00:13:58.885
+Lean comprueba la aritmética de coeficientes.
+
+00:13:58.885 --> 00:14:03.920
+La paridad de Wu y la elección de fondos admisibles del orbifold son pasos separados.
+
+00:14:05.283 --> 00:14:09.558
+En el ejemplo U dos hay que sumar las contribuciones de los dos factores.
+
+00:14:09.558 --> 00:14:14.583
+Con b cero igual a uno y b uno igual a seis, el cocarácter uno, cero da un cuarto más
+
+00:14:14.583 --> 00:14:17.583
+tres cuartos: exactamente uno.
+
+00:14:17.583 --> 00:14:23.093
+Para todo m y n enteros, la suma es m al cuadrado más m n más n al cuadrado.
+
+00:14:23.093 --> 00:14:28.748
+El certificado demuestra el criterio conjunto, incluidos coeficientes racionales.
+
+00:14:28.748 --> 00:14:33.538
+Esto establece una clase característica integral, no un espectro de supergravedad libre
+
+00:14:33.538 --> 00:14:36.223
+de anomalías con esos coeficientes.
+
+00:14:37.575 --> 00:14:41.805
+Una respuesta parental propuesta debe pertenecer a la imagen del mapa de transferencia
+
+00:14:41.805 --> 00:14:46.810
+permitido. El funcional ele anula las dos columnas mostradas, así que toda
+
+00:14:46.810 --> 00:14:50.000
+respuesta en esa imagen tiene ele igual a cero.
+
+00:14:50.000 --> 00:14:54.815
+Para la respuesta requerida, seis ele vale dieciséis menos tres p menos tres q menos seis
+
+00:14:54.815 --> 00:14:58.950
+r. Es uno módulo tres para todos los enteros.
+
+00:14:58.950 --> 00:15:03.230
+Esto descarta el emparejamiento dentro de esa familia de respuestas.
+
+00:15:03.230 --> 00:15:08.925
+Términos de esquina, otro espectro u otra construcción global exigirían un análisis nuevo.
+
+00:15:10.283 --> 00:15:14.533
+El elemento Clifford de grado dieciocho t a tiene cuadrado menos uno.
+
+00:15:14.533 --> 00:15:19.963
+Multiplicarlo por menos i produce U a, cuyo cuadrado es más uno en la representación.
+
+00:15:19.963 --> 00:15:24.908
+Ambas identidades son correctas, pero responden a preguntas diferentes.
+
+00:15:24.908 --> 00:15:29.803
+Una simetría física debe actuar coherentemente sobre todos los campos e interacciones,
+
+00:15:29.803 --> 00:15:32.483
+incluido el campo bosónico Omega.
+
+00:15:32.483 --> 00:15:35.858
+Puede ser posible una acción torcida o combinada.
+
+00:15:35.858 --> 00:15:40.753
+La auditoría exacta no demuestra inconsistencia y no es una formalización Lean.
+
+00:15:42.117 --> 00:15:46.287
+El módulo permite utilizar estos enunciados de alcance definido.
+
+00:15:46.287 --> 00:15:49.817
+Cada control cambia entradas racionales exactas.
+
+00:15:49.817 --> 00:15:54.957
+El criterio y su testigo determinan la retícula y el mapa de cocaracteres mostrados.
+
+00:15:54.957 --> 00:15:59.602
+Una figura finita ilustra el resultado; la prueba Lean aporta el enunciado aritmético
+
+00:15:59.602 --> 00:16:04.642
+universal. Cinco archivos Lean contienen cincuenta y nueve declaraciones de teoremas
+
+00:16:04.642 --> 00:16:09.527
+en total, incluidas diez de álgebra racional para la ficha de hipótesis.
+
+00:16:09.527 --> 00:16:14.102
+La descarga completa incluye datos mantenidos y scripts de repetición.
+
+00:16:14.102 --> 00:16:20.117
+Los hashes, las comprobaciones numéricas y las pruebas formales certifican cosas diferentes.
+
+00:16:21.492 --> 00:16:26.277
+Estos valores proceden de las búsquedas publicadas de ATLAS en pares top y de CMS en dijets
+
+00:16:26.277 --> 00:16:31.527
+que ya usa el laboratorio. Son límites superiores observados con hipótesis de resonancia
+
+00:16:31.527 --> 00:16:36.132
+diferentes, no tasas medidas de producción de nuevas partículas.
+
+00:16:36.132 --> 00:16:41.222
+Ninguna de esas búsquedas comunica una señal significativa de nuevas partículas.
+
+00:16:41.222 --> 00:16:45.832
+Para contrastar nuestros ejemplos de cuantización sigue faltando conectarlos físicamente
+
+00:16:45.832 --> 00:16:52.202
+con masas, acoplamientos, anchuras y tasas predichas, con sus incertidumbres.
+
+00:16:52.202 --> 00:16:55.692
+Los datos pueden respaldar esa realización física.
+
+00:16:55.692 --> 00:17:01.587
+No sustituyen su demostración matemática, y quedar bajo un límite no es un descubrimiento.
+
+00:17:02.950 --> 00:17:06.800
+Un potencial describe cómo cambia la energía con un campo.
+
+00:17:06.800 --> 00:17:11.920
+Cerca del vacío elegido, su curvatura determina la masa del Higgs al cuadrado tras normalizar
+
+00:17:11.920 --> 00:17:18.030
+el campo. Las derivadas tercera y cuarta determinan los coeficientes cúbico y cuártico.
+
+00:17:18.030 --> 00:17:22.940
+Los factoriales importan: el coeficiente de una potencia en el potencial no usa la misma
+
+00:17:22.940 --> 00:17:26.565
+convención que el vértice de interacción correspondiente.
+
+00:17:26.565 --> 00:17:30.240
+Aquí el campo canónico es efe hache por el cambio de theta.
+
+00:17:30.240 --> 00:17:34.900
+Lean comprueba identidades polinómicas racionales; las derivadas reales se comprueban
+
+00:17:34.900 --> 00:17:37.780
+por separado mediante álgebra simbólica.
+
+00:17:39.158 --> 00:17:43.658
+Estas curvas usan los nueve casos numéricos guardados en el laboratorio.
+
+00:17:43.658 --> 00:17:47.883
+Cada caso se recalibra a la misma fase del vacío y masa del Higgs.
+
+00:17:47.883 --> 00:17:52.673
+La magnitud representada resta el valor de cada vacío, resta el caso de referencia uno
+
+00:17:52.673 --> 00:17:54.993
+y divide por una escala común.
+
+00:17:54.993 --> 00:17:58.138
+Sus valores proceden del motor del potencial.
+
+00:17:58.138 --> 00:18:03.493
+La proximidad de los acoplamientos cúbico y cuártico no hace idéntico todo el potencial.
+
+00:18:03.493 --> 00:18:08.258
+Se comparan modelos especificados; no se demuestra que otros parámetros nunca importen
+
+00:18:08.258 --> 00:18:11.123
+ni se realiza un contraste experimental.
+
+00:18:12.492 --> 00:18:17.287
+Este es el espectro de masa invariante de pares top medido por C M S, no una curva de
+
+00:18:17.287 --> 00:18:23.282
+límites superiores. Los intervalos horizontales tienen anchuras de masa diferentes.
+
+00:18:23.282 --> 00:18:28.302
+Los valores verticales son sección eficaz por unidad de masa: la contribución de un intervalo
+
+00:18:28.302 --> 00:18:30.617
+es la densidad por su anchura.
+
+00:18:30.617 --> 00:18:35.092
+La escala logarítmica permite ver los valores pequeños a masas altas.
+
+00:18:35.092 --> 00:18:39.227
+Las barras verticales muestran raíces de la diagonal de covarianza.
+
+00:18:39.227 --> 00:18:42.102
+Describen incertidumbres marginales.
+
+00:18:42.102 --> 00:18:47.262
+Una predicción debe coincidir en energía, canal, espacio de fases, nivel
+
+00:18:47.262 --> 00:18:50.267
+de corrección e intervalos antes de compararla.
+
+00:18:51.617 --> 00:18:55.757
+Cada celda del mapa es la correlación entre dos intervalos medidos.
+
+00:18:55.757 --> 00:19:00.822
+La diagonal vale uno. Los valores positivos y negativos indican errores que tienden a
+
+00:19:00.822 --> 00:19:03.712
+variar juntos o en sentidos opuestos.
+
+00:19:03.712 --> 00:19:08.787
+La matriz decimal exacta tiene una factorización con quince pivotes positivos.
+
+00:19:08.787 --> 00:19:13.457
+Eso verifica que la matriz publicada es definida positiva; no elimina la incertidumbre
+
+00:19:13.457 --> 00:19:18.552
+experimental. Al normalizar una densidad a área uno, la restricción de suma
+
+00:19:18.552 --> 00:19:23.037
+introduce una dirección nula. Su covarianza es singular.
+
+00:19:23.037 --> 00:19:28.337
+Tratar todos los intervalos normalizados como independientes contaría mal la información.
+
+00:19:29.700 --> 00:19:35.890
+Utiliza tres preguntas al leer un certificado. ¿Es una identidad matemática exacta? ¿
+
+00:19:35.890 --> 00:19:40.895
+Está acotado el error numérico en el dominio que uso? ¿Predice el cálculo el observable
+
+00:19:40.895 --> 00:19:45.985
+medido con sus incertidumbres físicas? El paquete actual aporta diez identidades
+
+00:19:45.985 --> 00:19:51.965
+racionales Lean, una comprobación exacta de covarianza y tres cotas puntuales de derivadas.
+
+00:19:51.965 --> 00:19:56.190
+Siguen pendientes el error de la integral completa y el mínimo global.
+
+00:19:56.190 --> 00:20:00.605
+La curva de ajuste cuártico aún difiere de su tabla publicada aproximadamente un siete
+
+00:20:00.605 --> 00:20:05.875
+coma cuatro por ciento. Descarga la evidencia y usa el capítulo práctico de hipótesis
+
+00:20:05.875 --> 00:20:11.225
+para repetir una comparación, respetando el alcance de estas garantías parciales.

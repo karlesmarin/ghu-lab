@@ -89,3 +89,17 @@ tools/quantization_video/** -text
 media/video/2026-10-13-quantization-main/** -text
 media/video/2026-10-13-mathematics-quantization/** -text whitespace=cr-at-eol
 media/video/current.json -text
+
+# Preserve the 14 October evidence and media hashes on every checkout.
+data/hypothesis_comparison/** -text
+media/video/2026-10-14-hypotheses/** -text
+media/video/2026-10-14-mathematics-hypotheses/** -text
+tools/video_guide/storyboard.json -text
+
+# Hash-pinned Windows artifacts retain CRLF; still check spaces and indentation.
+proof/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol
+src/modules/hypothesis_reference.mjs -text whitespace=blank-at-eol,space-before-tab,cr-at-eol
+data/hypothesis_comparison/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol
+media/video/2026-10-14-hypotheses/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol
+media/video/2026-10-14-mathematics-hypotheses/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol
+tools/video_guide/storyboard.json -text whitespace=blank-at-eol,space-before-tab,cr-at-eol

@@ -20,7 +20,7 @@ function uiSourceText(element){
 }
 function uiLocalize(){
  if(typeof document==='undefined'||typeof document.createTreeWalker!=='function')return;
- const skip='script,style,noscript,metadata,code,pre,textarea,[data-guide-language],[data-guide-set-language],.helppop,#gqRoot,#rx_boundaryresearch,#cdm_box';
+ const skip='script,style,noscript,metadata,code,pre,textarea,[data-guide-language],[data-guide-set-language],.helppop,#gqRoot,#rx_boundaryresearch,#rx_hypothesiscompare,#cdm_box';
  const walk=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
  while(walk.nextNode()){
   const node=walk.currentNode;if(node.parentElement?.closest(skip))continue;

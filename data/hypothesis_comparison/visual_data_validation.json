@@ -1,0 +1,82 @@
+{
+  "passed": true,
+  "count": 15,
+  "checks": [
+    {
+      "name": "Shared angular grid matches archived calculation",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "local finite curves",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "local reference zero",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "global finite curves",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "global reference zero",
+      "passed": true,
+      "witness": null
+    },
+    {
+      "name": "Case 1 matches archived potential differences",
+      "passed": true,
+      "witness": 0.0
+    },
+    {
+      "name": "Case 2 matches archived potential differences",
+      "passed": true,
+      "witness": 6.82509604388315e-14
+    },
+    {
+      "name": "Case 3 matches archived potential differences",
+      "passed": true,
+      "witness": 4.39648317751562e-14
+    },
+    {
+      "name": "Case 4 matches archived potential differences",
+      "passed": true,
+      "witness": 4.218847493575595e-14
+    },
+    {
+      "name": "Case 5 matches archived potential differences",
+      "passed": true,
+      "witness": 7.216449660063518e-14
+    },
+    {
+      "name": "Case 6 matches archived potential differences",
+      "passed": true,
+      "witness": 1.3489209749195652e-14
+    },
+    {
+      "name": "Case 7 matches archived potential differences",
+      "passed": true,
+      "witness": 7.011058400507864e-14
+    },
+    {
+      "name": "Case 8 matches archived potential differences",
+      "passed": true,
+      "witness": 2.7144952952085077e-14
+    },
+    {
+      "name": "Case 9 matches archived potential differences",
+      "passed": true,
+      "witness": 5.43315392675936e-14
+    },
+    {
+      "name": "All local curves vanish at the fixed vacuum",
+      "passed": true,
+      "witness": null
+    }
+  ],
+  "scope": "Plot data consistency with archived numerical calculations; not independent physical validation."
+}

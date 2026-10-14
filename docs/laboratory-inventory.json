@@ -391,6 +391,15 @@
         "en": "guide/boundaryresearch/index.html",
         "es": "guide/es/boundaryresearch/index.html"
       }
+    },
+    {
+      "id": "hypothesiscompare",
+      "title": "Hypotheses: local response and experimental context",
+      "host": "samepot",
+      "guides": {
+        "en": "guide/hypothesiscompare/index.html",
+        "es": "guide/es/hypothesiscompare/index.html"
+      }
     }
   ],
   "simulatorModes": [
@@ -433,7 +442,7 @@
   ],
   "countingRule": "Menu sections, embedded cards, model modes and batch studies are overlapping levels of organization, not quantities to add into a panel total.",
   "userGuides": {
-    "guidesPerLanguage": 45,
+    "guidesPerLanguage": 46,
     "glossaryTerms": 67,
     "languages": [
       "en",

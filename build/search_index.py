@@ -3,8 +3,11 @@ import re
 BASE='https://karlesmarin.github.io/ghu-explorer/'
 # Ownership challenges are raw files, not searchable content pages.
 VERIFICATION_FILES = ('google187af701b0e7661c.html',)
+# This source document is hashed by its replayable scientific certificate.
+# Carry its exact bytes; index the enclosing proof catalogue instead.
+PINNED_PROOF_PAGES = ('proof/hypothesis/notes.html',)
 def current_page(rel):
-    return rel not in VERIFICATION_FILES and rel.endswith('.html') and not rel.startswith('tools-') and (not rel.startswith('editions/') or rel=='editions/index.html') and (not rel.startswith('video/') or rel in ('video/index.html','video/quantization/index.html','video/quantization/index-es.html','video/mathematics/index.html','video/mathematics/index-es.html','video/mathematics/proof-notes.html','video/mathematics/bridge.html','video/mathematics/bridge-es.html'))
+    return rel not in VERIFICATION_FILES + PINNED_PROOF_PAGES and rel.endswith('.html') and not rel.startswith('tools-') and (not rel.startswith('editions/') or rel=='editions/index.html') and (not rel.startswith('video/') or rel in ('video/index.html','video/quantization/index.html','video/quantization/index-es.html','video/mathematics/index.html','video/mathematics/index-es.html','video/mathematics/proof-notes.html','video/mathematics/bridge.html','video/mathematics/bridge-es.html'))
 def canonical(rel):return BASE+('' if rel=='index.html' else rel)
 def metadata(rel,text):
     if not current_page(rel):return text

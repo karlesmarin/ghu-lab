@@ -1,4 +1,4 @@
-"""Replay the four Lean files and the newly installed portable checks; preserve historical logs."""
+"""Replay the maintained Lean files and portable checks; preserve historical logs."""
 from pathlib import Path
 import hashlib,json,re,subprocess,sys
 ROOT=Path(__file__).resolve().parents[1]
@@ -6,7 +6,7 @@ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 version=subprocess.check_output(['lean','--version'],text=True).strip()
 assert '4.27.0' in version,version
 rows=[]
-for rel in ['proof/su7/SU7Certificates.lean','proof/quantization/GHUQuantization.lean','proof/quantization/SpinPeriod.lean','proof/u2/U2Certificate.lean']:
+for rel in ['proof/su7/SU7Certificates.lean','proof/quantization/GHUQuantization.lean','proof/quantization/SpinPeriod.lean','proof/u2/U2Certificate.lean','proof/hypothesis/HypothesisAlgebra.lean']:
  p=ROOT/rel;src=p.read_text(encoding='utf-8')
  code=re.sub(r'/\-.*?\-/','',src,flags=re.S)
  assert not re.search(r'\b(sorry|admit|native_decide|axiom|unsafe)\b',code),rel
@@ -25,6 +25,7 @@ for rel in ['proof/su7/SU7Certificates.lean','proof/quantization/GHUQuantization
 commands=[['python','proof/quantization/verify_lean.py','--check'],['python','proof/quantization/verify_spin.py','--check'],['python','proof/u2/verify_lean.py','--check'],['node','proof/quantization/test_lab.mjs','--check'],['node','proof/quantization/test_spin.mjs','--check'],['python','proof/lifts/background_lift_checks.py'],['python','proof/lifts/background_lift_checks.py','--check'],['python','proof/boundary-research/certify.py','--check']]
 checks=[]
 commands.extend([['node','proof/u2/lab_crosscheck.mjs','--check'],['python','proof/quantization/literature_checks.py','--check']])
+commands.append(['python','proof/hypothesis/certify.py','--check'])
 for command in commands:
  r=subprocess.run(command,cwd=ROOT,text=True,encoding='utf-8',capture_output=True,check=True,timeout=180)
  checks.append(dict(command=command,passed=True,output=r.stdout.strip()))

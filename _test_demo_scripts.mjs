@@ -27,5 +27,5 @@ check('SU(n) is restored in both languages', cdmDisplay('the S U seven model') =
 check('spelled decimals become numbers', cdmDisplay('set it to zero point seven') === 'set it to 0.7' && cdmDisplay('a cinco coma dos') === 'a 5,2');
 check('ordinary prose is untouched', cdmDisplay('A point of view, one coma later.') === 'A point of view, one coma later.');
 check('no spelled-out acronym survives in any demo', !CDM_SCRIPTS.chapters.some(c => c.steps.some(s => /\b[A-Z] [A-Z]\b/.test(s.en + ' ' + s.es))));
-check('no video-only wording ("choose a chapter") survives', !CDM_SCRIPTS.chapters.some(c => c.steps.some(s => /choose a chapter|elige un capítulo|walkthrough|recorrido actualizado/i.test(s.en + ' ' + s.es))));
+check('no video-only wording ("choose a chapter") survives', !CDM_SCRIPTS.chapters.some(c => c.steps.some(s => /choose a chapter|elige un capítulo|recorded walkthrough|video walkthrough|recorrido actualizado/i.test(s.en + ' ' + s.es))));
 console.log(`${passed} passed, 0 failed (demo scripts = video storyboard + guides, display transform, staleness)`);

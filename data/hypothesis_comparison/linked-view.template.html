@@ -1,0 +1,121 @@
+<div id="ghu-linked-cases">
+  <h2>¿Hasta dónde son equivalentes?</h2>
+  <div class="text-small">GHU · θH = 0,1 · nueve casos teóricos recalibrados · referencia: caso 1</div>
+  <div class="ghu-panes">
+    <section><h3>Parámetros del modelo</h3><svg class="ghu-chart" id="ghu-parameters" role="img" aria-label="Nueve casos en el plano cF y mV adimensionales"></svg></section>
+    <section><h3>Cambios de los autoacoplamientos</h3><svg class="ghu-chart" id="ghu-observables" role="img" aria-label="Variaciones porcentuales de lambda3 y lambda4 frente al caso 1"></svg></section>
+  </div>
+  <div class="viz-controls"><label class="form-label">Caso de la tabla 3 <select class="form-select" id="ghu-case"></select></label></div>
+  <div id="ghu-selection" class="text-small tabular-nums" aria-live="polite"></div>
+  <div class="table-responsive"><table class="table table-sm"><thead><tr><th>Observable</th><th>Paper</th><th>Cálculo</th><th>Δ / paper</th></tr></thead><tbody id="ghu-values"></tbody></table></div>
+  <h3>Dónde dejan de coincidir</h3>
+  <div class="viz-controls"><label class="form-label">Región del potencial <select class="form-select" id="ghu-scope"><option value="local">Cerca del vacío · θ de 0,06 a 0,14</option><option value="global">Intervalo amplio · θ de 0 a π</option></select></label></div>
+  <div style="position:relative"><svg class="ghu-chart" id="ghu-potential" role="img" aria-label="Diferencia de potencial entre el caso seleccionado y el caso 1"></svg><div id="ghu-hover" class="tooltip" role="tooltip" hidden style="position:absolute;pointer-events:none;background:var(--popover);color:var(--popover-foreground)"></div></div>
+  <div class="text-small">Potenciales desplazados a cero en θH · Escala fija por región · Línea: muestras calculadas, unión lineal</div>
+  <div class="text-small">● Casos calculados · □ Referencia 1 · Sin incertidumbre física cuantificada</div>
+  <div class="text-small">Torres dominantes; no incluye bottom en esta vista. Círculos próximos pueden solaparse.</div>
+  <script type="application/json" id="ghu-case-data">__CASE_DATA__</script>
+</div>
+<style>
+#ghu-linked-cases .ghu-panes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+#ghu-linked-cases .ghu-chart{display:block;width:100%;height:280px;overflow:visible}
+#ghu-linked-cases .ghu-chart text{fill:var(--foreground);font-size:12px;font-weight:400}
+#ghu-linked-cases .ghu-chart .grid{stroke:var(--border);stroke-width:1}
+#ghu-linked-cases .ghu-chart .mark{fill:var(--viz-series-1)}
+#ghu-linked-cases .ghu-chart .reference{fill:none;stroke:var(--foreground);stroke-width:1.5}
+#ghu-linked-cases .ghu-chart .zero{stroke:var(--muted-foreground);stroke-width:1}
+#ghu-linked-cases section{min-width:0}
+@media(max-width:620px){#ghu-linked-cases .ghu-panes{grid-template-columns:1fr}}
+</style>
+<script>
+(()=>{
+ const root=document.getElementById('ghu-linked-cases');
+ const data=JSON.parse(root.querySelector('#ghu-case-data').textContent);
+ const rows=data.rows, select=root.querySelector('#ghu-case'), ns='http://www.w3.org/2000/svg';
+ const saved=window.openai?.widgetState?.modelContent;
+ let selected=Number.isInteger(saved?.case)&&saved.case>=1&&saved.case<=9?saved.case:6;
+ let scope=saved?.scope==='global'?'global':'local';
+ const fmt=(n,d=5)=>Number(n).toLocaleString('es-ES',{maximumFractionDigits:d,minimumFractionDigits:d});
+ rows.forEach(r=>{const o=document.createElement('option');o.value=r.id;o.textContent=`${r.id} · nF=${r.nf}, nV=${r.nv}, cV=${r.cv}`;select.append(o)});
+ function el(parent,name,attrs,text){const n=document.createElementNS(ns,name);for(const[k,v]of Object.entries(attrs))n.setAttribute(k,v);if(text!==undefined)n.textContent=text;parent.append(n);return n}
+ function domain(vals){let a=Math.min(...vals),b=Math.max(...vals),pad=(b-a||1)*.15;return[a-pad,b+pad]}
+ function chart(id,xget,yget,xlabel,ylabel,digits){
+  const svg=root.querySelector('#'+id),width=svg.getBoundingClientRect().width,height=280;
+  if(width<150)return;
+  svg.replaceChildren();svg.setAttribute('viewBox',`0 0 ${width} ${height}`);
+  el(svg,'title',{},`${xlabel} frente a ${ylabel}. Selección enlazada de nueve casos; sin interpolación.`);
+  const L=76,R=width-16,T=14,B=224,xd=domain(rows.map(xget)),yd=domain(rows.map(yget));
+  const x=v=>L+(v-xd[0])/(xd[1]-xd[0])*(R-L),y=v=>B-(v-yd[0])/(yd[1]-yd[0])*(B-T);
+  el(svg,'rect',{'data-chart-frame':'',x:L,y:T,width:R-L,height:B-T,fill:'none',stroke:'var(--border)'});
+  const nt=width<400?3:4;
+  for(let i=0;i<nt;i++){
+   const xv=xd[0]+(xd[1]-xd[0])*i/(nt-1),yv=yd[0]+(yd[1]-yd[0])*i/(nt-1);
+   el(svg,'line',{x1:x(xv),x2:x(xv),y1:T,y2:B,class:'grid'});
+   el(svg,'text',{x:x(xv),y:B+20,'text-anchor':i===0?'start':i===nt-1?'end':'middle'},fmt(xv,digits));
+   el(svg,'line',{x1:L,x2:R,y1:y(yv),y2:y(yv),class:'grid'});
+   el(svg,'text',{x:L-9,y:y(yv)+4,'text-anchor':'end'},fmt(yv,digits));
+  }
+  if(xd[0]<0&&xd[1]>0)el(svg,'line',{x1:x(0),x2:x(0),y1:T,y2:B,class:'zero'});
+  if(yd[0]<0&&yd[1]>0)el(svg,'line',{x1:L,x2:R,y1:y(0),y2:y(0),class:'zero'});
+  el(svg,'text',{x:(L+R)/2,y:height-8,'text-anchor':'middle',class:'axis-title','data-axis':'x'},xlabel);
+  el(svg,'text',{transform:`translate(16 ${(T+B)/2}) rotate(-90)`,'text-anchor':'middle',class:'axis-title','data-axis':'y'},ylabel);
+  const points=rows.map(r=>({r,x:x(xget(r)),y:y(yget(r))}));
+  points.filter(p=>p.r.id!==selected).concat(points.filter(p=>p.r.id===selected)).forEach(p=>{
+   el(svg,'circle',{cx:p.x,cy:p.y,r:p.r.id===selected?6:4,class:'mark',opacity:p.r.id===selected?1:.35,'data-case':p.r.id});
+   if(p.r.id===1)el(svg,'rect',{x:p.x-8,y:p.y-8,width:16,height:16,class:'reference'});
+  });
+  const hit=el(svg,'rect',{x:L,y:T,width:R-L,height:B-T,fill:'transparent','data-chart-hit':'',class:'cursor-interaction'});
+  hit.addEventListener('pointerdown',ev=>{const rect=svg.getBoundingClientRect(),px=ev.clientX-rect.left,py=ev.clientY-rect.top;
+   const nearest=points.reduce((a,b)=>Math.hypot(a.x-px,a.y-py)<Math.hypot(b.x-px,b.y-py)?a:b);choose(nearest.r.id,true)});
+  // Check tick/axis geometry after layout; retained for browser audit.
+  svg.dataset.labelCount=svg.querySelectorAll('text').length;
+ }
+ function draw(){
+  select.value=selected;
+  chart('ghu-parameters',r=>r.cf,r=>r.mv,'cF [adimensional]','m̃V [adimensional]',3);
+  chart('ghu-observables',r=>100*(r.l3/rows[0].l3-1),r=>100*(r.l4/rows[0].l4-1),'Δλ₃ / λ₃,ref [%]','Δλ₄ / λ₄,ref [%]',3);
+  const r=rows[selected-1];root.dataset.selected=selected;
+  root.querySelector('#ghu-selection').textContent=`Caso ${r.id} · cF=${fmt(r.cf,7)} · m̃V=${fmt(r.mv,7)} · mH impuesta: 125,1 GeV`;
+  root.querySelector('#ghu-values').innerHTML=[['λ₃ [GeV]',r.p3,r.l3],['λ₄ [adimensional]',r.p4,r.l4]].map(([name,p,v])=>`<tr><th>${name}</th><td class="text-end">${fmt(p)}</td><td class="text-end">${fmt(v)}</td><td class="text-end">${fmt(100*(v/p-1),3)} %</td></tr>`).join('');
+  drawPotential();
+ }
+ function drawPotential(){
+  const svg=root.querySelector('#ghu-potential'),W=svg.getBoundingClientRect().width,H=280,L=76,R=W-16,T=14,B=224;
+  if(W<150)return;svg.replaceChildren();svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  const series=data.potential[scope],xs=series.theta,ys=series.delta[selected-1],all=series.delta.flat();
+  const yd=domain([...all,0]),xmin=xs[0],xmax=xs.at(-1),x=v=>L+(v-xmin)/(xmax-xmin)*(R-L),y=v=>B-(v-yd[0])/(yd[1]-yd[0])*(B-T);
+  const exp=Math.floor(Math.log10(Math.max(...all.map(Math.abs))||1)),factor=10**exp;
+  svg.dataset.scope=scope;svg.dataset.case=selected;svg.dataset.sampleCount=xs.length;
+  el(svg,'title',{},`Diferencia de potencial con el caso 1; caso ${selected}; región ${scope}; ${xs.length} muestras.`);
+  el(svg,'rect',{'data-chart-frame':'',x:L,y:T,width:R-L,height:B-T,fill:'none',stroke:'var(--border)'});
+  const nt=W<400?3:5;
+  for(let i=0;i<nt;i++){
+   const xv=xmin+(xmax-xmin)*i/(nt-1),yv=yd[0]+(yd[1]-yd[0])*i/(nt-1);
+   el(svg,'line',{x1:L,x2:R,y1:y(yv),y2:y(yv),class:'grid'});
+   el(svg,'text',{x:L-9,y:y(yv)+4,'text-anchor':'end'},fmt(yv/factor,2));
+   el(svg,'text',{x:x(xv),y:B+20,'text-anchor':i===0?'start':i===nt-1?'end':'middle'},fmt(xv,2));
+  }
+  el(svg,'line',{x1:L,x2:R,y1:y(0),y2:y(0),class:'zero'});
+  el(svg,'line',{x1:x(.1),x2:x(.1),y1:T,y2:B,class:'zero','stroke-dasharray':'3 3'});
+  el(svg,'path',{d:xs.map((v,i)=>(i?'L':'M')+x(v)+','+y(ys[i])).join(' '),fill:'none',stroke:'var(--viz-series-1)','stroke-width':2,'data-potential-line':''});
+  el(svg,'text',{x:(L+R)/2,y:H-8,'text-anchor':'middle',class:'axis-title','data-axis':'x'},'θ [rad] · vacío en 0,1');
+  el(svg,'text',{transform:`translate(16 ${(T+B)/2}) rotate(-90)`,'text-anchor':'middle',class:'axis-title','data-axis':'y'},`ΔV / (mH²fH²) [×10^${exp}]`);
+  const guide=el(svg,'line',{x1:L,x2:L,y1:T,y2:B,stroke:'var(--muted-foreground)',visibility:'hidden','data-chart-hover-guide':''});
+  const marker=el(svg,'circle',{r:4,fill:'var(--viz-series-1)',visibility:'hidden','data-chart-hover-marker':''});
+  const hit=el(svg,'rect',{x:L,y:T,width:R-L,height:B-T,fill:'transparent','data-chart-hit':'',class:'cursor-interaction'}),tip=root.querySelector('#ghu-hover');tip.hidden=true;
+  const hover=ev=>{const box=svg.getBoundingClientRect(),px=Math.max(L,Math.min(R,ev.clientX-box.left)),t=xmin+(px-L)/(R-L)*(xmax-xmin),u=(t-xmin)/(xmax-xmin)*(xs.length-1),i=Math.min(xs.length-2,Math.floor(u)),v=ys[i]+(ys[i+1]-ys[i])*(u-i);
+   guide.setAttribute('x1',px);guide.setAttribute('x2',px);guide.setAttribute('visibility','visible');marker.setAttribute('cx',px);marker.setAttribute('cy',y(v));marker.setAttribute('visibility','visible');
+   tip.textContent=`θ=${fmt(t,4)} · ΔV/(mH²fH²)=${v.toExponential(3)} · interpolación visual`;tip.hidden=false;tip.style.left='76px';tip.style.top='4px';tip.style.maxWidth=`${W-92}px`;
+  };
+  hit.addEventListener('pointermove',hover);hit.addEventListener('pointerdown',hover);hit.addEventListener('pointerleave',()=>{tip.hidden=true;guide.setAttribute('visibility','hidden');marker.setAttribute('visibility','hidden')});
+  root.querySelector('#ghu-scope').value=scope;
+ }
+ function choose(id,persist){if(!Number.isInteger(id)||id<1||id>9)return;selected=id;draw();
+  if(persist&&window.openai?.setWidgetState)window.openai.setWidgetState({modelContent:{case:id,scope,referenceCase:1,source:'GHU dominant-tower reconstruction'},privateContent:null}).catch(()=>{});
+ }
+ select.addEventListener('change',()=>choose(Number(select.value),true));
+ root.querySelector('#ghu-scope').addEventListener('change',e=>{scope=e.target.value;choose(selected,true)});
+ window.addEventListener('openai:set_globals',e=>{const s=e.detail?.globals?.widgetState?.modelContent;if(s?.scope)scope=s.scope==='global'?'global':'local';if(Number.isInteger(s?.case))choose(s.case,false)});
+ new ResizeObserver(draw).observe(root);draw();
+})();
+</script>

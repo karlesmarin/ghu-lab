@@ -1,8 +1,12 @@
 {
   "schema": "ghu-proof-bundle-v1",
-  "date": "2026-10-13",
+  "date": "2026-10-14",
   "scope": "Integrity and scoped verification; no full-model consistency or novelty claim",
   "lean": [
+    {
+      "path": "proof/hypothesis/HypothesisAlgebra.lean",
+      "theorems": 10
+    },
     {
       "path": "proof/quantization/GHUQuantization.lean",
       "theorems": 8
@@ -135,6 +139,66 @@
       "path": "data/higgstools_validation.json",
       "bytes": 15810,
       "sha256": "18e1797edf93f364c74cddb6a583000ca558f0eb4953eccc0835efb1b1b24301"
+    },
+    {
+      "path": "data/hypothesis_comparison/build_visuals.py",
+      "bytes": 3159,
+      "sha256": "f54afe669b726809cf18d5d9f41aa48607bcf61536112d9e5c1466a24acd8343"
+    },
+    {
+      "path": "data/hypothesis_comparison/data_manifest.json",
+      "bytes": 2976,
+      "sha256": "fe82615bd3492306d7cc76b980026b0b3d349b83335c214e149d122110132673"
+    },
+    {
+      "path": "data/hypothesis_comparison/ghu_paper_benchmark.json",
+      "bytes": 1688,
+      "sha256": "6db9baf700cde27fc893c77c84d544fd70cfc2e673ea34aa505084f1c58f706b"
+    },
+    {
+      "path": "data/hypothesis_comparison/ghu_potential.py",
+      "bytes": 4444,
+      "sha256": "6220b0a48717e22bd451c2aa0dda039951056e7e99d25b7335617edc1a4ee04f"
+    },
+    {
+      "path": "data/hypothesis_comparison/ghu_potential_results.json",
+      "bytes": 10257,
+      "sha256": "243296543e86307f8474d1586ed99ccb28b1cca62ebbe9bcb00d6b581146caa6"
+    },
+    {
+      "path": "data/hypothesis_comparison/index.html",
+      "bytes": 4018,
+      "sha256": "a19572011d50e035937d926efdb076fcf9a2f2d5d4a1e7786d985513ff5f2d2a"
+    },
+    {
+      "path": "data/hypothesis_comparison/potential_benchmarks.csv",
+      "bytes": 1885,
+      "sha256": "d3af22fb2068da99e95f3078eb49224eb0cd6fcae594caec36d8a36f708e29a5"
+    },
+    {
+      "path": "data/hypothesis_comparison/potential_curves.csv",
+      "bytes": 55591,
+      "sha256": "acbe2a2acd2f50db25fbdca0e2a3de8dbaf5a45a4a8f764a7d178b18748c5441"
+    },
+    {
+      "path": "data/hypothesis_comparison/potential_validation.json",
+      "bytes": 13421,
+      "sha256": "6cf8928214d77ad6bd7097f0e9526207302c9b0ae509dc0948718f2a1805eb91"
+    },
+    {
+      "path": "data/hypothesis_comparison/validate_potential.py",
+      "bytes": 10900,
+      "sha256": "3999d1d723d9a008533d08179ec8f6b18a2878c5c4e0453865bc4a242de06cf9"
+    },
+    {
+      "path": "data/hypothesis_comparison/visual_data.json",
+      "bytes": 128157,
+      "sha256": "27e9340d8f6967ddd82bc3d4138c9e71bc712465ce624828250b41103a95f3ad"
+    },
+    {
+      "path": "data/hypothesis_comparison/visual_data_validation.json",
+      "bytes": 2080,
+      "sha256": "9d4eee9f24dcb1624c25bdcaa75915d90951e5cf7e91ca3fcff118407310e5a2"
     },
     {
       "path": "data/icecube_deepcore_2018/chi2_map_IH.dat",
@@ -472,6 +536,31 @@
       "sha256": "85191acd1bf1ba8063942e10dce0f98304143d13e1bff1f35b8a04abfe0b0b25"
     },
     {
+      "path": "proof/hypothesis/certificates.json",
+      "bytes": 56200,
+      "sha256": "905793fea6f1ecff60c62d30142d1017e236258fc9d315af50c241adef5e4577"
+    },
+    {
+      "path": "proof/hypothesis/certify.py",
+      "bytes": 11017,
+      "sha256": "4cd551c2911e1f8eed4a5578aee275988062b856b0bf257f393fd3ed78f4719f"
+    },
+    {
+      "path": "proof/hypothesis/HypothesisAlgebra.lean",
+      "bytes": 2141,
+      "sha256": "ebf9c91fc0172e126553c725fa56ed987cfd0c077b1dd0101e93301db24c7b50"
+    },
+    {
+      "path": "proof/hypothesis/lean.log",
+      "bytes": 1008,
+      "sha256": "0915753e5350a2476110b51847421b654d27ba4ae4bd21210f363c815f1eb364"
+    },
+    {
+      "path": "proof/hypothesis/notes.html",
+      "bytes": 5397,
+      "sha256": "aa3a309334b889d05f2305c9397677ae90e7286ce0d70498dccbcbf9fe3d52b1"
+    },
+    {
       "path": "proof/lifts/action_source.txt",
       "bytes": 9484,
       "sha256": "618b9217f73c63d9ae139675c2264e038f604bc703b66e08746cf03582c73722"
@@ -618,13 +707,13 @@
     },
     {
       "path": "proof/replay.json",
-      "bytes": 9170,
-      "sha256": "a068e2fd80dd46daabdc9fe0337def2f95fe0c7f04d267a80281c3dfa03440dd"
+      "bytes": 11157,
+      "sha256": "cb09f4016c88910662ffd558a6e41b1dfedc34c5af81a28cee001057910dd70d"
     },
     {
       "path": "proof/replay_all.py",
-      "bytes": 2678,
-      "sha256": "1bc6013e692fb8ec64cad321ca83b4fbb5499de639b3b0c2acc5285fe8d0e9aa"
+      "bytes": 2774,
+      "sha256": "3fc23f223373b7ca625dff14c4aa75aa3c8db6011119b1d54a1dc324ca1432f0"
     },
     {
       "path": "proof/su7/2503.04090v1.pdf",
@@ -895,6 +984,16 @@
       "path": "src/modules/higgstools_reference.mjs",
       "bytes": 8358,
       "sha256": "5cc6fa0fb17a2be27db66427df4d89ccc56367cb23c29e2376692efe8a2e6901"
+    },
+    {
+      "path": "src/modules/hypothesis_compare.mjs",
+      "bytes": 5726,
+      "sha256": "3cfc2c8b4e29b8bb0ebaf9ba134179b3d43d9055c8d86df55d25b5251e369268"
+    },
+    {
+      "path": "src/modules/hypothesis_reference.mjs",
+      "bytes": 122864,
+      "sha256": "24981f9341689109fef9cad3cb7b3172d8ca4555e670617dd2931c39930420b7"
     },
     {
       "path": "src/modules/inverse.mjs",

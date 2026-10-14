@@ -67,6 +67,10 @@ def audit(nombre, texto):
             # Skip only these delimited math commands; continue scanning the file.
             if etq == "absolute Windows path" and re.match(r"[A-Za-z]:\\(?:pi_|mathbb|mathrm)\{", texto[m.start():]):
                 continue
+            # A literal timestamp regex contains d:\d but names no filesystem path.
+            timestamp = re.escape(r"\d\d:\d\d:\d\d\.\d{3}")
+            if etq == "absolute Windows path" and any(t.start() <= m.start() < t.end() for t in re.finditer(timestamp, texto)):
+                continue
             i = max(0, m.start() - 40)
             hits.append((etq, texto[i:m.start() + 60].replace("\n", " ").strip()))
             break
@@ -114,6 +118,8 @@ def main():
         ("a LaTeX homomorphism", r"J:\pi_{d+1}(G)\to\mathbb{R}", False),
         ("a real path after a LaTeX homomorphism", r"J:\pi_{d+1}(G); E:\notes\file.txt", True),
         ("a similarly named Windows directory", r"J:\pi_folder\notes.txt", True),
+        ("a literal timestamp regex", r"(\d\d:\d\d:\d\d\.\d{3}) -->", False),
+        ("a real path after a timestamp regex", r"\d\d:\d\d:\d\d\.\d{3}; D:\data\file.txt", True),
     ]
     fallos = 0
     for etq, texto, debe in pruebas:

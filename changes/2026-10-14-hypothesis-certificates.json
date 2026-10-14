@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-14",
+  "card": "hypothesiscompare",
+  "new_navigation": false,
+  "formal_scope": "10 rational algebra identities in Lean; no real-analysis formalization",
+  "exact_scope": "Published 15x15 CMS covariance LDL factorization; normalization null direction; 3 pointwise log-derivative enclosures",
+  "pending": [
+    "Real-analysis formalization and differentiation under the spectral integral",
+    "Rigorous Bessel enclosures and both integration tails",
+    "Certified global minimum over the continuum",
+    "Complete electroweak inputs and omitted sectors",
+    "Published quartic-fit/table discrepancy about 7.4 percent",
+    "Compatible theory prediction and observed experimental likelihood"
+  ],
+  "full_potential_certified": false,
+  "observed_fit_ready": false,
+  "checks": {
+    "certificate": 296,
+    "module": 45,
+    "browser": 37,
+    "extracted_archive_replay": true
+  },
+  "regression": "80 harnesses run; sole privacy failure was a local Python path in replay metadata, fixed and replayed with all proof checks and privacy gate passing. Full publication browser tier not run.",
+  "interface": "Existing certificate details and shared catalogue, EN/ES guide and real-control demo",
+  "published": false
+}

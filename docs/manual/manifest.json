@@ -2,17 +2,17 @@
   "generator": "build/guide_manual.py",
   "languages": {
     "en": {
-      "pdfSHA256": "ae52cf64d557cfd036c5436aa72bf8473ea2e0a5a69bf890d69694c347742984",
-      "texSHA256": "cf8360edbc1daec1bf41b50b249bb7b096ed2e3aae8f68431afb1a75e00af962",
-      "guides": 45,
+      "pdfSHA256": "2e68048ff630576c866f4e28aa18605157cc4243b31448cef6bd3ab0b7a83949",
+      "texSHA256": "738b200ff63700cff082b1ffe8980394fc34ada5171121511d724b51930ec31f",
+      "guides": 46,
       "glossaryTerms": 67,
       "missingGlyphs": 0,
       "overfullBoxes": 0
     },
     "es": {
-      "pdfSHA256": "cb73af5423cd7a38bb04c573f3ff20b381ce2bfeb0b3fc756fd59797688bf2f5",
-      "texSHA256": "a0ac9d3b2ad257682e8df72c2b5421d3658a4a8ac09c96c1344c49e87ec539cc",
-      "guides": 45,
+      "pdfSHA256": "a8db1c3ca3ecefbf4661fbbb8fa9ba9b506a87323c2577b09a87f8e33e57b8e9",
+      "texSHA256": "664e8cbeed325a376438457bb3299d6371ee228ccef631699e8ae0348eb76e54",
+      "guides": 46,
       "glossaryTerms": 67,
       "missingGlyphs": 0,
       "overfullBoxes": 0
@@ -20,8 +20,8 @@
   },
   "babelSpanishOptions": "spanish,es-noshorthands,es-nodecimaldot,es-tabla",
   "inputs": {
-    "docs/user-guides.json": "36f40789d543992a1d46291890f0ae67e4ef728b933dd62e6f2c26b8139d48e1",
-    "docs/user-guides.es.json": "5eb222c7fa8088a248786b9b30be98efa4af1d65393ff3b0bf070b66db95d0c7",
-    "build/guide_manual.py": "cf3c3980652326af5f57c013d530c11967b0afd8d6b6eda713beeee12ff156d8"
+    "docs/user-guides.json": "107cc90d86d6436d7d6a5522d04b1672333393efffdd951d773e783629ef6d45",
+    "docs/user-guides.es.json": "b307c5018664c277d0788415c18bc93b99c4fb0c7789cdad6fbc526c71f3b017",
+    "build/guide_manual.py": "da40febc4ed8aee780863e9a92733eeced48fe4acb0c70612d257d7e7e370c22"
   }
 }

@@ -22,13 +22,26 @@ try{
  const ev=async expression=>{const r=await send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw Error(r.exceptionDetails.exception?.description||JSON.stringify(r.exceptionDetails));return r.result?.value;};
  const until=async expression=>{for(let i=0;i<300;i++){if(await ev(expression))return;await pause(100);}throw Error('Wait failed: '+expression);};
  const snap=async name=>{const r=await send('Page.captureScreenshot',{format:'png'});writeFileSync(resolve(out,name+'.png'),Buffer.from(r.data,'base64'));};
+ // Compare rendered pixels with the cover, not just the poster attribute: a seek
+ // can hide a correctly loaded poster behind the black opening video frame.
+ // Exclude native playback controls and the transient loading spinner.
+ const checkPoster=async lang=>{
+  await ev(`document.getElementById('guideVideo').scrollIntoView({block:'center'})`);await pause(200);
+  const clip=await ev(`(()=>{const r=document.getElementById('guideVideo').getBoundingClientRect();return {x:r.x+scrollX,y:r.y+scrollY,width:r.width,height:r.height,scale:1};})()`);
+  const shot=await send('Page.captureScreenshot',{format:'png',clip});writeFileSync(resolve(out,'poster-'+lang+'.png'),Buffer.from(shot.data,'base64'));
+  const difference=await ev(`(async()=>{const actual=new Image(),expected=new Image();actual.src='data:image/png;base64,${shot.data}';expected.src=document.getElementById('guideVideo').poster;await Promise.all([actual.decode(),expected.decode()]);const c=document.createElement('canvas');c.width=actual.naturalWidth;c.height=actual.naturalHeight;const ctx=c.getContext('2d');ctx.drawImage(actual,0,0);const a=ctx.getImageData(0,0,c.width,c.height).data;ctx.drawImage(expected,0,0,c.width,c.height);const b=ctx.getImageData(0,0,c.width,c.height).data;let error=0,n=0;for(let y=10;y<Math.min(c.height*.75,c.height-110);y+=2)for(let x=10;x<c.width-10;x+=2)for(let k=0;k<3;k++){if(Math.hypot(x-c.width/2,y-c.height/2)<60)continue;const i=4*(y*c.width+x)+k;error+=Math.abs(a[i]-b[i]);n++;}return error/n;})()`);
+  check(difference<12,lang+' startup visibly displays the scientific cover (pixel comparison)');
+ };
  await send('Page.enable');await send('Runtime.enable');await send('Network.enable');await send('Emulation.setDeviceMetricsOverride',{width:1440,height:1000,deviceScaleFactor:1,mobile:false});
  const web=`http://127.0.0.1:${webPort}/video/index.html`;
  await send('Page.navigate',{url:web+'?lang=en'});await until(`document.getElementById('guideVideo')?.readyState>=2`);
+ await checkPoster('en');
+ await ev(`document.querySelector('[data-lang="es"]').click()`);await until(`document.documentElement.lang==='es'&&document.getElementById('guideVideo')?.readyState>=2`);await checkPoster('es');
+ await ev(`document.querySelector('[data-lang="en"]').click()`);await until(`document.documentElement.lang==='en'&&document.getElementById('guideVideo')?.readyState>=2`);
  check(await ev(`document.querySelectorAll('#chapterList button').length===${plan.chapters.length}`),`all ${plan.chapters.length} English chapters available`);
  check(await ev(`(()=>{const v=document.getElementById('guideVideo');return v.videoWidth===1920&&v.videoHeight===1080&&v.duration>1600&&!v.error;})()`),'English Full HD video decodes');
  check(await ev(`document.getElementById('guideVideo').currentSrc.includes('/media/${revision}/')&&document.getElementById('downloadVideo').href.includes('/media/${revision}/')`),'player and MP4 download select the current dated revision');
- check(await ev(`document.querySelector('[data-copy="revision"]').textContent.includes('SU(7) source discrepancy remains open')&&document.querySelector('#transcriptBody').textContent.includes('an overall multiplication of the potential cannot move its stationary points')`),'revision notice and transcript retain the open scientific issue');
+ check(await ev(`document.querySelector('[data-copy="revision"]').textContent.includes('SU(7) source discrepancy remain open')&&document.querySelector('#transcriptBody').textContent.includes('an overall multiplication of the potential cannot move its stationary points')`),'revision notice and transcript retain the open scientific issue');
  check(await ev(`(()=>{const t=document.querySelector('#transcriptBody').textContent;return t.includes('Twenty-six Lean theorems')&&t.includes('Physical theory uncertainty is explicitly not quantified')&&t.includes('programs share shooting-method ancestry')&&t.includes('Importing them has not produced a new G H U fit');})()`),'new English transcript retains certification and comparison scope');
  await ev(`document.getElementById('guideVideo').play()`);await pause(1300);check(await ev(`document.getElementById('guideVideo').currentTime>1`),'playback advances with audio');await ev(`document.getElementById('guideVideo').pause()`);
  await ev(`document.querySelector('#chapterList [data-index="35"]').click()`);await until(`!document.getElementById('guideVideo').seeking&&document.getElementById('guideVideo').readyState>=2`);
@@ -63,6 +76,7 @@ try{
  check(await ev(`document.documentElement.scrollWidth<=innerWidth+1`),'mobile page has no horizontal overflow');await snap('player-spanish-mobile');
  await send('Page.navigate',{url:web+'?lang=es#exports'});await until(`document.getElementById('guideVideo')?.readyState>=2&&!document.getElementById('guideVideo').seeking`);
  check(await ev(`document.getElementById('chapterNow').textContent.includes('Guardar entradas')&&document.getElementById('guideVideo').currentTime>1600`),'direct Spanish export chapter link works');
+ await send('Page.navigate',{url:pathToFileURL(resolve(site,'video/index.html')).href+'?lang=es'});await until(`document.getElementById('guideVideo')?.readyState>=2&&!document.getElementById('guideVideo').seeking`);await checkPoster('es-file');
  await send('Page.navigate',{url:pathToFileURL(resolve(site,'video/index.html')).href+'?lang=en#higgstools'});await until(`document.getElementById('guideVideo')?.readyState>=2&&!document.getElementById('guideVideo').seeking`);
  check(await ev(`document.getElementById('chapterNow').textContent.includes('Higgs rates')&&!document.getElementById('guideVideo').error`),'complete site plays from disk');
  await send('Page.navigate',{url:web.replace('index.html','2026-10-07.html')+'?lang=es#sun5d'});await until(`document.getElementById('guideVideo')?.readyState>=2&&!document.getElementById('guideVideo').seeking`);

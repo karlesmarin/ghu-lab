@@ -733,7 +733,13 @@ def main(argv=None):
                            "guide/manual/** -text\n"
                            "guide/manual/*.pdf binary\n"
                            "# Preserve original ownership verification responses.\n"
-                           "google*.html -text\n")
+                           "google*.html -text\n"
+                           "# Preserve all versioned media, the reviewed app and certificate bytes.\n"
+                           "video/media/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol\n"
+                           "app/index.html -text\n"
+                           "proof/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol\n"
+                           "proof/matched-profiles/verify.py -text whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol\n"
+                           "src/modules/matched_profiles*.mjs -text whitespace=blank-at-eol,space-before-tab,cr-at-eol\n")
 
     from proof_catalogue import build as build_proof_catalogue
     written.extend(build_proof_catalogue(ROOT, OUT))

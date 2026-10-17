@@ -19,7 +19,7 @@
 {\LARGE User guide\par}
 \vspace{7mm}
 English edition.\par
-14 October 2026\par
+17 October 2026\par
 \vspace{8mm}
 Control names are kept as they appear in the application. Start with a reference, change one input at a time, and retain the assumptions with your result.\par
 \vfill
@@ -2349,12 +2349,12 @@ r(t\ensuremath{\overline{t}}) is close to 1: the 2008 reference point sits at th
 \item \href{https://doi.org/10.17182/hepdata.102956.v1/t37}{HEPData: CMS parton-level d\ensuremath{\sigma}/dm(t\ensuremath{\overline{t}})}
 \item \href{https://doi.org/10.17182/hepdata.102956.v1/t38}{HEPData: its covariance matrix}
 \end{itemize}
-\section{Boundary research: spectrum, independent profiles and anomaly diagnostics}
-Four separate tests help investigate a proposed GHU boundary mechanism: roots of a flat fermion boundary problem, the numerical rank of overlapping profiles, exact parity-inserted spinor traces and a restricted six-dimensional SU(2) tensor condition.
+\section{Boundary research: spectra, profiles, anomalies and certified response}
+Five separate tests help investigate a proposed GHU boundary mechanism: roots of a flat fermion boundary problem, the numerical rank of overlapping profiles, exact parity-inserted spinor traces and a restricted six-dimensional SU(2) tensor condition. The fifth compares two wall profiles after common pole and residue matching, using replayed continuum certificates.
 
 \href{https://karlesmarin.github.io/ghu-explorer/guide/boundaryresearch/index.html}{Open web guide}
 
-Use these tools to find which requirement fails and why before attempting a full model. A mass gap addresses unwanted paired modes; Gram rank tests linear independence; inserted traces expose localized anomaly terms; the tensor condition tests a restricted quantization requirement. Passing all four does not prove a viable Standard Model embedding or a complete quantum theory.
+Use these tools to find which requirement fails and why before attempting a full model. A mass gap addresses unwanted paired modes; Gram rank tests linear independence; inserted traces expose localized anomaly terms; the tensor condition tests a restricted quantization requirement. Passing these tests does not prove a viable Standard Model embedding or a complete quantum theory. Matched response asks whether fixing two local conditions removes all finite-width profile dependence in the declared quadratic model.
 \subsection*{First steps}
 \begin{enumerate}
 \item Open Anomalies \& proton and find Boundary research. Select English in the card. Press Research baseline to restore all inputs; Demo runs the worked examples and ends with this guide.
@@ -2362,6 +2362,7 @@ Use these tools to find which requirement fails and why before attempting a full
 \item Set Profile example M to 0, then 1. Compare the Gram eigenvalues and numerical rank.
 \item Switch the parity insertion between C1, C0 and C0 W. Read the exact trace table, keeping its degree and support dimension in mind.
 \item With lepton chirality Opposite to Q, compare one and three identical 6D families. Read the signed doublet excess and its residue.
+\item Select Certified response query: t = 1/4, then t = 1/2. Read section 5 and the positive lower bound of uniform minus triangular. Download the proof and certificate ZIP and follow its README to replay the independent Sage verification.
 \item Expand assumptions and provenance. Pin a comparison, export the card JSON and save the application link to repeat the calculation.
 \end{enumerate}
 \subsection*{Controls and inputs}
@@ -2379,6 +2380,8 @@ Use these tools to find which requirement fails and why before attempting a full
 
 \textbf{Mass landscape view / 3D perspective}. The 2D map and 3D surface use the same sampled paired masses and fixed colour range. Perspective is a display angle, not a physical parameter. Drag on the 2D map and release to apply the values. In 3D click a mesh node; adjust perspective between 15 and 75 degrees. Arrow keys move the selected point.
 
+\textbf{Certified response query}. Select one of the two certified probes, t = 1/4 or t = 1/2. The unit-square model, source, epsilon = 1/8, alpha = 1/20, c = 38, kL = 2, kT = 8, pole s = 1/100 and residue R = 1/2 stay fixed. Select both probes. Their response-difference intervals exclude zero; no uncertified parameter is editable.
+
 \subsection*{Reading the results}
 \textbf{Root table and mass curves}. Six roots of x tan(x) = a, with x = kL, and scaled residuals. Curves show the lightest paired and unpaired branches versus the imposed angle; they are not the full Kaluza--Klein spectrum.
 
@@ -2392,7 +2395,9 @@ Use these tools to find which requirement fails and why before attempting a full
 
 \textbf{2D map, 3D surface and Gram bars}. Mass colour is linear from 0 to 0.7071 in mR. The red slice fixes the current coupling; the white point is the selected calculation. Surface cells visualize sampled data, while the selected value is recomputed. Gram bars have their own labelled adaptive linear scale and numerical eigenvalues.
 
-Read each result with its own assumptions. The normal gap is dimensionless kR; a Gram rank is numerical and threshold-dependent; the traces are exact scalar evaluations without local weights; a zero residue passes only the stated standalone six-dimensional condition. Full anomaly cancellation stays unknown.
+\textbf{Certified matched response and ZIP}. Outward intervals enclose each continuum response and their difference. The ZIP contains the functional proof, polynomial witnesses, displayed reports, standalone verifier and its 228-check Sage 10.8 receipt. This is a computational certificate with a written proof, not a Lean formalization.
+
+Read each result with its own assumptions. The normal gap is dimensionless kR; a Gram rank is numerical and threshold-dependent; the traces are exact scalar evaluations without local weights; a zero residue passes only the stated standalone six-dimensional condition. Full anomaly cancellation stays unknown. In section 5, positive difference bounds establish separation at the two admitted points for this model. They do not establish a complete GHU prediction or a thin-layer rate.
 \subsection*{Worked example: Find three different reasons a construction can fail}
 \begin{enumerate}
 \item Load Research baseline, then Uncoupled boundary: the first normal root is zero.
@@ -2401,8 +2406,13 @@ Read each result with its own assumptions. The normal gap is dimensionless kR; a
 \item Restore M = 1: the eigenvalues are approximately 0.172999, 2.783424 and 10.686355, and the numerical rank is three.
 \item Select One 6D family with Opposite to Q: excess 2 gives residue 2. Select Three 6D families: excess 6 gives residue 0.
 \item Switch C1 to C0 W and inspect the trace table, then export JSON.
+\item Select each certified response query, download the certificate, then save the shared JSON and link. The selected probe, fixed model and certificate identifier travel with the result.
 \end{enumerate}
 The boundary gap, profile independence and restricted family condition respond to different changes. None of them settles localized or global anomaly cancellation of the full construction.
+\subsection*{Formulas and conventions}
+\begin{quote}Q(t) = F(t) - F(s) - (t-s) F\ensuremath{\prime}(s); C(t) = -1 / [(t-s)/R + Q(t)]\end{quote}
+Exact matching identity for F(t)=t/D(t), with the same source and fixed s,R. The certified denominators exclude zero at the selected probes.
+
 \subsection*{Scope and limitations}
 \begin{itemize}
 \item The flat spectrum assumes uniform coupling, no additional boundary kinetic terms and the periodic transverse branch. It does not determine a Wilson vacuum, realistic flavour or neutrino masses.
@@ -2410,8 +2420,7 @@ The boundary gap, profile independence and restricted family condition respond t
 \item Inserted traces omit projector and covering-space normalization, consistent descent, mirror contributions and inflow. The scalar probe is not the full anomaly polynomial.
 \item The SU(2) criterion applies to a specified standalone six-dimensional tensor setting. It cannot be transferred automatically to an eight-dimensional orbifold corner coupled to bulk inflow.
 \item Local coefficients, integral tensor charge lattice, global gauge group, new boson zero modes and full quantum consistency remain unresolved.
-\item The global action on all fields, including bosonic Omega, and the admissible orbifold bundles remain open.
-\item The raw degree-18 Clifford element squares to \ensuremath{-}1; the matrix Ua=\ensuremath{-}i ta squares to +1. The scalar phase requires a common global interpretation.
+\item Certification is restricted to the declared unit-square domain and two fixed probes at finite layer width. Changing the source, forms, matching conditions or width requires a new certificate. Software tests and hashes alone are not mathematical certification.
 \end{itemize}
 \subsection*{If something is unclear}
 \textbf{The first normal root is zero.} Check boundary strength. At zero coupling this is the expected zero mode; it is not a numerical solver failure.
@@ -2424,12 +2433,16 @@ The boundary gap, profile independence and restricted family condition respond t
 
 \textbf{An invalid input leaves the old result visible.} The controls report the error and keep the last valid calculation. Restore the allowed range or press Research baseline.
 
+\textbf{Why can I not change layer width or import a response?} Only independently certified instances are admitted. New computations belong in the external mathematical engine until their witnesses and functional premises are verified.
+
 \subsection*{Sources and attribution}
 \begin{itemize}
 \item \href{https://arxiv.org/abs/1609.01413}{Fujimoto et al.: rectangle boundary conditions and profiles, sections 2--5}
 \item \href{https://arxiv.org/abs/hep-ph/0209144}{Asaka, Buchmüller, Covi: localized orbifold anomalies, sections 2--4}
 \item \href{https://arxiv.org/abs/hep-ph/0102010}{Dobrescu, Poppitz: identical six-dimensional generations}
 \item \href{https://arxiv.org/abs/2012.11622}{Lee, Tachikawa: six-dimensional global anomalies and tensor quantization, sections 2--3}
+\item \href{https://arrow.utias.utoronto.ca/~myano/papers/myano_ecrbres.pdf}{Yano: continuous residual norm and stability, sections 2.1--2.2; wall/corner adaptation proved in the certificate}
+\item \href{https://jschoeberl.github.io/iFEM/aposteriori/equilibrated.html}{Schoeberl: equilibrated fluxes, sections 29.1--29.2; methodological background}
 \end{itemize}
 \section{Quantization and certificates}
 Compare exact quantization criteria for H=S(U(2)\ensuremath{\times}U(3)), closed spin-four periods, a conditional parent transfer and a joint U(2) example.

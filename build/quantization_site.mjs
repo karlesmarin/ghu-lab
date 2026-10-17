@@ -89,6 +89,8 @@ try{
   }
   await ev(`document.querySelectorAll('#chapters button')[40].click();document.getElementById('film').play()`);await pause(600);
   ck(lang+' mathematical film plays the experimental chapter',await ev(`!document.getElementById('film').paused&&document.getElementById('film').currentTime>${chapters[40].start}`));
+  await ev(`document.querySelectorAll('#chapters button')[45].click();document.getElementById('film').play()`);await pause(600);
+  ck(lang+' certified matched-profile chapter plays',await ev(`!document.getElementById('film').paused&&document.getElementById('film').currentTime>${chapters[45].start}`));
   await ev(`document.getElementById('film').pause()`);
   await send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});
   ck(lang+' mathematical player mobile layout',await ev(`document.documentElement.scrollWidth<=window.innerWidth+1`));

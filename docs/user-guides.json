@@ -4233,8 +4233,7 @@
       "terms": [],
       "related": [
         "anomalies",
-        "rsanomaly",
-        "quantization"
+        "rsanomaly"
       ],
       "references": [
         {
@@ -4252,20 +4251,29 @@
         {
           "label": "Lee, Tachikawa: six-dimensional global anomalies and tensor quantization, sections 2–3",
           "url": "https://arxiv.org/abs/2012.11622"
+        },
+        {
+          "label": "Yano: continuous residual norm and stability, sections 2.1–2.2; wall/corner adaptation proved in the certificate",
+          "url": "https://arrow.utias.utoronto.ca/~myano/papers/myano_ecrbres.pdf"
+        },
+        {
+          "label": "Schoeberl: equilibrated fluxes, sections 29.1–29.2; methodological background",
+          "url": "https://jschoeberl.github.io/iFEM/aposteriori/equilibrated.html"
         }
       ],
-      "title": "Boundary research: spectrum, independent profiles and anomaly diagnostics",
-      "what": "Four separate tests help investigate a proposed GHU boundary mechanism: roots of a flat fermion boundary problem, the numerical rank of overlapping profiles, exact parity-inserted spinor traces and a restricted six-dimensional SU(2) tensor condition.",
-      "purpose": "Use these tools to find which requirement fails and why before attempting a full model. A mass gap addresses unwanted paired modes; Gram rank tests linear independence; inserted traces expose localized anomaly terms; the tensor condition tests a restricted quantization requirement. Passing all four does not prove a viable Standard Model embedding or a complete quantum theory.",
+      "title": "Boundary research: spectra, profiles, anomalies and certified response",
+      "what": "Five separate tests help investigate a proposed GHU boundary mechanism: roots of a flat fermion boundary problem, the numerical rank of overlapping profiles, exact parity-inserted spinor traces and a restricted six-dimensional SU(2) tensor condition. The fifth compares two wall profiles after common pole and residue matching, using replayed continuum certificates.",
+      "purpose": "Use these tools to find which requirement fails and why before attempting a full model. A mass gap addresses unwanted paired modes; Gram rank tests linear independence; inserted traces expose localized anomaly terms; the tensor condition tests a restricted quantization requirement. Passing these tests does not prove a viable Standard Model embedding or a complete quantum theory. Matched response asks whether fixing two local conditions removes all finite-width profile dependence in the declared quadratic model.",
       "steps": [
         "Open Anomalies & proton and find Boundary research. Select English in the card. Press Research baseline to restore all inputs; Demo runs the worked examples and ends with this guide.",
         "Set Boundary strength to 0, then 1. Compare the first normal root and the paired curve at the same imposed Wilson angle.",
         "Set Profile example M to 0, then 1. Compare the Gram eigenvalues and numerical rank.",
         "Switch the parity insertion between C1, C0 and C0 W. Read the exact trace table, keeping its degree and support dimension in mind.",
         "With lepton chirality Opposite to Q, compare one and three identical 6D families. Read the signed doublet excess and its residue.",
+        "Select Certified response query: t = 1/4, then t = 1/2. Read section 5 and the positive lower bound of uniform minus triangular. Download the proof and certificate ZIP and follow its README to replay the independent Sage verification.",
         "Expand assumptions and provenance. Pin a comparison, export the card JSON and save the application link to repeat the calculation."
       ],
-      "read": "Read each result with its own assumptions. The normal gap is dimensionless kR; a Gram rank is numerical and threshold-dependent; the traces are exact scalar evaluations without local weights; a zero residue passes only the stated standalone six-dimensional condition. Full anomaly cancellation stays unknown.",
+      "read": "Read each result with its own assumptions. The normal gap is dimensionless kR; a Gram rank is numerical and threshold-dependent; the traces are exact scalar evaluations without local weights; a zero residue passes only the stated standalone six-dimensional condition. Full anomaly cancellation stays unknown. In section 5, positive difference bounds establish separation at the two admitted points for this model. They do not establish a complete GHU prediction or a thin-layer rate.",
       "controls": [
         {
           "name": "Boundary strength κ²L",
@@ -4301,6 +4309,11 @@
           "name": "Mass landscape view / 3D perspective",
           "meaning": "The 2D map and 3D surface use the same sampled paired masses and fixed colour range. Perspective is a display angle, not a physical parameter.",
           "try": "Drag on the 2D map and release to apply the values. In 3D click a mesh node; adjust perspective between 15 and 75 degrees. Arrow keys move the selected point."
+        },
+        {
+          "name": "Certified response query",
+          "meaning": "Select one of the two certified probes, t = 1/4 or t = 1/2. The unit-square model, source, epsilon = 1/8, alpha = 1/20, c = 38, kL = 2, kT = 8, pole s = 1/100 and residue R = 1/2 stay fixed.",
+          "try": "Select both probes. Their response-difference intervals exclude zero; no uncertified parameter is editable."
         }
       ],
       "outputs": [
@@ -4327,6 +4340,10 @@
         {
           "name": "2D map, 3D surface and Gram bars",
           "meaning": "Mass colour is linear from 0 to 0.7071 in mR. The red slice fixes the current coupling; the white point is the selected calculation. Surface cells visualize sampled data, while the selected value is recomputed. Gram bars have their own labelled adaptive linear scale and numerical eigenvalues."
+        },
+        {
+          "name": "Certified matched response and ZIP",
+          "meaning": "Outward intervals enclose each continuum response and their difference. The ZIP contains the functional proof, polynomial witnesses, displayed reports, standalone verifier and its 228-check Sage 10.8 receipt. This is a computational certificate with a written proof, not a Lean formalization."
         }
       ],
       "example": {
@@ -4337,7 +4354,8 @@
           "Load Massless profile example: the three chosen profiles span only two independent directions.",
           "Restore M = 1: the eigenvalues are approximately 0.172999, 2.783424 and 10.686355, and the numerical rank is three.",
           "Select One 6D family with Opposite to Q: excess 2 gives residue 2. Select Three 6D families: excess 6 gives residue 0.",
-          "Switch C1 to C0 W and inspect the trace table, then export JSON."
+          "Switch C1 to C0 W and inspect the trace table, then export JSON.",
+          "Select each certified response query, download the certificate, then save the shared JSON and link. The selected probe, fixed model and certificate identifier travel with the result."
         ],
         "expect": "The boundary gap, profile independence and restricted family condition respond to different changes. None of them settles localized or global anomaly cancellation of the full construction."
       },
@@ -4347,8 +4365,7 @@
         "Inserted traces omit projector and covering-space normalization, consistent descent, mirror contributions and inflow. The scalar probe is not the full anomaly polynomial.",
         "The SU(2) criterion applies to a specified standalone six-dimensional tensor setting. It cannot be transferred automatically to an eight-dimensional orbifold corner coupled to bulk inflow.",
         "Local coefficients, integral tensor charge lattice, global gauge group, new boson zero modes and full quantum consistency remain unresolved.",
-        "The global action on all fields, including bosonic Omega, and the admissible orbifold bundles remain open.",
-        "The raw degree-18 Clifford element squares to −1; the matrix Ua=−i ta squares to +1. The scalar phase requires a common global interpretation."
+        "Certification is restricted to the declared unit-square domain and two fixed probes at finite layer width. Changing the source, forms, matching conditions or width requires a new certificate. Software tests and hashes alone are not mathematical certification."
       ],
       "troubleshooting": [
         {
@@ -4370,6 +4387,16 @@
         {
           "symptom": "An invalid input leaves the old result visible.",
           "action": "The controls report the error and keep the last valid calculation. Restore the allowed range or press Research baseline."
+        },
+        {
+          "symptom": "Why can I not change layer width or import a response?",
+          "action": "Only independently certified instances are admitted. New computations belong in the external mathematical engine until their witnesses and functional premises are verified."
+        }
+      ],
+      "formulas": [
+        {
+          "expression": "Q(t) = F(t) - F(s) - (t-s) F′(s); C(t) = -1 / [(t-s)/R + Q(t)]",
+          "meaning": "Exact matching identity for F(t)=t/D(t), with the same source and fixed s,R. The certified denominators exclude zero at the selected probes."
         }
       ]
     },

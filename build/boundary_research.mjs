@@ -88,6 +88,30 @@ try{
   const spanishDemo=await ev(`({state:CDM_STATE,language:GUIDE_LANGUAGE,result:document.getElementById('rx_boundaryresearch_result').textContent.includes('Cancelación completa de anomalías: desconocida.'),close:document.getElementById('cdm_explain')?.textContent.slice(0,220)})`);
   if(spanishDemo.state.lastFinished!=='boundaryresearch'||spanishDemo.state.lastError||!spanishDemo.result)console.error(JSON.stringify(spanishDemo));
   check('direct Spanish demo completes with Spanish results',spanishDemo.state.lastFinished==='boundaryresearch'&&!spanishDemo.state.lastError&&spanishDemo.language==='es'&&spanishDemo.result&&!!spanishDemo.close);
+
+  // Only replayed certificates are selectable; no unverified computation path.
+  await send('Page.navigate',{url:'about:blank'});
+  await navigate('anomalies','gmr_panel');
+  await ev(`document.getElementById('gmr_panel').open=true`);
+  check('certified reference separated',await ev(`gmrCurrent().result.status==='separated_conditional'&&document.querySelector('[data-gmr-result]').textContent.includes('0.000260')`));
+  check('uncertified inputs and imports absent',await ev(`!document.querySelector('[data-gmr-input],[data-gmr-run],[data-gmr-import]')`));
+  await set('matchedProbe',1);
+  check('second certified query selectable',await ev(`gmrCurrent().parameters.t==='1/2'&&gmrCurrent().result.status==='separated_conditional'`));
+  await ev(`globalThis.gmrDownloads=[];globalThis.gmrSavedDownload=rxDownload;rxDownload=(...args)=>gmrDownloads.push(args);document.querySelector('[data-gmr-export]').click();document.querySelector('[data-gmr-certificate]').click();rxDownload=gmrSavedDownload;`);
+  check('result links exact certificate',await ev(`JSON.parse(gmrDownloads[0][1]).certificate.sha256===GMR_CERTIFICATE.sha256`));
+  check('certificate downloads as ZIP',await ev(`gmrDownloads[1][0].endsWith('.zip')&&gmrDownloads[1][1][0]===80&&gmrDownloads[1][1][1]===75&&gmrDownloads[1][2]==='application/zip'`));
+  await ev(`document.getElementById('btnLink').click()`);const matchedLink=await ev('location.href');
+  await send('Page.navigate',{url:matchedLink});await pause(500);
+  check('saved link restores certified query',await ev(`RX_STATE.boundaryresearch.matchedProbe===1&&gmrCurrent().parameters.t==='1/2'`));
+  await ev(`document.querySelector('#rx_boundaryresearch [data-guide-set-language="es"]').click()`);
+  check('certification scope translates into Spanish',await ev(`document.getElementById('gmr_panel').textContent.includes('¿Siguen distinguiéndose')&&document.getElementById('gmr_panel').textContent.includes('Demostración escrita')`));
+  await ev(`document.getElementById('gmr_panel').open=true;document.getElementById('gmr_panel').scrollIntoView({block:'start'})`);
+  await send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});await pause(100);
+  check('certificate panel no mobile overflow',await ev('document.documentElement.scrollWidth<=window.innerWidth+2'));
+  writeFileSync(resolve(out,'matched_profiles_mobile.png'),Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
+  await send('Emulation.setDeviceMetricsOverride',{width:1380,height:1000,deviceScaleFactor:1,mobile:false});await pause(100);
+  writeFileSync(resolve(out,'matched_profiles_desktop.png'),Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
+
   check('no runtime errors',!events.some(e=>e.method==='Runtime.exceptionThrown'));
 } catch(e){console.error(e);process.exitCode=1;}
 finally{

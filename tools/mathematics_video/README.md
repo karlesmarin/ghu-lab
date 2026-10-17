@@ -1,23 +1,23 @@
-# Mathematical film production · current revision 14 October 2026
+# Mathematical film production · current revision 17 October 2026
 
-The current film has 43 chapters per language and uses the original `full/whiteboard_core.py` primitives, palette, grid, formula reveal, 24 fps clock and System.Speech word-event captions. Inspect `hypothesis/scenes.py` and the pinned `hypothesis/inputs.json` for the new mathematical and experimental figures. The first 28 chapters are retained; the old closing scene is replaced before fourteen new chapters. Full original films remain archived.
+The current film has 46 chapters per language and uses the original `full/whiteboard_core.py` primitives, palette, grid, formula reveal, 24 fps clock and System.Speech word-event captions. Inspect `matched_profiles/scenes.py` and the pinned `matched_profiles/inputs.json` for the new mathematical and experimental figures. The previous 43 chapters are retained; three new chapters explain certified matching, continuum residual bounds and physical scope. Full original films remain archived.
 
 From the repository root, with the existing requirements installed:
 
 ```text
-python tools/mathematics_video/hypothesis/prepare.py
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/mathematics_video/hypothesis/en/narrate.ps1
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/mathematics_video/hypothesis/es/narrate.ps1
-python tools/mathematics_video/hypothesis/render.py . --preview
-python tools/mathematics_video/hypothesis/render.py .
-python tools/mathematics_video/hypothesis/assemble.py
-python tools/mathematics_video/hypothesis/verify.py
+python tools/mathematics_video/matched_profiles/prepare.py
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/mathematics_video/matched_profiles/en/narrate.ps1
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/mathematics_video/matched_profiles/es/narrate.ps1
+python tools/mathematics_video/matched_profiles/render.py . --preview
+python tools/mathematics_video/matched_profiles/render.py .
+python tools/mathematics_video/matched_profiles/assemble.py
+python tools/mathematics_video/matched_profiles/verify.py
 node build/quantization_site.mjs
 ```
 
-Set `GHU_FFMPEG` to the FFmpeg executable before assembly. The last command checks the completed `site/` build. Intermediates and early/middle/late previews are under `.tmp/mathematics-20261014/`; source audio, word timestamps and bilingual storyboards are retained under `hypothesis/`. The scene cache hashes its drawing code, original primitives, chart data, narration and audio. Assembly performs full decoding and exact frame-count checks and writes a source/media manifest. Font or voice changes may change rendered bytes. Review assumptions and listen to the audio separately; automated checks do not claim human listening.
+Set `GHU_FFMPEG` to the FFmpeg executable before assembly. The last command checks the completed `site/` build. Intermediates and early/middle/late previews are under `.tmp/mathematics-20261017/`; source audio, word timestamps and bilingual storyboards are retained under `matched_profiles/`. The scene cache hashes its drawing code, original primitives, chart data, narration and audio. Assembly performs full decoding and exact frame-count checks and writes a source/media manifest. Font or voice changes may change rendered bytes. Review assumptions and listen to the audio separately; automated checks do not claim human listening.
 
-Current version: `media/video/2026-10-14-mathematics-hypotheses/`. [Current guide](../../docs/mathematics-video.md).
+Current version: `media/video/2026-10-17-mathematics-profiles/`. [Current guide](../../docs/mathematics-video.md).
 
 ---
 

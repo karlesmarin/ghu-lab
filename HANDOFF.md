@@ -1,5 +1,32 @@
 # HANDOFF — GHU Lab
 
+## 2026-10-17 — certified matched profiles (release)
+
+Boundary research gains one instrument with two independently certified queries.
+No new menu/card: 30 sections, 11 cards and 3 Simulator modes remain.
+See [scope, evidence and replay](docs/matched-profiles.md). The certificate ZIP is
+embedded, including its functional proof, exact witnesses and independent verifier.
+The mathematical tools are maintained in Excovery. New parameter choices must pass
+independent certification before admission; this instrument has no unverified import.
+This is not a Lean formalization or certification of the complete GHU model.
+Older dated notes and teaching media below keep their historical scope.
+
+
+Final local validation: 10576 source checks / 82 harnesses for the integration,
+followed by the final cosmetic corrections and all 21 current browser gates.
+The two language gates report no missing visible or computed phrases across
+47 Demos. Site: 34 checks; guides/manuals: 135; 5180 local links, none broken;
+general player: 35; mathematical/supplement player: 221; guide browser: 206.
+The main films have 47 chapters / 178 scenes per language (3455 media checks).
+The mathematical films have 46 chapters. The current revisions are
+2026-10-17-certified-profiles and 2026-10-17-mathematics-profiles.
+A post-capture global shortcut translation and build timestamp are the only
+live-app text differences; the exact captured app remains available for replay.
+Preview locally with the existing tools/mathematics_video/preview.mjs server.
+Publication authorized by Carles on 17 October: commit and push the reviewed source
+to ghu-lab and the generated site to ghu-explorer, then verify GitHub Pages.
+Excovery and private research remain outside the public repositories.
+
 ## 2026-10-14 — hypotheses, certificates and complete teaching media
 
 The eleventh card lives inside Same potential?; do not add a duplicate menu section.

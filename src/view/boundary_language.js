@@ -128,6 +128,7 @@ const BRX_SPANISH = {
  'Comparison snapshot included in the full JSON export.':'La comparación se incluye en la exportación JSON completa.',
  'No comparison snapshot saved.':'No hay una comparación guardada.'
 };
+Object.assign(BRX_SPANISH,GMR_SPANISH);
 const BRX_TRANSLATIONS = Object.entries(BRX_SPANISH).sort((a,b)=>b[0].length-a[0].length);
 const BRX_ORIGINAL_TEXT = new WeakMap(), BRX_ORIGINAL_ATTRS = new WeakMap();
 function brxTranslate(text,language=GUIDE_LANGUAGE){

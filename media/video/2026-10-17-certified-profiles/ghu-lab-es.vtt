@@ -1,0 +1,3011 @@
+WEBVTT
+
+00:00:02.328 --> 00:00:06.609
+Bienvenido a G H U Lab. Este recorrido
+actualizado muestra todas las secciones
+
+00:00:06.609 --> 00:00:10.849
+del menú, los tres modos del simulador y
+los experimentos integrados.
+
+00:00:10.849 --> 00:00:15.481
+Ahora incluye los certificados S U siete,
+errores de aproximación, presupuesto
+
+00:00:15.481 --> 00:00:20.081
+de incertidumbre, comparación térmica,
+referencias experimentales identificadas
+
+00:00:20.081 --> 00:00:22.701
+y el primer gluón de Kaluza Klein frente a
+datos del L H C.
+
+00:00:22.701 --> 00:00:26.075
+Cada sección y cada tarjeta tiene además un
+botón Demo con una simulación
+
+00:00:26.075 --> 00:00:29.733
+guiada. Elige un capítulo para volver a un
+tema.
+
+00:00:29.733 --> 00:00:33.012
+El capítulo de fronteras incorpora vistas
+de masa enlazadas en dos y tres
+
+00:00:33.012 --> 00:00:37.134
+dimensiones, perfiles independientes y
+diagnósticos de anomalías con su alcance
+
+00:00:37.134 --> 00:00:38.210
+indicado.
+
+00:00:39.529 --> 00:00:42.839
+Empieza por un modelo o una referencia
+identificados.
+
+00:00:42.839 --> 00:00:46.401
+Cambia una sola hipótesis cada vez y lee el
+resultado junto con sus unidades
+
+00:00:46.401 --> 00:00:50.921
+y su alcance. Teorema, verificado, medido y
+desconocido indican
+
+00:00:50.921 --> 00:00:55.883
+evidencias diferentes. Un valor calculado
+para un escenario no es, por ello,
+
+00:00:55.883 --> 00:00:57.799
+una medición experimental.
+
+00:01:00.929 --> 00:01:03.574
+Abre Hierarchy, jerarquía.
+
+00:01:03.574 --> 00:01:07.596
+Para un contenido del modelo S U siete,
+examina la escala de compactificación
+
+00:01:07.596 --> 00:01:10.715
+y la masa del Higgs bajo las convenciones
+mostradas.
+
+00:01:10.715 --> 00:01:14.577
+El techo pertenece a la aproximación de
+momentos para ángulos pequeños.
+
+00:01:15.862 --> 00:01:19.247
+Cambia el acoplamiento de diagnóstico a
+cero coma siete.
+
+00:01:19.247 --> 00:01:22.828
+Las gráficas separan el cambio de
+convención del modelo, la propagación de
+
+00:01:22.828 --> 00:01:26.438
+la masa medida del bosón W y la
+convergencia de la suma.
+
+00:01:26.438 --> 00:01:29.484
+Lee los ejes y los valores centrales
+conjuntamente.
+
+00:01:30.794 --> 00:01:33.646
+La fase calculada no reproduce la
+publicada.
+
+00:01:33.646 --> 00:01:37.337
+La discrepancia depende de la fila, y
+multiplicar todo el potencial por una
+
+00:01:37.337 --> 00:01:40.424
+constante no desplaza sus puntos
+estacionarios.
+
+00:01:40.424 --> 00:01:44.588
+Las escalas absolutas quedan condicionadas
+a resolver esta discrepancia.
+
+00:01:44.588 --> 00:01:47.840
+Las identidades aritméticas son
+afirmaciones separadas.
+
+00:01:49.133 --> 00:01:51.692
+Carga el primer ejemplo certificado.
+
+00:01:51.692 --> 00:01:55.508
+La tabla encierra dos puntos estacionarios
+diferentes: el de la aproximación
+
+00:01:55.508 --> 00:01:58.669
+cuártica logarítmica y el mínimo completo
+de Fourier.
+
+00:01:58.669 --> 00:02:02.514
+La fase, la masa del Higgs y la escala de
+compactificación tienen intervalos
+
+00:02:02.514 --> 00:02:05.024
+propios de error absoluto y relativo.
+
+00:02:05.024 --> 00:02:09.453
+Se aplican al contenido, la elección gauge
+y las entradas de masa indicados.
+
+00:02:10.800 --> 00:02:15.532
+Qué limita la precisión? Lee por separado
+el sesgo de aproximación, las cotas
+
+00:02:15.532 --> 00:02:19.064
+de localización de la raíz y el resto de
+Fourier, frente a la incertidumbre
+
+00:02:19.064 --> 00:02:23.387
+propagada de la masa W. La variación del
+diez por ciento del acoplamiento
+
+00:02:23.387 --> 00:02:26.899
+es un escenario elegido, sin probabilidad
+asignada.
+
+00:02:26.899 --> 00:02:30.566
+La incertidumbre teórica física figura sin
+cuantificar; no hay una barra
+
+00:02:30.566 --> 00:02:32.390
+de error físico combinada.
+
+00:02:33.731 --> 00:02:35.878
+Guarda el certificado de error.
+
+00:02:35.878 --> 00:02:39.939
+La descarga conserva los intervalos
+racionales, el presupuesto numérico,
+
+00:02:39.939 --> 00:02:42.328
+la entrada W y la atribución.
+
+00:02:42.328 --> 00:02:45.917
+El intervalo de masa completo ya incluye
+los errores de raíz y de Fourier;
+
+00:02:45.917 --> 00:02:48.264
+no sumes otra vez su semianchura.
+
+00:02:48.264 --> 00:02:52.115
+Otro contenido de materia u otra convención
+de masas necesita su propio certificado
+
+00:02:52.115 --> 00:02:53.289
+compatible.
+
+00:02:54.593 --> 00:02:58.132
+Las filas de ATLAS y C M S son referencias
+publicadas separadas de masa del
+
+00:02:58.132 --> 00:03:02.251
+Higgs. Compara la masa de curvatura
+certificada con cada canal y banda de
+
+00:03:02.251 --> 00:03:07.434
+error indicados. La diferencia mostrada no
+es una significación de exclusión.
+
+00:03:07.434 --> 00:03:10.745
+Relacionar una masa de curvatura a un lazo
+con la masa de polo medida requiere
+
+00:03:10.745 --> 00:03:13.886
+todavía matching e incertidumbres de
+órdenes superiores.
+
+00:03:15.193 --> 00:03:19.357
+Los enlaces de datos explican el camino
+hacia una comparación más completa.
+
+00:03:19.357 --> 00:03:22.865
+Los canales no se han combinado en una
+función de verosimilitud.
+
+00:03:22.865 --> 00:03:27.095
+El CERN alberga los experimentos y no es
+una tercera medición independiente.
+
+00:03:27.095 --> 00:03:31.053
+Conserva las entradas y las fuentes junto
+al resultado: certificar el cálculo
+
+00:03:31.053 --> 00:03:34.783
+numérico no establece por sí solo su
+concordancia con la naturaleza.
+
+00:03:37.862 --> 00:03:42.595
+Abre Design a scale. Aquí recorremos el
+cálculo en sentido inverso: elegimos
+
+00:03:42.595 --> 00:03:46.326
+una escala de compactificación y una
+ventana de masa del Higgs, y buscamos
+
+00:03:46.326 --> 00:03:50.111
+un contenido que las alcance, o un
+certificado que descarte la solución bajo
+
+00:03:50.111 --> 00:03:52.011
+las condiciones indicadas.
+
+00:03:53.332 --> 00:03:57.752
+Introduce una escala objetivo de dos
+teraelectronvoltios y ejecuta el diseño.
+
+00:03:57.752 --> 00:04:01.441
+Examina el contenido obtenido o el
+certificado identificado.
+
+00:04:01.441 --> 00:04:05.057
+Agotar el presupuesto de búsqueda es una
+condición de parada, no una prueba
+
+00:04:05.057 --> 00:04:06.833
+de que no exista solución.
+
+00:04:08.128 --> 00:04:11.400
+La etiqueta budget significa que la
+búsqueda se detuvo.
+
+00:04:11.400 --> 00:04:14.729
+El panel de puntos alcanzables descompone
+cada agrupación en el conjunto
+
+00:04:14.729 --> 00:04:17.190
+finito de puntos que realmente contiene.
+
+00:04:20.329 --> 00:04:24.336
+Abre Count a rung. La pregunta es cuántos
+contenidos de materia pertenecen
+
+00:04:24.336 --> 00:04:29.581
+a un peldaño. El programa los cuenta sin
+tener que construirlos todos
+individualmente.
+
+00:04:30.861 --> 00:04:33.460
+La gráfica se genera al abrir la sección.
+
+00:04:33.460 --> 00:04:37.802
+Pulsa en otra posición horizontal para
+mover la sonda y comparar los recuentos.
+
+00:04:37.802 --> 00:04:41.545
+Se cuentan contenidos matemáticos; el
+resultado no es una lista de modelos
+
+00:04:41.545 --> 00:04:43.481
+experimentalmente viables.
+
+00:04:44.793 --> 00:04:48.459
+Los cuatro totales de la semilla publicada
+reproducen una enumeración independiente
+
+00:04:48.459 --> 00:04:51.567
+de sesenta y nueve millones veintidós mil
+cuatrocientos sesenta y cuatro
+
+00:04:51.567 --> 00:04:56.991
+contenidos. La semilla candidata utiliza
+otros peldaños y se cuenta por separado.
+
+00:04:56.991 --> 00:05:00.506
+No se traslada a ella la selección de masas
+de la semilla publicada.
+
+00:05:03.596 --> 00:05:08.026
+Abre Atlas. Cada contenido de hasta cinco
+multipletes aparece como una tesela
+
+00:05:08.026 --> 00:05:12.149
+con su potencial: mil doscientos ochenta y
+seis contenidos en total.
+
+00:05:13.464 --> 00:05:16.575
+Pulsa el botón para dibujar la retícula
+completa.
+
+00:05:16.575 --> 00:05:19.591
+Cada tesela corresponde a un potencial
+diferente.
+
+00:05:19.591 --> 00:05:21.800
+Examina su color y su forma.
+
+00:05:21.800 --> 00:05:24.599
+Un potencial plano también es un resultado.
+
+00:05:24.599 --> 00:05:28.265
+Al pulsar una tesela, su contenido se
+transfiere al modelo.
+
+00:05:29.598 --> 00:05:33.540
+En esta configuración, una tesela entra en
+la ventana del Higgs: la fila
+
+00:05:33.540 --> 00:05:38.062
+dos publicada. Las teselas vacías
+corresponden a potenciales planos, y las
+
+00:05:38.062 --> 00:05:41.277
+comprobaciones predicen cuáles serán antes
+de dibujarlas.
+
+00:05:44.396 --> 00:05:48.778
+Abre Same potential. Esta sección compara
+dos contenidos y aplica el teorema
+
+00:05:48.778 --> 00:05:51.998
+tres de la séptima parte para decidir si
+producen el mismo potencial a un
+
+00:05:51.998 --> 00:05:52.917
+lazo.
+
+00:05:54.262 --> 00:05:58.076
+Copia el primer contenido y construye su
+representante canónico.
+
+00:05:58.076 --> 00:06:00.919
+Compara las curvas y las cinco coordenadas.
+
+00:06:00.919 --> 00:06:04.339
+Listas diferentes de materia pueden
+producir exactamente el mismo potencial
+
+00:06:04.339 --> 00:06:06.391
+bajo las hipótesis del teorema.
+
+00:06:07.728 --> 00:06:11.769
+La igualdad de las cinco coordenadas
+equivale a la identidad del potencial.
+
+00:06:11.769 --> 00:06:15.017
+Que la curva discontinua se superponga a la
+continua es la consecuencia que
+
+00:06:15.017 --> 00:06:16.561
+estamos comprobando.
+
+00:06:17.862 --> 00:06:21.627
+Carga el ejemplo de momentos iguales y
+examina el intervalo local.
+
+00:06:21.627 --> 00:06:25.307
+Ambos contenidos tienen exactamente los
+mismos D, A cuatro y G a través de
+
+00:06:25.307 --> 00:06:29.570
+sus coordenadas enteras, mientras difiere
+la coordenada del extremo.
+
+00:06:29.570 --> 00:06:32.798
+Igualar la expansión para ángulos pequeños
+es una condición más débil que
+
+00:06:32.798 --> 00:06:34.837
+igualar el potencial completo.
+
+00:06:36.133 --> 00:06:38.722
+Cambia al intervalo completo de fase.
+
+00:06:38.722 --> 00:06:43.089
+Los potenciales completos se separan aunque
+coincidan las expansiones locales.
+
+00:06:43.089 --> 00:06:47.087
+Las curvas ilustran sumas finitas de
+Fourier; la igualdad exacta de coordenadas
+
+00:06:47.087 --> 00:06:50.180
+y la prueba por intervalos se registran por
+separado.
+
+00:06:50.180 --> 00:06:53.574
+Utiliza el potencial completo para juzgar
+un vacío global.
+
+00:06:54.862 --> 00:06:58.609
+Para el contenido B, el extremo alfa igual
+a uno tiene energía certificada
+
+00:06:58.609 --> 00:07:00.801
+inferior a la de su mínimo local.
+
+00:07:00.801 --> 00:07:03.736
+Esto descarta que ese mínimo local sea
+global.
+
+00:07:03.736 --> 00:07:06.570
+No demuestra que el propio extremo sea
+global.
+
+00:07:06.570 --> 00:07:09.933
+Guarda la comparación para conservar las
+entradas exactas y el alcance de
+
+00:07:09.933 --> 00:07:11.734
+este ejemplo matemático.
+
+00:07:14.862 --> 00:07:17.103
+Abre Anomalies and proton.
+
+00:07:17.103 --> 00:07:21.385
+Aquí se muestra la contribución de cada
+multiplete a las anomalías, en octavos,
+
+00:07:21.385 --> 00:07:24.926
+y las condiciones de la protección frente
+al decaimiento del protón.
+
+00:07:26.262 --> 00:07:29.720
+Lee los signos de las contribuciones y la
+escalera de valores.
+
+00:07:29.720 --> 00:07:33.538
+Una suma no nula del sector del volumen no
+implica por sí sola inconsistencia:
+
+00:07:33.538 --> 00:07:36.338
+hay que considerar la posible materia de
+brana.
+
+00:07:36.338 --> 00:07:40.454
+La tarjeta de investigación situada más
+abajo estudia otro modelo, con geometría
+
+00:07:40.454 --> 00:07:41.515
+alabeada.
+
+00:07:42.793 --> 00:07:47.138
+Los fermiones de brana pueden contribuir a
+los mismos canales con signo contrario.
+
+00:07:47.138 --> 00:07:50.923
+La restricción de la escalera excluye un
+peldaño; no excluye automáticamente
+
+00:07:50.923 --> 00:07:52.438
+un modelo completo.
+
+00:07:55.529 --> 00:07:57.836
+Abre Escape from proton decay.
+
+00:07:57.836 --> 00:08:01.726
+Introduce un contenido de brana y observa
+cómo se recalculan los seis canales,
+
+00:08:01.726 --> 00:08:04.551
+las asignaciones de carga y la regla de
+selección.
+
+00:08:05.862 --> 00:08:10.077
+Selecciona la carga del escalar asociada a
+la representación ochenta y cuatro.
+
+00:08:10.077 --> 00:08:13.532
+Los canales racionales y las cargas se
+actualizan juntos.
+
+00:08:13.532 --> 00:08:17.334
+Examina qué asignaciones cumplen la regla
+de protección indicada.
+
+00:08:17.334 --> 00:08:20.330
+El cálculo no proporciona una vida medida
+del protón.
+
+00:08:21.664 --> 00:08:25.407
+En la enumeración implementada, cada
+asignación que protege al protón también
+
+00:08:25.407 --> 00:08:27.813
+permite cancelar los seis canales.
+
+00:08:27.813 --> 00:08:32.013
+Esa conclusión se refiere al conjunto
+enumerado y a las condiciones mostradas.
+
+00:08:35.129 --> 00:08:37.322
+Abre Multiplets and parities.
+
+00:08:37.322 --> 00:08:40.961
+Esta es la capa situada bajo las tablas de
+términos: cada representación
+
+00:08:40.961 --> 00:08:43.998
+se descompone en multipletes con sus tres
+paridades.
+
+00:08:45.329 --> 00:08:49.605
+Selecciona la representación ochenta y
+cuatro y cambia la asignación de paridad.
+
+00:08:49.605 --> 00:08:53.954
+La descomposición y el dibujo se actualizan
+desde los datos de la representación.
+
+00:08:53.954 --> 00:08:57.227
+Relaciona cada modo cero superviviente con
+el signo de su contribución al
+
+00:08:57.227 --> 00:08:58.397
+potencial.
+
+00:08:59.727 --> 00:09:02.997
+Las tablas de términos se deducen aquí y se
+contrastan con las utilizadas
+
+00:09:02.997 --> 00:09:05.033
+por el resto del laboratorio.
+
+00:09:05.033 --> 00:09:08.098
+Una discrepancia entre ambas aparecería en
+este panel.
+
+00:09:11.196 --> 00:09:15.874
+Abre Screen a table. Esta sección examina
+una fila publicada mediante restricciones
+
+00:09:15.874 --> 00:09:20.042
+aritméticas, certificados condicionados y
+comprobaciones numéricas del potencial
+
+00:09:20.042 --> 00:09:21.165
+completo.
+
+00:09:22.465 --> 00:09:26.532
+Introduce una resonancia candidata de
+cuatro mil gigaelectronvoltios.
+
+00:09:26.532 --> 00:09:30.221
+El peine muestrea dientes cercanos para los
+peldaños mostrados.
+
+00:09:30.221 --> 00:09:34.328
+Los filtros, la tabla de separaciones y la
+descarga utilizan la misma comprobación
+
+00:09:34.328 --> 00:09:36.804
+de cotas para las entradas elegidas.
+
+00:09:36.804 --> 00:09:40.795
+Un diente superviviente no prueba que
+exista un vacío físico que lo alcance.
+
+00:09:42.126 --> 00:09:45.346
+Los techos de momentos siguen condicionados
+a la aproximación para ángulos
+
+00:09:45.346 --> 00:09:49.759
+pequeños. Los intervalos de redondeo de las
+cinco fases publicadas no contienen
+
+00:09:49.759 --> 00:09:52.778
+puntos estacionarios del potencial
+implementado.
+
+00:09:52.778 --> 00:09:57.159
+Las ocho tablas fermiónicas ya coinciden
+con una reconstrucción independiente.
+
+00:09:57.159 --> 00:10:00.517
+Siguen abiertos el determinante gauge
+físico y el origen de la discrepancia
+
+00:10:00.517 --> 00:10:02.063
+numérica publicada.
+
+00:10:03.398 --> 00:10:06.394
+Despliega Certified S U seven benchmarks.
+
+00:10:06.394 --> 00:10:10.532
+Veintiséis teoremas de Lean verifican
+identidades algebraicas finitas.
+
+00:10:10.532 --> 00:10:13.893
+Pruebas de intervalos separadas certifican
+diez mínimos globales en el dominio
+
+00:10:13.893 --> 00:10:17.786
+indicado de una fase: cinco contenidos de
+referencia bajo dos prescripciones
+
+00:10:17.786 --> 00:10:22.159
+gauge. Estas afirmaciones no certifican
+cualquier modelo editado.
+
+00:10:23.464 --> 00:10:26.101
+Descarga el conjunto de certificados.
+
+00:10:26.101 --> 00:10:30.329
+Contiene intervalos racionales, particiones
+continuas, huellas y registros
+
+00:10:30.329 --> 00:10:34.534
+de reproducción. El análisis de Fourier
+infinito está asistido por ordenador
+
+00:10:34.534 --> 00:10:36.668
+y no se ha formalizado en Lean.
+
+00:10:36.668 --> 00:10:40.754
+Un certificado de mínimo global depende de
+su potencial e hipótesis; no certifica
+
+00:10:40.754 --> 00:10:42.326
+viabilidad física.
+
+00:10:43.664 --> 00:10:47.172
+El dossier en inglés atribuye el modelo a
+Komori y Maru, los antecedentes
+
+00:10:47.172 --> 00:10:51.670
+de las expansiones a Haba, Takenaga y
+Yamashita y a Sakamoto y Takenaga,
+
+00:10:51.670 --> 00:10:55.223
+y la aplicación S U siete de la séptima
+parte a Carles Marín.
+
+00:10:55.223 --> 00:10:57.968
+La verificación no establece originalidad.
+
+00:10:57.968 --> 00:11:01.607
+El dossier mantiene explícitas las
+cuestiones físicas pendientes.
+
+00:11:04.729 --> 00:11:08.781
+Abre Collider. La sección identifica qué
+estado restringe una búsqueda de
+
+00:11:08.781 --> 00:11:12.774
+dos chorros e incorpora un escenario
+independiente de tasas del Higgs,
+contrastado
+
+00:11:12.774 --> 00:11:15.268
+con conjuntos experimentales fijados.
+
+00:11:16.594 --> 00:11:19.771
+Mueve la sonda de masa de dos chorros a
+cinco coma dos.
+
+00:11:19.771 --> 00:11:23.563
+Lee el estado, la escala de masa y la
+comparación publicada bajo la hipótesis
+
+00:11:23.563 --> 00:11:27.726
+de color indicada. El experimento del Higgs
+situado más abajo utiliza otro
+
+00:11:27.726 --> 00:11:29.709
+escenario escalar explícito.
+
+00:11:30.993 --> 00:11:35.222
+Los valores de delta chi cuadrado de dos
+chorros proceden del registro publicado.
+
+00:11:35.222 --> 00:11:38.575
+El experimento del Higgs calcula su propia
+comparación.
+
+00:11:38.575 --> 00:11:41.704
+Sus ciento cincuenta y nueve observables no
+son ciento cincuenta y nueve
+
+00:11:41.704 --> 00:11:44.065
+grados de libertad independientes.
+
+00:11:44.065 --> 00:11:47.505
+Las compensaciones entre acoplamientos y
+anchuras impiden interpretar esto
+
+00:11:47.505 --> 00:11:49.755
+como un ajuste completo de G H U.
+
+00:11:51.061 --> 00:11:55.301
+La tabla de reinterpretación mostrada
+pertenece al cálculo archivado anterior.
+
+00:11:55.301 --> 00:11:59.021
+Por separado, el dossier registra ahora los
+datos angulares de C M S con
+
+00:11:59.021 --> 00:12:02.829
+ciento treinta y ocho femtobarns inversos:
+siete distribuciones y setenta
+
+00:12:02.829 --> 00:12:07.805
+y siete intervalos. Las comprobaciones
+validan la importación de las tablas.
+
+00:12:07.805 --> 00:12:10.830
+Importarlas no ha producido un nuevo ajuste
+de G H U.
+
+00:12:12.128 --> 00:12:16.478
+La matriz de correlación publicada describe
+intensidades de señal ajustadas.
+
+00:12:16.478 --> 00:12:19.842
+No puede utilizarse automáticamente como
+covarianza de las distribuciones
+
+00:12:19.842 --> 00:12:22.954
+normalizadas y corregidas por efectos del
+detector.
+
+00:12:22.954 --> 00:12:26.866
+Una nueva reinterpretación requiere la
+señal G H U, selecciones y parámetros
+
+00:12:26.866 --> 00:12:30.598
+de incertidumbre, con un modelo estadístico
+justificado.
+
+00:12:30.598 --> 00:12:34.592
+El dossier distingue recursos revisados de
+análisis realmente ejecutados.
+
+00:12:37.729 --> 00:12:41.845
+Abre Selection rule. La representación
+determina qué dominio del ángulo puede
+
+00:12:41.845 --> 00:12:45.209
+explorar la búsqueda y si una
+representación de S U cuatro puede alojar
+una
+
+00:12:45.209 --> 00:12:46.894
+generación de quarks.
+
+00:12:48.199 --> 00:12:52.116
+Selecciona las etiquetas de Dynkin uno,
+cero, uno.
+
+00:12:52.116 --> 00:12:55.398
+La carga del centro y la proyección quiral
+determinan el dominio permitido
+
+00:12:55.398 --> 00:12:58.281
+y el contenido capaz de alojar una
+generación.
+
+00:12:58.281 --> 00:13:00.972
+El dominio se calcula desde la
+representación.
+
+00:13:02.264 --> 00:13:05.719
+El criterio de carga del centro es un
+resultado clásico y aparece atribuido
+
+00:13:05.719 --> 00:13:09.749
+a su fuente. La aportación identificada en
+el laboratorio es la proyección
+
+00:13:09.749 --> 00:13:11.994
+quiral que produce el recuento cerrado.
+
+00:13:15.129 --> 00:13:19.381
+Abre Model calculator. Introducimos
+contenido de materia y calculamos la
+
+00:13:19.381 --> 00:13:23.673
+respuesta del Higgs. El ejemplo reconstruye
+el modelo de referencia A H M
+
+00:13:23.673 --> 00:13:24.490
+N.
+
+00:13:25.800 --> 00:13:30.748
+Carga el modelo A H M N. El navegador
+recalcula sus términos, el potencial
+
+00:13:30.748 --> 00:13:32.801
+y las magnitudes derivadas.
+
+00:13:32.801 --> 00:13:36.416
+Utiliza este ejemplo como referencia antes
+de cambiar multiplicidades o signos
+
+00:13:36.416 --> 00:13:41.603
+de contorno. Conserva la advertencia de
+normalización para las escalas absolutas.
+
+00:13:42.929 --> 00:13:46.155
+El cociente de masas no depende de esa
+normalización.
+
+00:13:46.155 --> 00:13:48.701
+Las escalas absolutas sí dependen de ella.
+
+00:13:51.796 --> 00:13:55.709
+Abre eta-meter. El panel muestra qué cambia
+el signo de contorno eta en la
+
+00:13:55.709 --> 00:13:59.540
+contribución de un multiplete, mediante una
+expresión cerrada.
+
+00:14:00.862 --> 00:14:04.193
+Carga las nueve copias del multiplete
+insensible y cambia todos los signos
+
+00:14:04.193 --> 00:14:08.093
+eta. En este ejemplo el potencial permanece
+igual.
+
+00:14:08.093 --> 00:14:11.200
+La vista de diferencias permite ver la
+cancelación.
+
+00:14:11.200 --> 00:14:14.526
+Esto no significa que los signos de
+contorno nunca importen.
+
+00:14:15.864 --> 00:14:19.486
+En el modo de diferencias, la contribución
+de cada multiplete insensible
+
+00:14:19.486 --> 00:14:24.164
+desaparece. Es una forma visual de
+comprobar el teorema de la quinta parte.
+
+00:14:27.262 --> 00:14:31.620
+Abre Five dimensions. Esta sección
+reproduce el modelo de cinco dimensiones
+
+00:14:31.620 --> 00:14:35.488
+y S U tres de Haba y Yamashita e incorpora
+la búsqueda de su vacío.
+
+00:14:36.796 --> 00:14:40.380
+Compara el sector gauge puro con el trío
+marginal del ejemplo.
+
+00:14:40.380 --> 00:14:43.187
+Lee conjuntamente el potencial y el vacío.
+
+00:14:43.187 --> 00:14:46.796
+Sus convenciones y su aritmética pertenecen
+a este modelo de cinco dimensiones
+
+00:14:46.796 --> 00:14:50.503
+y no deben trasladarse desde el modelo S U
+siete de seis dimensiones.
+
+00:14:51.798 --> 00:14:54.685
+En el caso gauge puro la simetría no se
+rompe.
+
+00:14:54.685 --> 00:14:58.400
+En esta clase de cinco dimensiones, ocho
+veces D es par.
+
+00:14:58.400 --> 00:15:02.626
+El peldaño impar utilizado en la cota de S
+U siete requiere la sexta dimensión.
+
+00:15:05.729 --> 00:15:09.779
+Abre S U N builder. Las condiciones de
+contorno y las representaciones de
+
+00:15:09.779 --> 00:15:13.127
+materia compatibles definen el potencial de
+Wilson a un lazo implementado
+
+00:15:13.127 --> 00:15:16.545
+en cinco dimensiones. El modelo es la
+entrada.
+
+00:15:17.862 --> 00:15:20.835
+Carga la sección cuatro punto tres del
+artículo.
+
+00:15:20.835 --> 00:15:23.867
+Este ejemplo gauge puro prefiere el extremo
+en uno.
+
+00:15:23.867 --> 00:15:27.518
+Lee el grupo superviviente calculado
+mediante el conmutante común: estar
+
+00:15:27.518 --> 00:15:31.607
+en un extremo no demuestra que sobrevivan
+los generadores presentes en cero.
+
+00:15:31.607 --> 00:15:35.247
+La gráfica y la energía del mínimo utilizan
+ahora la misma normalización,
+
+00:15:35.247 --> 00:15:36.776
+V dividido por C.
+
+00:15:38.060 --> 00:15:42.384
+Los cuatro ejemplos desarrollados se
+contrastan con las fórmulas implementadas.
+
+00:15:42.384 --> 00:15:47.226
+Con una fase de Wilson, los cosenos admiten
+la misma construcción de momentos.
+
+00:15:47.226 --> 00:15:51.289
+Su rama estacionaria cerrada es una
+aproximación para ángulos pequeños.
+
+00:15:51.289 --> 00:15:55.132
+El mínimo numérico de Fourier es otro
+cálculo, y una malla finita no certifica
+
+00:15:55.132 --> 00:15:56.490
+el mínimo global.
+
+00:15:59.596 --> 00:16:04.027
+Abre Paper models. El panel toma cuatro
+modelos publicados y evalúa las partes
+
+00:16:04.027 --> 00:16:06.163
+que admite el motor del laboratorio.
+
+00:16:07.464 --> 00:16:11.666
+Cambia a cinco el número de fermiones de
+Dirac tripletes del ejemplo compatible.
+
+00:16:11.666 --> 00:16:15.705
+Distingue los resultados calculados de las
+afirmaciones estructurales.
+
+00:16:15.705 --> 00:16:19.337
+Cuando aparece el botón de carga, puedes
+transferir el contenido compatible
+
+00:16:19.337 --> 00:16:21.020
+al constructor general.
+
+00:16:22.329 --> 00:16:25.590
+Tres de los cuatro modelos son
+supersimétricos y el potencial del motor no
+
+00:16:25.590 --> 00:16:30.035
+lo es. Sus filas describen condiciones de
+contorno y modos cero.
+
+00:16:30.035 --> 00:16:33.812
+Una fila ámbar identifica la ecuación
+impresa con la que discrepa; no invalida
+
+00:16:33.812 --> 00:16:35.540
+por ello todo el artículo.
+
+00:16:38.662 --> 00:16:42.905
+Abre Four D spectrum. Aquí vemos qué
+contiene el modelo del constructor:
+
+00:16:42.905 --> 00:16:46.146
+campos de cuatro dimensiones y sus torres
+de Kaluza Klein.
+
+00:16:47.462 --> 00:16:50.934
+Carga el ejemplo S U seis y desplaza la
+sonda de Wilson.
+
+00:16:50.934 --> 00:16:55.069
+Compara las familias del potencial con los
+niveles bajos de la torre exacta.
+
+00:16:55.069 --> 00:16:58.427
+Esos niveles pueden requerir una lectura
+diferente de las familias utilizadas
+
+00:16:58.427 --> 00:17:00.337
+para construir el potencial.
+
+00:17:01.660 --> 00:17:05.314
+Las familias de cosenos reconstruyen el
+potencial, pero no determinan por
+
+00:17:05.314 --> 00:17:08.657
+sí solas todos los niveles más bajos de la
+torre exacta.
+
+00:17:08.657 --> 00:17:13.015
+La sonda desplazada es una fase elegida, no
+necesariamente un vacío.
+
+00:17:13.015 --> 00:17:17.065
+Lee su grupo superviviente por separado:
+una coordenada de contorno no determina
+
+00:17:17.065 --> 00:17:19.314
+por sí sola la ruptura de simetría.
+
+00:17:22.396 --> 00:17:26.686
+Abre Anomalies. El registro calcula cada
+canal de anomalía del grupo no roto
+
+00:17:26.686 --> 00:17:28.850
+con aritmética racional exacta.
+
+00:17:30.200 --> 00:17:32.427
+Carga el ejemplo S U seis.
+
+00:17:32.427 --> 00:17:35.901
+Examina los canales y distingue una suma
+que se anula de un modelo sin fermiones
+
+00:17:35.901 --> 00:17:40.009
+sin masa que analizar. La cancelación
+mediante materia de brana es un cálculo
+
+00:17:40.009 --> 00:17:41.106
+separado.
+
+00:17:42.399 --> 00:17:46.027
+Una fila no nula indica una contribución
+pendiente de compensar.
+
+00:17:46.027 --> 00:17:48.934
+No implica automáticamente inconsistencia.
+
+00:17:48.934 --> 00:17:53.062
+Si no existen fermiones sin masa, la
+etiqueta es no subject, sin objeto de
+
+00:17:53.062 --> 00:17:56.551
+análisis, en lugar de cancels, cancelación.
+
+00:17:59.662 --> 00:18:03.661
+Abre Brane matter. El panel incorpora
+materia en los dos puntos fijos y la
+
+00:18:03.661 --> 00:18:07.238
+contrasta simultáneamente con las anomalías
+y con las condiciones para generar
+
+00:18:07.238 --> 00:18:08.732
+masas de contorno.
+
+00:18:10.067 --> 00:18:13.483
+Carga el ejemplo S U cinco de brana y
+resuelve los canales lineales de carga
+
+00:18:13.483 --> 00:18:17.500
+admitidos. Compara el registro de anomalías
+con los campos que siguen sin
+
+00:18:17.500 --> 00:18:22.442
+masa. Cancelar una anomalía y dar masa a un
+campo son requisitos diferentes.
+
+00:18:23.729 --> 00:18:28.153
+Lee los dos resultados antes y después:
+anomalías y campos sin masa.
+
+00:18:28.153 --> 00:18:31.199
+La carga que cancela una anomalía no tiene
+por qué permitir un término de
+
+00:18:31.199 --> 00:18:35.300
+masa. El recuento superviviente es una cota
+inferior bajo la hipótesis de
+
+00:18:35.300 --> 00:18:37.111
+acoplamientos genéricos.
+
+00:18:40.196 --> 00:18:44.322
+Abre Scan. Recorre el espacio finito
+mostrado de condiciones de contorno
+
+00:18:44.322 --> 00:18:47.326
+y contenidos de materia con los filtros
+elegidos.
+
+00:18:47.326 --> 00:18:50.978
+El filtro de ruptura comprueba qué
+generadores presentes en fase cero
+sobreviven
+
+00:18:50.978 --> 00:18:53.359
+en el mínimo localizado numéricamente.
+
+00:18:54.665 --> 00:18:56.786
+Ejecuta el barrido mostrado.
+
+00:18:56.786 --> 00:19:01.988
+Lee el total explorado, cada filtro, los
+supervivientes y los casos sin resolver.
+
+00:19:01.988 --> 00:19:05.998
+Se cuentan por separado condiciones de
+contorno y clases equivalentes.
+
+00:19:05.998 --> 00:19:10.159
+Dos filas supervivientes no representan
+necesariamente teorías distintas.
+
+00:19:11.461 --> 00:19:14.648
+La transformación de bloques indicada en
+pantalla conecta descripciones de
+
+00:19:14.648 --> 00:19:19.537
+la misma teoría. Por eso el resultado
+principal contiene dos recuentos.
+
+00:19:19.537 --> 00:19:23.564
+Un vacío no decidido se contabiliza por
+separado de un resultado negativo.
+
+00:19:26.662 --> 00:19:29.241
+Abre One model, every verdict.
+
+00:19:29.241 --> 00:19:32.664
+Esta sección distingue qué respuestas
+pertenecen a la teoría y cuáles dependen
+
+00:19:32.664 --> 00:19:34.788
+del marco con el que la describimos.
+
+00:19:36.132 --> 00:19:39.340
+Inicia la demostración y selecciona la
+condición de contorno equivalente
+
+00:19:39.340 --> 00:19:43.414
+que aparece. Compara las etiquetas de
+teoría y de marco.
+
+00:19:43.414 --> 00:19:46.721
+Cambiar las coordenadas de la descripción
+puede mover una magnitud mostrada
+
+00:19:46.721 --> 00:19:48.725
+sin cambiar la teoría física.
+
+00:19:50.063 --> 00:19:53.566
+Las etiquetas comparan magnitudes en los
+marcos evaluados.
+
+00:19:53.566 --> 00:19:57.717
+Lee por separado las coordenadas de
+contorno y la simetría superviviente.
+
+00:19:57.717 --> 00:20:01.061
+Las energías comparten la normalización del
+potencial.
+
+00:20:01.061 --> 00:20:04.994
+La concordancia entre mínimos localizados
+es evidencia de estas evaluaciones,
+
+00:20:04.994 --> 00:20:07.951
+no una certificación exhaustiva del mínimo
+global.
+
+00:20:11.062 --> 00:20:15.707
+Abre Simulator. Elige entre las
+predicciones del constructor, la referencia
+
+00:20:15.707 --> 00:20:19.305
+de producción del Higgs con modos del top o
+el anillo de neutrinos.
+
+00:20:19.305 --> 00:20:22.827
+Cada cálculo muestra el alcance de su
+comparación experimental.
+
+00:20:24.129 --> 00:20:27.380
+Carga la demostración del modelo publicado
+y fija el acoplamiento gauge en
+
+00:20:27.380 --> 00:20:31.360
+uno. Las masas del Higgs utilizan ahora
+derivadas segundas analíticas de
+
+00:20:31.360 --> 00:20:35.116
+Fourier, con una cota explícita del error
+de truncamiento.
+
+00:20:35.116 --> 00:20:38.813
+La descarga conserva el acoplamiento y la
+fase utilizados, y distingue una
+
+00:20:38.813 --> 00:20:41.830
+sonda elegida de un mínimo localizado
+numéricamente.
+
+00:20:43.128 --> 00:20:46.357
+La historia térmica pertenece a un ejemplo
+independiente de S U tres y al
+
+00:20:46.357 --> 00:20:48.510
+régimen compatible indicado.
+
+00:20:48.510 --> 00:20:52.579
+No es una predicción de detección ni la
+historia térmica de este constructor.
+
+00:20:52.579 --> 00:20:56.394
+En los extremos con paridades conmutativas,
+el diccionario de masas actual
+
+00:20:56.394 --> 00:21:00.332
+no identifica un candidato W desplazado
+para fijar la escala.
+
+00:21:00.332 --> 00:21:03.975
+Esa limitación no implica que sobreviva el
+grupo gauge de fase cero.
+
+00:21:07.062 --> 00:21:11.589
+Abre Boundary conditions. Recorremos las
+órbitas para identificar qué condiciones
+
+00:21:11.589 --> 00:21:13.935
+de contorno describen la misma teoría.
+
+00:21:15.262 --> 00:21:18.653
+Cambia del intervalo al ejemplo
+bidimensional Z tres.
+
+00:21:18.653 --> 00:21:22.870
+Cambian las órbitas y el número de clases
+porque cambia el problema de contorno.
+
+00:21:22.870 --> 00:21:27.198
+Una clase reúne las descripciones
+conectadas por las transformaciones
+permitidas.
+
+00:21:28.531 --> 00:21:32.608
+En el intervalo, el recuento reproduce el
+cuadrado de N más uno, de acuerdo
+
+00:21:32.608 --> 00:21:37.501
+con el teorema citado. El resultado cambia
+al pasar al ejemplo bidimensional.
+
+00:21:40.596 --> 00:21:42.766
+Abre Classify an orbifold.
+
+00:21:42.766 --> 00:21:46.721
+El alfabeto del orbifold se deduce
+directamente de su matriz de rotación.
+
+00:21:48.065 --> 00:21:51.858
+Selecciona la rotación bidimensional Z
+cuatro y clasifícala.
+
+00:21:51.858 --> 00:21:54.669
+Puedes introducir otra matriz compatible.
+
+00:21:54.669 --> 00:21:58.343
+Si no cumple las hipótesis de orden finito,
+el programa debe rechazarla en
+
+00:21:58.343 --> 00:22:00.736
+lugar de asignarle una clasificación.
+
+00:22:02.061 --> 00:22:04.216
+La única entrada es la matriz.
+
+00:22:04.216 --> 00:22:08.117
+Una matriz de orden infinito, o con un
+polinomio característico incompatible
+
+00:22:08.117 --> 00:22:12.499
+con la forma ciclotómica admitida, devuelve
+refused, rechazado.
+
+00:22:15.596 --> 00:22:19.886
+Abre Name the relations. Identifica las
+relaciones de equivalencia atribuidas
+
+00:22:19.886 --> 00:22:23.386
+a la bibliografía y examina si un conjunto
+propuesto de movimientos conecta
+
+00:22:23.386 --> 00:22:24.530
+una clase.
+
+00:22:25.862 --> 00:22:29.496
+Cambia al problema Z cuatro y evalúa el
+movimiento propuesto.
+
+00:22:29.496 --> 00:22:32.957
+Lee las condiciones locales y globales
+junto con la fuente.
+
+00:22:32.957 --> 00:22:36.149
+Un movimiento útil en un problema no define
+automáticamente una relación
+
+00:22:36.149 --> 00:22:37.555
+completa en otro.
+
+00:22:38.861 --> 00:22:42.269
+La distinción entre resultados locales y
+globales permanece explícita para
+
+00:22:42.269 --> 00:22:45.436
+evitar extender una conclusión fuera de sus
+hipótesis.
+
+00:22:48.529 --> 00:22:51.064
+Abre Conjugate boundary conditions.
+
+00:22:51.064 --> 00:22:54.411
+El número de condiciones conjugadas no
+equivalentes depende de una hipótesis
+
+00:22:54.411 --> 00:22:58.954
+no resuelta. El panel muestra los
+resultados de las dos alternativas.
+
+00:23:00.262 --> 00:23:03.461
+Aumenta el rango del grupo y compara las
+dos columnas.
+
+00:23:03.461 --> 00:23:06.850
+Las transformaciones conjugadas actúan por
+congruencia.
+
+00:23:06.850 --> 00:23:10.294
+Permitir transformaciones independientes en
+las fronteras plantea un problema
+
+00:23:10.294 --> 00:23:13.195
+diferente de exigir una transformación
+vinculada.
+
+00:23:14.528 --> 00:23:18.121
+Lo que se muestra es la dependencia
+respecto de esa elección: cuatro clases
+
+00:23:18.121 --> 00:23:22.544
+constantes en una hipótesis, o ausencia de
+un recuento finito en la otra.
+
+00:23:22.544 --> 00:23:25.573
+La exportación conserva la hipótesis junto
+al número.
+
+00:23:28.662 --> 00:23:33.175
+Abre Brane kinetic terms. Los términos
+cinéticos localizados en branas modifican
+
+00:23:33.175 --> 00:23:36.604
+la torre de masas, que deja de ser
+simplemente un múltiplo entero de uno
+
+00:23:36.604 --> 00:23:37.718
+sobre R.
+
+00:23:39.065 --> 00:23:41.591
+Aumenta el coeficiente de brana a doce.
+
+00:23:41.591 --> 00:23:44.064
+Las raíces y el espectro responden.
+
+00:23:44.064 --> 00:23:47.390
+Compara las ecuaciones de las raíces y la
+normalización.
+
+00:23:47.390 --> 00:23:51.244
+Para estudiar la evolución de
+acoplamientos, utiliza la tarjeta
+independiente
+
+00:23:51.244 --> 00:23:52.968
+de unificación alabeada.
+
+00:23:54.260 --> 00:23:58.559
+Las funciones especiales se contrastan con
+una referencia de cuarenta cifras.
+
+00:23:58.559 --> 00:24:02.281
+El límite de coeficiente nulo se calcula
+mediante una implementación independiente
+
+00:24:02.281 --> 00:24:07.260
+del solucionador. Esta comparación detectó
+defectos reales durante el desarrollo.
+
+00:24:10.396 --> 00:24:13.389
+Abre Gravity gauge, tres dimensiones.
+
+00:24:13.389 --> 00:24:16.970
+Este ejemplo controlado muestra qué
+información física puede quedar
+indeterminada
+
+00:24:16.970 --> 00:24:19.726
+aunque conozcamos una torre completa de
+masas.
+
+00:24:21.062 --> 00:24:24.386
+Selecciona eta igual a menos cero coma
+nueve y muestra la función cinética
+
+00:24:24.386 --> 00:24:28.744
+gauge. Las masas emparejadas y la respuesta
+a una fuente contienen información
+
+00:24:28.744 --> 00:24:33.483
+diferente. La magnitud de Wilson de este
+panel es una normalización cinética,
+
+00:24:33.483 --> 00:24:35.129
+no una masa del Higgs.
+
+00:24:36.463 --> 00:24:40.314
+Las masas positivas emparejadas comparten
+un operador canónico.
+
+00:24:40.314 --> 00:24:43.845
+El control gauge con otras condiciones de
+contorno sí cambia.
+
+00:24:43.845 --> 00:24:47.007
+La posición de la fuente está en la
+dimensión adicional.
+
+00:24:47.007 --> 00:24:50.544
+La estabilidad y el corte del ejemplo con
+escalar siguen abiertos.
+
+00:24:53.662 --> 00:24:58.054
+Abre The literature. Es la lista de lectura
+de la serie: registra qué publica
+
+00:24:58.054 --> 00:25:00.171
+cada artículo y cuáles se han leído.
+
+00:25:01.465 --> 00:25:03.639
+Filtra por la terna completa.
+
+00:25:03.639 --> 00:25:08.020
+Examina las fuentes registradas y lo que
+proporciona realmente cada artículo.
+
+00:25:08.020 --> 00:25:12.191
+Las señales de palabras clave ayudan a
+navegar, pero no son pruebas.
+
+00:25:12.191 --> 00:25:15.265
+La lista no pretende cubrir exhaustivamente
+el campo.
+
+00:25:16.599 --> 00:25:19.853
+Un barrido por palabras clave puede omitir
+un resultado expresado de otro
+
+00:25:19.853 --> 00:25:24.566
+modo. Ninguna afirmación se deduce solo de
+una señal, y el corpus representa
+
+00:25:24.566 --> 00:25:26.638
+la lista de lectura del proyecto.
+
+00:25:29.731 --> 00:25:33.080
+El segundo modo del simulador estudia la
+producción del Higgs en la referencia
+
+00:25:33.080 --> 00:25:35.388
+con modos de Kaluza Klein del top.
+
+00:25:35.388 --> 00:25:39.052
+La tasa dominante, la torre finita y la
+comparación resumada responden a
+
+00:25:39.052 --> 00:25:41.195
+una pregunta concreta del modelo.
+
+00:25:42.530 --> 00:25:45.636
+Mueve la escala a mil quinientos
+gigaelectronvoltios.
+
+00:25:45.636 --> 00:25:49.148
+Examina la curva de tasas y la convergencia
+por separado.
+
+00:25:49.148 --> 00:25:53.205
+La ventana de comparación es condicionada;
+una ventana personalizada representa
+
+00:25:53.205 --> 00:25:55.587
+un escenario introducido por el usuario.
+
+00:25:58.732 --> 00:26:01.997
+Selecciona el anillo de neutrinos de cuatro
+dimensiones.
+
+00:26:01.997 --> 00:26:05.309
+La calibración puede mantener fijas la masa
+ligera y la pérdida de corriente
+
+00:26:05.309 --> 00:26:08.585
+activa reconstruyendo los acoplamientos
+necesarios.
+
+00:26:08.585 --> 00:26:11.383
+El modelo base contiene seis parejas
+pesadas.
+
+00:26:12.729 --> 00:26:16.344
+Compara mu B igual a cero con cinco mil
+kiloelectronvoltios.
+
+00:26:16.344 --> 00:26:19.716
+La masa ligera dominante y las separaciones
+de las parejas pesadas contienen
+
+00:26:19.716 --> 00:26:24.736
+información diferente. Lee los indicadores
+de aproximación junto al espectro.
+
+00:26:27.861 --> 00:26:31.943
+La comparación con C M S utiliza curvas
+publicadas observadas y esperadas,
+
+00:26:31.943 --> 00:26:36.098
+con sus bandas. La superposición mantiene
+visibles el sabor elegido y la
+
+00:26:36.098 --> 00:26:38.222
+hipótesis de Dirac o Majorana.
+
+00:26:39.529 --> 00:26:42.686
+Elige el sabor muónico y la referencia
+Majorana.
+
+00:26:42.686 --> 00:26:46.535
+Examina la convención por componente, el
+intervalo de masas y los cocientes
+
+00:26:46.535 --> 00:26:50.761
+de referencia. La superposición del anillo
+no constituye una verosimilitud
+
+00:26:50.761 --> 00:26:54.606
+que incorpore todos sus sabores,
+aceptancias de decaimiento e interferencias
+
+00:26:54.606 --> 00:26:55.904
+entre estados.
+
+00:26:58.994 --> 00:27:02.293
+La tarjeta de decaimientos parte de los
+canales débiles.
+
+00:27:02.293 --> 00:27:06.303
+Selecciona una pareja pesada y examina sus
+anchuras parciales, la vida media
+
+00:27:06.303 --> 00:27:09.591
+y la estimación de vuelo para un impulso
+relativista fijado.
+
+00:27:10.932 --> 00:27:13.663
+Activa los canales calculados de Majoron.
+
+00:27:13.663 --> 00:27:16.757
+La anchura y la vida derivada cambian
+conjuntamente.
+
+00:27:16.757 --> 00:27:20.203
+Una anchura adicional es una hipótesis
+separada del usuario.
+
+00:27:20.203 --> 00:27:23.855
+Antes de interpretar el cociente entre
+signos iguales y opuestos, revisa
+
+00:27:23.855 --> 00:27:26.174
+si la pareja está aislada o solapada.
+
+00:27:27.462 --> 00:27:31.032
+Cambia el factor de impulso a diez y
+examina la curva de vuelo.
+
+00:27:31.032 --> 00:27:33.920
+Representa el escenario cinemático
+indicado.
+
+00:27:33.920 --> 00:27:37.794
+No integra una aceptación de detector ni
+una distribución de producción.
+
+00:27:40.931 --> 00:27:44.196
+Tres copias estériles reconstruyen las
+masas ligeras y la orientación de
+
+00:27:44.196 --> 00:27:48.754
+mezcla elegidas. El orden de masas, las
+fases y los déficits activos son
+
+00:27:48.754 --> 00:27:53.781
+entradas. También se muestran los pesos de
+sabor de dieciocho parejas pesadas.
+
+00:27:55.067 --> 00:27:57.788
+Cambia la fase de Dirac a noventa grados.
+
+00:27:57.788 --> 00:28:01.120
+Compara la aparición de neutrinos y
+antineutrinos en el límite unitario de
+
+00:28:01.120 --> 00:28:03.773
+vacío y examina las fracciones de sabor.
+
+00:28:03.773 --> 00:28:07.733
+Las fases de Majorana se cancelan en estas
+oscilaciones, pero pueden afectar
+
+00:28:07.733 --> 00:28:09.977
+a la magnitud de doble beta mostrada.
+
+00:28:13.064 --> 00:28:16.547
+Este experimento mantiene fijas las masas
+ligeras y la orientación de mezcla
+
+00:28:16.547 --> 00:28:19.706
+mientras reconstruye una trayectoria de
+parámetros.
+
+00:28:19.706 --> 00:28:22.734
+La franja verde identifica las entradas
+fijas.
+
+00:28:22.734 --> 00:28:27.335
+Cinco figuras separan masas pesadas,
+separaciones, factores de corriente,
+
+00:28:27.335 --> 00:28:29.995
+diferencias pequeñas y datos de referencia.
+
+00:28:31.330 --> 00:28:34.714
+Mueve la posición seleccionada de una
+décima a ocho décimas en la trayectoria
+
+00:28:34.714 --> 00:28:39.656
+de mu B. La masa permanece fija mientras
+cambia la separación de la pareja.
+
+00:28:39.656 --> 00:28:42.331
+El círculo abierto sigue el punto elegido.
+
+00:28:42.331 --> 00:28:46.498
+Las mismas entradas ligeras no determinan
+toda la respuesta del sector pesado.
+
+00:28:47.796 --> 00:28:51.429
+Selecciona ahora el déficit activo común y
+su extremo superior.
+
+00:28:51.429 --> 00:28:55.366
+Se suprime el factor bruto de corriente,
+pero la normalización cercana indicada
+
+00:28:55.366 --> 00:28:59.661
+cancela el factor común. La figura de
+diferencias identifica la coincidencia
+
+00:28:59.661 --> 00:29:02.240
+numérica sin amplificar errores de
+redondeo.
+
+00:29:03.529 --> 00:29:06.086
+Elige la tercera dirección de déficit.
+
+00:29:06.086 --> 00:29:09.608
+Los déficits diferentes pueden dejar una
+respuesta en la forma.
+
+00:29:09.608 --> 00:29:12.925
+La cuarta gráfica amplía una diferencia
+absoluta difícil de ver en curvas
+
+00:29:12.925 --> 00:29:17.081
+superpuestas. La escala es explícita y los
+datos exportados conservan la
+
+00:29:17.081 --> 00:29:18.635
+precisión original.
+
+00:29:19.931 --> 00:29:23.250
+El mapa de DeepCore utiliza tablas
+archivadas de dos mil dieciocho para tres
+
+00:29:23.250 --> 00:29:27.458
+neutrinos estándar. La cruz permanece fija
+en la trayectoria del anillo porque
+
+00:29:27.458 --> 00:29:29.868
+las entradas ligeras siguen fijas.
+
+00:29:29.868 --> 00:29:34.085
+Este mapa no es una verosimilitud del
+anillo no unitario y no se suma a NuFIT.
+
+00:29:35.398 --> 00:29:39.053
+Para mover la cruz, cambia seno cuadrado de
+theta veintitrés en la tarjeta
+
+00:29:39.053 --> 00:29:42.837
+de sabores. Aquí lo fijamos en cero coma
+seis.
+
+00:29:42.837 --> 00:29:45.744
+La referencia responde a la nueva entrada
+ligera.
+
+00:29:45.744 --> 00:29:49.999
+Fuera de la malla publicada, el laboratorio
+no asigna un valor extrapolado.
+
+00:29:53.131 --> 00:29:57.308
+Este experimento reconstruye el potencial S
+U seis plano de Maru y Nago.
+
+00:29:57.308 --> 00:30:01.383
+El contenido de materia y el corte de la
+suma son controles explícitos.
+
+00:30:01.383 --> 00:30:05.644
+Un mínimo pequeño de Wilson debe leerse
+junto a su comprobación de convergencia.
+
+00:30:06.929 --> 00:30:10.758
+Fija el corte de la suma en diez y examina
+el mínimo y la comparación.
+
+00:30:10.758 --> 00:30:14.207
+Un truncamiento finito puede cambiar el
+resultado aparente.
+
+00:30:14.207 --> 00:30:18.095
+El potencial compatible se puede transferir
+al constructor; eso no certifica
+
+00:30:18.095 --> 00:30:20.100
+un modelo completo de sabores.
+
+00:30:23.194 --> 00:30:26.487
+La tarjeta de unificación alabeada compara
+la evolución diferencial de los
+
+00:30:26.487 --> 00:30:29.865
+acoplamientos para la asignación de materia
+seleccionada.
+
+00:30:29.865 --> 00:30:33.442
+Los términos de contorno ultravioleta
+necesarios y sus residuos son resultados
+
+00:30:33.442 --> 00:30:35.066
+de esa aproximación.
+
+00:30:36.400 --> 00:30:39.171
+Cambia la asignación de materia a C dos.
+
+00:30:39.171 --> 00:30:43.384
+Responden las diferencias de evolución y
+los términos de contorno necesarios.
+
+00:30:43.384 --> 00:30:47.090
+La referencia de análisis dimensional es
+una estimación de escala.
+
+00:30:47.090 --> 00:30:51.279
+La sonda de localización separada no
+calcula un espectro fermiónico completo.
+
+00:30:54.394 --> 00:30:57.893
+La tarjeta térmica utiliza su propio
+ejemplo S U tres.
+
+00:30:57.893 --> 00:31:02.115
+Incluye casos identificados del artículo y
+compara cortes del potencial.
+
+00:31:02.115 --> 00:31:05.806
+Para las entradas archivadas hay un
+resultado compatible de PhaseTracer
+disponible
+
+00:31:05.806 --> 00:31:07.122
+sin conexión.
+
+00:31:08.462 --> 00:31:12.203
+Carga el caso dos y compara el potencial y
+la evolución de fases.
+
+00:31:12.203 --> 00:31:16.964
+La coexistencia y un indicador aproximado
+de nucleación son preguntas diferentes.
+
+00:31:16.964 --> 00:31:20.697
+Un punto nuevo necesita su cálculo
+compatible de la transición.
+
+00:31:20.697 --> 00:31:23.852
+Cambiar el constructor no convierte este
+ejemplo en la historia térmica del
+
+00:31:23.852 --> 00:31:25.343
+modelo construido.
+
+00:31:26.661 --> 00:31:29.987
+La nueva comparación utiliza PhaseTracer y
+CosmoTransitions con el mismo
+
+00:31:29.987 --> 00:31:32.609
+potencial S U tres y campo canónico.
+
+00:31:32.609 --> 00:31:36.164
+Nueve temperaturas comunes comparan la
+acción de la transición.
+
+00:31:36.164 --> 00:31:39.974
+Los programas comparten antecedentes del
+método de disparo: la concordancia
+
+00:31:39.974 --> 00:31:43.541
+es una comprobación numérica, no una prueba
+independiente por intervalos
+
+00:31:43.541 --> 00:31:45.645
+ni una validación experimental.
+
+00:31:46.928 --> 00:31:51.149
+La tabla cambia conjuntamente los cortes
+espaciales y térmicos de Fourier.
+
+00:31:51.149 --> 00:31:55.420
+T ciento cuarenta resuelve S tres dividido
+por T igual a ciento cuarenta.
+
+00:31:55.420 --> 00:31:59.444
+Es un indicador aproximado, separado de los
+resultados integrados de nucleación
+
+00:31:59.444 --> 00:32:03.478
+y percolación. El indicador anterior
+utilizaba una tolerancia de disparo
+
+00:32:03.478 --> 00:32:08.116
+más laxa; compara configuraciones iguales
+antes de interpretar una diferencia.
+
+00:32:09.396 --> 00:32:11.688
+Abre los diagnósticos numéricos.
+
+00:32:11.688 --> 00:32:15.580
+Los cambios de tolerancia, el muestreo del
+perfil y el residuo virial examinan
+
+00:32:15.580 --> 00:32:17.843
+aspectos distintos del cálculo.
+
+00:32:17.843 --> 00:32:21.964
+Los objetivos son criterios numéricos, no
+niveles de confianza.
+
+00:32:21.964 --> 00:32:25.619
+Siguen sin cuantificar los órdenes
+superiores, la resumación térmica y la
+
+00:32:25.619 --> 00:32:30.225
+dinámica del plasma. Estos ejemplos S U
+tres son independientes de los certificados
+
+00:32:30.225 --> 00:32:31.799
+de masa S U siete.
+
+00:32:33.129 --> 00:32:36.101
+Cambia el acoplamiento respecto a la
+referencia.
+
+00:32:36.101 --> 00:32:39.586
+La comparación archivada desaparece porque
+deben coincidir todas las entradas
+
+00:32:39.586 --> 00:32:44.437
+térmicas. Un certificado antiguo no debe
+acompañar a un punto editado.
+
+00:32:44.437 --> 00:32:48.123
+Carga de nuevo un caso identificado para
+recuperar su evidencia; un punto
+
+00:32:48.123 --> 00:32:50.096
+nuevo necesita otro cálculo.
+
+00:32:51.396 --> 00:32:54.966
+Recarga el caso dos y guarda el archivo
+JSON del experimento.
+
+00:32:54.966 --> 00:33:00.031
+Conserva las versiones de ambos programas,
+tolerancias, cortes y fuentes.
+
+00:33:00.031 --> 00:33:04.017
+El potencial térmico se atribuye a Hirose y
+Shibuya, CosmoTransitions a Carroll
+
+00:33:04.017 --> 00:33:07.029
+Wainwright y PhaseTracer a Athron y
+colaboradores.
+
+00:33:07.029 --> 00:33:10.295
+Conserva esta procedencia con cada
+resultado exportado.
+
+00:33:13.394 --> 00:33:16.773
+La historia integrada utiliza tablas
+refinadas de la acción.
+
+00:33:16.773 --> 00:33:20.661
+Lee por separado nucleación, percolación y
+finalización.
+
+00:33:20.661 --> 00:33:24.261
+La fracción de falso vacío y la condición
+sobre el volumen físico hacen visibles
+
+00:33:24.261 --> 00:33:25.770
+esas diferencias.
+
+00:33:27.065 --> 00:33:30.221
+Fija la velocidad supuesta de la pared en
+cero coma ocho y la eficiencia
+
+00:33:30.221 --> 00:33:32.247
+del fluido en cero coma uno.
+
+00:33:32.247 --> 00:33:35.573
+Compara la historia y el espectro acústico
+condicionado.
+
+00:33:35.573 --> 00:33:39.210
+Estos controles no calculan la fricción de
+la pared, la evolución del plasma
+
+00:33:39.210 --> 00:33:41.479
+ni una significación de detección.
+
+00:33:44.598 --> 00:33:48.728
+El experimento alabeado separa los factores
+de anomalía ultravioleta e infrarroja,
+
+00:33:48.728 --> 00:33:52.081
+la cancelación gauge y la matriz de
+corriente bariónica.
+
+00:33:52.081 --> 00:33:56.345
+Sus fuentes y su aproximación son
+diferentes del registro base de S U siete.
+
+00:33:57.662 --> 00:34:01.582
+Elimina las generaciones leptónicas en esta
+configuración de prueba.
+
+00:34:01.582 --> 00:34:05.770
+El desequilibrio revela una anomalía gauge
+que requiere completar el contenido.
+
+00:34:05.770 --> 00:34:09.443
+Una anomalía de corriente bariónica es una
+afirmación distinta; no calcula
+
+00:34:09.443 --> 00:34:12.825
+la vida del protón ni la producción de una
+asimetría bariónica.
+
+00:34:15.931 --> 00:34:19.695
+Empieza con la referencia escalar archivada
+de tipo Modelo Estándar.
+
+00:34:19.695 --> 00:34:23.757
+Los acoplamientos locales determinan las
+tasas de producción, anchuras parciales
+
+00:34:23.757 --> 00:34:25.944
+y fracciones de desintegración.
+
+00:34:25.944 --> 00:34:29.579
+Las comparaciones compatibles de
+HiggsBounds y HiggsSignals utilizan
+conjuntos
+
+00:34:29.579 --> 00:34:31.383
+experimentales fijados.
+
+00:34:32.732 --> 00:34:35.691
+Añade un megaelectronvoltio de anchura
+invisible.
+
+00:34:35.691 --> 00:34:38.974
+Las predicciones locales cambian y el
+resultado experimental anterior se
+
+00:34:38.974 --> 00:34:41.754
+retira porque sus entradas ya no coinciden.
+
+00:34:41.754 --> 00:34:45.259
+Ejecuta el motor opcional o importa un
+resultado compatible antes de asignar
+
+00:34:45.259 --> 00:34:47.352
+un nuevo veredicto experimental.
+
+00:34:50.464 --> 00:34:54.305
+Cada sección del menú, cada modo del
+Simulador y cada tarjeta de experimento
+
+00:34:54.305 --> 00:34:57.781
+tiene ahora un botón Demo, marcado con una
+claqueta.
+
+00:34:57.781 --> 00:35:01.427
+Pulsa los controles de verdad, explica cada
+paso en un recuadro y termina
+
+00:35:01.427 --> 00:35:03.481
+con cómo leer el resultado.
+
+00:35:03.481 --> 00:35:06.942
+Aquí la tarjeta del gluón de Kaluza Klein
+arranca su propia demo.
+
+00:35:08.262 --> 00:35:12.326
+Para la demo y toma el control: carga el
+punto R S publicado por Casagrande
+
+00:35:12.326 --> 00:35:16.106
+y colaboradores, con sus nueve masas de
+bulk de los quarks.
+
+00:35:16.106 --> 00:35:19.264
+La tarjeta calcula los acoplos de un gluón
+de Kaluza Klein curvado a los
+
+00:35:19.264 --> 00:35:23.359
+quarks de modo cero, su anchura y sus
+fracciones de desintegración, y compara
+
+00:35:23.359 --> 00:35:26.589
+sus tasas a primer orden con el límite de
+ATLAS en pares de top y el límite
+
+00:35:26.589 --> 00:35:30.223
+de dijets de C M S como r, predicción entre
+límite.
+
+00:35:31.529 --> 00:35:35.420
+A tres coma siete cinco
+teraelectronvoltios, r para el par de top
+queda cerca
+
+00:35:35.420 --> 00:35:39.104
+de uno: el punto de referencia de dos mil
+ocho está en el borde de la comparación
+
+00:35:39.104 --> 00:35:43.007
+con ATLAS. Es una comparación con la
+plantilla de anchura del treinta por
+
+00:35:43.007 --> 00:35:46.626
+ciento de ATLAS, no una exclusión validada
+a esta anchura.
+
+00:35:47.928 --> 00:35:51.640
+Debajo, el espectro de masa del par de top
+se calcula con la interferencia
+
+00:35:51.640 --> 00:35:55.236
+entre el gluón de Kaluza Klein y el gluón
+de Q C D, en los quince intervalos
+
+00:35:55.236 --> 00:35:58.078
+de la medida de C M S a nivel de partones.
+
+00:35:58.078 --> 00:36:01.814
+En este punto los acoplos del quark ligero
+y del top tienen signos opuestos,
+
+00:36:01.814 --> 00:36:05.108
+así que la interferencia es constructiva
+por debajo del polo.
+
+00:36:06.398 --> 00:36:10.757
+Carga ahora el coloron de G H U plana a
+cuatro coma cinco teraelectronvoltios.
+
+00:36:10.757 --> 00:36:14.912
+Todos los quarks acoplan igual, los acoplos
+tienen el mismo signo y la interferencia
+
+00:36:14.912 --> 00:36:18.909
+se vuelve destructiva: los intervalos bajos
+bajan en lugar de subir.
+
+00:36:20.194 --> 00:36:23.443
+La última gráfica es el delta chi cuadrado
+esperado frente a la covarianza
+
+00:36:23.443 --> 00:36:28.288
+medida, con un diez por ciento de
+incertidumbre teórica del S M por
+intervalo.
+
+00:36:28.288 --> 00:36:31.674
+Pon esa incertidumbre a cero y el alcance
+pasa de unos tres coma ocho a unos
+
+00:36:31.674 --> 00:36:33.780
+cinco teraelectronvoltios.
+
+00:36:33.780 --> 00:36:37.367
+Con el mismo diez por ciento tomado como
+una normalización correlada, el
+
+00:36:37.367 --> 00:36:41.206
+delta chi cuadrado sería cinco coma tres en
+vez de uno coma ocho: el alcance
+
+00:36:41.206 --> 00:36:44.644
+depende de ese supuesto, y la tarjeta da
+los dos.
+
+00:36:44.644 --> 00:36:49.332
+Es una sensibilidad si los datos son el S
+M, no una exclusión, y los certificados
+
+00:36:49.332 --> 00:36:53.390
+muestran la comprobación independiente con
+trazas de Dirac y L H A P D F.
+
+00:36:56.528 --> 00:37:00.269
+La tarjeta de investigación de fronteras
+separa cinco preguntas: una brecha
+
+00:37:00.269 --> 00:37:05.136
+de masa fermiónica, perfiles
+independientes, trazas con paridad, una
+condición
+
+00:37:05.136 --> 00:37:08.839
+tensorial restringida de seis dimensiones y
+diferencias certificadas de respuesta
+
+00:37:08.839 --> 00:37:12.805
+tras matching. Carga la referencia de
+investigación.
+
+00:37:12.805 --> 00:37:16.686
+Cada resultado tiene su alcance matemático;
+juntos no certifican un modelo
+
+00:37:16.686 --> 00:37:18.478
+completo de partículas.
+
+00:37:19.796 --> 00:37:23.305
+El mapa bidimensional muestra la masa
+emparejada más ligera.
+
+00:37:23.305 --> 00:37:26.946
+El eje horizontal es el acoplamiento de
+frontera y el vertical, el ángulo
+
+00:37:26.946 --> 00:37:31.578
+de Wilson impuesto. Más oscuro significa
+mayor masa, en la escala de color
+
+00:37:31.578 --> 00:37:35.831
+fija. El punto blanco marca el cálculo y la
+línea roja fija el acoplamiento
+
+00:37:35.831 --> 00:37:39.917
+de la curva inferior. Selecciona o arrastra
+un punto y suelta para actualizar
+
+00:37:39.917 --> 00:37:41.110
+los valores.
+
+00:37:42.400 --> 00:37:45.026
+Cambia a la superficie tridimensional.
+
+00:37:45.026 --> 00:37:48.296
+La altura y el color representan
+exactamente los mismos datos de masa que
+
+00:37:48.296 --> 00:37:52.722
+el mapa. Cambia el ángulo de vista para
+apreciar la superficie; ese ángulo
+
+00:37:52.722 --> 00:37:55.310
+cambia la cámara, no la física.
+
+00:37:55.310 --> 00:37:59.119
+Al seleccionar la superficie se usa el nodo
+muestreado más cercano.
+
+00:37:59.119 --> 00:38:02.250
+El mapa sigue disponible para seleccionar
+con precisión.
+
+00:38:03.528 --> 00:38:06.533
+Vuelve al mapa y anula el acoplamiento de
+frontera.
+
+00:38:06.533 --> 00:38:10.985
+La primera raíz normal se anula y las
+curvas emparejada y no emparejada
+coinciden.
+
+00:38:10.985 --> 00:38:14.654
+Al restablecer el acoplamiento en uno
+aparece una brecha normal de
+aproximadamente
+
+00:38:14.654 --> 00:38:18.101
+cero coma dos siete cuatro en unidades del
+inverso del radio.
+
+00:38:18.101 --> 00:38:22.281
+Aquí imponemos el ángulo de Wilson; este
+cálculo no encuentra el vacío.
+
+00:38:23.596 --> 00:38:26.755
+Pon a cero la masa del ejemplo separado de
+perfiles.
+
+00:38:26.755 --> 00:38:30.358
+Un autovalor de Gram se hace numéricamente
+nulo: estos tres perfiles solo
+
+00:38:30.358 --> 00:38:33.017
+abarcan dos direcciones independientes.
+
+00:38:33.017 --> 00:38:37.175
+Las barras usan una escala lineal y los
+valores escritos indican su tamaño.
+
+00:38:37.175 --> 00:38:39.362
+Encima aparece el umbral numérico.
+
+00:38:40.665 --> 00:38:43.206
+Restablece la masa de perfiles en uno.
+
+00:38:43.206 --> 00:38:47.535
+Los tres autovalores son positivos, aunque
+existen solapamientos.
+
+00:38:47.535 --> 00:38:51.723
+Solaparse significa que los perfiles no son
+ortogonales; la dependencia exigiría
+
+00:38:51.723 --> 00:38:56.328
+una dirección nula. Este ejemplo comprueba
+independencia lineal, no el origen
+
+00:38:56.328 --> 00:38:58.147
+de tres familias físicas.
+
+00:38:59.462 --> 00:39:02.524
+Cambia de la inserción de esquina de seis
+dimensiones a la de intersección
+
+00:39:02.524 --> 00:39:06.836
+de cuatro dimensiones. La tabla de trazas
+exactas cambia.
+
+00:39:06.836 --> 00:39:10.261
+Una evaluación no nula detecta un polinomio
+no nulo, pero un cero en una
+
+00:39:10.261 --> 00:39:12.516
+sonda no establece cancelación.
+
+00:39:12.516 --> 00:39:16.297
+Siguen haciendo falta normalización local,
+contribuciones espejo y flujo
+
+00:39:16.297 --> 00:39:17.476
+de anomalía.
+
+00:39:18.799 --> 00:39:22.048
+Una familia de seis dimensiones con
+quiralidad leptónica opuesta falla la
+
+00:39:22.048 --> 00:39:24.465
+condición restringida de dobletes.
+
+00:39:24.465 --> 00:39:29.331
+Tres familias la cumplen. La condición
+permite múltiplos de tres: no selecciona
+
+00:39:29.331 --> 00:39:32.504
+exactamente tres y no es la prueba completa
+de anomalías del orbifold de
+
+00:39:32.504 --> 00:39:33.999
+dimensión superior.
+
+00:39:35.332 --> 00:39:38.740
+Selecciona la sonda de respuesta
+certificada en un cuarto.
+
+00:39:38.740 --> 00:39:42.261
+Compara capas de pared uniforme y
+triangular en un cuadrado unidad, con la
+
+00:39:42.261 --> 00:39:45.320
+misma fuente y ajustando el mismo polo y
+residuo.
+
+00:39:45.320 --> 00:39:48.062
+El espesor y el peso de capa quedan fijos.
+
+00:39:48.062 --> 00:39:51.428
+La tabla acota cada respuesta continua y su
+diferencia.
+
+00:39:51.428 --> 00:39:55.656
+Lee el extremo inferior: es positivo, así
+que las respuestas están separadas
+
+00:39:55.656 --> 00:39:56.955
+en este punto.
+
+00:39:58.263 --> 00:40:00.182
+Selecciona ahora un medio.
+
+00:40:00.182 --> 00:40:03.991
+Es una segunda sonda certificada
+independientemente, no una interpolación
+
+00:40:03.991 --> 00:40:08.912
+entre muestras numéricas. El intervalo de
+diferencia vuelve a ser positivo.
+
+00:40:08.912 --> 00:40:12.287
+Ajustar polo y residuo no ha hecho
+idénticas estas respuestas en este modelo
+
+00:40:12.287 --> 00:40:16.433
+a espesor finito. Esto no establece
+separación en todas las frecuencias ni
+
+00:40:16.433 --> 00:40:18.850
+una tasa cuando el espesor tiende a cero.
+
+00:40:20.198 --> 00:40:22.946
+Descarga la demostración y el certificado.
+
+00:40:22.946 --> 00:40:27.043
+El archivo contiene el modelo funcional
+declarado, su demostración escrita,
+
+00:40:27.043 --> 00:40:30.831
+testigos polinómicos exactos y un
+verificador Sage autónomo.
+
+00:40:30.831 --> 00:40:34.524
+Comprueba integrales e intervalos por una
+vía independiente, incluidos los
+
+00:40:34.524 --> 00:40:36.866
+extremos decimales de la pantalla.
+
+00:40:36.866 --> 00:40:40.880
+La repetición completada tiene doscientas
+veintiocho comprobaciones.
+
+00:40:40.880 --> 00:40:44.979
+Es un certificado computacional con
+demostración escrita, no una formalización
+
+00:40:44.979 --> 00:40:50.232
+Lean. Otros parámetros necesitan nueva
+certificación antes de entrar al
+laboratorio.
+
+00:40:51.529 --> 00:40:54.325
+Conserva las hipótesis junto al resultado.
+
+00:40:54.325 --> 00:40:57.915
+Guarda los datos de la tarjeta para
+conservar todas las entradas, la malla
+
+00:40:57.915 --> 00:41:02.907
+de masas, los momentos exactos, las fuentes
+y los requisitos pendientes.
+
+00:41:02.907 --> 00:41:07.637
+La guía explica ecuaciones, ejemplos,
+controles y casos de fallo.
+
+00:41:07.637 --> 00:41:11.965
+La consistencia cuántica global sigue
+siendo una pregunta abierta de
+investigación.
+
+00:41:15.061 --> 00:41:18.684
+Guarda una instantánea de comparación antes
+de cambiar el punto.
+
+00:41:18.684 --> 00:41:23.863
+Exporta el archivo JSON para conservar
+entradas, resultados, hipótesis,
+procedencia
+
+00:41:23.863 --> 00:41:28.198
+y la referencia guardada. La tarjeta global
+y la exportación LaTeX ofrecen
+
+00:41:28.198 --> 00:41:30.809
+otra presentación del cálculo seleccionado.
+
+00:41:32.129 --> 00:41:35.563
+Elige una figura y guarda su archivo
+vectorial SVG.
+
+00:41:35.563 --> 00:41:38.855
+Las nuevas figuras de neutrinos incluyen
+datos muestreados y procedencia
+
+00:41:38.855 --> 00:41:43.722
+en sus metadatos. El botón de enlace
+conserva controles en la dirección.
+
+00:41:43.722 --> 00:41:47.448
+Guarda también en JSON los resultados
+externos y las comparaciones.
+
+00:41:48.727 --> 00:41:53.093
+Los cálculos del navegador y las
+referencias archivadas funcionan sin
+conexión.
+
+00:41:53.093 --> 00:41:57.306
+Los puntos nuevos de HiggsTools y
+PhaseTracer requieren el motor local
+opcional.
+
+00:41:57.306 --> 00:42:01.592
+El repositorio incluye instrucciones de
+reproducción, comprobaciones independientes
+
+00:42:01.592 --> 00:42:06.469
+y estudios archivados. Vuelve al capítulo
+que necesites, modifica una hipótesis
+
+00:42:06.469 --> 00:42:09.153
+y conserva el alcance junto a cada
+resultado.
+
+00:42:12.262 --> 00:42:16.111
+Abre Cuantización y certificados en la
+nueva opción de investigación.
+
+00:42:16.111 --> 00:42:20.139
+Son diagnósticos independientes, con
+entradas racionales exactas e hipótesis
+
+00:42:20.139 --> 00:42:24.148
+separadas. La demo guiada cambia los
+controles reales.
+
+00:42:24.148 --> 00:42:27.897
+Cumplir un criterio aritmético es un
+ingrediente de consistencia.
+
+00:42:27.897 --> 00:42:31.258
+No certifica un modelo completo de
+unificación gauge Higgs.
+
+00:42:32.596 --> 00:42:37.431
+Elige C partido por dos. La clase universal
+no cumple, mientras que los períodos
+
+00:42:37.431 --> 00:42:41.020
+sobre variedades espín cerradas de
+dimensión cuatro sí cumplen.
+
+00:42:41.020 --> 00:42:45.363
+No es una contradicción. Las pruebas usan
+fondos distintos.
+
+00:42:45.363 --> 00:42:48.322
+La prueba universal detecta un período de
+un medio.
+
+00:42:48.322 --> 00:42:52.258
+En los fondos espín indicados, el período
+de Y al cuadrado es par.
+
+00:42:52.258 --> 00:42:55.597
+Ese hecho topológico es externo a la prueba
+aritmética Lean.
+
+00:42:56.927 --> 00:42:59.863
+Los rombos son clases integrales
+universales.
+
+00:42:59.863 --> 00:43:03.106
+Los anillos intermedios cumplen solo la
+prueba de períodos espín cerrados
+
+00:43:03.106 --> 00:43:08.490
+de dimensión cuatro. La cruz marca alfa y
+delta actuales, a beta constante.
+
+00:43:08.490 --> 00:43:12.318
+Selecciona un punto en la aplicación y
+gamma cambia de forma exacta.
+
+00:43:12.318 --> 00:43:16.101
+Son criterios matemáticos, no medidas
+experimentales.
+
+00:43:16.101 --> 00:43:19.744
+Fuera de la ventana, la interfaz indica las
+coordenadas exactas en lugar
+
+00:43:19.744 --> 00:43:21.476
+de pegar el punto al borde.
+
+00:43:22.795 --> 00:43:25.538
+Ahora elige C partido por treinta y seis.
+
+00:43:25.538 --> 00:43:28.857
+La dirección del recubrimiento da un
+entero, uno.
+
+00:43:28.857 --> 00:43:33.005
+Pero el cocarácter del cociente mostrado da
+uno partido por treinta y seis.
+
+00:43:33.005 --> 00:43:36.128
+Comprobar una dirección cómoda del
+recubrimiento puede omitir un período
+
+00:43:36.128 --> 00:43:39.678
+prohibido. Lee el testigo junto al
+criterio.
+
+00:43:39.678 --> 00:43:44.028
+La aplicación usa fracciones exactas, sin
+tolerancia de coma flotante.
+
+00:43:45.329 --> 00:43:49.465
+Elige A más B. Alfa y beta valen uno; gamma
+vale siete doceavos.
+
+00:43:49.465 --> 00:43:52.543
+Al cambiar a la base integral, delta es
+cero.
+
+00:43:52.543 --> 00:43:54.646
+Se cumplen ambos criterios.
+
+00:43:54.646 --> 00:43:57.973
+Las contribuciones fraccionarias deben
+combinarse antes de juzgar la clase
+
+00:43:57.973 --> 00:44:02.483
+total. Los controles, el testigo y el
+resultado exportado usan el mismo
+
+00:44:02.483 --> 00:44:03.526
+cálculo.
+
+00:44:04.864 --> 00:44:08.589
+El panel del axión usa la normalización de
+Choi y colaboradores.
+
+00:44:08.589 --> 00:44:12.001
+La combinación entera dieciocho K dos más
+veinticuatro K tres más K uno debe
+
+00:44:12.001 --> 00:44:14.345
+ser divisible por treinta y seis.
+
+00:44:14.345 --> 00:44:17.825
+El ejemplo cero, uno, doce la satisface.
+
+00:44:17.825 --> 00:44:21.059
+Reproduce el criterio publicado para q
+igual a seis.
+
+00:44:21.059 --> 00:44:24.304
+Identificar este axión con el campo Higgs
+gauge sigue siendo una cuestión
+
+00:44:24.304 --> 00:44:26.372
+física distinta y no resuelta.
+
+00:44:27.664 --> 00:44:30.999
+El mapa parental tiene dos columnas y un
+anulador común.
+
+00:44:30.999 --> 00:44:34.720
+Con el espectro heredado y fuentes Green
+Schwarz integrales ordinarias, seis
+
+00:44:34.720 --> 00:44:38.734
+veces el anulador es dieciséis menos tres p
+menos tres q menos seis r.
+
+00:44:38.734 --> 00:44:42.630
+Para emparejamientos enteros vale uno
+módulo tres y no puede anularse.
+
+00:44:42.630 --> 00:44:45.884
+Lean demuestra esa aritmética para todos
+los enteros.
+
+00:44:45.884 --> 00:44:49.420
+Este resultado no resuelve los fondos
+admisibles del orbifold ni las respuestas
+
+00:44:49.420 --> 00:44:51.026
+adicionales de esquina.
+
+00:44:52.331 --> 00:44:55.714
+El ejemplo U dos muestra por qué la
+integralidad conjunta difiere de exigirla
+
+00:44:55.714 --> 00:45:00.293
+a cada factor separado. Con b cero igual a
+uno y b uno igual a seis, la forma
+
+00:45:00.293 --> 00:45:03.727
+cuadrática es m al cuadrado más m n más n
+al cuadrado.
+
+00:45:03.727 --> 00:45:06.378
+Es integral para toda pareja de enteros.
+
+00:45:06.378 --> 00:45:09.743
+El criterio formal también cubre
+coeficientes racionales con un denominador
+
+00:45:09.743 --> 00:45:14.799
+común no nulo. Este ejemplo no es un
+espectro de supergravedad libre de
+anomalías.
+
+00:45:16.133 --> 00:45:18.392
+Cambia b uno de seis a cinco.
+
+00:45:18.392 --> 00:45:21.904
+Cada celda es un cocarácter etiquetado por
+enteros m y n.
+
+00:45:21.904 --> 00:45:25.923
+Su fracción impresa y color son Q módulo
+uno, calculado con aritmética entera
+
+00:45:25.923 --> 00:45:30.433
+exacta. El punto uno, cero tiene ahora
+período siete octavos: un
+
+00:45:30.433 --> 00:45:32.484
+testigo concreto del fallo.
+
+00:45:32.484 --> 00:45:35.889
+Al volver a seis, todas las celdas son
+integrales.
+
+00:45:35.889 --> 00:45:39.583
+Las ochenta y una celdas ilustran el
+criterio; el teorema Lean lo establece
+
+00:45:39.583 --> 00:45:41.303
+para toda pareja entera.
+
+00:45:42.598 --> 00:45:46.357
+En la auditoría de Spin veinte, el elemento
+Clifford de grado dieciocho tiene
+
+00:45:46.357 --> 00:45:50.765
+cuadrado menos uno. Multiplicarlo por menos
+i hace que la matriz de representación
+
+00:45:50.765 --> 00:45:54.963
+tenga cuadrado más uno. La distinción
+importa para un levantamiento ordinario
+
+00:45:54.963 --> 00:45:59.548
+de isotropía. No demuestra inconsistencia
+del modelo: puede ser posible una
+
+00:45:59.548 --> 00:46:01.636
+acción torcida o combinada.
+
+00:46:01.636 --> 00:46:05.961
+Cada campo e interacción, incluido Omega
+bosónico, debe compartir una acción
+
+00:46:05.961 --> 00:46:07.286
+especificada.
+
+00:46:08.598 --> 00:46:12.093
+El catálogo reúne ahora cinco archivos Lean
+con cincuenta y nueve declaraciones
+
+00:46:12.093 --> 00:46:17.308
+de teoremas. Un teorema es un enunciado
+comprobado bajo hipótesis explícitas.
+
+00:46:17.308 --> 00:46:21.244
+Las diez declaraciones de álgebra de
+hipótesis tienen su propio alcance.
+
+00:46:21.244 --> 00:46:26.330
+Descarga la evidencia, verifica los hashes
+y repite las comprobaciones indicadas.
+
+00:46:26.330 --> 00:46:30.008
+La integridad de archivos, el acuerdo
+numérico y la demostración matemática
+
+00:46:30.008 --> 00:46:33.605
+responden a preguntas distintas; ninguna
+por sí sola establece un modelo
+
+00:46:33.605 --> 00:46:35.120
+físico completo.
+
+00:46:38.262 --> 00:46:41.390
+Abre la ficha de hipótesis dentro de Mismo
+potencial.
+
+00:46:41.390 --> 00:46:45.187
+Reúne cuatro vistas con dos contextos
+científicos separados: nueve modelos
+
+00:46:45.187 --> 00:46:48.810
+gauge Higgs recalibrados y un espectro
+medido por C M S.
+
+00:46:48.810 --> 00:46:51.360
+Cada selección incluye una lectura.
+
+00:46:51.360 --> 00:46:54.519
+La ficha todavía no ajusta estos modelos a
+esa medición.
+
+00:46:55.862 --> 00:47:00.985
+Elige el caso uno. El cuadrado marca la
+referencia en el espacio de parámetros.
+
+00:47:00.985 --> 00:47:04.307
+La diferencia de potencial es cero porque
+la referencia se compara consigo
+
+00:47:04.307 --> 00:47:08.455
+misma. La variable horizontal es la fase
+del campo theta.
+
+00:47:08.455 --> 00:47:11.511
+La fase del vacío permanece fijada en cero
+coma uno.
+
+00:47:12.800 --> 00:47:17.162
+Cambia al caso seis. Las etiquetas ce efe y
+eme uve nombran dos parámetros
+
+00:47:17.162 --> 00:47:19.617
+del sector de fermiones de este modelo.
+
+00:47:19.617 --> 00:47:22.959
+Varias entradas cambian conjuntamente y se
+recalibraron para conservar el
+
+00:47:22.959 --> 00:47:24.982
+vacío y la masa del Higgs.
+
+00:47:24.982 --> 00:47:28.366
+Lambda tres y lambda cuatro describen la
+respuesta cúbica y cuártica cerca
+
+00:47:28.366 --> 00:47:31.949
+de ese vacío. Son resultados calculados.
+
+00:47:31.949 --> 00:47:36.295
+Lee sus cambios porcentuales bajo las
+figuras: se comparan casos completos,
+
+00:47:36.295 --> 00:47:37.978
+no un parámetro aislado.
+
+00:47:39.262 --> 00:47:41.453
+Amplía el intervalo del campo.
+
+00:47:41.453 --> 00:47:45.124
+A cada potencial se le resta su valor en el
+vacío; después se resta el caso
+
+00:47:45.124 --> 00:47:48.161
+uno y se divide por la misma escala de masa
+y campo.
+
+00:47:48.161 --> 00:47:51.020
+El exponente vertical cambia con el
+intervalo.
+
+00:47:51.020 --> 00:47:55.371
+Una diferencia local pequeña puede
+coexistir con otra forma lejos del vacío.
+
+00:47:55.371 --> 00:47:59.396
+Las líneas unen muestras calculadas; no
+demuestran un mínimo global.
+
+00:48:00.732 --> 00:48:03.597
+Selecciona el último intervalo de masa
+medido.
+
+00:48:03.597 --> 00:48:08.647
+C M S publica una sección eficaz
+diferencial de pares top a trece tera
+electronvoltios.
+
+00:48:08.647 --> 00:48:10.907
+El eje vertical es logarítmico.
+
+00:48:10.907 --> 00:48:15.435
+Las barras verticales muestran
+incertidumbres marginales totales; las
+horizontales,
+
+00:48:15.435 --> 00:48:19.938
+anchuras de intervalos. Son secciones
+eficaces medidas, distintas de los
+
+00:48:19.938 --> 00:48:22.875
+límites superiores de resonancias de otras
+fichas.
+
+00:48:24.198 --> 00:48:26.705
+Iguala los dos selectores de intervalo.
+
+00:48:26.705 --> 00:48:29.199
+Su correlación es uno por definición.
+
+00:48:29.199 --> 00:48:31.446
+Elige ahora el intervalo vecino.
+
+00:48:31.446 --> 00:48:35.771
+El signo y la magnitud describen cómo
+varían conjuntamente los errores
+experimentales,
+
+00:48:35.771 --> 00:48:38.451
+no la semejanza de dos modelos físicos.
+
+00:48:38.451 --> 00:48:42.104
+Combinar intervalos requiere la matriz de
+covarianza completa, incluida en
+
+00:48:42.104 --> 00:48:43.733
+la exportación JSON.
+
+00:48:45.062 --> 00:48:49.865
+Abre Certificados. Lean es un asistente de
+demostraciones: verifica los pasos
+
+00:48:49.865 --> 00:48:51.991
+matemáticos de un enunciado.
+
+00:48:51.991 --> 00:48:55.309
+Diez declaraciones adicionales comprueban
+álgebra racional utilizada por
+
+00:48:55.309 --> 00:48:59.487
+este estudio. Un cálculo exacto separado
+verifica la matriz publicada de
+
+00:48:59.487 --> 00:49:04.091
+covarianza. Lee cada fila de izquierda a
+derecha: qué se comprueba, con
+
+00:49:04.091 --> 00:49:06.955
+qué evidencia y hasta dónde llega esa
+garantía.
+
+00:49:06.955 --> 00:49:11.170
+Una identidad correcta no establece que un
+modelo físico describa la naturaleza.
+
+00:49:12.464 --> 00:49:15.669
+Tres entradas con intervalos racionales
+acotan las derivadas del logaritmo
+
+00:49:15.669 --> 00:49:19.350
+hasta cuarto orden. Excluyen el error de
+las funciones de Bessel y de la
+
+00:49:19.350 --> 00:49:23.574
+integral completa. El refinamiento de
+cuadratura sigue siendo un diagnóstico
+
+00:49:23.574 --> 00:49:28.122
+de convergencia. Permanecen abiertos el
+mínimo global, sectores físicos
+
+00:49:28.122 --> 00:49:31.541
+omitidos y la discrepancia aproximada del
+siete coma cuatro por ciento del
+
+00:49:31.541 --> 00:49:36.024
+ajuste cuártico. Lee los pendientes antes
+de interpretar un acuerdo.
+
+00:49:37.328 --> 00:49:40.615
+Guarda las entradas y resultados como JSON
+y descarga la evidencia de los
+
+00:49:40.615 --> 00:49:45.596
+certificados. El JSON conserva los casos
+elegidos, intervalos medidos,
+
+00:49:45.596 --> 00:49:49.332
+covarianza completa, fuentes y alcance
+científico.
+
+00:49:49.332 --> 00:49:53.487
+Importarlo restaura una selección válida
+con las referencias incluidas.
+
+00:49:53.487 --> 00:49:57.214
+No incorpora otra medición ni acepta el
+veredicto de otro archivo.
+
+00:49:57.214 --> 00:50:00.628
+El catálogo de certificados ofrece los
+scripts de repetición y los hashes
+
+00:50:00.628 --> 00:50:01.942
+de las fuentes.
+
+00:50:03.261 --> 00:50:05.362
+Ahora prueba una comparación.
+
+00:50:05.362 --> 00:50:09.611
+Elige otro caso y lee qué entradas
+cambiaron, cómo respondieron los dos
+acoplamientos
+
+00:50:09.611 --> 00:50:11.684
+y dónde difiere el potencial.
+
+00:50:11.684 --> 00:50:16.180
+Después elige dos intervalos medidos y
+explica su correlación con tus palabras.
+
+00:50:16.180 --> 00:50:18.652
+Guarda la selección con sus fuentes.
+
+00:50:18.652 --> 00:50:22.446
+Antes de afirmar que los datos distinguen
+los modelos, identifica la predicción
+
+00:50:22.446 --> 00:50:24.701
+que falta y sus incertidumbres.
+
+00:50:24.701 --> 00:50:28.095
+El botón Demo repite el recorrido y los
+botones de información explican cada
+
+00:50:28.095 --> 00:50:29.061
+ficha.

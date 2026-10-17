@@ -385,7 +385,7 @@
     },
     {
       "id": "boundaryresearch",
-      "title": "Boundary research: spectra, profile rank and anomaly tests",
+      "title": "Boundary research: spectra, profiles, anomalies and certified response",
       "host": "anomalies",
       "guides": {
         "en": "guide/boundaryresearch/index.html",

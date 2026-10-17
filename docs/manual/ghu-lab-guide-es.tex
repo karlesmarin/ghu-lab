@@ -19,7 +19,7 @@
 {\LARGE Guía de uso\par}
 \vspace{7mm}
 Castellano. Composición con Babel.\par
-14 de octubre de 2026\par
+17 de octubre de 2026\par
 \vspace{8mm}
 Los nombres de los controles se conservan tal como aparecen en la aplicación. Empieza con una referencia, cambia un parámetro cada vez y conserva las hipótesis junto al resultado.\par
 \vfill
@@ -2121,12 +2121,12 @@ r(t\ensuremath{\overline{t}}) queda cerca de 1: el punto de referencia de 2008 e
 \item \href{https://doi.org/10.17182/hepdata.102956.v1/t37}{HEPData: CMS parton-level d\ensuremath{\sigma}/dm(t\ensuremath{\overline{t}})}
 \item \href{https://doi.org/10.17182/hepdata.102956.v1/t38}{HEPData: its covariance matrix}
 \end{itemize}
-\section{Investigación de fronteras: espectro, perfiles independientes y anomalías}
-Cuatro pruebas separadas permiten investigar un mecanismo de frontera en GHU: raíces de un problema fermiónico plano, rango numérico de perfiles solapados, trazas espinoriales exactas con inserciones de paridad y una condición restringida para tensores SU(2) en seis dimensiones.
+\section{Investigación de fronteras: espectros, perfiles, anomalías y respuesta certificada}
+Cinco pruebas separadas permiten investigar un mecanismo de frontera en GHU: raíces de un problema fermiónico plano, rango numérico de perfiles solapados, trazas espinoriales exactas con inserciones de paridad y una condición restringida para tensores SU(2) en seis dimensiones. La quinta compara dos perfiles de pared tras igualar polo y residuo, mediante certificados continuos verificables.
 
 \href{https://karlesmarin.github.io/ghu-explorer/guide/es/boundaryresearch/index.html}{Abrir guía web}
 
-Sirven para identificar qué requisito falla y por qué antes de construir el modelo completo. La brecha de masa aborda los modos emparejados no deseados; el rango de Gram comprueba independencia; las trazas con inserciones detectan términos de anomalía localizada; la condición tensorial comprueba un requisito restringido de cuantización. Superar las cuatro no demuestra un encaje viable del Modelo Estándar ni una teoría cuántica completa.
+Sirven para identificar qué requisito falla y por qué antes de construir el modelo completo. La brecha de masa aborda los modos emparejados no deseados; el rango de Gram comprueba independencia; las trazas con inserciones detectan términos de anomalía localizada; la condición tensorial comprueba un requisito restringido de cuantización. Superar estas pruebas no demuestra un encaje viable del Modelo Estándar ni una teoría cuántica completa. La respuesta tras matching permite preguntar si dos condiciones locales eliminan toda dependencia del perfil a espesor finito en el modelo cuadrático declarado.
 \subsection*{Primeros pasos}
 \begin{enumerate}
 \item Abre Anomalies \& proton y busca Investigación de fronteras. Elige Español en la tarjeta. Pulsa Referencia de investigación para restablecer todas las entradas; Demo recorre los ejemplos y termina con esta guía.
@@ -2134,6 +2134,7 @@ Sirven para identificar qué requisito falla y por qué antes de construir el mo
 \item Pon Ejemplo de perfiles M en 0 y después en 1. Compara los autovalores de Gram y el rango numérico.
 \item Cambia la inserción de paridad entre C1, C0 y C0 W. Lee la tabla de trazas exactas atendiendo al grado y a la dimensión del soporte.
 \item Con quiralidad leptónica Opuesta a Q, compara una y tres familias idénticas de seis dimensiones. Lee el exceso firmado de dobletes y su residuo.
+\item Elige Sonda de respuesta certificada: t = 1/4 y después t = 1/2. Lee la sección 5 y la cota inferior positiva de uniforme menos triangular. Descarga la demostración y el certificado ZIP y sigue su README para repetir la verificación independiente con Sage.
 \item Despliega las hipótesis y la procedencia. Fija una comparación, exporta el JSON de la tarjeta y guarda el enlace de la aplicación para repetir el cálculo.
 \end{enumerate}
 \subsection*{Controles y parámetros}
@@ -2151,6 +2152,8 @@ Sirven para identificar qué requisito falla y por qué antes de construir el mo
 
 \textbf{Vista de las masas / Perspectiva 3D}. El mapa 2D y la superficie 3D usan las mismas masas emparejadas y escala de color fija. La perspectiva es un ángulo de visualización, no un parámetro físico. Arrastra en el mapa 2D y suelta para aplicar los valores. En 3D pulsa un nodo de la malla; ajusta la perspectiva entre 15 y 75 grados. Las flechas del teclado mueven el punto seleccionado.
 
+\textbf{Sonda de respuesta certificada}. Selecciona una de las dos sondas certificadas, t = 1/4 o t = 1/2. Quedan fijos el modelo en el cuadrado unidad, la fuente, epsilon = 1/8, alpha = 1/20, c = 38, kL = 2, kT = 8, polo s = 1/100 y residuo R = 1/2. Selecciona ambas sondas. Los intervalos de diferencia excluyen cero; no se permite editar parámetros sin certificar.
+
 \subsection*{Cómo leer los resultados}
 \textbf{Tabla de raíces y curvas de masa}. Seis raíces de x tan(x) = a, con x = kL, y residuos escalados. Las curvas muestran las ramas emparejada y no emparejada más ligeras frente al ángulo impuesto; no son todo el espectro de Kaluza--Klein.
 
@@ -2164,7 +2167,9 @@ Sirven para identificar qué requisito falla y por qué antes de construir el mo
 
 \textbf{Mapa 2D, superficie 3D y barras de Gram}. El color de masa es lineal entre 0 y 0.7071 en mR. El corte rojo fija el acoplamiento actual; el punto blanco marca el cálculo seleccionado. Las celdas visualizan datos muestreados y el valor seleccionado se recalcula. Las barras de Gram tienen su propia escala lineal adaptable, etiquetada, y autovalores numéricos.
 
-Lee cada resultado con sus propias hipótesis. La brecha normal es kR, sin dimensiones; el rango de Gram es numérico y depende del umbral; las trazas son evaluaciones escalares exactas sin pesos locales; un residuo nulo solo satisface la condición indicada para el sistema aislado de seis dimensiones. La cancelación completa de anomalías sigue pendiente.
+\textbf{Respuesta certificada tras matching y ZIP}. Los intervalos exteriores acotan cada respuesta continua y su diferencia. El ZIP contiene la demostración funcional, testigos polinómicos, informes mostrados, verificador autónomo y su recibo de 228 comprobaciones Sage 10.8. Es un certificado computacional con demostración escrita, no una formalización Lean.
+
+Lee cada resultado con sus propias hipótesis. La brecha normal es kR, sin dimensiones; el rango de Gram es numérico y depende del umbral; las trazas son evaluaciones escalares exactas sin pesos locales; un residuo nulo solo satisface la condición indicada para el sistema aislado de seis dimensiones. La cancelación completa de anomalías sigue pendiente. En la sección 5, las cotas positivas de la diferencia establecen separación en los dos puntos admitidos para este modelo. No establecen una predicción GHU completa ni una tasa de capa delgada.
 \subsection*{Ejemplo guiado: Identificar tres motivos distintos de fallo}
 \begin{enumerate}
 \item Carga Referencia de investigación y después Frontera sin acoplamiento: la primera raíz normal es cero.
@@ -2173,8 +2178,13 @@ Lee cada resultado con sus propias hipótesis. La brecha normal es kR, sin dimen
 \item Restablece M = 1: los autovalores valen aproximadamente 0.172999, 2.783424 y 10.686355, y el rango numérico es tres.
 \item Selecciona Una familia 6D con Opuesta a Q: exceso 2 y residuo 2. Selecciona Tres familias 6D: exceso 6 y residuo 0.
 \item Cambia C1 a C0 W, examina la tabla de trazas y exporta el JSON.
+\item Selecciona cada sonda certificada, descarga el certificado y guarda el JSON y el enlace compartidos. La sonda, el modelo fijo y el identificador del certificado acompañan al resultado.
 \end{enumerate}
 La brecha de frontera, la independencia de perfiles y la condición restringida de familias responden a cambios distintos. Ninguna resuelve la cancelación localizada o global de anomalías de la construcción completa.
+\subsection*{Fórmulas y convenciones}
+\begin{quote}Q(t) = F(t) - F(s) - (t-s) F\ensuremath{\prime}(s); C(t) = -1 / [(t-s)/R + Q(t)]\end{quote}
+Identidad exacta de matching para F(t)=t/D(t), con la misma fuente y s,R fijos. Los denominadores certificados excluyen cero en las sondas seleccionadas.
+
 \subsection*{Alcance y limitaciones}
 \begin{itemize}
 \item El espectro plano supone acoplamiento uniforme, ausencia de términos cinéticos adicionales de frontera y rama transversal periódica. No determina un vacío de Wilson, sabor realista ni masas de neutrinos.
@@ -2182,8 +2192,7 @@ La brecha de frontera, la independencia de perfiles y la condición restringida 
 \item Las trazas omiten la normalización de proyectores y del espacio de recubrimiento, el descenso consistente, las contribuciones espejo y el flujo de anomalía. La sonda escalar no es el polinomio completo.
 \item El criterio SU(2) corresponde a un sistema tensorial aislado específico de seis dimensiones. No puede trasladarse automáticamente a una esquina de orbifold de ocho dimensiones acoplada al flujo del bulk.
 \item Siguen pendientes los coeficientes locales, la red integral de cargas tensoriales, el grupo gauge global, los nuevos modos cero bosónicos y la consistencia cuántica completa.
-\item Siguen abiertas la acción global sobre todos los campos, incluido Omega bosónico, y los fibrados admisibles del orbifold.
-\item El elemento Clifford de grado 18 tiene cuadrado \ensuremath{-}1; la matriz Ua=\ensuremath{-}i ta tiene cuadrado +1. La fase escalar requiere una interpretación global común.
+\item La certificación se limita al dominio declarado del cuadrado unidad y dos sondas fijas a espesor finito. Cambiar fuente, formas, matching o espesor requiere otro certificado. Los tests de software y hashes por sí solos no son certificación matemática.
 \end{itemize}
 \subsection*{Si algo no queda claro}
 \textbf{La primera raíz normal es cero.} Comprueba el acoplamiento de frontera. Si es nulo, ese modo cero es el resultado esperado, no un fallo del método numérico.
@@ -2196,12 +2205,16 @@ La brecha de frontera, la independencia de perfiles y la condición restringida 
 
 \textbf{Una entrada inválida conserva el resultado anterior.} Los controles muestran el error y mantienen el último cálculo válido. Restablece el intervalo permitido o pulsa Referencia de investigación.
 
+\textbf{¿Por qué no puedo cambiar el espesor o importar una respuesta?} Solo se admiten instancias certificadas independientemente. Los nuevos cálculos pertenecen al motor matemático externo hasta verificar sus testigos y premisas funcionales.
+
 \subsection*{Fuentes y atribución}
 \begin{itemize}
 \item \href{https://arxiv.org/abs/1609.01413}{Fujimoto et al.: rectangle boundary conditions and profiles, sections 2--5}
 \item \href{https://arxiv.org/abs/hep-ph/0209144}{Asaka, Buchmüller, Covi: localized orbifold anomalies, sections 2--4}
 \item \href{https://arxiv.org/abs/hep-ph/0102010}{Dobrescu, Poppitz: identical six-dimensional generations}
 \item \href{https://arxiv.org/abs/2012.11622}{Lee, Tachikawa: six-dimensional global anomalies and tensor quantization, sections 2--3}
+\item \href{https://arrow.utias.utoronto.ca/~myano/papers/myano_ecrbres.pdf}{Yano: continuous residual norm and stability, sections 2.1--2.2; wall/corner adaptation proved in the certificate}
+\item \href{https://jschoeberl.github.io/iFEM/aposteriori/equilibrated.html}{Schoeberl: equilibrated fluxes, sections 29.1--29.2; methodological background}
 \end{itemize}
 \section{Cuantización y certificados}
 Compara criterios exactos de cuantización para H=S(U(2)\ensuremath{\times}U(3)), períodos espín cerrados en dimensión cuatro, transferencia parental condicional y un ejemplo conjunto U(2).

@@ -1,0 +1,47 @@
+{
+  "schema": "ghu-video-media-v1",
+  "date": "2026-10-17",
+  "revision": "2026-10-17-certified-profiles",
+  "revisionOf": "2026-10-14-hypotheses",
+  "versions": {
+    "en": {
+      "seconds": 2931.266666666667,
+      "voice": "Microsoft Zira Desktop",
+      "syntheticNarration": true,
+      "chapters": 47,
+      "width": 1920,
+      "height": 1080,
+      "fps": 15,
+      "bytes": 95783616,
+      "sha256": "e7d4993e08679c571a2f42f764cdc15d3800721164b42f8e613d829e9e92e04f",
+      "scenes": 178
+    },
+    "es": {
+      "seconds": 3029.86666666667,
+      "voice": "Microsoft Helena Desktop",
+      "syntheticNarration": true,
+      "chapters": 47,
+      "width": 1920,
+      "height": 1080,
+      "fps": 15,
+      "bytes": 102190085,
+      "sha256": "0087dc547270383e1c9e4bfb41b14b027ba4ea68c0d1f18e573989018aad4804",
+      "scenes": 178
+    }
+  },
+  "files": {
+    "ghu-lab-en.mp4": "e7d4993e08679c571a2f42f764cdc15d3800721164b42f8e613d829e9e92e04f",
+    "ghu-lab-en.vtt": "ce531cfd42995d5ddb304bcf5c49a9455910a4f85a2f420f2a0c3ef995d1a172",
+    "chapters-en.json": "e90475a322e942ed40e2e6af1463f32be8ef14a5aed48a8a52c891be10ebeaf6",
+    "transcript-en.txt": "951633593998707bf4849740b3523bc3dde042efe492403e9f6164915df9b531",
+    "poster-en.png": "22c1f14fefc3cc00b6abfe81a63542bf0c50aa14a071b19348f96507c9db8a02",
+    "ghu-lab-es.mp4": "0087dc547270383e1c9e4bfb41b14b027ba4ea68c0d1f18e573989018aad4804",
+    "ghu-lab-es.vtt": "02b8065b1680a2cad9bf8172c1154f64e7b3838a6b8fadf7a20e064ac68b1f86",
+    "chapters-es.json": "2b8a7e5ce080aba02ab8286de08dea5c561f02b350e87e934ca77d28c29340a5",
+    "transcript-es.txt": "b69e25c74c458ca185f4468facd8491cd280a997d335d0e8fbf16683b0aa88e0",
+    "poster-es.png": "e0987aa1b8b1f032d04811cb191a26799fbdbe54dcb10e1b9be61207853d8e77",
+    "poster-data.json": "84878e7c3bbc3ce7b42d574947a44a1df5d433bbcfc2c987bd0f8cbe8c301123",
+    "poster-provenance.json": "6099f8003d7d2534aaaf9dac71f4f0e115f9a697ce3c7a156ce87060d703f49a",
+    "verification.json": "dd8718a264bd808ec66f81257918910868b9cda8b17a5e98ea205b321e1bc962"
+  }
+}

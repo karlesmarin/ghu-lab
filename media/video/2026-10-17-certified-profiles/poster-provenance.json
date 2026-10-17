@@ -1,0 +1,23 @@
+{
+  "source": "src/modules/gravitygauge.mjs",
+  "sourceSha256": "7b3b6c08cdb567c5e04e850f0dfe3e6eff94ff983778204f2cb76b5753bb9aff",
+  "referenceChecks": 5,
+  "dataSha256": "84878e7c3bbc3ce7b42d574947a44a1df5d433bbcfc2c987bd0f8cbe8c301123",
+  "scope": "Fixed-canonical-potential H185 family. Tensor NN / paired vector DD masses. Static response normalized by g4^2 ell^2; fixed g4, g5 recalibrated with eta. Model calculation, not measured data.",
+  "posters": {
+    "en": {
+      "sha256": "22c1f14fefc3cc00b6abfe81a63542bf0c50aa14a071b19348f96507c9db8a02",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    },
+    "es": {
+      "sha256": "e0987aa1b8b1f032d04811cb191a26799fbdbe54dcb10e1b9be61207853d8e77",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    }
+  }
+}

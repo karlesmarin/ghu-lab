@@ -1,6 +1,6 @@
 # Between physics and mathematics: video guide
 
-The 14 October revision uses the original animated whiteboard system: grid background, a progressive mathematical figure on the left, formulas and scope on the right, and word-timed captions. Both languages have 43 chapters. Chapters 1–28 preserve the original explanations; chapter 29 replaces the former closing statement and chapters 30–38 connect quantization and certificates to physics. Chapters 39–43 explain potential derivatives, recalibrated cases, measured CMS bins, covariance and validation scope.
+The 17 October revision uses the original animated whiteboard system: grid background, a progressive mathematical figure on the left, formulas and scope on the right, and word-timed captions. Both languages have 46 chapters. Chapters 44–46 add exact matching, continuum residual bounds and the physical scope of two independently certified probes. Chapters 1–28 preserve the original explanations; chapter 29 replaces the former closing statement and chapters 30–38 connect quantization and certificates to physics. Chapters 39–43 explain potential derivatives, recalibrated cases, measured CMS bins, covariance and validation scope.
 
 | Language | Player | Duration | Narration |
 |---|---|---|---|
@@ -13,6 +13,7 @@ Each player provides chapter navigation, previous/next controls, a transcript, V
 
 | Chapters | Argument | Scope |
 |---|---|---|
+| 44–46 | Same source, pole and residue → residual certificate → response separation | Fixed finite-width quadratic model; written proof and 228 independent Sage checks; no new Lean formalization or observed fit |
 | 1–8 | Boundary condition → spectrum → normal gap | Specified interval operator, scale and kinetic normalization |
 | 9–16 | Overlap → Gram matrix → function independence | Chosen profiles; not a physical family count |
 | 17–22 | Weights → exact trace polynomial | Raw representation trace before physical normalization and inflow |
@@ -39,12 +40,12 @@ The original four examples retain [113 executable checks](../proof/boundary-rese
 
 The downloadable proof bundle contains the maintained data files enumerated in its manifest, all Lean sources, recorded checks and replay instructions. Integrity hashes, numerical audits, ordinary arguments and formal proofs certify different things.
 
-Current media: [`2026-10-14-mathematics-hypotheses`](../media/video/2026-10-14-mathematics-hypotheses/README.md). Each film uses 1920×1080 at 24 fps, 48 kHz mono AAC and 43 continuous chapters on the video-frame clock. Assembly checks exact frame count, complete audio/video decoding, bounded subtitle intervals, unique chapter IDs and file size. `render-manifest.json` records source and media hashes, original-video provenance and each fresh scene's inputs. The shipped browser gate exercises all 43 seeks in both languages, playback, fragment links and mobile layout.
+Current media: [`2026-10-17-mathematics-profiles`](../media/video/2026-10-17-mathematics-profiles/README.md). Each film uses 1920×1080 at 24 fps, 48 kHz mono AAC and 46 continuous chapters on the video-frame clock. Assembly checks exact frame count, complete audio/video decoding, bounded subtitle intervals, unique chapter IDs and file size. `render-manifest.json` records source and media hashes, original-video provenance and each fresh scene's inputs. The shipped browser gate exercises all 46 seeks in both languages, playback, fragment links and mobile layout.
 
-Production commands are in [the source instructions](../tools/mathematics_video/README.md). The first 28 chapters are re-encoded from the pinned original films to cut on the exact frame, then combined with fresh narrated scenes. Original 12 October MP4s, transcripts and certificates remain byte-for-byte unchanged in their versioned source folder and the [historical player](https://karlesmarin.github.io/ghu-explorer/video/mathematics/2026-10-12/index.html).
+Production commands are in [the source instructions](../tools/mathematics_video/README.md). The previous 43 chapters retain their video stream and frame-aligned chapter boundaries; three fresh narrated scenes are appended. Their exact inputs are bound to the admitted matched-profile certificate. Original 12 October MP4s, transcripts and certificates remain byte-for-byte unchanged in their versioned source folder and the [historical player](https://karlesmarin.github.io/ghu-explorer/video/mathematics/2026-10-12/index.html).
 
 ## Related films
 
-The [main laboratory film](https://karlesmarin.github.io/ghu-explorer/video/index.html) has 47 chapters and 175 scenes; chapter 46 demonstrates quantization and chapter 47 teaches hypothesis comparison. The [11-chapter quantization supplement](https://karlesmarin.github.io/ghu-explorer/video/quantization/index.html) gives a focused controls walkthrough. The mathematical film explains why the statements and their physical interpretations fit together.
+The [main laboratory film](https://karlesmarin.github.io/ghu-explorer/video/index.html) has 47 chapters and 178 scenes; chapter 46 demonstrates quantization and chapter 47 teaches hypothesis comparison. The [11-chapter quantization supplement](https://karlesmarin.github.io/ghu-explorer/video/quantization/index.html) gives a focused controls walkthrough. The mathematical film explains why the statements and their physical interpretations fit together.
 
 The [12 October Mathstodon announcement](https://mathstodon.xyz/@karlesmarin/117428242947952586) refers to the historical 29-chapter film. No new social post or email is sent by producing this revision.

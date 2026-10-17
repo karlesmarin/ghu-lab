@@ -5,15 +5,15 @@ boundary conditions, collider references, neutrino dynamics and thermal transiti
 [README catalog](../README.md#-the-instrument) follows the actual menu order; this guide explains
 the capabilities inside those entries and the tools that run outside the browser.
 
-## User guides · 12 October 2026
+## User guides · 17 October 2026
 
 [English](https://karlesmarin.github.io/ghu-explorer/guide/index.html)
 · [Castellano](https://karlesmarin.github.io/ghu-explorer/guide/es/index.html)
 · [Getting started](https://karlesmarin.github.io/ghu-explorer/guide/getting-started/index.html)
 · [Spanish manual (PDF)](https://karlesmarin.github.io/ghu-explorer/guide/manual/ghu-lab-guide-es.pdf).
 
-The searchable guide index organizes tasks and model families. **44 guides** cover the 29 menu
-sections, three Simulator modes, ten embedded experiments, neutrino decays and getting started;
+The searchable guide index organizes tasks and model families. **46 guides** cover the 30 menu
+sections, three Simulator modes, eleven embedded experiments, neutrino decays and getting started;
 these overlap and are not a count of independent panels. Each guide explains controls, outputs,
 an example, assumptions, troubleshooting and source attribution. The 59-term glossary and inline
 help share the English/Spanish catalogues, so scope corrections reach both places.
@@ -28,15 +28,15 @@ including both guide languages; archived artifacts remain accessible through Edi
 
 | Inventory | Count | Source of the count |
 |---|---:|---|
-| 🗂️ Menu sections | 29 | Active section registrations in `src/sections/registry.js` |
+| 🗂️ Menu sections | 30 | Active section registrations in `src/sections/registry.js` |
 | 🔮 Simulator model modes | 3 | The builder, top-KK Higgs production and neutrino-ring options in `predict_section.js` |
-| 🧪 Embedded experiment cards | 10 | The `rxAttach` registrations in `research_extensions.js` |
+| 🧪 Embedded experiment cards | 11 | The `rxAttach` registrations in `research_extensions.js` |
 | 🔬 Archived batch studies | 4 | Higgs, thermal and vacuum studies under `research/2026-10-07/`; neutrino paths under `research/2026-10-07-neutrinos/` |
 
 These counts describe different levels. A mode or experiment lives inside a menu section, and
 one study may use several engines. They do not add up to a total of independent panels.
-The October research additions include ten experiment cards (the ninth, the first KK gluon at the LHC, added on
-10 October; the tenth, boundary research, on 12 October) plus computed Majoron
+The October research additions include eleven experiment cards (the ninth, the first KK gluon at the LHC, added on
+10 October; the tenth, boundary research, on 12 October; the eleventh compares hypotheses, on 14 October) plus computed Majoron
 channels inside Decays and conditional certificates inside Screen a table. The original
 neutrino-ring mode, Higgs-production mode and robustness/decay diagnostics remain part of the
 laboratory as well.
@@ -51,7 +51,7 @@ The script derives section order, labels, experiment hosts and Simulator options
 their registrations. The named analysis areas and batch-study categories are documented groupings;
 they are not a count of every control, plot or numerical function.
 
-## 🧪 The ten embedded experiment cards
+## 🧪 The eleven embedded experiment cards
 
 | Card | Host section | Main controls and results |
 |---|---|---|
@@ -62,7 +62,8 @@ they are not a count of every control, plot or numerical function.
 | 🌡️ Finite-temperature GHU | Simulator → SU(N) builder | Independent thermal SU(3) benchmark, coexistence, phase flow, cutoff comparison and matching PhaseTracer bounce |
 | 🫧 Integrated transition history | Simulator → SU(N) builder | Refined actions, nucleation, percolation, completion, false-vacuum fraction, bubble separation and a conditional acoustic spectrum |
 | ⚖️ RS anomaly flow | Anomalies & proton | Z-mode profiles and masses, UV/IR anomaly factors, gauge cancellation and baryon-current matrix |
-| 📐 Boundary research | Anomalies & proton | Flat boundary spectrum with linked 2D/3D mass views, profile Gram rank, exact parity-inserted traces and the restricted 6D family condition; [equations and reuse](boundary-research.md) |
+| 📐 Boundary research | Anomalies & proton | Flat boundary spectrum with linked 2D/3D mass views, profile Gram rank, exact parity-inserted traces the restricted 6D family condition and independently certified profile matching; [equations and reuse](boundary-research.md) |
+| 🔎 Hypothesis comparison | Hypotheses | Nine archived Wilson-potential cases, recalibrated local couplings and measured CMS covariance; scoped mathematical evidence |
 | 💥 Higgs rates and experimental tests | Collider | Scalar couplings, invisible width, complete rate/width tables and matching HiggsBounds/HiggsSignals results |
 | 🎯 First KK gluon at the LHC | Collider | Flat GHU or warped zero-mode couplings, widths and branching fractions; LO σ × BR against the ATLAS tt̄ and CMS dijet limits as r; m(tt̄) spectrum with KK–QCD interference against CMS TOP-20-001 and its expected Δχ² (a sensitivity) |
 

@@ -14,7 +14,7 @@ def spoken(text,lang):
 def seconds(s):
     h,m,t=map(float,s.split(':'));return 3600*h+60*m+t
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('recording',type=Path);ap.add_argument('--vendor',type=Path);a=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('recording',type=Path);ap.add_argument('--vendor',type=Path);ap.add_argument('--app',type=Path,default=ROOT/'app/index.html',help='Exact captured application for replaying a frozen revision');a=ap.parse_args()
     if a.vendor:sys.path.insert(0,str(a.vendor.resolve()))
     import imageio_ffmpeg
     rec=a.recording.resolve();plan=read(ROOT/'tools/video_guide/storyboard.json')
@@ -27,7 +27,7 @@ def main():
         if not ok:raise AssertionError(label)
         checks.append(label)
     for lang,capture in captures.items():
-        check(sha(ROOT/'app/index.html')==capture['sourceAppSha256'],lang+' captures refer to the delivered application')
+        check(sha(a.app)==capture['sourceAppSha256'],lang+' captures refer to the selected exact application')
         check(set(capture['scenes'])=={s['id'] for ch in plan['chapters'] for s in ch['steps']},lang+f' all {scene_count} scenes recorded')
         check(all(not r['errors'] for r in capture['runs']),lang+' capture runs have no browser exceptions')
         if capture_dirs[lang]!=rec:check(capture['language']==lang,lang+' capture language matches narration')

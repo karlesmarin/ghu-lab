@@ -2,8 +2,8 @@
   "schema": "ghu-video-guide-v1",
   "language": "en",
   "voice": "Microsoft Zira Desktop",
-  "date": "2026-10-14",
-  "scope": "A real-interface walkthrough of all menu sections, three Simulator modes, ten research cards and integrated diagnostics. Representative controls are demonstrated; this is not an exhaustive tour of every numerical input combination. Includes certified SU(7) benchmarks, equal-moment counterexample, separated uncertainty budget, named LHC datasets, matched thermal solver diagnostics and the first KK gluon against ATLAS and CMS data, and the guided Demo buttons. Includes boundary research: linked 2D/3D mass views, Gram rank, inserted traces and a scoped 6D tensor condition. Adds a final quantization chapter: exact figures, joint integrality, conditional responses and scoped certificates.",
+  "date": "2026-10-17",
+  "scope": "A real-interface walkthrough of all menu sections, three Simulator modes, ten research cards and integrated diagnostics. Representative controls are demonstrated; this is not an exhaustive tour of every numerical input combination. Includes certified SU(7) benchmarks, equal-moment counterexample, separated uncertainty budget, named LHC datasets, matched thermal solver diagnostics and the first KK gluon against ATLAS and CMS data, and the guided Demo buttons. Includes boundary research: linked 2D/3D mass views, Gram rank, inserted traces and a scoped 6D tensor condition. Adds a final quantization chapter: exact figures, joint integrality, conditional responses and scoped certificates. The boundary module includes two independently certified matched-profile response queries with a downloadable functional proof and replayable certificate.",
   "recordingNotes": "Pointer highlights and chapter captions are tutorial annotations. Computation waits may be shortened; results come from the actual application. Built-in demonstrations may be held between steps for narration.",
   "chapters": [
     {
@@ -2423,14 +2423,14 @@
     },
     {
       "id": "boundaryresearch",
-      "title": "Boundary research: linked 2D / 3D diagnostics",
-      "titleES": "Fronteras: diagnósticos enlazados en 2D / 3D",
+      "title": "Boundary research: diagnostics and certified response",
+      "titleES": "Fronteras: diagnósticos y respuesta certificada",
       "host": "anomalies",
       "setup": [],
       "steps": [
         {
-          "text": "The boundary research card separates four questions: a fermion mass gap, independent profiles, parity-inserted traces and a restricted six-dimensional tensor condition. Load the research baseline. These are diagnostic tools, not a completed particle model.",
-          "textES": "La tarjeta de investigación de fronteras separa cuatro preguntas: una brecha de masa fermiónica, perfiles independientes, trazas con inserciones de paridad y una condición tensorial restringida de seis dimensiones. Carga la referencia de investigación. Son herramientas de diagnóstico, no un modelo de partículas completo.",
+          "text": "The boundary research card separates five questions: a fermion mass gap, independent profiles, parity-inserted traces, a restricted six-dimensional tensor condition, and certified response differences after matching. Load the research baseline. Each result has its own mathematical scope; together they do not certify a complete particle model.",
+          "textES": "La tarjeta de investigación de fronteras separa cinco preguntas: una brecha de masa fermiónica, perfiles independientes, trazas con paridad, una condición tensorial restringida de seis dimensiones y diferencias certificadas de respuesta tras matching. Carga la referencia de investigación. Cada resultado tiene su alcance matemático; juntos no certifican un modelo completo de partículas.",
           "actions": [
             {
               "kind": "button",
@@ -2594,6 +2594,53 @@
           "id": "44_boundaryresearch_08"
         },
         {
+          "text": "Select the certified response query at one quarter. This compares uniform and triangular wall layers in a unit square, with the same source and with their pole and residue matched. The layer width and weight stay fixed. The table encloses each continuum response and their difference. Read the lower endpoint: it is positive, so the responses are separated at this point.",
+          "textES": "Selecciona la sonda de respuesta certificada en un cuarto. Compara capas de pared uniforme y triangular en un cuadrado unidad, con la misma fuente y ajustando el mismo polo y residuo. El espesor y el peso de capa quedan fijos. La tabla acota cada respuesta continua y su diferencia. Lee el extremo inferior: es positivo, así que las respuestas están separadas en este punto.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#rx_boundaryresearch_controls [data-rx=\"matchedProbe\"]",
+              "value": 0
+            }
+          ],
+          "focus": {
+            "selector": "#gmr_panel",
+            "index": 0
+          },
+          "id": "44_boundaryresearch_09"
+        },
+        {
+          "text": "Now select one half. This is a second independently certified query, not an interpolation between numerical samples. The difference interval is again positive. Matching the pole and residue has therefore not made these two response functions identical in this model at finite layer width. This does not establish separation at every frequency or a rate as the width tends to zero.",
+          "textES": "Selecciona ahora un medio. Es una segunda sonda certificada independientemente, no una interpolación entre muestras numéricas. El intervalo de diferencia vuelve a ser positivo. Ajustar polo y residuo no ha hecho idénticas estas respuestas en este modelo a espesor finito. Esto no establece separación en todas las frecuencias ni una tasa cuando el espesor tiende a cero.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#rx_boundaryresearch_controls [data-rx=\"matchedProbe\"]",
+              "value": 1
+            }
+          ],
+          "focus": {
+            "selector": "#gmr_panel",
+            "index": 0
+          },
+          "id": "44_boundaryresearch_10"
+        },
+        {
+          "text": "Download the proof and certificate. The archive contains the declared functional model, its written proof, exact polynomial witnesses and a standalone Sage verifier. It checks the integrals and intervals by an independent route, including the decimal endpoints shown here. The completed replay has two hundred and twenty eight checks. It is a computational certificate with a written proof, not a Lean formalization. New parameters require new certification before entering the laboratory.",
+          "textES": "Descarga la demostración y el certificado. El archivo contiene el modelo funcional declarado, su demostración escrita, testigos polinómicos exactos y un verificador Sage autónomo. Comprueba integrales e intervalos por una vía independiente, incluidos los extremos decimales de la pantalla. La repetición completada tiene doscientas veintiocho comprobaciones. Es un certificado computacional con demostración escrita, no una formalización Lean. Otros parámetros necesitan nueva certificación antes de entrar al laboratorio.",
+          "actions": [
+            {
+              "kind": "click",
+              "selector": "[data-gmr-certificate]"
+            }
+          ],
+          "focus": {
+            "selector": "#gmr_panel",
+            "index": 0
+          },
+          "id": "44_boundaryresearch_11"
+        },
+        {
           "text": "Keep the assumptions with the result. Save the card data to preserve every input, the sampled mass grid, exact moments, sources and unresolved requirements. The guide explains the equations, examples, controls and failure cases. The overall quantum consistency remains an open research question.",
           "textES": "Conserva las hipótesis junto al resultado. Guarda los datos de la tarjeta para conservar todas las entradas, la malla de masas, los momentos exactos, las fuentes y los requisitos pendientes. La guía explica ecuaciones, ejemplos, controles y casos de fallo. La consistencia cuántica global sigue siendo una pregunta abierta de investigación.",
           "actions": [
@@ -2607,7 +2654,7 @@
             "index": 0
           },
           "title": null,
-          "id": "44_boundaryresearch_09"
+          "id": "44_boundaryresearch_12"
         }
       ],
       "number": 44
@@ -3015,6 +3062,6 @@
     "en": "Microsoft Zira Desktop",
     "es": "Microsoft Helena Desktop"
   },
-  "revisionOf": "2026-10-13-quantization-main",
-  "revision": "2026-10-14-hypotheses"
+  "revisionOf": "2026-10-14-hypotheses",
+  "revision": "2026-10-17-certified-profiles"
 }

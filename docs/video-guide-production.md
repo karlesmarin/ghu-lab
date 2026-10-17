@@ -1,6 +1,6 @@
 # 🎬 GHU Lab video guide · English and Spanish
 
-For the separate 43-chapter mathematical film in English and Castellano,
+For the separate 46-chapter mathematical film in English and Castellano,
 see [the mathematical video guide](mathematics-video.md) and
 [its production instructions](../tools/mathematics_video/README.md). The workflow below
 concerns the 47-chapter general laboratory tutorial.
@@ -9,16 +9,11 @@ concerns the 47-chapter general laboratory tutorial.
 [Ver en español](https://karlesmarin.github.io/ghu-explorer/video/index.html?lang=es)
 
 The guide demonstrates all 30 navigation sections, three Simulator modes, eleven research cards,
-integrated diagnostics and exports. There are 47 chapters and 175 narrated scenes per language.
+integrated diagnostics and exports. There are 47 chapters and 178 narrated scenes per language.
 Representative controls are shown; the guide does not enumerate every input combination.
 The experiment's question, changed input and interpretation form each chapter's teaching sequence.
 
-The general recordings were captured from source commit
-[`99007ca`](https://github.com/karlesmarin/ghu-lab/commit/99007ca), whose built app
-SHA-256 is `16f09833671badd3b3a5f7a935784dda8a4cef8874bb02c59c95d1d1bd117d68`.
-The subsequent live language-switch correction preserves the recorded calculations,
-data, media and chapter times. Replay the capture against that checkpoint; the current
-app has its own build hash.
+The 17 October recordings use the current built app. Their exact app and storyboard hashes are recorded in the revision verification manifest; both languages contain all 178 scenes. Chapter 44 includes the two certified probes and certificate download. Chapter 47 retains the hypothesis comparison workflow.
 
 ## Cover and access to the new chapter · 14 October 2026
 
@@ -44,7 +39,7 @@ media and subtitle checks for this recording; neither is a full human listening 
 
 The current `2026-10-14-hypotheses` revision recaptures all 47 chapters in both languages. Chapter 47 and the embedded hypothesis Demo share one storyboard: start with a question, change a real control, read axes and uncertainty, state what follows, then save and practice. It demonstrates recalibrated GHU cases, a global potential view, measured CMS bins, correlations and scoped certificates. The guide links directly to this chapter. The recorder resolves translated controls using their original source text.
 
-The 13 October main film and mathematical film remain archived with their original media. Current mathematics has 43 chapters and the complete Lean catalogue has 59 declarations in five files. Publication is a separate step; these commands produce local assets.
+The 13 October main film and mathematical film remain archived with their original media. Current mathematics has 46 chapters and the complete Lean catalogue has 59 declarations in five files. Publication is a separate step; these commands produce local assets.
 
 
 The historical revision `2026-10-12-boundary-research` recaptures all 45 chapters against Lab 0.2.1.
@@ -149,3 +144,7 @@ After building the site, run `node build/video_guide.mjs` for the real-browser p
 It checks visible startup covers, both languages, seeks, live captions, transcript coverage, chapter search, deep links,
 mobile width and playback from disk. Its local server supports byte-range video requests.
 Screenshots and the result are written to `shots/video-guide/`, outside the tracked source.
+
+Post-capture interface correction: the global Anomalies shortcut now translates the extended Boundary research title. The frozen films retain the verified captured-app hash in their manifest. Mathematical modules, certified inputs, controls, results, storyboard and narration are unchanged. The exact captured application is retained with the raw recording for replay. Apart from the build timestamp, this translation is the only application text difference (checked against the captured file). It does not change chapter times or scientific conclusions.
+
+To replay a frozen revision after a later interface correction, use: python tools/video_guide/verify_revision.py <recording> --app <recording>/captured-app.html --vendor <existing-vendor-directory>. The selected file must match the exact capture hash; the default still checks the current application.

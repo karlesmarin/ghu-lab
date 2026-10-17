@@ -1,6 +1,29 @@
 # The site — what it is, page by page
 
-## Current site · 14 October 2026
+## Release · 17 October 2026
+
+Boundary research now includes [certified matched profiles](docs/matched-profiles.md),
+with two admitted query points and a downloadable proof and replayable certificate.
+Navigation and card counts are unchanged. The source and generated-site repositories
+carry this release; dated site and media descriptions below retain their original scope.
+
+
+Final local validation: 10576 source checks / 82 harnesses for the integration,
+followed by the final cosmetic corrections and all 21 current browser gates.
+The two language gates report no missing visible or computed phrases across
+47 Demos. Site: 34 checks; guides/manuals: 135; 5180 local links, none broken;
+general player: 35; mathematical/supplement player: 221; guide browser: 206.
+The main films have 47 chapters / 178 scenes per language (3455 media checks).
+The mathematical films have 46 chapters. The current revisions are
+2026-10-17-certified-profiles and 2026-10-17-mathematics-profiles.
+A post-capture global shortcut translation and build timestamp are the only
+live-app text differences; the exact captured app remains available for replay.
+Preview locally with the existing tools/mathematics_video/preview.mjs server.
+Publication authorized by Carles on 17 October: commit and push the reviewed source
+to ghu-lab and the generated site to ghu-explorer, then verify GitHub Pages.
+Excovery and private research remain outside the public repositories.
+
+## Historical site checkpoint · 14 October 2026
 
 The Lab has 30 menu sections, 11 embedded cards, 3 Simulator modes and 46 bilingual
 guides. Same potential? contains the Hypotheses card, its four linked plots, contextual

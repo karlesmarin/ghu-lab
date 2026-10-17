@@ -1,9 +1,24 @@
 """Publish the complete maintained proof tree and associated data with a checked download."""
 from pathlib import Path
-import hashlib,html,json,re,shutil,zipfile
+import base64,hashlib,html,io,json,re,shutil,zipfile
 
 def build(root,out):
  root=Path(root);out=Path(out)
+ # Materialize the same admitted archive offered by the offline application.
+ cert_source=root/'src/modules/matched_profiles_certificate.mjs'
+ cert=json.loads(cert_source.read_text(encoding='utf-8').split('=',1)[1].strip().removesuffix(';'))
+ raw=base64.b64decode(cert['base64'])
+ assert hashlib.sha256(raw).hexdigest()==cert['sha256']
+ matched=root/'proof/matched-profiles';matched.mkdir(exist_ok=True)
+ (matched/'certificate.zip').write_bytes(raw)
+ with zipfile.ZipFile(io.BytesIO(raw)) as z:
+  expected=set(cert['files_sha256'])|{'SHA256SUMS.json'}
+  assert set(z.namelist())==expected
+  for name in sorted(expected):
+   assert Path(name).name==name
+   value=z.read(name)
+   if name in cert['files_sha256']:assert hashlib.sha256(value).hexdigest()==cert['files_sha256'][name]
+   (matched/name).write_bytes(value)
  # These are already public source directories. Never scan private research roots.
  files=sorted(p for directory in ('proof','data') for p in (root/directory).rglob('*')
               if p.is_file() and '__pycache__' not in p.parts and not p.name.endswith('.template.html')
@@ -16,7 +31,7 @@ def build(root,out):
  rows=[dict(path=p.relative_to(root).as_posix(),bytes=p.stat().st_size,sha256=hashlib.sha256(p.read_bytes()).hexdigest()) for p in files]
  lean=[dict(path=r['path'],theorems=len(re.findall(r'^theorem\s+', (root/r['path']).read_text(encoding='utf-8'),re.M))) for r in rows if r['path'].endswith('.lean')]
  assert len(lean)==5 and sum(x['theorems'] for x in lean)==59,lean
- manifest=dict(schema='ghu-proof-bundle-v1',date='2026-10-14',scope='Integrity and scoped verification; no full-model consistency or novelty claim',lean=lean,files=rows)
+ manifest=dict(schema='ghu-proof-bundle-v1',date='2026-10-17',scope='Integrity and scoped verification; no full-model consistency or novelty claim',lean=lean,files=rows)
  manifest_path=root/'proof/manifest.json';manifest_path.write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
  paths=files+[manifest_path]
  for p in paths:
@@ -36,6 +51,7 @@ def build(root,out):
  body+='''<p><a href="../data/hypothesis_comparison/index.html">Data structure, downloads and replay / Estructura de datos, descargas y repetición</a></p>'''
  body+='''<h2>What measured data can establish / Qué aportan los datos medidos</h2><p>Measurements can test a physical model that predicts compatible observables. The hypothesis card currently keeps the GHU reconstruction and CMS measurements separate. The quantization module supplies no mass or production-rate prediction. Neither module claims an observed fit.</p><p lang="es">Las medidas permiten contrastar modelos con predicciones compatibles. La ficha de hipótesis mantiene separadas la reconstrucción GHU y la medición CMS. El módulo de cuantización no aporta predicciones de masas ni tasas. Ninguno afirma un ajuste observado.</p>'''
  body+='''<p><a href="../video/mathematics/bridge.html">How certificates, the module and physics fit together</a> · <a href="../video/mathematics/bridge-es.html" lang="es">Cómo encajan certificados, módulo y física</a>. <a href="../video/mathematics/index.html#q8">Watch the animated explanation</a> · <a href="../video/mathematics/index-es.html#q8" lang="es">Ver la explicación animada</a>.</p>'''
+ body+='''<h2>Certified matched profiles / Perfiles certificados tras matching</h2><p><a href="matched-profiles/certificate.zip">Download proof and certificate / Descargar demostración y certificado</a> · <a href="matched-profiles/proof.txt">Functional proof and scope</a> · <a href="matched-profiles/VERIFIED.json">Independent Sage receipt</a> · <a href="../app/index.html#s=anomalies&amp;demo=boundaryresearch">Boundary research Demo</a>.</p><p>Two finite-width probes, t=1/4 and t=1/2, distinguish uniform and triangular responses after matching the same source, pole s=1/100 and residue R=1/2. Written continuum proof plus 228 independent Sage checks (recorded version 10.8). No new Lean formalization, full GHU certificate, thin-layer rate or experimental fit. Extract the ZIP and run <code>sage -python verify.py receipt.json</code>.</p><p lang="es">Dos sondas de anchura finita distinguen respuestas uniforme y triangular tras igualar fuente, polo y residuo. Demostración del continuo escrita y 228 comprobaciones Sage independientes (versión registrada 10.8). Sin nueva formalización Lean, certificado GHU completo, tasa de capa delgada ni ajuste experimental.</p>'''
  body+='<p>Archive SHA-256: <code>'+digest+'</code></p><table><tr><th>Lean source</th><th>Theorems</th></tr>'
  body+=''.join('<tr><td><a href="../'+r['path']+'">'+r['path']+'</a></td><td>'+str(r['theorems'])+'</td></tr>' for r in lean)+'</table>'
  body+='''<h2>Reproduce</h2><p>Use Lean 4.27.0 and Python 3. For the numerical audits install their documented dependencies; Sage 10.9 is used by the Sage scripts. Run from the extracted bundle root:</p><pre>python proof/verify_bundle.py

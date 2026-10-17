@@ -1,5 +1,11 @@
 # 🧭 GHU Lab — an instrument for gauge–Higgs unification
 
+## Certified matched profiles and bilingual media · 17 October 2026
+
+Boundary research now includes two independently certified response queries after matching source, pole and residue. The written continuum proof, polynomial witnesses and 228-check Sage receipt travel with the downloadable ZIP. No new Lean formalization is claimed. The instrument uses the existing shared controls, comparison, exports, permalink and Demo; navigation remains 30 sections, 11 cards and 3 Simulator modes.
+
+The main film has 47 chapters and 178 scenes per language. Chapter 44 demonstrates the new queries. “Between physics and mathematics” has 46 chapters: the previous 43 plus matching, residual certification and physical scope. Guides, both PDF manuals and the certificate catalogue are updated together. This release includes the reviewed app, evidence and bilingual media; dated release notes below retain their historical counts and timings.
+
 ## Hypothesis comparison and teaching media · 14 October 2026
 
 Current inventory: 30 menu sections, 11 embedded cards, 3 Simulator modes and 46 bilingual guides. **Same potential? → Hypotheses** compares nine recalibrated cases and separately explains the measured CMS top-pair spectrum. Four linked plots, contextual readings, a shared video/Demo storyboard, JSON selection import, JSON/SVG/CSV exports and scoped certificates support a reproducible walkthrough.
@@ -147,7 +153,7 @@ banner says what the page does not; the welcome and export demos follow the vide
 link starts one directly, e.g. [`#s=samepot&demo=samepot`](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=samepot&demo=samepot);
 add `&lang=es` for Spanish.
 
-Two narrated Full HD versions demonstrate the current interface in **47 chapters and 175 scenes**:
+Two narrated Full HD versions demonstrate the current interface in **47 chapters and 178 scenes**:
 all **30 menu sections**, the **3 Simulator modes**, the **11 research cards**, diagnostics and exports.
 Chapter 47 explains how to compare hypotheses, read the measured CMS bins and correlations,
 inspect certificates and export the results. The cover combines a calculated 3D response surface
@@ -155,8 +161,8 @@ with a 2D plot of invariant paired masses; it is a model calculation, not experi
 Each chapter connects a question, a control change and the result, with the assumptions needed
 to interpret it. Use the searchable chapter list, subtitles, transcript and MP4 download. Changing
 language preserves your position within the chapter. Narration is synthetic. Both language versions
-were recaptured from the current app on **14 October 2026**: English **47:32**, Spanish **49:10**.
-The mathematical companion contains **43 chapters** (English **19:56**, Spanish **20:12**).
+were recaptured from the current app on **17 October 2026**: English **48:51**, Spanish **50:29**.
+The mathematical companion contains **46 chapters** (English **22:07**, Spanish **22:21**).
 Earlier dated editions remain available from the player as historical versions.
 
 🇪🇸 **Cómo empezar:** abre la guía, elige Español y busca el módulo. Pulsa Reproducir y usa la

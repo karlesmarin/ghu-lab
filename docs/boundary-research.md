@@ -1,7 +1,7 @@
-# Boundary research tools · 1.0.0 · 12 October 2026
+# Boundary research tools · 1.1.0 · 17 October 2026
 
-These four tools turn intermediate GHU research questions into reproducible calculations.
-They belong to **Anomalies → Boundary research** in GHU Lab 0.2.1. They work offline.
+These five tools turn intermediate GHU research questions into reproducible calculations.
+They belong to **Anomalies → Boundary research** in GHU Lab. They work offline.
 The English and Spanish task guides, manual and general video all cover the same examples.
 The scientific goals remain three chiral Standard Model families, a gauge Higgs,
 viable neutrinos, no unwanted light exotics and a consistent local quantum action.
@@ -16,7 +16,9 @@ These diagnostics address parts of that programme; they do not establish the ful
 | Can an orbifold parity expose a localized anomaly term? | Inserted spinor moments | Rank, insertion mask, degree, Cartan probe, half-spin chirality | Exact scalar trace values before local normalization |
 | Do identical 6D families satisfy the restricted tensor condition? | Signed doublet residue | Family count and 6D lepton chirality | A necessary modular condition in a specified standalone setting |
 
-Do not combine the four outputs into a single “model passed” flag. Each uses a different
+| Do matched layers retain different responses? | Certified matched profiles | Two fixed probes, t = 1/4 or 1/2 | Positive difference enclosure for the declared finite-width quadratic model; independent Sage certificate |
+
+Do not combine the five outputs into a single “model passed” flag. Each uses a different
 set of premises. In particular, the profile mass is not a mass added to the Spin(20) action.
 
 ## A five-minute experiment
@@ -46,6 +48,11 @@ their stable schema; SVG titles and labels follow the selected display language.
 8. Save JSON, an SVG figure and the application link. JSON includes parameters, version,
    sampled grid, numerical results, exact rational moments, sources, scope and open questions.
    **Use this point as comparison** preserves a previous result and overlays its paired curve.
+
+9. Select **Certified response query**, first t = 1/4, then t = 1/2. Section 5
+   encloses both matched responses and their difference. The lower bounds are positive.
+   Download the proof and certificate, and follow the replay command in its README.
+   The selected query also travels with the shared comparison, JSON, summary and link.
 
 ## Reading the figures
 
@@ -150,15 +157,15 @@ console.log(brxSU2TensorCondition(6).passes); // true within the stated scope
 accepts M in [0,2] and 1..12 angles in [-2π,2π]. `brxGramSpectrum(real,imag,tolerance)`
 accepts matrices of size 1..32 and tolerance 1e-14..1e-3. `brxTwistedMoment(rank,mask,
 degree,cartan,halfSpin=1)` returns a reduced rational `{n,d}`. `brxLandscape(maxStrength=4,
-steps=24)` accepts 4..64 grid steps. `brxModel` collects the four diagnostics, grid, scopes
+steps=24)` accepts 4..64 grid steps. `brxModel` collects the four original diagnostics, the certified matched-profile snapshot, grid, scopes
 and sources. Invalid values throw; the UI explains input errors and keeps the last valid state.
 
 ## Mathematical companion and certificates
 
 The animated mathematical film is available in
-[English (16:37)](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html) and
-[Castellano (16:53)](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html).
-Each has 38 chapters, translated narration, visible captions, whiteboards and actual laboratory
+[English (22:07)](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html) and
+[Castellano (22:21)](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html).
+Each has 46 chapters, translated narration, visible captions, whiteboards and actual laboratory
 captures. See [the video guide](mathematics-video.md) for topics, downloads, version information
 and verification. The shared [ordinary proofs and executable certificates](../proof/boundary-research/README.md)
 cover the displayed Gram example, ten Robin root brackets, the complete quadratic inserted trace
@@ -186,7 +193,7 @@ permalinks, exports, responsive layouts and absence of runtime errors. See
 [video production](video-guide-production.md) for full general-video capture, narration,
 rendering, verification and revision preservation. Do not replace a frozen video directory.
 
-Tool version 1.0.0 / result schema `ghu-boundary-research-v1`; integration release 0.2.1;
+Original 12 October release: tool version 1.0.0 / result schema `ghu-boundary-research-v1`; integration release 0.2.1;
 general video revision `2026-10-12-boundary-research`. Previous application editions and
 the general video `2026-10-10-demos` remain available. No neutrino mass fit, Wilson vacuum,
 realistic flavour construction or completed quantum anomaly cancellation is claimed.
@@ -202,3 +209,14 @@ realistic flavour construction or completed quantum anomaly cancellation is clai
 ## 13 October 2026 supplement
 
 The [quantization guide](https://karlesmarin.github.io/ghu-explorer/guide/quantization/index.html), [bilingual narrated supplement](https://karlesmarin.github.io/ghu-explorer/video/quantization/index.html), and [complete certificates](https://karlesmarin.github.io/ghu-explorer/proof/index.html) add universal versus spin-period quantization, the joint U(2) arithmetic test, the conditional parent obstruction, and the Spin(20) lift audit. The matrices Ua = −i ta square to +1 while ta² = −1; these matrices do not establish an ordinary equivariant Spin(20) bundle. The lift audit is exact computation, not a Lean proof. The four Lean files contain 49 theorem declarations and do not certify full physical consistency. Earlier films remain dated records and are complemented by the new eleven-chapter video.
+
+## 17 October 2026 — certified matched profiles
+
+A fifth instrument in this card compares the two certified wall profiles after
+common pole/residue matching. See [scope and certificate replay](matched-profiles.md).
+Its written proof and independently replayed certificate are downloadable in the app.
+
+Current tool version: 1.1.0, with the existing result schema extended by a scoped
+matchedProfiles snapshot. Main film: 2026-10-17-certified-profiles, chapter 44.
+Mathematical film: 2026-10-17-mathematics-profiles, chapters 44–46.
+The complete certificate catalogue offers the identical ZIP and its extracted proof.

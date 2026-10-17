@@ -1,0 +1,25 @@
+{
+  "language": "es",
+  "voice": "Microsoft Helena Desktop",
+  "rate": 0,
+  "scenes": [
+    {
+      "id": "m1",
+      "section": "Perfiles tras matching",
+      "title": "Mismo polo y residuo: una comparación más precisa",
+      "text": "La nueva herramienta de fronteras pregunta si dos perfiles de capa finita se distinguen después de igualar fuente, polo y residuo. El modelo es un problema cuadrático declarado en el cuadrado unidad, con trazas de pared acopladas. Su rigidez cambia con el perfil de capa, mientras la forma de masa permanece fija. La respuesta se empareja en ese igual a una centésima, con residuo un medio. Restar el valor y la primera derivada de efe aísla exactamente la dependencia de forma restante. Esta es una pregunta matemática controlada. Conectar coeficientes y dominio con la acción G H U completa sigue siendo una tarea física separada."
+    },
+    {
+      "id": "m2",
+      "section": "Certificación",
+      "title": "De un testigo admisible a una cota del continuo",
+      "text": "El testigo numérico es polinómico por tramos, pero la conclusión corresponde al problema variacional continuo. Comprobaciones exactas establecen las condiciones de frontera e interfaz. Una brecha positiva de coercividad convierte el residuo en una cota superior del error de energía. Así se acotan de y su derivada, y por tanto efe. Un verificador Sage autónomo reconstruye independientemente las integrales polinómicas, usa intervalos dirigidos para logaritmos y comprueba el matching de respuesta. El archivo incluye demostración funcional escrita, testigos, informes y orden de repetición. Sus doscientas veintiocho comprobaciones respaldan estas instancias; esta incorporación no es una formalización Lean."
+    },
+    {
+      "id": "m3",
+      "section": "Interpretación física",
+      "title": "Dos diferencias certificadas y su alcance exacto",
+      "text": "Estas dos barras horizontales son intervalos certificados de la respuesta uniforme menos la triangular. Representan cotas numéricas, no barras de error experimental. Ambos extremos inferiores son positivos: las funciones de respuesta emparejadas son distintas para este modelo. La anchura de capa es un octavo y su amplitud un veinteavo. El laboratorio admite solo las dos sondas verificadas, un cuarto y un medio. El resultado no aporta una tasa de convergencia de capa delgada, separación en toda frecuencia, una construcción gauge y de frontera completa ni un ajuste experimental. Usa Investigación de fronteras y su Demo para repetir la comparación y descargar la evidencia."
+    }
+  ]
+}

@@ -753,7 +753,7 @@ def main(argv=None):
     write('video/index.html', video_page)
 
     # Mathematical companion in English and Spanish; shared evidence and separate general tutorial.
-    math_media = ROOT / 'media' / 'video' / '2026-10-14-mathematics-hypotheses'
+    math_media = ROOT / 'media' / 'video' / '2026-10-17-mathematics-profiles'
     math_out = OUT / 'video' / 'mathematics'
     shutil.copytree(math_media, math_out, dirs_exist_ok=True)
     for math_page in math_media.glob('*.html'):
@@ -775,6 +775,14 @@ def main(argv=None):
         text = re.sub(r'(href|src)="(\.\./[^"]*)"', lambda m: m[1]+'="../'+m[2]+'"', text)
         text = text.replace('href="2026-10-12/', 'href="../2026-10-12/')
         previous_page.write_text(text, encoding='utf-8')
+    math_previous = ROOT / 'media/video/2026-10-14-mathematics-hypotheses'
+    previous_out = math_out / '2026-10-14'
+    shutil.copytree(math_previous, previous_out, dirs_exist_ok=True)
+    for previous_page in previous_out.glob('*.html'):
+        text = previous_page.read_text(encoding='utf-8')
+        text = re.sub(r'(href|src)="(\.\./[^"]*)"', lambda m: m[1]+'="../'+m[2]+'"', text)
+        text = text.replace('href="2026-10-12/', 'href="../2026-10-12/').replace('href="2026-10-13/', 'href="../2026-10-13/')
+        previous_page.write_text(text, encoding='utf-8')
     # Previously served pages are complete frozen documents, including their
     # transcripts and original media paths. Do not wrap them in a new page shell.
     for revision, date in [('', '2026-10-07'), ('2026-10-08', '2026-10-08'),
@@ -782,7 +790,7 @@ def main(argv=None):
                            ('2026-10-10-kkgluon', '2026-10-10-kkgluon'),
                            ('2026-10-10-demos', '2026-10-10-demos'),
                            ('2026-10-12-boundary-research', '2026-10-12-boundary-research'),
-                           ('2026-10-13-quantization-main', '2026-10-13-quantization-main')]:
+                           ('2026-10-13-quantization-main', '2026-10-13-quantization-main'), ('2026-10-14-hypotheses','2026-10-14-hypotheses')]:
         video_guide.copy_media(ROOT, OUT, revision)
         rel = f'video/{date}.html'
         shutil.copyfile(SITE_SRC / f'video-{date}.html', OUT / rel)
@@ -852,16 +860,16 @@ def main(argv=None):
            'in-app help, the glossary and downloadable manuals. Current guidance does not '
            'rewrite frozen evidence or archived tutorials.</p>'
            '<h2>Between physics and mathematics</h2>'
-           '<p>Mathematical companion: <a href="../video/mathematics/index.html" lang="en">English · 43 chapters</a> · '
-           '<a href="../video/mathematics/index-es.html" lang="es">Castellano · 43 capítulos</a>. '
-           'Each edition has 43 animated chapters, with ordinary proofs, exact checks and scoped Lean certificates, including recalibrated GHU potentials, the measured CMS spectrum, correlations and observed ATLAS/CMS limits.</p>'
+           '<p>Mathematical companion: <a href="../video/mathematics/index.html" lang="en">English · 46 chapters</a> · '
+           '<a href="../video/mathematics/index-es.html" lang="es">Castellano · 46 capítulos</a>. '
+           'Each edition has 46 animated chapters, with ordinary proofs, exact checks and scoped Lean certificates, including recalibrated GHU potentials, the measured CMS spectrum, correlations and observed ATLAS/CMS limits.</p>'
            '<h2>Versioned video guides</h2>'
            '<p><a href="../video/quantization/index.html">13 October supplement · English</a> · '
            '<a href="../video/quantization/index-es.html">Castellano</a>: eleven chapters on quantization, '
            'the joint U(2) criterion, conditional parent transfer and the lift audit. '
            '<a href="../proof/index.html">Complete certificates and five Lean sources</a>.</p>'
-           '<ul><li><a href="../video/index.html">Current revision · 14 October 2026</a>: '
-           '47 chapters and 175 scenes per language, all recaptured on 14 October. Includes a practical hypothesis comparison walkthrough with measured CMS data, scoped certificates and exports.</li>'
+           '<ul><li><a href="../video/index.html">Current revision · 17 October 2026</a>: '
+           '47 chapters and 178 scenes per language, all recaptured on 17 October. Includes certified matched profiles in Boundary research and a practical hypothesis comparison walkthrough with measured CMS data, scoped certificates and exports.</li>'
            '<li><a href="../video/2026-10-13-quantization-main.html">Quantization revision · 13 October 2026</a>: 46 chapters and 165 scenes, preserved with its original media.</li>'
            '<li><a href="../video/2026-10-12-boundary-research.html">Boundary revision · 12 October 2026</a>: 45 chapters and 154 scenes, preserved with its original media.</li>'
            '<li><a href="../video/2026-10-10-demos.html">Demo revision · 10 October 2026</a>: '

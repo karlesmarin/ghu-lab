@@ -1,0 +1,25 @@
+{
+  "language": "en",
+  "voice": "Microsoft Zira Desktop",
+  "rate": 0,
+  "scenes": [
+    {
+      "id": "m1",
+      "section": "Matched profiles",
+      "title": "Same pole and residue: a sharper comparison",
+      "text": "The new boundary tool asks whether two finite wall profiles can be distinguished after matching the same source, pole and residue. The model is a declared quadratic problem on a unit square with coupled wall traces. Its stiffness changes with the layer profile, while its mass form stays fixed. The response is matched at s equal to one hundredth, with residue one half. Subtracting the value and first derivative of F isolates the remaining shape dependence exactly. This is a controlled mathematical question. Connecting its coefficients and domain to the full G H U action remains a separate physical task."
+    },
+    {
+      "id": "m2",
+      "section": "Certification",
+      "title": "From an admissible witness to a continuum bound",
+      "text": "The numerical witness is a piecewise polynomial, but the conclusion concerns the continuum variational problem. Exact checks establish the boundary and interface conditions. A positive coercivity gap turns the residual into an upper bound on the energy error. This encloses D and its derivative, and therefore F. A standalone Sage verifier independently reconstructs polynomial integrals, uses directed intervals for logarithms and checks the response matching. The archive includes the written functional proof, witnesses, reports and replay command. Its two hundred and twenty eight checks support these instances; this addition is not a Lean formalization."
+    },
+    {
+      "id": "m3",
+      "section": "Physical interpretation",
+      "title": "Two certified differences and their exact scope",
+      "text": "These two horizontal bars are certified intervals for the uniform response minus the triangular response. They show numerical enclosures, not experimental error bars. Both lower endpoints are positive, so the matched response functions are different for this model. The layer width is one eighth, and its amplitude is one twentieth. The laboratory admits only the two verified queries, one quarter and one half. The result does not supply a thin layer convergence rate, separation at every frequency, a complete gauge and boundary construction, or an experimental fit. Use Boundary research and its Demo to replay the comparison and download its evidence."
+    }
+  ]
+}

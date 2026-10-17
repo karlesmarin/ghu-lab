@@ -119,10 +119,42 @@ def local_labels(value):
 ES=local_labels(ES)
 ES['steps'][0]='Abre Anomalies & proton y busca Investigación de fronteras. Elige Español en la tarjeta. Pulsa Referencia de investigación para restablecer todas las entradas; Demo recorre los ejemplos y termina con esta guía.'
 EN['steps'][0]='Open Anomalies & proton and find Boundary research. Select English in the card. Press Research baseline to restore all inputs; Demo runs the worked examples and ends with this guide.'
+
+# Certified matched-profile comparison belongs to this boundary module.
+EN['title']='Boundary research: spectra, profiles, anomalies and certified response'
+ES['title']='Investigación de fronteras: espectros, perfiles, anomalías y respuesta certificada'
+EN['what']=EN['what'].replace('Four separate tests','Five separate tests')+' The fifth compares two wall profiles after common pole and residue matching, using replayed continuum certificates.'
+ES['what']=ES['what'].replace('Cuatro pruebas separadas','Cinco pruebas separadas')+' La quinta compara dos perfiles de pared tras igualar polo y residuo, mediante certificados continuos verificables.'
+EN['purpose']=EN['purpose'].replace('Passing all four','Passing these tests')+' Matched response asks whether fixing two local conditions removes all finite-width profile dependence in the declared quadratic model.'
+ES['purpose']=ES['purpose'].replace('Superar las cuatro','Superar estas pruebas')+' La respuesta tras matching permite preguntar si dos condiciones locales eliminan toda dependencia del perfil a espesor finito en el modelo cuadrático declarado.'
+EN['steps'].insert(-1,'Select Certified response query: t = 1/4, then t = 1/2. Read section 5 and the positive lower bound of uniform minus triangular. Download the proof and certificate ZIP and follow its README to replay the independent Sage verification.')
+ES['steps'].insert(-1,'Elige Sonda de respuesta certificada: t = 1/4 y después t = 1/2. Lee la sección 5 y la cota inferior positiva de uniforme menos triangular. Descarga la demostración y el certificado ZIP y sigue su README para repetir la verificación independiente con Sage.')
+EN['controls'].append(dict(name='Certified response query',meaning='Select one of the two certified probes, t = 1/4 or t = 1/2. The unit-square model, source, epsilon = 1/8, alpha = 1/20, c = 38, kL = 2, kT = 8, pole s = 1/100 and residue R = 1/2 stay fixed.',try_text='Select both probes. Their response-difference intervals exclude zero; no uncertified parameter is editable.'))
+ES['controls'].append(dict(name='Sonda de respuesta certificada',meaning='Selecciona una de las dos sondas certificadas, t = 1/4 o t = 1/2. Quedan fijos el modelo en el cuadrado unidad, la fuente, epsilon = 1/8, alpha = 1/20, c = 38, kL = 2, kT = 8, polo s = 1/100 y residuo R = 1/2.',try_text='Selecciona ambas sondas. Los intervalos de diferencia excluyen cero; no se permite editar parámetros sin certificar.'))
+EN['outputs'].append(dict(name='Certified matched response and ZIP',meaning='Outward intervals enclose each continuum response and their difference. The ZIP contains the functional proof, polynomial witnesses, displayed reports, standalone verifier and its 228-check Sage 10.8 receipt. This is a computational certificate with a written proof, not a Lean formalization.'))
+ES['outputs'].append(dict(name='Respuesta certificada tras matching y ZIP',meaning='Los intervalos exteriores acotan cada respuesta continua y su diferencia. El ZIP contiene la demostración funcional, testigos polinómicos, informes mostrados, verificador autónomo y su recibo de 228 comprobaciones Sage 10.8. Es un certificado computacional con demostración escrita, no una formalización Lean.'))
+EN['read']+=' In section 5, positive difference bounds establish separation at the two admitted points for this model. They do not establish a complete GHU prediction or a thin-layer rate.'
+ES['read']+=' En la sección 5, las cotas positivas de la diferencia establecen separación en los dos puntos admitidos para este modelo. No establecen una predicción GHU completa ni una tasa de capa delgada.'
+EN['example']['steps'].append('Select each certified response query, download the certificate, then save the shared JSON and link. The selected probe, fixed model and certificate identifier travel with the result.')
+ES['example']['steps'].append('Selecciona cada sonda certificada, descarga el certificado y guarda el JSON y el enlace compartidos. La sonda, el modelo fijo y el identificador del certificado acompañan al resultado.')
+formula='Q(t) = F(t) - F(s) - (t-s) F\u2032(s); C(t) = -1 / [(t-s)/R + Q(t)]'
+EN.setdefault('formulas',[]).append(dict(expression=formula,meaning='Exact matching identity for F(t)=t/D(t), with the same source and fixed s,R. The certified denominators exclude zero at the selected probes.'))
+ES.setdefault('formulas',[]).append(dict(expression=formula,meaning='Identidad exacta de matching para F(t)=t/D(t), con la misma fuente y s,R fijos. Los denominadores certificados excluyen cero en las sondas seleccionadas.'))
+EN['limits'].append('Certification is restricted to the declared unit-square domain and two fixed probes at finite layer width. Changing the source, forms, matching conditions or width requires a new certificate. Software tests and hashes alone are not mathematical certification.')
+ES['limits'].append('La certificación se limita al dominio declarado del cuadrado unidad y dos sondas fijas a espesor finito. Cambiar fuente, formas, matching o espesor requiere otro certificado. Los tests de software y hashes por sí solos no son certificación matemática.')
+EN['troubleshooting'].append(dict(symptom='Why can I not change layer width or import a response?',action='Only independently certified instances are admitted. New computations belong in the external mathematical engine until their witnesses and functional premises are verified.'))
+ES['troubleshooting'].append(dict(symptom='¿Por qué no puedo cambiar el espesor o importar una respuesta?',action='Solo se admiten instancias certificadas independientemente. Los nuevos cálculos pertenecen al motor matemático externo hasta verificar sus testigos y premisas funcionales.'))
+META['references'] += [
+ dict(label='Yano: continuous residual norm and stability, sections 2.1–2.2; wall/corner adaptation proved in the certificate',url='https://arrow.utias.utoronto.ca/~myano/papers/myano_ecrbres.pdf'),
+ dict(label='Schoeberl: equilibrated fluxes, sections 29.1–29.2; methodological background',url='https://jschoeberl.github.io/iFEM/aposteriori/equilibrated.html')]
+
+for body in [EN,ES]:
+    for control in body['controls']:
+        if 'try_text' in control:control['try']=control.pop('try_text')
 for name,body in [('docs/user-guides.json',EN),('docs/user-guides.es.json',ES)]:
     p=ROOT/name; text=p.read_text(encoding='utf-8'); data=json.loads(text)
     indent=next((i for i in (1,2,None) if json.dumps(data,ensure_ascii=False,indent=i).rstrip()==text.rstrip()),'bad')
     if indent=='bad':raise ValueError('Unrecognized formatting: '+name)
-    data['guides']=[g for g in data['guides'] if g['id']!='boundaryresearch']+[{**META,**body}]
+    data['guides']=[{**META,**body} if g['id']=='boundaryresearch' else g for g in data['guides']]
     p.write_bytes((json.dumps(data,ensure_ascii=False,indent=indent)+ ('\n' if text.endswith('\n') else '')).encode('utf-8'))
     print(name,len(data['guides']),'guides')

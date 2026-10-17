@@ -1,0 +1,110 @@
+{
+  "schema": "ghu-mathematics-matched-profiles-video-v1",
+  "revision": "2026-10-17",
+  "reports": [
+    {
+      "language": "en",
+      "chapters": 46,
+      "seconds": 1327.6666666666667,
+      "frames": 31864,
+      "width": 1920,
+      "height": 1080,
+      "fps": 24,
+      "bytes": 31779798,
+      "sha256": "087796dbfba2bd3795156d379b6484b46e5a9b5e3f39e0f314592532711b1d2d",
+      "captionCues": 289,
+      "syntheticNarration": true,
+      "voice": "Microsoft Zira Desktop",
+      "captionsBurnedIn": true,
+      "humanListeningReview": false,
+      "fullDecodePassed": true,
+      "retainedChapters": 43,
+      "retainedPrefixSeconds": 1196.75,
+      "originalVideoSha256": "34bad47f308517c23c6223153c62cd6a4b183e64877b8c28b0494ed2f007d82f",
+      "newScenes": [
+        {
+          "id": "m1",
+          "inputsSha256": "8f8bca40ac074e7838256480d5c92800cb8d45defc49ace136704495a14128de",
+          "frames": 986,
+          "seconds": 41.083333333333336,
+          "sha256": "67512c47a4b97fca6084a1bade791f3e389328ffbf4ed1e137a527c45a29f9d7"
+        },
+        {
+          "id": "m2",
+          "inputsSha256": "9859db0192cf52a96d4eb182a73fd1e8cfe6a2c8acdddccffdab52f4c1ee7b55",
+          "frames": 1080,
+          "seconds": 45.0,
+          "sha256": "911f2ec532e8fcb1eb88dded77ab9c4e3837c0cc4f7f97b81b4488e3cde0cbb5"
+        },
+        {
+          "id": "m3",
+          "inputsSha256": "dc1c079b67cd40fa04fff55aef287d0928fe5cf2ee903120b48d95bbaf817237",
+          "frames": 1076,
+          "seconds": 44.833333333333336,
+          "sha256": "11daf41871065063e309c02e54056d3c756ed70b21773d065b0e920c2c562465"
+        }
+      ]
+    },
+    {
+      "language": "es",
+      "chapters": 46,
+      "seconds": 1341.2083333333333,
+      "frames": 32189,
+      "width": 1920,
+      "height": 1080,
+      "fps": 24,
+      "bytes": 33069942,
+      "sha256": "6d8044d500aff85f9e5dd9a81a5bb5b8babaae43dac6677b7495e7c00563e4fb",
+      "captionCues": 291,
+      "syntheticNarration": true,
+      "voice": "Microsoft Helena Desktop",
+      "captionsBurnedIn": true,
+      "humanListeningReview": false,
+      "fullDecodePassed": true,
+      "retainedChapters": 43,
+      "retainedPrefixSeconds": 1212.125,
+      "originalVideoSha256": "e07608c135309fa86821fb40d895c7b2cdccd2989613fe1542ccecedbfe80365",
+      "newScenes": [
+        {
+          "id": "m1",
+          "inputsSha256": "58d16552afd6d4a02d07d9782d18337403f32cb03ee2ce5daf37205d265399b3",
+          "frames": 965,
+          "seconds": 40.208333333333336,
+          "sha256": "fce78939f9aebd795471539123173c45435fd271903836e0489bdff7f9f16ca7"
+        },
+        {
+          "id": "m2",
+          "inputsSha256": "f068489feb6aca135988a611060c97993b27a6ce1974dc0a81801536284b584a",
+          "frames": 1100,
+          "seconds": 45.833333333333336,
+          "sha256": "71d6666de9383946a819a4d67de4e096dae29bcb300e4bd695bafbf0f097a862"
+        },
+        {
+          "id": "m3",
+          "inputsSha256": "b743b97161b7c7340550acdf4dabfb010cf8884e383a76531cc3b061ca4cf99f",
+          "frames": 1033,
+          "seconds": 43.041666666666664,
+          "sha256": "dfb10c05b5140881bfaca15aebbcbaeb979924c9e96f4269e39200c61ea02e4d"
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "tools/mathematics_video/matched_profiles/scenes.py": "19477f1fb062b876eb24a32e1c8cbd963ddf7f3a3e35dc2952406343941c85ed",
+    "tools/mathematics_video/matched_profiles/render.py": "a7425248d4b4e4657338b9cc0ee62fbbfef9b28016dd478352e92769437b5af9",
+    "tools/mathematics_video/matched_profiles/assemble.py": "4e4a295fd642f91b075097f18b39e6cdbc354d4d28c3b3ed07eacf0638ac299f",
+    "tools/mathematics_video/matched_profiles/prepare.py": "cdbf9deb3bd89d0d068b5706d66fefcb019199d458a08da8c06fd39d80a118ff",
+    "tools/mathematics_video/matched_profiles/inputs.json": "320c3835f75386f5d92925441f7aed6cc697cf174e577b2e6b791192f0bbd3cf",
+    "tools/mathematics_video/full/whiteboard_core.py": "8725e4a5e95c5a4206a6240b2394e105bb632993d62775a2149b4bf99beab883",
+    "src/modules/xs_limits_reference.mjs": "2fb37abfc25a54ccc538217db787abb69c3962eb41f179b13cf36aa7135cd825",
+    "data/hypothesis_comparison/visual_data.json": "27e9340d8f6967ddd82bc3d4138c9e71bc712465ce624828250b41103a95f3ad",
+    "src/modules/tt_cms_reference.mjs": "2aa64d96b425384052ebd5b7e17b8081cbef1acf476abddc0789da58b50536f5",
+    "proof/hypothesis/certificates.json": "905793fea6f1ecff60c62d30142d1017e236258fc9d315af50c241adef5e4577",
+    "src/modules/matched_profiles_reference.mjs": "cf82f2ad241136fb52586f41bb720736c1af88b75c2e9fb326c300713620c56a",
+    "src/modules/matched_profiles_certificate.mjs": "11b209c972a845bb0a05201b95fe7a288b0466bb4f17245cc0658fc5f4ea24ae",
+    "tools/mathematics_video/matched_profiles/pages.py": "70ed1114913e10b14e25106fa75bf9cc1e88fdc5cd870e1ae7998206263396d6",
+    "tools/mathematics_video/matched_profiles/en/storyboard.json": "a255ac3bbf3d45052bae1da69fa74eea3e88dc2db1842d53bc5ea16de5cbdc70",
+    "tools/mathematics_video/matched_profiles/es/storyboard.json": "0b0953eb62e8f2624cf27fdc872fbe0b7a2f5ef56e66f5fe6f77e514243920e7"
+  },
+  "scope": "Scoped ordinary proofs, exact checks and 59 Lean theorem declarations. No full physical-model certificate or new experimental signal. Charts distinguish published resonance upper limits, the measured CMS top-pair spectrum and nine recalibrated GHU potentials. No observed fit of these hypotheses. Three new chapters explain written proof and independent computational certification of two finite-width matched-profile queries; no new Lean claims."
+}

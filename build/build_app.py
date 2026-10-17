@@ -46,7 +46,7 @@ KERNEL = ["meta.mjs", "status.mjs", "experiment.mjs", "observables.mjs", "sensit
           "cite.mjs", "latex.mjs", "blkt.mjs", "alphabet.mjs", "fibres.mjs", "moves.mjs", "rotations.mjs",
           # rank.mjs before unbroken.mjs: the second calls the first, and one scope means order is the import.
           "rank.mjs", "unbroken.mjs", "tripod.mjs"]
-VIEW = ["interface_language.js", "quantization_figures.js", "fibre_panels.js", "tower3d.js", "demo.js", "howto.js", "help.js", "neutrino_panel.js", "neutrino_decay_panel.js", "diagnostics_panels.js", "research_panels.js", "boundary_language.js", "boundary_plots.js", "hypothesis_plots.js", "card_demo.js", "card_demos_cards.js", "card_demos_sections.js", "demo_scripts.mjs", "neutrino_research_panel.js", "moment_panels.js", "crossvalidation_panels.js"]
+VIEW = ["interface_language.js", "quantization_figures.js", "fibre_panels.js", "tower3d.js", "demo.js", "howto.js", "help.js", "neutrino_panel.js", "neutrino_decay_panel.js", "diagnostics_panels.js", "research_panels.js", "matched_profiles.js", "boundary_language.js", "boundary_plots.js", "hypothesis_plots.js", "card_demo.js", "card_demos_cards.js", "card_demos_sections.js", "demo_scripts.mjs", "neutrino_research_panel.js", "moment_panels.js", "crossvalidation_panels.js"]
 MODULES = ["selection.mjs", "calculator.mjs", "hierarchy.mjs", "anomalies.mjs", "escape.mjs",
            "samepot.mjs", "screen.mjs", "collider.mjs", "atlas.mjs", "eta.mjs", "fived.mjs",
            "spectrum.mjs", "inverse.mjs", "census.mjs", "sun5d.mjs", "bcclass.mjs",
@@ -55,7 +55,7 @@ MODULES = ["selection.mjs", "calculator.mjs", "hierarchy.mjs", "anomalies.mjs", 
            "yukawa.mjs",
            "predict.mjs", "reading.mjs", "sweep5d.mjs", "dossier.mjs", "papers.mjs", "particles.mjs",
             "robustness.mjs", "gravitygauge.mjs", "neutrino_ring.mjs", "neutrino_limits.mjs", "neutrino_majoron.mjs", "neutrino_decay.mjs", "higgs_diagnostics.mjs", "su6_maru_nago.mjs", "rs_unification.mjs", "neutrino_flavour.mjs", "neutrino_research.mjs", "thermal_ghu.mjs", "rs_anomaly.mjs", "resonance_xsec.mjs", "rs_fermions.mjs", "xs_lumi_reference.mjs", "xs_limits_reference.mjs", "rf_benchmark_reference.mjs", "tt_cms_reference.mjs", "tts_reference.mjs", "tt_spectrum.mjs", "kk_gluon_lhc.mjs", "higgstools_reference.mjs", "higgstools_adapter.mjs", "external_reference.mjs",
-            "thermal_history.mjs", "thermal_history_reference.mjs", "candidate_bounds_reference.mjs", "candidate_bounds.mjs", "candidate_vacua_reference.mjs", "formula_consistency_reference.mjs", "su7_certification_reference.mjs", "moment_diagnostics.mjs", "moment_diagnostics_reference.mjs", "crossvalidation.mjs", "crossvalidation_reference.mjs", "boundary_research.mjs", "quantization.mjs", "hypothesis_reference.mjs", "hypothesis_compare.mjs"]
+            "thermal_history.mjs", "thermal_history_reference.mjs", "candidate_bounds_reference.mjs", "candidate_bounds.mjs", "candidate_vacua_reference.mjs", "formula_consistency_reference.mjs", "su7_certification_reference.mjs", "moment_diagnostics.mjs", "moment_diagnostics_reference.mjs", "crossvalidation.mjs", "crossvalidation_reference.mjs", "boundary_research.mjs", "quantization.mjs", "hypothesis_reference.mjs", "hypothesis_compare.mjs", "matched_profiles_reference.mjs", "matched_profiles_certificate.mjs", "matched_profiles.mjs"]
 SECTIONS = ["torus_panels.js", "hierarchy_section.js", "inverse_section.js", "census_section.js",
             "atlas_section.js", "samepot_section.js",
             "anomalies_section.js", "escape_section.js", "screen_section.js",
@@ -387,7 +387,7 @@ def main(argv=None):
                 # real and must run, or the module is unguarded code sitting in the tree.  A
                 # harness that is not in this list does not exist: the list is written by hand.
                 ["node", "_test_cbclass.mjs"],
-                ["node", "_test_spectrum5d.mjs"], ["node", "_test_anomaly5d.mjs"], ["node", "_test_boundary_research.mjs"], ["node", "_test_quantization.mjs"], [sys.executable, "proof/replay_all.py"],
+                ["node", "_test_spectrum5d.mjs"], ["node", "_test_anomaly5d.mjs"], ["node", "_test_boundary_research.mjs"], ["node", "_test_matched_profiles.mjs"], [sys.executable, "_test_matched_certificate.py"], ["node", "_test_quantization.mjs"], [sys.executable, "proof/replay_all.py"],
                 ["node", "_test_vacuum5d.mjs"], ["node", "_test_smcell.mjs"],
                 ["node", "_test_brane.mjs"],
                 ["node", "_test_running.mjs"], ["node", "_test_neutrino_ring.mjs"], ["node", "_test_neutrino_decay.mjs"], ["node", "_test_predict.mjs"], ["node", "_test_yukawa.mjs"],

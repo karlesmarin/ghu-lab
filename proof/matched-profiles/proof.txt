@@ -1,0 +1,138 @@
+CERTIFIED MATCHED PROFILE COMPARISON — 17 October 2026
+Status: written mathematical proof plus independently replayable computational
+certificate. This is not a Lean formalization or a certification of full GHU.
+
+1. Model and question
+On Omega=(0,1)^2 let L={x=0}, T={y=1}, C=(0,1).
+V consists of H1(Omega) functions whose L and T traces belong to H1(0,1),
+vanish at their external endpoints and agree at C. The right/bottom traces
+vanish. q(v) is the common endpoint value, continuous in the wall H1 norms.
+V0=ker q. All forms below are real symmetric by polarization.
+
+A(v)=int_Omega |grad v|^2/c + int_L |v_y|^2/w + int_T |v_x|^2/kT,
+B(v)=int_Omega v^2/c + int_L v^2/kL + int_T v^2/kT.
+c=38, kL=2, kT=8, alpha=1/20, epsilon=1/8.
+w=kL+alpha*f on L; f=0 for y<1-epsilon.
+In the layer, f_uniform=1/epsilon,
+f_triangular=2*(y-1+epsilon)/epsilon^2.
+Both f integrate to 1. B is unchanged by the layer.
+
+For H_t=A-tB define D(t)=min_{q(v)=1} H_t(v,v), F(t)=t/D(t).
+The measured object of this mathematical model is
+C(t)=1/(kappa-zeta*t-F(t)), with the SAME fixed source normalization.
+Set s=1/100, R=1/2 and match a simple pole C(t)~R/(s-t).
+The question is whether the two C functions still differ at t=1/4,1/2.
+
+2. Existence, gap and derivative
+For fixed epsilon the positive bounded weights make A an equivalent norm
+on the closed trace space V (one-ended Poincare on walls and right/bottom
+Poincare in the square). Hence V and V0 are complete; q is continuous.
+
+On V0 both endpoints of each wall vanish. The one-dimensional Dirichlet
+inequality gives wall constant pi^2. Applying the one-ended inequality
+with constant pi^2/4 in each bulk coordinate gives pi^2/2 in the square.
+Thus A0 >= (9/2) B on V0, since pi>3, with A0 using w=kL.
+Let wmax=kL+alpha/epsilon for uniform, kL+2*alpha/epsilon for triangular.
+A >= (kL/wmax)*A0, so g=(9/2)*kL/wmax is a valid lower bound on V0.
+For 0<=t<g, theta=1-t/g>0 and H_t>=theta*A on V0.
+Writing v=p0+u with p0=(1-x)y and u in V0 gives a unique minimizer p_t
+by the coercive variational equation, even when H_t is not positive on V.
+
+On every compact t interval below g, inversion of that bounded coercive
+equation is differentiable (the inverse resolvent identity). Differentiating
+D(t)=H_t(p_t,p_t), q(p_t)=1 and using H_t(p_t,v)=0 for v in V0 yields
+D'(t)=-B(p_t,p_t). In particular F'=(D-t*D')/D^2 when D>0.
+
+3. Admissible witnesses and residual
+The certificate supplies p=(p-,p+) and z=(z-,z+) polynomial on the two
+strips separated by y=1-epsilon, and a rational scalar lambda.
+p is continuous, vanishes on right/bottom and has q(p)=1.
+z is continuous across the interface. Its tangential derivative z_x
+therefore agrees there, so the normal component of (z_y,-z_x) agrees.
+These are exact polynomial identities checked by the independent verifier.
+
+Define h_x=-(1/c)*int_0^x p(a,y)da on each strip, h_y=0.
+On L, h_L(y)=-(1/kL)*int_0^y p(0,a)da, with the primitive on the second
+strip including the endpoint value of the first; h_T(x)=-(1/kT)*int_0^x p(a,1)da.
+Integration by parts gives, for v in V,
+ int h_x*v_x + int_L h_L*v_y + int_T h_T*v_x
+ = B(p,v)+h_L(1)*q(v),
+ int (z_y*v_x-z_x*v_y)+int_L(lambda-z)*v_y-int_T z*v_x
+ = lambda*q(v).
+The interface terms cancel by the stated continuities; the other boundary
+terms vanish by the essential traces. These identities extend to V by
+weak integration by parts; no point evaluation on bulk H1 alone is used.
+
+Consequently, for v in V0,
+H_t(p,v)=int d_bulk.grad v+int_L d_L*v_y+int_T d_T*v_x,
+d_bulk=(p_x/c-t*h_x-z_y,p_y/c+z_x),
+d_L=p_y/w-t*h_L-lambda+z|L, d_T=p_x/kT-t*h_T+z|T.
+Weighted Cauchy-Schwarz bounds its absolute value by eta*sqrt(A(v)),
+where eta^2=c*int |d_bulk|^2+int_L w*d_L^2+kT*int_T d_T^2.
+
+The verifier reconstructs these integrals from the polynomial coefficients.
+Polynomial integrals use QQ. For the triangular reciprocal weight, it uses
+polynomial division and logarithms in a directed 256-bit interval field;
+production uses a geometric-series upper/lower bound. Thus their integration
+routes differ. Exact arithmetic checks the uniform case. The verifier checks
+h_lower<=H_t(p,p)<=h_upper and actual eta^2<=eta_upper_squared.
+Witness optimality is unnecessary.
+
+4. Continuum bounds
+e=p-p_t belongs to V0 and H_t(p_t,e)=0. Hence
+theta*A(e)<=H_t(e,e)=H_t(p,e)<=eta*sqrt(A(e)).
+It follows that H_t(e,e)<=eta^2/theta and
+B(e,e)<=eta^2/(g*theta^2)=E.
+Thus D(t) lies in [h_lower-eta^2/theta,h_upper].
+For b=B(p,p), the triangle inequality in the B norm gives
+max(0,sqrt(b)-sqrt(E))^2 <= -D'(t) <= (sqrt(b)+sqrt(E))^2.
+The verifier checks the exported square-root bounds with directed intervals.
+It checks positive D lower bounds, t<g, and then the rational F,F' bounds.
+The conclusion concerns the continuum variational problem, not a mesh limit.
+
+5. Common matching and comparison
+The unique matching coefficients are zeta=1/R-F'(s),
+kappa=F(s)+s*(1/R-F'(s)).
+The certified bounds verify kappa>0 and zeta>=0 for each profile.
+The inverse response has derivative -1/R at s, proving the stated simple pole.
+For t different from s, exactly
+C(t)^(-1)=(s-t)/R-[F(t)-F(s)-(t-s)*F'(s)].
+No truncated Taylor expansion is used.
+The independent verifier enumerates all eight vertices of the box
+(F(s),F'(s),F(t)) using kappa-zeta*t-F(t). Affinity makes its extrema exact.
+It checks that the inverse interval excludes zero, then takes reciprocal
+endpoints in reverse order and subtracts the two response intervals.
+The final decimal display is checked to enclose these rational intervals.
+The displayed lower bound of C_uniform-C_triangular is positive at both
+queries; hence the two matched response functions are not identical.
+
+6. Scope and limitations
+This proves separation for this stated model, source and fixed parameters
+at two points. It does not prove separation at every t or epsilon.
+No convergence rate, full GHU/BRST domain, experimental prediction, fit,
+radiative stability, universal regulator dependence or novelty is claimed.
+A software test count and a file hash are not the mathematical proof.
+The proof above supplies the functional implications; the standalone Sage
+verifier checks this instance's algebra, interfaces, integrals and intervals.
+Its computational trust base is Sage QQ/RIF and the executing environment.
+The Lab admits only these replayed instances. New parameters need new
+certification before admission.
+
+7. Reused methods and reading scope
+Mugnolo–Romanelli, EJDE 2006,118, sections 1–2, Lemma 2.1:
+https://ejde.math.txstate.edu/Volumes/2006/118/mugnolo.pdf
+Strategy: linked bulk/wall trace spaces; its theorem is not invoked for
+this corner domain.
+Vogt–Voigt, Wentzell boundary conditions in the context of Dirichlet forms,
+section 2, Theorem 2.2 and Remark 2.3:
+https://www.math.uni-bremen.de/~hvogt/papers/vovo02.pdf
+The wall H1 trace here controls q; no unsupported bulk point delta.
+Yano, M2AN 50 (2016), 163–185, DOI 10.1051/m2an/2015039,
+sections 2.1–2.2, equation 3 and Proposition 1 with proof:
+https://arrow.utias.utoronto.ca/~myano/papers/myano_ecrbres.pdf
+Residual norm and stability are separate ingredients. Our wall/source
+identities are proved above; no direct import of his full method.
+Schoeberl, Interactive Finite Elements, chapter 29, sections 29.1–29.2:
+https://jschoeberl.github.io/iFEM/aposteriori/equilibrated.html
+Reused strategy: conforming flux reconstruction and dual residual bounds.
+These are localized readings, not claims of integral reading of the works.

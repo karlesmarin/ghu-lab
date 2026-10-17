@@ -1,7 +1,7 @@
 {
   "schema": "ghu-interface-es-v1",
   "source": "Already published English laboratory UI; build-time translation draft with maintained terminology corrections. No runtime translation service.",
-  "date": "2026-10-14",
+  "date": "2026-10-17",
   "translations": {
     "Go to experiment · Hypotheses: local response and experimental context": "Ir al experimento · Hipótesis: respuesta local y contexto experimental",
     "\"the cancellation of the four-dimensional anomaly is sufficient to eliminate the five-dimensional anomaly\"": "\"la cancelación de la anomalía de cuatro dimensiones es suficiente para eliminar la anomalía de cinco dimensiones\"",
@@ -3680,6 +3680,7 @@
     "At MKK = ⟦n0⟧ TeV, the leading top-tower rate is ⟦n1⟧ times the SM reference (⟦n2⟧%). The point is below window. ⟦n3⟧ KK levels leave a rate difference of ⟦n4⟧ from the analytic sum. The window is the historical paper benchmark.": "En MKK = ⟦n0⟧ TeV, la tasa de la torre KK del quark top a orden dominante es ⟦n1⟧ veces la referencia del SM (⟦n2⟧%). El punto está por debajo de la ventana. Con ⟦n3⟧ niveles KK queda una diferencia de tasas de ⟦n4⟧ respecto a la suma analítica. La ventana es la referencia histórica del artículo.",
     "At MKK = ⟦n0⟧ TeV, the leading top-tower rate is ⟦n1⟧ times the SM reference (⟦n2⟧%). The point is below window. ⟦n3⟧ KK levels leave a rate difference of ⟦n4⟧ from the analytic sum. The window is a user scenario.": "En MKK = ⟦n0⟧ TeV, la tasa de la torre KK del quark top a orden dominante es ⟦n1⟧ veces la referencia del SM (⟦n2⟧%). El punto está por debajo de la ventana. Con ⟦n3⟧ niveles KK queda una diferencia de tasas de ⟦n4⟧ respecto a la suma analítica. La ventana es un escenario definido por el usuario.",
     "At MKK = ⟦n0⟧ TeV, the leading top-tower rate is ⟦n1⟧ times the SM reference (⟦n2⟧%). The point is above window. ⟦n3⟧ KK levels leave a rate difference of ⟦n4⟧ from the analytic sum. The window is the historical paper benchmark.": "En MKK = ⟦n0⟧ TeV, la tasa de la torre KK del quark top a orden dominante es ⟦n1⟧ veces la referencia del SM (⟦n2⟧%). El punto está por encima de la ventana. Con ⟦n3⟧ niveles KK queda una diferencia de tasas de ⟦n4⟧ respecto a la suma analítica. La ventana es la referencia histórica del artículo.",
-    "At MKK = ⟦n0⟧ TeV, the leading top-tower rate is ⟦n1⟧ times the SM reference (⟦n2⟧%). The point is above window. ⟦n3⟧ KK levels leave a rate difference of ⟦n4⟧ from the analytic sum. The window is a user scenario.": "En MKK = ⟦n0⟧ TeV, la tasa de la torre KK del quark top a orden dominante es ⟦n1⟧ veces la referencia del SM (⟦n2⟧%). El punto está por encima de la ventana. Con ⟦n3⟧ niveles KK queda una diferencia de tasas de ⟦n4⟧ respecto a la suma analítica. La ventana es un escenario definido por el usuario."
+    "At MKK = ⟦n0⟧ TeV, the leading top-tower rate is ⟦n1⟧ times the SM reference (⟦n2⟧%). The point is above window. ⟦n3⟧ KK levels leave a rate difference of ⟦n4⟧ from the analytic sum. The window is a user scenario.": "En MKK = ⟦n0⟧ TeV, la tasa de la torre KK del quark top a orden dominante es ⟦n1⟧ veces la referencia del SM (⟦n2⟧%). El punto está por encima de la ventana. Con ⟦n3⟧ niveles KK queda una diferencia de tasas de ⟦n4⟧ respecto a la suma analítica. La ventana es un escenario definido por el usuario.",
+    "Go to experiment · Boundary research: spectra, profiles, anomalies and certified response": "Ir al experimento · Investigación de fronteras: espectros, perfiles, anomalías y respuesta certificada"
   }
 }

@@ -1,0 +1,17 @@
+{
+  "status": "VERIFIED",
+  "sympy_version": "1.14.0",
+  "checks": [
+    "AM = 0",
+    "A pivot minor = 1",
+    "M generic minor = -s",
+    "M persistent minor = 1",
+    "q is nonzero",
+    "Mq = -s h",
+    "Ah = 0",
+    "wM vanishes at s=0",
+    "wh = 1",
+    "rank-nullity conclusions match the proof"
+  ],
+  "scope": "Polynomial identities and rank certificate for the specified finite complex"
+}

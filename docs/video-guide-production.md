@@ -1,5 +1,18 @@
 # 🎬 GHU Lab video guide · English and Spanish
 
+## Coverage update · 26 October 2026
+
+The laboratory now includes the exact finite neutral quotient in Boundary research,
+section 6. The bilingual live demo and manuals cover it. Both recorded films remain
+the 17 October editions; their MP4, captions, transcripts and receipts are unchanged.
+The general storyboard now has 47 chapters and 181 scenes (180 live-demo steps);
+chapter 44 includes generic/restored strata, independence from the Wilson slider,
+certificate download and the unproved continuous-domain reduction. This is source
+material for the next recording, not a claim that an updated film has been rendered.
+The mathematical film needs an additional explanation of AM = 0, rank minors and
+the quotient/stabilizer distinction before it can claim coverage of section 6.
+
+
 For the separate 46-chapter mathematical film in English and Castellano,
 see [the mathematical video guide](mathematics-video.md) and
 [its production instructions](../tools/mathematics_video/README.md). The workflow below
@@ -13,7 +26,7 @@ integrated diagnostics and exports. There are 47 chapters and 178 narrated scene
 Representative controls are shown; the guide does not enumerate every input combination.
 The experiment's question, changed input and interpretation form each chapter's teaching sequence.
 
-The 17 October recordings use the current built app. Their exact app and storyboard hashes are recorded in the revision verification manifest; both languages contain all 178 scenes. Chapter 44 includes the two certified probes and certificate download. Chapter 47 retains the hypothesis comparison workflow.
+The 17 October recordings use the app built on that date. Their exact app and storyboard hashes are recorded in the revision verification manifest; both languages contain all 178 recorded scenes. Chapter 44 includes the two certified probes and certificate download. Chapter 47 retains the hypothesis comparison workflow. The current demo storyboard has since added three finite-neutral scenes.
 
 ## Cover and access to the new chapter · 14 October 2026
 
@@ -37,7 +50,7 @@ media and subtitle checks for this recording; neither is a full human listening 
 
 ## What was recorded
 
-The current `2026-10-14-hypotheses` revision recaptures all 47 chapters in both languages. Chapter 47 and the embedded hypothesis Demo share one storyboard: start with a question, change a real control, read axes and uncertainty, state what follows, then save and practice. It demonstrates recalibrated GHU cases, a global potential view, measured CMS bins, correlations and scoped certificates. The guide links directly to this chapter. The recorder resolves translated controls using their original source text.
+The historical `2026-10-14-hypotheses` revision recaptured all 47 chapters in both languages. Chapter 47 and the embedded hypothesis Demo share one storyboard: start with a question, change a real control, read axes and uncertainty, state what follows, then save and practice. It demonstrates recalibrated GHU cases, a global potential view, measured CMS bins, correlations and scoped certificates. The guide links directly to this chapter. The recorder resolves translated controls using their original source text.
 
 The 13 October main film and mathematical film remain archived with their original media. Current mathematics has 46 chapters and the complete Lean catalogue has 59 declarations in five files. Publication is a separate step; these commands produce local assets.
 
@@ -67,7 +80,7 @@ diagnostics and withdrawal of unmatched archived evidence. Two existing scenes h
 narration in each language. The 139-scene script preserves scientific attribution and separates
 formal proofs, computer-assisted interval results, numerical agreement and open physics.
 
-Current assets live in `media/video/2026-10-14-hypotheses/`, selected by
+Current recorded assets live in `media/video/2026-10-17-certified-profiles/`, selected by
 `media/video/current.json`. Earlier media remain byte-identical in `media/video/`,
 `media/video/2026-10-08/`, `media/video/2026-10-08-certification/` and `media/video/2026-10-10-kkgluon/`. Their
 complete previously served pages are preserved as `video/2026-10-07.html`, `video/2026-10-08.html`,

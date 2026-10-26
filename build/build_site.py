@@ -763,7 +763,20 @@ def main(argv=None):
     math_out = OUT / 'video' / 'mathematics'
     shutil.copytree(math_media, math_out, dirs_exist_ok=True)
     for math_page in math_media.glob('*.html'):
-        write('video/mathematics/' + math_page.name, math_page.read_text(encoding='utf-8'))
+        text = math_page.read_text(encoding='utf-8')
+        if math_page.name in ('index.html', 'index-es.html'):
+            es = math_page.name == 'index-es.html'
+            notice = ('Vídeo del 17 de octubre: no incluye el cociente neutro finito añadido el 26 de octubre. '
+                      'La demo y el manual actuales sí incluyen el apartado 6.' if es else
+                      '17 October film: it does not include the finite neutral quotient added on 26 October. '
+                      'The current demo and manual include section 6.')
+            label = 'Abrir demo actualizada' if es else 'Open updated demo'
+            note = ('<aside style="margin:1em;padding:1em;border:1px solid currentColor" data-neutral-coverage>'
+                    + notice + ' <a href="../../app/index.html#s=anomalies&amp;demo=boundaryresearch&amp;lang='
+                    + ('es' if es else 'en') + '">' + label + '</a></aside>')
+            text, count = re.subn(r'(<body\b[^>]*>)', lambda m: m[0]+note, text, count=1)
+            assert count == 1, math_page
+        write('video/mathematics/' + math_page.name, text)
     # Keep the original media bytes, including its former closing statement, in an archive.
     # Only relative navigation in the archive's HTML is rebased for its extra path level.
     math_old = ROOT / 'media' / 'video' / '2026-10-12-mathematics'
@@ -859,7 +872,7 @@ def main(argv=None):
            'include the 8 October certification and uncertainty update. Formal algebra, '
            'interval proofs, numerical comparisons and open physical assumptions retain '
            'their separate scope. This living release does not replace a frozen paper.</p>'
-           '<h2>Current user guides · 14 October 2026</h2>'
+           '<h2>Current user guides · 26 October 2026</h2>'
            '<p><a href="../guide/index.html">English</a> and '
            '<a href="../guide/es/index.html" lang="es">castellano</a> guides cover every '
            'menu section, Simulator mode and embedded experiment. The same catalogues supply '

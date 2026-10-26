@@ -1,5 +1,30 @@
 # 🧭 GHU Lab — an instrument for gauge–Higgs unification
 
+## Finite neutral quotient and synchronized guides · 26 October 2026
+
+**Anomalies → Boundary research → section 6** now exposes the exact finite complex
+ℂ⁵ → ℂ⁷ → ℂ². Choose the generic stratum s ≠ 0 or the restored stratum s = 0:
+the quotient ker A / im M has dimension 0 or 1, respectively. This exact choice is
+independent of the numerical Wilson slider. Matrices, rank witnesses, a written
+proof and a replayable SymPy certificate accompany the result. It does not establish
+the continuous-domain reduction, a Wilson–Higgs mode or a physical mass.
+
+The corrected bilingual Demo visits all six instruments. The 46 guides in each
+language, 67-term glossary, English/Spanish PDF manuals and certificate catalogue
+reflect the current app. Navigation remains 30 sections, 11 cards and 3 Simulator
+modes; these are overlapping categories, not a total of independent engines.
+
+Both recorded films remain the **17 October editions**: the general tutorial has
+47 chapters / 178 scenes per language, and the mathematical companion has 46 chapters.
+They do not cover section 6. Their players now link to the updated live Demo.
+The 181-scene storyboard is preparation for a future recording, not a new film.
+
+[Open the Spanish Demo](https://karlesmarin.github.io/ghu-explorer/app/index.html#s=anomalies&demo=boundaryresearch&lang=es)
+· [English guide](https://karlesmarin.github.io/ghu-explorer/guide/boundaryresearch/index.html)
+· [Guía en castellano](https://karlesmarin.github.io/ghu-explorer/guide/es/boundaryresearch/index.html)
+· [English PDF](https://karlesmarin.github.io/ghu-explorer/guide/manual/ghu-lab-guide-en.pdf)
+· [Manual PDF en castellano](https://karlesmarin.github.io/ghu-explorer/guide/manual/ghu-lab-guide-es.pdf).
+
 ## Certified matched profiles and bilingual media · 17 October 2026
 
 Boundary research now includes two independently certified response queries after matching source, pole and residue. The written continuum proof, polynomial witnesses and 228-check Sage receipt travel with the downloadable ZIP. No new Lean formalization is claimed. The instrument uses the existing shared controls, comparison, exports, permalink and Demo; navigation remains 30 sections, 11 cards and 3 Simulator modes.
@@ -33,18 +58,20 @@ laboratory controls make those connections visible in both languages.
 
 | Language | Full film | Direct download | Chapters | Synthetic narration |
 |---|---|---|---|---|
-| English | [19:56 · player](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-en.mp4) | 43 | Microsoft Zira |
-| Castellano | [20:12 · reproductor](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-es.mp4) | 43 | Microsoft Helena (España) |
+| English | [Player and current duration](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-en.mp4) | 46 | Microsoft Zira |
+| Castellano | [Reproductor y duración actual](https://karlesmarin.github.io/ghu-explorer/video/mathematics/index-es.html) | [MP4](https://karlesmarin.github.io/ghu-explorer/video/mathematics/ghu-mathematics-es.mp4) | 46 | Microsoft Helena (España) |
 
-The 14 October revision retains the first 28 whiteboard chapters, replaces the closing chapter,
-and adds fourteen explanations connecting quantization, physical assumptions, certificates and
-experimental limits. The original four examples retain **113 executable checks**. The extension
+The 17 October revision retains the first 28 whiteboard chapters, replaces the closing chapter,
+and adds explanations connecting quantization, physical assumptions, certificates and
+experimental limits. Chapters 44–46 cover matching, residual certification and physical scope.
+The original four examples retain **113 executable checks**. The earlier extension
 explains **23 quantization declarations, 26 SU(7) declarations and 10 rational hypothesis identities**, with their stated scope.
 The bilingual [physical/mathematical bridge](https://karlesmarin.github.io/ghu-explorer/video/mathematics/bridge.html) identifies which interpretation steps remain external to the arithmetic proofs.
 No complete physical model or experimental agreement is certified.
 
 [Open the lab](https://karlesmarin.github.io/ghu-explorer/app/) → **Anomalies → Boundary research**.
-The separate general laboratory tutorial covers 47 chapters and 175 scenes per language.
+The separate general laboratory tutorial covers 47 chapters and 178 scenes per language.
+Neither recording covers the finite neutral quotient added on 26 October; use the current live Demo.
 
 [Documentation and reproduction](https://github.com/karlesmarin/ghu-lab/blob/main/docs/mathematics-video.md) · [Proofs and certificates](https://github.com/karlesmarin/ghu-lab/tree/main/proof/boundary-research).
 
@@ -68,17 +95,17 @@ general video. The 10 October video remains available as a historical version.
 The source build passes 8,793 checks across 77 harnesses and sixteen browser gates;
 site/manual checks and video verification are reported separately in the source README.
 
-## User guides · 12 October 2026
+## Current user guides · 26 October 2026
 
 [English](https://karlesmarin.github.io/ghu-explorer/guide/index.html)
 · [Castellano](https://karlesmarin.github.io/ghu-explorer/guide/es/index.html)
 · [Getting started](https://karlesmarin.github.io/ghu-explorer/guide/getting-started/index.html)
 · [Spanish manual (PDF)](https://karlesmarin.github.io/ghu-explorer/guide/manual/ghu-lab-guide-es.pdf).
 
-The searchable guide index organizes tasks and model families. **44 guides** cover the 29 menu
-sections, three Simulator modes, ten embedded experiments, neutrino decays and getting started;
+The searchable guide index organizes tasks and model families. **46 guides per language** cover the 30 menu
+sections, three Simulator modes, eleven embedded experiments, neutrino decays and getting started;
 these overlap and are not a count of independent panels. Each guide explains controls, outputs,
-an example, assumptions, troubleshooting and source attribution. The 59-term glossary and inline
+an example, assumptions, troubleshooting and source attribution. The 67-term glossary and inline
 help share the English/Spanish catalogues, so scope corrections reach both places.
 
 The application links each section, mode and experiment to its guide. Help language persists without

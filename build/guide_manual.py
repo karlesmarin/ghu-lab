@@ -7,7 +7,7 @@ import argparse,hashlib,html,json,os,pathlib,re,shutil,subprocess,tempfile
 from user_guides import load,validate,LABELS,BASE,relpath
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 GREEK=dict(zip('ΓΔΛΣαβγδηθκλμπστφχ',['Gamma','Delta','Lambda','Sigma','alpha','beta','gamma','delta','eta','theta','kappa','lambda','mu','pi','sigma','tau','phi','chi']))
-MATH={'±':r'\pm','≈':r'\approx','≥':r'\geq','×':r'\times','½':r'\frac{1}{2}','ℏ':r'\hbar','ℓ':r'\ell','→':r'\rightarrow','∏':r'\prod','−':'-','√':r'\surd','≤':r'\leq','⋊':r'\rtimes','⌊':r'\lfloor','⌋':r'\rfloor','′':r'\prime'}
+MATH={'≠':r'\neq','±':r'\pm','≈':r'\approx','≥':r'\geq','×':r'\times','½':r'\frac{1}{2}','ℏ':r'\hbar','ℓ':r'\ell','→':r'\rightarrow','∏':r'\prod','−':'-','√':r'\surd','≤':r'\leq','⋊':r'\rtimes','⌊':r'\lfloor','⌋':r'\rfloor','′':r'\prime'}
 SUP=dict(zip('⁰¹²³⁴⁶⁻ʳᶜᵈ','012346-rcd'));SUB=dict(zip('₀₁₂₃₄₅₊₋ᵢₐ','012345+-ia'))
 
 def tex(s):
@@ -59,7 +59,7 @@ def source(root,lang):
 {\LARGE '''+tex(l['index'])+r'''\par}
 \vspace{7mm}
 '''+('Castellano. Composición con Babel.' if lang=='es' else 'English edition.')+r'''\par
-'''+('17 de octubre de 2026' if lang=='es' else '17 October 2026')+r'''\par
+'''+('26 de octubre de 2026' if lang=='es' else '26 October 2026')+r'''\par
 \vspace{8mm}
 '''+tex(l['note'])+r'''\par
 \vfill

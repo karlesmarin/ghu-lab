@@ -6,8 +6,11 @@ import {fileURLToPath,pathToFileURL} from 'node:url';
 import {findChrome} from './_chrome.mjs';
 const lab=fileURLToPath(new URL('../',import.meta.url)),site=resolve(lab,'site'),out=resolve(process.argv[2]||'shots/video-guide');mkdirSync(out,{recursive:true});
 const revision=JSON.parse(readFileSync(resolve(lab,'media/video/current.json'),'utf8')).directory;
-const plan=JSON.parse(readFileSync(resolve(lab,'tools/video_guide/storyboard.json'),'utf8'));
-const sceneCount=plan.chapters.reduce((n,c)=>n+c.steps.length,0);
+// Validate the recorded revision, which can precede the live-demo storyboard.
+const media=JSON.parse(readFileSync(resolve(lab,`media/video/${revision}/manifest.json`),'utf8'));
+const recorded=JSON.parse(readFileSync(resolve(lab,`media/video/${revision}/chapters-en.json`),'utf8'));
+const plan={chapters:Array.isArray(recorded)?recorded:recorded.chapters,revisionOf:media.revisionOf};
+const sceneCount=media.versions.es.scenes;
 const port=9521,webPort=9522,checks=[],errors=[],requests=[];let ws;
 const server=createServer((req,res)=>{let name;try{name=decodeURIComponent(new URL(req.url,'http://localhost').pathname);}catch{res.writeHead(400).end();return;}const p=resolve(site,'.'+name);if(!p.startsWith(site+sep)||!existsSync(p)||!statSync(p).isFile()){res.writeHead(404).end();return;}const size=statSync(p).size,type={'.html':'text/html; charset=utf-8','.mp4':'video/mp4','.vtt':'text/vtt','.png':'image/png','.json':'application/json'}[extname(p)]||'text/plain';const range=req.headers.range?.match(/^bytes=(\d+)-(\d*)$/);res.setHeader('Content-Type',type);res.setHeader('Accept-Ranges','bytes');if(range){const start=Number(range[1]),end=Math.min(size-1,range[2]?Number(range[2]):size-1);if(start> end){res.writeHead(416).end();return;}res.writeHead(206,{'Content-Range':`bytes ${start}-${end}/${size}`,'Content-Length':end-start+1});createReadStream(p,{start,end}).pipe(res);}else{res.writeHead(200,{'Content-Length':size});createReadStream(p).pipe(res);}});
 await new Promise(r=>server.listen(webPort,'127.0.0.1',r));
@@ -61,7 +64,8 @@ try{
  check(await ev(`document.getElementById('toggleCaptions').getAttribute('aria-pressed')==='true'&&document.getElementById('captionState').textContent==='Subtítulos activados'`),'subtitle toggle restores Spanish captions and its accessible state');
  check(await ev(`[...document.getElementById('guideVideo').textTracks].filter(t=>t.mode==='showing').length===1&&[...document.getElementById('guideVideo').textTracks].find(t=>t.mode==='showing').language==='es'`),'Spanish captions replace English captions');
  check(await ev(`[...document.getElementById('guideVideo').textTracks].find(t=>t.mode==='showing').activeCues.length===1`),'one caption is visible after the language switch');
- check(await ev(`document.querySelectorAll('#transcriptBody article').length===${plan.chapters.length}&&document.querySelectorAll('#transcriptBody p').length===${sceneCount}`),'Spanish transcript covers every storyboard scene');
+ check(await ev(`document.querySelectorAll('#transcriptBody article').length===${plan.chapters.length}&&document.querySelectorAll('#transcriptBody p').length===${sceneCount}`),'Spanish transcript covers every recorded scene');
+ check(await ev(`document.querySelector('[data-copy="neutralCoverage"]').textContent.includes('no aparece en ninguno')&&document.getElementById('neutralDemo').href.includes('demo=boundaryresearch&lang=es')`),'Spanish coverage notice links the current demo without claiming a new film');
  check(await ev(`document.getElementById('downloadCaptions').href.includes('/media/${revision}/ghu-lab-es.vtt')&&document.getElementById('downloadTranscript').href.includes('/media/${revision}/transcript-es.txt')&&document.getElementById('videoArchive').href.endsWith('2026-10-07.html?lang=es')&&document.getElementById('videoPrevious').href.endsWith('${plan.revisionOf}.html?lang=es')`),'Spanish downloads and original archive follow the chosen language');
  const boundaryIndex=plan.chapters.findIndex(c=>c.id==='boundaryresearch');
  await ev(`document.querySelector('#chapterList [data-index="${boundaryIndex}"]').click()`);await until(`!document.getElementById('guideVideo').seeking&&document.getElementById('guideVideo').readyState>=2`);

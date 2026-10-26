@@ -1,13 +1,28 @@
-# Boundary research tools · 1.1.0 · 17 October 2026
+# Boundary research tools · 1.2.0 · 26 October 2026
 
-These five tools turn intermediate GHU research questions into reproducible calculations.
+These six tools turn intermediate GHU research questions into reproducible calculations.
 They belong to **Anomalies → Boundary research** in GHU Lab. They work offline.
-The English and Spanish task guides, manual and general video all cover the same examples.
+The English and Spanish task guides include the sixth, finite-complex instrument.
+The current bilingual manuals and live demo include section 6. The recorded videos
+remain the 17 October editions and do not include the finite neutral quotient.
 The scientific goals remain three chiral Standard Model families, a gauge Higgs,
 viable neutrinos, no unwanted light exotics and a consistent local quantum action.
 These diagnostics address parts of that programme; they do not establish the full model.
 
 ## What to use, and when
+
+Section 6 adds **Exact neutral stratum**. Select s ≠ 0 or s = 0 independently
+of the numerical Wilson slider. For the specified complex ℂ⁵ → ℂ⁷ → ℂ²,
+the quotient ker A / im M has dimension 0 or 1. The gauge stabilizer has
+dimension 0 or 1 as well, but is a different space.
+
+The downloadable package contains matrices, rank minors, kernel and
+non-exactness witnesses, a written proof and a SymPy verifier:
+`python proof/neutral-complex/verify.py proof/neutral-complex/certificate.json`.
+The exporter is maintained in Excovery as `excovery.neutral_complex`.
+Only the finite algebraic result is admitted. Continuous-domain reduction,
+action matching, the Wilson-Higgs direction and physical masses are external.
+No new Lean formalization or claim of mathematical novelty is made.
 
 | Question | Tool | Input | What the result establishes |
 |---|---|---|---|
@@ -15,10 +30,10 @@ These diagnostics address parts of that programme; they do not establish the ful
 | Do overlapping candidate profiles span independent directions? | Complex Gram matrix | M and profile angles | Numerical linear independence at an explicit threshold |
 | Can an orbifold parity expose a localized anomaly term? | Inserted spinor moments | Rank, insertion mask, degree, Cartan probe, half-spin chirality | Exact scalar trace values before local normalization |
 | Do identical 6D families satisfy the restricted tensor condition? | Signed doublet residue | Family count and 6D lepton chirality | A necessary modular condition in a specified standalone setting |
-
 | Do matched layers retain different responses? | Certified matched profiles | Two fixed probes, t = 1/4 or 1/2 | Positive difference enclosure for the declared finite-width quadratic model; independent Sage certificate |
+| Does the finite neutral quotient survive? | Exact neutral stratum | Exact choice s ≠ 0 or s = 0, independent of the Wilson slider | Quotient dimension 0 or 1 for the specified finite complex; proof and exact replay, without a continuous or physical identification |
 
-Do not combine the five outputs into a single “model passed” flag. Each uses a different
+Do not combine the six outputs into a single “model passed” flag. Each uses a different
 set of premises. In particular, the profile mass is not a mass added to the Spin(20) action.
 
 ## A five-minute experiment
@@ -178,8 +193,8 @@ section 3.1.2, equations 3.32–3.43, footnote 10 and Appendix B.
 ```text
 python tools/boundary_research_reference.py
 node _test_boundary_research.mjs
-python tools/add_guide_boundary_research.py
-python tools/video_guide/add_chapter_boundary_research.py
+# Edit docs/user-guides{,.es}.json directly; the old migration is historical.
+# Edit tools/video_guide/storyboard.json directly; the old migration is historical.
 node tools/make_demo_scripts.mjs
 python tools/laboratory_inventory.py
 python build/build_app.py --browser
@@ -216,7 +231,7 @@ A fifth instrument in this card compares the two certified wall profiles after
 common pole/residue matching. See [scope and certificate replay](matched-profiles.md).
 Its written proof and independently replayed certificate are downloadable in the app.
 
-Current tool version: 1.1.0, with the existing result schema extended by a scoped
+At the 17 October checkpoint, tool version 1.1.0 extended the existing result schema with a scoped
 matchedProfiles snapshot. Main film: 2026-10-17-certified-profiles, chapter 44.
 Mathematical film: 2026-10-17-mathematics-profiles, chapters 44–46.
 The complete certificate catalogue offers the identical ZIP and its extracted proof.

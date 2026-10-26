@@ -25,4 +25,9 @@ check('map mass increases with coupling',landscape.masses.every((row,i)=>!i||row
 check('map mass increases with imposed angle',landscape.masses.every(row=>row.every((v,j)=>!j||v>=row[j-1])));
 check('view controls leave scientific outputs invariant',JSON.stringify(brxModel({viewMode:1,viewAngle:65}).atTheta)===JSON.stringify(brxModel().atTheta));
 check('high coupling remains in displayed domain',brxModel({strength:100}).landscape.maxStrength===100);
+const generic=brxModel().neutralComplex, restored=brxModel({neutralBranch:1}).neutralComplex;
+check('finite strata separate gauge rank and quotient',generic.rankM===5&&generic.quotient===0&&restored.rankM===4&&restored.quotient===1&&restored.kernelM===1);
+check('numeric angle cannot silently select the exact stratum',brxModel({theta:0}).neutralComplex.quotient===0&&brxModel({theta:1e-14,neutralBranch:1}).neutralComplex.quotient===1);
+check('finite result retains certificate and scope',/^[0-9a-f]{64}$/.test(restored.certificateSha256)&&restored.scope.includes('continuous-domain'));
+for(const neutralBranch of [-1,2,1e-14,'0',NaN]){assert.throws(()=>brxModel({neutralBranch}));passed++;}
 console.log(`${passed} passed, 0 failed (boundary tools; independent numeric and rational references, invalid inputs, scope)`);

@@ -217,9 +217,10 @@ rxAttach(COLLIDER_SECTION,KKG_PANEL);
 
 /* Boundary research: five scoped diagnostics use the shared experiment lifecycle. */
 const BRX_PANEL={id:'boundaryresearch',title:'Boundary research: spectra, profiles, anomalies and certified response',
- intro:'Test five separate boundary questions: a flat fermion gap, profile independence, parity-inserted traces, a restricted tensor condition and certified response differences after matching.',
- defaults:brxDefaults(),validate:brxValidate,compute:brxModel,rendered(container,r,ctx){brxBindPlots(container,r,ctx);return gmrBind(container,r.matchedProfiles,ctx);},localize:brxLocalize,
+ intro:'Test six separate boundary questions: spectra, profile independence, parity traces, a restricted tensor condition, matched responses and a finite neutral quotient.',
+ defaults:brxDefaults(),validate:brxValidate,compute:brxModel,rendered(container,r,ctx){brxBindPlots(container,r,ctx);ncxBind(container,r.neutralComplex);return gmrBind(container,r.matchedProfiles,ctx);},localize:brxLocalize,
  fields:[{key:'matchedProbe',label:'Certified response query',options:[[0,'Certified t = 1/4'],[1,'Certified t = 1/2']]},
+  {key:'neutralBranch',label:'Exact neutral stratum',options:[[0,'Generic: s ≠ 0'],[1,'Restored: s = 0']]},
   {key:'viewMode',label:'Mass landscape view',options:[[0,'2D · select / drag a point'],[1,'3D · select a mesh node']]},
   {key:'viewAngle',label:'3D perspective [degrees]',min:15,max:75,step:1},
   {key:'strength',label:'Boundary strength κ²L',min:0,max:100},
@@ -246,8 +247,8 @@ const BRX_PANEL={id:'boundaryresearch',title:'Boundary research: spectra, profil
   `<p class="note">A six-dimensional anomaly polynomial uses degree 4 and mixed degree 2; a four-dimensional one uses degree 3 and mixed degree 1. These are unweighted traces. Local projector/cover factors, consistent descent, mirrors and inflow remain pending.</p>`+
   `<h3 id="brx_family">4 · Do identical 6D families meet the restricted SU(2) tensor condition?</h3><p><b>${r.family.passes?'Passes this restricted condition':'Fails this restricted condition'}</b>: signed complex-doublet excess ${r.family.complexDoubletExcess}, residue modulo 6 = ${r.family.residue}. Half-doublet coefficient = ${r.family.halfDoubletCoefficient}; its modulus is 12.</p>`+
   `<p>${rxEscape(r.family.assumption)} ${rxEscape(r.family.scope)} The criterion allows multiples of three under these premises; it does not select exactly three.</p>`+
-  `<details><summary>Assumptions, provenance and what remains unresolved</summary><ul>${r.assumptions.map(x=>`<li>${rxEscape(x)}</li>`).join('')}</ul><p><b>Full anomaly cancellation: unknown.</b> ${r.unknown.map(rxEscape).join('; ')}.</p><p>Tool ${rxEscape(r.toolVersion)} · ${rxEscape(r.schema)}. JSON includes every input, source and scope.</p></details>`+gmrPresent(r.matchedProfiles);},
- tex:r=>`Boundary diagnostics v${r.toolVersion}: first normal kR=${r.roots[0].kR.toPrecision(8)}, numerical profile rank=${r.gram.rank}, restricted SU2 residue=${r.family.residue}. Matched profile t=${r.matchedProfiles.parameters.t}, DeltaC in [${r.matchedProfiles.result.comparison.difference_a_minus_b.join(',')}], certificate SHA256=${r.matchedProfiles.certificate.sha256}. Full local/global anomaly cancellation remains unknown.`
+  `<details><summary>Assumptions, provenance and what remains unresolved</summary><ul>${r.assumptions.map(x=>`<li>${rxEscape(x)}</li>`).join('')}</ul><p><b>Full anomaly cancellation: unknown.</b> ${r.unknown.map(rxEscape).join('; ')}.</p><p>Tool ${rxEscape(r.toolVersion)} · ${rxEscape(r.schema)}. JSON includes every input, source and scope.</p></details>`+gmrPresent(r.matchedProfiles)+ncxPresent(r.neutralComplex);},
+ tex:r=>`Boundary diagnostics v${r.toolVersion}: first normal kR=${r.roots[0].kR.toPrecision(8)}, numerical profile rank=${r.gram.rank}, restricted SU2 residue=${r.family.residue}. Matched profile t=${r.matchedProfiles.parameters.t}, DeltaC in [${r.matchedProfiles.result.comparison.difference_a_minus_b.join(',')}], certificate SHA256=${r.matchedProfiles.certificate.sha256}. Finite neutral stratum: ${r.neutralComplex.condition}, quotient dimension=${r.neutralComplex.quotient}, certificate SHA256=${r.neutralComplex.certificateSha256}. Continuous-domain and physical matching are external. Full local/global anomaly cancellation remains unknown.`
 };
 RX_RESEARCH_GUIDE.boundaryresearch={question:'Which specific requirement does a proposed boundary construction meet or fail?',
  metrics:r=>[['First paired normal kR',r.roots[0].kR,''],['Profile Gram rank',r.gram.rank,'/ 3'],['6D doublet residue',r.family.residue,'mod 6'],['Certified ΔC lower bound',r.matchedProfiles.result.comparison.difference_a_minus_b[0],'']],

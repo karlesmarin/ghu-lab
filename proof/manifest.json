@@ -1,6 +1,6 @@
 {
   "schema": "ghu-proof-bundle-v1",
-  "date": "2026-10-17",
+  "date": "2026-10-26",
   "scope": "Integrity and scoped verification; no full-model consistency or novelty claim",
   "lean": [
     {
@@ -631,6 +631,31 @@
       "sha256": "c87dccafd7003dace9a505f97ec11b9379dce37e044ed840baa43d7ea69d4cda"
     },
     {
+      "path": "proof/neutral-complex/certificate.json",
+      "bytes": 1403,
+      "sha256": "a7e9d2c44f98089161b6f6c98dd3e632be9f818297b15b0b544b48e25024ffc6"
+    },
+    {
+      "path": "proof/neutral-complex/certificate.zip",
+      "bytes": 5784,
+      "sha256": "f4a10798e7ce8f61c2bc29988808a09eeea5a9e0da8620aab48bd364cd78d68a"
+    },
+    {
+      "path": "proof/neutral-complex/PROOF.txt",
+      "bytes": 2289,
+      "sha256": "733b665e0070bda206a72d71e058e6a3ec0fda7a726c244e9ca5f5c69cbe5b86"
+    },
+    {
+      "path": "proof/neutral-complex/receipt.json",
+      "bytes": 400,
+      "sha256": "48b18fb002e96b5d4d8cf4f90d0ee6efa5d686a340f73d78f9de4d9380a4ffbe"
+    },
+    {
+      "path": "proof/neutral-complex/verify.py",
+      "bytes": 8281,
+      "sha256": "c2c9309e8f07d965d636b8a6cdb345a7ebbb70e41f8e43366b0cb4f463dcef35"
+    },
+    {
       "path": "proof/quantization/GHUQuantization.lean",
       "bytes": 2323,
       "sha256": "607663f02ec3206b406e64e53503a310e5ed2dca1d22b4c1379f9a76bec33609"
@@ -917,8 +942,8 @@
     },
     {
       "path": "src/modules/boundary_research.mjs",
-      "bytes": 10204,
-      "sha256": "c2f62b1338a43dd6f690e69f147f5816f57cb0d66d01e394acb0ef02d1eb2a79"
+      "bytes": 10345,
+      "sha256": "5ccfe2b18f49cebf6f679490e42dd21163e3722501d8e62793d79da7b6553350"
     },
     {
       "path": "src/modules/brane.mjs",
@@ -1069,6 +1094,16 @@
       "path": "src/modules/moment_diagnostics_reference.mjs",
       "bytes": 103907,
       "sha256": "df916f8c2f84d781b653bb9f7ab61b1064f2b7d96de5fdc9d83abd8e7b891156"
+    },
+    {
+      "path": "src/modules/neutral_complex.mjs",
+      "bytes": 550,
+      "sha256": "daaf42a39a07b91f39fecce3fb102d95e5be7604a95996a9f2a7b68e1813fae7"
+    },
+    {
+      "path": "src/modules/neutral_complex_reference.mjs",
+      "bytes": 11408,
+      "sha256": "5b96167dbc547427be16ff4058a3d74786d48baf62f4e190a3f60d8cd2482f8e"
     },
     {
       "path": "src/modules/neutrino_decay.mjs",

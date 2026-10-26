@@ -3837,7 +3837,7 @@
         }
       ],
       "title": "Investigación de fronteras: espectros, perfiles, anomalías y respuesta certificada",
-      "what": "Cinco pruebas separadas permiten investigar un mecanismo de frontera en GHU: raíces de un problema fermiónico plano, rango numérico de perfiles solapados, trazas espinoriales exactas con inserciones de paridad y una condición restringida para tensores SU(2) en seis dimensiones. La quinta compara dos perfiles de pared tras igualar polo y residuo, mediante certificados continuos verificables.",
+      "what": "Seis pruebas separadas permiten investigar un mecanismo de frontera en GHU: raíces de un problema fermiónico plano, rango numérico de perfiles solapados, trazas espinoriales exactas con inserciones de paridad y una condición restringida para tensores SU(2) en seis dimensiones. La quinta compara dos perfiles de pared tras igualar polo y residuo, mediante certificados continuos verificables. La sexta cuenta las clases de un complejo neutro finito por estratos exactos.",
       "purpose": "Sirven para identificar qué requisito falla y por qué antes de construir el modelo completo. La brecha de masa aborda los modos emparejados no deseados; el rango de Gram comprueba independencia; las trazas con inserciones detectan términos de anomalía localizada; la condición tensorial comprueba un requisito restringido de cuantización. Superar estas pruebas no demuestra un encaje viable del Modelo Estándar ni una teoría cuántica completa. La respuesta tras matching permite preguntar si dos condiciones locales eliminan toda dependencia del perfil a espesor finito en el modelo cuadrático declarado.",
       "steps": [
         "Abre Anomalies & proton y busca Investigación de fronteras. Elige Español en la tarjeta. Pulsa Referencia de investigación para restablecer todas las entradas; Demo recorre los ejemplos y termina con esta guía.",
@@ -3846,9 +3846,10 @@
         "Cambia la inserción de paridad entre C1, C0 y C0 W. Lee la tabla de trazas exactas atendiendo al grado y a la dimensión del soporte.",
         "Con quiralidad leptónica Opuesta a Q, compara una y tres familias idénticas de seis dimensiones. Lee el exceso firmado de dobletes y su residuo.",
         "Elige Sonda de respuesta certificada: t = 1/4 y después t = 1/2. Lee la sección 5 y la cota inferior positiva de uniforme menos triangular. Descarga la demostración y el certificado ZIP y sigue su README para repetir la verificación independiente con Sage.",
+        "Elige Estrato neutro exacto: s ≠ 0 y s = 0. En la sección 6 el cociente pasa de dimensión 0 a 1. Descarga el ZIP y ejecuta python verify.py certificate.json con SymPy.",
         "Despliega las hipótesis y la procedencia. Fija una comparación, exporta el JSON de la tarjeta y guarda el enlace de la aplicación para repetir el cálculo."
       ],
-      "read": "Lee cada resultado con sus propias hipótesis. La brecha normal es kR, sin dimensiones; el rango de Gram es numérico y depende del umbral; las trazas son evaluaciones escalares exactas sin pesos locales; un residuo nulo solo satisface la condición indicada para el sistema aislado de seis dimensiones. La cancelación completa de anomalías sigue pendiente. En la sección 5, las cotas positivas de la diferencia establecen separación en los dos puntos admitidos para este modelo. No establecen una predicción GHU completa ni una tasa de capa delgada.",
+      "read": "Lee cada resultado con sus propias hipótesis. La brecha normal es kR, sin dimensiones; el rango de Gram es numérico y depende del umbral; las trazas son evaluaciones escalares exactas sin pesos locales; un residuo nulo solo satisface la condición indicada para el sistema aislado de seis dimensiones. La cancelación completa de anomalías sigue pendiente. En la sección 5, las cotas positivas de la diferencia establecen separación en los dos puntos admitidos para este modelo. No establecen una predicción GHU completa ni una tasa de capa delgada. En el apartado 6, dim ker A = 5 en ambos estratos; rango M = 5 o 4, y dim(ker A/im M) = 0 o 1. El estabilizador ker M es otro espacio. El selector exacto es independiente del deslizador de Wilson.",
       "controls": [
         {
           "name": "Acoplamiento de frontera κ²L",
@@ -3889,6 +3890,11 @@
           "name": "Sonda de respuesta certificada",
           "meaning": "Selecciona una de las dos sondas certificadas, t = 1/4 o t = 1/2. Quedan fijos el modelo en el cuadrado unidad, la fuente, epsilon = 1/8, alpha = 1/20, c = 38, kL = 2, kT = 8, polo s = 1/100 y residuo R = 1/2.",
           "try": "Selecciona ambas sondas. Los intervalos de diferencia excluyen cero; no se permite editar parámetros sin certificar."
+        },
+        {
+          "name": "Estrato neutro exacto",
+          "meaning": "Selecciona s ≠ 0 o s = 0 independientemente del deslizador de Wilson.",
+          "try": "Compara rango M, estabilizador y cociente; ninguna tolerancia decide el estrato."
         }
       ],
       "outputs": [
@@ -3919,6 +3925,10 @@
         {
           "name": "Respuesta certificada tras matching y ZIP",
           "meaning": "Los intervalos exteriores acotan cada respuesta continua y su diferencia. El ZIP contiene la demostración funcional, testigos polinómicos, informes mostrados, verificador autónomo y su recibo de 228 comprobaciones Sage 10.8. Es un certificado computacional con demostración escrita, no una formalización Lean."
+        },
+        {
+          "name": "Cociente neutro finito y certificado",
+          "meaning": "Dimensiones exactas 0/1 y ZIP con testigos, demostración y verificador simbólico. Reducción continua y matching físico externos."
         }
       ],
       "example": {
@@ -3930,9 +3940,10 @@
           "Restablece M = 1: los autovalores valen aproximadamente 0.172999, 2.783424 y 10.686355, y el rango numérico es tres.",
           "Selecciona Una familia 6D con Opuesta a Q: exceso 2 y residuo 2. Selecciona Tres familias 6D: exceso 6 y residuo 0.",
           "Cambia C1 a C0 W, examina la tabla de trazas y exporta el JSON.",
-          "Selecciona cada sonda certificada, descarga el certificado y guarda el JSON y el enlace compartidos. La sonda, el modelo fijo y el identificador del certificado acompañan al resultado."
+          "Selecciona cada sonda certificada, descarga el certificado y guarda el JSON y el enlace compartidos. La sonda, el modelo fijo y el identificador del certificado acompañan al resultado.",
+          "Compara Estrato neutro exacto: s ≠ 0 y s = 0. Observa rango M = 5 y 4, y cociente de dimensión 0 y 1; descarga la demostración finita y su verificador."
         ],
-        "expect": "La brecha de frontera, la independencia de perfiles y la condición restringida de familias responden a cambios distintos. Ninguna resuelve la cancelación localizada o global de anomalías de la construcción completa."
+        "expect": "La brecha de frontera, la independencia de perfiles y la condición restringida de familias responden a cambios distintos. Ninguna resuelve la cancelación localizada o global de anomalías de la construcción completa. El salto del cociente es un resultado finito certificado; no determina modos continuos ni una masa del Higgs."
       },
       "limits": [
         "El espectro plano supone acoplamiento uniforme, ausencia de términos cinéticos adicionales de frontera y rama transversal periódica. No determina un vacío de Wilson, sabor realista ni masas de neutrinos.",
@@ -3940,7 +3951,8 @@
         "Las trazas omiten la normalización de proyectores y del espacio de recubrimiento, el descenso consistente, las contribuciones espejo y el flujo de anomalía. La sonda escalar no es el polinomio completo.",
         "El criterio SU(2) corresponde a un sistema tensorial aislado específico de seis dimensiones. No puede trasladarse automáticamente a una esquina de orbifold de ocho dimensiones acoplada al flujo del bulk.",
         "Siguen pendientes los coeficientes locales, la red integral de cargas tensoriales, el grupo gauge global, los nuevos modos cero bosónicos y la consistencia cuántica completa.",
-        "La certificación se limita al dominio declarado del cuadrado unidad y dos sondas fijas a espesor finito. Cambiar fuente, formas, matching o espesor requiere otro certificado. Los tests de software y hashes por sí solos no son certificación matemática."
+        "La certificación se limita al dominio declarado del cuadrado unidad y dos sondas fijas a espesor finito. Cambiar fuente, formas, matching o espesor requiere otro certificado. Los tests de software y hashes por sí solos no son certificación matemática.",
+        "La sección 6 certifica solo las matrices A,M declaradas, no el dominio continuo ni una masa del Higgs. Vídeos y manuales anteriores al 26-oct conservan su alcance anterior."
       ],
       "troubleshooting": [
         {
@@ -3966,6 +3978,10 @@
         {
           "symptom": "¿Por qué no puedo cambiar el espesor o importar una respuesta?",
           "action": "Solo se admiten instancias certificadas independientemente. Los nuevos cálculos pertenecen al motor matemático externo hasta verificar sus testigos y premisas funcionales."
+        },
+        {
+          "symptom": "No encuentro el apartado 6 o no aparece en el vídeo.",
+          "action": "Abre Anomalies & proton, usa el acceso a Investigación de fronteras y busca Estrato neutro exacto. La Demo actual incluye el apartado 6. Los vídeos del 17 de octubre no lo incluyen; consulta esta guía y la demo del 26 de octubre."
         }
       ],
       "formulas": [

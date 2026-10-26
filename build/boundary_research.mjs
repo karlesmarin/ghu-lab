@@ -88,6 +88,11 @@ try{
   const spanishDemo=await ev(`({state:CDM_STATE,language:GUIDE_LANGUAGE,result:document.getElementById('rx_boundaryresearch_result').textContent.includes('Cancelación completa de anomalías: desconocida.'),close:document.getElementById('cdm_explain')?.textContent.slice(0,220)})`);
   if(spanishDemo.state.lastFinished!=='boundaryresearch'||spanishDemo.state.lastError||!spanishDemo.result)console.error(JSON.stringify(spanishDemo));
   check('direct Spanish demo completes with Spanish results',spanishDemo.state.lastFinished==='boundaryresearch'&&!spanishDemo.state.lastError&&spanishDemo.language==='es'&&spanishDemo.result&&!!spanishDemo.close);
+  check('Spanish demo reaches the restored finite stratum and explains its limit',await ev(`RX_STATE.boundaryresearch.neutralBranch===1&&brxModel(RX_STATE.boundaryresearch).neutralComplex.quotient===1&&document.getElementById('cdm_explain').textContent.includes('masa del Higgs')`));
+  await send('Page.navigate',{url:'about:blank'});
+  await send('Page.navigate',{url:url+'#s=anomalies&demo=boundaryresearch&lang=en&demoSpeed=0.01'});
+  for(let i=0;i<600;i++){if(await ev(`typeof CDM_STATE!=='undefined'&&(CDM_STATE.lastFinished==='boundaryresearch'||CDM_STATE.lastError)`))break;await pause(100);}
+  check('English demo reaches section six and completes with its finite scope',await ev(`CDM_STATE.lastFinished==='boundaryresearch'&&!CDM_STATE.lastError&&GUIDE_LANGUAGE==='en'&&RX_STATE.boundaryresearch.neutralBranch===1&&document.getElementById('cdm_explain').textContent.includes('Higgs mass')`));
 
   // Only replayed certificates are selectable; no unverified computation path.
   await send('Page.navigate',{url:'about:blank'});
@@ -112,6 +117,27 @@ try{
   await send('Emulation.setDeviceMetricsOverride',{width:1380,height:1000,deviceScaleFactor:1,mobile:false});await pause(100);
   writeFileSync(resolve(out,'matched_profiles_desktop.png'),Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
 
+  await set('neutralBranch',1);
+  check('exact restored stratum displays one quotient class',await ev(`RX_STATE.boundaryresearch.neutralBranch===1&&brxModel(RX_STATE.boundaryresearch).neutralComplex.quotient===1&&document.getElementById('ncx_panel').textContent.includes('queda una clase')`));
+  await set('theta',0.00000000000001);
+  check('numeric Wilson changes do not alter exact stratum',await ev(`brxModel(RX_STATE.boundaryresearch).neutralComplex.quotient===1`));
+  await ev(`globalThis.ncxDownloads=[];globalThis.ncxSavedDownload=rxDownload;rxDownload=(...args)=>ncxDownloads.push(args);document.querySelector('[data-ncx-export]').click();document.querySelector('[data-ncx-certificate]').click();rxDownload=ncxSavedDownload;`);
+  check('finite result and certificate downloads agree',await ev(`JSON.parse(ncxDownloads[0][1]).certificateSha256===NCX_REFERENCE.sha256&&JSON.parse(ncxDownloads[0][1]).quotient===1&&ncxDownloads[1][1][0]===80&&ncxDownloads[1][1][1]===75`));
+  await ev(`document.getElementById('btnLink').click()`);const neutralLink=await ev('location.href');
+  await send('Page.navigate',{url:neutralLink});await pause(500);
+  check('saved link restores exact stratum',await ev(`RX_STATE.boundaryresearch.neutralBranch===1&&brxModel(RX_STATE.boundaryresearch).neutralComplex.quotient===1`));
+  await ev(`document.querySelector('#rx_boundaryresearch [data-guide-set-language="en"]').click()`);
+  check('finite scope and control restore English',await ev(`document.getElementById('ncx_panel').textContent.includes('one closed class remains')&&document.querySelector('[data-rx="neutralBranch"]').textContent.includes('Restored')`));
+  await set('neutralBranch',0);
+  check('generic stratum displays exact zero quotient',await ev(`brxModel(RX_STATE.boundaryresearch).neutralComplex.quotient===0&&document.getElementById('ncx_panel').textContent.includes('all five closed directions are gauge')`));
+  await set('neutralBranch',1);
+  await ev(`document.querySelector('#rx_boundaryresearch [data-guide-set-language="es"]').click()`);
+  for(const [name,width,height,mobile] of [['desktop',1380,1000,false],['mobile',390,844,true]]){
+    await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile});
+    await ev(`document.getElementById('ncx_panel').scrollIntoView({block:'start'})`);await pause(100);
+    check('finite panel '+name+' has no page overflow',await ev('document.documentElement.scrollWidth<=window.innerWidth+2'));
+    writeFileSync(resolve(out,'neutral_'+name+'.png'),Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
+  }
   check('no runtime errors',!events.some(e=>e.method==='Runtime.exceptionThrown'));
 } catch(e){console.error(e);process.exitCode=1;}
 finally{

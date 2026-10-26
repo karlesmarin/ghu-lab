@@ -1,4 +1,4 @@
-/* Boundary research tools v1.1.0 — pure functions, explicit scopes.
+/* Boundary research tools v1.2.0 — pure functions, explicit scopes.
  * Copyright (c) 2026 Carles Marin. All rights reserved.
  * Spin characters are unweighted diagnostics, not normalized local anomalies.
  * Robin spectra describe a flat uniform boundary coupling, not a GHU vacuum.
@@ -9,8 +9,9 @@
 import { R, str } from '../kernel/charges.mjs';
 import { nrEigen } from './neutrino_ring.mjs';
 import { gmrModel, gmrValidateSelection } from './matched_profiles.mjs';
+import { ncxModel } from './neutral_complex.mjs';
 
-export const BRX_VERSION='1.1.0';
+export const BRX_VERSION='1.2.0';
 export const BRX_SOURCES=[
   {id:'orbifold-anomalies',url:'https://arxiv.org/html/hep-ph/0209144v1',locator:'eqs41-43,71-72; appendixD'},
   {id:'tensor-quantization',url:'https://arxiv.org/html/2012.11622v2',locator:'sections2.6-2.7,3.3'},
@@ -113,7 +114,7 @@ export function brxLandscape(maxStrength=4,steps=24){
   return {maxStrength,steps,strengths,theta,roots,masses:roots.map(k=>theta.map(t=>Math.hypot(k,t/(2*Math.PI)))),
     colorRange:[0,Math.SQRT1_2],scope:'Lightest paired periodic branch, dimensionless mR; sampled values, no fitted surface.'};
 }
-export function brxDefaults(){return {strength:1,theta:.2,profileMass:1,generations:3,leptonSign:-1,insertion:3,viewMode:0,viewAngle:35,matchedProbe:0};}
+export function brxDefaults(){return {strength:1,theta:.2,profileMass:1,generations:3,leptonSign:-1,insertion:3,viewMode:0,viewAngle:35,matchedProbe:0,neutralBranch:0};}
 export function brxValidate(input={}){
   const p={...brxDefaults(),...input};
   brxNumberRange(p.strength,0,100,'kappa^2 L');brxNumberRange(p.theta,0,Math.PI,'Wilson theta');
@@ -122,6 +123,7 @@ export function brxValidate(input={}){
   if(![0,1].includes(p.viewMode))throw new RangeError('Choose 2D or 3D');
   brxNumberRange(p.viewAngle,15,75,'3D viewing angle');
   gmrValidateSelection({probe:p.matchedProbe});
+  ncxModel(p.neutralBranch);
   return p;
 }
 export function brxModel(input={}){
@@ -131,6 +133,7 @@ export function brxModel(input={}){
   const curve=Array.from({length:81},(_,i)=>{const theta=Math.PI*i/80,q=theta/(2*Math.PI);return {theta,unpaired:q,paired:Math.hypot(roots[0].kR,q)};});
   return {schema:'ghu-boundary-research-v1',toolVersion:BRX_VERSION,parameters:p,roots,gram,family,moments,cartan,curve,
     matchedProfiles:gmrModel({probe:p.matchedProbe}),
+    neutralComplex:ncxModel(p.neutralBranch),
     landscape:brxLandscape(Math.max(4,p.strength)),
     atTheta:{unpaired:p.theta/(2*Math.PI),paired:Math.hypot(roots[0].kR,p.theta/(2*Math.PI))},
     values:{firstPairedRoot:{value:roots[0].kR,status:'verified',scope:'Numerical Robin root kR for L=pi R'},

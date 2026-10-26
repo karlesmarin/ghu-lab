@@ -1,5 +1,18 @@
 # Between physics and mathematics: video guide
 
+## Coverage update · 26 October 2026
+
+The laboratory now includes the exact finite neutral quotient in Boundary research,
+section 6. The bilingual live demo and manuals cover it. Both recorded films remain
+the 17 October editions; their MP4, captions, transcripts and receipts are unchanged.
+The general storyboard now has 47 chapters and 181 scenes (180 live-demo steps);
+chapter 44 includes generic/restored strata, independence from the Wilson slider,
+certificate download and the unproved continuous-domain reduction. This is source
+material for the next recording, not a claim that an updated film has been rendered.
+The mathematical film needs an additional explanation of AM = 0, rank minors and
+the quotient/stabilizer distinction before it can claim coverage of section 6.
+
+
 The 17 October revision uses the original animated whiteboard system: grid background, a progressive mathematical figure on the left, formulas and scope on the right, and word-timed captions. Both languages have 46 chapters. Chapters 44–46 add exact matching, continuum residual bounds and the physical scope of two independently certified probes. Chapters 1–28 preserve the original explanations; chapter 29 replaces the former closing statement and chapters 30–38 connect quantization and certificates to physics. Chapters 39–43 explain potential derivatives, recalibrated cases, measured CMS bins, covariance and validation scope.
 
 | Language | Player | Duration | Narration |

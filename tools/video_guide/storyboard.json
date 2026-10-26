@@ -2,9 +2,9 @@
   "schema": "ghu-video-guide-v1",
   "language": "en",
   "voice": "Microsoft Zira Desktop",
-  "date": "2026-10-17",
+  "date": "2026-10-26",
   "scope": "A real-interface walkthrough of all menu sections, three Simulator modes, ten research cards and integrated diagnostics. Representative controls are demonstrated; this is not an exhaustive tour of every numerical input combination. Includes certified SU(7) benchmarks, equal-moment counterexample, separated uncertainty budget, named LHC datasets, matched thermal solver diagnostics and the first KK gluon against ATLAS and CMS data, and the guided Demo buttons. Includes boundary research: linked 2D/3D mass views, Gram rank, inserted traces and a scoped 6D tensor condition. Adds a final quantization chapter: exact figures, joint integrality, conditional responses and scoped certificates. The boundary module includes two independently certified matched-profile response queries with a downloadable functional proof and replayable certificate.",
-  "recordingNotes": "Pointer highlights and chapter captions are tutorial annotations. Computation waits may be shortened; results come from the actual application. Built-in demonstrations may be held between steps for narration.",
+  "recordingNotes": "Pointer highlights and chapter captions are tutorial annotations. Computation waits may be shortened; results come from the actual application. Built-in demonstrations may be held between steps for narration. The 26 October storyboard and live demos add section 6. Published MP4 files remain the 17 October edition; this script revision is not a new recording.",
   "chapters": [
     {
       "id": "start",
@@ -2429,8 +2429,8 @@
       "setup": [],
       "steps": [
         {
-          "text": "The boundary research card separates five questions: a fermion mass gap, independent profiles, parity-inserted traces, a restricted six-dimensional tensor condition, and certified response differences after matching. Load the research baseline. Each result has its own mathematical scope; together they do not certify a complete particle model.",
-          "textES": "La tarjeta de investigación de fronteras separa cinco preguntas: una brecha de masa fermiónica, perfiles independientes, trazas con paridad, una condición tensorial restringida de seis dimensiones y diferencias certificadas de respuesta tras matching. Carga la referencia de investigación. Cada resultado tiene su alcance matemático; juntos no certifican un modelo completo de partículas.",
+          "text": "The boundary research card separates six questions: a fermion mass gap, independent profiles, parity-inserted traces, a restricted six-dimensional tensor condition, certified response differences after matching, and the quotient of a finite neutral complex. Load the research baseline. Each result has its own mathematical scope; together they do not certify a complete particle model.",
+          "textES": "La tarjeta de investigación de fronteras separa seis preguntas: una brecha de masa fermiónica, perfiles independientes, trazas con paridad, una condición tensorial restringida de seis dimensiones diferencias certificadas de respuesta tras matching y el cociente de un complejo neutro finito. Carga la referencia de investigación. Cada resultado tiene su alcance matemático; juntos no certifican un modelo completo de partículas.",
           "actions": [
             {
               "kind": "button",
@@ -2639,6 +2639,58 @@
             "index": 0
           },
           "id": "44_boundaryresearch_11"
+        },
+        {
+          "id": "44_boundaryresearch_neutral_generic",
+          "text": "Choose the exact neutral stratum with s nonzero. Section six has five closed directions and five gauge directions, so the quotient has dimension zero. These are exact ranks of the declared finite matrices, not ranks selected by a numerical tolerance.",
+          "textES": "Elige el estrato neutro exacto con s distinto de cero. En el apartado seis hay cinco direcciones cerradas y cinco direcciones gauge: el cociente tiene dimensión cero. Son rangos exactos de las matrices finitas declaradas; ninguna tolerancia numérica decide el rango.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#rx_boundaryresearch_controls [data-rx=\"neutralBranch\"]",
+              "value": 0
+            }
+          ],
+          "focus": {
+            "selector": "#ncx_panel",
+            "index": 0
+          }
+        },
+        {
+          "id": "44_boundaryresearch_neutral_restored",
+          "text": "Choose s equal to zero. The gauge rank drops to four while the closed space still has dimension five. One quotient class remains. The gauge stabilizer also has dimension one, but it is a different space. Changing the separate numerical Wilson slider does not change this exact stratum.",
+          "textES": "Elige s igual a cero. El rango gauge baja a cuatro y el espacio cerrado conserva dimensión cinco. Queda una clase en el cociente. El estabilizador gauge también tiene dimensión uno, pero es otro espacio. Cambiar el deslizador numérico de Wilson, que es independiente, no cambia este estrato exacto.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#rx_boundaryresearch_controls [data-rx=\"neutralBranch\"]",
+              "value": 1
+            },
+            {
+              "kind": "set",
+              "selector": "#rx_boundaryresearch_controls [data-rx=\"theta\"]",
+              "value": 0.2
+            }
+          ],
+          "focus": {
+            "selector": "#ncx_panel",
+            "index": 0
+          }
+        },
+        {
+          "id": "44_boundaryresearch_neutral_certificate",
+          "text": "Download the finite proof and verifier. The archive contains the matrices, rank minors and witnesses, a written proof and a symbolic verifier. The identity A M equals zero makes the quotient meaningful. Extract the archive and replay the verifier with SymPy. Connecting this finite quotient to continuous scalar modes still requires a domain reduction proof. This is not a Higgs mass prediction.",
+          "textES": "Descarga la demostración finita y el verificador. El archivo contiene las matrices, menores y testigos de rango, la demostración escrita y el verificador simbólico. La identidad A M igual a cero permite formar el cociente. Descomprime el archivo y repite la verificación con SymPy. Para relacionarlo con modos escalares continuos todavía hay que demostrar la reducción del dominio. No es una predicción de la masa del Higgs.",
+          "actions": [
+            {
+              "kind": "click",
+              "selector": "[data-ncx-certificate]"
+            }
+          ],
+          "focus": {
+            "selector": "#ncx_panel",
+            "index": 0
+          }
         },
         {
           "text": "Keep the assumptions with the result. Save the card data to preserve every input, the sampled mass grid, exact moments, sources and unresolved requirements. The guide explains the equations, examples, controls and failure cases. The overall quantum consistency remains an open research question.",
@@ -3062,6 +3114,6 @@
     "en": "Microsoft Zira Desktop",
     "es": "Microsoft Helena Desktop"
   },
-  "revisionOf": "2026-10-14-hypotheses",
-  "revision": "2026-10-17-certified-profiles"
+  "revisionOf": "2026-10-17-certified-profiles",
+  "revision": "2026-10-26-neutral-demo"
 }

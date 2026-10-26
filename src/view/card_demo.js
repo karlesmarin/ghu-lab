@@ -167,7 +167,7 @@ function cdmHighlight(selector, index = 0) {
 
 /* ---------- the actions the video recorder performs, done in the page ---------- */
 function cdmTarget(a) {
-  const el = a.kind === 'button' ? [...document.querySelectorAll('#section button')].find(e => uiSourceText(e).trim() === a.text)
+  const el = a.kind === 'button' ? [...document.querySelectorAll('#section button')].find(e => uiSourceText(e).trim() === a.text || (typeof brxTranslate === 'function' && e.textContent.trim() === brxTranslate(a.text)))
     : document.querySelectorAll(a.selector)[a.index || 0];
   if (!el) throw new Error('missing control: ' + (a.selector || a.text));
   for (let p = el; p; p = p.parentElement) if (p.tagName === 'DETAILS') p.open = true;

@@ -19,7 +19,7 @@
 {\LARGE Guía de uso\par}
 \vspace{7mm}
 Castellano. Composición con Babel.\par
-17 de octubre de 2026\par
+26 de octubre de 2026\par
 \vspace{8mm}
 Los nombres de los controles se conservan tal como aparecen en la aplicación. Empieza con una referencia, cambia un parámetro cada vez y conserva las hipótesis junto al resultado.\par
 \vfill
@@ -2122,7 +2122,7 @@ r(t\ensuremath{\overline{t}}) queda cerca de 1: el punto de referencia de 2008 e
 \item \href{https://doi.org/10.17182/hepdata.102956.v1/t38}{HEPData: its covariance matrix}
 \end{itemize}
 \section{Investigación de fronteras: espectros, perfiles, anomalías y respuesta certificada}
-Cinco pruebas separadas permiten investigar un mecanismo de frontera en GHU: raíces de un problema fermiónico plano, rango numérico de perfiles solapados, trazas espinoriales exactas con inserciones de paridad y una condición restringida para tensores SU(2) en seis dimensiones. La quinta compara dos perfiles de pared tras igualar polo y residuo, mediante certificados continuos verificables.
+Seis pruebas separadas permiten investigar un mecanismo de frontera en GHU: raíces de un problema fermiónico plano, rango numérico de perfiles solapados, trazas espinoriales exactas con inserciones de paridad y una condición restringida para tensores SU(2) en seis dimensiones. La quinta compara dos perfiles de pared tras igualar polo y residuo, mediante certificados continuos verificables. La sexta cuenta las clases de un complejo neutro finito por estratos exactos.
 
 \href{https://karlesmarin.github.io/ghu-explorer/guide/es/boundaryresearch/index.html}{Abrir guía web}
 
@@ -2135,6 +2135,7 @@ Sirven para identificar qué requisito falla y por qué antes de construir el mo
 \item Cambia la inserción de paridad entre C1, C0 y C0 W. Lee la tabla de trazas exactas atendiendo al grado y a la dimensión del soporte.
 \item Con quiralidad leptónica Opuesta a Q, compara una y tres familias idénticas de seis dimensiones. Lee el exceso firmado de dobletes y su residuo.
 \item Elige Sonda de respuesta certificada: t = 1/4 y después t = 1/2. Lee la sección 5 y la cota inferior positiva de uniforme menos triangular. Descarga la demostración y el certificado ZIP y sigue su README para repetir la verificación independiente con Sage.
+\item Elige Estrato neutro exacto: s \ensuremath{\neq} 0 y s = 0. En la sección 6 el cociente pasa de dimensión 0 a 1. Descarga el ZIP y ejecuta python verify.py certificate.json con SymPy.
 \item Despliega las hipótesis y la procedencia. Fija una comparación, exporta el JSON de la tarjeta y guarda el enlace de la aplicación para repetir el cálculo.
 \end{enumerate}
 \subsection*{Controles y parámetros}
@@ -2154,6 +2155,8 @@ Sirven para identificar qué requisito falla y por qué antes de construir el mo
 
 \textbf{Sonda de respuesta certificada}. Selecciona una de las dos sondas certificadas, t = 1/4 o t = 1/2. Quedan fijos el modelo en el cuadrado unidad, la fuente, epsilon = 1/8, alpha = 1/20, c = 38, kL = 2, kT = 8, polo s = 1/100 y residuo R = 1/2. Selecciona ambas sondas. Los intervalos de diferencia excluyen cero; no se permite editar parámetros sin certificar.
 
+\textbf{Estrato neutro exacto}. Selecciona s \ensuremath{\neq} 0 o s = 0 independientemente del deslizador de Wilson. Compara rango M, estabilizador y cociente; ninguna tolerancia decide el estrato.
+
 \subsection*{Cómo leer los resultados}
 \textbf{Tabla de raíces y curvas de masa}. Seis raíces de x tan(x) = a, con x = kL, y residuos escalados. Las curvas muestran las ramas emparejada y no emparejada más ligeras frente al ángulo impuesto; no son todo el espectro de Kaluza--Klein.
 
@@ -2169,7 +2172,9 @@ Sirven para identificar qué requisito falla y por qué antes de construir el mo
 
 \textbf{Respuesta certificada tras matching y ZIP}. Los intervalos exteriores acotan cada respuesta continua y su diferencia. El ZIP contiene la demostración funcional, testigos polinómicos, informes mostrados, verificador autónomo y su recibo de 228 comprobaciones Sage 10.8. Es un certificado computacional con demostración escrita, no una formalización Lean.
 
-Lee cada resultado con sus propias hipótesis. La brecha normal es kR, sin dimensiones; el rango de Gram es numérico y depende del umbral; las trazas son evaluaciones escalares exactas sin pesos locales; un residuo nulo solo satisface la condición indicada para el sistema aislado de seis dimensiones. La cancelación completa de anomalías sigue pendiente. En la sección 5, las cotas positivas de la diferencia establecen separación en los dos puntos admitidos para este modelo. No establecen una predicción GHU completa ni una tasa de capa delgada.
+\textbf{Cociente neutro finito y certificado}. Dimensiones exactas 0/1 y ZIP con testigos, demostración y verificador simbólico. Reducción continua y matching físico externos.
+
+Lee cada resultado con sus propias hipótesis. La brecha normal es kR, sin dimensiones; el rango de Gram es numérico y depende del umbral; las trazas son evaluaciones escalares exactas sin pesos locales; un residuo nulo solo satisface la condición indicada para el sistema aislado de seis dimensiones. La cancelación completa de anomalías sigue pendiente. En la sección 5, las cotas positivas de la diferencia establecen separación en los dos puntos admitidos para este modelo. No establecen una predicción GHU completa ni una tasa de capa delgada. En el apartado 6, dim ker A = 5 en ambos estratos; rango M = 5 o 4, y dim(ker A/im M) = 0 o 1. El estabilizador ker M es otro espacio. El selector exacto es independiente del deslizador de Wilson.
 \subsection*{Ejemplo guiado: Identificar tres motivos distintos de fallo}
 \begin{enumerate}
 \item Carga Referencia de investigación y después Frontera sin acoplamiento: la primera raíz normal es cero.
@@ -2179,8 +2184,9 @@ Lee cada resultado con sus propias hipótesis. La brecha normal es kR, sin dimen
 \item Selecciona Una familia 6D con Opuesta a Q: exceso 2 y residuo 2. Selecciona Tres familias 6D: exceso 6 y residuo 0.
 \item Cambia C1 a C0 W, examina la tabla de trazas y exporta el JSON.
 \item Selecciona cada sonda certificada, descarga el certificado y guarda el JSON y el enlace compartidos. La sonda, el modelo fijo y el identificador del certificado acompañan al resultado.
+\item Compara Estrato neutro exacto: s \ensuremath{\neq} 0 y s = 0. Observa rango M = 5 y 4, y cociente de dimensión 0 y 1; descarga la demostración finita y su verificador.
 \end{enumerate}
-La brecha de frontera, la independencia de perfiles y la condición restringida de familias responden a cambios distintos. Ninguna resuelve la cancelación localizada o global de anomalías de la construcción completa.
+La brecha de frontera, la independencia de perfiles y la condición restringida de familias responden a cambios distintos. Ninguna resuelve la cancelación localizada o global de anomalías de la construcción completa. El salto del cociente es un resultado finito certificado; no determina modos continuos ni una masa del Higgs.
 \subsection*{Fórmulas y convenciones}
 \begin{quote}Q(t) = F(t) - F(s) - (t-s) F\ensuremath{\prime}(s); C(t) = -1 / [(t-s)/R + Q(t)]\end{quote}
 Identidad exacta de matching para F(t)=t/D(t), con la misma fuente y s,R fijos. Los denominadores certificados excluyen cero en las sondas seleccionadas.
@@ -2193,6 +2199,7 @@ Identidad exacta de matching para F(t)=t/D(t), con la misma fuente y s,R fijos. 
 \item El criterio SU(2) corresponde a un sistema tensorial aislado específico de seis dimensiones. No puede trasladarse automáticamente a una esquina de orbifold de ocho dimensiones acoplada al flujo del bulk.
 \item Siguen pendientes los coeficientes locales, la red integral de cargas tensoriales, el grupo gauge global, los nuevos modos cero bosónicos y la consistencia cuántica completa.
 \item La certificación se limita al dominio declarado del cuadrado unidad y dos sondas fijas a espesor finito. Cambiar fuente, formas, matching o espesor requiere otro certificado. Los tests de software y hashes por sí solos no son certificación matemática.
+\item La sección 6 certifica solo las matrices A,M declaradas, no el dominio continuo ni una masa del Higgs. Vídeos y manuales anteriores al 26-oct conservan su alcance anterior.
 \end{itemize}
 \subsection*{Si algo no queda claro}
 \textbf{La primera raíz normal es cero.} Comprueba el acoplamiento de frontera. Si es nulo, ese modo cero es el resultado esperado, no un fallo del método numérico.
@@ -2206,6 +2213,8 @@ Identidad exacta de matching para F(t)=t/D(t), con la misma fuente y s,R fijos. 
 \textbf{Una entrada inválida conserva el resultado anterior.} Los controles muestran el error y mantienen el último cálculo válido. Restablece el intervalo permitido o pulsa Referencia de investigación.
 
 \textbf{¿Por qué no puedo cambiar el espesor o importar una respuesta?} Solo se admiten instancias certificadas independientemente. Los nuevos cálculos pertenecen al motor matemático externo hasta verificar sus testigos y premisas funcionales.
+
+\textbf{No encuentro el apartado 6 o no aparece en el vídeo.} Abre Anomalies \& proton, usa el acceso a Investigación de fronteras y busca Estrato neutro exacto. La Demo actual incluye el apartado 6. Los vídeos del 17 de octubre no lo incluyen; consulta esta guía y la demo del 26 de octubre.
 
 \subsection*{Fuentes y atribución}
 \begin{itemize}

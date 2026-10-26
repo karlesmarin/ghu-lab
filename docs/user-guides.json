@@ -4262,7 +4262,7 @@
         }
       ],
       "title": "Boundary research: spectra, profiles, anomalies and certified response",
-      "what": "Five separate tests help investigate a proposed GHU boundary mechanism: roots of a flat fermion boundary problem, the numerical rank of overlapping profiles, exact parity-inserted spinor traces and a restricted six-dimensional SU(2) tensor condition. The fifth compares two wall profiles after common pole and residue matching, using replayed continuum certificates.",
+      "what": "Six separate tests help investigate a proposed GHU boundary mechanism: roots of a flat fermion boundary problem, the numerical rank of overlapping profiles, exact parity-inserted spinor traces and a restricted six-dimensional SU(2) tensor condition. The fifth compares two wall profiles after common pole and residue matching, using replayed continuum certificates. The sixth counts finite neutral-complex classes on exact strata.",
       "purpose": "Use these tools to find which requirement fails and why before attempting a full model. A mass gap addresses unwanted paired modes; Gram rank tests linear independence; inserted traces expose localized anomaly terms; the tensor condition tests a restricted quantization requirement. Passing these tests does not prove a viable Standard Model embedding or a complete quantum theory. Matched response asks whether fixing two local conditions removes all finite-width profile dependence in the declared quadratic model.",
       "steps": [
         "Open Anomalies & proton and find Boundary research. Select English in the card. Press Research baseline to restore all inputs; Demo runs the worked examples and ends with this guide.",
@@ -4271,9 +4271,10 @@
         "Switch the parity insertion between C1, C0 and C0 W. Read the exact trace table, keeping its degree and support dimension in mind.",
         "With lepton chirality Opposite to Q, compare one and three identical 6D families. Read the signed doublet excess and its residue.",
         "Select Certified response query: t = 1/4, then t = 1/2. Read section 5 and the positive lower bound of uniform minus triangular. Download the proof and certificate ZIP and follow its README to replay the independent Sage verification.",
+        "Select Exact neutral stratum: s ≠ 0 and s = 0. In section 6 the quotient dimension changes from 0 to 1. Download the ZIP and run python verify.py certificate.json with SymPy.",
         "Expand assumptions and provenance. Pin a comparison, export the card JSON and save the application link to repeat the calculation."
       ],
-      "read": "Read each result with its own assumptions. The normal gap is dimensionless kR; a Gram rank is numerical and threshold-dependent; the traces are exact scalar evaluations without local weights; a zero residue passes only the stated standalone six-dimensional condition. Full anomaly cancellation stays unknown. In section 5, positive difference bounds establish separation at the two admitted points for this model. They do not establish a complete GHU prediction or a thin-layer rate.",
+      "read": "Read each result with its own assumptions. The normal gap is dimensionless kR; a Gram rank is numerical and threshold-dependent; the traces are exact scalar evaluations without local weights; a zero residue passes only the stated standalone six-dimensional condition. Full anomaly cancellation stays unknown. In section 5, positive difference bounds establish separation at the two admitted points for this model. They do not establish a complete GHU prediction or a thin-layer rate. In section 6, dim ker A = 5 in both strata; rank M = 5 or 4, and dim(ker A/im M) = 0 or 1. The stabilizer ker M is a different space. The exact selector is independent of the Wilson slider.",
       "controls": [
         {
           "name": "Boundary strength κ²L",
@@ -4314,6 +4315,11 @@
           "name": "Certified response query",
           "meaning": "Select one of the two certified probes, t = 1/4 or t = 1/2. The unit-square model, source, epsilon = 1/8, alpha = 1/20, c = 38, kL = 2, kT = 8, pole s = 1/100 and residue R = 1/2 stay fixed.",
           "try": "Select both probes. Their response-difference intervals exclude zero; no uncertified parameter is editable."
+        },
+        {
+          "name": "Exact neutral stratum",
+          "meaning": "Select s ≠ 0 or s = 0 independently of the Wilson slider.",
+          "try": "Compare rank M, stabilizer and quotient; no tolerance decides the stratum."
         }
       ],
       "outputs": [
@@ -4344,6 +4350,10 @@
         {
           "name": "Certified matched response and ZIP",
           "meaning": "Outward intervals enclose each continuum response and their difference. The ZIP contains the functional proof, polynomial witnesses, displayed reports, standalone verifier and its 228-check Sage 10.8 receipt. This is a computational certificate with a written proof, not a Lean formalization."
+        },
+        {
+          "name": "Finite neutral quotient and certificate",
+          "meaning": "Exact dimensions 0/1 and ZIP with witnesses, written proof and symbolic verifier. Continuous reduction and physical matching are external."
         }
       ],
       "example": {
@@ -4355,9 +4365,10 @@
           "Restore M = 1: the eigenvalues are approximately 0.172999, 2.783424 and 10.686355, and the numerical rank is three.",
           "Select One 6D family with Opposite to Q: excess 2 gives residue 2. Select Three 6D families: excess 6 gives residue 0.",
           "Switch C1 to C0 W and inspect the trace table, then export JSON.",
-          "Select each certified response query, download the certificate, then save the shared JSON and link. The selected probe, fixed model and certificate identifier travel with the result."
+          "Select each certified response query, download the certificate, then save the shared JSON and link. The selected probe, fixed model and certificate identifier travel with the result.",
+          "Compare Exact neutral stratum: s ≠ 0 and s = 0. Observe rank M = 5 and 4, and quotient dimension 0 and 1; download the finite proof and verifier."
         ],
-        "expect": "The boundary gap, profile independence and restricted family condition respond to different changes. None of them settles localized or global anomaly cancellation of the full construction."
+        "expect": "The boundary gap, profile independence and restricted family condition respond to different changes. None of them settles localized or global anomaly cancellation of the full construction. The quotient jump is a certified finite result; it determines neither continuous modes nor a Higgs mass."
       },
       "limits": [
         "The flat spectrum assumes uniform coupling, no additional boundary kinetic terms and the periodic transverse branch. It does not determine a Wilson vacuum, realistic flavour or neutrino masses.",
@@ -4365,7 +4376,8 @@
         "Inserted traces omit projector and covering-space normalization, consistent descent, mirror contributions and inflow. The scalar probe is not the full anomaly polynomial.",
         "The SU(2) criterion applies to a specified standalone six-dimensional tensor setting. It cannot be transferred automatically to an eight-dimensional orbifold corner coupled to bulk inflow.",
         "Local coefficients, integral tensor charge lattice, global gauge group, new boson zero modes and full quantum consistency remain unresolved.",
-        "Certification is restricted to the declared unit-square domain and two fixed probes at finite layer width. Changing the source, forms, matching conditions or width requires a new certificate. Software tests and hashes alone are not mathematical certification."
+        "Certification is restricted to the declared unit-square domain and two fixed probes at finite layer width. Changing the source, forms, matching conditions or width requires a new certificate. Software tests and hashes alone are not mathematical certification.",
+        "Section 6 certifies only the specified matrices A,M, not the continuous domain or a Higgs mass. Videos and manuals predating 26 October retain their earlier scope."
       ],
       "troubleshooting": [
         {
@@ -4391,6 +4403,10 @@
         {
           "symptom": "Why can I not change layer width or import a response?",
           "action": "Only independently certified instances are admitted. New computations belong in the external mathematical engine until their witnesses and functional premises are verified."
+        },
+        {
+          "symptom": "I cannot find section 6 or see it in the video.",
+          "action": "Open Anomalies & proton, use the Boundary research shortcut and find Exact neutral stratum. The current Demo includes section 6. The 17 October videos do not; consult this guide and the 26 October demo."
         }
       ],
       "formulas": [

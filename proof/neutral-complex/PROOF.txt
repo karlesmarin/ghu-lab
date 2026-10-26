@@ -1,0 +1,40 @@
+FINITE NEUTRAL COMPLEX: STATEMENT AND PROOF
+Version 1, 26 October 2026. Author: Carles Marin.
+This is a certificate of a specified finite complex, not a new theorem.
+
+Let c,s be any complex scalars. Matrices A:C^7 -> C^2 and M:C^5 -> C^7
+are exactly those in certificate.json. No circle relation is needed.
+Coordinates in C^7: (alpha1,alpha2,beta1,beta2,chiO,chiP1,chiP2).
+Use zero-based row and column indices throughout.
+
+1. AM=0, so im M is contained in ker A. The A minor on columns (0,2)
+is 1, hence rank A=2 and dim ker A=5 for every c,s.
+2. The M minor on rows (0,1,3,4,6), all columns, is -s.
+Thus for s!=0, rank M=5, and ker A/im M has dimension zero.
+3. The M minor on rows (0,1,4,6), columns (1,2,3,4), is 1.
+Thus rank M>=4 everywhere. q=(1,0,0,-1/2,0) is nonzero and Mq=-s h,
+where h=(0,0,0,1,0,0,0). At s=0 this gives rank M<=4.
+Consequently rank M=4 and dim(ker A/im M)=1 at s=0.
+4. Ah=0. At s=0 the row w=(0,-c,0,1,0,0,0) annihilates M,
+whereas wh=1. Therefore h represents a nonzero quotient class, and
+it spans this one-dimensional quotient. At s!=0, h=M(-q/s).
+The disappearance of this class is exact, not a numerical tolerance.
+5. rank-nullity gives dim ker M=0 (s!=0) or 1 (s=0).
+These are dimensions of different spaces, not additional physical states.
+
+The verifier checks polynomial identities over Q[c,s], not sampled angles.
+The proof supplies both upper and lower rank bounds; tests or hashes alone
+would not do so. Computation uses existing SymPy exact linear algebra.
+Standard reference: rank-nullity and determinant rank criterion.
+No mathematical originality is claimed.
+
+PHYSICAL APPLICATION (NOT PART OF THIS CERTIFICATE)
+Setting c=cos(theta),s=sin(theta) is allowed. To identify the quotient with
+continuous scalar zero modes one must independently prove the reduction
+of the chosen weak operator domain to these matrices and control the gauge
+range. Matching that realization to the full action, corner conditions and
+orbifold remains external. A Wilson-Higgs direction outside this block,
+a Higgs mass, an experimental fit, and the vacuum are not certified.
+Relevant continuum background: Costabel-McIntosh, arXiv:0808.2614;
+boundary fields: Csaki-Hubisz-Meade, hep-ph/0510275, section 2.3.
+These references do not assert this particular matrix result.

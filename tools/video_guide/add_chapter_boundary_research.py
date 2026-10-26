@@ -2,6 +2,8 @@
 import json
 from pathlib import Path
 p=Path(__file__).with_name('storyboard.json');raw=p.read_text(encoding='utf-8');plan=json.loads(raw)
+if any('neutral_' in s['id'] for c in plan['chapters'] for s in c['steps']):
+    raise SystemExit('Historical migration: edit storyboard.json directly; current neutral scenes must be preserved.')
 def setting(key,value):return dict(kind='set',selector=f'#rx_boundaryresearch_controls [data-rx="{key}"]',value=value)
 def scene(en,es,actions,focus):return dict(text=en,textES=es,actions=actions,focus=dict(selector=focus,index=0),title=None)
 steps=[

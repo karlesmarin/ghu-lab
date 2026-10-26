@@ -2,6 +2,8 @@
 import json
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
+if 'Exact neutral stratum' in (ROOT/'docs/user-guides.json').read_text(encoding='utf-8'):
+    raise SystemExit('Historical migration: edit docs/user-guides{,.es}.json directly; current certified instruments must be preserved.')
 META = dict(id='boundaryresearch', kind='experiment', host='anomalies',
     route='s=anomalies&help=boundaryresearch', video='boundaryresearch',
     source='src/modules/boundary_research.mjs', terms=[], related=['anomalies','rsanomaly'],

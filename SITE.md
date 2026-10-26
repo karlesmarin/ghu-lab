@@ -1,6 +1,26 @@
 # The site — what it is, page by page
 
-## Release · 17 October 2026
+## Current source and site · 26 October 2026
+
+Boundary research section 6 adds the certified finite neutral quotient, with exact
+generic/restored strata and a downloadable proof, witnesses and SymPy replay.
+The continuous-domain reduction and physical mass interpretation remain open.
+The bilingual Demo now visits all six instruments; both manuals and the 46 guides
+per language are synchronized. Navigation remains 30 sections, 11 cards and three
+Simulator modes, with 67 glossary terms.
+
+Both films remain the 17 October recordings (general: 47 chapters / 178 scenes;
+mathematical: 46 chapters). They do not cover section 6. Visible player notices
+link to the current live Demo; the 181-scene storyboard is not a rendered film.
+See [the current change entry](changes/2026-10-26-finite-neutral-quotient.md)
+and [scope and replay](docs/boundary-research.md).
+
+The publication README is maintained in `src/site/README.md` and copied by the
+site build. Publish the reviewed generated `site/` to `ghu-explorer`; a push
+to the source repository alone does not deploy the web app. Preserve archived
+media, frozen papers, editions and the ownership verification file.
+
+## Historical release · 17 October 2026
 
 Boundary research now includes [certified matched profiles](docs/matched-profiles.md),
 with two admitted query points and a downloadable proof and replayable certificate.

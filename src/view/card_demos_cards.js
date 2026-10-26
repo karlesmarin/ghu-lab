@@ -221,22 +221,5 @@ Object.assign(CDM_DEMOS, {
   },
 });
 
-Object.assign(CDM_DEMOS,{
- boundaryresearch:{model:cdmR(()=>BRX_PANEL,'boundaryresearch'),steps:[
-  {en:()=> 'Start from the research baseline. These four diagnostics answer separate questions.',es:()=> 'Partimos de la referencia de investigación. Estos cuatro diagnósticos responden preguntas distintas.',hl:'#rx_boundaryresearch h2'},
-  {en:()=> 'Set the boundary coupling to zero.',es:()=> 'Anula el acoplamiento de frontera.',set:['#rx_boundaryresearch_controls [data-rx="strength"]',0],
-   then:{en:v=>`The first normal root is ${cdmNum(v.roots[0].kR,5)}: the paired zero mode remains.`,es:v=>`La primera raíz normal es ${cdmNum(v.roots[0].kR,5)}: permanece el modo cero emparejado.`}},
-  {en:()=> 'Restore κ²L = 1.',es:()=> 'Restablece κ²L = 1.',set:['#rx_boundaryresearch_controls [data-rx="strength"]',1],
-   then:{en:v=>`The root becomes ${cdmNum(v.roots[0].kR,5)}. This is a gap in the stated flat action.`,es:v=>`La raíz pasa a ${cdmNum(v.roots[0].kR,5)}. Es una brecha en la acción plana indicada.`}},
-  {en:()=> 'Now test the massless profile example.',es:()=> 'Prueba ahora el ejemplo de perfiles sin masa.',set:['#rx_boundaryresearch_controls [data-rx="profileMass"]',0],
-   then:{en:v=>`The Gram rank is ${v.gram.rank}. Overlap is not the criterion; the independent directions are.`,es:v=>`El rango de Gram es ${v.gram.rank}. El criterio es cuántas direcciones independientes hay.`}},
-  {en:()=> 'Restore profile M = 1.',es:()=> 'Restablece M = 1 en el ejemplo de perfiles.',set:['#rx_boundaryresearch_controls [data-rx="profileMass"]',1],
-   then:{en:v=>`The rank is now ${v.gram.rank}; this does not select ${v.gram.rank} physical families.`,es:v=>`El rango es ahora ${v.gram.rank}; esto no selecciona ${v.gram.rank} familias físicas.`}},
-  {en:()=> 'Inspect the same masses as a three-dimensional surface.',es:()=> 'Examina las mismas masas como superficie tridimensional.',set:['#rx_boundaryresearch_controls [data-rx="viewMode"]',1],hl:'#brx_landscape'},
-  {en:()=> 'Insert the four-dimensional intersection parity.',es:()=> 'Inserta la paridad de la intersección de cuatro dimensiones.',set:['#rx_boundaryresearch_controls [data-rx="insertion"]',991],hl:'#brx_trace',then:{en:()=> 'The exact table changes. These traces still lack the local weights and inflow.',es:()=> 'La tabla exacta cambia. Estas trazas aún carecen de los pesos locales y del flujo de anomalía.'}},
-  {en:()=> 'Test one identical six-dimensional family.',es:()=> 'Comprueba una familia de seis dimensiones.',set:['#rx_boundaryresearch_controls [data-rx="generations"]',1],
-   then:{en:v=>`The residue is ${v.family.residue} modulo 6: the restricted condition ${v.family.passes?'passes':'fails'}.`,es:v=>`El residuo es ${v.family.residue} módulo 6: ${v.family.passes?'cumple':'falla'} la condición restringida.`}},
-  {en:()=> 'Compare three identical six-dimensional families.',es:()=> 'Compara tres familias idénticas de seis dimensiones.',set:['#rx_boundaryresearch_controls [data-rx="generations"]',3],
-   then:{en:v=>`The residue is ${v.family.residue}. The full orbifold anomaly remains unknown: local coefficients and inflow are still required.`,es:v=>`El residuo es ${v.family.residue}. La anomalía del orbifold completo sigue pendiente: faltan coeficientes locales y flujo de anomalía.`}}
- ],explain:'guide'}
-});
+// Boundary research uses the generated bilingual storyboard, including certified
+// matching and the finite neutral quotient. Do not shadow it with a legacy demo.

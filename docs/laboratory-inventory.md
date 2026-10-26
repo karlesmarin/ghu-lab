@@ -5,7 +5,7 @@ boundary conditions, collider references, neutrino dynamics and thermal transiti
 [README catalog](../README.md#-the-instrument) follows the actual menu order; this guide explains
 the capabilities inside those entries and the tools that run outside the browser.
 
-## User guides · 17 October 2026
+## User guides · 26 October 2026
 
 [English](https://karlesmarin.github.io/ghu-explorer/guide/index.html)
 · [Castellano](https://karlesmarin.github.io/ghu-explorer/guide/es/index.html)
@@ -15,7 +15,7 @@ the capabilities inside those entries and the tools that run outside the browser
 The searchable guide index organizes tasks and model families. **46 guides** cover the 30 menu
 sections, three Simulator modes, eleven embedded experiments, neutrino decays and getting started;
 these overlap and are not a count of independent panels. Each guide explains controls, outputs,
-an example, assumptions, troubleshooting and source attribution. The 59-term glossary and inline
+an example, assumptions, troubleshooting and source attribution. The 67-term glossary and inline
 help share the English/Spanish catalogues, so scope corrections reach both places.
 
 The application links each section, mode and experiment to its guide. Help language persists without
@@ -62,7 +62,7 @@ they are not a count of every control, plot or numerical function.
 | 🌡️ Finite-temperature GHU | Simulator → SU(N) builder | Independent thermal SU(3) benchmark, coexistence, phase flow, cutoff comparison and matching PhaseTracer bounce |
 | 🫧 Integrated transition history | Simulator → SU(N) builder | Refined actions, nucleation, percolation, completion, false-vacuum fraction, bubble separation and a conditional acoustic spectrum |
 | ⚖️ RS anomaly flow | Anomalies & proton | Z-mode profiles and masses, UV/IR anomaly factors, gauge cancellation and baryon-current matrix |
-| 📐 Boundary research | Anomalies & proton | Flat boundary spectrum with linked 2D/3D mass views, profile Gram rank, exact parity-inserted traces the restricted 6D family condition and independently certified profile matching; [equations and reuse](boundary-research.md) |
+| 📐 Boundary research | Anomalies & proton | Flat boundary spectrum with linked 2D/3D mass views, profile Gram rank, exact parity-inserted traces, the restricted 6D family condition, independently certified profile matching and the exact finite neutral quotient (section 6); [equations and reuse](boundary-research.md) |
 | 🔎 Hypothesis comparison | Hypotheses | Nine archived Wilson-potential cases, recalibrated local couplings and measured CMS covariance; scoped mathematical evidence |
 | 💥 Higgs rates and experimental tests | Collider | Scalar couplings, invisible width, complete rate/width tables and matching HiggsBounds/HiggsSignals results |
 | 🎯 First KK gluon at the LHC | Collider | Flat GHU or warped zero-mode couplings, widths and branching fractions; LO σ × BR against the ATLAS tt̄ and CMS dijet limits as r; m(tt̄) spectrum with KK–QCD interference against CMS TOP-20-001 and its expected Δχ² (a sensitivity) |
@@ -125,7 +125,7 @@ comparisons belong in the JSON archive. See [the export guide](result-card.md).
 
 ## 🎬 Video guide
 
-Watch this inventory in action: [English](https://karlesmarin.github.io/ghu-explorer/video/index.html?lang=en) · [Español](https://karlesmarin.github.io/ghu-explorer/video/index.html?lang=es). The tutorial covers every menu entry, Simulator mode and research card, with chapters, narration, subtitles and downloads.
+Watch this inventory in action: [English](https://karlesmarin.github.io/ghu-explorer/video/index.html?lang=en) · [Español](https://karlesmarin.github.io/ghu-explorer/video/index.html?lang=es). The 17 October tutorial covers every menu entry, Simulator mode and research card as recorded then. The finite neutral quotient added on 26 October is covered by the updated Boundary research demo and bilingual guides; it is absent from both recorded videos.
 
 ## Certified reference contents
 

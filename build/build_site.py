@@ -742,6 +742,8 @@ def main(argv=None):
                            "proof/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol\n"
                            "proof/matched-profiles/verify.py -text whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol\n"
                            "src/modules/matched_profiles*.mjs -text whitespace=blank-at-eol,space-before-tab,cr-at-eol\n")
+    with (OUT/'.gitattributes').open('a',encoding='utf-8',newline='\n') as attributes:
+        attributes.write('src/modules/z_isolation_reference.mjs -text whitespace=blank-at-eol,space-before-tab,cr-at-eol\n')
 
     from proof_catalogue import build as build_proof_catalogue
     written.extend(build_proof_catalogue(ROOT, OUT))

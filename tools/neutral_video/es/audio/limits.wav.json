@@ -1,0 +1,356 @@
+﻿{
+    "voice":  "Microsoft Helena Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "Descarga la demostración y el verificador y repite el certificado con SymPy. El encierro establece positividad, simplicidad y aislamiento en este modelo condicionado. No certifica la derivada Wilson, R Z W, el vacío, las corrientes ni la dirección física del Higgs. No derives los extremos de los intervalos. La demo, el manual y el certificado conservan estos límites.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "Descarga",
+                      "start":  0,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  0.615,
+                      "text":  "la",
+                      "start":  9,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  0.715,
+                      "text":  "demostración",
+                      "start":  12,
+                      "length":  12
+                  },
+                  {
+                      "seconds":  1.3699999999999999,
+                      "text":  "y",
+                      "start":  25,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  1.4349999999999998,
+                      "text":  "el",
+                      "start":  27,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  1.53,
+                      "text":  "verificador",
+                      "start":  30,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  2.165,
+                      "text":  "y",
+                      "start":  42,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  2.225,
+                      "text":  "repite",
+                      "start":  44,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  2.635,
+                      "text":  "el",
+                      "start":  51,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  2.7199999999999998,
+                      "text":  "certificado",
+                      "start":  54,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  3.415,
+                      "text":  "con",
+                      "start":  66,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  3.585,
+                      "text":  "SymPy",
+                      "start":  70,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  6.27,
+                      "text":  "El",
+                      "start":  77,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  6.3999999999999995,
+                      "text":  "encierro",
+                      "start":  80,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  6.795,
+                      "text":  "establece",
+                      "start":  89,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  7.305,
+                      "text":  "positividad",
+                      "start":  99,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  8.415,
+                      "text":  "simplicidad",
+                      "start":  112,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  9.0949999999999989,
+                      "text":  "y",
+                      "start":  124,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  9.155,
+                      "text":  "aislamiento",
+                      "start":  126,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  9.754999999999999,
+                      "text":  "en",
+                      "start":  138,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  9.8449999999999989,
+                      "text":  "este",
+                      "start":  141,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  10.075,
+                      "text":  "modelo",
+                      "start":  146,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  10.43,
+                      "text":  "condicionado",
+                      "start":  153,
+                      "length":  12
+                  },
+                  {
+                      "seconds":  12.02,
+                      "text":  "No",
+                      "start":  167,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  12.18,
+                      "text":  "certifica",
+                      "start":  170,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  12.754999999999999,
+                      "text":  "la",
+                      "start":  180,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  12.854999999999999,
+                      "text":  "derivada",
+                      "start":  183,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  13.274999999999999,
+                      "text":  "Wilson",
+                      "start":  192,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  14.18,
+                      "text":  "R",
+                      "start":  200,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  14.395,
+                      "text":  "Z",
+                      "start":  202,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  14.69,
+                      "text":  "W",
+                      "start":  204,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  15.645,
+                      "text":  "el",
+                      "start":  207,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  15.79,
+                      "text":  "vacío",
+                      "start":  210,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  16.595,
+                      "text":  "las",
+                      "start":  217,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  16.775,
+                      "text":  "corrientes",
+                      "start":  221,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  17.335,
+                      "text":  "ni",
+                      "start":  232,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  17.47,
+                      "text":  "la",
+                      "start":  235,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  17.575,
+                      "text":  "dirección",
+                      "start":  238,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  18.055,
+                      "text":  "física",
+                      "start":  248,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  18.465,
+                      "text":  "del",
+                      "start":  255,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  18.625,
+                      "text":  "Higgs",
+                      "start":  259,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  19.88,
+                      "text":  "No",
+                      "start":  266,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  20.035,
+                      "text":  "derives",
+                      "start":  269,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  20.465,
+                      "text":  "los",
+                      "start":  277,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  20.645,
+                      "text":  "extremos",
+                      "start":  281,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  21.134999999999998,
+                      "text":  "de",
+                      "start":  290,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  21.22,
+                      "text":  "los",
+                      "start":  293,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  21.4,
+                      "text":  "intervalos",
+                      "start":  297,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  22.919999999999998,
+                      "text":  "La",
+                      "start":  309,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  23.055,
+                      "text":  "demo",
+                      "start":  312,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  23.785,
+                      "text":  "el",
+                      "start":  318,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  23.924999999999997,
+                      "text":  "manual",
+                      "start":  321,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  24.31,
+                      "text":  "y",
+                      "start":  328,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  24.38,
+                      "text":  "el",
+                      "start":  330,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  24.48,
+                      "text":  "certificado",
+                      "start":  333,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  25.169999999999998,
+                      "text":  "conservan",
+                      "start":  345,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  25.705,
+                      "text":  "estos",
+                      "start":  355,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  26,
+                      "text":  "límites",
+                      "start":  361,
+                      "length":  7
+                  }
+              ]
+}

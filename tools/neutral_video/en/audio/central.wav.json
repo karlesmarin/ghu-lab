@@ -1,0 +1,368 @@
+﻿{
+    "voice":  "Microsoft Zira Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "At the exact Wilson angle one fifth, the light eigenvalue lies between two hundred forty four over eight thousand four hundred twenty five, and four over one hundred twenty five. The guaranteed gap is three hundred thirty seven over four thousand. These are rational bounds for the continuous operator, with its boundary conditions, in the stated five component active block.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "At",
+                      "start":  0,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  0.22499999999999998,
+                      "text":  "the",
+                      "start":  3,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  0.36,
+                      "text":  "exact",
+                      "start":  7,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  0.78499999999999992,
+                      "text":  "Wilson",
+                      "start":  13,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  1.18,
+                      "text":  "angle",
+                      "start":  20,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  1.515,
+                      "text":  "one",
+                      "start":  26,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  1.75,
+                      "text":  "fifth",
+                      "start":  30,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  2.6199999999999997,
+                      "text":  "the",
+                      "start":  37,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  2.7199999999999998,
+                      "text":  "light",
+                      "start":  41,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  2.9949999999999997,
+                      "text":  "eigenvalue",
+                      "start":  47,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  3.685,
+                      "text":  "lies",
+                      "start":  58,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  3.9349999999999996,
+                      "text":  "between",
+                      "start":  63,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  4.3549999999999995,
+                      "text":  "two",
+                      "start":  71,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  4.6099999999999994,
+                      "text":  "hundred",
+                      "start":  75,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  5.015,
+                      "text":  "forty",
+                      "start":  83,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  5.37,
+                      "text":  "four",
+                      "start":  89,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  5.67,
+                      "text":  "over",
+                      "start":  94,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  5.9399999999999995,
+                      "text":  "eight",
+                      "start":  99,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  6.13,
+                      "text":  "thousand",
+                      "start":  105,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  6.58,
+                      "text":  "four",
+                      "start":  114,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  6.84,
+                      "text":  "hundred",
+                      "start":  119,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  7.2349999999999994,
+                      "text":  "twenty",
+                      "start":  127,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  7.6049999999999995,
+                      "text":  "five",
+                      "start":  134,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  8.435,
+                      "text":  "and",
+                      "start":  140,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  8.58,
+                      "text":  "four",
+                      "start":  144,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  8.86,
+                      "text":  "over",
+                      "start":  149,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  9.115,
+                      "text":  "one",
+                      "start":  154,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  9.315,
+                      "text":  "hundred",
+                      "start":  158,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  9.7199999999999989,
+                      "text":  "twenty",
+                      "start":  166,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  10.084999999999999,
+                      "text":  "five",
+                      "start":  173,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  11.365,
+                      "text":  "The",
+                      "start":  179,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  11.465,
+                      "text":  "guaranteed",
+                      "start":  183,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  12.059999999999999,
+                      "text":  "gap",
+                      "start":  194,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  12.365,
+                      "text":  "is",
+                      "start":  198,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  12.49,
+                      "text":  "three",
+                      "start":  201,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  12.74,
+                      "text":  "hundred",
+                      "start":  207,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  13.145,
+                      "text":  "thirty",
+                      "start":  215,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  13.459999999999999,
+                      "text":  "seven",
+                      "start":  222,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  13.825,
+                      "text":  "over",
+                      "start":  228,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  14.065,
+                      "text":  "four",
+                      "start":  233,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  14.334999999999999,
+                      "text":  "thousand",
+                      "start":  238,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  15.77,
+                      "text":  "These",
+                      "start":  248,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  16,
+                      "text":  "are",
+                      "start":  254,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  16.134999999999998,
+                      "text":  "rational",
+                      "start":  258,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  16.599999999999998,
+                      "text":  "bounds",
+                      "start":  267,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  16.985,
+                      "text":  "for",
+                      "start":  274,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  17.12,
+                      "text":  "the",
+                      "start":  278,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  17.21,
+                      "text":  "continuous",
+                      "start":  282,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  17.845,
+                      "text":  "operator",
+                      "start":  293,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  18.84,
+                      "text":  "with",
+                      "start":  303,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  18.994999999999997,
+                      "text":  "its",
+                      "start":  308,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  19.154999999999998,
+                      "text":  "boundary",
+                      "start":  312,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  19.66,
+                      "text":  "conditions",
+                      "start":  321,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  20.759999999999998,
+                      "text":  "in",
+                      "start":  333,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  20.869999999999997,
+                      "text":  "the",
+                      "start":  336,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  20.945,
+                      "text":  "stated",
+                      "start":  340,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  21.349999999999998,
+                      "text":  "five",
+                      "start":  347,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  21.68,
+                      "text":  "component",
+                      "start":  352,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  22.244999999999997,
+                      "text":  "active",
+                      "start":  362,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  22.599999999999998,
+                      "text":  "block",
+                      "start":  369,
+                      "length":  5
+                  }
+              ]
+}

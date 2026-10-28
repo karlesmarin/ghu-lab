@@ -1,0 +1,254 @@
+﻿{
+    "voice":  "Microsoft Zira Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "The finite neutral complex answers an algebraic question. In the generic stratum, every closed direction is gauge. The quotient has dimension zero. Exact minors and rank nullity certify this statement. They do not certify the continuous operator or a Higgs mass.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "The",
+                      "start":  0,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  0.18,
+                      "text":  "finite",
+                      "start":  4,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  0.66499999999999992,
+                      "text":  "neutral",
+                      "start":  11,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  1.03,
+                      "text":  "complex",
+                      "start":  19,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  1.5799999999999998,
+                      "text":  "answers",
+                      "start":  27,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  2.005,
+                      "text":  "an",
+                      "start":  35,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  2.145,
+                      "text":  "algebraic",
+                      "start":  38,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  2.8249999999999997,
+                      "text":  "question",
+                      "start":  48,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  4.265,
+                      "text":  "In",
+                      "start":  58,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  4.375,
+                      "text":  "the",
+                      "start":  61,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  4.475,
+                      "text":  "generic",
+                      "start":  65,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  4.895,
+                      "text":  "stratum",
+                      "start":  73,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  5.81,
+                      "text":  "every",
+                      "start":  82,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  6.08,
+                      "text":  "closed",
+                      "start":  88,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  6.5249999999999995,
+                      "text":  "direction",
+                      "start":  95,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  7.0249999999999995,
+                      "text":  "is",
+                      "start":  105,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  7.18,
+                      "text":  "gauge",
+                      "start":  108,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  8.504999999999999,
+                      "text":  "The",
+                      "start":  115,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  8.605,
+                      "text":  "quotient",
+                      "start":  119,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  9.115,
+                      "text":  "has",
+                      "start":  128,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  9.34,
+                      "text":  "dimension",
+                      "start":  132,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  9.825,
+                      "text":  "zero",
+                      "start":  142,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  11.139999999999999,
+                      "text":  "Exact",
+                      "start":  148,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  11.575,
+                      "text":  "minors",
+                      "start":  154,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  12.01,
+                      "text":  "and",
+                      "start":  161,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  12.174999999999999,
+                      "text":  "rank",
+                      "start":  165,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  12.475,
+                      "text":  "nullity",
+                      "start":  170,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  12.834999999999999,
+                      "text":  "certify",
+                      "start":  178,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  13.389999999999999,
+                      "text":  "this",
+                      "start":  186,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  13.569999999999999,
+                      "text":  "statement",
+                      "start":  191,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  14.975,
+                      "text":  "They",
+                      "start":  202,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  15.094999999999999,
+                      "text":  "do",
+                      "start":  207,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  15.28,
+                      "text":  "not",
+                      "start":  210,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  15.53,
+                      "text":  "certify",
+                      "start":  214,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  16.06,
+                      "text":  "the",
+                      "start":  222,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  16.16,
+                      "text":  "continuous",
+                      "start":  226,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  16.8,
+                      "text":  "operator",
+                      "start":  237,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  17.335,
+                      "text":  "or",
+                      "start":  246,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  17.48,
+                      "text":  "a",
+                      "start":  249,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  17.55,
+                      "text":  "Higgs",
+                      "start":  251,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  17.875,
+                      "text":  "mass",
+                      "start":  257,
+                      "length":  4
+                  }
+              ]
+}

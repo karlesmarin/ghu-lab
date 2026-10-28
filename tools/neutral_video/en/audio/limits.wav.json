@@ -1,0 +1,332 @@
+﻿{
+    "voice":  "Microsoft Zira Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "Download the proof and verifier, and replay the certificate with SymPy. The enclosure establishes positivity, simplicity and isolation in this conditional model. It does not certify the Wilson derivative, R Z W, a vacuum, currents or a physical Higgs direction. Do not differentiate interval endpoints. The live demo, manual and certificate preserve these limits.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "Download",
+                      "start":  0,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  0.595,
+                      "text":  "the",
+                      "start":  9,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  0.66999999999999993,
+                      "text":  "proof",
+                      "start":  13,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  1.025,
+                      "text":  "and",
+                      "start":  19,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  1.18,
+                      "text":  "verifier",
+                      "start":  23,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  2.2849999999999997,
+                      "text":  "and",
+                      "start":  33,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  2.415,
+                      "text":  "replay",
+                      "start":  37,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  2.835,
+                      "text":  "the",
+                      "start":  44,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  2.9299999999999997,
+                      "text":  "certificate",
+                      "start":  48,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  3.5799999999999996,
+                      "text":  "with",
+                      "start":  60,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  3.73,
+                      "text":  "SymPy",
+                      "start":  65,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  5.095,
+                      "text":  "The",
+                      "start":  72,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  5.215,
+                      "text":  "enclosure",
+                      "start":  76,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  5.8199999999999994,
+                      "text":  "establishes",
+                      "start":  86,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  6.535,
+                      "text":  "positivity",
+                      "start":  98,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  7.4399999999999995,
+                      "text":  "simplicity",
+                      "start":  110,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  8.33,
+                      "text":  "and",
+                      "start":  121,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  8.435,
+                      "text":  "isolation",
+                      "start":  125,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  9.0949999999999989,
+                      "text":  "in",
+                      "start":  135,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  9.225,
+                      "text":  "this",
+                      "start":  138,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  9.41,
+                      "text":  "conditional",
+                      "start":  143,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  9.975,
+                      "text":  "model",
+                      "start":  155,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  11.26,
+                      "text":  "It",
+                      "start":  162,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  11.375,
+                      "text":  "does",
+                      "start":  165,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  11.615,
+                      "text":  "not",
+                      "start":  170,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  11.86,
+                      "text":  "certify",
+                      "start":  174,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  12.395,
+                      "text":  "the",
+                      "start":  182,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  12.504999999999999,
+                      "text":  "Wilson",
+                      "start":  186,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  12.895,
+                      "text":  "derivative",
+                      "start":  193,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  13.879999999999999,
+                      "text":  "R",
+                      "start":  205,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  14.075,
+                      "text":  "Z",
+                      "start":  207,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  14.305,
+                      "text":  "W",
+                      "start":  209,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  14.955,
+                      "text":  "a",
+                      "start":  212,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  15.02,
+                      "text":  "vacuum",
+                      "start":  214,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  15.754999999999999,
+                      "text":  "currents",
+                      "start":  222,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  16.4,
+                      "text":  "or",
+                      "start":  231,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  16.544999999999998,
+                      "text":  "a",
+                      "start":  234,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  16.595,
+                      "text":  "physical",
+                      "start":  236,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  17.07,
+                      "text":  "Higgs",
+                      "start":  245,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  17.345,
+                      "text":  "direction",
+                      "start":  251,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  18.794999999999998,
+                      "text":  "Do",
+                      "start":  262,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  18.945,
+                      "text":  "not",
+                      "start":  265,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  19.2,
+                      "text":  "differentiate",
+                      "start":  269,
+                      "length":  13
+                  },
+                  {
+                      "seconds":  19.994999999999997,
+                      "text":  "interval",
+                      "start":  283,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  20.415,
+                      "text":  "endpoints",
+                      "start":  292,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  21.965,
+                      "text":  "The",
+                      "start":  303,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  22.08,
+                      "text":  "live",
+                      "start":  307,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  22.334999999999997,
+                      "text":  "demo",
+                      "start":  312,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  22.855,
+                      "text":  "manual",
+                      "start":  318,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  23.57,
+                      "text":  "and",
+                      "start":  325,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  23.689999999999998,
+                      "text":  "certificate",
+                      "start":  329,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  24.31,
+                      "text":  "preserve",
+                      "start":  341,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  24.735,
+                      "text":  "these",
+                      "start":  350,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  24.97,
+                      "text":  "limits",
+                      "start":  356,
+                      "length":  6
+                  }
+              ]
+}

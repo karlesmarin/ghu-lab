@@ -1,5 +1,17 @@
 # 🧭 GHU Lab — an instrument for gauge–Higgs unification
 
+## Continuous neutral isolation · 28 October 2026
+
+Boundary research section 6b bounds the light neutral vector mass and its
+separation from the next active mode at three exact Wilson angles. Download
+the continuous proof, exact witnesses and replay verifier from the app.
+The declared unit-square model has fixed walls; SZ, RZW, vacuum and physical
+matching remain open. Bilingual help and the live Demo explain the scope.
+A new [English supplement](video/neutral/index.html) and
+[suplemento en castellano](video/neutral/index-es.html) cover both neutral
+tools in six narrated chapters, with captions, transcripts and proof links.
+The main recorded films below retain their original dates and coverage.
+
 ## Finite neutral quotient and synchronized guides · 26 October 2026
 
 **Anomalies → Boundary research → section 6** now exposes the exact finite complex

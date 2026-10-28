@@ -1,0 +1,44 @@
+[
+  {
+    "id": "finite",
+    "title": "Finite scalar quotient",
+    "start": 0,
+    "end": 20.5,
+    "text": "The finite neutral complex answers an algebraic question. In the generic stratum, every closed direction is gauge. The quotient has dimension zero. Exact minors and rank nullity certify this statement. They do not certify the continuous operator or a Higgs mass."
+  },
+  {
+    "id": "restored",
+    "title": "The restored stratum",
+    "start": 20.5,
+    "end": 38.375,
+    "text": "Switch to the restored stratum. One closed class remains after quotienting by gauge directions. This exact distinction is useful for testing hypotheses about the scalar sector. It is separate from the continuous vector spectrum shown next."
+  },
+  {
+    "id": "central",
+    "title": "An isolated continuous neutral mode",
+    "start": 38.375,
+    "end": 63.625,
+    "text": "At the exact Wilson angle one fifth, the light eigenvalue lies between two hundred forty four over eight thousand four hundred twenty five, and four over one hundred twenty five. The guaranteed gap is three hundred thirty seven over four thousand. These are rational bounds for the continuous operator, with its boundary conditions, in the stated five component active block."
+  },
+  {
+    "id": "angle",
+    "title": "Compare a second certified angle",
+    "start": 63.625,
+    "end": 85.875,
+    "text": "Choose one quarter. The lower endpoint is one over twenty eight and the upper endpoint is one twentieth. The fixed model has unit lengths and boundary strengths, with eta zero. Three decoupled zero directions are kept separately. Changing the unrelated fermion controls does not change this certified model."
+  },
+  {
+    "id": "proof",
+    "title": "Why this is a certificate",
+    "start": 85.875,
+    "end": 114.33333333333333,
+    "text": "The written proof first bounds the second eigenvalue using means, traces and the min max principle. A smooth trial function satisfies all operator boundary conditions. Its exact Rayleigh quotient and residual enter the published Temple inequality. The downloaded proof states these analytic arguments. The symbolic verifier checks their algebra and the rational endpoints; software tests alone are not the proof."
+  },
+  {
+    "id": "limits",
+    "title": "What remains open",
+    "start": 114.33333333333333,
+    "end": 142.0,
+    "text": "Download the proof and verifier, and replay the certificate with SymPy. The enclosure establishes positivity, simplicity and isolation in this conditional model. It does not certify the Wilson derivative, R Z W, a vacuum, currents or a physical Higgs direction. Do not differentiate interval endpoints. The live demo, manual and certificate preserve these limits."
+  }
+]

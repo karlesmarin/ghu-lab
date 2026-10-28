@@ -138,6 +138,44 @@ try{
     check('finite panel '+name+' has no page overflow',await ev('document.documentElement.scrollWidth<=window.innerWidth+2'));
     writeFileSync(resolve(out,'neutral_'+name+'.png'),Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
   }
+  for(const [point,theta] of [[0,'1/10'],[1,'1/5'],[2,'1/4']]){
+    await set('neutralPoint',point);
+    check('continuous query '+theta,(await value()).neutralIsolation.theta===theta);
+    check('continuous enclosure rendered '+theta,await ev(`document.getElementById('zis_panel').textContent.includes(${JSON.stringify(theta)})&&document.getElementById('zis_panel').textContent.includes('sin certificar')`));
+  }
+  await set('theta',0);await set('strength',0);
+  check('unrelated controls cannot change certified model',(await value()).neutralIsolation.theta==='1/4'&&(await value()).neutralIsolation.model.muOmega==='1');
+  await ev(`window.zisDownloads=[];rxDownload=(...args)=>zisDownloads.push(args);document.querySelector('[data-zis-export]').click();document.querySelector('[data-zis-certificate]').click()`);
+  check('continuous result and proof downloaded',await ev(`JSON.parse(zisDownloads[0][1]).theta==='1/4'&&JSON.parse(zisDownloads[0][1]).derivative_status==='not_certified'&&zisDownloads[1][1][0]===80&&zisDownloads[1][1][1]===75`));
+  await ev(`document.getElementById('btnLink').click()`);const zisLink=await ev('location.href');
+  await send('Page.navigate',{url:zisLink});await pause(500);
+  check('link restores neutral query',await ev(`RX_STATE.boundaryresearch.neutralPoint===2&&brxModel(RX_STATE.boundaryresearch).neutralIsolation.lambda_lower==='1/28'`));
+  await ev(`document.querySelector('#rx_boundaryresearch [data-guide-set-language="en"]').click()`);
+  check('continuous scope restores English',await ev(`document.getElementById('zis_panel').textContent.includes('not certified')&&document.querySelector('[data-rx="neutralPoint"]').value==='2'`));
+  await ev(`document.querySelector('#rx_boundaryresearch [data-guide-set-language="es"]').click()`);
+  for(const [name,width,height,mobile] of [['desktop',1380,1000,false],['mobile',390,844,true]]){
+    await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile});
+    await ev(`document.getElementById('zis_panel').scrollIntoView({block:'start'})`);await pause(100);
+    check('continuous panel '+name+' has no page overflow',await ev('document.documentElement.scrollWidth<=window.innerWidth+2'));
+    writeFileSync(resolve(out,'z_isolation_'+name+'.png'),Buffer.from((await send('Page.captureScreenshot',{format:'png'})).data,'base64'));
+  }
+  if(process.argv.includes('--capture-video')){
+    const target=resolve(root,'tools/neutral_video/captures');mkdirSync(target,{recursive:true});const provenance=[];
+    await send('Emulation.setDeviceMetricsOverride',{width:1380,height:1800,deviceScaleFactor:1,mobile:false});
+    for(const lang of ['en','es']){
+      await ev(`document.querySelector('#rx_boundaryresearch [data-guide-set-language="${lang}"]').click()`);
+      for(const [id,panel,key,v] of [['finite','ncx_panel','neutralBranch',0],['restored','ncx_panel','neutralBranch',1],['central','zis_panel','neutralPoint',1],['angle','zis_panel','neutralPoint',2],['proof','zis_panel','neutralPoint',1],['limits','zis_panel','neutralPoint',1]]){
+        await set(key,v);await pause(600);await ev(`document.getElementById('${panel}').scrollIntoView({block:'start'})`);
+        await ev(`document.querySelector('#${panel} table').closest('details').open=true`);await pause(250);
+        check(lang+' '+id+' table visible',await ev(`document.querySelector('#${panel} table').closest('details').open&&document.querySelector('#${panel} table').getBoundingClientRect().height>50`));
+        const clip=await ev(`(()=>{const b=document.getElementById('${panel}').getBoundingClientRect();return {x:b.x+scrollX,y:Math.max(0,b.y+scrollY-22),width:b.width,height:b.height+44,scale:1};})()`);
+        const raw=Buffer.from((await send('Page.captureScreenshot',{format:'png',clip,captureBeyondViewport:false})).data,'base64');
+        writeFileSync(resolve(target,lang+'-'+id+'-card.png'),raw);
+        provenance.push({language:lang,id,panel,inputs:await ev('RX_STATE.boundaryresearch'),result:await value(),sha256:createHash('sha256').update(raw).digest('hex')});
+      }
+    }
+    writeFileSync(resolve(target,'provenance.json'),JSON.stringify({app_sha256:createHash('sha256').update(readFileSync(app)).digest('hex'),captures:provenance},null,2)+'\n');
+  }
   check('no runtime errors',!events.some(e=>e.method==='Runtime.exceptionThrown'));
 } catch(e){console.error(e);process.exitCode=1;}
 finally{

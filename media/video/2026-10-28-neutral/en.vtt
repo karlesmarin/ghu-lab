@@ -1,0 +1,65 @@
+WEBVTT
+
+00:00:00.500 --> 00:00:07.580
+The finite neutral complex answers an algebraic question. In the generic stratum, every closed direction is
+
+00:00:07.580 --> 00:00:15.930
+gauge. The quotient has dimension zero. Exact minors and rank nullity certify this statement. They do not
+
+00:00:15.930 --> 00:00:20.250
+certify the continuous operator or a Higgs mass.
+
+00:00:21.000 --> 00:00:28.625
+Switch to the restored stratum. One closed class remains after quotienting by gauge directions. This exact
+
+00:00:28.625 --> 00:00:34.870
+distinction is useful for testing hypotheses about the scalar sector. It is separate from the continuous
+
+00:00:34.870 --> 00:00:38.125
+vector spectrum shown next.
+
+00:00:38.875 --> 00:00:44.905
+At the exact Wilson angle one fifth, the light eigenvalue lies between two hundred forty four over eight
+
+00:00:44.905 --> 00:00:51.515
+thousand four hundred twenty five, and four over one hundred twenty five. The guaranteed gap is three
+
+00:00:51.515 --> 00:00:57.930
+hundred thirty seven over four thousand. These are rational bounds for the continuous operator, with its
+
+00:00:57.930 --> 00:01:03.375
+boundary conditions, in the stated five component active block.
+
+00:01:04.125 --> 00:01:11.235
+Choose one quarter. The lower endpoint is one over twenty eight and the upper endpoint is one twentieth. The
+
+00:01:11.235 --> 00:01:18.380
+fixed model has unit lengths and boundary strengths, with eta zero. Three decoupled zero directions are kept
+
+00:01:18.380 --> 00:01:25.625
+separately. Changing the unrelated fermion controls does not change this certified model.
+
+00:01:26.375 --> 00:01:33.250
+The written proof first bounds the second eigenvalue using means, traces and the min max principle. A smooth
+
+00:01:33.250 --> 00:01:39.960
+trial function satisfies all operator boundary conditions. Its exact Rayleigh quotient and residual enter
+
+00:01:39.960 --> 00:01:47.465
+the published Temple inequality. The downloaded proof states these analytic arguments. The symbolic verifier
+
+00:01:47.465 --> 00:01:54.083
+checks their algebra and the rational endpoints; software tests alone are not the proof.
+
+00:01:54.833 --> 00:02:01.268
+Download the proof and verifier, and replay the certificate with SymPy. The enclosure establishes
+
+00:02:01.268 --> 00:02:08.808
+positivity, simplicity and isolation in this conditional model. It does not certify the Wilson derivative, R
+
+00:02:08.808 --> 00:02:17.068
+Z W, a vacuum, currents or a physical Higgs direction. Do not differentiate interval endpoints. The live
+
+00:02:17.068 --> 00:02:21.750
+demo, manual and certificate preserve these limits.
+

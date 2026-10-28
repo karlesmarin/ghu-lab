@@ -1,0 +1,13 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Segoe UI,38,&H00FFFFFF,&H00FFFFFF,&H00172E3C,&H00172E3C,0,0,0,0,100,100,0,0,1,1,0,2,65,65,75,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.50,0:00:07.70,Default,,0,0,0,,Descarga la demostración y el verificador y repite el certificado con SymPy. El encierro establece
+Dialogue: 0,0:00:07.70,0:00:16.04,Default,,0,0,0,,positividad, simplicidad y aislamiento en este modelo condicionado. No certifica la derivada Wilson, R Z W,
+Dialogue: 0,0:00:16.04,0:00:23.46,Default,,0,0,0,,el vacío, las corrientes ni la dirección física del Higgs. No derives los extremos de los intervalos. La
+Dialogue: 0,0:00:23.46,0:00:28.46,Default,,0,0,0,,demo, el manual y el certificado conservan estos límites.

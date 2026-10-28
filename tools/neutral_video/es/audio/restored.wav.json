@@ -1,0 +1,224 @@
+﻿{
+    "voice":  "Microsoft Helena Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "Cambia al estrato restaurado. Queda una clase cerrada después de tomar el cociente por las direcciones gauge. Esta distinción exacta permite examinar hipótesis sobre el sector escalar. Es independiente del espectro vectorial continuo que veremos ahora.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "Cambia",
+                      "start":  0,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  0.565,
+                      "text":  "al",
+                      "start":  7,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  0.65999999999999992,
+                      "text":  "estrato",
+                      "start":  10,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  1.07,
+                      "text":  "restaurado",
+                      "start":  18,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  2.57,
+                      "text":  "Queda",
+                      "start":  30,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  2.835,
+                      "text":  "una",
+                      "start":  36,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  3.02,
+                      "text":  "clase",
+                      "start":  40,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  3.3449999999999998,
+                      "text":  "cerrada",
+                      "start":  46,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  3.73,
+                      "text":  "después",
+                      "start":  54,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  4.1,
+                      "text":  "de",
+                      "start":  62,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  4.205,
+                      "text":  "tomar",
+                      "start":  65,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  4.505,
+                      "text":  "el",
+                      "start":  71,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  4.6099999999999994,
+                      "text":  "cociente",
+                      "start":  74,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  5.09,
+                      "text":  "por",
+                      "start":  83,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  5.25,
+                      "text":  "las",
+                      "start":  87,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  5.395,
+                      "text":  "direcciones",
+                      "start":  91,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  5.9849999999999994,
+                      "text":  "gauge",
+                      "start":  103,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  7.185,
+                      "text":  "Esta",
+                      "start":  110,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  7.435,
+                      "text":  "distinción",
+                      "start":  115,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  7.9799999999999995,
+                      "text":  "exacta",
+                      "start":  126,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  8.415,
+                      "text":  "permite",
+                      "start":  133,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  8.84,
+                      "text":  "examinar",
+                      "start":  141,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  9.355,
+                      "text":  "hipótesis",
+                      "start":  150,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  9.895,
+                      "text":  "sobre",
+                      "start":  160,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  10.125,
+                      "text":  "el",
+                      "start":  166,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  10.2,
+                      "text":  "sector",
+                      "start":  169,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  10.59,
+                      "text":  "escalar",
+                      "start":  176,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  11.86,
+                      "text":  "Es",
+                      "start":  185,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  12.03,
+                      "text":  "independiente",
+                      "start":  188,
+                      "length":  13
+                  },
+                  {
+                      "seconds":  12.725,
+                      "text":  "del",
+                      "start":  202,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  12.865,
+                      "text":  "espectro",
+                      "start":  206,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  13.325,
+                      "text":  "vectorial",
+                      "start":  215,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  13.84,
+                      "text":  "continuo",
+                      "start":  225,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  14.315,
+                      "text":  "que",
+                      "start":  234,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  14.44,
+                      "text":  "veremos",
+                      "start":  238,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  14.819999999999999,
+                      "text":  "ahora",
+                      "start":  246,
+                      "length":  5
+                  }
+              ]
+}

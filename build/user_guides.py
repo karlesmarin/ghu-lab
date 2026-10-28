@@ -118,6 +118,8 @@ def render_all(root,out,write,page,shell,css,build):
                     body+='<section id="'+esc(key)+'"><h2>'+esc(t['term'])+'</h2><p>'+t['body']+'</p>'+link('#top',labels['up'])+'</section>'
             else:
                 g=guides[id]
+                if id=='boundaryresearch':
+                    body+='<p>'+link(prefix+'video/neutral/'+('index-es.html' if lang=='es' else 'index.html'),'Suplemento neutro y Z · 28 octubre' if lang=='es' else 'Neutral and Z supplement · 28 October')+'</p>'
                 body+='<div class="guide-actions">'+link(prefix+'app/index.html#'+g['route'],labels['open'])+link(prefix+'video/index.html?lang='+lang+'#'+g['video'],labels['video'])+'</div><p class="note">'+labels['note']+'</p>'
                 keys=['purpose','steps','controls','outputs','example']+(['formulas'] if g.get('formulas') else [])+['limits','troubleshooting','terms','related','references']
                 body+='<nav aria-label="'+labels['contents']+'"><ul class="guide-toc">'+''.join('<li>'+link('#'+k,labels[k])+'</li>' for k in keys if g.get(k))+'</ul></nav>'

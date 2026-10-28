@@ -1,0 +1,119 @@
+{
+  "schema": "ghu-z-isolation-v1",
+  "model": {
+    "geometry": "unit_square",
+    "L5": "1",
+    "L6": "1",
+    "muOmega": "1",
+    "muPhi": "1",
+    "eta": "0",
+    "theta_domain": "0 < theta <= 1/4; rational queries",
+    "K": [
+      [
+        0,
+        0,
+        -1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        -1,
+        0,
+        0,
+        0
+      ]
+    ],
+    "b": [
+      "1/2",
+      "0",
+      "0",
+      "1",
+      "-1/2"
+    ],
+    "C": [
+      [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "N0_indices": [
+      0,
+      3,
+      4
+    ],
+    "trial_n": [
+      2,
+      0,
+      0,
+      -1,
+      0
+    ],
+    "mass_metric": "L2",
+    "omitted_exact_zero_directions": 3
+  },
+  "scope": "Continuous active neutral block only; fixed geometry and walls. No certified Wilson derivative, RZW, vacuum or experimental matching.",
+  "cases": [
+    {
+      "theta": "1/10",
+      "lambda_lower": "109/13825",
+      "lambda_upper": "1/125",
+      "lambda2_lower": "117/800",
+      "gap_lower": "553/4000",
+      "residual_squared": "1/62500",
+      "status": "positive_simple_isolated",
+      "derivative_status": "not_certified"
+    },
+    {
+      "theta": "1/5",
+      "lambda_lower": "244/8425",
+      "lambda_upper": "4/125",
+      "lambda2_lower": "93/800",
+      "gap_lower": "337/4000",
+      "residual_squared": "4/15625",
+      "status": "positive_simple_isolated",
+      "derivative_status": "not_certified"
+    },
+    {
+      "theta": "1/4",
+      "lambda_lower": "1/28",
+      "lambda_upper": "1/20",
+      "lambda2_lower": "3/32",
+      "gap_lower": "7/160",
+      "residual_squared": "1/1600",
+      "status": "positive_simple_isolated",
+      "derivative_status": "not_certified"
+    }
+  ]
+}

@@ -2,9 +2,9 @@
   "schema": "ghu-video-guide-v1",
   "language": "en",
   "voice": "Microsoft Zira Desktop",
-  "date": "2026-10-26",
+  "date": "2026-10-28",
   "scope": "A real-interface walkthrough of all menu sections, three Simulator modes, ten research cards and integrated diagnostics. Representative controls are demonstrated; this is not an exhaustive tour of every numerical input combination. Includes certified SU(7) benchmarks, equal-moment counterexample, separated uncertainty budget, named LHC datasets, matched thermal solver diagnostics and the first KK gluon against ATLAS and CMS data, and the guided Demo buttons. Includes boundary research: linked 2D/3D mass views, Gram rank, inserted traces and a scoped 6D tensor condition. Adds a final quantization chapter: exact figures, joint integrality, conditional responses and scoped certificates. The boundary module includes two independently certified matched-profile response queries with a downloadable functional proof and replayable certificate.",
-  "recordingNotes": "Pointer highlights and chapter captions are tutorial annotations. Computation waits may be shortened; results come from the actual application. Built-in demonstrations may be held between steps for narration. The 26 October storyboard and live demos add section 6. Published MP4 files remain the 17 October edition; this script revision is not a new recording.",
+  "recordingNotes": "The 28 October storyboard and live demos include the finite neutral quotient and continuous neutral isolation (sections 6 and 6b). The main MP4 films retain their 17 October edition. A separate bilingual six-chapter neutral supplement dated 28 October covers both tools and their certified scope.",
   "chapters": [
     {
       "id": "start",
@@ -2689,6 +2689,52 @@
           ],
           "focus": {
             "selector": "#ncx_panel",
+            "index": 0
+          }
+        },
+        {
+          "id": "44_boundaryresearch_z_isolation",
+          "text": "Select the certified neutral angle one fifth. Section six b encloses the light vector mass using the continuous operator and its boundary conditions. Its positive gap proves isolation within the active block. The three decoupled zero directions remain separate. These are dimensionless bounds, not a measured Z mass.",
+          "textES": "Selecciona el ángulo neutro certificado un quinto. El apartado seis be encierra la masa vectorial ligera mediante el operador continuo y sus condiciones de frontera. La separación positiva demuestra aislamiento dentro del bloque activo. Las tres direcciones cero desacopladas se conservan aparte. Son cotas sin dimensiones, no una masa Z medida.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#rx_boundaryresearch_controls [data-rx=\"neutralPoint\"]",
+              "value": 1
+            }
+          ],
+          "focus": {
+            "selector": "#zis_panel",
+            "index": 0
+          }
+        },
+        {
+          "id": "44_boundaryresearch_z_comparison",
+          "text": "Compare one quarter with one tenth, then return to one fifth. The mass intervals and guaranteed separation change while the walls remain fixed. Download the continuous proof and verifier. The Wilson derivative and the Z to W response ratio are not certified; differentiating the interval endpoints would not prove them.",
+          "textES": "Compara un cuarto con un décimo y vuelve a un quinto. Los intervalos de masa y la separación garantizada cambian mientras las paredes permanecen fijas. Descarga la demostración continua y el verificador. La derivada Wilson y el cociente de respuestas Z sobre W no están certificados; derivar los extremos del intervalo no los demostraría.",
+          "actions": [
+            {
+              "kind": "set",
+              "selector": "#rx_boundaryresearch_controls [data-rx=\"neutralPoint\"]",
+              "value": 2
+            },
+            {
+              "kind": "set",
+              "selector": "#rx_boundaryresearch_controls [data-rx=\"neutralPoint\"]",
+              "value": 0
+            },
+            {
+              "kind": "set",
+              "selector": "#rx_boundaryresearch_controls [data-rx=\"neutralPoint\"]",
+              "value": 1
+            },
+            {
+              "kind": "click",
+              "selector": "[data-zis-certificate]"
+            }
+          ],
+          "focus": {
+            "selector": "#zis_panel",
             "index": 0
           }
         },

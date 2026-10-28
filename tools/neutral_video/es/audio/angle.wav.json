@@ -1,0 +1,290 @@
+﻿{
+    "voice":  "Microsoft Helena Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "Elige un cuarto. El extremo inferior es uno sobre veintiocho y el superior es un veinteavo. El modelo fija longitudes y fuerzas de frontera unitarias, con eta cero. Las tres direcciones cero desacopladas se conservan por separado. Cambiar los controles fermiónicos independientes no modifica este modelo certificado.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "Elige",
+                      "start":  0,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  0.44999999999999996,
+                      "text":  "un",
+                      "start":  6,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  0.575,
+                      "text":  "cuarto",
+                      "start":  9,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  1.88,
+                      "text":  "El",
+                      "start":  17,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  2.01,
+                      "text":  "extremo",
+                      "start":  20,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  2.4499999999999997,
+                      "text":  "inferior",
+                      "start":  28,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  2.8899999999999997,
+                      "text":  "es",
+                      "start":  37,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  3.04,
+                      "text":  "uno",
+                      "start":  40,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  3.205,
+                      "text":  "sobre",
+                      "start":  44,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  3.4949999999999997,
+                      "text":  "veintiocho",
+                      "start":  50,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  4.005,
+                      "text":  "y",
+                      "start":  61,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  4.06,
+                      "text":  "el",
+                      "start":  63,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  4.1499999999999995,
+                      "text":  "superior",
+                      "start":  66,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  4.64,
+                      "text":  "es",
+                      "start":  75,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  4.785,
+                      "text":  "un",
+                      "start":  78,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  4.8999999999999995,
+                      "text":  "veinteavo",
+                      "start":  81,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  6.34,
+                      "text":  "El",
+                      "start":  92,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  6.47,
+                      "text":  "modelo",
+                      "start":  95,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  6.81,
+                      "text":  "fija",
+                      "start":  102,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  7.1099999999999994,
+                      "text":  "longitudes",
+                      "start":  107,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  7.77,
+                      "text":  "y",
+                      "start":  118,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  7.83,
+                      "text":  "fuerzas",
+                      "start":  120,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  8.254999999999999,
+                      "text":  "de",
+                      "start":  128,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  8.34,
+                      "text":  "frontera",
+                      "start":  131,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  8.79,
+                      "text":  "unitarias",
+                      "start":  140,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  9.8099999999999987,
+                      "text":  "con",
+                      "start":  151,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  10,
+                      "text":  "eta",
+                      "start":  155,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  10.2,
+                      "text":  "cero",
+                      "start":  159,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  11.385,
+                      "text":  "Las",
+                      "start":  165,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  11.565,
+                      "text":  "tres",
+                      "start":  169,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  11.78,
+                      "text":  "direcciones",
+                      "start":  174,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  12.365,
+                      "text":  "cero",
+                      "start":  186,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  12.604999999999999,
+                      "text":  "desacopladas",
+                      "start":  191,
+                      "length":  12
+                  },
+                  {
+                      "seconds":  13.33,
+                      "text":  "se",
+                      "start":  204,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  13.434999999999999,
+                      "text":  "conservan",
+                      "start":  207,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  13.985,
+                      "text":  "por",
+                      "start":  217,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  14.125,
+                      "text":  "separado",
+                      "start":  221,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  15.54,
+                      "text":  "Cambiar",
+                      "start":  231,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  15.944999999999999,
+                      "text":  "los",
+                      "start":  239,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  16.099999999999998,
+                      "text":  "controles",
+                      "start":  243,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  16.62,
+                      "text":  "fermiónicos",
+                      "start":  253,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  17.27,
+                      "text":  "independientes",
+                      "start":  265,
+                      "length":  14
+                  },
+                  {
+                      "seconds":  18.044999999999998,
+                      "text":  "no",
+                      "start":  280,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  18.16,
+                      "text":  "modifica",
+                      "start":  283,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  18.66,
+                      "text":  "este",
+                      "start":  292,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  18.875,
+                      "text":  "modelo",
+                      "start":  297,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  19.22,
+                      "text":  "certificado",
+                      "start":  304,
+                      "length":  11
+                  }
+              ]
+}

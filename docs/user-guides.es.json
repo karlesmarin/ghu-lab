@@ -3834,10 +3834,14 @@
         {
           "label": "Schoeberl: equilibrated fluxes, sections 29.1–29.2; methodological background",
           "url": "https://jschoeberl.github.io/iFEM/aposteriori/equilibrated.html"
+        },
+        {
+          "label": "Kuroda: Kato-Temple, Theorem A",
+          "url": "https://ems.press/content/serial-article-files/40994"
         }
       ],
       "title": "Investigación de fronteras: espectros, perfiles, anomalías y respuesta certificada",
-      "what": "Seis pruebas separadas permiten investigar un mecanismo de frontera en GHU: raíces de un problema fermiónico plano, rango numérico de perfiles solapados, trazas espinoriales exactas con inserciones de paridad y una condición restringida para tensores SU(2) en seis dimensiones. La quinta compara dos perfiles de pared tras igualar polo y residuo, mediante certificados continuos verificables. La sexta cuenta las clases de un complejo neutro finito por estratos exactos.",
+      "what": "Pruebas separadas permiten investigar un mecanismo de frontera en GHU: raíces de un problema fermiónico plano, rango numérico de perfiles solapados, trazas espinoriales exactas con inserciones de paridad y una condición restringida para tensores SU(2) en seis dimensiones. La quinta compara dos perfiles de pared tras igualar polo y residuo, mediante certificados continuos verificables. La sexta cuenta las clases de un complejo neutro finito por estratos exactos. El apartado 6b añade un encierro continuo de masa y una prueba de aislamiento del vector neutro ligero en tres ángulos Wilson exactos.",
       "purpose": "Sirven para identificar qué requisito falla y por qué antes de construir el modelo completo. La brecha de masa aborda los modos emparejados no deseados; el rango de Gram comprueba independencia; las trazas con inserciones detectan términos de anomalía localizada; la condición tensorial comprueba un requisito restringido de cuantización. Superar estas pruebas no demuestra un encaje viable del Modelo Estándar ni una teoría cuántica completa. La respuesta tras matching permite preguntar si dos condiciones locales eliminan toda dependencia del perfil a espesor finito en el modelo cuadrático declarado.",
       "steps": [
         "Abre Anomalies & proton y busca Investigación de fronteras. Elige Español en la tarjeta. Pulsa Referencia de investigación para restablecer todas las entradas; Demo recorre los ejemplos y termina con esta guía.",
@@ -3847,9 +3851,10 @@
         "Con quiralidad leptónica Opuesta a Q, compara una y tres familias idénticas de seis dimensiones. Lee el exceso firmado de dobletes y su residuo.",
         "Elige Sonda de respuesta certificada: t = 1/4 y después t = 1/2. Lee la sección 5 y la cota inferior positiva de uniforme menos triangular. Descarga la demostración y el certificado ZIP y sigue su README para repetir la verificación independiente con Sage.",
         "Elige Estrato neutro exacto: s ≠ 0 y s = 0. En la sección 6 el cociente pasa de dimensión 0 a 1. Descarga el ZIP y ejecuta python verify.py certificate.json con SymPy.",
+        "Selecciona Ángulo neutro certificado: 1/10, 1/5 y 1/4. En el apartado 6b compara el intervalo racional de masa y la separación positiva del siguiente modo activo. Descarga la demostración continua y repítela con SymPy.",
         "Despliega las hipótesis y la procedencia. Fija una comparación, exporta el JSON de la tarjeta y guarda el enlace de la aplicación para repetir el cálculo."
       ],
-      "read": "Lee cada resultado con sus propias hipótesis. La brecha normal es kR, sin dimensiones; el rango de Gram es numérico y depende del umbral; las trazas son evaluaciones escalares exactas sin pesos locales; un residuo nulo solo satisface la condición indicada para el sistema aislado de seis dimensiones. La cancelación completa de anomalías sigue pendiente. En la sección 5, las cotas positivas de la diferencia establecen separación en los dos puntos admitidos para este modelo. No establecen una predicción GHU completa ni una tasa de capa delgada. En el apartado 6, dim ker A = 5 en ambos estratos; rango M = 5 o 4, y dim(ker A/im M) = 0 o 1. El estabilizador ker M es otro espacio. El selector exacto es independiente del deslizador de Wilson.",
+      "read": "Lee cada resultado con sus propias hipótesis. La brecha normal es kR, sin dimensiones; el rango de Gram es numérico y depende del umbral; las trazas son evaluaciones escalares exactas sin pesos locales; un residuo nulo solo satisface la condición indicada para el sistema aislado de seis dimensiones. La cancelación completa de anomalías sigue pendiente. En la sección 5, las cotas positivas de la diferencia establecen separación en los dos puntos admitidos para este modelo. No establecen una predicción GHU completa ni una tasa de capa delgada. En el apartado 6, dim ker A = 5 en ambos estratos; rango M = 5 o 4, y dim(ker A/im M) = 0 o 1. El estabilizador ker M es otro espacio. El selector exacto es independiente del deslizador de Wilson. El apartado 6b acota el autovalor continuo, incluidas las condiciones naturales de frontera. Las cotas inferiores positivas de masa y separación demuestran un modo simple aislado dentro del bloque activo. Las tres direcciones cero desacopladas se conservan aparte.",
       "controls": [
         {
           "name": "Acoplamiento de frontera κ²L",
@@ -3895,6 +3900,11 @@
           "name": "Estrato neutro exacto",
           "meaning": "Selecciona s ≠ 0 o s = 0 independientemente del deslizador de Wilson.",
           "try": "Compara rango M, estabilizador y cociente; ninguna tolerancia decide el estrato."
+        },
+        {
+          "name": "Ángulo neutro certificado",
+          "meaning": "Consulta exacta del vector neutro, con L5 = L6 = muOmega = muPhi = 1 y eta = 0. Independiente del ángulo del mapa fermiónico y del estrato escalar finito.",
+          "try": "En 1/5, el intervalo de mZ al cuadrado por L5 al cuadrado es [244/8425, 4/125]; la separación es al menos 337/4000."
         }
       ],
       "outputs": [
@@ -3929,6 +3939,10 @@
         {
           "name": "Cociente neutro finito y certificado",
           "meaning": "Dimensiones exactas 0/1 y ZIP con testigos, demostración y verificador simbólico. Reducción continua y matching físico externos."
+        },
+        {
+          "name": "Intervalo continuo del autovalor neutro y separación certificada",
+          "meaning": "El apartado 6b acota el autovalor continuo, incluidas las condiciones naturales de frontera. Las cotas inferiores positivas de masa y separación demuestran un modo simple aislado dentro del bloque activo. Las tres direcciones cero desacopladas se conservan aparte."
         }
       ],
       "example": {
@@ -3941,9 +3955,10 @@
           "Selecciona Una familia 6D con Opuesta a Q: exceso 2 y residuo 2. Selecciona Tres familias 6D: exceso 6 y residuo 0.",
           "Cambia C1 a C0 W, examina la tabla de trazas y exporta el JSON.",
           "Selecciona cada sonda certificada, descarga el certificado y guarda el JSON y el enlace compartidos. La sonda, el modelo fijo y el identificador del certificado acompañan al resultado.",
-          "Compara Estrato neutro exacto: s ≠ 0 y s = 0. Observa rango M = 5 y 4, y cociente de dimensión 0 y 1; descarga la demostración finita y su verificador."
+          "Compara Estrato neutro exacto: s ≠ 0 y s = 0. Observa rango M = 5 y 4, y cociente de dimensión 0 y 1; descarga la demostración finita y su verificador.",
+          "Selecciona Ángulo neutro certificado: 1/10, 1/5 y 1/4. En el apartado 6b compara el intervalo racional de masa y la separación positiva del siguiente modo activo. Descarga la demostración continua y repítela con SymPy."
         ],
-        "expect": "La brecha de frontera, la independencia de perfiles y la condición restringida de familias responden a cambios distintos. Ninguna resuelve la cancelación localizada o global de anomalías de la construcción completa. El salto del cociente es un resultado finito certificado; no determina modos continuos ni una masa del Higgs."
+        "expect": "La brecha de frontera, la independencia de perfiles y la condición restringida de familias responden a cambios distintos. Ninguna resuelve la cancelación localizada o global de anomalías de la construcción completa. El salto del cociente es un resultado finito certificado; no determina modos continuos ni una masa del Higgs. La masa neutra continua permanece positiva y aislada en los tres ángulos admitidos; su respuesta Wilson e interpretación experimental siguen sin demostrarse."
       },
       "limits": [
         "El espectro plano supone acoplamiento uniforme, ausencia de términos cinéticos adicionales de frontera y rama transversal periódica. No determina un vacío de Wilson, sabor realista ni masas de neutrinos.",
@@ -3952,7 +3967,7 @@
         "El criterio SU(2) corresponde a un sistema tensorial aislado específico de seis dimensiones. No puede trasladarse automáticamente a una esquina de orbifold de ocho dimensiones acoplada al flujo del bulk.",
         "Siguen pendientes los coeficientes locales, la red integral de cargas tensoriales, el grupo gauge global, los nuevos modos cero bosónicos y la consistencia cuántica completa.",
         "La certificación se limita al dominio declarado del cuadrado unidad y dos sondas fijas a espesor finito. Cambiar fuente, formas, matching o espesor requiere otro certificado. Los tests de software y hashes por sí solos no son certificación matemática.",
-        "La sección 6 certifica solo las matrices A,M declaradas, no el dominio continuo ni una masa del Higgs. Vídeos y manuales anteriores al 26-oct conservan su alcance anterior."
+        "El cociente finito del apartado 6 certifica las matrices A,M declaradas. El apartado 6b tiene su propia demostración continua para el bloque vectorial y las paredes fijadas. No certifica la derivada Wilson, RZW, el vacío, las corrientes ni la dirección física del Higgs. No derives los extremos del intervalo para inferir una cota de la derivada."
       ],
       "troubleshooting": [
         {
@@ -3982,12 +3997,20 @@
         {
           "symptom": "No encuentro el apartado 6 o no aparece en el vídeo.",
           "action": "Abre Anomalies & proton, usa el acceso a Investigación de fronteras y busca Estrato neutro exacto. La Demo actual incluye el apartado 6. Los vídeos del 17 de octubre no lo incluyen; consulta esta guía y la demo del 26 de octubre."
+        },
+        {
+          "symptom": "Cambiar el ángulo del mapa no modifica el encierro neutro.",
+          "action": "Usa Ángulo neutro certificado. El mapa y el vector neutro describen problemas distintos declarados; sus controles son independientes."
         }
       ],
       "formulas": [
         {
           "expression": "Q(t) = F(t) - F(s) - (t-s) F′(s); C(t) = -1 / [(t-s)/R + Q(t)]",
           "meaning": "Identidad exacta de matching para F(t)=t/D(t), con la misma fuente y s,R fijos. Los denominadores certificados excluyen cero en las sondas seleccionadas."
+        },
+        {
+          "expression": "rho = 4 theta²/5; beta = 5/32 - theta²; rho - (4 theta⁴/25)/(beta-rho) ≤ lambdaZ ≤ rho",
+          "meaning": "Encierro de Temple del primer autovalor vectorial activo; beta acota el segundo. Válido con las paredes declaradas y 0 < theta <= 1/4. La interfaz ofrece tres consultas exactas."
         }
       ]
     },

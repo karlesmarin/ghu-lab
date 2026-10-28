@@ -4259,10 +4259,14 @@
         {
           "label": "Schoeberl: equilibrated fluxes, sections 29.1–29.2; methodological background",
           "url": "https://jschoeberl.github.io/iFEM/aposteriori/equilibrated.html"
+        },
+        {
+          "label": "Kuroda: Kato-Temple, Theorem A",
+          "url": "https://ems.press/content/serial-article-files/40994"
         }
       ],
       "title": "Boundary research: spectra, profiles, anomalies and certified response",
-      "what": "Six separate tests help investigate a proposed GHU boundary mechanism: roots of a flat fermion boundary problem, the numerical rank of overlapping profiles, exact parity-inserted spinor traces and a restricted six-dimensional SU(2) tensor condition. The fifth compares two wall profiles after common pole and residue matching, using replayed continuum certificates. The sixth counts finite neutral-complex classes on exact strata.",
+      "what": "Separate tests help investigate a proposed GHU boundary mechanism: roots of a flat fermion boundary problem, the numerical rank of overlapping profiles, exact parity-inserted spinor traces and a restricted six-dimensional SU(2) tensor condition. The fifth compares two wall profiles after common pole and residue matching, using replayed continuum certificates. The sixth counts finite neutral-complex classes on exact strata. Section 6b adds a continuous mass enclosure and isolation test for the light neutral vector at three exact Wilson angles.",
       "purpose": "Use these tools to find which requirement fails and why before attempting a full model. A mass gap addresses unwanted paired modes; Gram rank tests linear independence; inserted traces expose localized anomaly terms; the tensor condition tests a restricted quantization requirement. Passing these tests does not prove a viable Standard Model embedding or a complete quantum theory. Matched response asks whether fixing two local conditions removes all finite-width profile dependence in the declared quadratic model.",
       "steps": [
         "Open Anomalies & proton and find Boundary research. Select English in the card. Press Research baseline to restore all inputs; Demo runs the worked examples and ends with this guide.",
@@ -4272,9 +4276,10 @@
         "With lepton chirality Opposite to Q, compare one and three identical 6D families. Read the signed doublet excess and its residue.",
         "Select Certified response query: t = 1/4, then t = 1/2. Read section 5 and the positive lower bound of uniform minus triangular. Download the proof and certificate ZIP and follow its README to replay the independent Sage verification.",
         "Select Exact neutral stratum: s ≠ 0 and s = 0. In section 6 the quotient dimension changes from 0 to 1. Download the ZIP and run python verify.py certificate.json with SymPy.",
+        "Select Certified neutral angle: 1/10, 1/5, then 1/4. Read section 6b: compare the rational mass interval and positive separation from the next active mode. Download the continuous proof and replay it with SymPy.",
         "Expand assumptions and provenance. Pin a comparison, export the card JSON and save the application link to repeat the calculation."
       ],
-      "read": "Read each result with its own assumptions. The normal gap is dimensionless kR; a Gram rank is numerical and threshold-dependent; the traces are exact scalar evaluations without local weights; a zero residue passes only the stated standalone six-dimensional condition. Full anomaly cancellation stays unknown. In section 5, positive difference bounds establish separation at the two admitted points for this model. They do not establish a complete GHU prediction or a thin-layer rate. In section 6, dim ker A = 5 in both strata; rank M = 5 or 4, and dim(ker A/im M) = 0 or 1. The stabilizer ker M is a different space. The exact selector is independent of the Wilson slider.",
+      "read": "Read each result with its own assumptions. The normal gap is dimensionless kR; a Gram rank is numerical and threshold-dependent; the traces are exact scalar evaluations without local weights; a zero residue passes only the stated standalone six-dimensional condition. Full anomaly cancellation stays unknown. In section 5, positive difference bounds establish separation at the two admitted points for this model. They do not establish a complete GHU prediction or a thin-layer rate. In section 6, dim ker A = 5 in both strata; rank M = 5 or 4, and dim(ker A/im M) = 0 or 1. The stabilizer ker M is a different space. The exact selector is independent of the Wilson slider. Section 6b bounds the continuous eigenvalue, including the natural boundary conditions. Positive lower mass and gap prove a simple isolated mode within the active block. Three decoupled zero directions remain separate.",
       "controls": [
         {
           "name": "Boundary strength κ²L",
@@ -4320,6 +4325,11 @@
           "name": "Exact neutral stratum",
           "meaning": "Select s ≠ 0 or s = 0 independently of the Wilson slider.",
           "try": "Compare rank M, stabilizer and quotient; no tolerance decides the stratum."
+        },
+        {
+          "name": "Certified neutral angle",
+          "meaning": "Exact neutral-vector query, with L5 = L6 = muOmega = muPhi = 1 and eta = 0. Independent of the fermion landscape angle and the finite scalar stratum.",
+          "try": "At 1/5, the interval for mZ squared times L5 squared is [244/8425, 4/125]; the separation is at least 337/4000."
         }
       ],
       "outputs": [
@@ -4354,6 +4364,10 @@
         {
           "name": "Finite neutral quotient and certificate",
           "meaning": "Exact dimensions 0/1 and ZIP with witnesses, written proof and symbolic verifier. Continuous reduction and physical matching are external."
+        },
+        {
+          "name": "Continuous neutral eigenvalue interval and certified separation",
+          "meaning": "Section 6b bounds the continuous eigenvalue, including the natural boundary conditions. Positive lower mass and gap prove a simple isolated mode within the active block. Three decoupled zero directions remain separate."
         }
       ],
       "example": {
@@ -4366,9 +4380,10 @@
           "Select One 6D family with Opposite to Q: excess 2 gives residue 2. Select Three 6D families: excess 6 gives residue 0.",
           "Switch C1 to C0 W and inspect the trace table, then export JSON.",
           "Select each certified response query, download the certificate, then save the shared JSON and link. The selected probe, fixed model and certificate identifier travel with the result.",
-          "Compare Exact neutral stratum: s ≠ 0 and s = 0. Observe rank M = 5 and 4, and quotient dimension 0 and 1; download the finite proof and verifier."
+          "Compare Exact neutral stratum: s ≠ 0 and s = 0. Observe rank M = 5 and 4, and quotient dimension 0 and 1; download the finite proof and verifier.",
+          "Select Certified neutral angle: 1/10, 1/5, then 1/4. Read section 6b: compare the rational mass interval and positive separation from the next active mode. Download the continuous proof and replay it with SymPy."
         ],
-        "expect": "The boundary gap, profile independence and restricted family condition respond to different changes. None of them settles localized or global anomaly cancellation of the full construction. The quotient jump is a certified finite result; it determines neither continuous modes nor a Higgs mass."
+        "expect": "The boundary gap, profile independence and restricted family condition respond to different changes. None of them settles localized or global anomaly cancellation of the full construction. The quotient jump is a certified finite result; it determines neither continuous modes nor a Higgs mass. The continuous neutral mass stays positive and isolated at all three admitted angles; its Wilson response and experimental interpretation remain unproved."
       },
       "limits": [
         "The flat spectrum assumes uniform coupling, no additional boundary kinetic terms and the periodic transverse branch. It does not determine a Wilson vacuum, realistic flavour or neutrino masses.",
@@ -4377,7 +4392,7 @@
         "The SU(2) criterion applies to a specified standalone six-dimensional tensor setting. It cannot be transferred automatically to an eight-dimensional orbifold corner coupled to bulk inflow.",
         "Local coefficients, integral tensor charge lattice, global gauge group, new boson zero modes and full quantum consistency remain unresolved.",
         "Certification is restricted to the declared unit-square domain and two fixed probes at finite layer width. Changing the source, forms, matching conditions or width requires a new certificate. Software tests and hashes alone are not mathematical certification.",
-        "Section 6 certifies only the specified matrices A,M, not the continuous domain or a Higgs mass. Videos and manuals predating 26 October retain their earlier scope."
+        "The finite quotient in section 6 certifies the specified matrices A,M. Section 6b has its own continuous proof for the declared vector block and fixed walls. It does not certify the Wilson derivative, RZW, vacuum, currents or physical Higgs direction. Never differentiate the interval endpoints to infer a derivative bound."
       ],
       "troubleshooting": [
         {
@@ -4407,12 +4422,20 @@
         {
           "symptom": "I cannot find section 6 or see it in the video.",
           "action": "Open Anomalies & proton, use the Boundary research shortcut and find Exact neutral stratum. The current Demo includes section 6. The 17 October videos do not; consult this guide and the 26 October demo."
+        },
+        {
+          "symptom": "Changing the landscape angle does not change the neutral enclosure.",
+          "action": "Use Certified neutral angle. The landscape and neutral vector describe different stated problems; their controls are intentionally independent."
         }
       ],
       "formulas": [
         {
           "expression": "Q(t) = F(t) - F(s) - (t-s) F′(s); C(t) = -1 / [(t-s)/R + Q(t)]",
           "meaning": "Exact matching identity for F(t)=t/D(t), with the same source and fixed s,R. The certified denominators exclude zero at the selected probes."
+        },
+        {
+          "expression": "rho = 4 theta²/5; beta = 5/32 - theta²; rho - (4 theta⁴/25)/(beta-rho) ≤ lambdaZ ≤ rho",
+          "meaning": "Temple enclosure of the first active vector eigenvalue; beta bounds the second one. Valid for the declared walls and 0 < theta <= 1/4. The UI offers three exact queries."
         }
       ]
     },

@@ -1,5 +1,15 @@
 # The site — what it is, page by page
 
+## Continuous neutral isolation · 28 October 2026
+
+Boundary research section 6b presents continuous neutral-mass enclosures and
+isolation at three exact Wilson angles, with a downloadable proof and replay.
+SZ/RZW and physical matching are not certified. Bilingual help and live Demo
+include this instrument. A six-chapter English/Spanish supplement is served at
+`video/neutral/index.html` and `video/neutral/index-es.html`, linked from the
+instrument, guides, proof catalogue and main players. Archived films retain
+their scope. See changes/2026-10-28-neutral-isolation.md and docs/boundary-research.md.
+
 ## Current source and site · 26 October 2026
 
 Boundary research section 6 adds the certified finite neutral quotient, with exact

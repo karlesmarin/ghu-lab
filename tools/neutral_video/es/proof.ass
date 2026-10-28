@@ -1,0 +1,14 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Segoe UI,38,&H00FFFFFF,&H00FFFFFF,&H00172E3C,&H00172E3C,0,0,0,0,100,100,0,0,1,1,0,2,65,65,75,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.50,0:00:06.13,Default,,0,0,0,,La demostración escrita acota primero el segundo autovalor mediante medias, trazas y el principio mínimo
+Dialogue: 0,0:00:06.13,0:00:13.36,Default,,0,0,0,,máximo. Una función de prueba suave satisface todas las condiciones de frontera del operador. Su cociente de
+Dialogue: 0,0:00:13.36,0:00:19.26,Default,,0,0,0,,Rayleigh y su residuo exactos entran en la desigualdad publicada de Temple. La demostración descargable
+Dialogue: 0,0:00:19.26,0:00:25.30,Default,,0,0,0,,explica estos argumentos analíticos. El verificador simbólico comprueba su álgebra y los extremos
+Dialogue: 0,0:00:25.30,0:00:30.62,Default,,0,0,0,,racionales; los tests de software por sí solos no son la demostración.

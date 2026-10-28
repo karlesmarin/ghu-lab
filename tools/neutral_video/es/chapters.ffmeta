@@ -1,0 +1,31 @@
+;FFMETADATA1
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=20917
+title=Cociente escalar finito
+[CHAPTER]
+TIMEBASE=1/1000
+START=20917
+END=38250
+title=El estrato restaurado
+[CHAPTER]
+TIMEBASE=1/1000
+START=38250
+END=63042
+title=Un modo neutro continuo aislado
+[CHAPTER]
+TIMEBASE=1/1000
+START=63042
+END=85208
+title=Comparar otro ángulo certificado
+[CHAPTER]
+TIMEBASE=1/1000
+START=85208
+END=116083
+title=Por qué es un certificado
+[CHAPTER]
+TIMEBASE=1/1000
+START=116083
+END=144792
+title=Qué sigue pendiente

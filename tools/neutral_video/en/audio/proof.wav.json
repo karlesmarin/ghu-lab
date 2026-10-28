@@ -1,0 +1,368 @@
+﻿{
+    "voice":  "Microsoft Zira Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "The written proof first bounds the second eigenvalue using means, traces and the min max principle. A smooth trial function satisfies all operator boundary conditions. Its exact Rayleigh quotient and residual enter the published Temple inequality. The downloaded proof states these analytic arguments. The symbolic verifier checks their algebra and the rational endpoints; software tests alone are not the proof.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "The",
+                      "start":  0,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  0.22499999999999998,
+                      "text":  "written",
+                      "start":  4,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  0.5,
+                      "text":  "proof",
+                      "start":  12,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  0.815,
+                      "text":  "first",
+                      "start":  18,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  1.18,
+                      "text":  "bounds",
+                      "start":  24,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  1.565,
+                      "text":  "the",
+                      "start":  31,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  1.655,
+                      "text":  "second",
+                      "start":  35,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  2.065,
+                      "text":  "eigenvalue",
+                      "start":  42,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  2.755,
+                      "text":  "using",
+                      "start":  53,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  3.0999999999999996,
+                      "text":  "means",
+                      "start":  59,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  3.685,
+                      "text":  "traces",
+                      "start":  66,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  4.375,
+                      "text":  "and",
+                      "start":  73,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  4.4799999999999995,
+                      "text":  "the",
+                      "start":  77,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  4.555,
+                      "text":  "min",
+                      "start":  81,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  4.7749999999999995,
+                      "text":  "max",
+                      "start":  85,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  5.09,
+                      "text":  "principle",
+                      "start":  89,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  6.545,
+                      "text":  "A",
+                      "start":  100,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  6.6099999999999994,
+                      "text":  "smooth",
+                      "start":  102,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  6.975,
+                      "text":  "trial",
+                      "start":  109,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  7.38,
+                      "text":  "function",
+                      "start":  115,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  7.845,
+                      "text":  "satisfies",
+                      "start":  124,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  8.5149999999999988,
+                      "text":  "all",
+                      "start":  134,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  8.7199999999999989,
+                      "text":  "operator",
+                      "start":  138,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  9.235,
+                      "text":  "boundary",
+                      "start":  147,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  9.73,
+                      "text":  "conditions",
+                      "start":  156,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  11.315,
+                      "text":  "Its",
+                      "start":  168,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  11.49,
+                      "text":  "exact",
+                      "start":  172,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  11.924999999999999,
+                      "text":  "Rayleigh",
+                      "start":  178,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  12.225,
+                      "text":  "quotient",
+                      "start":  187,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  12.754999999999999,
+                      "text":  "and",
+                      "start":  196,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  12.899999999999999,
+                      "text":  "residual",
+                      "start":  200,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  13.399999999999999,
+                      "text":  "enter",
+                      "start":  209,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  13.684999999999999,
+                      "text":  "the",
+                      "start":  215,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  13.77,
+                      "text":  "published",
+                      "start":  219,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  14.25,
+                      "text":  "Temple",
+                      "start":  229,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  14.6,
+                      "text":  "inequality",
+                      "start":  236,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  16.134999999999998,
+                      "text":  "The",
+                      "start":  248,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  16.235,
+                      "text":  "downloaded",
+                      "start":  252,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  16.895,
+                      "text":  "proof",
+                      "start":  263,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  17.21,
+                      "text":  "states",
+                      "start":  269,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  17.61,
+                      "text":  "these",
+                      "start":  276,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  17.849999999999998,
+                      "text":  "analytic",
+                      "start":  282,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  18.38,
+                      "text":  "arguments",
+                      "start":  291,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  19.9,
+                      "text":  "The",
+                      "start":  302,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  19.98,
+                      "text":  "symbolic",
+                      "start":  306,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  20.55,
+                      "text":  "verifier",
+                      "start":  315,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  21.189999999999998,
+                      "text":  "checks",
+                      "start":  324,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  21.529999999999998,
+                      "text":  "their",
+                      "start":  331,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  21.73,
+                      "text":  "algebra",
+                      "start":  337,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  22.244999999999997,
+                      "text":  "and",
+                      "start":  345,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  22.365,
+                      "text":  "the",
+                      "start":  349,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  22.485,
+                      "text":  "rational",
+                      "start":  353,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  22.965,
+                      "text":  "endpoints",
+                      "start":  362,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  24.02,
+                      "text":  "software",
+                      "start":  373,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  24.619999999999997,
+                      "text":  "tests",
+                      "start":  382,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  25.055,
+                      "text":  "alone",
+                      "start":  388,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  25.395,
+                      "text":  "are",
+                      "start":  394,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  25.509999999999998,
+                      "text":  "not",
+                      "start":  398,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  25.75,
+                      "text":  "the",
+                      "start":  402,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  25.84,
+                      "text":  "proof",
+                      "start":  406,
+                      "length":  5
+                  }
+              ]
+}

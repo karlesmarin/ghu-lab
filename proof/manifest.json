@@ -1,6 +1,6 @@
 {
   "schema": "ghu-proof-bundle-v1",
-  "date": "2026-10-26",
+  "date": "2026-10-28",
   "scope": "Integrity and scoped verification; no full-model consistency or novelty claim",
   "lean": [
     {
@@ -916,6 +916,31 @@
       "sha256": "80c1c8f243ec71575b7e4031b2e0c25f46d17be68566820548e015272eb7d853"
     },
     {
+      "path": "proof/z-isolation/certificate.json",
+      "bytes": 2045,
+      "sha256": "bb8f9e5231d77499601ebfcb8569dbfb63a776cd4327a027d2e986778e69d414"
+    },
+    {
+      "path": "proof/z-isolation/certificate.zip",
+      "bytes": 8525,
+      "sha256": "f94f585fdbdcd893d8d2ab16dfe2daaf0c54aceada2f2c34912f95c96289f6d8"
+    },
+    {
+      "path": "proof/z-isolation/PROOF.txt",
+      "bytes": 6608,
+      "sha256": "2822b33e9668b2f34891433710c324297c17bffb3ff864401f7ffea2a3033c86"
+    },
+    {
+      "path": "proof/z-isolation/receipt.json",
+      "bytes": 1078,
+      "sha256": "bee63842763dc384bb19a7ca4a52dd8d4f4f2e51919059ee03c28046dadc9fd6"
+    },
+    {
+      "path": "proof/z-isolation/verify.py",
+      "bytes": 8912,
+      "sha256": "f57169673fb058a0cc9bc45de32de620fc8096cd9746bb0dc4caf2687ef4f573"
+    },
+    {
       "path": "src/kernel/charges.mjs",
       "bytes": 16504,
       "sha256": "bdb8a59b83d7b27586756de7578776a66008eecc07c0d0cd62c5b6d78498703f"
@@ -942,8 +967,8 @@
     },
     {
       "path": "src/modules/boundary_research.mjs",
-      "bytes": 10345,
-      "sha256": "5ccfe2b18f49cebf6f679490e42dd21163e3722501d8e62793d79da7b6553350"
+      "bytes": 10481,
+      "sha256": "c42d2f735b4954908e345966df2a6bd451e5ad1e56d33af0226b10dcd7db4806"
     },
     {
       "path": "src/modules/brane.mjs",
@@ -1289,6 +1314,16 @@
       "path": "src/modules/yukawa.mjs",
       "bytes": 11275,
       "sha256": "aa75241e19325b59f48d124ba39a0342494c48ea470336167f83e87e79737d98"
+    },
+    {
+      "path": "src/modules/z_isolation.mjs",
+      "bytes": 657,
+      "sha256": "f4d88e99a8c82286aef8790d006c38de2b16f1a72c54b7f60b43997e6c8240ea"
+    },
+    {
+      "path": "src/modules/z_isolation_reference.mjs",
+      "bytes": 20409,
+      "sha256": "30772b9e6767958bd5c05039ada61a1a98dabd77b661cd7a8fe0948e2fbfad4c"
     }
   ]
 }

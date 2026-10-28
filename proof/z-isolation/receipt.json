@@ -1,0 +1,38 @@
+{
+  "status": "VERIFIED",
+  "checks": [
+    "skew generator",
+    "generator norm",
+    "rotation derivative",
+    "rotation isometry",
+    "upper wall invariant",
+    "kernel dimension at zero",
+    "left trial wall",
+    "upper trial wall",
+    "trial normalization",
+    "left essential",
+    "right essential",
+    "left natural",
+    "right natural",
+    "Rayleigh quotient",
+    "operator residual",
+    "trace mean constant",
+    "wall row norm",
+    "mean orthogonal decomposition",
+    "x variance coefficient",
+    "y variance coefficient",
+    "upper wall coefficient",
+    "Temple positivity polynomial",
+    "uniform parameter interval",
+    "query 1/10",
+    "query 1/5",
+    "query 1/4"
+  ],
+  "method": "exact algebra + external written functional proof",
+  "negative_checks": 20,
+  "sha256": {
+    "certificate.json": "bb8f9e5231d77499601ebfcb8569dbfb63a776cd4327a027d2e986778e69d414",
+    "PROOF.txt": "2822b33e9668b2f34891433710c324297c17bffb3ff864401f7ffea2a3033c86",
+    "verify.py": "f57169673fb058a0cc9bc45de32de620fc8096cd9746bb0dc4caf2687ef4f573"
+  }
+}

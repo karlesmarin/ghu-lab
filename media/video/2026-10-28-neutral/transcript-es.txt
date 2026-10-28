@@ -1,0 +1,17 @@
+Cociente escalar finito
+El complejo neutro finito responde a una pregunta algebraica. En el estrato genérico, toda dirección cerrada es gauge. El cociente tiene dimensión cero. Los menores exactos y el teorema de rango y nulidad certifican esta afirmación. No certifican el operador continuo ni una masa del Higgs.
+
+El estrato restaurado
+Cambia al estrato restaurado. Queda una clase cerrada después de tomar el cociente por las direcciones gauge. Esta distinción exacta permite examinar hipótesis sobre el sector escalar. Es independiente del espectro vectorial continuo que veremos ahora.
+
+Un modo neutro continuo aislado
+En el ángulo Wilson exacto un quinto, el autovalor ligero queda entre doscientos cuarenta y cuatro sobre ocho mil cuatrocientos veinticinco, y cuatro sobre ciento veinticinco. La separación garantizada es trescientos treinta y siete sobre cuatro mil. Son cotas racionales para el operador continuo, con sus condiciones de frontera, dentro del bloque activo de cinco componentes declarado.
+
+Comparar otro ángulo certificado
+Elige un cuarto. El extremo inferior es uno sobre veintiocho y el superior es un veinteavo. El modelo fija longitudes y fuerzas de frontera unitarias, con eta cero. Las tres direcciones cero desacopladas se conservan por separado. Cambiar los controles fermiónicos independientes no modifica este modelo certificado.
+
+Por qué es un certificado
+La demostración escrita acota primero el segundo autovalor mediante medias, trazas y el principio mínimo máximo. Una función de prueba suave satisface todas las condiciones de frontera del operador. Su cociente de Rayleigh y su residuo exactos entran en la desigualdad publicada de Temple. La demostración descargable explica estos argumentos analíticos. El verificador simbólico comprueba su álgebra y los extremos racionales; los tests de software por sí solos no son la demostración.
+
+Qué sigue pendiente
+Descarga la demostración y el verificador y repite el certificado con SymPy. El encierro establece positividad, simplicidad y aislamiento en este modelo condicionado. No certifica la derivada Wilson, R Z W, el vacío, las corrientes ni la dirección física del Higgs. No derives los extremos de los intervalos. La demo, el manual y el certificado conservan estos límites.

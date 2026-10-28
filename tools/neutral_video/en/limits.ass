@@ -1,0 +1,13 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Segoe UI,38,&H00FFFFFF,&H00FFFFFF,&H00172E3C,&H00172E3C,0,0,0,0,100,100,0,0,1,1,0,2,65,65,75,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.50,0:00:06.94,Default,,0,0,0,,Download the proof and verifier, and replay the certificate with SymPy. The enclosure establishes
+Dialogue: 0,0:00:06.94,0:00:14.48,Default,,0,0,0,,positivity, simplicity and isolation in this conditional model. It does not certify the Wilson derivative, R
+Dialogue: 0,0:00:14.48,0:00:22.73,Default,,0,0,0,,Z W, a vacuum, currents or a physical Higgs direction. Do not differentiate interval endpoints. The live
+Dialogue: 0,0:00:22.73,0:00:27.42,Default,,0,0,0,,demo, manual and certificate preserve these limits.

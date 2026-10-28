@@ -1,0 +1,284 @@
+﻿{
+    "voice":  "Microsoft Helena Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "El complejo neutro finito responde a una pregunta algebraica. En el estrato genérico, toda dirección cerrada es gauge. El cociente tiene dimensión cero. Los menores exactos y el teorema de rango y nulidad certifican esta afirmación. No certifican el operador continuo ni una masa del Higgs.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "El",
+                      "start":  0,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  0.245,
+                      "text":  "complejo",
+                      "start":  3,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  0.76,
+                      "text":  "neutro",
+                      "start":  12,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  1.085,
+                      "text":  "finito",
+                      "start":  19,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  1.4849999999999999,
+                      "text":  "responde",
+                      "start":  26,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  1.9449999999999998,
+                      "text":  "a",
+                      "start":  35,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  2.015,
+                      "text":  "una",
+                      "start":  37,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  2.205,
+                      "text":  "pregunta",
+                      "start":  41,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  2.65,
+                      "text":  "algebraica",
+                      "start":  50,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  4.18,
+                      "text":  "En",
+                      "start":  62,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  4.3149999999999995,
+                      "text":  "el",
+                      "start":  65,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  4.415,
+                      "text":  "estrato",
+                      "start":  68,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  4.83,
+                      "text":  "genérico",
+                      "start":  76,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  5.79,
+                      "text":  "toda",
+                      "start":  86,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  6.06,
+                      "text":  "dirección",
+                      "start":  91,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  6.52,
+                      "text":  "cerrada",
+                      "start":  101,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  6.89,
+                      "text":  "es",
+                      "start":  109,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  6.9899999999999993,
+                      "text":  "gauge",
+                      "start":  112,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  8.19,
+                      "text":  "El",
+                      "start":  119,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  8.3349999999999991,
+                      "text":  "cociente",
+                      "start":  122,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  8.805,
+                      "text":  "tiene",
+                      "start":  131,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  9.07,
+                      "text":  "dimensión",
+                      "start":  137,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  9.5949999999999989,
+                      "text":  "cero",
+                      "start":  147,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  10.78,
+                      "text":  "Los",
+                      "start":  153,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  10.95,
+                      "text":  "menores",
+                      "start":  157,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  11.35,
+                      "text":  "exactos",
+                      "start":  165,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  11.905,
+                      "text":  "y",
+                      "start":  173,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  11.965,
+                      "text":  "el",
+                      "start":  175,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  12.07,
+                      "text":  "teorema",
+                      "start":  178,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  12.469999999999999,
+                      "text":  "de",
+                      "start":  186,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  12.565,
+                      "text":  "rango",
+                      "start":  189,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  12.885,
+                      "text":  "y",
+                      "start":  195,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  12.95,
+                      "text":  "nulidad",
+                      "start":  197,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  13.36,
+                      "text":  "certifican",
+                      "start":  205,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  13.995,
+                      "text":  "esta",
+                      "start":  216,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  14.219999999999999,
+                      "text":  "afirmación",
+                      "start":  221,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  15.739999999999998,
+                      "text":  "No",
+                      "start":  233,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  15.875,
+                      "text":  "certifican",
+                      "start":  236,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  16.495,
+                      "text":  "el",
+                      "start":  247,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  16.599999999999998,
+                      "text":  "operador",
+                      "start":  250,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  17.064999999999998,
+                      "text":  "continuo",
+                      "start":  259,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  17.544999999999998,
+                      "text":  "ni",
+                      "start":  268,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  17.724999999999998,
+                      "text":  "una",
+                      "start":  271,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  17.895,
+                      "text":  "masa",
+                      "start":  275,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  18.18,
+                      "text":  "del",
+                      "start":  280,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  18.33,
+                      "text":  "Higgs",
+                      "start":  284,
+                      "length":  5
+                  }
+              ]
+}

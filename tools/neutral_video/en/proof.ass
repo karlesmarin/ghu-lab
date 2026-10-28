@@ -1,0 +1,13 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Segoe UI,38,&H00FFFFFF,&H00FFFFFF,&H00172E3C,&H00172E3C,0,0,0,0,100,100,0,0,1,1,0,2,65,65,75,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.50,0:00:07.38,Default,,0,0,0,,The written proof first bounds the second eigenvalue using means, traces and the min max principle. A smooth
+Dialogue: 0,0:00:07.38,0:00:14.08,Default,,0,0,0,,trial function satisfies all operator boundary conditions. Its exact Rayleigh quotient and residual enter
+Dialogue: 0,0:00:14.08,0:00:21.59,Default,,0,0,0,,the published Temple inequality. The downloaded proof states these analytic arguments. The symbolic verifier
+Dialogue: 0,0:00:21.59,0:00:28.21,Default,,0,0,0,,checks their algebra and the rational endpoints; software tests alone are not the proof.

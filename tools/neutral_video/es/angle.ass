@@ -1,0 +1,13 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Segoe UI,38,&H00FFFFFF,&H00FFFFFF,&H00172E3C,&H00172E3C,0,0,0,0,100,100,0,0,1,1,0,2,65,65,75,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.50,0:00:07.51,Default,,0,0,0,,Elige un cuarto. El extremo inferior es uno sobre veintiocho y el superior es un veinteavo. El modelo fija
+Dialogue: 0,0:00:07.51,0:00:13.84,Default,,0,0,0,,longitudes y fuerzas de frontera unitarias, con eta cero. Las tres direcciones cero desacopladas se
+Dialogue: 0,0:00:13.84,0:00:19.62,Default,,0,0,0,,conservan por separado. Cambiar los controles fermiónicos independientes no modifica este modelo
+Dialogue: 0,0:00:19.62,0:00:21.92,Default,,0,0,0,,certificado.

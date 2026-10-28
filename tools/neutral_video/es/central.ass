@@ -1,0 +1,13 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Segoe UI,38,&H00FFFFFF,&H00FFFFFF,&H00172E3C,&H00172E3C,0,0,0,0,100,100,0,0,1,1,0,2,65,65,75,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.50,0:00:05.98,Default,,0,0,0,,En el ángulo Wilson exacto un quinto, el autovalor ligero queda entre doscientos cuarenta y cuatro sobre
+Dialogue: 0,0:00:05.98,0:00:12.36,Default,,0,0,0,,ocho mil cuatrocientos veinticinco, y cuatro sobre ciento veinticinco. La separación garantizada es
+Dialogue: 0,0:00:12.36,0:00:18.65,Default,,0,0,0,,trescientos treinta y siete sobre cuatro mil. Son cotas racionales para el operador continuo, con sus
+Dialogue: 0,0:00:18.65,0:00:24.54,Default,,0,0,0,,condiciones de frontera, dentro del bloque activo de cinco componentes declarado.

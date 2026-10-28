@@ -7,7 +7,7 @@ VERIFICATION_FILES = ('google187af701b0e7661c.html',)
 # Carry its exact bytes; index the enclosing proof catalogue instead.
 PINNED_PROOF_PAGES = ('proof/hypothesis/notes.html',)
 def current_page(rel):
-    return rel not in VERIFICATION_FILES + PINNED_PROOF_PAGES and rel.endswith('.html') and not rel.startswith('tools-') and (not rel.startswith('editions/') or rel=='editions/index.html') and (not rel.startswith('video/') or rel in ('video/index.html','video/quantization/index.html','video/quantization/index-es.html','video/mathematics/index.html','video/mathematics/index-es.html','video/mathematics/proof-notes.html','video/mathematics/bridge.html','video/mathematics/bridge-es.html'))
+    return rel not in VERIFICATION_FILES + PINNED_PROOF_PAGES and rel.endswith('.html') and not rel.startswith('tools-') and (not rel.startswith('editions/') or rel=='editions/index.html') and (not rel.startswith('video/') or rel in ('video/index.html','video/neutral/index.html','video/neutral/index-es.html','video/quantization/index.html','video/quantization/index-es.html','video/mathematics/index.html','video/mathematics/index-es.html','video/mathematics/proof-notes.html','video/mathematics/bridge.html','video/mathematics/bridge-es.html'))
 def canonical(rel):return BASE+('' if rel=='index.html' else rel)
 def metadata(rel,text):
     if not current_page(rel):return text

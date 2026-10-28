@@ -1,0 +1,71 @@
+WEBVTT
+
+00:00:00.500 --> 00:00:07.290
+El complejo neutro finito responde a una pregunta algebraica. En el estrato genérico, toda dirección cerrada
+
+00:00:07.290 --> 00:00:14.395
+es gauge. El cociente tiene dimensión cero. Los menores exactos y el teorema de rango y nulidad certifican
+
+00:00:14.395 --> 00:00:20.667
+esta afirmación. No certifican el operador continuo ni una masa del Higgs.
+
+00:00:21.417 --> 00:00:27.302
+Cambia al estrato restaurado. Queda una clase cerrada después de tomar el cociente por las direcciones
+
+00:00:27.302 --> 00:00:34.182
+gauge. Esta distinción exacta permite examinar hipótesis sobre el sector escalar. Es independiente del
+
+00:00:34.182 --> 00:00:38.000
+espectro vectorial continuo que veremos ahora.
+
+00:00:38.750 --> 00:00:44.235
+En el ángulo Wilson exacto un quinto, el autovalor ligero queda entre doscientos cuarenta y cuatro sobre
+
+00:00:44.235 --> 00:00:50.605
+ocho mil cuatrocientos veinticinco, y cuatro sobre ciento veinticinco. La separación garantizada es
+
+00:00:50.605 --> 00:00:56.900
+trescientos treinta y siete sobre cuatro mil. Son cotas racionales para el operador continuo, con sus
+
+00:00:56.900 --> 00:01:02.792
+condiciones de frontera, dentro del bloque activo de cinco componentes declarado.
+
+00:01:03.542 --> 00:01:10.552
+Elige un cuarto. El extremo inferior es uno sobre veintiocho y el superior es un veinteavo. El modelo fija
+
+00:01:10.552 --> 00:01:16.877
+longitudes y fuerzas de frontera unitarias, con eta cero. Las tres direcciones cero desacopladas se
+
+00:01:16.877 --> 00:01:22.662
+conservan por separado. Cambiar los controles fermiónicos independientes no modifica este modelo
+
+00:01:22.662 --> 00:01:24.958
+certificado.
+
+00:01:25.708 --> 00:01:31.338
+La demostración escrita acota primero el segundo autovalor mediante medias, trazas y el principio mínimo
+
+00:01:31.338 --> 00:01:38.573
+máximo. Una función de prueba suave satisface todas las condiciones de frontera del operador. Su cociente de
+
+00:01:38.573 --> 00:01:44.473
+Rayleigh y su residuo exactos entran en la desigualdad publicada de Temple. La demostración descargable
+
+00:01:44.473 --> 00:01:50.503
+explica estos argumentos analíticos. El verificador simbólico comprueba su álgebra y los extremos
+
+00:01:50.503 --> 00:01:55.833
+racionales; los tests de software por sí solos no son la demostración.
+
+00:01:56.583 --> 00:02:03.788
+Descarga la demostración y el verificador y repite el certificado con SymPy. El encierro establece
+
+00:02:03.788 --> 00:02:12.128
+positividad, simplicidad y aislamiento en este modelo condicionado. No certifica la derivada Wilson, R Z W,
+
+00:02:12.128 --> 00:02:19.538
+el vacío, las corrientes ni la dirección física del Higgs. No derives los extremos de los intervalos. La
+
+00:02:19.538 --> 00:02:24.542
+demo, el manual y el certificado conservan estos límites.
+

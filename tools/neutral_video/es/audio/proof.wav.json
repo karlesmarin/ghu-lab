@@ -1,0 +1,440 @@
+﻿{
+    "voice":  "Microsoft Helena Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "La demostración escrita acota primero el segundo autovalor mediante medias, trazas y el principio mínimo máximo. Una función de prueba suave satisface todas las condiciones de frontera del operador. Su cociente de Rayleigh y su residuo exactos entran en la desigualdad publicada de Temple. La demostración descargable explica estos argumentos analíticos. El verificador simbólico comprueba su álgebra y los extremos racionales; los tests de software por sí solos no son la demostración.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "La",
+                      "start":  0,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  0.235,
+                      "text":  "demostración",
+                      "start":  3,
+                      "length":  12
+                  },
+                  {
+                      "seconds":  0.865,
+                      "text":  "escrita",
+                      "start":  16,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  1.285,
+                      "text":  "acota",
+                      "start":  24,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  1.6199999999999999,
+                      "text":  "primero",
+                      "start":  30,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  1.9849999999999999,
+                      "text":  "el",
+                      "start":  38,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  2.065,
+                      "text":  "segundo",
+                      "start":  41,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  2.4699999999999998,
+                      "text":  "autovalor",
+                      "start":  49,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  2.965,
+                      "text":  "mediante",
+                      "start":  59,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  3.425,
+                      "text":  "medias",
+                      "start":  68,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  4.265,
+                      "text":  "trazas",
+                      "start":  76,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  4.715,
+                      "text":  "y",
+                      "start":  83,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  4.7799999999999994,
+                      "text":  "el",
+                      "start":  85,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  4.875,
+                      "text":  "principio",
+                      "start":  88,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  5.385,
+                      "text":  "mínimo",
+                      "start":  98,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  5.7299999999999995,
+                      "text":  "máximo",
+                      "start":  105,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  7.08,
+                      "text":  "Una",
+                      "start":  113,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  7.2799999999999994,
+                      "text":  "función",
+                      "start":  117,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  7.75,
+                      "text":  "de",
+                      "start":  125,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  7.84,
+                      "text":  "prueba",
+                      "start":  128,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  8.16,
+                      "text":  "suave",
+                      "start":  135,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  8.5,
+                      "text":  "satisface",
+                      "start":  141,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  9.12,
+                      "text":  "todas",
+                      "start":  151,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  9.4349999999999987,
+                      "text":  "las",
+                      "start":  157,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  9.5849999999999991,
+                      "text":  "condiciones",
+                      "start":  161,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  10.205,
+                      "text":  "de",
+                      "start":  173,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  10.295,
+                      "text":  "frontera",
+                      "start":  176,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  10.76,
+                      "text":  "del",
+                      "start":  185,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  10.9,
+                      "text":  "operador",
+                      "start":  189,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  12.229999999999999,
+                      "text":  "Su",
+                      "start":  199,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  12.395,
+                      "text":  "cociente",
+                      "start":  202,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  12.865,
+                      "text":  "de",
+                      "start":  211,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  12.965,
+                      "text":  "Rayleigh",
+                      "start":  214,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  13.274999999999999,
+                      "text":  "y",
+                      "start":  223,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  13.33,
+                      "text":  "su",
+                      "start":  225,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  13.49,
+                      "text":  "residuo",
+                      "start":  228,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  13.905,
+                      "text":  "exactos",
+                      "start":  236,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  14.415,
+                      "text":  "entran",
+                      "start":  244,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  14.725,
+                      "text":  "en",
+                      "start":  251,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  14.815,
+                      "text":  "la",
+                      "start":  254,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  14.915,
+                      "text":  "desigualdad",
+                      "start":  257,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  15.54,
+                      "text":  "publicada",
+                      "start":  269,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  16.055,
+                      "text":  "de",
+                      "start":  279,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  16.165,
+                      "text":  "Temple",
+                      "start":  282,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  17.48,
+                      "text":  "La",
+                      "start":  290,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  17.615,
+                      "text":  "demostración",
+                      "start":  293,
+                      "length":  12
+                  },
+                  {
+                      "seconds":  18.259999999999998,
+                      "text":  "descargable",
+                      "start":  306,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  18.865,
+                      "text":  "explica",
+                      "start":  318,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  19.355,
+                      "text":  "estos",
+                      "start":  326,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  19.654999999999998,
+                      "text":  "argumentos",
+                      "start":  332,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  20.25,
+                      "text":  "analíticos",
+                      "start":  343,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  21.814999999999998,
+                      "text":  "El",
+                      "start":  355,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  21.95,
+                      "text":  "verificador",
+                      "start":  358,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  22.544999999999998,
+                      "text":  "simbólico",
+                      "start":  370,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  23.095,
+                      "text":  "comprueba",
+                      "start":  380,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  23.584999999999997,
+                      "text":  "su",
+                      "start":  390,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  23.735,
+                      "text":  "álgebra",
+                      "start":  393,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  24.16,
+                      "text":  "y",
+                      "start":  401,
+                      "length":  1
+                  },
+                  {
+                      "seconds":  24.22,
+                      "text":  "los",
+                      "start":  403,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  24.4,
+                      "text":  "extremos",
+                      "start":  407,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  24.895,
+                      "text":  "racionales",
+                      "start":  416,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  25.91,
+                      "text":  "los",
+                      "start":  428,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  26.095,
+                      "text":  "tests",
+                      "start":  432,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  26.404999999999998,
+                      "text":  "de",
+                      "start":  438,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  26.5,
+                      "text":  "software",
+                      "start":  441,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  26.9,
+                      "text":  "por",
+                      "start":  450,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  27.06,
+                      "text":  "sí",
+                      "start":  454,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  27.205,
+                      "text":  "solos",
+                      "start":  457,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  27.544999999999998,
+                      "text":  "no",
+                      "start":  463,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  27.674999999999997,
+                      "text":  "son",
+                      "start":  466,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  27.875,
+                      "text":  "la",
+                      "start":  470,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  27.97,
+                      "text":  "demostración",
+                      "start":  473,
+                      "length":  12
+                  }
+              ]
+}

@@ -2122,7 +2122,7 @@ r(t\ensuremath{\overline{t}}) queda cerca de 1: el punto de referencia de 2008 e
 \item \href{https://doi.org/10.17182/hepdata.102956.v1/t38}{HEPData: its covariance matrix}
 \end{itemize}
 \section{Investigación de fronteras: espectros, perfiles, anomalías y respuesta certificada}
-Seis pruebas separadas permiten investigar un mecanismo de frontera en GHU: raíces de un problema fermiónico plano, rango numérico de perfiles solapados, trazas espinoriales exactas con inserciones de paridad y una condición restringida para tensores SU(2) en seis dimensiones. La quinta compara dos perfiles de pared tras igualar polo y residuo, mediante certificados continuos verificables. La sexta cuenta las clases de un complejo neutro finito por estratos exactos.
+Pruebas separadas permiten investigar un mecanismo de frontera en GHU: raíces de un problema fermiónico plano, rango numérico de perfiles solapados, trazas espinoriales exactas con inserciones de paridad y una condición restringida para tensores SU(2) en seis dimensiones. La quinta compara dos perfiles de pared tras igualar polo y residuo, mediante certificados continuos verificables. La sexta cuenta las clases de un complejo neutro finito por estratos exactos. El apartado 6b añade un encierro continuo de masa y una prueba de aislamiento del vector neutro ligero en tres ángulos Wilson exactos.
 
 \href{https://karlesmarin.github.io/ghu-explorer/guide/es/boundaryresearch/index.html}{Abrir guía web}
 
@@ -2136,6 +2136,7 @@ Sirven para identificar qué requisito falla y por qué antes de construir el mo
 \item Con quiralidad leptónica Opuesta a Q, compara una y tres familias idénticas de seis dimensiones. Lee el exceso firmado de dobletes y su residuo.
 \item Elige Sonda de respuesta certificada: t = 1/4 y después t = 1/2. Lee la sección 5 y la cota inferior positiva de uniforme menos triangular. Descarga la demostración y el certificado ZIP y sigue su README para repetir la verificación independiente con Sage.
 \item Elige Estrato neutro exacto: s \ensuremath{\neq} 0 y s = 0. En la sección 6 el cociente pasa de dimensión 0 a 1. Descarga el ZIP y ejecuta python verify.py certificate.json con SymPy.
+\item Selecciona Ángulo neutro certificado: 1/10, 1/5 y 1/4. En el apartado 6b compara el intervalo racional de masa y la separación positiva del siguiente modo activo. Descarga la demostración continua y repítela con SymPy.
 \item Despliega las hipótesis y la procedencia. Fija una comparación, exporta el JSON de la tarjeta y guarda el enlace de la aplicación para repetir el cálculo.
 \end{enumerate}
 \subsection*{Controles y parámetros}
@@ -2157,6 +2158,8 @@ Sirven para identificar qué requisito falla y por qué antes de construir el mo
 
 \textbf{Estrato neutro exacto}. Selecciona s \ensuremath{\neq} 0 o s = 0 independientemente del deslizador de Wilson. Compara rango M, estabilizador y cociente; ninguna tolerancia decide el estrato.
 
+\textbf{Ángulo neutro certificado}. Consulta exacta del vector neutro, con L5 = L6 = muOmega = muPhi = 1 y eta = 0. Independiente del ángulo del mapa fermiónico y del estrato escalar finito. En 1/5, el intervalo de mZ al cuadrado por L5 al cuadrado es [244/8425, 4/125]; la separación es al menos 337/4000.
+
 \subsection*{Cómo leer los resultados}
 \textbf{Tabla de raíces y curvas de masa}. Seis raíces de x tan(x) = a, con x = kL, y residuos escalados. Las curvas muestran las ramas emparejada y no emparejada más ligeras frente al ángulo impuesto; no son todo el espectro de Kaluza--Klein.
 
@@ -2174,7 +2177,9 @@ Sirven para identificar qué requisito falla y por qué antes de construir el mo
 
 \textbf{Cociente neutro finito y certificado}. Dimensiones exactas 0/1 y ZIP con testigos, demostración y verificador simbólico. Reducción continua y matching físico externos.
 
-Lee cada resultado con sus propias hipótesis. La brecha normal es kR, sin dimensiones; el rango de Gram es numérico y depende del umbral; las trazas son evaluaciones escalares exactas sin pesos locales; un residuo nulo solo satisface la condición indicada para el sistema aislado de seis dimensiones. La cancelación completa de anomalías sigue pendiente. En la sección 5, las cotas positivas de la diferencia establecen separación en los dos puntos admitidos para este modelo. No establecen una predicción GHU completa ni una tasa de capa delgada. En el apartado 6, dim ker A = 5 en ambos estratos; rango M = 5 o 4, y dim(ker A/im M) = 0 o 1. El estabilizador ker M es otro espacio. El selector exacto es independiente del deslizador de Wilson.
+\textbf{Intervalo continuo del autovalor neutro y separación certificada}. El apartado 6b acota el autovalor continuo, incluidas las condiciones naturales de frontera. Las cotas inferiores positivas de masa y separación demuestran un modo simple aislado dentro del bloque activo. Las tres direcciones cero desacopladas se conservan aparte.
+
+Lee cada resultado con sus propias hipótesis. La brecha normal es kR, sin dimensiones; el rango de Gram es numérico y depende del umbral; las trazas son evaluaciones escalares exactas sin pesos locales; un residuo nulo solo satisface la condición indicada para el sistema aislado de seis dimensiones. La cancelación completa de anomalías sigue pendiente. En la sección 5, las cotas positivas de la diferencia establecen separación en los dos puntos admitidos para este modelo. No establecen una predicción GHU completa ni una tasa de capa delgada. En el apartado 6, dim ker A = 5 en ambos estratos; rango M = 5 o 4, y dim(ker A/im M) = 0 o 1. El estabilizador ker M es otro espacio. El selector exacto es independiente del deslizador de Wilson. El apartado 6b acota el autovalor continuo, incluidas las condiciones naturales de frontera. Las cotas inferiores positivas de masa y separación demuestran un modo simple aislado dentro del bloque activo. Las tres direcciones cero desacopladas se conservan aparte.
 \subsection*{Ejemplo guiado: Identificar tres motivos distintos de fallo}
 \begin{enumerate}
 \item Carga Referencia de investigación y después Frontera sin acoplamiento: la primera raíz normal es cero.
@@ -2185,11 +2190,15 @@ Lee cada resultado con sus propias hipótesis. La brecha normal es kR, sin dimen
 \item Cambia C1 a C0 W, examina la tabla de trazas y exporta el JSON.
 \item Selecciona cada sonda certificada, descarga el certificado y guarda el JSON y el enlace compartidos. La sonda, el modelo fijo y el identificador del certificado acompañan al resultado.
 \item Compara Estrato neutro exacto: s \ensuremath{\neq} 0 y s = 0. Observa rango M = 5 y 4, y cociente de dimensión 0 y 1; descarga la demostración finita y su verificador.
+\item Selecciona Ángulo neutro certificado: 1/10, 1/5 y 1/4. En el apartado 6b compara el intervalo racional de masa y la separación positiva del siguiente modo activo. Descarga la demostración continua y repítela con SymPy.
 \end{enumerate}
-La brecha de frontera, la independencia de perfiles y la condición restringida de familias responden a cambios distintos. Ninguna resuelve la cancelación localizada o global de anomalías de la construcción completa. El salto del cociente es un resultado finito certificado; no determina modos continuos ni una masa del Higgs.
+La brecha de frontera, la independencia de perfiles y la condición restringida de familias responden a cambios distintos. Ninguna resuelve la cancelación localizada o global de anomalías de la construcción completa. El salto del cociente es un resultado finito certificado; no determina modos continuos ni una masa del Higgs. La masa neutra continua permanece positiva y aislada en los tres ángulos admitidos; su respuesta Wilson e interpretación experimental siguen sin demostrarse.
 \subsection*{Fórmulas y convenciones}
 \begin{quote}Q(t) = F(t) - F(s) - (t-s) F\ensuremath{\prime}(s); C(t) = -1 / [(t-s)/R + Q(t)]\end{quote}
 Identidad exacta de matching para F(t)=t/D(t), con la misma fuente y s,R fijos. Los denominadores certificados excluyen cero en las sondas seleccionadas.
+
+\begin{quote}rho = 4 theta\ensuremath{{}^{2}}/5; beta = 5/32 - theta\ensuremath{{}^{2}}; rho - (4 theta\ensuremath{{}^{4}}/25)/(beta-rho) \ensuremath{\leq} lambdaZ \ensuremath{\leq} rho\end{quote}
+Encierro de Temple del primer autovalor vectorial activo; beta acota el segundo. Válido con las paredes declaradas y 0 < theta <= 1/4. La interfaz ofrece tres consultas exactas.
 
 \subsection*{Alcance y limitaciones}
 \begin{itemize}
@@ -2199,7 +2208,7 @@ Identidad exacta de matching para F(t)=t/D(t), con la misma fuente y s,R fijos. 
 \item El criterio SU(2) corresponde a un sistema tensorial aislado específico de seis dimensiones. No puede trasladarse automáticamente a una esquina de orbifold de ocho dimensiones acoplada al flujo del bulk.
 \item Siguen pendientes los coeficientes locales, la red integral de cargas tensoriales, el grupo gauge global, los nuevos modos cero bosónicos y la consistencia cuántica completa.
 \item La certificación se limita al dominio declarado del cuadrado unidad y dos sondas fijas a espesor finito. Cambiar fuente, formas, matching o espesor requiere otro certificado. Los tests de software y hashes por sí solos no son certificación matemática.
-\item La sección 6 certifica solo las matrices A,M declaradas, no el dominio continuo ni una masa del Higgs. Vídeos y manuales anteriores al 26-oct conservan su alcance anterior.
+\item El cociente finito del apartado 6 certifica las matrices A,M declaradas. El apartado 6b tiene su propia demostración continua para el bloque vectorial y las paredes fijadas. No certifica la derivada Wilson, RZW, el vacío, las corrientes ni la dirección física del Higgs. No derives los extremos del intervalo para inferir una cota de la derivada.
 \end{itemize}
 \subsection*{Si algo no queda claro}
 \textbf{La primera raíz normal es cero.} Comprueba el acoplamiento de frontera. Si es nulo, ese modo cero es el resultado esperado, no un fallo del método numérico.
@@ -2216,6 +2225,8 @@ Identidad exacta de matching para F(t)=t/D(t), con la misma fuente y s,R fijos. 
 
 \textbf{No encuentro el apartado 6 o no aparece en el vídeo.} Abre Anomalies \& proton, usa el acceso a Investigación de fronteras y busca Estrato neutro exacto. La Demo actual incluye el apartado 6. Los vídeos del 17 de octubre no lo incluyen; consulta esta guía y la demo del 26 de octubre.
 
+\textbf{Cambiar el ángulo del mapa no modifica el encierro neutro.} Usa Ángulo neutro certificado. El mapa y el vector neutro describen problemas distintos declarados; sus controles son independientes.
+
 \subsection*{Fuentes y atribución}
 \begin{itemize}
 \item \href{https://arxiv.org/abs/1609.01413}{Fujimoto et al.: rectangle boundary conditions and profiles, sections 2--5}
@@ -2224,6 +2235,7 @@ Identidad exacta de matching para F(t)=t/D(t), con la misma fuente y s,R fijos. 
 \item \href{https://arxiv.org/abs/2012.11622}{Lee, Tachikawa: six-dimensional global anomalies and tensor quantization, sections 2--3}
 \item \href{https://arrow.utias.utoronto.ca/~myano/papers/myano_ecrbres.pdf}{Yano: continuous residual norm and stability, sections 2.1--2.2; wall/corner adaptation proved in the certificate}
 \item \href{https://jschoeberl.github.io/iFEM/aposteriori/equilibrated.html}{Schoeberl: equilibrated fluxes, sections 29.1--29.2; methodological background}
+\item \href{https://ems.press/content/serial-article-files/40994}{Kuroda: Kato-Temple, Theorem A}
 \end{itemize}
 \section{Cuantización y certificados}
 Compara criterios exactos de cuantización para H=S(U(2)\ensuremath{\times}U(3)), períodos espín cerrados en dimensión cuatro, transferencia parental condicional y un ejemplo conjunto U(2).

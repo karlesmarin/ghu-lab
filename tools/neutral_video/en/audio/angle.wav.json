@@ -1,0 +1,296 @@
+﻿{
+    "voice":  "Microsoft Zira Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "Choose one quarter. The lower endpoint is one over twenty eight and the upper endpoint is one twentieth. The fixed model has unit lengths and boundary strengths, with eta zero. Three decoupled zero directions are kept separately. Changing the unrelated fermion controls does not change this certified model.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "Choose",
+                      "start":  0,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  0.40499999999999997,
+                      "text":  "one",
+                      "start":  7,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  0.64,
+                      "text":  "quarter",
+                      "start":  11,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  2.005,
+                      "text":  "The",
+                      "start":  20,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  2.1149999999999998,
+                      "text":  "lower",
+                      "start":  24,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  2.455,
+                      "text":  "endpoint",
+                      "start":  30,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  2.985,
+                      "text":  "is",
+                      "start":  39,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  3.1199999999999997,
+                      "text":  "one",
+                      "start":  42,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  3.36,
+                      "text":  "over",
+                      "start":  46,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  3.605,
+                      "text":  "twenty",
+                      "start":  51,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  4.01,
+                      "text":  "eight",
+                      "start":  58,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  4.1949999999999994,
+                      "text":  "and",
+                      "start":  64,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  4.3149999999999995,
+                      "text":  "the",
+                      "start":  68,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  4.45,
+                      "text":  "upper",
+                      "start":  72,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  4.7299999999999995,
+                      "text":  "endpoint",
+                      "start":  78,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  5.26,
+                      "text":  "is",
+                      "start":  87,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  5.395,
+                      "text":  "one",
+                      "start":  90,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  5.63,
+                      "text":  "twentieth",
+                      "start":  94,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  7.13,
+                      "text":  "The",
+                      "start":  105,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  7.21,
+                      "text":  "fixed",
+                      "start":  109,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  7.59,
+                      "text":  "model",
+                      "start":  115,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  7.9399999999999995,
+                      "text":  "has",
+                      "start":  121,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  8.165,
+                      "text":  "unit",
+                      "start":  125,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  8.4599999999999991,
+                      "text":  "lengths",
+                      "start":  130,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  8.815,
+                      "text":  "and",
+                      "start":  138,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  8.9699999999999989,
+                      "text":  "boundary",
+                      "start":  142,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  9.4349999999999987,
+                      "text":  "strengths",
+                      "start":  151,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  10.485,
+                      "text":  "with",
+                      "start":  162,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  10.639999999999999,
+                      "text":  "eta",
+                      "start":  167,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  10.889999999999999,
+                      "text":  "zero",
+                      "start":  171,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  12.205,
+                      "text":  "Three",
+                      "start":  177,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  12.459999999999999,
+                      "text":  "decoupled",
+                      "start":  183,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  12.995,
+                      "text":  "zero",
+                      "start":  193,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  13.354999999999999,
+                      "text":  "directions",
+                      "start":  198,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  13.934999999999999,
+                      "text":  "are",
+                      "start":  209,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  14.04,
+                      "text":  "kept",
+                      "start":  213,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  14.354999999999999,
+                      "text":  "separately",
+                      "start":  218,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  15.809999999999999,
+                      "text":  "Changing",
+                      "start":  230,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  16.27,
+                      "text":  "the",
+                      "start":  239,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  16.41,
+                      "text":  "unrelated",
+                      "start":  243,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  16.974999999999998,
+                      "text":  "fermion",
+                      "start":  253,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  17.439999999999998,
+                      "text":  "controls",
+                      "start":  261,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  17.98,
+                      "text":  "does",
+                      "start":  270,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  18.23,
+                      "text":  "not",
+                      "start":  275,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  18.485,
+                      "text":  "change",
+                      "start":  279,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  18.875,
+                      "text":  "this",
+                      "start":  286,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  19.055,
+                      "text":  "certified",
+                      "start":  291,
+                      "length":  9
+                  },
+                  {
+                      "seconds":  19.65,
+                      "text":  "model",
+                      "start":  301,
+                      "length":  5
+                  }
+              ]
+}

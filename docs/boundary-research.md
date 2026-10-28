@@ -1,15 +1,38 @@
-# Boundary research tools · 1.2.0 · 26 October 2026
+# Boundary research tools · 1.3.0 · 28 October 2026
 
-These six tools turn intermediate GHU research questions into reproducible calculations.
+These scoped tools turn intermediate GHU research questions into reproducible calculations.
 They belong to **Anomalies → Boundary research** in GHU Lab. They work offline.
-The English and Spanish task guides include the sixth, finite-complex instrument.
-The current bilingual manuals and live demo include section 6. The recorded videos
-remain the 17 October editions and do not include the finite neutral quotient.
+The English and Spanish guides, PDF manuals and live demo cover sections 6 and
+6b. The [28 October supplement](../video/neutral/index.html) and its
+[Spanish edition](../video/neutral/index-es.html) explain both neutral tools,
+their proof and limits, with real captures, six chapters, narration and captions.
+The main films retain their 17 October date and link to this supplement.
 The scientific goals remain three chiral Standard Model families, a gauge Higgs,
 viable neutrinos, no unwanted light exotics and a consistent local quantum action.
 These diagnostics address parts of that programme; they do not establish the full model.
 
 ## What to use, and when
+
+Section **6b** asks whether the light neutral vector is positive and isolated in
+the declared continuous block. Select **Certified neutral angle**: 1/10, 1/5 or
+1/4. Geometry and wall coefficients stay fixed at one, with eta zero. This
+selector is independent of the fermion landscape and the finite scalar stratum.
+
+The table gives rational bounds on lambdaZ = mZ²L5², a lower bound on the
+second active eigenvalue, and their guaranteed separation. At theta = 1/5,
+lambdaZ lies in **[244/8425, 4/125]** and the gap is at least **337/4000**.
+The three decoupled zero directions are retained separately. These bounds
+come from min-max, an operator-domain trial and Temple's inequality, including
+natural boundary conditions. They are not inferred from FEM convergence.
+
+Download the continuous certificate, or replay it from the source:
+`python proof/z-isolation/verify.py proof/z-isolation/certificate.json --self-test`.
+The package contains the full functional proof, matrices, trial, exact verifier
+and receipt. The maintained engine lives in Excovery. The proof covers rational
+queries in 0 < theta <= 1/4; the lab exposes the three admitted comparisons.
+SZ and RZW remain uncertified. Differentiating interval endpoints does not
+bound an eigenvalue derivative. Vacuum, currents and the physical Higgs
+direction remain necessary before an experimental interpretation.
 
 Section 6 adds **Exact neutral stratum**. Select s ≠ 0 or s = 0 independently
 of the numerical Wilson slider. For the specified complex ℂ⁵ → ℂ⁷ → ℂ²,
@@ -33,7 +56,7 @@ No new Lean formalization or claim of mathematical novelty is made.
 | Do matched layers retain different responses? | Certified matched profiles | Two fixed probes, t = 1/4 or 1/2 | Positive difference enclosure for the declared finite-width quadratic model; independent Sage certificate |
 | Does the finite neutral quotient survive? | Exact neutral stratum | Exact choice s ≠ 0 or s = 0, independent of the Wilson slider | Quotient dimension 0 or 1 for the specified finite complex; proof and exact replay, without a continuous or physical identification |
 
-Do not combine the six outputs into a single “model passed” flag. Each uses a different
+Do not combine the outputs into a single “model passed” flag. Each uses a different
 set of premises. In particular, the profile mass is not a mass added to the Spin(20) action.
 
 ## A five-minute experiment

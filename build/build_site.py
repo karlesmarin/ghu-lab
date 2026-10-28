@@ -32,6 +32,7 @@ pages into the new site *at the URLs they already have*, because five Zenodo rec
 host.  A link in a published record is not ours to break.
 """
 import argparse
+import hashlib
 import datetime
 import html
 import json
@@ -736,6 +737,7 @@ def main(argv=None):
                            "google*.html -text\n"
                            "# Preserve all versioned media, the reviewed app and certificate bytes.\n"
                            "video/media/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol\n"
+                           "video/neutral/** -text whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol\n"
                            "app/index.html -text\n"
                            "proof/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol\n"
                            "proof/matched-profiles/verify.py -text whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol\n"
@@ -743,6 +745,14 @@ def main(argv=None):
 
     from proof_catalogue import build as build_proof_catalogue
     written.extend(build_proof_catalogue(ROOT, OUT))
+    neutral_media = ROOT / 'media/video/2026-10-28-neutral'
+    neutral_manifest = json.loads((neutral_media/'manifest.json').read_text(encoding='utf-8'))
+    for row in neutral_manifest['files']:
+        assert pathlib.Path(row['path']).name == row['path']
+        assert hashlib.sha256((neutral_media/row['path']).read_bytes()).hexdigest() == row['sha256']
+    neutral_out = OUT / 'video/neutral'
+    shutil.copytree(neutral_media, neutral_out, dirs_exist_ok=True)
+    written.extend(p.relative_to(OUT).as_posix() for p in neutral_out.rglob('*') if p.is_file())
     quant_media = ROOT / 'media/video/2026-10-13-quantization'
     quant_out = OUT / 'video/quantization'
     shutil.copytree(quant_media, quant_out, dirs_exist_ok=True)
@@ -773,7 +783,7 @@ def main(argv=None):
             label = 'Abrir demo actualizada' if es else 'Open updated demo'
             note = ('<aside style="margin:1em;padding:1em;border:1px solid currentColor" data-neutral-coverage>'
                     + notice + ' <a href="../../app/index.html#s=anomalies&amp;demo=boundaryresearch&amp;lang='
-                    + ('es' if es else 'en') + '">' + label + '</a></aside>')
+                    + ('es' if es else 'en') + '">' + label + '</a> · <a href="../neutral/' + ('index-es.html' if es else 'index.html') + '">' + ('Suplemento neutro y Z · 28 octubre' if es else 'Neutral and Z supplement · 28 October') + '</a></aside>')
             text, count = re.subn(r'(<body\b[^>]*>)', lambda m: m[0]+note, text, count=1)
             assert count == 1, math_page
         write('video/mathematics/' + math_page.name, text)
@@ -872,7 +882,7 @@ def main(argv=None):
            'include the 8 October certification and uncertainty update. Formal algebra, '
            'interval proofs, numerical comparisons and open physical assumptions retain '
            'their separate scope. This living release does not replace a frozen paper.</p>'
-           '<h2>Current user guides · 26 October 2026</h2>'
+           '<h2>Current user guides · 28 October 2026</h2>'
            '<p><a href="../guide/index.html">English</a> and '
            '<a href="../guide/es/index.html" lang="es">castellano</a> guides cover every '
            'menu section, Simulator mode and embedded experiment. The same catalogues supply '
@@ -883,6 +893,10 @@ def main(argv=None):
            '<a href="../video/mathematics/index-es.html" lang="es">Castellano · 46 capítulos</a>. '
            'Each edition has 46 animated chapters, with ordinary proofs, exact checks and scoped Lean certificates, including recalibrated GHU potentials, the measured CMS spectrum, correlations and observed ATLAS/CMS limits.</p>'
            '<h2>Versioned video guides</h2>'
+           '<p><a href="../video/neutral/index.html">28 October neutral supplement · English</a> · '
+           '<a href="../video/neutral/index-es.html">Castellano</a>: six narrated chapters '
+           'cover the finite neutral quotient and continuous isolation of Z, with proof, '
+           'exact replay and explicit physical limits. Captions and transcripts included.</p>'
            '<p><a href="../video/quantization/index.html">13 October supplement · English</a> · '
            '<a href="../video/quantization/index-es.html">Castellano</a>: eleven chapters on quantization, '
            'the joint U(2) criterion, conditional parent transfer and the lift audit. '
@@ -953,7 +967,7 @@ def main(argv=None):
     # is a site nobody checked, because the checking is the step that gets skipped.
     print()
     worst = 0
-    for gate in ["_test_site.py", "_test_guide_site.py", "build/check_links.py", "build/quantization_site.mjs"]:
+    for gate in ["_test_site.py", "_test_guide_site.py", "build/check_links.py", "build/quantization_site.mjs", "build/neutral_site.mjs"]:
         r = subprocess.run(["node" if gate.endswith('.mjs') else sys.executable, gate], cwd=ROOT, capture_output=True, encoding="utf-8", errors="replace")
         tail = [ln for ln in r.stdout.strip().split("\n") if ln.strip()][-1:] or ["(no output)"]
         print(f"  {gate:<24} {tail[0].strip()}")

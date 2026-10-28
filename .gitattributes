@@ -105,6 +105,11 @@ media/video/2026-10-14-mathematics-hypotheses/** -text whitespace=blank-at-eol,s
 tools/video_guide/storyboard.json -text whitespace=blank-at-eol,space-before-tab,cr-at-eol
 
 # Preserve the certified 17 October media and replay hashes.
+media/video/2026-10-28-neutral/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol
+tools/neutral_video/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol
+tools/neutral_video/captures/recorded-app.html -text -whitespace
+media/video/2026-10-28-neutral/*.vtt -text whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+src/modules/z_isolation_reference.mjs -text whitespace=blank-at-eol,space-before-tab,cr-at-eol
 media/video/2026-10-17-certified-profiles/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol
 media/video/2026-10-17-mathematics-profiles/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol
 

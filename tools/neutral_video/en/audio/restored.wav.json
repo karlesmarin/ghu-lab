@@ -1,0 +1,224 @@
+﻿{
+    "voice":  "Microsoft Zira Desktop",
+    "sampleRate":  16000,
+    "rate":  0,
+    "text":  "Switch to the restored stratum. One closed class remains after quotienting by gauge directions. This exact distinction is useful for testing hypotheses about the scalar sector. It is separate from the continuous vector spectrum shown next.",
+    "words":  [
+                  {
+                      "seconds":  0.099999999999999992,
+                      "text":  "Switch",
+                      "start":  0,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  0.495,
+                      "text":  "to",
+                      "start":  7,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  0.615,
+                      "text":  "the",
+                      "start":  10,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  0.72,
+                      "text":  "restored",
+                      "start":  14,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  1.16,
+                      "text":  "stratum",
+                      "start":  23,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  2.59,
+                      "text":  "One",
+                      "start":  32,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  2.82,
+                      "text":  "closed",
+                      "start":  36,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  3.2399999999999998,
+                      "text":  "class",
+                      "start":  43,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  3.655,
+                      "text":  "remains",
+                      "start":  49,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  4.1049999999999995,
+                      "text":  "after",
+                      "start":  57,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  4.415,
+                      "text":  "quotienting",
+                      "start":  63,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  5.05,
+                      "text":  "by",
+                      "start":  75,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  5.2399999999999993,
+                      "text":  "gauge",
+                      "start":  78,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  5.535,
+                      "text":  "directions",
+                      "start":  84,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  7.1099999999999994,
+                      "text":  "This",
+                      "start":  96,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  7.31,
+                      "text":  "exact",
+                      "start":  101,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  7.725,
+                      "text":  "distinction",
+                      "start":  107,
+                      "length":  11
+                  },
+                  {
+                      "seconds":  8.32,
+                      "text":  "is",
+                      "start":  119,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  8.485,
+                      "text":  "useful",
+                      "start":  122,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  8.865,
+                      "text":  "for",
+                      "start":  129,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  9.02,
+                      "text":  "testing",
+                      "start":  133,
+                      "length":  7
+                  },
+                  {
+                      "seconds":  9.4599999999999991,
+                      "text":  "hypotheses",
+                      "start":  141,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  10.334999999999999,
+                      "text":  "about",
+                      "start":  152,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  10.604999999999999,
+                      "text":  "the",
+                      "start":  158,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  10.69,
+                      "text":  "scalar",
+                      "start":  162,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  11.12,
+                      "text":  "sector",
+                      "start":  169,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  12.455,
+                      "text":  "It",
+                      "start":  177,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  12.57,
+                      "text":  "is",
+                      "start":  180,
+                      "length":  2
+                  },
+                  {
+                      "seconds":  12.695,
+                      "text":  "separate",
+                      "start":  183,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  13.08,
+                      "text":  "from",
+                      "start":  192,
+                      "length":  4
+                  },
+                  {
+                      "seconds":  13.285,
+                      "text":  "the",
+                      "start":  197,
+                      "length":  3
+                  },
+                  {
+                      "seconds":  13.37,
+                      "text":  "continuous",
+                      "start":  201,
+                      "length":  10
+                  },
+                  {
+                      "seconds":  13.969999999999999,
+                      "text":  "vector",
+                      "start":  212,
+                      "length":  6
+                  },
+                  {
+                      "seconds":  14.325,
+                      "text":  "spectrum",
+                      "start":  219,
+                      "length":  8
+                  },
+                  {
+                      "seconds":  14.86,
+                      "text":  "shown",
+                      "start":  228,
+                      "length":  5
+                  },
+                  {
+                      "seconds":  15.17,
+                      "text":  "next",
+                      "start":  234,
+                      "length":  4
+                  }
+              ]
+}
